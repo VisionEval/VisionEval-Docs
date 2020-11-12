@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>An Alternative VisionEval Concepts Primer</title>
+  <meta name="description" content="This is an adaptation of the bookdown example for rehosting the VisionEval Concepts Primer." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="An Alternative VisionEval Concepts Primer" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is an adaptation of the bookdown example for rehosting the VisionEval Concepts Primer." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="An Alternative VisionEval Concepts Primer" />
+  
+  <meta name="twitter:description" content="This is an adaptation of the bookdown example for rehosting the VisionEval Concepts Primer." />
+  
+
+<meta name="author" content="Tara Weidner, Rick Donnelly, et al." />
+
+
+<meta name="date" content="2020-11-01" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="intro.html"/>
+<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#what-can-i-do-with-visioneval"><i class="fa fa-check"></i><b>1.1</b> What can I do with VisionEval?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#strengths-and-limitations"><i class="fa fa-check"></i><b>1.2</b> Strengths and limitations</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#visioneval-geographies"><i class="fa fa-check"></i><b>1.3</b> VisionEval geographies</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#performance-metrics"><i class="fa fa-check"></i><b>1.4</b> Performance metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="typical-applications.html"><a href="typical-applications.html"><i class="fa fa-check"></i><b>2</b> Typical applications</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="typical-applications.html"><a href="typical-applications.html#strategic-modeling"><i class="fa fa-check"></i><b>2.1</b> Strategic modeling</a></li>
+<li class="chapter" data-level="2.2" data-path="typical-applications.html"><a href="typical-applications.html#local-policy-actions"><i class="fa fa-check"></i><b>2.2</b> Local policy actions</a></li>
+<li class="chapter" data-level="2.3" data-path="typical-applications.html"><a href="typical-applications.html#scenario-analyses"><i class="fa fa-check"></i><b>2.3</b> Scenario analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i><b>3</b> Building blocks</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="building-blocks.html"><a href="building-blocks.html#household-synthesis-and-land-use"><i class="fa fa-check"></i><b>3.1</b> Household synthesis and land use</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="building-blocks.html"><a href="building-blocks.html#synthesize-households"><i class="fa fa-check"></i><b>3.1.1</b> Synthesize households</a></li>
+<li class="chapter" data-level="3.1.2" data-path="building-blocks.html"><a href="building-blocks.html#household-drivers-and-autos"><i class="fa fa-check"></i><b>3.1.2</b> Household drivers and autos</a></li>
+<li class="chapter" data-level="3.1.3" data-path="building-blocks.html"><a href="building-blocks.html#land-use-attributes"><i class="fa fa-check"></i><b>3.1.3</b> Land use attributes</a></li>
+<li class="chapter" data-level="3.1.4" data-path="building-blocks.html"><a href="building-blocks.html#land-use-household-linkages"><i class="fa fa-check"></i><b>3.1.4</b> Land use-household linkages</a></li>
+<li class="chapter" data-level="3.1.5" data-path="building-blocks.html"><a href="building-blocks.html#policy-levers"><i class="fa fa-check"></i><b>3.1.5</b> Policy levers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="building-blocks.html"><a href="building-blocks.html#household-multimodal-travel"><i class="fa fa-check"></i><b>3.2</b> Household multimodal travel</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="building-blocks.html"><a href="building-blocks.html#transport-supply"><i class="fa fa-check"></i><b>3.2.1</b> Transport supply</a></li>
+<li class="chapter" data-level="3.2.2" data-path="building-blocks.html"><a href="building-blocks.html#household-travel-calculations"><i class="fa fa-check"></i><b>3.2.2</b> Household travel calculations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="building-blocks.html"><a href="building-blocks.html#sov-diversion"><i class="fa fa-check"></i><b>3.2.3</b> SOV diversion</a></li>
+<li class="chapter" data-level="3.2.4" data-path="building-blocks.html"><a href="building-blocks.html#dvmt-reductions"><i class="fa fa-check"></i><b>3.2.4</b> DVMT reductions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="building-blocks.html"><a href="building-blocks.html#vehicles-fuels-and-emissions"><i class="fa fa-check"></i><b>3.3</b> Vehicles, fuels and emissions</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="building-blocks.html"><a href="building-blocks.html#household-vehicle-table"><i class="fa fa-check"></i><b>3.3.1</b> Household vehicle table</a></li>
+<li class="chapter" data-level="3.3.2" data-path="building-blocks.html"><a href="building-blocks.html#powertrains-and-fuels-defaults"><i class="fa fa-check"></i><b>3.3.2</b> Powertrains and fuels defaults</a></li>
+<li class="chapter" data-level="3.3.3" data-path="building-blocks.html"><a href="building-blocks.html#assign-household-powertrains-and-fuels"><i class="fa fa-check"></i><b>3.3.3</b> Assign household powertrains and fuels</a></li>
+<li class="chapter" data-level="3.3.4" data-path="building-blocks.html"><a href="building-blocks.html#assign-non-household-powertrains-and-fuels"><i class="fa fa-check"></i><b>3.3.4</b> Assign non-household powertrains and fuels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="adjustments.html"><a href="adjustments.html"><i class="fa fa-check"></i><b>4</b> Adjustments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="adjustments.html"><a href="adjustments.html#congestion-adjustments"><i class="fa fa-check"></i><b>4.1</b> Congestion adjustments</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="adjustments.html"><a href="adjustments.html#initialize-roadway-conditions"><i class="fa fa-check"></i><b>4.1.1</b> Initialize roadway conditions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="adjustments.html"><a href="adjustments.html#congestion-model-and-adjustments"><i class="fa fa-check"></i><b>4.1.2</b> Congestion model and adjustments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="adjustments.html"><a href="adjustments.html#household-costs-and-budgets"><i class="fa fa-check"></i><b>4.2</b> Household costs and budgets</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="adjustments.html"><a href="adjustments.html#auto-ownership-cost-adjustment"><i class="fa fa-check"></i><b>4.2.1</b> 4.2.1 Auto Ownership Cost &amp; Adjustment</a></li>
+<li class="chapter" data-level="4.2.2" data-path="adjustments.html"><a href="adjustments.html#auto-operating-cost-adjustment"><i class="fa fa-check"></i><b>4.2.2</b> 4.2.2 Auto Operating Cost &amp; Adjustment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="processing.html"><a href="processing.html"><i class="fa fa-check"></i><b>5</b> Processing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="processing.html"><a href="processing.html#running-visioneval"><i class="fa fa-check"></i><b>5.1</b> Running VisionEval</a></li>
+<li class="chapter" data-level="5.2" data-path="processing.html"><a href="processing.html#typical-outputs"><i class="fa fa-check"></i><b>5.2</b> Typical outputs</a></li>
+<li class="chapter" data-level="5.3" data-path="processing.html"><a href="processing.html#exporting-data"><i class="fa fa-check"></i><b>5.3</b> Exporting data</a></li>
+<li class="chapter" data-level="5.4" data-path="processing.html"><a href="processing.html#validation"><i class="fa fa-check"></i><b>5.4</b> Validation</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Alternative VisionEval Concepts Primer</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">An Alternative VisionEval Concepts Primer</h1>
+<p class="author"><em>Tara Weidner, Rick Donnelly, et al.</em></p>
+<p class="date"><em>2020-11-01</em></p>
+</div>
+<div id="preface" class="section level1 unnumbered">
+<h1>Preface</h1>
+<p>This is an adaptation of the VisionEval <strong>Concepts Primer</strong> put together by Tara Weidner. It reorganizes the content a bit and attempts to create a version with decent lexicon that doesn’t get in the way of reading the text. In this adaptation VisionEval a number of keywords stand out:</p>
+<ul>
+<li>Certain keywords have specific meaning when describing constructs in VisionEval, and are colored green in the text. For example, you will see <a href="https://github.com/rickdonnelly/alt-concept-primer/blob/main/lexicon.md"><span style="color:green">age groups</span></a> often in the text. You can click on any of these links to open a lexicon in a separate window. You can scroll to the specific term you’re interested in. This concept primer and the lexicon are meant to be used together (i.e., opened in separate windows).</li>
+<li>Links to other documents and websites <a href="https://visioneval.org">appear as clickable blue text</a>, like this one that will take you to the VisionEval front page.</li>
+<li>Specific variable or filenames are shown in <code>offset text</code>. For example, you might see a reference to the <code>FudgeFactor</code> in the <code>ModuleName</code> module. These keywords are generally <strong>not</strong> clickable for variable names, but often are for module names.</li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

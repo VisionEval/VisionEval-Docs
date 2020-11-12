@@ -1,0 +1,159 @@
+# Building blocks
+
+
+## Household synthesis and land use
+
+One of the strengths of VisionEval is the rich detail on individual households. This allows for household specific policies, travel behavior can respond to specific household costs and attributes, and outputs can be mined for differences by population groups. The approach of building on a synthesized population borrows from the state of the practice in activity-based travel demand models.
+
+> Watch a [short video](https://youtu.be/-ylFbyLfhbw?t=5371) on household synthesis
+ 
+VisionEval takes user input statewide population by [<span style="color:green">age group</span>][lexicon], assembles them into households with demographic attributes ([<span style="color:green">lifecycle</span>][lexicon], [<span style="color:green">per capita income</span>][lexicon]) and allocates them to BZone-level [<span style="color:green">dwelling units</span>][lexicon]. Separately, BZones are attributed with employment and land use attributes ([<span style="color:green">location type</span>][lexicon], [<span style="color:green">built form 'D' values</span>][lexicon], [<span style="color:green">urban mixed use</span>][lexicon], and [<span style="color:green">employment by type</span>][lexicon]). Household members are identified as workers and/or drivers and the number of household vehicles are estimated. Each home and work location is tied to a specific Bzone with its associated attributes.
+
+Policies are added to each household as a function of their home and work Bzones:
+
++ Parking restrictions (work and non-work)
++ [<span style="color:green">Travel demand management</span>][lexicon] (TDM) programs (home and work-based)
++ [<span style="color:green">CarService</span>][lexicon] program availability 
+
+The following sections describe each module that contributes to this concept.
+
+### Synthesize households
+
+Household synthesis is carried out in several steps:
+
+1. _Create customized PUMS dataset_: This is done prior to setting up a model in VisionEval. A household dataset is prepared from [<span style="color:green">Census PUMS</span>][lexicon] data for the modeled region. The default data included with VisionEval is for Oregon. PUMS data for other regions may be used instead, rebuilding the package to reflect Census households for the region of interest.
+2. _Create Households_: The identified types of PUMS households are expanded to meet user control totals and other demographic inputs. [<span style="color:green">Census PUMS</span>][lexicon] data are used define probabilities that a person by [<span style="color:green">age group</span>][lexicon] would be found in each of hundreds of household types. A matrix balancing process is used to allocate persons by age to each of the PUMS household types in a way that matches input control totals and optional constraints. The sampled households are expanded to meet user control totals and other demographic inputs. 
+3. _Predict Workers_: The number of workers by [<span style="color:green">age group</span>][lexicon] within each simulated household is predicted using [<span style="color:green">Census PUMS</span>][lexicon] probabilities.
+4. _Assign LifeCyle_: Categorizes households are categorized by six [<span style="color:green">lifecycle</span>][lexicon] categories given the household age mix and employment status.
+5. _Predict Income_: The annual income for each simulated household is predicted as a function of the household's worker count by age group, the average [<span style="color:green">per capita income</span>][lexicon] where the household resides (AZone), and interactions between neighborhood income and age (all and seniors). The models are estimated with [<span style="color:green">Census PUMS</span>][lexicon] data.
+
+### Household drivers and autos
+
+The number of drivers and autos in each household are calculated in two steps:
+
+1. _Assign Drivers_: Drivers by [<span style="color:green">age group</span>][lexicon] are assigned to each household as a function of the numbers of persons and workers by age group, the household income, land use characteristics, and transit availability. [<span style="color:green">Metropolitan areas</span>][lexicon] are also sensitive to transit service level and urban [<span style="color:green">mixed use</span>][lexicon] indicators at the home location. Optional restriction on drivers by age group can be used in calibration or to address trends such as lower millennial [<span style="color:green">licensure rate</span>][lexicon]s.
+2. _Assign Vehicle Ownership_: The number of vehicles owned or leased by each household are determined as a function of household characteristics, land use characteristics, and transportation system characteristics. Households in [<span style="color:green">metropolitan areas</span>][lexicon] are also sensitive to [<span style="color:green">transit service level</span>][lexicon] and [<span style="color:green">urban mixed use</span>][lexicon] indicators at the home location. The model first predicts zero-auto households and then the number of vehicles owned (up to 6), if any.
+
+### Land use attributes
+
+Two steps are required to add land use attributes to the synthetic population:
+
+1. _Calculate 4D Measures_: Several land use [<span style="color:green">5D built form measures</span>][lexicon] are calculated for each Bzone. The `density`, `diversity`, and     `destination` accessibilities are based on Bzone population, employment, dwelling units, and `developable land area` inputs. The `design` variable is a user input. 
+2. _Calculate Urban Mixed Use Measure_: An [<span style="color:green">urban mixed</span>][lexicon] measure for the household is calculated based on population density of the home Bzone and [<span style="color:green">dwelling unit type</span>][lexicon]. The model is based on 2001 NHTS data. The model iterates to match an optional input target on the share of households to locate in [<span style="color:green">urban mixed-use</span>][lexicon] areas.
+
+### Land use-household linkages
+
+Several land use attributes are added to each household:
+
+1. _Assign Location Types_: Households are assigned to land use [<span style="color:green">location types</span>][lexicon] -- urban, town, or rural -- by random allocation based on the household's [<span style="color:green">dwelling unit type</span>][lexicon] and input proportions on the mix of dwelling types in its enclosing Bzone.
+2. [_Predict Housing_](github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#41-predicthousing-module): [<span style="color:green">Dwelling unit types</span>][lexicon] are assigned to regular and group quarter households based on the input Bzone supply of dwelling units by type. Residential households also consider the relative costliness of housing within the Azone (logged ratio of the household’s income relative to mean income in their Azone), household size, oldest age person, and the interaction of size and income ratio.
+3. [_Locate Employment_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#42-locateemployment-module): The number of input jobs by Bzone and [<span style="color:green">employment type</span>][lexicon] (retail, service, total) are scaled so that total jobs equals total household workers within the Marea. A worker table is developed and each worker is assigned to a work Bzone. The assignment essentially uses a gravity-type model with tabulations of workers and jobs by Bzone (marginal controls) and distance between residence and employment Bzones (IPF seed, inverse of straight-line distances between home and all work Bzone centroids).
+
+### Policy levers
+
+Several assumptions about parking, demand management, and mobility services can also be coded:
+
+1. [_Assign Parking Restrictions_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#46-assignparkingrestrictions-module): Households are assigned specific [<span style="color:green">parking restrictions</span>][lexicon] and fees for their residence, workplace(s), and other places they are likely to visit based on parking inputs by BZone (within Bzones coded as within metropolitan areas [Marea] only).
+    + _Residential Parking Restrictions & Fees_: The number of free parking spaces available at the household's residence is set based on input value that identify the average residential parking spaces by dwelling type in each Bzone. For household vehicles that cannot be parked in a free space a residential parking cost (part of auto ownership costs) is identified as a function of input parking rates for the home Bzone (if any).
+    + _Employer Parking and Fees_: Which workers pay for parking is set by inputs that define the proportion of workers facing parking fees in each Bzone. Whether their payment is part of a [<span style="color:green">cash out/buy back</span>][lexicon] program is similarly set by input proportions by Bzone and associated fees set by input parking rates for the work Bzone.
+    + _Non-work Parking Fees:_ The cost of parking for other activities such as shopping is estimated as the likelihood that a household would visit each Bzone and the parking fee in that Bzone. The likelihood is calculated with a gravity-type model, given the relative amount of activity in the Bzone (numbers of households by Bzone and the scaled retail and service job attractions by Bzone as marginals) and the proximity to each destination (inverse distance matrix from home Bzone seed matrix). The average daily parking cost is a weighted average of the fee faced in each destination bzone and the likelihood of visiting that Bzone.
+2. [_Assign Demand Management_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#47-assigndemandmanagement-module): Households are assigned to [<span style="color:green">individualized marketing programs</span>][lexicon] based on input participation levels within their home Bzone. Each worker in the household can also be assigned to an [<span style="color:green">employee commute options program</span>][lexicon] based on input participation levels for workers within their assigned work Bzone. A simple percentage reduction in household VMT is applied based on the household's participation in one or more of these program (maximum of multiple program participation, to avoid double-counting). Worker reductions are only applied to that worker's work travel portion of overall household VMT, and summed if multiple workers in the household participate in such programs.
+
+    > Caution: The model assumes high-caliber TDM programs are in place that produce significant VMT savings. Inputs should reflect this.
+
+3. [_Assign CarSvc Availability_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#48-assigncarsvcavailability-module): A [<span style="color:green">car service level</span>][lexicon] is assigned to each household based on the input car service coverage for where the household resides (Bzone). High Car Service availability can have an impact on A [<span style="color:green">auto ownership costs</span>][lexicon] (which affects number of autos owned by the household) and auto operating cost (see the discussion in the next chapter on [household costs and budgets](#household-costs-and-budgets)).
+
+## Household multimodal travel
+
+> Watch a [video overview](https://youtu.be/-ylFbyLfhbw?t=5927) of the Household Multimodal Travel module
+
+Travel of various modes by households (vehicle, transit, bike, and walk modes) is estimated as a simple function of the rich demographic and land use attributes of the household. In [<span style="color:green">metropolitan areas</span>][lexicon] travel is also influenced by inputs on transport supply on a per capita basis, such as available [<span style="color:green">roadway capacity</span>][lexicon] and [<span style="color:red">bus-equivalent transit service</span>][lexicon] levels. Traditional travel models incorporate behavioral dynamics in choice models to build tours and trips for each synthetic person. VisionEval, by contrast, uses simple regression equations that directly estimate average per capita trips and miles by mode, linked by average trip lengths.
+
+After adjusting VMT for household budget limitations it is further adjusted for household participation in TDM programs (home & work-based) and [<span style="color:green">short-trip SOV diversion</span>][lexicon] before calculating household trips for all modes. The household's bike miles are also adjusted to reflect SOV diversion input.
+
+The following sections describe each module, which are implemented in sequence:
+
+1. The household's daily VMT is calculated with household budget adjustments
+2. The vehicle operating costs are calculated
+3. The vehicle operating costs are adjusted to fit within the `BudgetHouseholdDvmt`
+4. Daily VMT reductions due to TDM measures and short-trip SOV diversions are calculated
+5. Vehicle and non-vehicular (AltMode) trips are calculated for each household
+
+### Transport supply
+
+Transport supply variables are defined in two steps. Note that these calculations are only carried out within [<span style="color:green">metropolitan areas</span>][lexicon]
+ (Mareas) only:
+
+1. _Assign Transit Service_: Transit service levels are input for each [<span style="color:green">metropolitan areas</span>][lexicon] and neighborhood (Bzone).  Annual revenue-miles (i.e. transit miles in revenue service) by eight [<span style="color:green">transit modes</span>][lexicon] are read from inputs for each metropolitan area. A Bzone-level [<span style="color:red">Transit D</span>][lexicon] attribute defines access to transit (not yet work access) for each household based on inputs on relative transit accessibility. Using factors derived from the National Transit Database (NTD), input annual transit revenue miles for each of the eight transit modes are converted to [<span style="color:green">bus-equivalent miles</span>][lexicon] by three [<span style="color:green">transit vehicle types</span>][lexicon] (van, bus, and rail). Per capita [<span style="color:red">relative transit supply</span>][lexicon] and bus-equivalent service-miles are calculated.
+2. _Assign Road Miles_: Stores input on the numbers of freeway lane-miles and arterial lane-miles by [<span style="color:green">metropolitan area</span>][lexicon] and year. Computes the [<span style="color:green">relative roadway supply</span>][lexicon], arterial and freeway lane-miles per capita.
+
+### Household travel calculations
+
+Household travel by vehicles are calculated in three steps:
+
+1. _Calculate Household Daily VMT (Dvmt)_: Household average daily vehicle miles traveled (VMT) is estimated as a function of household characteristics(income, workers, children, drivers), vehicle ownership, and attributes of the neighborhood (population density) and metropolitan area ([<span style="color:green">urban mixed-use</span>][lexicon], [<span style="color:green">transit service level</span>][lexicon], road lane-miles) where the household resides. It also calculates household VMT percentiles which are used by other modules to calculate whether a household is likely to own an electric vehicle (EV) and to calculate the proportions of plug-in hybrid electric vehicles (PHEV) VMT powered by electricity. First, households with no VMT on the travel day are identified. Then VMT is estimated for those that travel. Average and VMT quantiles are estimated to reflect day-to-day variance that helps identify whether an EV vehicle is feasible for this households typical travel. These values are derived from the 2001 [<span style="color:green">NHTS</span>][lexicon] data.
+2. _CalculateVehicleTrips_: This module calculates average daily vehicle trips for households consistent with the household VMT. Average length of household vehicle trips is estimated as a function of household characteristics (drivers/non-driers, income), vehicle ownership ([<span style="color:green">auto sufficiency</span>][lexicon]), and attributes of the neighborhood (population density) and [<span style="color:green">metropolitan area</span>][lexicon] ([<span style="color:green">urban mixed-use</span>][lexicon], freeway lane-miles) where the household resides, and interactions among these variables. The average trip length is divided into the average household VMT to get an estimate of average number of daily vehicle trips.
+3. _Calculate AltMode Trips_: This module calculates household transit trips, walk trips, and bike trips. The models are sensitive to household VMT so they are run after all household VMT adjustments (e.g., to account for cost on household VMT) are made. Twelve models estimate trips for the three modes in metropolitan and non-metropolitan areas, in two steps each. The first step determines whether a household has any AltMode trips and the second part determines the number of trips. All of the models include terms for household characteristics (size, income, age mix) and the household's overall VMT. Neighborhood factors (population density) factors into all but the bike trip models. For households in metropolitan areas [<span style="color:green">transit service level</span>][lexicon] has an impact as well, with transit ridership also sensitive to when residents live in [<span style="color:green">urban mixed-use</span>][lexicon] neighborhoods.
+
+### SOV diversion
+
+Household single-occupant vehicle (SOV) travel is reduced to achieve bike and micro-transportation input policy goals, i.e., for diverting a portion of SOV travel within a 20-mile tour distance (round trip distance). This allows evaluating the potential for light-weight vehicles (e.g. bicycles, electric bikes, electric scooters) and infrastructure to support their use, in reducing SOV travel. First, he amount of the household's VMT that occurs in SOV tours having round trip distances of 20 miles or less is estimated. Then the average trip length within those tours is estimated. Both models are sensitive to household characteristics(drivers, income, kids), vehicle ownership ([<span style="color:green">auto sufficiency</span>][lexicon]), and attributes of the neighborhood (population density, dwelling type) and [<span style="color:green">metropolitan area</span>][lexicon] ([<span style="color:green">urban mixed-use</span>][lexicon], freeway lane-miles) where the household resides, and the household's overall VMT. Both models have multiple stages, including stochastic simulations to capture day-to-day variations.
+
+The diversion of these short trips is assumed to only apply in urban and town [<span style="color:green">location types</span>][lexicon]. The VMT reductions are allocated to households as a function of the household's SOV VMT and (the inverse of) SOV trip length. In other words, it is assumed that households having more qualifying SOV travel and households having shorter SOV trips will be more likely to divert SOV travel to bicycle-like modes. The estimates of the household's share of diverted VMT, average trip length of diverted VMT are applied elsewhere to reduce DMVT and increase bike trips. Zero vehicle households are not allowed to divert SOV travel. [<span style="color:green">Census PUMS</span>][lexicon] data is used to estimate the models.
+
+### DVMT reductions
+
+Each household's VMT is adjusted for their TDM program(s) participation, if any, as well as input from metropolitan area [<span style="color:green">short-trips SOV diversion</span>][lexicon] goals. The SOV diversion also increases bike trips (diverted SOV VMT divided by SOV average trip length).
+
+## Vehicles, fuels and emissions
+
+The [<span style="color:green">powertrains</span>][lexicon], fuels, and associated emissions datasets for all modeled [<span style="color:green">vehicle groups</span>][lexicon] are among the most complex inputs used in VisionEval. Default datasets are included in the VisionEval installer to simplify this for the user. The user can use these defaults or develop their own data that matches the VisionEval input requirements. It is anticipated that different datasets will be developed by users that can be shared with the VisionEval community. For example, one package may represent a base scenario of federal vehicle, fuel, and emission standards, while another package represents the California zero-emissions vehicle (ZEV) rules and low carbon fuel for the home location's [<span style="color:green">CarService</span>][lexicon]. 
+
+The model looks in household vehicle sales tables indexed by [<span style="color:green">vehicle type</span>][lexicon] and age to determine the probability of each powertrain in that sales year, along with its associated fuel efficiency and other attributes.  Each household vehicle is assigned attributes consistent with these probabilities. In some cases electric vehicles (EVs) are replaced by plug-in hybrid electric vehicles (PHEVs) if household VMT and residential charging limitations exist.  
+
+The [<span style="color:green">powertrain</span>][lexicon] mix of non-household vehicle groups -- car service, commercial service, transit, and heavy trucks --  is applied to VMT (rather than individual vehicles) in the scenario year (rather than sales year). There is some input adjustment for average vehicle age and commercial [<span style="color:green">vehicle type</span>][lexicon] share.
+
+Fuels for each vehicle groups can rely on the package defaults, or use one of two input options.  The user can either provide a composite [<span style="color:green">carbon intensity</span>][lexicon] representing all gallons of fuel used for that vehicle group, or provide fuel mix shares (base fuel mix, biofuel blend proportions), combined with package default lifecycle (well-to-wheels) carbon intensity for the individual fuels.  The resulting carbon intensity per gallon are applied to gallons generated from VMT and vehicle fuel efficiency assumptions. Adjustments to fuel efficiency due to reduced speeds due to congestion as well as ITS operational programs (e.g., [<span style="color:green">speed smoothing</span>][lexicon]) and [<span style="color:green">EcoDrive</span>][lexicon] programs.
+
+The table below summarizes the vehicle and fuel options available within VisionEval.
+
+|Vehicle Group|Vehicle Types|Powertrain Options|Veh Input Adjustments|Fuel Options|
+|-----------|--------|---------------------|----------|----------|
+|Household Vehicles|automobile, light truck|ICE, HEV, EV, PHEV|(default veh mix), age, %LtTrk|gas/ethanol, diesel/biodiesel, CNG/RNG|
+|Car Service VMT|automobile, light truck|ICE, HEV, EV|veh mix, age (HH %LtTrk)|gas/ethanol, diesel/biodiesel, CNG/RNG|
+|Commercial Service VMT|automobile, light truck|ICE, HEV, EV|veh mix, age, %LtTrk|gas/ethanol, diesel/biodiesel, CNG/RNG|
+|Heavy Truck VMT|heavy truck|ICE, HEV, EV|veh mix|gas/ethanol, diesel/biodiesel, CNG/LNG|
+|Public Transit VMT|van, bus, rail|ICE, HEV, EV|veh mix|gas/ethanol, diesel/biodiesel, CNG/RNG|
+
+Note that individual vehicles are modeled for households, based on sales year default datasets and age of the owned vehicle. Other groups' vehicle and fuel attributes apply to VMT in the scenario modeled year.  As a result, PHEVs do not exist other than household vehicles, instead PHEVs are represented as miles driven in HEVs and miles in EVs.
+
+> Watch a [video overview](https://youtu.be/-ylFbyLfhbw?t=6747) of vehicles, fuels, and emissions
+
+### Household vehicle table
+
+The household vehicle table is generated in two steps:
+
+1. [_Create Vehicle Table:_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#64-createvehicletable)  A [<span style="color:green">vehicle table</span>][lexicon] is created with a record for every vehicle owned by the household, and additional vehicle records are added to reach the household’s number of driving age persons. Each vehicle record is populated with household ID and geography fields (Azone, Marea) and [<span style="color:green">access time</span>][lexicon] attributes. Each vehicle record is either “own” or (worker without a vehicle) assigned access to a [<span style="color:green">CarService</span>][lexicon] level, depending upon coverage in the household’s home Azone. 
+2. [_Assign Vehicle Type:_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#63-assignvehicletype). Identifies how many household vehicles are light trucks and how many are automobiles as a function of number of vehicles, person-to-vehicle and vehicle-to-driver ratios, number of children, [<span style="color:green">dwelling unit type</span>][lexicon], income, density, and [<span style="color:green">urban mixed use</span>][lexicon] data (in [<span style="color:green">metropolitan areas</span>][lexicon] only).
+
+### Powertrains and fuels defaults
+
+These values are defined in two steps:
+
+1. [_Load Default Values:_](https://github.com/gregorbj/A`rchive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues). This script, run before the rest of VisionEval is started, reads and processes the default [<span style="color:green">powertrains</span>][lexicon] and fuels files in the package and creates datasets used by other modules to compute fuel and electricity consumption, and well as associated fuel and electricity [<span style="color:green">carbon intensity</span>][lexicon] emissions from vehicle travel.
+2. An [_Initialize_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#82-initialize-module) step is run by VisionEval as part of its initialization on each run. Optional user-supplied vehicle and fuel input files, if any, are processed (including input data checks). When available, modules that compute carbon intensities of vehicle travel will use the user-supplied data instead of the package default datasets.
+
+### Assign household powertrains and fuels
+
+The powertrain and fuel type is assigned to each vehicle in each household in three steps:
+
+1. [_Assign Vehicle Age:_](github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#65-assignvehicleage)  Assigns vehicle ages to each household vehicle and [<span style="color:green">CarService</span>][lexicon] vehicle used by the household as a function of the [<span style="color:green">vehicle group</span>][lexicon] (household vehicles only), household income, and assumed mean vehicle age by vehicle type and Azone. The age model starts with an observed vehicle age distribution and relationship between vehicle age and income. These data are currently based on summaries of the 2001 [<span style="color:green">NHTS</span>][lexicon]. Adjustments are made based on user average vehicle age inputs (household by vehicle type, car service overall). 
+2. [_Assign Household Vehicle Powertrain:_](github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#84-assignhhvehiclepowertrain-module)  This module assigns a [<span style="color:green">powertrain</span>][lexicon] type to each household vehicle. The age of each vehicle is used with default tables by [<span style="color:green">vehicle type</span>][lexicon] that identify the powertrain mix of vehicles sold in each sales year. Other default tables identify vehicle characteristics tied to powertrain that include battery range, [<span style="color:green">fuel efficiency</span>][lexicon], and emissions rate. Assignments of EVs may be changed to PHEVs if the battery range is not compatible with estimated day-to-day trip lengths, or the home dwelling lacks vehicle charging availability.
+3. [_Calculate Carbon Intensity:_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#83-calculatecarbonintensity-module)  This module calculates the average [<span style="color:green">carbon intensity</span>][lexicon] of fuels (grams CO2e per megajoule) by [<span style="color:green">vehicle group</span>][lexicon] and, if applicable, [<span style="color:green">vehicle type</span>][lexicon]. Average fuel carbon intensities for transit vehicle modes are calculated by [<span style="color:green">metropolitan area</span>][lexicon], other vehicles are calculated for the entire model region. The module also reads the input average [<span style="color:green">carbon intensity</span>][lexicon] of electricity at the Azone level.
+
+### Assign non-household powertrains and fuels
+
+The assignment of powertrain and fuel characteristics is carried out in two steps:
+
+1. [_Calculate Transit Energy And Emissions:_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#911-calculateptranenergyandemissions-module) This module calculates the energy consumption and carbon emissions from transit vehicles in urbanized areas. Assumptions (package default or user input) on [<span style="color:green">powertrain</span>][lexicon] mix and fuels for three [<span style="color:green">transit vehicle types</span>][lexicon] by [<span style="color:green">metropolitan area</span>][lexicon] are applied to associated Marea [<span style="color:green">transit service miles</span>][lexicon] for these types. Assumptions (package default or user input) on average [<span style="color:green">carbon intensity</span>][lexicon] of fuel and electricity by [<span style="color:green">transit vehicle types</span>][lexicon] are then applied to Marea fuel and electricity usage across types to calculate carbon emissions.
+2. [_Calculate Commercial Energy And Emissions:_](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#910-calculatecomenergyandemissions-module)  The energy consumption and carbon emissions of [<span style="color:green">heavy trucks</span>][lexicon] and [<span style="color:green">commercial service</span>][lexicon] VMT (no vehicles) are calculated by on-road (not sales) year. VMT shares of Commercial Service [<span style="color:green">powertrains</span>][lexicon] by [<span style="color:green">vehicle type</span>][lexicon] and [<span style="color:green">heavy truck</span>][lexicon] powertrains are calculated (per package default or user input). Any [<span style="color:green">fuel efficiency</span>][lexicon] (MPG and MPKWH) adjustments are then applied, due to policies ([<span style="color:green">EcoDriving</span>][lexicon], [<span style="color:green">speed smoothing</span>][lexicon] and/or congestion (including effects of any [<span style="color:green">ITS</span>][lexicon] operational and congestion fee policies). Ecodriving applies only to internal combustion engine (ICE) vehicles and [<span style="color:green">ITS</span>][lexicon] operational policies and congestion apply only in [<span style="color:green">metropolitan areas</span>][lexicon]. Both vary by [<span style="color:green">powertrain</span>][lexicon] and for commercial vehicles, [<span style="color:green">vehicle type</span>][lexicon]. Combining [<span style="color:green">fuel efficiency</span>][lexicon] and VMT (from the Household Multimodal Travel Model) results in estimates of energy usage (fuel and electricity). Fuel carbon intensity for these modes is calculated by [<span style="color:green">metropolitan area</span>][lexicon] and/or region and applied to fuel and electricity usage to estimate CO2e emissions.
