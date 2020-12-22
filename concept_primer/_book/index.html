@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>An Alternative VisionEval Concepts Primer</title>
-  <meta name="description" content="This is an adaptation of the bookdown example for rehosting the VisionEval Concepts Primer." />
+  <title>VisionEval Concepts Primer</title>
+  <meta name="description" content="This is the updated VisionEval Concepts Primer." />
   <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="An Alternative VisionEval Concepts Primer" />
+  <meta property="og:title" content="VisionEval Concepts Primer" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is an adaptation of the bookdown example for rehosting the VisionEval Concepts Primer." />
+  <meta property="og:description" content="This is the updated VisionEval Concepts Primer." />
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="An Alternative VisionEval Concepts Primer" />
+  <meta name="twitter:title" content="VisionEval Concepts Primer" />
   
-  <meta name="twitter:description" content="This is an adaptation of the bookdown example for rehosting the VisionEval Concepts Primer." />
+  <meta name="twitter:description" content="This is the updated VisionEval Concepts Primer." />
   
 
 <meta name="author" content="Tara Weidner, Rick Donnelly, et al." />
 
 
-<meta name="date" content="2020-11-01" />
+<meta name="date" content="2020-12-22" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +33,7 @@
   
 
 <link rel="next" href="intro.html"/>
-<script src="libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="libs/header-attrs-2.6/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,6 @@
 
 
 
-<link href="libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 
 
@@ -127,6 +125,7 @@
 <li class="chapter" data-level="5.3" data-path="processing.html"><a href="processing.html#exporting-data"><i class="fa fa-check"></i><b>5.3</b> Exporting data</a></li>
 <li class="chapter" data-level="5.4" data-path="processing.html"><a href="processing.html#validation"><i class="fa fa-check"></i><b>5.4</b> Validation</a></li>
 </ul></li>
+<li class="chapter" data-level="6" data-path="lexicon.html"><a href="lexicon.html"><i class="fa fa-check"></i><b>6</b> Lexicon</a></li>
 </ul>
 
       </nav>
@@ -136,7 +135,7 @@
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">An Alternative VisionEval Concepts Primer</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VisionEval Concepts Primer</a>
           </h1>
         </div>
 
@@ -145,18 +144,20 @@
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">An Alternative VisionEval Concepts Primer</h1>
+<h1 class="title">VisionEval Concepts Primer</h1>
 <p class="author"><em>Tara Weidner, Rick Donnelly, et al.</em></p>
-<p class="date"><em>2020-11-01</em></p>
+<p class="date"><em>2020-12-22</em></p>
 </div>
 <div id="preface" class="section level1 unnumbered">
 <h1>Preface</h1>
-<p>This is an adaptation of the VisionEval <strong>Concepts Primer</strong> put together by Tara Weidner. It reorganizes the content a bit and attempts to create a version with decent lexicon that doesn’t get in the way of reading the text. In this adaptation VisionEval a number of keywords stand out:</p>
+<p>This is the updated VisionEval <strong>Concepts Primer</strong> for beginning users of the system and those wanting a high-level overview of the structure of the system. It includes a brief introduction to the package, describes some typical applications, and describes many of the building blocks of the system. Some of the adjustments made to travel patterns generated in the model are described, followed by a short chapter describing some elements of its implementation. A lexicon collects the definition of keywords or terms that have special meaning in VisionEval in a single place for easy reference. The reader will find a number of special references in the text:</p>
 <ul>
-<li>Certain keywords have specific meaning when describing constructs in VisionEval, and are colored green in the text. For example, you will see <a href="https://github.com/rickdonnelly/alt-concept-primer/blob/main/lexicon.md"><span style="color:green">age groups</span></a> often in the text. You can click on any of these links to open a lexicon in a separate window. You can scroll to the specific term you’re interested in. This concept primer and the lexicon are meant to be used together (i.e., opened in separate windows).</li>
-<li>Links to other documents and websites <a href="https://visioneval.org">appear as clickable blue text</a>, like this one that will take you to the VisionEval front page.</li>
-<li>Specific variable or filenames are shown in <code>offset text</code>. For example, you might see a reference to the <code>FudgeFactor</code> in the <code>ModuleName</code> module. These keywords are generally <strong>not</strong> clickable for variable names, but often are for module names.</li>
+<li>Certain keywords have specific meaning when describing constructs in VisionEval, and are colored green in the text. For example, you will see <a href="lexicon.html#lexicon"><span style="color:green">age groups</span></a> often in the text. These terms are defined in the chapter of this document. The link will take you to the lexicon, where you can scroll to the specific term(s) you are interested in.</li>
+<li>Links to other documents and websites appear as clickable blue text, like <a href="https://visioneval.org">this link</a> that will take you to the VisionEval front page.</li>
+<li>Specific variable or filenames are shown in <code>offset text</code>. For example, you might see a reference to the <code>FudgeFactor</code> in the <code>ModuleName</code> module. These keywords are generally <em>not</em> clickable for variable names, but often are for module names.</li>
 </ul>
+<p>The Concepts Primer has been generated using <a href="https://bookdown.org/">Bookdown</a>, enabling it to be compiled into both web page and standalone printed document formats.</p>
+<p>Please improve the document by updating those parts that seem incomplete or incorrect. You can pose questions or comments to the maintainers through the <a href="https://github.com/VisionEval/VisionEval-Docs/issues">issue tracker</a> in the VisionEval-Docs repository.</p>
 
 </div>
             </section>

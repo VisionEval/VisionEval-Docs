@@ -36,3 +36,4 @@ running-visioneval
 typical-outputs
 exporting-data
 validation
+lexicon
