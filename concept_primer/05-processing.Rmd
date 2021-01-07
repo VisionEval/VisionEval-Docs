@@ -61,4 +61,5 @@ The main validation targets have historically included household income, vehicle
 
 > Note that HPMS definition of VMT differs from that used in VisionEval. VisionEval reports on all household travel regardless of where it occurs, and adds Commercial vehicle and Heavy Duty Truck and Bus travel on MPO roads.  HPMS reports vehicular travel of all modes on roads within the MPO boundary.
 
-> Additional detail on validation can be found in a [separate validation document](https://github.com/visioneval/VisionEval/wiki/VE-Validation--UNDER-CONSTRUCTION)
+> Additional detail on validation can be found in this [validation document](https://github.com/visioneval/VisionEval/wiki/VE-Validation--UNDER-CONSTRUCTION)
+
