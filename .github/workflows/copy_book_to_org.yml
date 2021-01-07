@@ -9,15 +9,14 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
       with:
-          ref: ${{ github.head_ref }}
-
-        
-    - name: Copies book PDF to VE.org
+          ref: ${{ github.head_ref }} 
+                
+    - name: Copies all contents to VE.org
       uses: dmnemec/copy_file_to_another_repo_action@v1.0.4
       env:
         API_TOKEN_GITHUB: ${{ secrets.book_copy }}
       with:
-        source_file: 'concept_primer/_book/_main.pdf'
+        source_file: 'concept_primer/_book/*'
         destination_repo: 'VisionEval/VisionEval.org'
         destination_folder: 'book'
         user_email: 'daniel.flynn@dot.gov'
