@@ -22,7 +22,7 @@ The full list of outputs available is as follows. Based on the geo level, you wi
 * **HvyTrkOthDvmt**: Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
 * **BusFwyDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
 * **BusArtDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
-* **BusOthDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
+* **BusOthDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
 * **LdvFwyDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
 * **LdvArtDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
 * **FwyNoneCongSpeed**: Average freeway speed (miles per hour) when there is no congestion

@@ -51,28 +51,28 @@ There is complete set of test data for RVMPO which you will find out in the Test
 
  the `../models/VE-State` directory contains sample input files for state of Oregon.  These can be modified or replaced to investigate the impacts of policy changes or to model a different state.  
 
-To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](link) would be modified in Excel, LibreOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038
+To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](link) would be modified in Excel, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
 
-<img align="center" width="800" border=1 src="https://github.com/wsp-sag/client_fhwa_vision_eval/blob/rspm_tutorial_AA/documentation/tutorials/verspm/pics/modify_input.PNG">
+<img align="center" width="600" border=1 src="../verspm/images/modify_input.PNG">
 
 ### Running the Model
 
 There are multiple ways to run VisionEval models. VisionEval models can be run via the command line directly or using `openModel`, and can be run for one scenario or multiple scenarios in parallel. Results can be viewed in tabular form or with the interactive `VEScenarioViewer`.
 
-1. Start R (or RStudio) and make sure your directory is set to the installer folder
-2. Run the following commands:
+1. Start R (or RStudio) and make sure your directory is set to the installer folder. The easiest way to do this is to double-click `VisionEval.Rproj`, which will be associated with RStudio if that is installed correctly.
+2. You should see 'Welcome to VisionEval!' on the RStudio console. Then run the following commands:
 
 ```
 statemod <- openModel('VE-State')
 statemod$run()
 ```
 
-By default this will run the model in `../models/VE-State/` directory. It will be discussed how to run scenarios in another folder later in this tutorial.
+By default this will run the model in `../models/VE-State/` directory. The default model is for Oregon, for 2010 and 2040. 
 
 After running the script you will see how the modules will be running in order.
 
 
-Once run is finished output are exported to `../models/VE-State/outputs` in 3 different zone levels
+The model run will take approximately 45 minutes. Once complete, the output are exported to `../models/VE-State/outputs` in 3 different zone levels.
 
 # TODO
  - Steps to query results
