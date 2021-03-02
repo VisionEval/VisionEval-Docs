@@ -12,7 +12,7 @@ Please see [VisionEval.org](http://VisionEval.org) for additional details. You c
 
 ## VE-State
 
-VE-State is an extension of RSPM models, namely VERSPM, which enables users to apply the model for statewide applications. In order to develop VE-State, VE-RSPM modules has been tested and modified to confirm that they will work in a statewide application.
+VE-State is an extension of RSPM models, namely VE-RSPM, which enables users to apply the model for statewide applications. In order to develop VE-State, VE-RSPM modules has been tested and modified to confirm that they will work in a statewide application.
 The main difference between VE-RSPM models and VE-State models is that a number of VE-RSPM inputs are specified at the Bzone level. Examples include numbers of dwelling units by type and numbers of jobs by sector. VE-State models run at a higher level of abstraction than VE-RSPM models and don’t have Bzone level inputs.
 
 ## Sections
