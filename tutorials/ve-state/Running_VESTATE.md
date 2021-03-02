@@ -57,9 +57,7 @@ To modify a scenario, the appropriate input files are edited.  For example, to c
 
 ### Running the Model
 
-There are multiple ways to run VisionEval models. VisionEval models can be run via the command line or via the GUI, and can be run for one scenario or multiple scenarios in parallel. Results can be viewed in tabular form or with the interactive `VEScenarioViewer`.
-
-#### Running VE-State from the R command line
+There are multiple ways to run VisionEval models. VisionEval models can be run via the command line directly or using `openModel`, and can be run for one scenario or multiple scenarios in parallel. Results can be viewed in tabular form or with the interactive `VEScenarioViewer`.
 
 1. Start R (or RStudio) and make sure your directory is set to the installer folder
 2. Run the following commands:
@@ -76,5 +74,9 @@ After running the script you will see how the modules will be running in order.
 
 Once run is finished output are exported to `../models/VE-State/outputs` in 3 different zone levels
 
+# TODO
+ - Steps to query results
+ - Steps to describe creating scenarios
+ - Steps to use Scenario Viewer 
 
 Return to [Tutorial](Main.md). 
