@@ -313,7 +313,7 @@ The models and procedures in this module create SimBzones within each Azone that
 ### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VESimHouseholds    | [[PredictWorkers](#predictworkers)  |**NumWkr**    | see  [PredictWorkers](#predictworkers)         |
+| VESimHouseholds    | [PredictWorkers](#predictworkers)   |**NumWkr**    | see  [PredictWorkers](#predictworkers)         |
 | VESimLandUse    | [Initialize](#initialize) |**PropMetroHh** | see  [Initialize](#initialize)        |
 | VESimLandUse    | [Initialize](#initialize)      |**PropTownHh**   | see  [Initialize](#initialize)         |
 | VESimLandUse    | [Initialize](#initialize)        |**PropRuralHh**    | see  [Initialize](#initialize)      |
@@ -424,7 +424,7 @@ ___
 ## Simulate4DMeasures   
 This module calculates several 4D measures by SimBzone including density, diversity (i.e. mixing of land uses), and pedestrian-orientedn transportation network design. These measures are the same as or are similar to measures included in the Environmental Protection Agency's (EPA)
 ### User Input Files
-1. D3bpo4 value or differe location types (**_marea_d3bpo4_adj_**): This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database
+1. D3bpo4 value or different location types (**_marea_d3bpo4_adj_**): This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database
    * **UrbanD3bpo4Adj**: Proportion of base urban D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for the urbanized portion of the marea
    * **TownD3bpo4Adj**: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for towns
    * **RuralD3bpo4Adj**: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for rural areas
