@@ -31,7 +31,7 @@ However, VisionEval is not well suited for detailed geographic analyses, to incl
 Traditional travel forecasting models divide a study area into thousands of traffic analysis zones in order to facilitate highly granular spatial analyses. This allows trip (tour segment) origins and destinations to enter and exit a detailed representation of the multimodal transportation network in order to study network flows, congestion, and efficiency outcomes. VisionEval operates at a much broader spatial scale, using several levels of geography:
 
 + A `region` defines the entire area covered by the VisionEval analyses
-+ `Azone`s are large areas such as cities, counties, or Public Use Microdata Areas (PUMAs)
++ `Azone`s are large areas such as cities, counties, or Census Public Use Microdata Areas (PUMAs)
 + `Bzone`s are subdivisions of Azones that represent neighborhoods, Census tracts or block groups, or other relatively homogenous areas
 + [<span style="color:green">Metropolitan areas</span>][lexicon] (Marea) are defined as groups of Azones that define them
 
