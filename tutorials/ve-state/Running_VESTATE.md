@@ -45,15 +45,10 @@ The `defs` directory contains five model definition files which is introduced in
 The `inputs` directory contains a number of `CSV` and `JSON` files that provide inputs for the modules. Each module specifies what input files it needs. If you would like to know 
 the description of each input file and how you can change those files for your desired testing see [Inputs_and_Parameters](Inputs_and_Parameters.md/#input-files)
 
-<img align="center" width="800" border=1 src="images/inputs.PNG">
+<img align="center" width="700" border=1 src="images/inputs.PNG">
 
-There is complete set of test data for RVMPO which you will find out in the Test1 folder. You can use those data to test VERRSPM run.
+The `../models/VE-State` directory contains sample input files for state of Oregon.  These can be modified or replaced to investigate the impacts of policy changes or to model a different state.  
 
- the `../models/VE-State` directory contains sample input files for state of Oregon.  These can be modified or replaced to investigate the impacts of policy changes or to model a different state.  
-
-To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](link) would be modified in Excel, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
-
-<img align="center" width="600" border=1 src="../verspm/images/modify_input.PNG">
 
 ### Running the Model
 
@@ -74,9 +69,37 @@ After running the script you will see how the modules will be running in order.
 
 The model run will take approximately 45 minutes. Once complete, the output are exported to `../models/VE-State/outputs` in 3 different zone levels.
 
-# TODO
- - Steps to query results
+## Querying results
+
+To extract all results to .csv files, run
+
+```
+statemod$extract()
+```
+
+On the R console, you will see messages about what tables are being extracted and where the files are being saved, e.g.:
+
+```
+Extracting data for Table Azone in Group 2010
+Extracting data for Table Bzone in Group 2010
+Extracting data for Table Household in Group 2010
+[...]
+Write output file: /models/VE-State/output/Azone_2010_1_2021-03-02_153010.csv
+Write output file: /models/VE-State/output/Bzone_2010_1_2021-03-02_153010.csv
+[...]
+```
+
+For a state-wide model, the `Household` tables in particular can be quite large. 
+
+Other query methods are described in the [Getting Started documentation](https://github.com/VisionEval/VisionEval/wiki/Getting-Started-v2#extracting-model-results). 
+ 
+### Scenarios
+
+To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](link) would be modified in Excel, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
+
+<img align="center" width="600" border=1 src="../verspm/images/modify_input.PNG">
  - Steps to describe creating scenarios
  - Steps to use Scenario Viewer 
+
 
 Return to [Tutorial](Main.md). 
