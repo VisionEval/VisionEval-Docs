@@ -37,3 +37,7 @@ typical-outputs
 exporting-data
 validation
 lexicon
+header-test
+d-built-form-measures
+auto_own_cost
+auto-ownership-costs
