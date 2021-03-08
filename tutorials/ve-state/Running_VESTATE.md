@@ -45,6 +45,7 @@ The `defs` directory contains five model definition files which is introduced in
 The `inputs` directory contains a number of `CSV` and `JSON` files that provide inputs for the modules. Each module specifies what input files it needs. If you would like to know 
 the description of each input file and how you can change those files for your desired testing see [Inputs_and_Parameters](Inputs_and_Parameters.md/#input-files)
 
+
 <img align="center" width="700" border=1 src="images/inputs.PNG">
 
 The `../models/VE-State` directory contains sample input files for state of Oregon.  These can be modified or replaced to investigate the impacts of policy changes or to model a different state.  

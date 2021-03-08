@@ -26,7 +26,7 @@ The `../models/VERSPM/` directory contains sample input files for the Rogue Vall
 
 `run_model.R` is the core script for running the model. It consists of calls to the modules that make up the model. The user may modify the script to call the  desired modules.
 
-<img align="center" width="800" border=1 src="images/run_model.PNG">
+<img align="center" width="700" border=1 src="images/run_model.PNG">
 
 The `defs` directory contains five model definition files which is introduced in [Model Definition Files](Inputs_and_Parameters.md)
 
@@ -34,7 +34,8 @@ The `defs` directory contains five model definition files which is introduced in
 
 The `inputs` directory contains a number of `CSV` and `JSON` files that provide inputs for the modules. Each module specifies what input files it needs. If you would like to know 
 the description of each input file and how you can change those files for your desired testing see [Inputs_and_Parameters](Inputs_and_Parameters.md/#input-files)
-<img align="center" width="800" border=1 src="images/inputs.PNG">
+
+<img align="center" width="700" border=1 src="images/inputs.PNG">
 
 There is complete set of test data for RVMPO which you will find out in the VERSPM_base_model folder. You can use those data to test VERRSPM run.
 
@@ -125,7 +126,8 @@ version contains just four parameters specifying the locations of inputs and out
 #### Inputs
 
 The `inputs` folder in `VERRSPM_Scenarios` also differs from that in `VERSPM_base_model`.  In this case, there is only a single file specifying the output data tables that should be exported as CSV files in the `outputs` directory.
-<img align="center" width="300" border=1 src="images/VERSPM_scenarios.PNG">
+
+<img align="center" width="400" border=1 src="images/VERSPM_scenarios.PNG">
 
 #### scenario_inputs
 
@@ -136,6 +138,7 @@ Scenario inputs consist of eleven folders, one for each of a particular category
 Within each folder, there are subfolders containing input files, one per specific input. Each of the folders must contain at least one subfolder named "1", defining the input for the base scenario.  Subsequent numbered folders contain input files modifying parameters of interest, as shown in the screenshots below:
 
 Model inputs not otherwise specified in the `scenario_inputs` directory are drawn from files in `VERSPM_base_model/defs` and `VERSPM_base_model/inputs`
+
 <img align="center" width="800" border=1 src="images/VERSPM_scenarios2.PNG">
 
 The subfolder names and scenario inputs are defined as follows (input file to modify given in parentheses):
@@ -194,10 +197,7 @@ Note that if you change the directory structure in scenario_inputs, you will hav
 
 To modify the scenario inputs, the numbered subdirectories can be created or deleted. Each directory contains a single input file containing the modified model parameter.
 
-#### run_model.R
-
-The `run_model.R` script in this case runs four modules that create the scenarios from the inputs, runs each and combines the results.
-<img align="center" width="600" border=1 src="images/VERSPM_scenarios3.PNG">
+#### Running the model for multiple scenarios
 
 Similar to base case the model can be run in the command line. To run the model using R, run the following commands:
 
@@ -213,5 +213,10 @@ After starting the run,model automatically builds scenarios by creating all poss
 Each directory is essentially a copy of VERSPM_base_model, with inputs modified as specified in the scenario_inputs directory. Each scenario directory contains the results of a model run with its own inputs, datastore, and log file.
 
 When finished, the VE-RSPM Scenario Viewer will automatically open to display the results. To find out more on exported metrics see [Performance Metrics](Performance.md)
+
+In detail, the model specified by the `run_model.R` script. In this case, the script runs four modules that create the scenarios from the inputs, runs each and combines the results.
+
+<img align="center" width="600" border=1 src="images/run_model_Scenario.PNG">
+
 
 Return to [Tutorial](Main.md). 
