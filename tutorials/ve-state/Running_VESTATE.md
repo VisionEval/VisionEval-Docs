@@ -106,11 +106,11 @@ statemod$fieldsSelected <- 'Dvmt'
 Extract the result to a list of data frames for plotting, rather than to a .csv file. Some manipulation of the list can be done to put the fields in one data frame for plotting, for example:
 
 ```
-hh_dvmt <- vestate$extract(saveTo = F)
+hh_dvmt <- statemod$extract(saveTo = F)
 hh_dvmt <- unlist(hh_dvmt)
 year <- names(hh_dvmt)
 year <- ifelse(grepl('2010', year), '2010', '2040')
-hh_dvmt <- data.frame(year, Dvmt = hh_dvmt
+hh_dvmt <- data.frame(year, Dvmt = hh_dvmt)
 ```
 
 Plot using the `ggplot2` library, for example:
