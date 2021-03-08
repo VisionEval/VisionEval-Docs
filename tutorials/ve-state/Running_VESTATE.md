@@ -66,12 +66,11 @@ By default this will run the model in `../models/VE-State/` directory. The defau
 
 After running the script you will see how the modules will be running in order.
 
-
 The model run will take approximately 45 minutes. Once complete, the output are exported to `../models/VE-State/outputs` in 3 different zone levels.
 
 ## Querying results
 
-To extract all results to .csv files, run
+To extract all results to .csv files, run:
 
 ```
 statemod$extract()
@@ -89,17 +88,50 @@ Write output file: /models/VE-State/output/Bzone_2010_1_2021-03-02_153010.csv
 [...]
 ```
 
-For a state-wide model, the `Household` tables in particular can be quite large. 
+For a state-wide model, the `Household` and `Vehicle` tables in particular can be quite large, and this full result extraction might take several minutes. 
+
+To extract just one field, for example DVMT at the household level for 2010 and 2040, first select just the Household table using the `tablesSelected` method:
+
+```
+statemod$tablesSelected <- 'Household'
+```
+
+Then select the `Dvmt` field:
+
+```
+statemod$fieldsSelected <- 'Dvmt'
+```
+
+Extract the result to a list of data frames for plotting, rather than to a .csv file. Some manipulation of the list can be done to put the fields in one data frame for plotting, for example:
+
+```
+hh_dvmt <- vestate$extract(saveTo = F)
+hh_dvmt <- unlist(hh_dvmt)
+year <- names(hh_dvmt)
+year <- ifelse(grepl('2010', year), '2010', '2040')
+hh_dvmt <- data.frame(year, Dvmt = hh_dvmt
+```
+
+Plot using the `ggplot2` library, for example:
+
+```
+ggplot(hh_dvmt, aes(x = Dvmt, fill = year)) + 
+  geom_histogram() + 
+  ylab('Number of Households') +
+  ggtitle('Distribution of DVMT by VE-State for Oregon')
+```
+
+<img align="center" width="600" border=1 src="images/VEState_HH_DVMT_Distribution.png">
+
 
 Other query methods are described in the [Getting Started documentation](https://github.com/VisionEval/VisionEval/wiki/Getting-Started-v2#extracting-model-results). 
  
 ### Scenarios
 
-To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](link) would be modified in Excel, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
+To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md#azone_hh_veh_own_taxescsv) would be modified in Excel, LibreOffice, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
 
 <img align="center" width="600" border=1 src="../verspm/images/modify_input.PNG">
- - Steps to describe creating scenarios
- - Steps to use Scenario Viewer 
 
+Create scenarios using the same steps as for [VE-RSPM]('../verspm/Running_VERSPM.md')
 
 Return to [Tutorial](Main.md). 
