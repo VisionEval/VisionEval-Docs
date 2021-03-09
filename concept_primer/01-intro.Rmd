@@ -39,6 +39,9 @@ The _location type_ of each household is also coded as urban, town, or rural are
 
 > Watch a [video presentation](https://youtu.be/-ylFbyLfhbw?t=4690) with more information about VisionEval geographies
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=-ylFbyLfhbw" target="_blank"><img src="http://img.youtube.com/vi/-ylFbyLfhbw/0.jpg" alt="VisionEval Training Overview" width="280" height="200" border="5" /></a>
+
+
 ## Performance metrics
 
 The following table summarizes many of the possible performance metrics that can be summarized at the region level. The ability to easily export the data enables the analyst to construct new or different performance measures easily. 

@@ -48,56 +48,56 @@ _TODO_: update links to VisionEval if development branch is merged
 
 The following four modules create a set of households for each forecast year that represents each resident in the model area with the likely household mix of household and person characteristics:
 
-  * [Create Households](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VESimHouseholds/inst/module_docs/CreateHouseholds.md);
-  * [Predict Workers](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VESimHouseholds/inst/module_docs/PredictWorkers.md);
-  * [Assign Life Cycle](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VESimHouseholds/inst/module_docs/AssignLifeCycle.md); and,
-  * [Predict Income](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VESimHouseholds/inst/module_docs/PredictIncome.md).
+  * [Create Households](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/CreateHouseholds.md);
+  * [Predict Workers](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictWorkers.md);
+  * [Assign Life Cycle](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/AssignLifeCycle.md); and,
+  * [Predict Income](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictIncome.md).
 
 2. **Land Use Modules** - *VELandUse package* 
 
 The following five modules assigns a housing type to households (e.g. single-family, multi-family, etc.) and a development type (metropolitan, town, rural) based on available input dwelling units. Households are assigned a location in the metropolitan area based on the projected supply of housing and neighborhood affordability. Neighborhood population density and mixed-use character are calculated.
-  * [Predict Housing](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/PredictHousing.md);
-  * [Locate Employment](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md);
-  * [Assign Location Types](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/AssignDevTypes.md);
-  * [Calculate '4D' Measures](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/Calculate4DMeasures.md);
-  * [Calculate Urban Mix Measures](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/CalculateUrbanMixMeasure.md);
+  * [Predict Housing](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/PredictHousing.md);
+  * [Locate Employment](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md);
+  * [Assign Location Types](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignDevTypes.md);
+  * [Calculate '4D' Measures](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/Calculate4DMeasures.md);
+  * [Calculate Urban Mix Measures](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/CalculateUrbanMixMeasure.md);
   
 The following three modules identifies parking restrictions and prices affecting households, identifies households participating in TDM programs and assigns car service availability to zones ( including car sharing and taxis)
-  * [Assign Parking Restrictions](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md);
-  * [Assign Demand Management](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/AssignDemandManagement.md); and,
-  * [Assign Car Service Availability](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VELandUse/inst/module_docs/AssignCarSvcAvailability.md).
+  * [Assign Parking Restrictions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md);
+  * [Assign Demand Management](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignDemandManagement.md); and,
+  * [Assign Car Service Availability](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignCarSvcAvailability.md).
 
 3. **Transport Supply Modules**. - *VETransportSupply package* 
 
 The following two modules gather details about the relevant roadway and public transport systems considered in the simulation of travel:
-  * [Assign Transit Service](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETransportSupply/inst/module_docs/AssignTransitService.md); and,
-  * [Assign Road Miles](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md).
+  * [Assign Transit Service](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignTransitService.md); and,
+  * [Assign Road Miles](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md).
 
 4. **Household Vehicle Modules**. - *VEHouseholdVehicles package*
 
 The following seven modules simulate details about the drivers of vehicles in the simulation and types of vehicles they drive:
-  * [Assign Drivers](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignDrivers.md);
-  * [Assign Vehicle Ownership](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleOwnership.md);
-  * [Assign Vehicle Type](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleType.md);
-  * [Create Vehicle Table](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/CreateVehicleTable.md);
-  * [Assign Vehicle Age](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleAge.md);
-  * [Calculate Vehicle Ownership Cost](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md); and,
-  * [Adjust Vehicle Ownership](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdVehicles/inst/module_docs/AdjustVehicleOwnership.md).
+  * [Assign Drivers](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignDrivers.md);
+  * [Assign Vehicle Ownership](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleOwnership.md);
+  * [Assign Vehicle Type](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleType.md);
+  * [Create Vehicle Table](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CreateVehicleTable.md);
+  * [Assign Vehicle Age](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleAge.md);
+  * [Calculate Vehicle Ownership Cost](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md); and,
+  * [Adjust Vehicle Ownership](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AdjustVehicleOwnership.md).
 
 5. **Household Travel Modules**. - *VEHouseholdTravel package*
 
  The following four module provides an initial estimate of average daily vehicle miles traveled (DVMT) for each household
 based on the household characteristics (e.g., demographics, income, transportation options, and land use). They also calculate the households non-motorized trips.
-  * [Calculate Household Daily Vehicle Miles Traveled](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateHouseholdDvmt.md);
-  * [Calculate Non-Automobile or 'Alternative' Mode Trips](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateAltModeTrips.md); 
-  * [Calculate Vehicle Trips](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateVehicleTrips.md); and,
-  * [Divert Single-occupant Vehicle Travel](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md). 
+  * [Calculate Household Daily Vehicle Miles Traveled](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateHouseholdDvmt.md);
+  * [Calculate Non-Automobile or 'Alternative' Mode Trips](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateAltModeTrips.md); 
+  * [Calculate Vehicle Trips](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateVehicleTrips.md); and,
+  * [Divert Single-occupant Vehicle Travel](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md). 
 
 6. **Powertrain and Fuel Modules**. - *VEPowertrainsAndFuels package*
 
  The following two modules identifies the vehicles powertrain as an internal combustion engine (ICE), hybrid-electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), or electric vehicle (EV) and calculates each household vehicle's emission. 
-  * [Calculate Carbon Intensity](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md); and,
-  * [Assign Household Vehicle Powertrains](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md).
+  * [Calculate Carbon Intensity](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md); and,
+  * [Assign Household Vehicle Powertrains](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md).
 
 ### Feedback
 
@@ -107,21 +107,20 @@ THe next step balance the amount of household travel with the cost of travel and
 
 The following modules run iteratively to balance the DVMT and travel costs. Total light duty vehicle (household and commercial service vehicle), truck and bus DVMT is calculated for the metropolitan area and assigned to portions of the road system (freeway, arterial, other). Congestion levels are and associated speed reductions are calculated considering the traffic loads and inputs regarding the deployment of traffic operations programs (e.g. ramp metering, traffic signal coordination) and congestion pricing. Speed-adjusted fuel economy is calculated considering variations by powertrain. Travel cost per mile due to congestion pricing is also calculated. Household travel costs are calculated from the amounts of miles driven, fuel consumed, electricity consumed, and GHG emitted. Other inputs establish the rates for fuel costs, power costs, fuel taxes, VMT taxes, PAYD insurance, and several external costs. Finally a household budget model is used to adjust household DVMT to reflect the effect of household travel costs on the amount of household travel. The adjusted household DVMT is allocated to vehicles in proportion to the previous allocation. This process can run multiple times until DVMT changes very little between iterations.
 
-  * [Calculate Road VMT for Base Year](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculateBaseRoadDvmt.md);
-  * [Calculate Road VMT for Future Year](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculateFutureRoadDvmt.md);
-  * [Calculate Road Performance](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadPerformance.md);
-  * [Calculate Fuel and Electric Energy Economy](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculateMpgMpkwhAdjustments.md);
-  * [Adjust Fuel and Electric Energy Economy](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/AdjustHhVehicleMpgMpkwh.md);
-  * [Calculate Vehicle Operating Cost](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md); and,
-  * [Adjust DVMT Based on Budget](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/BudgetHouseholdDvmt.md).
+  * [Calculate Road VMT](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadDvmt.md);
+  * [Calculate Road Performance](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadPerformance.md);
+  * [Calculate Fuel and Electric Energy Economy](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateMpgMpkwhAdjustments.md);
+  * [Adjust Fuel and Electric Energy Economy](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/AdjustHhVehicleMpgMpkwh.md);
+  * [Calculate Vehicle Operating Cost](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md); and,
+  * [Adjust DVMT Based on Budget](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/BudgetHouseholdDvmt.md).
 
 
 8. **Heavy Vehicles Emissions**. - *VETravelPerformance*
 
 The following two modules calculate heavy vehicle fuel and power consumption and GHG emissions: 
  
- * [Calculate Commercial Vehicles Emissions](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculateComEnergyAndEmissions.md);
- * [Calculate Transit Vehicles Emissions](https://github.com/gregorbj/VisionEval/blob/develop/sources/modules/VETravelPerformance/inst/module_docs/CalculatePtranEnergyAndEmission.md);
+ * [Calculate Commercial Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateComEnergyAndEmissions.md);
+ * [Calculate Transit Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculatePtranEnergyAndEmission.md);
 
 
 Return to [Tutorial](Main.md). 

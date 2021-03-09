@@ -8,8 +8,8 @@ documentclass: book
 bibliography: [primer.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
-description: "This is the updated VisionEval Concepts Primer."
+github-repo: visioneval/VisionEval-Docs
+description: "The VisionEval Concepts Primer."
 ---
 
 # Preface {-}

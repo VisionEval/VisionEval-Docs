@@ -1,8 +1,8 @@
-# VESTATE Inputs and Parameters
+# VE-State Inputs and Parameters
 
 ----
 
-VESTATE data inputs are classified into two categories: Inputs and Model Parameters. It includes five definition files and dozens of input files, some of which the user must change and others which typically remain unchanged. This page provides guidance of these files to the end user and which files must be updated to implement RSPM in a new region.
+VE-State data inputs are classified into two categories: Inputs and Model Parameters. It includes five definition files and dozens of input files, some of which the user must change and others which typically remain unchanged. This page provides guidance of these files to the end user and which files must be updated to implement VE-State.
 
 
 ## Model Definition Files
@@ -21,9 +21,9 @@ This file contains parameters that define key attributes of the model run and re
 
 ```json
 {
-    "Model": "VESTATE",
+    "Model": "VE-State",
     "Scenario": "Test",
-    "Description": "Test of VESTATE",
+    "Description": "Test of VE-State",
     "Region": "Oregon",
     "BaseYear": "2010",
     "Years": ["2010", "2038"],
@@ -48,7 +48,7 @@ ___
 
 ### model_parameters.json
 
-This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/Visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per a Nov 2016 ODOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon 2015"](https://www.oregon.gov/ODOT/Data/Documents/The-Value-of-Travel-Time-2015.pdf).
+This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/Visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per an ODOT Report, "The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon 2015". The [2017 version is here](https://www.oregon.gov/ODOT/Data/Documents/2017-The-Value-of-Travel-Time.pdf).
 
 The format of this file is as follows:
 
@@ -102,7 +102,7 @@ This file describes all of the geographic relationships for the model and the na
 | Grant       | NA  | NA         | None      |
 | Harney      | NA            | NA         | None      |
 
-To learn more about VESTATE model geographic relationships see [here](docs/VisionEval_Inputs_by_Geo.docx)
+To learn more about VE-State model geographic relationships see [here](docs/VisionEval_Inputs_by_Geo.docx)
 
 [Top](#rspm-inputs-and-parameters)
 ___
@@ -142,7 +142,7 @@ ___
 - **azone_fuel_power_cost.csv** This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.                 
 - **azone_gq_pop_by_age.csv** This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                    
 - **azone_gq_pop-prop_by_area-type.csv** This file provides the proportions for groupquarters in different area types and is used in the [Initialize](Modules_and_Outputs.md/#initialize) module.                    
-- **azone_hh_loc_type_prop.csv** TThis file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone and is used in the [Initialize](Modules_and_Outputs.md/#initialize) module.                    
+- **azone_hh_loc_type_prop.csv** This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone and is used in the [Initialize](Modules_and_Outputs.md/#initialize) module.                    
 
 - **azone_hh_pop_by_age.csv** This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                  
 
@@ -159,14 +159,14 @@ ___
 - **azone_vehicle_access_times.csv** This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.              
 - **azone_wkr_loc_type_prop** This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone and is used in [Initialize](Modules_and_Outputs.md/#initialize) module.              
 - **marea_base_year_dvmt.csv** This file is used to specify to adjust the dvmt growth factors and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt) modules.
-- **marea_carsvc_availability.csv** This file has the data for acitivity proportions which are served by car services and is usde in the [Initialize (AssignCarSvcAvailability)](Modules_and_Outputs.md/#assigncarsvcavailability)
+- **marea_carsvc_availability.csv** This file has the data for activity proportions which are served by car services and is used in the [Initialize (AssignCarSvcAvailability)](Modules_and_Outputs.md/#assigncarsvcavailability)
 - **marea_congestion_charges.csv** This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.               
 - **marea_dvmt_split_by_road_class.csv** This file is used to specify the dvmt split for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) modules.         
 - **marea_d3bpo4_adj.csv** This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database and is used in the [Simulate4DMeasures](Modules_and_Outputs.md/#simulate4dmeasures) 
 - **marea_lane_miles.csv** This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the [AssignRoadMiles](Modules_and_Outputs.md/#assignroadmiles) module.                   
 - **marea_mix_targets.csv** This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target) and is used in the [SimulateUrbanMixMeasure](Modules_and_Outputs.md/#simulateurbanmixmeasure) module.                   
 - **marea_operations_deployment.csv** This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.        
-- **marea_parking-avail_by_area-type.csv** This file has the data for avereage number of parkings available to households and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions)   
+- **marea_parking-avail_by_area-type.csv** This file has the data for average number of parking spots available to households and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions)   
 - **marea_parking-cost_by_area-type.csv** This file has the data related to parking costs and population proportions paying the parking costs and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions) 
 
 

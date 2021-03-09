@@ -24,7 +24,7 @@
 <meta name="author" content="Tara Weidner, Rick Donnelly, et al." />
 
 
-<meta name="date" content="2020-12-22" />
+<meta name="date" content="2021-03-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -152,24 +152,24 @@
 <dt>access time</dt>
 <dd>The time required to get from the origin to the vehicle (or in the case of <a href="#car-service">CarService</a>, the time for the vehicle to get to the traveler) and the time to get from the vehicle to the destination (including time to park the vehicle). These values are defined for vehicles owned by the household and for two levels of CarService (low and high availability levels) in each Bzone. These factors are defined in <code>azone_vehicle_access_times.csv</code> and used by the <code>CalculateVehicleOperatingCost</code> module in the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
 </dd>
 <dt>age group</dt>
 <dd>VisionEval uses the same age groups used in the U.S. Census: 0-14, 15-19, 20-29, 30-54, 55-64, and 65+ years old. The number of persons in each age group are defined for each synthetic household.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/api/model_system_design.md#8111-model-estimation-datasets">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#8111-model-estimation-datasets">Additional details</a>
 </dd>
 <dt>auto operating cost</dt>
 <dd>A combination of out-of-pocket and travel time costs used to estimate the cost per mile of owning and operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, pay-as-you-drive (PAYD) insurance costs, and road use cost or VMT taxes are included where coded for the household’s enclosed Bzone. The costs are calculated in the <code>CalculateHhVehicleOperatingCosts</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md">Additional details</a>
 </dd>
 <dt>auto ownership costs</dt>
 <dd>The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include maintenance, tires, depreciation, fuel, insurance, etc.
 </dd>
 <dd>Auto ownership is adjusted when the per-mile cost of owning a car is higher than car service (mobility services) when the latter has high availability. This adjustment is made in the <code>AdjustVehicleOwnership</code> module.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost">Additional details on auto ownership</a> and <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership">auto ownership adjustments</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost">Additional details on auto ownership</a> and <a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership">auto ownership adjustments</a>
 </dd>
 <dt>auto sufficiency</dt>
 <dd>Auto sufficiency is achieved when the number of vehicles available to a household is equal to or greater than the number of licensed drivers in a household. A household in “auto insufficient” when that is not true. Zero-auto households are cases where the household has access to a vehicle. In the age of ubiquitous mobility services this definition may become less important in describing mobility options open to the household.
@@ -179,17 +179,17 @@
 </dd>
 <dd>The total bus revenue miles for a transit system are divided by the population of the enclosing Marea(s) to compute per capita bus-equivalent miles.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
 </dd>
 <dt>carbon intensity</dt>
 <dd>A emissions measure in grams of carbon dioxide equivalents per megajoule of energy. VisionEval uses a “well-to-wheels” estimate that takes into account not only the emissions resulting from the use of the fuel (“tank-to-wheels” measures) but also the carbon emissions required to produce and transport the fuel it where it is purchased by consumers. Default values are estimated from various sources in VisionEval. The user can specify different values. These values are used in several places in the <code>VEPowertrainsAndFuels</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#8-vepowertrainsandfuels-package">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#8-vepowertrainsandfuels-package">Additional details</a>
 </dd>
 <dt>carbon price</dt>
 <dd>A carbon price in dollars per ton is used to estimate part of the <span style="color:green">social cost</span> of emissions in the <code>CalculateVehicleOperatingCost</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
 </dd>
 <dt>CarService</dt>
 <dd>This is a synonym for popular ride-sharing services provided by mobility-as-a-service (MaaS) companies. They are also more commonly referred to as mobility services.
@@ -207,27 +207,27 @@
 <dt>commercial service</dt>
 <dd>The use of vehicles by firms and government agencies for non-personal travel other than the delivery of freight. (e.g., parcel delivery, business meetings, sales calls). Both automobiles and light trucks can be used for commercial services, and are defined both in terms of <span style="color:green">powertrain</span> and fuel type (gasoline, diesel, or compressed natural gas).
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues">Additional details</a>
 </dd>
 <dt>congestion fee</dt>
 <dd>The average amount paid per mile in congestion pricing fee. This is an input to the <code>CalculateRoadPerformance</code> module in the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
 </dd>
 <dt>congestion level</dt>
 <dd>Five levels of congestion – none, moderate, heavy, severe, and extreme – are estimated within each Marea by comparing [relative roadway supply] with the aggregate level of daily VMT (demand). Lookup tables are then used to estimate average speeds and delay for freeways and arterials. The effects of four standard operations programs (freeway ramp metering and incident management, arterial signal progression and access control) and optional user-defined programs are included in the calculations. The calculations are carried out in the <code>CalculateRoadPerformance</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
 </dd>
 <dt>dwelling unit type</dt>
 <dd>Each household inhabits a dwelling unit that is either a single-family dwelling, a multi-family dwelling, or group quarters.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation">Additional details</a>
 </dd>
 <dt>EcoDrive</dt>
 <dd>A term used to describe energy efficient use of vehicles in order to reduce fuel consumption and emissions. Primarily a <a href="https://www.ecodrive.org">European pursuit</a>, EcoDriving involves changes to vehicular technology, vehicle navigation and automation systems, and driving techniques. Factors expressing the degree of EcoDriving adoption are applied in the <code>CalculateMpgMpkwhAdjustments</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#96-adjusthhvehiclempgmpkwh-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#96-adjusthhvehiclempgmpkwh-module">Additional details</a>
 </dd>
 <dt>employee commute options program</dt>
 <dd>A voluntary employer-based program aimed at reducing solo commutes by automobile using strategies and incentive tailored towards each specific organization. Strategies range from providing information and management encouragement to use alternative modes of transportation to cash incentives. Cash-out/buy-in programs are one example of the latter.
@@ -242,12 +242,12 @@
 <dt>EV surcharge</dt>
 <dd>Some states impose a tax on electric vehicles beyond sales tax and vehicle registration fees to make up for the shortfall in gasoline sales tax revenue they might otherwise contribute towards the costs of roadway infrastructure. The methods and rates <a href="https://www.wsj.com/articles/more-states-charge-fees-for-electric-vehicles-11585400401">vary considerably</a>, with some EV owners paying more in sales tax and EV surcharges than most owners of conventional autos. The EV surcharge can be accounted for in the <code>CalculateVehicleOperatingCosts</code> module in the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
 </dd>
 <dt>freeway lane-miles</dt>
 <dd>The sum of the number of lanes multiplied by the length of each freeway segment within a metropolitan area (Marea). The lane-miles of arterials are calculated separated (see <span style="color:green">roadway lane-miles</span>). Both are created in the <code>AssignRoadMiles</code> module of the <code>VETransportSupply</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module">Additional details</a>
 </dd>
 <dt>freight vehicle groups</dt>
 <dd><em>see</em> vehicle groups
@@ -255,7 +255,7 @@
 <dt>fuel efficiency</dt>
 <dd>VisionEval does not simulate driving cycles so uses measures of relative fuel efficiency derived from the USEPA’s Physical Emission Rate Estimator (PERE) for different vehicle <span style="color:green">powertrains</span> during congested conditions. The user-supplied values in <code>congestion_efficiency.csv</code> define the congestion performance of each powertrain relative to best (1.0) and worst (0.0) values. The data are used in the <code>LoadDefaultValues</code> module in the <code>VEPowertrainsAndFuels</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues">Additional details</a>
 </dd>
 <dt>fuel-speed curves</dt>
 <dd>A set of exogenously calculated adjustments to the average fuel economy of vehicles as a function of the vehicle type (light-duty or heavy-duty), <span style="color:green">powertrain</span>, and <span style="color:green">roadway type</span>. The curves and their derivation are described by <a href="https://pdxscholar.library.pdx.edu/cengin_fac/342/">Bigazzi &amp; Clifton (2011)</a>.
@@ -263,7 +263,7 @@
 <dt>growth basis</dt>
 <dd>The growth in commercial and heavy truck travel over time increase at the same rate as the population does, as firms and establishments are not explicitly modeled in VisionEval. Future year daily VMT is calculated as a function of population or income from heavy trucks or population, income, or household daily VMT for commercial service.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#93-calculateroaddvmt-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#93-calculateroaddvmt-module">Additional details</a>
 </dd>
 <dt>heavy truck</dt>
 <dd>A single class of heavy trucks are used to represent all commercial vehicles larger than the light duty trucks included in the <span style="color:green">commercial service</span> vehicles. The same vehicle operating and emissions parameters specified for other <span style="color:green">vehicle groups</span> are defined for heavy trucks, and their impacts are calculated in several VisionEval packages.
@@ -282,22 +282,22 @@
 <dt>lambda parameter</dt>
 <dd>The assumed split of light-duty household and <span style="color:green">commercial service</span> vehicles between freeways and arterials is calculated dynamically as the ratio of the respective average travel speeds and an urbanized area specific factor (lambda). The latter adjusts the raw ratio of speeds to match observed percentages using data from 90 urbanized areas. The calculation is carried out in the <code>CalculateRoadPerformance</code> module.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
 </dd>
 <dt>lifecycle</dt>
 <dd>A label used to describe the stage of life that a household’s members are at. This is guessed at in VisionEval as a function of the number of adults, children, and workers in the household. This is assigned in the <code>AssignLifeCycle</code> module. It assumes one of 10 values defined in the <a href="https://nhts.ornl.gov/tables09/CodebookPage.aspx?id=1239">2009 NHTS LIF_CYC variable</a>
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation">Additional details</a>
 </dd>
 <dt>location type</dt>
 <dd>Each household is classified by whether its enclosing Bzone is located in an urban, town, or rural area. The <code>location_type</code> variable is defined for each Bzone.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model">Additional details</a>
 </dd>
 <dt>metropolitan area (Marea)</dt>
 <dd>A select set of Azones that are used in VisionEval to define a common metropolitan area (Marea). Separate VisionEval functions are often applied for metropolitan areas, making use of information on road, transit, and urban mixed used variables only present in the urbanized portion of the metropolitan area. Metropolitan areas in VisionEval are typically equivalent to Census urbanized areas.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model">Additional details</a>
 </dd>
 <dt>mixed use</dt>
 <dd><em>see</em> urban mixed-use
@@ -324,17 +324,17 @@
 </dd>
 <dd>Parking restrictions are used for Azones that are members of a defined metropolitan area (Marea) within the model.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md">Additional details</a>
 </dd>
 <dt>Pay-as-you-drive (PAYD)</dt>
 <dd>An insurance program, also known as usage-based insurance, whose premiums are based on actual usage of the insured vehicle as well as how well you drive. It is viewed by some as the emerging standard in insurance. Using a PAYD assumption in VisionEval enables the analyst to more precisely calculate <a href="#auto-ownership-cost">auto ownership cost</a> based on household daily VMT estimates. The proportion of households using PAYD are included in the calculations carried out by the <code>CalculateVehicleOwnCost</code> module.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost">Additional details</a>
 </dd>
 <dt>Passenger car equivalents (PCE)</dt>
 <dd>A factor that indicates the number of light-duty vehicles that a <span style="color:green">heavy truck</span> is equivalent to in terms of vehicle length and lane usage when calculating <span style="color:green">roadway capacity</span>. It is used in the <code>BalanceRoadCostsAndRevenues</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module">Additional details</a>
 </dd>
 <dt>powertrain</dt>
 <dd>VisionEval uses detailed operating and emissions characteristics from several different types of vehicular powertrains, enabling scenarios to be quickly assembled with different assumptions about their mix in future years. Four powertrain types are presently defined in VisionEval: internal combustion engines (ICE), hybrid electric vehicles (HEV), plug-in hybrid electric vehicles (PHEV), and battery electric vehicles (BEV). The powertrain is assigned to each household vehicle in the <code>AssignHhVehiclePowertrain</code> module.
@@ -345,22 +345,22 @@
 <dt>relative roadway supply</dt>
 <dd>A synthetic measure that divides the total arterial and freeway lane-miles (i.e., the sum of the length in miles times the number of lanes for each distinct roadway segment) by the sum of the estimated trip lengths for all households. This calculation is carried out for each Marea and year. Thus, it is a measure that only applies in metropolitan areas defined in the model. This value is calculated in the <code>AssignRoadMiles</code> module and is used in several other modules.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md">Additional details</a>
 </dd>
 <dt>road class</dt>
 <dd>The vehicle miles of travel (VMT) calculated for households, <span style="color:green">commercial service</span>, and <span style="color:green">heavy trucks</span> is split between three classes of roadways – freeways, arterials, and other roadways – in the <code>LoadDefaultRoadDvmtValues</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#91-loaddefaultroaddvmtvalues">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#91-loaddefaultroaddvmtvalues">Additional details</a>
 </dd>
 <dt>road costs</dt>
 <dd>VisionEval calculates an average mileage tax for household vehicles needed to make up any differences in the cost of constructing, maintaining, and operating roadways from the revenues from fuel taxes and pricing schemes (e.g., VMT taxes, congestion taxes). The latter are calculated based on assumptions about fuel consumption (a function of total daily VMT) and fuel efficiency, although this information can be both an input (default) and optional calculation with user-supplied data. While VisionEval adds this to the <span style="color:green">auto operating costs</span> of households it is important to note that such costs might not be passed on by governments in future years as assumed by VisionEval. The road costs and revenues are reconciled in the <code>BalanceRoadCostsAndRevenue</code> module in the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module">Additional details</a>
 </dd>
 <dt>road lane-miles</dt>
 <dd>The sum of the number of lanes multiplied by the length of each arterial roadway segment within a metropolitan area (Marea). The lane-miles of freeways are calculated separated (see <span style="color:green">freeway lane-miles</span>. Both are created in the <code>AssignRoadMiles</code> module of the <code>VETransportSupply</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module">Additional details</a>
 </dd>
 <dt>road use taxes</dt>
 <dd><em>see</em> road costs
@@ -368,51 +368,51 @@
 <dt>short-trip SOV diversion</dt>
 <dd>The <code>DivertSovTravel</code> module reduces travel in single-occupant vehicles (SOVs) to account for assumed availability of solo travel alternatives such as bicycles (traditional and electric) and scooters. The user inputs a goal for diverting a proportion of SOV travel within a 20-mile round-trip distance (i.e., for trips longer than 10 miles in one direction).
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md">Additional details</a>
 </dd>
 <dt>social costs</dt>
 <dd>Present and future generations bear costs due to the impact of transportation that are not fully recouped through <span style="color:green">auto operating costs</span> or <span style="color:green">auto ownership costs</span>, such as the costs of abating pollution, security and safety costs, and noise. VisionEval includes these costs in their full-cost accounting approach to calculating costs and benefits. The social cost parameters are defined as inputs to the <code>CalculateVehicleOperatingCost</code> module in the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
 </dd>
 <dt>speed smoothing</dt>
 <dd>A traffic management action or design that reduces the speed variation on freeways and arterials.
 </dd>
 <dd>Note that the introduction of autonomous vehicles will likely achieve this effect even when they only constitute a quarter or more of all vehicles on the roadway (<a href="https://doi.org/10.3141/2493-04">Levin &amp; Boyles 2015</a>, <a href="https://doi.org/10.1287/trsc.2016.0712">Mahmassani 2016</a>). Thus, speed smoothing might become an important property of future traffic systems that analysts should include in future years even in spite of current local interest in such programs.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#95-calculatempgmpkwhadjustments-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#95-calculatempgmpkwhadjustments-module">Additional details</a>
 </dd>
 <dt>transit modes</dt>
 <dd>VisionEval includes eight transit modes, which are also called transit service modes in some places in the documentation. The eight modes include demand-responsive (DR), vanpool and similar (VP), standard motor bus (MB), bus rapid transit and commuter bus (RB), monorail or other automated guideway (MG), streetcar or trolley bus (SR), light or heavy rail (HR), and commuter rail (CR) services. The latter includes specialized CR services such as hybrid rail, cable cars, and aerial tramways.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
 </dd>
 <dt>transit service level</dt>
 <dd>User-supplied annual revenue miles of service for each of the eight <span style="color:green">transit modes</span> are translated into bus-equivalents, revenue miles, and ultimately, vehicle miles. The transit service levels are set in the <code>AssignTransitService</code> module in the <code>VETransportSupply</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
 </dd>
 <dt>transit service miles</dt>
 <dd><span style="color:green">Bus-equivalent-miles</span> used to compute <span style="color:green">transit service levels</span> are summed to calculate transit miles by each <span style="color:green">transit mode</span>. The calculations are carried out in the <code>AssignTransitService</code> module in the <code>VETransportSupply</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a>
 </dd>
 <dt>transit vehicle type</dt>
 <dd>Different energy consumption and emissions characteristics are defined for vans, buses, and rail transit modes.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#911-calculateptranenergyandemissions-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#911-calculateptranenergyandemissions-module">Additional details</a>
 </dd>
 <dt>travel demand management (TDM)</dt>
 <dd>Policies and programs used to discourage travel in single-occupant vehicles in order to achieve safer and more efficient multimodal transportation systems. TDM encompasses a wide variety of initiatives, to include promotion of active transport, public transportation modes, car and bike sharing, and telecommuting. Adjustments in household VMT due to TDM actions are coded in the <code>BudgetHouseholdDvmt</code> module in the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#98-budgethouseholddvmt-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#98-budgethouseholddvmt-module">Additional details</a>
 </dd>
 <dt>urban mixed-use</dt>
 <dd>A mixed use development or neighborhood is one that includes residential and non-residential land uses in close proximity to one another, allowing for pedestrian access to many desired goods and services. Such places are walkable,“bikeable,” and encourage a local economy and strong social connections. From a transportation perspective such places are distinguished by their high degree of accessibility using non-motorized modes (active transport).
 </dd>
 <dd>In VisionEval the proportion of each Bzone that falls into this category can either be specified by the user or calculated by the program. If the latter a random sampling from an asserted distribution is used to define whether a household is in a mixed-use area. The density of the enclosing Bzone weights the probability of a household being so classified (i.e., the higher the density the higher probability of being assigned to a mixed-use neighborhood). These calculations are carried on in the <code>CalculateUrbanMixMeasure</code> module of the <code>VEHouseholds</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#45-calculateurbanmixmeasure-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#45-calculateurbanmixmeasure-module">Additional details</a>
 </dd>
 <dt>urbanized area</dt>
 <dd>Collectively the “urban” <span style="color:green">location type</span> portion of the <span style="color:green">metropolitan area</span> (Marea) set of zones. The road, transit and <span style="color:green">urban mixed use</span> variables only cover this portion of the Marea, which is typically equivalent to a Census urbanized area.
@@ -420,22 +420,22 @@
 <dt>value of time (VOT)</dt>
 <dd>The opportunity cost of the time that a person spends traveling rather than engaged in other activities. In theory it represents what the traveler would be willing to pay in order to reduce their time traveling. It is a surrogate for the value of travel times savings, which attempts to place a monetary value on the benefits of more efficient travel. While often an important parameter along with the equally influential value of reliability in pricing studies (<a href="https://www.caee.utexas.edu/prof/kockelman/TransportationEconomics_Website/TranspEconReference.pdf">Kockelman et al. 2013</a>, <a href="http://onlinepubs.trb.org/onlinepubs/shrp2/SHRP2prepubC04.pdf">Parsons Brinckerhoff et al. 2013</a>) VOT is an average value in VisionEval. It is used in <code>TimeCost</code> calculations in the <code>CalculateVehicleOperatingCost</code> module.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a>
 </dd>
 <dt>vehicle age</dt>
 <dd>The age of each household vehicle is estimated as a function of vehicle type (auto or light truck), household income, and the assumed average vehicle age coded for each vehicle type and Azone. The vehicle age is assigned in the <code>AssignVehicleAge</code> module in the <code>VEHouseholdVehicles</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#65-assignvehicleage">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#65-assignvehicleage">Additional details</a>
 </dd>
 <dt>vehicle groups</dt>
 <dd>Different groups of vehicles are used in VisionEval by different types of users. Automobiles and light trucks are used by households, car service, and commercial service, and are assigned in the <code>VEHouseholdVehicles</code> package. Heavy trucks are treated separately, and three types of vehicles – vans, buses, and rail – are used for transit.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#83-calculatecarbonintensity-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#83-calculatecarbonintensity-module">Additional details</a>
 </dd>
 <dt>vehicle hours of delay (VHD)</dt>
 <dd>An aggregate performance measure usually calculated by subtracting vehicle hours of travel under uncontested conditions from total vehicle hours of travel (VHT). Both measures are approximated for each <span style="color:green">metropolitan area</span> in VisionEval in the <code>CalculateRoadPerformance</code> module of the <code>VETravelPerformance</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a>
 </dd>
 <dt>vehicle operating costs</dt>
 <dd><em>see</em> auto operating costs
@@ -446,7 +446,7 @@
 <dt>vehicle table</dt>
 <dd>A vehicle table is a list of every vehicle owned by a household in VisionEval. It includes the vehicle characteristics, household ID, and the Azone and Marea the household is allocated to. It is created in the <code>CreateVehicleTable</code> module in the <code>VEHouseholdVehicles</code> package.
 </dd>
-<dd><a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#64-createvehicletable">Additional details</a>
+<dd><a href="https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#64-createvehicletable">Additional details</a>
 </dd>
 <dt>vehicle type</dt>
 <dd><em>see</em> vehicle groups

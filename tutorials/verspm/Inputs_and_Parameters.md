@@ -17,7 +17,7 @@ The following five files need to be configured in the "defs" directory:
 
 ### run_parameters.json
 
-This file contains parameters that define key attributes of the model run and relationships to other model runs. A more detailed description of the file can be found [here](https://github.com/gregorbj/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The results of model run are stored in a directory with the name specified by ```"DatastoreName"```. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to *BaseScenario* by using ```"DatastoreName": "BaseScenario"``` in the file. The format of this file is as follows:
+This file contains parameters that define key attributes of the model run and relationships to other model runs. A more detailed description of the file can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The results of model run are stored in a directory with the name specified by ```"DatastoreName"```. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to *BaseScenario* by using ```"DatastoreName": "BaseScenario"``` in the file. The format of this file is as follows:
 
 ```json
 {
@@ -38,7 +38,7 @@ ___
 
 ### model_parameters.json
 
-This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/gregorbj/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per a Nov 2016 ODOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).
+This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per a Nov 2016 ODOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).
 
 The format of this file is as follows:
 
@@ -74,7 +74,7 @@ ___
 
 ### geo.csv
 
-This file describes all of the geographic relationships for the model and the names of geographic entities in a CSV formatted text file. [**Azone**](https://github.com/gregorbj/VisionEval/blob/master/api/model_system_design.md#62-model-geography), [**Bzone**](https://github.com/gregorbj/VisionEval/blob/master/api/model_system_design.md#62-model-geography), and [**Marea**](https://github.com/gregorbj/VisionEval/blob/master/api/model_system_design.md#62-model-geography) should remain consistent with the input data. The format of the file is as follows:
+This file describes all of the geographic relationships for the model and the names of geographic entities in a CSV formatted text file. [**Azone**](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography), [**Bzone**](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography), and [**Marea**](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography) should remain consistent with the input data. The format of the file is as follows:
 
 | Azone       | Bzone          | Czone      | Marea      |
 | ----------- | -------------- | ---------- | ---------- |
@@ -117,7 +117,7 @@ This file describes the default units to be used for storing complex data types 
 | employment           | JOB              |
 | activity             | HHJOB            |
 
-The VisionEval model system keeps track of the types and units of measure of all data that is processed. More details about the file and structure can be found [here](https://github.com/gregorbj/VisionEval/blob/master/api/model_system_design.md#63-data-types-units-and-currency-deflators).
+The VisionEval model system keeps track of the types and units of measure of all data that is processed. More details about the file and structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#63-data-types-units-and-currency-deflators).
 
 [Top](#rspm-inputs-and-parameters)
 ___
