@@ -12,11 +12,11 @@ age group
 : [Additional details](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#8111-model-estimation-datasets)
 
 auto operating cost
-: A combination of out-of-pocket and travel time costs used to estimate the cost per mile of owning and operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, pay-as-you-drive (PAYD) insurance costs, and road use cost or VMT taxes are included where coded for the household's enclosed Bzone. The costs are calculated in the `CalculateHhVehicleOperatingCosts` module of the `VETravelPerformance` package.
+: The out-of-pocket costs used to estimate the cost per mile of operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, pay-as-you-drive (PAYD) insurance costs, and road use cost or VMT taxes are included where coded for the household's enclosed Bzone. For car service use, the operating cost is the assumed fare per mile. The costs are calculated in the `CalculateHhVehicleOperatingCosts` module of the `VETravelPerformance` package.
 : [Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md)
 
 auto ownership costs
-: The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include maintenance, tires, depreciation, fuel, insurance, etc.  
+: The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include depreciation, financing, insurance, etc. They also include any residential parking cost the household may have.  
 : Auto ownership is adjusted when the per-mile cost of owning a car is higher than car service (mobility services) when the latter has high availability. This adjustment is made in the `AdjustVehicleOwnership` module.
 : [Additional details on auto ownership](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost) and [auto ownership adjustments](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership)
 
@@ -111,7 +111,7 @@ ITS
 : _see_ intelligent transportation systems
 
 lambda parameter
-: The assumed split of light-duty household and <span style="color:green">commercial service</span> vehicles between freeways and arterials is calculated dynamically as the ratio of the respective average travel speeds and an urbanized area specific factor (lambda). The latter adjusts the raw ratio of speeds to match observed percentages using data from 90 urbanized areas. The calculation is carried out in the `CalculateRoadPerformance` module.
+: A parameter calibrated for the base year which is multiplied by the ratio of average freeway speed to average arterial speed to calculate the split of light-duty vehicle VMT between freeways and arterials in an urbanized area. The calibrated lambda parameter reflects the characteristics of the urbanized area road system and population. The calibrated lambda parameter is calculated from observed percentages using data from 90 urbanized areas. The calculation is carried out in the `CalculateRoadPerformance` module.
 : [Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module)
 
 lifecycle
