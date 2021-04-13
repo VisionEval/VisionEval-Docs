@@ -2,28 +2,28 @@
 
 <!-- Unnumbered sectionshttps://bookdown.org/yihui/rmarkdown-cookbook/unnumbered-sections.html -->
 
-#### 5D built form measures {-}
-The five dimensions considered in designing efficient and sustainable cities include density, design, destination access, distance to transit, and diversity of the built environment. The five dimensions build upon the original 3Ds (density, diversity, and design) advanced by [Cervero & Kockelman (1997)](https://www.sciencedirect.com/science/article/pii/S1361920997000096). These measures are calculated in the `Calculate4DMeasures` module during household synthesis.
+5D built form measures
+: The five dimensions considered in designing efficient and sustainable cities include density, design, destination access, distance to transit, and diversity of the built environment. The five dimensions build upon the original 3Ds (density, diversity, and design) advanced by [Cervero & Kockelman (1997)](https://www.sciencedirect.com/science/article/pii/S1361920997000096). These measures are calculated in the `Calculate4DMeasures` module during household synthesis.
 
 
-#### access time {-}
-The time required to get from the origin to the vehicle (or in the case of [CarService](#car-service), the time for the vehicle to get to the traveler) and the time to get from the vehicle to the destination (including time to park the vehicle). These values are defined for vehicles owned  by the household and for two levels of CarService (low and high availability levels) in each Bzone. These factors are defined in `azone_vehicle_access_times.csv` and used by the `CalculateVehicleOperatingCost` module in the `VETravelPerformance` package.
+access time
+: The time required to get from the origin to the vehicle (or in the case of [CarService](#car-service), the time for the vehicle to get to the traveler) and the time to get from the vehicle to the destination (including time to park the vehicle). These values are defined for vehicles owned  by the household and for two levels of CarService (low and high availability levels) in each Bzone. These factors are defined in `azone_vehicle_access_times.csv` and used by the `CalculateVehicleOperatingCost` module in the `VETravelPerformance` package.
 [Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
 
-#### age group {-}
-VisionEval uses the same age groups used in the U.S. Census0-14, 15-19, 20-29, 30-54, 55-64, and 65+ years old. The number of persons in each age group are defined for each synthetic household.
+age group
+: VisionEval uses the same age groups used in the U.S. Census0-14, 15-19, 20-29, 30-54, 55-64, and 65+ years old. The number of persons in each age group are defined for each synthetic household.
 [Additional details](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#8111-model-estimation-datasets)
 
-#### auto operating cost {-}
-A combination of out-of-pocket and travel time costs used to estimate the cost per mile of owning and operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, pay-as-you-drive (PAYD) insurance costs, and road use cost or VMT taxes are included where coded for the household's enclosed Bzone. The costs are calculated in the `CalculateHhVehicleOperatingCosts` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md)
+auto operating cost
+: The out-of-pocket costs used to estimate the cost per mile of operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, pay-as-you-drive (PAYD) insurance costs, and road use cost or VMT taxes are included where coded for the household's enclosed Bzone. For car service use, the operating cost is the assumed fare per mile. The costs are calculated in the `CalculateHhVehicleOperatingCosts` module of the `VETravelPerformance` package.
+: [Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md)
 
-#### auto ownership costs
-The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include maintenance, tires, depreciation, fuel, insurance, etc.  
-Auto ownership is adjusted when the per-mile cost of owning a car is higher than car service (mobility services) when the latter has high availability. This adjustment is made in the `AdjustVehicleOwnership` module.
-[Additional details on auto ownership](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost) and [auto ownership adjustments](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership)
+auto ownership costs
+: The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include depreciation, financing, insurance, etc. They also include any residential parking cost the household may have.  
+: Auto ownership is adjusted when the per-mile cost of owning a car is higher than car service (mobility services) when the latter has high availability. This adjustment is made in the `AdjustVehicleOwnership` module.
+: [Additional details on auto ownership](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost) and [auto ownership adjustments](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership)
 
-#### auto sufficiency {-}
+auto sufficiency
 Auto sufficiency is achieved when the number of vehicles available to a household is equal to or greater than the number of licensed drivers in a household. A household in "auto insufficient" when that is not true. Zero-auto households are cases where the household has access to a vehicle. In the age of ubiquitous mobility services this definition may become less important in describing mobility options open to the household.
 
 bus-equivalent-miles

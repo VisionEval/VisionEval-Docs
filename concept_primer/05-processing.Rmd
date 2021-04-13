@@ -4,7 +4,7 @@ VisionEval is designed to be easy to install, run, and summarize, even when comp
 
 ## Running VisionEval
 
-VisionEval is implemented entirely in the [R statistical language](https://www.r-project.org) and operates on recent versions of Microsoft Windows. All development work in done there, although macOS and Linux versions are usually distributed. A fully self-contained installer for the more recent production release of VisionEval can be found on the [download page](https://visioneval.org/category/download.html). It permits installation of the full VisionEval platform, to include example data, even behind firewalls that prevent access to R Project and GitHub repositories. 
+VisionEval is implemented entirely in the [R statistical language](https://www.r-project.org) and operates on recent versions of Microsoft Windows. All development work is done there, although macOS and Linux versions are usually distributed. A fully self-contained installer for the more recent production release of VisionEval can be found on the [download page](https://visioneval.org/category/download.html). It permits installation of the full VisionEval platform, to include example data, even behind firewalls that prevent access to R Project and GitHub repositories. 
 
 Once installed the user assembles data into a [standard directory structure](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#12-basic-structure-of-model-system). Once the [model run script](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#17-basic-model-setup) is customized by the user it is typically run from a command prompt. Running it in this manner allows several different scenarios to be run at the same time with minimal user interaction. The results can then be mined or visualized using a variety of VisionEval and third-party products. Some users use [R Shiny](https://shiny.rstudio.com/) or similar interactive environments for summarizing and visualizing the output from VisionEval. Such an environment is especially useful when comparing key metrics from a large number of scenarios.
 
@@ -26,7 +26,7 @@ One example of a set of region-wide performance metrics used by Oregon DOT inclu
     + Annual HH vehicle operating cost (fuel, taxes, parking)
     + Annual HH ownership costs (depreciation, vehicle maintenance, tires, finance charge, insurance, registration)
 + Land Use
-    + Residents liming in mixed use areas
+    + Residents living in mixed use areas
     + Housing type (SF: MF)
 + Environmental
     + Annual GHG emissions per capita
