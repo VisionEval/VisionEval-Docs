@@ -8,8 +8,9 @@ documentclass: book
 bibliography: [primer.bib]
 biblio-style: apalike
 link-citations: yes
+number_sections: true    # if true, cross reference section labels render correctly
 github-repo: visioneval/VisionEval-Docs
-description: "The VisionEval Concepts Primer."
+description: "VisionEval Concepts Primer"
 ---
 
 # Preface {-}
