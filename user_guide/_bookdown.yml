@@ -1,0 +1,16 @@
+book_filename: "user_guide"
+new_session: true
+before_chapter_script: _common.R
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
+rmd_files:
+  - index.Rmd
+  - 00-getting-started.Rmd
+  - 01-intro.Rmd
+  - 02-applications.Rmd
+  - 03-building-blocks.Rmd
+  - 04-adjustments.Rmd
+  - 05-processing.Rmd
+  - 06-lexicon.Rmd
