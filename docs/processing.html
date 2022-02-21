@@ -52,25 +52,25 @@
 <li><a class="active" href="processing.html"><span class="header-section-number">5</span> Processing</a></li>
 <li><a class="" href="lexicon.html"><span class="header-section-number">6</span> Lexicon</a></li>
 <li class="book-part">VERSPM Tutorial</li>
-<li><a class="" href="overview-1.html"><span class="header-section-number">7</span> Overview</a></li>
+<li><a class="" href="verspm.html"><span class="header-section-number">7</span> Overview</a></li>
 <li><a class="" href="inputs-and-parameters.html"><span class="header-section-number">8</span> Inputs and Parameters</a></li>
 <li><a class="" href="modules-and-outputs.html"><span class="header-section-number">9</span> Modules and Outputs</a></li>
 <li><a class="" href="development-and-installation.html"><span class="header-section-number">10</span> Development and Installation</a></li>
 <li><a class="" href="performance-metrics-1.html"><span class="header-section-number">11</span> Performance Metrics</a></li>
 <li class="book-part">VERPAT Tutorial</li>
-<li><a class="" href="overview-2.html"><span class="header-section-number">12</span> Overview</a></li>
+<li><a class="" href="verpat.html"><span class="header-section-number">12</span> Overview</a></li>
 <li><a class="" href="inputs-and-parameters-1.html"><span class="header-section-number">13</span> Inputs and Parameters</a></li>
 <li><a class="" href="modules-and-outputs-1.html"><span class="header-section-number">14</span> Modules and Outputs</a></li>
 <li><a class="" href="development-and-installation-1.html"><span class="header-section-number">15</span> Development and Installation</a></li>
 <li><a class="" href="performance-metrics-2.html"><span class="header-section-number">16</span> Performance Metrics</a></li>
 <li class="book-part">VEState Tutorial</li>
-<li><a class="" href="overview-3.html"><span class="header-section-number">17</span> Overview</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">17</span> Overview</a></li>
 <li><a class="" href="required-bzone-attributes.html"><span class="header-section-number">18</span> Required Bzone Attributes</a></li>
 <li><a class="" href="approach-for-synthesizing-bzones-and-their-attributes.html"><span class="header-section-number">19</span> Approach for Synthesizing Bzones and their Attributes</a></li>
 <li><a class="" href="inputs-and-parameters-2.html"><span class="header-section-number">20</span> Inputs and Parameters</a></li>
 <li><a class="" href="development-and-installation-2.html"><span class="header-section-number">21</span> Development and Installation</a></li>
 <li class="book-part">Developer Documentation</li>
-<li><a class="" href="contribution-guidelines.html"><span class="header-section-number">22</span> Contribution Guidelines</a></li>
+<li><a class="" href="developer.html"><span class="header-section-number">22</span> Contribution Guidelines</a></li>
 <li><a class="" href="testing-strategies.html"><span class="header-section-number">23</span> Testing Strategies</a></li>
 <li><a class="" href="add-or-modify-a-package.html"><span class="header-section-number">24</span> Add or Modify a Package</a></li>
 </ul>
@@ -208,6 +208,34 @@
   </div>
 
 </div></div>
-</footer>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
 </body>
 </html>
