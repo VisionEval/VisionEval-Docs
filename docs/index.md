@@ -31,11 +31,12 @@ This guide contains a diversity of information intended for different audiences 
 **Model applier:** You are wanting to learn about the VisionEval system and implement a model application.
 
 - [Getting Started][Getting Started]: Instructions on how to get VisionEval installed and running
-- [VisionEval Models](#visionevalmodels): Technical background on VisionEval, overview of main components, and how it works
-- [Concept Primer](#conceptprimer): An overview of the concepts underlying the VisionEval modeling system, intended for a non-technical audience
-- Tutorials: Comprehensive tutorial materials on the [VERSPM](#verspm), [VERPAT](#verpat), and VEState(#vestate) models
+- [VisionEval Models][VisionEval Models]: Technical background on VisionEval, overview of main components, and how it works
+- [Concept Primer](#intro): An overview of the concepts underlying the VisionEval modeling system, intended for a non-technical audience
+- Tutorials: Comprehensive tutorial materials on the [VERSPM](#verspm), [VERPAT](#verpat), and [VEState](#vestate) models
 
 **Developer:** You are a developer or researcher and want to make contributions to the VisionEval system.
-- [Developer Documenation]
+
+- [Developer Documentation](#developer)
 
 

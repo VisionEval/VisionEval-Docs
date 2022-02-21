@@ -37,7 +37,7 @@ typical-outputs
 exporting-data
 validation
 lexicon
-overview-1
+verspm
 structure
 modules
 feedback
@@ -209,7 +209,7 @@ inputs
 scenario_inputs
 running-the-model-for-multiple-scenarios
 performance-metrics-1
-overview-2
+verpat
 verpat-model-structure
 verpat-modules
 feedback-loops
@@ -379,7 +379,7 @@ modifying-the-scenario
 model-output
 exporting-data-to-csv
 performance-metrics-2
-overview-3
+vestate
 ve-state-vs.-ve-rspm
 ve-rspm-structure
 ve-state-structure
@@ -543,6 +543,6 @@ running-the-model-1
 querying-results
 scenarios
 performance-metrics-3
-contribution-guidelines
+developer
 testing-strategies
 add-or-modify-a-package
