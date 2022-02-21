@@ -1,4 +1,4 @@
-# Getting Started {-}
+# Getting Started {-} 
 
 ## Overview {-}
 
@@ -21,9 +21,7 @@ There are two paths to getting VisionEval running:
 
 2. **Clone or fork repository** If you area a Mac/Linux user, or if you are interested in contributing to the development of VisionEval modules, models, framework, or visualizer, choose this path.   Instructions for setting up the VisionEval development environment can be found in the <a target="_blank" href="https://github.com/VisionEval/VE-Installer">VE-Installer</a> repository.
 
-### Install for Windows {-}
-
-**[Get VisionEval Here](https://github.com/VisionEval/VisionEval/releases/download/v1.0.0/VE-installer-Windows-R3.6.1.2019-07-15.zip)**
+**Install for Windows**:**[Get VisionEval Here](https://github.com/VisionEval/VisionEval/releases/download/v1.0.0/VE-installer-Windows-R3.6.1.2019-07-15.zip)**
 
 *Note: 583 Mb download! Packaged for R 3.6.1*
 

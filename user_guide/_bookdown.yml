@@ -8,9 +8,26 @@ language:
 rmd_files:
   - index.Rmd
   - 00-getting-started.Rmd
+  - 00-visioneval-models.Rmd
   - 01-intro.Rmd
   - 02-applications.Rmd
   - 03-building-blocks.Rmd
   - 04-adjustments.Rmd
   - 05-processing.Rmd
   - 06-lexicon.Rmd
+  - 07-verspm.Rmd
+  - 08-verspm-inputs.Rmd
+  - 09-verspm-modules.Rmd
+  - 10-verspm-development.Rmd
+  - 11-verspm-metrics.Rmd
+  - 12-verpat.Rmd
+  - 13-verpat-inputs.Rmd
+  - 14-verpat-modules.Rmd
+  - 15-verpat-development.Rmd
+  - 16-verpat-metrics.Rmd
+  - 17-vestate.Rmd
+  - 18-vestate-inputs.Rmd
+  - 19-vestate-modules.Rmd
+  - 20-vestate-development.Rmd
+  - 21-vestate-metrics.Rmd
+  - 22-developer.Rmd
