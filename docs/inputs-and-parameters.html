@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Inputs and Parameters | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Inputs and Parameters | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/images/cover.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Inputs and Parameters | VisionEval User Guide">
+<meta name="twitter:image" content="/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="VERSPM data inputs are classified into two categories: Inputs and Model Parameters. It includes five definition files and dozens of input files, some of which the user must change and others which...">
+<meta property="og:description" content="VERSPM data inputs are classified into two categories: Inputs and Model Parameters. It includes five definition files and dozens of input files, some of which the user must change and others which...">
+<meta name="twitter:description" content="VERSPM data inputs are classified into two categories: Inputs and Model Parameters. It includes five definition files and dozens of input files, some of which the user must change and others which...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">VisionEval User Guide</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html">Getting Started</a></li>
+<li><a class="" href="visioneval-models.html">VisionEval Models</a></li>
+<li class="book-part">Concept Primer</li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="typical-applications.html"><span class="header-section-number">2</span> Typical applications</a></li>
+<li><a class="" href="building-blocks.html"><span class="header-section-number">3</span> Building blocks</a></li>
+<li><a class="" href="adjustments.html"><span class="header-section-number">4</span> Adjustments</a></li>
+<li><a class="" href="processing.html"><span class="header-section-number">5</span> Processing</a></li>
+<li><a class="" href="lexicon.html"><span class="header-section-number">6</span> Lexicon</a></li>
+<li class="book-part">VERSPM Tutorial</li>
+<li><a class="" href="overview-1.html"><span class="header-section-number">7</span> Overview</a></li>
+<li><a class="active" href="inputs-and-parameters.html"><span class="header-section-number">8</span> Inputs and Parameters</a></li>
+<li><a class="" href="modules-and-outputs.html"><span class="header-section-number">9</span> Modules and Outputs</a></li>
+<li><a class="" href="development-and-installation.html"><span class="header-section-number">10</span> Development and Installation</a></li>
+<li><a class="" href="performance-metrics-1.html"><span class="header-section-number">11</span> Performance Metrics</a></li>
+<li class="book-part">VERPAT Tutorial</li>
+<li><a class="" href="overview-2.html"><span class="header-section-number">12</span> Overview</a></li>
+<li><a class="" href="inputs-and-parameters-1.html"><span class="header-section-number">13</span> Inputs and Parameters</a></li>
+<li><a class="" href="modules-and-outputs-1.html"><span class="header-section-number">14</span> Modules and Outputs</a></li>
+<li><a class="" href="development-and-installation-1.html"><span class="header-section-number">15</span> Development and Installation</a></li>
+<li><a class="" href="performance-metrics-2.html"><span class="header-section-number">16</span> Performance Metrics</a></li>
+<li class="book-part">VEState Tutorial</li>
+<li><a class="" href="overview-3.html"><span class="header-section-number">17</span> Overview</a></li>
+<li><a class="" href="required-bzone-attributes.html"><span class="header-section-number">18</span> Required Bzone Attributes</a></li>
+<li><a class="" href="approach-for-synthesizing-bzones-and-their-attributes.html"><span class="header-section-number">19</span> Approach for Synthesizing Bzones and their Attributes</a></li>
+<li><a class="" href="inputs-and-parameters-2.html"><span class="header-section-number">20</span> Inputs and Parameters</a></li>
+<li><a class="" href="development-and-installation-2.html"><span class="header-section-number">21</span> Development and Installation</a></li>
+<li class="book-part">Developer Documentation</li>
+<li><a class="" href="contribution-guidelines.html"><span class="header-section-number">22</span> Contribution Guidelines</a></li>
+<li><a class="" href="testing-strategies.html"><span class="header-section-number">23</span> Testing Strategies</a></li>
+<li><a class="" href="add-or-modify-a-package.html"><span class="header-section-number">24</span> Add or Modify a Package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="inputs-and-parameters" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Inputs and Parameters<a class="anchor" aria-label="anchor" href="#inputs-and-parameters"><i class="fas fa-link"></i></a>
+</h1>
+<p>VERSPM data inputs are classified into two categories: Inputs and Model Parameters. It includes five definition files and dozens of input files, some of which the user must change and others which typically remain unchanged. This page provides guidance of these files to the end user and which files must be updated to implement RSPM in a new region.</p>
+<div id="model-definition-files" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Model Definition Files<a class="anchor" aria-label="anchor" href="#model-definition-files"><i class="fas fa-link"></i></a>
+</h2>
+<p>The following five files need to be configured in the “defs” directory:</p>
+<ul>
+<li><a href="inputs-and-parameters.html#run_parameters.json">run_parameters.json</a></li>
+<li><a href="inputs-and-parameters.html#model_parameters.json">model_parameters.json</a></li>
+<li><a href="inputs-and-parameters.html#deflators.csv">deflators.csv</a></li>
+<li><a href="inputs-and-parameters.html#geo.csv">geo.csv</a></li>
+<li><a href="inputs-and-parameters.html#units.csv">units.csv</a></li>
+</ul>
+<div id="run_parameters.json" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> run_parameters.json<a class="anchor" aria-label="anchor" href="#run_parameters.json"><i class="fas fa-link"></i></a>
+</h3>
+<p>This file contains parameters that define key attributes of the model run and relationships to other model runs. A more detailed description of the file can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure">here</a>. The results of model run are stored in a directory with the name specified by <code>"DatastoreName"</code>. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to <em>BaseScenario</em> by using <code>"DatastoreName": "BaseScenario"</code> in the file. The format of this file is as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="inputs-and-parameters.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="inputs-and-parameters.html#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Model"</span><span class="fu">:</span> <span class="st">"VERSPM"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="inputs-and-parameters.html#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Scenario"</span><span class="fu">:</span> <span class="st">"Test"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="inputs-and-parameters.html#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"Test of VERSPM"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="inputs-and-parameters.html#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Region"</span><span class="fu">:</span> <span class="st">"RVMPO"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="inputs-and-parameters.html#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"BaseYear"</span><span class="fu">:</span> <span class="st">"2010"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="inputs-and-parameters.html#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Years"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"2010"</span><span class="ot">,</span> <span class="st">"2038"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="inputs-and-parameters.html#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DatastoreName"</span><span class="fu">:</span> <span class="st">"Datastore"</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="inputs-and-parameters.html#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DatastoreType"</span><span class="fu">:</span> <span class="st">"RD"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="inputs-and-parameters.html#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Seed"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb1-11"><a href="inputs-and-parameters.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+</div>
+<div id="model_parameters.json" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> model_parameters.json<a class="anchor" aria-label="anchor" href="#model_parameters.json"><i class="fas fa-link"></i></a>
+</h3>
+<p>This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure">here</a>. The source of the default $16/hr is per a Nov 2016 ODOT Report: <a href="https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf">“The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon”</a>.</p>
+<p>The format of this file is as follows:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb2-1"><a href="inputs-and-parameters.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb2-2"><a href="inputs-and-parameters.html#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
+<span id="cb2-3"><a href="inputs-and-parameters.html#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
+<span id="cb2-4"><a href="inputs-and-parameters.html#cb2-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
+<span id="cb2-5"><a href="inputs-and-parameters.html#cb2-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
+<span id="cb2-6"><a href="inputs-and-parameters.html#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb2-7"><a href="inputs-and-parameters.html#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+</div>
+<div id="deflators.csv" class="section level3" number="8.1.3">
+<h3>
+<span class="header-section-number">8.1.3</span> deflators.csv<a class="anchor" aria-label="anchor" href="#deflators.csv"><i class="fas fa-link"></i></a>
+</h3>
+<p>This file defines the annual deflator values, such as the consumer price index, that are used to convert currency values between different years for currency denomination. This file does not need to be modified unless the years for which the dollar values used in the input dataset is not contained in this file. The format of the file is as follows:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Year</th>
+<th>Value</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1999</td>
+<td>172.6</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>178.0</td>
+</tr>
+<tr class="odd">
+<td>2001</td>
+<td>182.4</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>2010</td>
+<td>218.344</td>
+</tr>
+<tr class="even">
+<td>…</td>
+<td>…</td>
+</tr>
+<tr class="odd">
+<td>2016</td>
+<td>249.426</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="geo.csv" class="section level3" number="8.1.4">
+<h3>
+<span class="header-section-number">8.1.4</span> geo.csv<a class="anchor" aria-label="anchor" href="#geo.csv"><i class="fas fa-link"></i></a>
+</h3>
+<p>This file describes all of the geographic relationships for the model and the names of geographic entities in a CSV formatted text file. <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography"><strong>Azone</strong></a>, <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography"><strong>Bzone</strong></a>, and <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography"><strong>Marea</strong></a> should remain consistent with the input data. The format of the file is as follows:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Azone</th>
+<th>Bzone</th>
+<th>Czone</th>
+<th>Marea</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>RVMPO</td>
+<td>D410290001001</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="even">
+<td>RVMPO</td>
+<td>D410290001002</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="odd">
+<td>RVMPO</td>
+<td>D410290002011</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="even">
+<td>RVMPO</td>
+<td>D410290002012</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="odd">
+<td>RVMPO</td>
+<td>D410290002013</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="even">
+<td>RVMPO</td>
+<td>D410290002021</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="odd">
+<td>RVMPO</td>
+<td>D410290002022</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="even">
+<td>RVMPO</td>
+<td>D410290002023</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="odd">
+<td>RVMPO</td>
+<td>D410290002031</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="even">
+<td>RVMPO</td>
+<td>D410290002032</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="odd">
+<td>RVMPO</td>
+<td>D410290002033</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="even">
+<td>RVMPO</td>
+<td>D410290003001</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+<tr class="odd">
+<td>RVMPO</td>
+<td>…</td>
+<td>NA</td>
+<td>RVMPO</td>
+</tr>
+</tbody>
+</table></div>
+<p>To learn more about VERSPM model geographic relationships see <a href="docs/VisionEval_Inputs_by_Geo.docx">here</a></p>
+</div>
+</div>
+<div id="units.csv" class="section level2" number="8.2">
+<h2>
+<span class="header-section-number">8.2</span> units.csv<a class="anchor" aria-label="anchor" href="#units.csv"><i class="fas fa-link"></i></a>
+</h2>
+<p>This file describes the default units to be used for storing complex data types in the model. This file should NOT be modified by the user. The format of the file is as follows:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Type</th>
+<th>Units</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>currency</td>
+<td>USD</td>
+</tr>
+<tr class="even">
+<td>distance</td>
+<td>MI</td>
+</tr>
+<tr class="odd">
+<td>area</td>
+<td>SQMI</td>
+</tr>
+<tr class="even">
+<td>mass</td>
+<td>KG</td>
+</tr>
+<tr class="odd">
+<td>volume</td>
+<td>GAL</td>
+</tr>
+<tr class="even">
+<td>time</td>
+<td>DAY</td>
+</tr>
+<tr class="odd">
+<td>energy</td>
+<td>GGE</td>
+</tr>
+<tr class="even">
+<td>people</td>
+<td>PRSN</td>
+</tr>
+<tr class="odd">
+<td>trips</td>
+<td>VEH</td>
+</tr>
+<tr class="even">
+<td>area</td>
+<td>TRIP</td>
+</tr>
+<tr class="odd">
+<td>households</td>
+<td>HH</td>
+</tr>
+<tr class="even">
+<td>employment</td>
+<td>JOB</td>
+</tr>
+<tr class="odd">
+<td>activity</td>
+<td>HHJOB</td>
+</tr>
+</tbody>
+</table></div>
+<p>The VisionEval model system keeps track of the types and units of measure of all data that is processed. More details about the file and structure can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#63-data-types-units-and-currency-deflators">here</a>.</p>
+</div>
+<div id="input-files" class="section level2" number="8.3">
+<h2>
+<span class="header-section-number">8.3</span> Input Files<a class="anchor" aria-label="anchor" href="#input-files"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="inputs-and-parameters.html#azone_carsvc_characteristics.csv-optional"><strong>azone_carsvc_characteristics.csv</strong></a> This file specifies the different characteristics for high and low car service level and is used in the <a href="Modules_and_Outputs.md/#createvehicletable">CreateVehicleTable</a> and <a href="Modules_and_Outputs.md/#assignvehicleage">AssignVehicleAge</a> modules.</li>
+<li>
+<a href="inputs-and-parameters.html#azone_charging_availability.csv"><strong>azone_charging_availability.csv</strong></a> This file has data on proportion of different household types who has EV charging available and is used in the <a href="Modules_and_Outputs.md/#assignhhvehiclepowertrain">AssignHHVehiclePowertrain</a> module.<br>
+</li>
+<li>
+<a href="inputs-and-parameters.html#azone_electricity_carbon_intensity.csv-optional"><strong>azone_electricity_carbon_intensity.csv</strong></a> This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
+</li>
+<li>
+<a href="inputs-and-parameters.html#azone_fuel_power_cost.csv"><strong>azone_fuel_power_cost.csv</strong></a> This file supplies data for retail cost of fuel and electricity and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.<br>
+</li>
+<li>
+<strong>azone_gq_pop_by_age.csv</strong> This file contains group quarters population estimates/forecasts by age and is used in the <a href="Modules_and_Outputs.md/#createhouseholds">CreateHouseholds</a> module.<br>
+</li>
+<li>
+<strong>azone_hh_pop_by_age.csv</strong> This file contains population estimates/forecasts by age and is used in the <a href="Modules_and_Outputs.md/#createhouseholds">CreateHouseholds</a> module.<br>
+</li>
+<li>
+<strong>azone_hh_veh_mean_age.csv</strong> This file provides inputs for mean auto age and mean light truck age and is used in the <a href="Modules_and_Outputs.md/#assignvehicleage">AssignVehicleAge</a> module.<br>
+</li>
+<li>
+<strong>azone_hh_veh_own_taxes.csv</strong> This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in <a href="Modules_and_Outputs.md/#calculatevehicleowncost">CalculateVehicleOwnCost</a> module.<br>
+</li>
+<li>
+<strong>azone_hhsize_targets.csv</strong> This file contains the household specific targets and is used in <a href="Modules_and_Outputs.md/#createhouseholds">CreateHouseholds</a> module.<br>
+</li>
+<li>
+<strong>azone_lttrk_prop.csv</strong> This file specifies the light truck proportion of the vehicle fleet and is used in <a href="Modules_and_Outputs.md/#assignvehicletype">AssignVehicleType</a> module.</li>
+<li>
+<strong>azone_payd_insurance_prop.csv</strong> This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleowncost">CalculateVehicleOwnCost</a> module.<br>
+</li>
+<li>
+<strong>azone_per_cap_inc.csv</strong> This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the <a href="Modules_and_Outputs.md/#predictincome">PredictIncome</a> module.<br>
+</li>
+<li>
+<strong>azone_prop_sov_dvmt_diverted.csv</strong> This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the <a href="Modules_and_Outputs.md/#divertsovtravel">DivertSovTravel</a> module.<br>
+</li>
+<li>
+<strong>azone_relative_employment.csv</strong> This file contains ratio of workers to persons by age and is used in the <a href="Modules_and_Outputs.md/#predictworkers">PredictWorkers</a> module.</li>
+<li>
+<strong>azone_veh_use_taxes.csv</strong> This file supplies data for vehicle related taxes and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcosts">CalculateVehicleOperatingCost</a> module.<br>
+</li>
+<li>
+<strong>azone_vehicle_access_times.csv</strong> This file supplies data for vehicle access and egress time and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.<br>
+</li>
+<li>
+<strong>bzone_transit_service.csv</strong> This file supplies the data on relative public transit accessibility and is used in the <a href="Modules_and_Outputs.md/#assigntransitservice">AssignTransitService</a> module.<br>
+</li>
+<li>
+<strong>bzone_carsvc_availability.csv</strong> This file contains the information about level of car service availability and is used in the <a href="Modules_and_Outputs.md/#assigncarsvcavailability">AssignCarSvcAvailability</a> module.</li>
+<li>
+<strong>bzone_dwelling_units.csv</strong> This file contains the number single-family, multi-family and group-quarter dwelling units and is used in the <a href="Modules_and_Outputs.md/#predicthousing">PredictHousing</a> module.<br>
+</li>
+<li>
+<strong>bzone_employment.csv</strong> This file contains the total, retail and service employment by zone and is used in the <a href="Modules_and_Outputs.md/#locateemployment">LocateEmployment</a> module.<br>
+</li>
+<li>
+<strong>bzone_hh_inc_qrtl_prop.csv</strong> This file contains the proportion of households in 1st, 2nd, 3rd, and 4th quartile of household income and is used in the <a href="Modules_and_Outputs.md/#predicthousing">PredictHousing</a> module.<br>
+</li>
+<li>
+<strong>bzone_lat_lon.csv</strong> This file contains the latitude and longitude of the centroid of the zone and is used in the <a href="Modules_and_Outputs.md/#locateemployment">LocateEmployment</a> module.<br>
+</li>
+<li>
+<strong>bzone_network_design.csv</strong> This file contains the intersection density in terms of pedestrian-oriented intersections having four or more legs per square mile and is used in the <a href="Modules_and_Outputs.md/#calculate4dmeasures">Calculate4DMeasures</a> module.</li>
+<li>
+<strong>bzone_parking.csv</strong> This file contains the parking information and is used in the <a href="Modules_and_Outputs.md/#assignparkingrestrictions">AssignParkingRestrictions</a> module.<br>
+</li>
+<li>
+<strong>bzone_travel_demand_mgt.csv</strong> This file contains the information about workers and households participating in demand management programs and is used in the <a href="Modules_and_Outputs.md/#assigndemandmanagement">AssignDemandManagement</a> module.</li>
+<li>
+<strong>bzone_unprotected_area.csv</strong> This file contains the information about unprotected (i.e., developable) area within the zone and is used in the <a href="Modules_and_Outputs.md/#calculate4dmeasures">Calculate4DMeasures</a> module.</li>
+<li>
+<strong>bzone_urban-mixed-use_prop.csv</strong> This file contains the target proportion of households located in mixed-used neighborhoods in zone and is used in the <a href="Modules_and_Outputs.md/#calculateurbanmixmeasure">CalculateUrbanMixMeasure</a> module.<br>
+</li>
+<li>
+<strong>bzone_urban-town_du_proportions.csv</strong> This file contains proportion of Single-Family, Multi-Family and Group Quarter dwelling units within the urban portion of the zone and is used in the <a href="Modules_and_Outputs.md/#assignloctypes">AssignLocTypes</a> module.<br>
+</li>
+<li>
+<strong>marea_base_year_dvmt.csv</strong> This file is used to specify to adjust the dvmt growth factors and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="Modules_and_Outputs.md/#calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.</li>
+<li>
+<strong>marea_congestion_charges.csv</strong> This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.<br>
+</li>
+<li>
+<strong>marea_dvmt_split_by_road_class.csv</strong> This file is used to specify the dvmt split for different road classes and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> modules.<br>
+</li>
+<li>
+<strong>marea_lane_miles.csv</strong> This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the <a href="Modules_and_Outputs.md/#assignroadmiles">AssignRoadMiles</a> module.<br>
+</li>
+<li>
+<strong>marea_operations_deployment.csv</strong> This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.<br>
+</li>
+<li>
+<strong>marea_speed_smooth_ecodrive.csv</strong> This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the <a href="Modules_and_Outputs.md/#calculatempgmpkwhadjustments">CalculateMpgMpkwhAdjustments</a> module.<br>
+</li>
+<li>
+<strong>marea_transit_ave_fuel_carbon_intensity.csv</strong> This file is used to specify the average carbon intensity of fuel used by transit and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> module.</li>
+<li>
+<strong>marea_transit_biofuel_mix.csv</strong> This file is used to specify the biofuel used by transit and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
+</li>
+<li>
+<strong>marea_transit_fuel.csv</strong> This file is used to specify the transit fuel proportions and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
+</li>
+<li>
+<strong>marea_transit_powertrain_prop.csv</strong> This file is used to specify the mixes of transit vehicle powertrains and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateptranenergyandemissions">CalculatePtranEnergyAndEmissions</a> modules.<br>
+</li>
+<li>
+<strong>marea_transit_service.csv</strong> This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the <a href="Modules_and_Outputs.md/#assigntransitservice">AssignTransitService</a> module.<br>
+</li>
+<li>
+<strong>other_ops_effectiveness.csv</strong> This file is used to specify the delay effects of operations in different road classes and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.</li>
+<li>
+<strong>region_ave_fuel_carbon_intensity.csv</strong> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
+</li>
+<li>
+<strong>region_base_year_hvytrk_dvmt.csv</strong> This file is used to specify the heavy truck dvmt for base year and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="Modules_and_Outputs.md/#calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.<br>
+</li>
+<li>
+<strong>region_carsvc_powertrain_prop.csv</strong> This file is used to specify the powertrain proportion of car services and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a> and <a href="Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh">AdjustHhVehicleMpgMpkwh</a> modules.<br>
+</li>
+<li>
+<strong>region_comsvc_lttrk_prop.csv</strong> This file supplies data for the light truck proportion of commercial vehicles and is used in the <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> module.<br>
+</li>
+<li>
+<strong>region_comsvc_powertrain_prop.csv</strong> This file is used to specify the powertrain proportion of commercial vehicles and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.<br>
+</li>
+<li>
+<strong>region_hh_driver_adjust_prop.csv</strong> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the <a href="Modules_and_Outputs.md/#assigndrivers">AssignDrivers</a> module.</li>
+<li>
+<strong>region_hvytrk_powertrain_prop.csv</strong> This file is used to specify the powertrain proportion of heavy duty trucks and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.</li>
+<li>
+<strong>region_prop_externalities_paid.csv</strong> This file supplies data for climate change and other social costs and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.</li>
+</ul>
+</div>
+<div id="input-preparation" class="section level2" number="8.4">
+<h2>
+<span class="header-section-number">8.4</span> Input Preparation<a class="anchor" aria-label="anchor" href="#input-preparation"><i class="fas fa-link"></i></a>
+</h2>
+<p>User needs to prepare to run a VERSPM model are the following:</p>
+<ul>
+<li>Local PUMS data</li>
+<li>Check 5 definition files</li>
+<li>Prepare 51 input files</li>
+</ul>
+<div id="azone_carsvc_characteristics.csv-optional" class="section level3 unnumbered">
+<h3>azone_carsvc_characteristics.csv (optional)<a class="anchor" aria-label="anchor" href="#azone_carsvc_characteristics.csv-optional"><i class="fas fa-link"></i></a>
+</h3>
+<p>This file specifies the different characteristics for high and low car service levels by <code>Azone</code>. More information on car service can be found here(placeholder). Changing this input is <em>optional</em> and using the default input values is standard practice.</p>
+<ul>
+<li>
+<strong>HighCarSvcCost</strong>: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)</li>
+<li>
+<strong>LowCarSvcCost</strong>: Average cost in dollars per mile for travel by low service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)</li>
+<li>
+<strong>AveCarSvcVehicleAge</strong>: Average age of car service vehicles in years</li>
+<li>
+<strong>LtTrkCarSvcSubProp</strong>: The proportion of light-truck owners who would substitute a less-costly car service option for owning their light truck</li>
+<li>
+<strong>AutoCarSvcSubProp</strong>: The proportion of automobile owners who would substitute a less-costly car service option for owning their automobile</li>
+</ul>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="10%">
+<col width="15%">
+<col width="15%">
+<col width="15%">
+<col width="15%">
+<col width="15%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">HighCarSvcCost.2010</th>
+<th align="center">LowCarSvcCost.2010</th>
+<th align="center">AveCarSvcVehicleAge</th>
+<th align="center">LtTrkCarSvcSubProp</th>
+<th align="center">AutoCarSvcSubProp</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">0.75</td>
+<td align="center">1</td>
+</tr>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center">3</td>
+<td align="center">0.75</td>
+<td align="center">1</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="azone_charging_availability.csv" class="section level3 unnumbered">
+<h3>azone_charging_availability.csv<a class="anchor" aria-label="anchor" href="#azone_charging_availability.csv"><i class="fas fa-link"></i></a>
+</h3>
+<p>This input file supplies data on proportion of different household types with plug-in electric vehicle (PEV) charging available by <code>Azone</code>.</p>
+<ul>
+<li>
+<strong>PropSFChargingAvail</strong>: Proportion of single-family dwellings in Azone that have PEV charging facilities installed or able to be installed</li>
+<li>
+<strong>PropMFChargingAvail</strong>: Proportion of multifamily dwelling units in Azone that have PEV charging facilities available</li>
+<li>
+<strong>PropGQChargingAvail</strong>: Proportion of group quarters dwelling units in Azone that have PEV charging facilities available</li>
+</ul>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">PropSFChargingAvail</th>
+<th align="center">PropMFChargingAvail</th>
+<th align="center">PropGQChargingAvail</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">1</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="azone_electricity_carbon_intensity.csv-optional" class="section level3 unnumbered">
+<h3>azone_electricity_carbon_intensity.csv (optional)<a class="anchor" aria-label="anchor" href="#azone_electricity_carbon_intensity.csv-optional"><i class="fas fa-link"></i></a>
+</h3>
+<p>This input file specifies the arbon intensity of electricity by <code>Azone</code>. Using and changing this input is <em>optional</em> and only needed if the user wants to modify the carbon intensity of electricity.</p>
+<ul>
+<li>
+<strong>ElectricityCI</strong>: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</li>
+</ul>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">ElectricityCI</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">153</td>
+</tr>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">23</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="azone_fuel_power_cost.csv" class="section level3 unnumbered">
+<h3>azone_fuel_power_cost.csv<a class="anchor" aria-label="anchor" href="#azone_fuel_power_cost.csv"><i class="fas fa-link"></i></a>
+</h3>
+<p>This input file supplies data for retail cost of fuel and electricity by <code>Azone</code>. This input can be developed using local history or querying the Energy Information Administration (EIA) for historical <a href="https://www.eia.gov/petroleum/">gasoline and diesel</a> and <a href="https://www.eia.gov/electricity/">power</a> prices.</p>
+<ul>
+<li>
+<strong>FuelCost</strong>: Average retail cost of fuel per gas gallon equivalent in dollars (before taxes are added)</li>
+<li>
+<strong>PowerCost</strong>: Average retail cost of electric power per kilowatt-hour in dollars (before taxes are added)</li>
+</ul>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">FuelCost.2005</th>
+<th align="center">PowerCost.2005</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">2.43</td>
+<td align="center">0.08</td>
+</tr>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">5.75</td>
+<td align="center">0.208</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="overview-1.html"><span class="header-section-number">7</span> Overview</a></div>
+<div class="next"><a href="modules-and-outputs.html"><span class="header-section-number">9</span> Modules and Outputs</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#inputs-and-parameters"><span class="header-section-number">8</span> Inputs and Parameters</a></li>
+<li>
+<a class="nav-link" href="#model-definition-files"><span class="header-section-number">8.1</span> Model Definition Files</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#run_parameters.json"><span class="header-section-number">8.1.1</span> run_parameters.json</a></li>
+<li><a class="nav-link" href="#model_parameters.json"><span class="header-section-number">8.1.2</span> model_parameters.json</a></li>
+<li><a class="nav-link" href="#deflators.csv"><span class="header-section-number">8.1.3</span> deflators.csv</a></li>
+<li><a class="nav-link" href="#geo.csv"><span class="header-section-number">8.1.4</span> geo.csv</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#units.csv"><span class="header-section-number">8.2</span> units.csv</a></li>
+<li><a class="nav-link" href="#input-files"><span class="header-section-number">8.3</span> Input Files</a></li>
+<li>
+<a class="nav-link" href="#input-preparation"><span class="header-section-number">8.4</span> Input Preparation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#azone_carsvc_characteristics.csv-optional">azone_carsvc_characteristics.csv (optional)</a></li>
+<li><a class="nav-link" href="#azone_charging_availability.csv">azone_charging_availability.csv</a></li>
+<li><a class="nav-link" href="#azone_electricity_carbon_intensity.csv-optional">azone_electricity_carbon_intensity.csv (optional)</a></li>
+<li><a class="nav-link" href="#azone_fuel_power_cost.csv">azone_fuel_power_cost.csv</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/08-verspm-inputs.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/08-verspm-inputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-02-21.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

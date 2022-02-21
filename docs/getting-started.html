@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Getting Started | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Getting Started | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:image" content="/images/cover.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Getting Started | VisionEval User Guide">
+<meta name="twitter:image" content="/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="Overview The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be...">
+<meta property="og:description" content="Overview The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be...">
+<meta name="twitter:description" content="Overview The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">VisionEval User Guide</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="active" href="getting-started.html">Getting Started</a></li>
+<li><a class="" href="visioneval-models.html">VisionEval Models</a></li>
+<li class="book-part">Concept Primer</li>
+<li><a class="" href="intro.html"><span class="header-section-number">1</span> Introduction</a></li>
+<li><a class="" href="typical-applications.html"><span class="header-section-number">2</span> Typical applications</a></li>
+<li><a class="" href="building-blocks.html"><span class="header-section-number">3</span> Building blocks</a></li>
+<li><a class="" href="adjustments.html"><span class="header-section-number">4</span> Adjustments</a></li>
+<li><a class="" href="processing.html"><span class="header-section-number">5</span> Processing</a></li>
+<li><a class="" href="lexicon.html"><span class="header-section-number">6</span> Lexicon</a></li>
+<li class="book-part">VERSPM Tutorial</li>
+<li><a class="" href="overview-1.html"><span class="header-section-number">7</span> Overview</a></li>
+<li><a class="" href="inputs-and-parameters.html"><span class="header-section-number">8</span> Inputs and Parameters</a></li>
+<li><a class="" href="modules-and-outputs.html"><span class="header-section-number">9</span> Modules and Outputs</a></li>
+<li><a class="" href="development-and-installation.html"><span class="header-section-number">10</span> Development and Installation</a></li>
+<li><a class="" href="performance-metrics-1.html"><span class="header-section-number">11</span> Performance Metrics</a></li>
+<li class="book-part">VERPAT Tutorial</li>
+<li><a class="" href="overview-2.html"><span class="header-section-number">12</span> Overview</a></li>
+<li><a class="" href="inputs-and-parameters-1.html"><span class="header-section-number">13</span> Inputs and Parameters</a></li>
+<li><a class="" href="modules-and-outputs-1.html"><span class="header-section-number">14</span> Modules and Outputs</a></li>
+<li><a class="" href="development-and-installation-1.html"><span class="header-section-number">15</span> Development and Installation</a></li>
+<li><a class="" href="performance-metrics-2.html"><span class="header-section-number">16</span> Performance Metrics</a></li>
+<li class="book-part">VEState Tutorial</li>
+<li><a class="" href="overview-3.html"><span class="header-section-number">17</span> Overview</a></li>
+<li><a class="" href="required-bzone-attributes.html"><span class="header-section-number">18</span> Required Bzone Attributes</a></li>
+<li><a class="" href="approach-for-synthesizing-bzones-and-their-attributes.html"><span class="header-section-number">19</span> Approach for Synthesizing Bzones and their Attributes</a></li>
+<li><a class="" href="inputs-and-parameters-2.html"><span class="header-section-number">20</span> Inputs and Parameters</a></li>
+<li><a class="" href="development-and-installation-2.html"><span class="header-section-number">21</span> Development and Installation</a></li>
+<li class="book-part">Developer Documentation</li>
+<li><a class="" href="contribution-guidelines.html"><span class="header-section-number">22</span> Contribution Guidelines</a></li>
+<li><a class="" href="testing-strategies.html"><span class="header-section-number">23</span> Testing Strategies</a></li>
+<li><a class="" href="add-or-modify-a-package.html"><span class="header-section-number">24</span> Add or Modify a Package</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/rstudio/bookdown-demo">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="getting-started" class="section level1 unnumbered">
+<h1>Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
+</h1>
+<div id="overview" class="section level2 unnumbered">
+<h2>Overview<a class="anchor" aria-label="anchor" href="#overview"><i class="fas fa-link"></i></a>
+</h2>
+<p>The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be created in a plug-and-play fashion from modules that are also distributed as R packages. A simple R script is used to implement a model by initializing the model environment and then calling modules successively.</p>
+<p><strong>Video Description of Tool installation, setup, and basic usage</strong></p>
+<p>This 45 minute video was recorded during a VisionEval Training at Portland State University in September
+2019:</p>
+<iframe src="https://www.youtube.com/embed/-ylFbyLfhbw?t=2203" width="672" height="400px" data-external="1">
+</iframe>
+</div>
+<div id="installation-and-setup" class="section level2 unnumbered">
+<h2>Installation and Setup<a class="anchor" aria-label="anchor" href="#installation-and-setup"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are two paths to getting VisionEval running:</p>
+<ol style="list-style-type: decimal">
+<li><p><strong>Install from stand-alone Windows installer</strong>Download a zipped folder with all dependencies include, for a specific version of R. This is the simplest way to quickly get VisionEval on your computer. This uses the installers on the <a href="https://github.com/VisionEval/VisionEval/releases">Releases</a> page and further details are available on the <a href="https://visioneval.org/category/download.html">Downloads page of visioneval.org</a>. This currently is designed for the Windows operating system. This path is described first.</p></li>
+<li><p><strong>Clone or fork repository</strong> If you area a Mac/Linux user, or if you are interested in contributing to the development of VisionEval modules, models, framework, or visualizer, choose this path. Instructions for setting up the VisionEval development environment can be found in the <a target="_blank" href="https://github.com/VisionEval/VE-Installer">VE-Installer</a> repository.</p></li>
+</ol>
+<p><strong>Install for Windows</strong>:<strong><a href="https://github.com/VisionEval/VisionEval/releases/download/v1.0.0/VE-installer-Windows-R3.6.1.2019-07-15.zip">Get VisionEval Here</a></strong></p>
+<p><em>Note: 583 Mb download! Packaged for R 3.6.1</em></p>
+<p><a href="https://github.com/VisionEval/VisionEval/releases/tag/v1.0.0">See this page for other R versions, 3.4.4 - 3.6.0</a></p>
+<p>After installing R 3.6.1 and downloading the VE Installer from the link above, unzip the folder to the destination folder of your choice.</p>
+<p>The link above will download a .zip file containing the following:
+- The VisionEval framework code
+- VE-RSPM, VE-RPAT, VE-GUI, VE-State and VE-ScenarioViewer
+- All necessary R packages</p>
+<p>To complete the installation and start VisionEval, simply:
+- Double-click <strong><tt>VisionEval.bat</tt></strong></p>
+</div>
+<div id="running-visioneval" class="section level2 unnumbered">
+<h2>Running VisionEval<a class="anchor" aria-label="anchor" href="#running-visioneval"><i class="fas fa-link"></i></a>
+</h2>
+<p>Once you have been welcomed to VisionEval, you can follow the instructions under “Running VE Models” on the
+<a href="https://github.com/VisionEval/VisionEval/wiki/Getting-Started">Getting Started</a> page.
+Your destination folder contains everything you need from the VisionEval “sources” folder.</p>
+<p>The installation also creates some convenience functions which will run the model test scenarios or start the VE GUI:
+- <tt>vegui()</tt> to start the GUI (navigate to your destination folder to find the scenario run scripts)
+- <tt>verpat()</tt> for the VERPAT test model
+- <tt>verpat(scenarios=TRUE)</tt> to run multiple scenarios in VERPAT
+- <tt>verpat(baseyear=TRUE)</tt> to run the alternate VERPAT sample scenario
+- <tt>verspm()</tt> for the VERSPM test model
+- <tt>verspm(scenarios=TRUE)</tt> to run multiple scenarios in VERSPM</p>
+</div>
+<div id="requirements" class="section level2 unnumbered">
+<h2>Requirements<a class="anchor" aria-label="anchor" href="#requirements"><i class="fas fa-link"></i></a>
+</h2>
+<p>If the above installation steps did not succeed, ensure that you have downloaded the appropriate version of VisionEval to match the version of R that you have installed.</p>
+<div id="r" class="section level4 unnumbered">
+<h4>R<a class="anchor" aria-label="anchor" href="#r"><i class="fas fa-link"></i></a>
+</h4>
+<p>The current version of VisionEval is built for the latest version of R, 3.6.1. If you currently have another version of R installed, you can go to the <a href="https://github.com/VisionEval/VisionEval/releases">GitHub release page</a> to download VisionEval for R.</p>
+<p>You can find the <a href="https://cran.r-project.org/bin/windows/base/" target="_blank">R 3.6.1 installer for Windows here</a>.</p>
+</div>
+<div id="rstudio-optional" class="section level4 unnumbered">
+<h4>RStudio (optional)<a class="anchor" aria-label="anchor" href="#rstudio-optional"><i class="fas fa-link"></i></a>
+</h4>
+<p>Many users find that <a href="https://www.rstudio.com/products/rstudio/#Desktop" target="_blank">RStudio</a> is a more user-friendly version of the
+standard R interface. RStudio is particularly recommended if you plan to clone and explore the
+<a target="_blank" href="https://github.com/VisionEval/VE-Installer">Visioneval source code from GitHub</a>.</p>
+<p><strong>See the VERPAT <a href="https://github.com/visioneval/VisionEval/wiki/VERPAT-Tutorial-Running-the-Model">tutorial</a></strong> for more information on running models.</p>
+</div>
+<div id="running-vegui-to-then-run-a-model" class="section level3 unnumbered">
+<h3>Running VEGUI to then run a model<a class="anchor" aria-label="anchor" href="#running-vegui-to-then-run-a-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>After installing from the stand-alone installer (path 1, above), you can run the VEGUI using the helper functions <code>vegui()</code>.</p>
+</div>
+<div id="running-multiple-scenarios-of-a-model" class="section level3 unnumbered">
+<h3>Running Multiple Scenarios of a Model<a class="anchor" aria-label="anchor" href="#running-multiple-scenarios-of-a-model"><i class="fas fa-link"></i></a>
+</h3>
+<p>After installing from the stand-alone installer (path 1, above), you can run the multiple scenarios examples using the helper functions <code>verpat(scenarios = T)</code> and <code>verspm(scenarios = T)</code>.</p>
+<p>After you run the multiple scenarios tests, you can explore the relationship between input scenarios and results using VEScenarioViewer. You can try the example interactive <a href="http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/VEScenarioViewer/verpat.html">VERPAT</a> and <a href="http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/VEScenarioViewer/verspm.html">VERSPM</a> scenario viewers (visualizers) online.</p>
+<p>See the VERPAT <a href="https://github.com/visioneval/VisionEval/wiki/VERPAT-Tutorial-Multiple-Scenarios">tutorial</a> for more information regarding the visualizers.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="index.html">Welcome</a></div>
+<div class="next"><a href="visioneval-models.html">VisionEval Models</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#getting-started">Getting Started</a></li>
+<li><a class="nav-link" href="#overview">Overview</a></li>
+<li><a class="nav-link" href="#installation-and-setup">Installation and Setup</a></li>
+<li><a class="nav-link" href="#running-visioneval">Running VisionEval</a></li>
+<li>
+<a class="nav-link" href="#requirements">Requirements</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#running-vegui-to-then-run-a-model">Running VEGUI to then run a model</a></li>
+<li><a class="nav-link" href="#running-multiple-scenarios-of-a-model">Running Multiple Scenarios of a Model</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/00-getting-started.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/00-getting-started.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-02-21.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
