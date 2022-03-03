@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Processing | VisionEval User Guide</title>
+  <meta name="description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Processing | VisionEval User Guide" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Processing | VisionEval User Guide" />
+  
+  <meta name="twitter:description" content="<p>This is a minimal example of using the bookdown package to write a book.
+The HTML output format for this example is bookdown::gitbook,
+set in the _output.yml file.</p>" />
+  
+
+<meta name="author" content="VisionEval Pooled Fund Team" />
+
+
+<meta name="date" content="2022-02-28" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="adjustments.html"/>
+<link rel="next" href="lexicon.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #c4a000; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #000000; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #000000; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #000000; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">VisionEval User Guide</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#about-visioneval"><i class="fa fa-check"></i>About VisionEval</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-to-use-this-guide"><i class="fa fa-check"></i>How to Use this Guide</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html"><i class="fa fa-check"></i>Getting Started</a>
+<ul>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#overview"><i class="fa fa-check"></i>Overview</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#installation-and-setup"><i class="fa fa-check"></i>Installation and Setup</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#running-visioneval"><i class="fa fa-check"></i>Running VisionEval</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#requirements"><i class="fa fa-check"></i>Requirements</a>
+<ul>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#running-vegui-to-then-run-a-model"><i class="fa fa-check"></i>Running VEGUI to then run a model</a></li>
+<li class="chapter" data-level="" data-path="getting-started.html"><a href="getting-started.html#running-multiple-scenarios-of-a-model"><i class="fa fa-check"></i>Running Multiple Scenarios of a Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="visioneval-models.html"><a href="visioneval-models.html"><i class="fa fa-check"></i>VisionEval Models</a>
+<ul>
+<li class="chapter" data-level="" data-path="visioneval-models.html"><a href="visioneval-models.html#models"><i class="fa fa-check"></i>Models</a></li>
+<li class="chapter" data-level="" data-path="visioneval-models.html"><a href="visioneval-models.html#spatial-detail"><i class="fa fa-check"></i>Spatial Detail</a>
+<ul>
+<li class="chapter" data-level="0.0.1" data-path="visioneval-models.html"><a href="visioneval-models.html#definitions"><i class="fa fa-check"></i><b>0.0.1</b> 2. Definitions</a></li>
+<li class="chapter" data-level="0.0.2" data-path="visioneval-models.html"><a href="visioneval-models.html#model-system-objectives"><i class="fa fa-check"></i><b>0.0.2</b> 3. Model System Objectives</a></li>
+<li class="chapter" data-level="0.0.3" data-path="visioneval-models.html"><a href="visioneval-models.html#model-system-software-design-approach"><i class="fa fa-check"></i><b>0.0.3</b> 4. Model System Software Design Approach</a></li>
+<li class="chapter" data-level="0.0.4" data-path="visioneval-models.html"><a href="visioneval-models.html#model-system-layers"><i class="fa fa-check"></i><b>0.0.4</b> 5. Model System Layers</a></li>
+<li class="chapter" data-level="0.0.5" data-path="visioneval-models.html"><a href="visioneval-models.html#model-layer-description"><i class="fa fa-check"></i><b>0.0.5</b> 6. Model Layer Description</a></li>
+<li class="chapter" data-level="0.0.6" data-path="visioneval-models.html"><a href="visioneval-models.html#overview-of-module-and-software-framework-layer-interactions"><i class="fa fa-check"></i><b>0.0.6</b> 7. Overview of Module and Software Framework Layer Interactions</a></li>
+<li class="chapter" data-level="0.0.7" data-path="visioneval-models.html"><a href="visioneval-models.html#modules"><i class="fa fa-check"></i><b>0.0.7</b> 8. Modules</a></li>
+<li class="chapter" data-level="0.0.8" data-path="visioneval-models.html"><a href="visioneval-models.html#software-framework"><i class="fa fa-check"></i><b>0.0.8</b> 9. Software Framework</a></li>
+<li class="chapter" data-level="0.0.9" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-a-example-model-run-script"><i class="fa fa-check"></i><b>0.0.9</b> Appendix A: Example Model Run Script</a></li>
+<li class="chapter" data-level="0.0.10" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-b-geography-specification-file-geography.csv-examples"><i class="fa fa-check"></i><b>0.0.10</b> Appendix B: Geography Specification File (geography.csv) Examples</a></li>
+<li class="chapter" data-level="0.0.11" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-c-recognized-data-types-and-units"><i class="fa fa-check"></i><b>0.0.11</b> Appendix C: Recognized Data Types and Units</a></li>
+<li class="chapter" data-level="0.0.12" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-d-scenario-input-file-examples"><i class="fa fa-check"></i><b>0.0.12</b> Appendix D: Scenario Input File Examples</a></li>
+<li class="chapter" data-level="0.0.13" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-e-example-module-script-from-the-vetransportsupply-package"><i class="fa fa-check"></i><b>0.0.13</b> Appendix E: Example Module Script from the VETransportSupply Package</a></li>
+<li class="chapter" data-level="0.0.14" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-f-example-test-script-from-the-vesimhouseholds-package"><i class="fa fa-check"></i><b>0.0.14</b> Appendix F: Example Test Script from the VESimHouseholds Package</a></li>
+<li class="chapter" data-level="0.0.15" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-g-visioneval-model-user-functions"><i class="fa fa-check"></i><b>0.0.15</b> Appendix G: VisionEval Model User Functions</a></li>
+<li class="chapter" data-level="0.0.16" data-path="visioneval-models.html"><a href="visioneval-models.html#getyears-retrieve-years"><i class="fa fa-check"></i><b>0.0.16</b> <code>getYears</code>: Retrieve years</a></li>
+<li class="chapter" data-level="0.0.17" data-path="visioneval-models.html"><a href="visioneval-models.html#initializemodel-initialize-model."><i class="fa fa-check"></i><b>0.0.17</b> <code>initializeModel</code>: Initialize model.</a></li>
+<li class="chapter" data-level="0.0.18" data-path="visioneval-models.html"><a href="visioneval-models.html#readdatastoretables-read-multiple-datasets-from-multiple-tables-in-datastores"><i class="fa fa-check"></i><b>0.0.18</b> <code>readDatastoreTables</code>: Read multiple datasets from multiple tables in datastores</a></li>
+<li class="chapter" data-level="0.0.19" data-path="visioneval-models.html"><a href="visioneval-models.html#runmodule-run-module."><i class="fa fa-check"></i><b>0.0.19</b> <code>runModule</code>: Run module.</a></li>
+<li class="chapter" data-level="0.0.20" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-h-visioneval-module-developer-functions"><i class="fa fa-check"></i><b>0.0.20</b> Appendix H: VisionEval Module Developer Functions</a></li>
+<li class="chapter" data-level="0.0.21" data-path="visioneval-models.html"><a href="visioneval-models.html#adderrormsg-add-an-error-message-to-the-results-list"><i class="fa fa-check"></i><b>0.0.21</b> <code>addErrorMsg</code>: Add an error message to the results list</a></li>
+<li class="chapter" data-level="0.0.22" data-path="visioneval-models.html"><a href="visioneval-models.html#addwarningmsg-add-a-warning-message-to-the-results-list"><i class="fa fa-check"></i><b>0.0.22</b> <code>addWarningMsg</code>: Add a warning message to the results list</a></li>
+<li class="chapter" data-level="0.0.23" data-path="visioneval-models.html"><a href="visioneval-models.html#applybinomialmodel-applies-an-estimated-binomial-model-to-a-set-of-input-values."><i class="fa fa-check"></i><b>0.0.23</b> <code>applyBinomialModel</code>: Applies an estimated binomial model to a set of input values.</a></li>
+<li class="chapter" data-level="0.0.24" data-path="visioneval-models.html"><a href="visioneval-models.html#applylinearmodel-applies-an-estimated-linear-model-to-a-set-of-input-values."><i class="fa fa-check"></i><b>0.0.24</b> <code>applyLinearModel</code>: Applies an estimated linear model to a set of input values.</a></li>
+<li class="chapter" data-level="0.0.25" data-path="visioneval-models.html"><a href="visioneval-models.html#binarysearch-binary-search-function-to-find-a-parameter-which-achieves-a-target-value."><i class="fa fa-check"></i><b>0.0.25</b> <code>binarySearch</code>: Binary search function to find a parameter which achieves a target value.</a></li>
+<li class="chapter" data-level="0.0.26" data-path="visioneval-models.html"><a href="visioneval-models.html#checkmoduleoutputs-check-module-outputs-for-consistency-with-specifications"><i class="fa fa-check"></i><b>0.0.26</b> <code>checkModuleOutputs</code>: Check module outputs for consistency with specifications</a></li>
+<li class="chapter" data-level="0.0.27" data-path="visioneval-models.html"><a href="visioneval-models.html#documentmodule-produces-markdown-documentation-for-a-module"><i class="fa fa-check"></i><b>0.0.27</b> <code>documentModule</code>: Produces markdown documentation for a module</a></li>
+<li class="chapter" data-level="0.0.28" data-path="visioneval-models.html"><a href="visioneval-models.html#getregisteredgetspecs-returns-get-specifications-for-registered-datasets."><i class="fa fa-check"></i><b>0.0.28</b> <code>getRegisteredGetSpecs</code>: Returns Get specifications for registered datasets.</a></li>
+<li class="chapter" data-level="0.0.29" data-path="visioneval-models.html"><a href="visioneval-models.html#initdatalist-initialize-a-list-for-data-transferred-to-and-from-datastore"><i class="fa fa-check"></i><b>0.0.29</b> <code>initDataList</code>: Initialize a list for data transferred to and from datastore</a></li>
+<li class="chapter" data-level="0.0.30" data-path="visioneval-models.html"><a href="visioneval-models.html#item-alias-for-list-function."><i class="fa fa-check"></i><b>0.0.30</b> <code>item</code>: Alias for list function.</a></li>
+<li class="chapter" data-level="0.0.31" data-path="visioneval-models.html"><a href="visioneval-models.html#items-alias-for-list-function."><i class="fa fa-check"></i><b>0.0.31</b> <code>items</code>: Alias for list function.</a></li>
+<li class="chapter" data-level="0.0.32" data-path="visioneval-models.html"><a href="visioneval-models.html#loadpackagedataset-load-a-visioneval-package-dataset"><i class="fa fa-check"></i><b>0.0.32</b> <code>loadPackageDataset</code>: Load a VisionEval package dataset</a></li>
+<li class="chapter" data-level="0.0.33" data-path="visioneval-models.html"><a href="visioneval-models.html#makemodelformulastring-makes-a-string-representation-of-a-model-equation."><i class="fa fa-check"></i><b>0.0.33</b> <code>makeModelFormulaString</code>: Makes a string representation of a model equation.</a></li>
+<li class="chapter" data-level="0.0.34" data-path="visioneval-models.html"><a href="visioneval-models.html#processestimationinputs-load-estimation-data"><i class="fa fa-check"></i><b>0.0.34</b> <code>processEstimationInputs</code>: Load estimation data</a></li>
+<li class="chapter" data-level="0.0.35" data-path="visioneval-models.html"><a href="visioneval-models.html#readvenameregistry-reads-the-visioneval-name-registry."><i class="fa fa-check"></i><b>0.0.35</b> <code>readVENameRegistry</code>: Reads the VisionEval name registry.</a></li>
+<li class="chapter" data-level="0.0.36" data-path="visioneval-models.html"><a href="visioneval-models.html#testmodule-test-module"><i class="fa fa-check"></i><b>0.0.36</b> <code>testModule</code>: Test module</a></li>
+<li class="chapter" data-level="0.0.37" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-i-visioneval-framework-control-functions"><i class="fa fa-check"></i><b>0.0.37</b> Appendix I: VisionEval Framework Control Functions</a></li>
+<li class="chapter" data-level="0.0.38" data-path="visioneval-models.html"><a href="visioneval-models.html#assigndatastorefunctions-assign-datastore-interaction-functions"><i class="fa fa-check"></i><b>0.0.38</b> <code>assignDatastoreFunctions</code>: Assign datastore interaction functions</a></li>
+<li class="chapter" data-level="0.0.39" data-path="visioneval-models.html"><a href="visioneval-models.html#checkdataconsistency-check-data-consistency-with-specification"><i class="fa fa-check"></i><b>0.0.39</b> <code>checkDataConsistency</code>: Check data consistency with specification</a></li>
+<li class="chapter" data-level="0.0.40" data-path="visioneval-models.html"><a href="visioneval-models.html#checkdataset-check-dataset-existence"><i class="fa fa-check"></i><b>0.0.40</b> <code>checkDataset</code>: Check dataset existence</a></li>
+<li class="chapter" data-level="0.0.41" data-path="visioneval-models.html"><a href="visioneval-models.html#checkgeography-check-geographic-specifications."><i class="fa fa-check"></i><b>0.0.41</b> <code>checkGeography</code>: Check geographic specifications.</a></li>
+<li class="chapter" data-level="0.0.42" data-path="visioneval-models.html"><a href="visioneval-models.html#checkinputyeargeo-check-years-and-geography-of-input-file"><i class="fa fa-check"></i><b>0.0.42</b> <code>checkInputYearGeo</code>: Check years and geography of input file</a></li>
+<li class="chapter" data-level="0.0.43" data-path="visioneval-models.html"><a href="visioneval-models.html#checkiselementof-check-if-data-values-are-in-a-specified-set-of-values"><i class="fa fa-check"></i><b>0.0.43</b> <code>checkIsElementOf</code>: Check if data values are in a specified set of values</a></li>
+<li class="chapter" data-level="0.0.44" data-path="visioneval-models.html"><a href="visioneval-models.html#checkmatchconditions-check-values-with-conditions."><i class="fa fa-check"></i><b>0.0.44</b> <code>checkMatchConditions</code>: Check values with conditions.</a></li>
+<li class="chapter" data-level="0.0.45" data-path="visioneval-models.html"><a href="visioneval-models.html#checkmatchtype-check-data-type"><i class="fa fa-check"></i><b>0.0.45</b> <code>checkMatchType</code>: Check data type</a></li>
+<li class="chapter" data-level="0.0.46" data-path="visioneval-models.html"><a href="visioneval-models.html#checkmoduleexists-check-whether-a-module-required-to-run-a-model-is-present"><i class="fa fa-check"></i><b>0.0.46</b> <code>checkModuleExists</code>: Check whether a module required to run a model is present</a></li>
+<li class="chapter" data-level="0.0.47" data-path="visioneval-models.html"><a href="visioneval-models.html#checkmodulespecs-checks-all-module-specifications-for-completeness-and-for-incorrect-entries"><i class="fa fa-check"></i><b>0.0.47</b> <code>checkModuleSpecs</code>: Checks all module specifications for completeness and for incorrect entries</a></li>
+<li class="chapter" data-level="0.0.48" data-path="visioneval-models.html"><a href="visioneval-models.html#checkspec-checks-a-module-specifications-for-completeness-and-for-incorrect-entries"><i class="fa fa-check"></i><b>0.0.48</b> <code>checkSpec</code>: Checks a module specifications for completeness and for incorrect entries</a></li>
+<li class="chapter" data-level="0.0.49" data-path="visioneval-models.html"><a href="visioneval-models.html#checkspecconsistency-check-specification-consistency"><i class="fa fa-check"></i><b>0.0.49</b> <code>checkSpecConsistency</code>: Check specification consistency</a></li>
+<li class="chapter" data-level="0.0.50" data-path="visioneval-models.html"><a href="visioneval-models.html#checkspectypeunits-checks-the-type-and-units-and-associated-multiplier-and-year-attributes-of-a"><i class="fa fa-check"></i><b>0.0.50</b> <code>checkSpecTypeUnits</code>: Checks the TYPE and UNITS and associated MULTIPLIER and YEAR attributes of a</a></li>
+<li class="chapter" data-level="0.0.51" data-path="visioneval-models.html"><a href="visioneval-models.html#checktableexistence-check-whether-table-exists-in-the-datastore"><i class="fa fa-check"></i><b>0.0.51</b> <code>checkTableExistence</code>: Check whether table exists in the datastore</a></li>
+<li class="chapter" data-level="0.0.52" data-path="visioneval-models.html"><a href="visioneval-models.html#checkunits-check-measurement-units-for-consistency-with-recognized-units-for-stated-type."><i class="fa fa-check"></i><b>0.0.52</b> <code>checkUnits</code>: Check measurement units for consistency with recognized units for stated type.</a></li>
+<li class="chapter" data-level="0.0.53" data-path="visioneval-models.html"><a href="visioneval-models.html#convertmagnitude-convert-values-between-different-magnitudes."><i class="fa fa-check"></i><b>0.0.53</b> <code>convertMagnitude</code>: Convert values between different magnitudes.</a></li>
+<li class="chapter" data-level="0.0.54" data-path="visioneval-models.html"><a href="visioneval-models.html#convertunits-convert-values-between-units-of-measure."><i class="fa fa-check"></i><b>0.0.54</b> <code>convertUnits</code>: Convert values between units of measure.</a></li>
+<li class="chapter" data-level="0.0.55" data-path="visioneval-models.html"><a href="visioneval-models.html#creategeoindex-create-datastore-index."><i class="fa fa-check"></i><b>0.0.55</b> <code>createGeoIndex</code>: Create datastore index.</a></li>
+<li class="chapter" data-level="0.0.56" data-path="visioneval-models.html"><a href="visioneval-models.html#creategeoindexlist-create-a-list-of-geographic-indices-for-all-tables-in-a-datastore."><i class="fa fa-check"></i><b>0.0.56</b> <code>createGeoIndexList</code>: Create a list of geographic indices for all tables in a datastore.</a></li>
+<li class="chapter" data-level="0.0.57" data-path="visioneval-models.html"><a href="visioneval-models.html#deflatecurrency-convert-currency-values-to-different-years."><i class="fa fa-check"></i><b>0.0.57</b> <code>deflateCurrency</code>: Convert currency values to different years.</a></li>
+<li class="chapter" data-level="0.0.58" data-path="visioneval-models.html"><a href="visioneval-models.html#doprocessinpspec-filters-inp-specifications-list-based-on-optional-specification-attributes."><i class="fa fa-check"></i><b>0.0.58</b> <code>doProcessInpSpec</code>: Filters Inp specifications list based on OPTIONAL specification attributes.</a></li>
+<li class="chapter" data-level="0.0.59" data-path="visioneval-models.html"><a href="visioneval-models.html#expandspec-expand-a-inp-get-or-set-specification-so-that-is-can-be-used-by-other"><i class="fa fa-check"></i><b>0.0.59</b> <code>expandSpec</code>: Expand a Inp, Get, or Set specification so that is can be used by other</a></li>
+<li class="chapter" data-level="0.0.60" data-path="visioneval-models.html"><a href="visioneval-models.html#findspec-find-the-full-specification-corresponding-to-a-defined-name-table-and-group"><i class="fa fa-check"></i><b>0.0.60</b> <code>findSpec</code>: Find the full specification corresponding to a defined NAME, TABLE, and GROUP</a></li>
+<li class="chapter" data-level="0.0.61" data-path="visioneval-models.html"><a href="visioneval-models.html#getdatasetattr-get-attributes-of-a-dataset"><i class="fa fa-check"></i><b>0.0.61</b> <code>getDatasetAttr</code>: Get attributes of a dataset</a></li>
+<li class="chapter" data-level="0.0.62" data-path="visioneval-models.html"><a href="visioneval-models.html#getfromdatastore-retrieve-data-identified-in-get-specifications-from-datastore"><i class="fa fa-check"></i><b>0.0.62</b> <code>getFromDatastore</code>: Retrieve data identified in ‘Get’ specifications from datastore</a></li>
+<li class="chapter" data-level="0.0.63" data-path="visioneval-models.html"><a href="visioneval-models.html#getmodelstate-get-values-from-model-state-list."><i class="fa fa-check"></i><b>0.0.63</b> <code>getModelState</code>: Get values from model state list.</a></li>
+<li class="chapter" data-level="0.0.64" data-path="visioneval-models.html"><a href="visioneval-models.html#getmodulespecs-retrieve-module-specifications-from-a-package"><i class="fa fa-check"></i><b>0.0.64</b> <code>getModuleSpecs</code>: Retrieve module specifications from a package</a></li>
+<li class="chapter" data-level="0.0.65" data-path="visioneval-models.html"><a href="visioneval-models.html#getunits-retrieve-default-units-for-model"><i class="fa fa-check"></i><b>0.0.65</b> <code>getUnits</code>: Retrieve default units for model</a></li>
+<li class="chapter" data-level="0.0.66" data-path="visioneval-models.html"><a href="visioneval-models.html#initdatastoregeography-initialize-datastore-geography."><i class="fa fa-check"></i><b>0.0.66</b> <code>initDatastoreGeography</code>: Initialize datastore geography.</a></li>
+<li class="chapter" data-level="0.0.67" data-path="visioneval-models.html"><a href="visioneval-models.html#initlog-initialize-run-log."><i class="fa fa-check"></i><b>0.0.67</b> <code>initLog</code>: Initialize run log.</a></li>
+<li class="chapter" data-level="0.0.68" data-path="visioneval-models.html"><a href="visioneval-models.html#initmodelstatefile-initialize-model-state."><i class="fa fa-check"></i><b>0.0.68</b> <code>initModelStateFile</code>: Initialize model state.</a></li>
+<li class="chapter" data-level="0.0.69" data-path="visioneval-models.html"><a href="visioneval-models.html#inputstodatastore-write-the-datasets-in-a-list-of-module-inputs-that-have-been-processed-to-the"><i class="fa fa-check"></i><b>0.0.69</b> <code>inputsToDatastore</code>: Write the datasets in a list of module inputs that have been processed to the</a></li>
+<li class="chapter" data-level="0.0.70" data-path="visioneval-models.html"><a href="visioneval-models.html#loaddatastore-load-saved-datastore."><i class="fa fa-check"></i><b>0.0.70</b> <code>loadDatastore</code>: Load saved datastore.</a></li>
+<li class="chapter" data-level="0.0.71" data-path="visioneval-models.html"><a href="visioneval-models.html#loadmodelparameters-load-model-global-parameters-file-into-datastore."><i class="fa fa-check"></i><b>0.0.71</b> <code>loadModelParameters</code>: Load model global parameters file into datastore.</a></li>
+<li class="chapter" data-level="0.0.72" data-path="visioneval-models.html"><a href="visioneval-models.html#parseinputfieldnames-parse-field-names-of-input-file-to-separate-out-the-field-name-currency"><i class="fa fa-check"></i><b>0.0.72</b> <code>parseInputFieldNames</code>: Parse field names of input file to separate out the field name, currency</a></li>
+<li class="chapter" data-level="0.0.73" data-path="visioneval-models.html"><a href="visioneval-models.html#parsemodelscript-parse-model-script."><i class="fa fa-check"></i><b>0.0.73</b> <code>parseModelScript</code>: Parse model script.</a></li>
+<li class="chapter" data-level="0.0.74" data-path="visioneval-models.html"><a href="visioneval-models.html#parseunitsspec-parse-units-specification-into-components-and-add-to-specifications-list."><i class="fa fa-check"></i><b>0.0.74</b> <code>parseUnitsSpec</code>: Parse units specification into components and add to specifications list.</a></li>
+<li class="chapter" data-level="0.0.75" data-path="visioneval-models.html"><a href="visioneval-models.html#processmoduleinputs-process-module-input-files"><i class="fa fa-check"></i><b>0.0.75</b> <code>processModuleInputs</code>: Process module input files</a></li>
+<li class="chapter" data-level="0.0.76" data-path="visioneval-models.html"><a href="visioneval-models.html#processmodulespecs-process-module-specifications-to-expand-items-with-multiple-names."><i class="fa fa-check"></i><b>0.0.76</b> <code>processModuleSpecs</code>: Process module specifications to expand items with multiple names.</a></li>
+<li class="chapter" data-level="0.0.77" data-path="visioneval-models.html"><a href="visioneval-models.html#readgeography-read-geographic-specifications."><i class="fa fa-check"></i><b>0.0.77</b> <code>readGeography</code>: Read geographic specifications.</a></li>
+<li class="chapter" data-level="0.0.78" data-path="visioneval-models.html"><a href="visioneval-models.html#readmodelstate-reads-values-from-model-state-file."><i class="fa fa-check"></i><b>0.0.78</b> <code>readModelState</code>: Reads values from model state file.</a></li>
+<li class="chapter" data-level="0.0.79" data-path="visioneval-models.html"><a href="visioneval-models.html#setindatastore-save-the-data-sets-returned-by-a-module-in-the-datastore"><i class="fa fa-check"></i><b>0.0.79</b> <code>setInDatastore</code>: Save the data sets returned by a module in the datastore</a></li>
+<li class="chapter" data-level="0.0.80" data-path="visioneval-models.html"><a href="visioneval-models.html#setmodelstate-update-model-state."><i class="fa fa-check"></i><b>0.0.80</b> <code>setModelState</code>: Update model state.</a></li>
+<li class="chapter" data-level="0.0.81" data-path="visioneval-models.html"><a href="visioneval-models.html#simdatatransactions-create-simulation-of-datastore-transactions."><i class="fa fa-check"></i><b>0.0.81</b> <code>simDataTransactions</code>: Create simulation of datastore transactions.</a></li>
+<li class="chapter" data-level="0.0.82" data-path="visioneval-models.html"><a href="visioneval-models.html#sortgeotable-sort-a-data-frame-so-that-the-order-of-rows-matches-the-geography-in-a"><i class="fa fa-check"></i><b>0.0.82</b> <code>sortGeoTable</code>: Sort a data frame so that the order of rows matches the geography in a</a></li>
+<li class="chapter" data-level="0.0.83" data-path="visioneval-models.html"><a href="visioneval-models.html#specrequirements-list-basic-module-specifications-to-check-for-correctness"><i class="fa fa-check"></i><b>0.0.83</b> <code>SpecRequirements</code>: List basic module specifications to check for correctness</a></li>
+<li class="chapter" data-level="0.0.84" data-path="visioneval-models.html"><a href="visioneval-models.html#types-returns-a-list-of-returns-a-list-of-recognized-data-types-the-units-for-each"><i class="fa fa-check"></i><b>0.0.84</b> <code>Types</code>: Returns a list of returns a list of recognized data types, the units for each</a></li>
+<li class="chapter" data-level="0.0.85" data-path="visioneval-models.html"><a href="visioneval-models.html#writelog-write-to-log."><i class="fa fa-check"></i><b>0.0.85</b> <code>writeLog</code>: Write to log.</a></li>
+<li class="chapter" data-level="0.0.86" data-path="visioneval-models.html"><a href="visioneval-models.html#writevenameregistry-writes-module-inp-and-set-specifications-to-the-visioneval-name-registry."><i class="fa fa-check"></i><b>0.0.86</b> <code>writeVENameRegistry</code>: Writes module Inp and Set specifications to the VisionEval name registry.</a></li>
+<li class="chapter" data-level="0.0.87" data-path="visioneval-models.html"><a href="visioneval-models.html#appendix-j-visioneval-framework-datastore-functions"><i class="fa fa-check"></i><b>0.0.87</b> Appendix J: VisionEval Framework Datastore Functions</a></li>
+<li class="chapter" data-level="0.0.88" data-path="visioneval-models.html"><a href="visioneval-models.html#initdataseth5-initialize-dataset-in-an-hdf5-h5-type-datastore-table."><i class="fa fa-check"></i><b>0.0.88</b> <code>initDatasetH5</code>: Initialize dataset in an HDF5 (H5) type datastore table.</a></li>
+<li class="chapter" data-level="0.0.89" data-path="visioneval-models.html"><a href="visioneval-models.html#initdatasetrd-initialize-dataset-in-an-rdata-rd-type-datastore-table."><i class="fa fa-check"></i><b>0.0.89</b> <code>initDatasetRD</code>: Initialize dataset in an RData (RD) type datastore table.</a></li>
+<li class="chapter" data-level="0.0.90" data-path="visioneval-models.html"><a href="visioneval-models.html#initdatastoreh5-initialize-datastore-for-an-hdf5-h5-type-datastore."><i class="fa fa-check"></i><b>0.0.90</b> <code>initDatastoreH5</code>: Initialize Datastore for an HDF5 (H5) type datastore.</a></li>
+<li class="chapter" data-level="0.0.91" data-path="visioneval-models.html"><a href="visioneval-models.html#initdatastorerd-initialize-datastore-for-an-rdata-rd-type-datastore."><i class="fa fa-check"></i><b>0.0.91</b> <code>initDatastoreRD</code>: Initialize Datastore for an RData (RD) type datastore.</a></li>
+<li class="chapter" data-level="0.0.92" data-path="visioneval-models.html"><a href="visioneval-models.html#inittableh5-initialize-table-in-an-hdf5-h5-type-datastore."><i class="fa fa-check"></i><b>0.0.92</b> <code>initTableH5</code>: Initialize table in an HDF5 (H5) type datastore.</a></li>
+<li class="chapter" data-level="0.0.93" data-path="visioneval-models.html"><a href="visioneval-models.html#inittablerd-initialize-table-in-an-rdata-rd-type-datastore."><i class="fa fa-check"></i><b>0.0.93</b> <code>initTableRD</code>: Initialize table in an RData (RD) type datastore.</a></li>
+<li class="chapter" data-level="0.0.94" data-path="visioneval-models.html"><a href="visioneval-models.html#listdatastoreh5-list-datastore-contents-for-an-hdf5-h5-type-datastore."><i class="fa fa-check"></i><b>0.0.94</b> <code>listDatastoreH5</code>: List datastore contents for an HDF5 (H5) type datastore.</a></li>
+<li class="chapter" data-level="0.0.95" data-path="visioneval-models.html"><a href="visioneval-models.html#listdatastorerd-list-datastore-contents-for-an-rdata-rd-type-datastore."><i class="fa fa-check"></i><b>0.0.95</b> <code>listDatastoreRD</code>: List datastore contents for an RData (RD) type datastore.</a></li>
+<li class="chapter" data-level="0.0.96" data-path="visioneval-models.html"><a href="visioneval-models.html#readfromtableh5-read-from-an-hdf5-h5-type-datastore-table."><i class="fa fa-check"></i><b>0.0.96</b> <code>readFromTableH5</code>: Read from an HDF5 (H5) type datastore table.</a></li>
+<li class="chapter" data-level="0.0.97" data-path="visioneval-models.html"><a href="visioneval-models.html#readfromtablerd-read-from-an-rdata-rd-type-datastore-table."><i class="fa fa-check"></i><b>0.0.97</b> <code>readFromTableRD</code>: Read from an RData (RD) type datastore table.</a></li>
+<li class="chapter" data-level="0.0.98" data-path="visioneval-models.html"><a href="visioneval-models.html#writetotableh5-write-to-an-rdata-rd-type-datastore-table."><i class="fa fa-check"></i><b>0.0.98</b> <code>writeToTableH5</code>: Write to an RData (RD) type datastore table.</a></li>
+<li class="chapter" data-level="0.0.99" data-path="visioneval-models.html"><a href="visioneval-models.html#writetotablerd-write-to-an-rdata-rd-type-datastore-table."><i class="fa fa-check"></i><b>0.0.99</b> <code>writeToTableRD</code>: Write to an RData (RD) type datastore table.</a></li>
+</ul></li>
+</ul></li>
+<li class="part"><span><b>I Concept Primer</b></span></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#what-can-i-do-with-visioneval"><i class="fa fa-check"></i><b>1.1</b> What can I do with VisionEval?</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#strengths-and-limitations"><i class="fa fa-check"></i><b>1.2</b> Strengths and limitations</a></li>
+<li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#visioneval-geographies"><i class="fa fa-check"></i><b>1.3</b> VisionEval geographies</a></li>
+<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#performance-metrics"><i class="fa fa-check"></i><b>1.4</b> Performance metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="typical-applications.html"><a href="typical-applications.html"><i class="fa fa-check"></i><b>2</b> Typical applications</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="typical-applications.html"><a href="typical-applications.html#strategic-modeling"><i class="fa fa-check"></i><b>2.1</b> Strategic modeling</a></li>
+<li class="chapter" data-level="2.2" data-path="typical-applications.html"><a href="typical-applications.html#local-policy-actions"><i class="fa fa-check"></i><b>2.2</b> Local policy actions</a></li>
+<li class="chapter" data-level="2.3" data-path="typical-applications.html"><a href="typical-applications.html#scenario-analyses"><i class="fa fa-check"></i><b>2.3</b> Scenario analyses</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="building-blocks.html"><a href="building-blocks.html"><i class="fa fa-check"></i><b>3</b> Building blocks</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="building-blocks.html"><a href="building-blocks.html#household-synthesis-and-land-use"><i class="fa fa-check"></i><b>3.1</b> Household synthesis and land use</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="building-blocks.html"><a href="building-blocks.html#synthesize-households"><i class="fa fa-check"></i><b>3.1.1</b> Synthesize households</a></li>
+<li class="chapter" data-level="3.1.2" data-path="building-blocks.html"><a href="building-blocks.html#household-drivers-and-autos"><i class="fa fa-check"></i><b>3.1.2</b> Household drivers and autos</a></li>
+<li class="chapter" data-level="3.1.3" data-path="building-blocks.html"><a href="building-blocks.html#land-use-attributes"><i class="fa fa-check"></i><b>3.1.3</b> Land use attributes</a></li>
+<li class="chapter" data-level="3.1.4" data-path="building-blocks.html"><a href="building-blocks.html#land-use-household-linkages"><i class="fa fa-check"></i><b>3.1.4</b> Land use-household linkages</a></li>
+<li class="chapter" data-level="3.1.5" data-path="building-blocks.html"><a href="building-blocks.html#policy-levers"><i class="fa fa-check"></i><b>3.1.5</b> Policy levers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="building-blocks.html"><a href="building-blocks.html#household-multimodal-travel"><i class="fa fa-check"></i><b>3.2</b> Household multimodal travel</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="building-blocks.html"><a href="building-blocks.html#transport-supply"><i class="fa fa-check"></i><b>3.2.1</b> Transport supply</a></li>
+<li class="chapter" data-level="3.2.2" data-path="building-blocks.html"><a href="building-blocks.html#household-travel-calculations"><i class="fa fa-check"></i><b>3.2.2</b> Household travel calculations</a></li>
+<li class="chapter" data-level="3.2.3" data-path="building-blocks.html"><a href="building-blocks.html#sov-diversion"><i class="fa fa-check"></i><b>3.2.3</b> SOV diversion</a></li>
+<li class="chapter" data-level="3.2.4" data-path="building-blocks.html"><a href="building-blocks.html#dvmt-reductions"><i class="fa fa-check"></i><b>3.2.4</b> DVMT reductions</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="building-blocks.html"><a href="building-blocks.html#vehicles-fuels-and-emissions"><i class="fa fa-check"></i><b>3.3</b> Vehicles, fuels and emissions</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="building-blocks.html"><a href="building-blocks.html#household-vehicle-table"><i class="fa fa-check"></i><b>3.3.1</b> Household vehicle table</a></li>
+<li class="chapter" data-level="3.3.2" data-path="building-blocks.html"><a href="building-blocks.html#powertrains-and-fuels-defaults"><i class="fa fa-check"></i><b>3.3.2</b> Powertrains and fuels defaults</a></li>
+<li class="chapter" data-level="3.3.3" data-path="building-blocks.html"><a href="building-blocks.html#assign-household-powertrains-and-fuels"><i class="fa fa-check"></i><b>3.3.3</b> Assign household powertrains and fuels</a></li>
+<li class="chapter" data-level="3.3.4" data-path="building-blocks.html"><a href="building-blocks.html#assign-non-household-powertrains-and-fuels"><i class="fa fa-check"></i><b>3.3.4</b> Assign non-household powertrains and fuels</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="adjustments.html"><a href="adjustments.html"><i class="fa fa-check"></i><b>4</b> Adjustments</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="adjustments.html"><a href="adjustments.html#congestion-adjustments"><i class="fa fa-check"></i><b>4.1</b> Congestion adjustments</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="adjustments.html"><a href="adjustments.html#initialize-roadway-conditions"><i class="fa fa-check"></i><b>4.1.1</b> Initialize roadway conditions</a></li>
+<li class="chapter" data-level="4.1.2" data-path="adjustments.html"><a href="adjustments.html#congestion-model-and-adjustments"><i class="fa fa-check"></i><b>4.1.2</b> Congestion model and adjustments</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="adjustments.html"><a href="adjustments.html#household-costs-and-budgets"><i class="fa fa-check"></i><b>4.2</b> Household costs and budgets</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="adjustments.html"><a href="adjustments.html#auto-ownership-cost-adjustment"><i class="fa fa-check"></i><b>4.2.1</b> 4.2.1 Auto Ownership Cost &amp; Adjustment</a></li>
+<li class="chapter" data-level="4.2.2" data-path="adjustments.html"><a href="adjustments.html#auto-operating-cost-adjustment"><i class="fa fa-check"></i><b>4.2.2</b> 4.2.2 Auto Operating Cost &amp; Adjustment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="processing.html"><a href="processing.html"><i class="fa fa-check"></i><b>5</b> Processing</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="processing.html"><a href="processing.html#running-visioneval-1"><i class="fa fa-check"></i><b>5.1</b> Running VisionEval</a></li>
+<li class="chapter" data-level="5.2" data-path="processing.html"><a href="processing.html#typical-outputs"><i class="fa fa-check"></i><b>5.2</b> Typical outputs</a></li>
+<li class="chapter" data-level="5.3" data-path="processing.html"><a href="processing.html#exporting-data"><i class="fa fa-check"></i><b>5.3</b> Exporting data</a></li>
+<li class="chapter" data-level="5.4" data-path="processing.html"><a href="processing.html#validation"><i class="fa fa-check"></i><b>5.4</b> Validation</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lexicon.html"><a href="lexicon.html"><i class="fa fa-check"></i><b>6</b> Lexicon</a></li>
+<li class="part"><span><b>II VERSPM Tutorial</b></span></li>
+<li class="chapter" data-level="7" data-path="verspm.html"><a href="verspm.html"><i class="fa fa-check"></i><b>7</b> Overview</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="verspm.html"><a href="verspm.html#structure"><i class="fa fa-check"></i><b>7.1</b> Structure</a></li>
+<li class="chapter" data-level="7.2" data-path="verspm.html"><a href="verspm.html#modules-1"><i class="fa fa-check"></i><b>7.2</b> Modules</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="verspm.html"><a href="verspm.html#feedback"><i class="fa fa-check"></i><b>7.2.1</b> Feedback</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html"><i class="fa fa-check"></i><b>8</b> Inputs and Parameters</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#model-definition-files"><i class="fa fa-check"></i><b>8.1</b> Model Definition Files</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#run_parameters.json"><i class="fa fa-check"></i><b>8.1.1</b> run_parameters.json</a></li>
+<li class="chapter" data-level="8.1.2" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#model_parameters.json"><i class="fa fa-check"></i><b>8.1.2</b> model_parameters.json</a></li>
+<li class="chapter" data-level="8.1.3" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#deflators.csv"><i class="fa fa-check"></i><b>8.1.3</b> deflators.csv</a></li>
+<li class="chapter" data-level="8.1.4" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#geo.csv"><i class="fa fa-check"></i><b>8.1.4</b> geo.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#units.csv"><i class="fa fa-check"></i><b>8.2</b> units.csv</a></li>
+<li class="chapter" data-level="8.3" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#input-files"><i class="fa fa-check"></i><b>8.3</b> Input Files</a></li>
+<li class="chapter" data-level="8.4" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#input-preparation"><i class="fa fa-check"></i><b>8.4</b> Input Preparation</a>
+<ul>
+<li class="chapter" data-level="" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#azone_carsvc_characteristics.csv-optional"><i class="fa fa-check"></i>azone_carsvc_characteristics.csv (optional)</a></li>
+<li class="chapter" data-level="" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#azone_charging_availability.csv"><i class="fa fa-check"></i>azone_charging_availability.csv</a></li>
+<li class="chapter" data-level="" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#azone_electricity_carbon_intensity.csv-optional"><i class="fa fa-check"></i>azone_electricity_carbon_intensity.csv (optional)</a></li>
+<li class="chapter" data-level="" data-path="inputs-and-parameters.html"><a href="inputs-and-parameters.html#azone_fuel_power_cost.csv"><i class="fa fa-check"></i>azone_fuel_power_cost.csv</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html"><i class="fa fa-check"></i><b>9</b> Modules and Outputs</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#createhouseholds"><i class="fa fa-check"></i><b>9.1</b> CreateHouseholds</a>
+<ul>
+<li class="chapter" data-level="9.1.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files"><i class="fa fa-check"></i><b>9.1.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.1.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs"><i class="fa fa-check"></i><b>9.1.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#predictworkers"><i class="fa fa-check"></i><b>9.2</b> PredictWorkers</a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-1"><i class="fa fa-check"></i><b>9.2.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.2.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs"><i class="fa fa-check"></i><b>9.2.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.2.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-1"><i class="fa fa-check"></i><b>9.2.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignlifecycle"><i class="fa fa-check"></i><b>9.3</b> AssignLifeCycle</a>
+<ul>
+<li class="chapter" data-level="9.3.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-2"><i class="fa fa-check"></i><b>9.3.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.3.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-1"><i class="fa fa-check"></i><b>9.3.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.3.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-2"><i class="fa fa-check"></i><b>9.3.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#predictincome"><i class="fa fa-check"></i><b>9.4</b> PredictIncome</a>
+<ul>
+<li class="chapter" data-level="9.4.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-3"><i class="fa fa-check"></i><b>9.4.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.4.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-2"><i class="fa fa-check"></i><b>9.4.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.4.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-3"><i class="fa fa-check"></i><b>9.4.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#predicthousing"><i class="fa fa-check"></i><b>9.5</b> PredictHousing</a>
+<ul>
+<li class="chapter" data-level="9.5.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-4"><i class="fa fa-check"></i><b>9.5.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.5.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-3"><i class="fa fa-check"></i><b>9.5.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.5.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-4"><i class="fa fa-check"></i><b>9.5.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#locateemployment"><i class="fa fa-check"></i><b>9.6</b> LocateEmployment</a>
+<ul>
+<li class="chapter" data-level="9.6.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-5"><i class="fa fa-check"></i><b>9.6.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.6.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-4"><i class="fa fa-check"></i><b>9.6.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.6.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-5"><i class="fa fa-check"></i><b>9.6.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignloctypes"><i class="fa fa-check"></i><b>9.7</b> AssignLocTypes</a>
+<ul>
+<li class="chapter" data-level="9.7.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-6"><i class="fa fa-check"></i><b>9.7.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.7.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-5"><i class="fa fa-check"></i><b>9.7.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.7.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-6"><i class="fa fa-check"></i><b>9.7.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculate4dmeasures"><i class="fa fa-check"></i><b>9.8</b> Calculate4DMeasures</a>
+<ul>
+<li class="chapter" data-level="9.8.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-7"><i class="fa fa-check"></i><b>9.8.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.8.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-6"><i class="fa fa-check"></i><b>9.8.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.8.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-7"><i class="fa fa-check"></i><b>9.8.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.9" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculateurbanmixmeasure"><i class="fa fa-check"></i><b>9.9</b> CalculateUrbanMixMeasure</a>
+<ul>
+<li class="chapter" data-level="9.9.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-8"><i class="fa fa-check"></i><b>9.9.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.9.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-7"><i class="fa fa-check"></i><b>9.9.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.9.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-8"><i class="fa fa-check"></i><b>9.9.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.10" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignparkingrestrictions"><i class="fa fa-check"></i><b>9.10</b> AssignParkingRestrictions</a>
+<ul>
+<li class="chapter" data-level="9.10.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-9"><i class="fa fa-check"></i><b>9.10.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.10.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-8"><i class="fa fa-check"></i><b>9.10.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.10.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-9"><i class="fa fa-check"></i><b>9.10.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.11" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assigndemandmanagement"><i class="fa fa-check"></i><b>9.11</b> AssignDemandManagement</a>
+<ul>
+<li class="chapter" data-level="9.11.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-10"><i class="fa fa-check"></i><b>9.11.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.11.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-9"><i class="fa fa-check"></i><b>9.11.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.11.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-10"><i class="fa fa-check"></i><b>9.11.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.12" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assigncarsvcavailability"><i class="fa fa-check"></i><b>9.12</b> AssignCarSvcAvailability</a>
+<ul>
+<li class="chapter" data-level="9.12.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-11"><i class="fa fa-check"></i><b>9.12.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.12.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-10"><i class="fa fa-check"></i><b>9.12.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.12.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-11"><i class="fa fa-check"></i><b>9.12.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.13" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assigntransitservice"><i class="fa fa-check"></i><b>9.13</b> AssignTransitService</a>
+<ul>
+<li class="chapter" data-level="9.13.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-12"><i class="fa fa-check"></i><b>9.13.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.13.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-11"><i class="fa fa-check"></i><b>9.13.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.13.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-12"><i class="fa fa-check"></i><b>9.13.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.14" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignroadmiles"><i class="fa fa-check"></i><b>9.14</b> AssignRoadMiles</a>
+<ul>
+<li class="chapter" data-level="9.14.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-13"><i class="fa fa-check"></i><b>9.14.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.14.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-12"><i class="fa fa-check"></i><b>9.14.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.14.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-13"><i class="fa fa-check"></i><b>9.14.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.15" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assigndrivers"><i class="fa fa-check"></i><b>9.15</b> AssignDrivers</a>
+<ul>
+<li class="chapter" data-level="9.15.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-14"><i class="fa fa-check"></i><b>9.15.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.15.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-13"><i class="fa fa-check"></i><b>9.15.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.15.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-14"><i class="fa fa-check"></i><b>9.15.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.16" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignvehicleownership"><i class="fa fa-check"></i><b>9.16</b> AssignVehicleOwnership</a>
+<ul>
+<li class="chapter" data-level="9.16.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-15"><i class="fa fa-check"></i><b>9.16.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.16.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-14"><i class="fa fa-check"></i><b>9.16.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.16.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-15"><i class="fa fa-check"></i><b>9.16.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.17" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignvehicletype"><i class="fa fa-check"></i><b>9.17</b> AssignVehicleType</a>
+<ul>
+<li class="chapter" data-level="9.17.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-16"><i class="fa fa-check"></i><b>9.17.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.17.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-15"><i class="fa fa-check"></i><b>9.17.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.17.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-16"><i class="fa fa-check"></i><b>9.17.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.18" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#createvehicletable"><i class="fa fa-check"></i><b>9.18</b> CreateVehicleTable</a>
+<ul>
+<li class="chapter" data-level="9.18.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-17"><i class="fa fa-check"></i><b>9.18.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.18.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-16"><i class="fa fa-check"></i><b>9.18.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.18.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-17"><i class="fa fa-check"></i><b>9.18.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.19" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignvehicleage"><i class="fa fa-check"></i><b>9.19</b> AssignVehicleAge</a>
+<ul>
+<li class="chapter" data-level="9.19.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-18"><i class="fa fa-check"></i><b>9.19.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.19.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-17"><i class="fa fa-check"></i><b>9.19.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.19.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-18"><i class="fa fa-check"></i><b>9.19.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.20" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatevehicleowncost"><i class="fa fa-check"></i><b>9.20</b> CalculateVehicleOwnCost</a>
+<ul>
+<li class="chapter" data-level="9.20.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-18"><i class="fa fa-check"></i><b>9.20.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.20.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-19"><i class="fa fa-check"></i><b>9.20.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.21" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#adjustvehicleownership"><i class="fa fa-check"></i><b>9.21</b> AdjustVehicleOwnership</a>
+<ul>
+<li class="chapter" data-level="9.21.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-19"><i class="fa fa-check"></i><b>9.21.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.21.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-19"><i class="fa fa-check"></i><b>9.21.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.21.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-20"><i class="fa fa-check"></i><b>9.21.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.22" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatehouseholddvmt"><i class="fa fa-check"></i><b>9.22</b> CalculateHouseholdDvmt</a>
+<ul>
+<li class="chapter" data-level="9.22.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-20"><i class="fa fa-check"></i><b>9.22.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.22.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-21"><i class="fa fa-check"></i><b>9.22.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.23" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatealtmodetrips"><i class="fa fa-check"></i><b>9.23</b> CalculateAltModeTrips</a>
+<ul>
+<li class="chapter" data-level="9.23.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-21"><i class="fa fa-check"></i><b>9.23.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.23.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-22"><i class="fa fa-check"></i><b>9.23.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.24" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatevehicletrips"><i class="fa fa-check"></i><b>9.24</b> CalculateVehicleTrips</a>
+<ul>
+<li class="chapter" data-level="9.24.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-22"><i class="fa fa-check"></i><b>9.24.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.24.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-23"><i class="fa fa-check"></i><b>9.24.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.25" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#divertsovtravel"><i class="fa fa-check"></i><b>9.25</b> DivertSovTravel</a>
+<ul>
+<li class="chapter" data-level="9.25.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-20"><i class="fa fa-check"></i><b>9.25.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.25.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-23"><i class="fa fa-check"></i><b>9.25.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.25.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-24"><i class="fa fa-check"></i><b>9.25.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.26" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#initialize-vepowertrainsandfuels"><i class="fa fa-check"></i><b>9.26</b> Initialize-vepowertrainsandfuels</a>
+<ul>
+<li class="chapter" data-level="9.26.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-24"><i class="fa fa-check"></i><b>9.26.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.26.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-25"><i class="fa fa-check"></i><b>9.26.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.27" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatecarbonintensity"><i class="fa fa-check"></i><b>9.27</b> CalculateCarbonIntensity</a>
+<ul>
+<li class="chapter" data-level="9.27.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-21"><i class="fa fa-check"></i><b>9.27.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.27.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-25"><i class="fa fa-check"></i><b>9.27.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.27.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-26"><i class="fa fa-check"></i><b>9.27.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.28" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#assignhhvehiclepowertrain"><i class="fa fa-check"></i><b>9.28</b> AssignHhVehiclePowertrain</a>
+<ul>
+<li class="chapter" data-level="9.28.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-22"><i class="fa fa-check"></i><b>9.28.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.28.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-26"><i class="fa fa-check"></i><b>9.28.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.28.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-27"><i class="fa fa-check"></i><b>9.28.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.29" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#initialize-vetravelperformance"><i class="fa fa-check"></i><b>9.29</b> Initialize-vetravelperformance</a>
+<ul>
+<li class="chapter" data-level="9.29.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-23"><i class="fa fa-check"></i><b>9.29.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.29.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-27"><i class="fa fa-check"></i><b>9.29.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.29.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-28"><i class="fa fa-check"></i><b>9.29.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.30" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatebaseroaddvmt"><i class="fa fa-check"></i><b>9.30</b> CalculateBaseRoadDvmt</a>
+<ul>
+<li class="chapter" data-level="9.30.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-24"><i class="fa fa-check"></i><b>9.30.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.30.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-28"><i class="fa fa-check"></i><b>9.30.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.30.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-29"><i class="fa fa-check"></i><b>9.30.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.31" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatefutureroaddvmt"><i class="fa fa-check"></i><b>9.31</b> CalculateFutureRoadDvmt</a>
+<ul>
+<li class="chapter" data-level="9.31.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-25"><i class="fa fa-check"></i><b>9.31.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.31.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-29"><i class="fa fa-check"></i><b>9.31.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.31.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-30"><i class="fa fa-check"></i><b>9.31.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.32" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculateroadperformance"><i class="fa fa-check"></i><b>9.32</b> CalculateRoadPerformance</a>
+<ul>
+<li class="chapter" data-level="9.32.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-26"><i class="fa fa-check"></i><b>9.32.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.32.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-parameters"><i class="fa fa-check"></i><b>9.32.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="9.32.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-30"><i class="fa fa-check"></i><b>9.32.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.32.4" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-31"><i class="fa fa-check"></i><b>9.32.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.33" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatempgmpkwhadjustments"><i class="fa fa-check"></i><b>9.33</b> CalculateMpgMpkwhAdjustments</a>
+<ul>
+<li class="chapter" data-level="9.33.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-27"><i class="fa fa-check"></i><b>9.33.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.33.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-31"><i class="fa fa-check"></i><b>9.33.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.33.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-32"><i class="fa fa-check"></i><b>9.33.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.34" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#adjusthhvehiclempgmpkwh"><i class="fa fa-check"></i><b>9.34</b> AdjustHhVehicleMpgMpkwh</a>
+<ul>
+<li class="chapter" data-level="9.34.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-32"><i class="fa fa-check"></i><b>9.34.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.34.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-33"><i class="fa fa-check"></i><b>9.34.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.35" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatevehicleoperatingcost"><i class="fa fa-check"></i><b>9.35</b> CalculateVehicleOperatingCost</a>
+<ul>
+<li class="chapter" data-level="9.35.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-28"><i class="fa fa-check"></i><b>9.35.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.35.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-parameters-1"><i class="fa fa-check"></i><b>9.35.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="9.35.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-33"><i class="fa fa-check"></i><b>9.35.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.35.4" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-34"><i class="fa fa-check"></i><b>9.35.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.36" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#budgethouseholddvmt"><i class="fa fa-check"></i><b>9.36</b> BudgetHouseholdDvmt</a>
+<ul>
+<li class="chapter" data-level="9.36.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-29"><i class="fa fa-check"></i><b>9.36.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.36.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-34"><i class="fa fa-check"></i><b>9.36.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.36.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-35"><i class="fa fa-check"></i><b>9.36.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.37" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculatecomenergyandemissions"><i class="fa fa-check"></i><b>9.37</b> CalculateComEnergyAndEmissions</a>
+<ul>
+<li class="chapter" data-level="9.37.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-35"><i class="fa fa-check"></i><b>9.37.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.37.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-36"><i class="fa fa-check"></i><b>9.37.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="9.38" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#calculateptranenergyandemissions"><i class="fa fa-check"></i><b>9.38</b> CalculatePtranEnergyAndEmissions</a>
+<ul>
+<li class="chapter" data-level="9.38.1" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#user-input-files-30"><i class="fa fa-check"></i><b>9.38.1</b> User Input Files</a></li>
+<li class="chapter" data-level="9.38.2" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#internal-module-inputs-36"><i class="fa fa-check"></i><b>9.38.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="9.38.3" data-path="modules-and-outputs.html"><a href="modules-and-outputs.html#module-outputs-37"><i class="fa fa-check"></i><b>9.38.3</b> Module Outputs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="development-and-installation.html"><a href="development-and-installation.html"><i class="fa fa-check"></i><b>10</b> Development and Installation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="development-and-installation.html"><a href="development-and-installation.html#installation-of-visioneval-and-ve-rspm"><i class="fa fa-check"></i><b>10.1</b> Installation of VisionEval and VE-RSPM</a></li>
+<li class="chapter" data-level="10.2" data-path="development-and-installation.html"><a href="development-and-installation.html#running-ve-rspm-base-scenario"><i class="fa fa-check"></i><b>10.2</b> Running VE-RSPM Base Scenario</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="development-and-installation.html"><a href="development-and-installation.html#preparing-inputs"><i class="fa fa-check"></i><b>10.2.1</b> Preparing inputs</a></li>
+<li class="chapter" data-level="10.2.2" data-path="development-and-installation.html"><a href="development-and-installation.html#running-the-model"><i class="fa fa-check"></i><b>10.2.2</b> Running the Model</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="development-and-installation.html"><a href="development-and-installation.html#running-ve-rspm-multiple-scenarios"><i class="fa fa-check"></i><b>10.3</b> Running VE-RSPM Multiple Scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="performance-metrics-1.html"><a href="performance-metrics-1.html"><i class="fa fa-check"></i><b>11</b> Performance Metrics</a></li>
+<li class="part"><span><b>III VERPAT Tutorial</b></span></li>
+<li class="chapter" data-level="12" data-path="verpat.html"><a href="verpat.html"><i class="fa fa-check"></i><b>12</b> Overview</a>
+<ul>
+<li class="chapter" data-level="12.0.1" data-path="verpat.html"><a href="verpat.html#verpat-model-structure"><i class="fa fa-check"></i><b>12.0.1</b> VERPAT Model Structure</a></li>
+<li class="chapter" data-level="12.0.2" data-path="verpat.html"><a href="verpat.html#verpat-modules"><i class="fa fa-check"></i><b>12.0.2</b> VERPAT Modules</a></li>
+<li class="chapter" data-level="12.0.3" data-path="verpat.html"><a href="verpat.html#feedback-loops"><i class="fa fa-check"></i><b>12.0.3</b> Feedback loops</a></li>
+<li class="chapter" data-level="12.0.4" data-path="verpat.html"><a href="verpat.html#for-more-information"><i class="fa fa-check"></i><b>12.0.4</b> For more information</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html"><i class="fa fa-check"></i><b>13</b> Inputs and Parameters</a>
+<ul>
+<li class="chapter" data-level="13.0.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#run_parameters.json-1"><i class="fa fa-check"></i><b>13.0.1</b> run_parameters.json</a></li>
+<li class="chapter" data-level="13.0.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_parameters.json-1"><i class="fa fa-check"></i><b>13.0.2</b> model_parameters.json</a></li>
+<li class="chapter" data-level="13.0.3" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#deflators.csv-1"><i class="fa fa-check"></i><b>13.0.3</b> deflators.csv</a></li>
+<li class="chapter" data-level="13.0.4" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#geo.csv-1"><i class="fa fa-check"></i><b>13.0.4</b> geo.csv</a></li>
+<li class="chapter" data-level="13.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#units.csv-1"><i class="fa fa-check"></i><b>13.1</b> units.csv</a></li>
+<li class="chapter" data-level="13.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#input-files-1"><i class="fa fa-check"></i><b>13.2</b> Input Files</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#inputs-1"><i class="fa fa-check"></i><b>13.2.1</b> Inputs</a></li>
+<li class="chapter" data-level="13.2.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model-parameters"><i class="fa fa-check"></i><b>13.2.2</b> Model Parameters</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#input-files-to-change"><i class="fa fa-check"></i><b>13.3</b> Input Files to Change</a></li>
+<li class="chapter" data-level="13.4" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#built-environment"><i class="fa fa-check"></i><b>13.4</b> Built Environment</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#csv-inputs"><i class="fa fa-check"></i><b>13.4.1</b> CSV Inputs</a></li>
+<li class="chapter" data-level="13.4.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#bzone_pop_emp_prop.csv"><i class="fa fa-check"></i><b>13.4.2</b> bzone_pop_emp_prop.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="13.5" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#demand"><i class="fa fa-check"></i><b>13.5</b> Demand</a>
+<ul>
+<li class="chapter" data-level="13.5.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#csv-inputs-1"><i class="fa fa-check"></i><b>13.5.1</b> CSV Inputs</a></li>
+<li class="chapter" data-level="13.5.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#region_trips_per_cap.csv"><i class="fa fa-check"></i><b>13.5.2</b> region_trips_per_cap.csv</a></li>
+<li class="chapter" data-level="13.5.3" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_employment_by_naics.csv"><i class="fa fa-check"></i><b>13.5.3</b> azone_employment_by_naics.csv</a></li>
+<li class="chapter" data-level="13.5.4" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_hh_pop_by_age.csv"><i class="fa fa-check"></i><b>13.5.4</b> azone_hh_pop_by_age.csv</a></li>
+<li class="chapter" data-level="13.5.5" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_gq_pop_by_age.csv-construction"><i class="fa fa-check"></i><b>13.5.5</b> azone_gq_pop_by_age.csv :construction:</a></li>
+<li class="chapter" data-level="13.5.6" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_hhsize_targets.csv-construction"><i class="fa fa-check"></i><b>13.5.6</b> azone_hhsize_targets.csv :construction:</a></li>
+<li class="chapter" data-level="13.5.7" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_per_cap_inc.csv"><i class="fa fa-check"></i><b>13.5.7</b> azone_per_cap_inc.csv</a></li>
+<li class="chapter" data-level="13.5.8" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_relative_employment.csv"><i class="fa fa-check"></i><b>13.5.8</b> azone_relative_employment.csv</a></li>
+<li class="chapter" data-level="13.5.9" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#region_truck_bus_vmt.csv"><i class="fa fa-check"></i><b>13.5.9</b> region_truck_bus_vmt.csv</a></li>
+<li class="chapter" data-level="13.5.10" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#json-inputs"><i class="fa fa-check"></i><b>13.5.10</b> JSON Inputs</a></li>
+<li class="chapter" data-level="13.5.11" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#baseltvehdvmt"><i class="fa fa-check"></i><b>13.5.11</b> BaseLtVehDvmt</a></li>
+<li class="chapter" data-level="13.5.12" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#basefwyartprop"><i class="fa fa-check"></i><b>13.5.12</b> BaseFwyArtProp</a></li>
+<li class="chapter" data-level="13.5.13" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#employmentgrowth"><i class="fa fa-check"></i><b>13.5.13</b> EmploymentGrowth</a></li>
+</ul></li>
+<li class="chapter" data-level="13.6" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#transport-supply-1"><i class="fa fa-check"></i><b>13.6</b> Transport Supply</a>
+<ul>
+<li class="chapter" data-level="13.6.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#csv-inputs-2"><i class="fa fa-check"></i><b>13.6.1</b> CSV Inputs</a></li>
+<li class="chapter" data-level="13.6.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#marea_lane_miles.csv"><i class="fa fa-check"></i><b>13.6.2</b> marea_lane_miles.csv</a></li>
+<li class="chapter" data-level="13.6.3" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#marea_rev_miles_pc.csv"><i class="fa fa-check"></i><b>13.6.3</b> marea_rev_miles_pc.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="13.7" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#policy"><i class="fa fa-check"></i><b>13.7</b> Policy</a>
+<ul>
+<li class="chapter" data-level="13.7.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#csv-inputs-3"><i class="fa fa-check"></i><b>13.7.1</b> CSV Inputs</a></li>
+<li class="chapter" data-level="13.7.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#region_commute_options.csv"><i class="fa fa-check"></i><b>13.7.2</b> region_commute_options.csv</a></li>
+<li class="chapter" data-level="13.7.3" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#azone_its_prop.csv"><i class="fa fa-check"></i><b>13.7.3</b> azone_its_prop.csv</a></li>
+<li class="chapter" data-level="13.7.4" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#region_light_vehicles.csv"><i class="fa fa-check"></i><b>13.7.4</b> region_light_vehicles.csv</a></li>
+<li class="chapter" data-level="13.7.5" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#marea_parking_growth.csv"><i class="fa fa-check"></i><b>13.7.5</b> marea_parking_growth.csv</a></li>
+<li class="chapter" data-level="13.7.6" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#json-inputs-1"><i class="fa fa-check"></i><b>13.7.6</b> JSON Inputs</a></li>
+<li class="chapter" data-level="13.7.7" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#autocostgrowth"><i class="fa fa-check"></i><b>13.7.7</b> AutoCostGrowth</a></li>
+<li class="chapter" data-level="13.7.8" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#fwylanemigrowth"><i class="fa fa-check"></i><b>13.7.8</b> FwyLaneMiGrowth</a></li>
+<li class="chapter" data-level="13.7.9" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#artlanemigrowth"><i class="fa fa-check"></i><b>13.7.9</b> ArtLaneMiGrowth</a></li>
+<li class="chapter" data-level="13.7.10" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#busrevmipcgrowth"><i class="fa fa-check"></i><b>13.7.10</b> BusRevMiPCGrowth</a></li>
+<li class="chapter" data-level="13.7.11" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#railrevmipcgrowth"><i class="fa fa-check"></i><b>13.7.11</b> RailRevMiPCGrowth</a></li>
+<li class="chapter" data-level="13.7.12" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#vmtcharge"><i class="fa fa-check"></i><b>13.7.12</b> VmtCharge</a></li>
+</ul></li>
+<li class="chapter" data-level="13.8" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model-parameters-1"><i class="fa fa-check"></i><b>13.8</b> Model Parameters</a>
+<ul>
+<li class="chapter" data-level="13.8.1" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#csv-inputs-4"><i class="fa fa-check"></i><b>13.8.1</b> CSV Inputs</a></li>
+<li class="chapter" data-level="13.8.2" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_accident_rates.csv"><i class="fa fa-check"></i><b>13.8.2</b> model_accident_rates.csv</a></li>
+<li class="chapter" data-level="13.8.3" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_fuel_prop_by_veh.csv"><i class="fa fa-check"></i><b>13.8.3</b> model_fuel_prop_by_veh.csv</a></li>
+<li class="chapter" data-level="13.8.4" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_fuel_composition_prop.csv"><i class="fa fa-check"></i><b>13.8.4</b> model_fuel_composition_prop.csv</a></li>
+<li class="chapter" data-level="13.8.5" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_fuel_co2.csv"><i class="fa fa-check"></i><b>13.8.5</b> model_fuel_co2.csv</a></li>
+<li class="chapter" data-level="13.8.6" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_place_type_elasticities.csv"><i class="fa fa-check"></i><b>13.8.6</b> model_place_type_elasticities.csv</a></li>
+<li class="chapter" data-level="13.8.7" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_place_type_relative_values.csv"><i class="fa fa-check"></i><b>13.8.7</b> model_place_type_relative_values.csv</a></li>
+<li class="chapter" data-level="13.8.8" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_tdm_ridesharing.csv"><i class="fa fa-check"></i><b>13.8.8</b> model_tdm_ridesharing.csv</a></li>
+<li class="chapter" data-level="13.8.9" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_tdm_transit.csv"><i class="fa fa-check"></i><b>13.8.9</b> model_tdm_transit.csv</a></li>
+<li class="chapter" data-level="13.8.10" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_tdm_transitlevels.csv"><i class="fa fa-check"></i><b>13.8.10</b> model_tdm_transitlevels.csv</a></li>
+<li class="chapter" data-level="13.8.11" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_tdm_vanpooling.csv"><i class="fa fa-check"></i><b>13.8.11</b> model_tdm_vanpooling.csv</a></li>
+<li class="chapter" data-level="13.8.12" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_tdm_workschedule.csv"><i class="fa fa-check"></i><b>13.8.12</b> model_tdm_workschedule.csv</a></li>
+<li class="chapter" data-level="13.8.13" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_tdm_workschedulelevels.csv"><i class="fa fa-check"></i><b>13.8.13</b> model_tdm_workschedulelevels.csv</a></li>
+<li class="chapter" data-level="13.8.14" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_transportation_costs.csv"><i class="fa fa-check"></i><b>13.8.14</b> model_transportation_costs.csv</a></li>
+<li class="chapter" data-level="13.8.15" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_veh_mpg_by_year.csv"><i class="fa fa-check"></i><b>13.8.15</b> model_veh_mpg_by_year.csv</a></li>
+<li class="chapter" data-level="13.8.16" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_phev_range_prop_mpg_mpkwh.csv"><i class="fa fa-check"></i><b>13.8.16</b> model_phev_range_prop_mpg_mpkwh.csv</a></li>
+<li class="chapter" data-level="13.8.17" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_hev_prop_mpg.csv"><i class="fa fa-check"></i><b>13.8.17</b> model_hev_prop_mpg.csv</a></li>
+<li class="chapter" data-level="13.8.18" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#model_ev_range_prop_mpkwh.csv"><i class="fa fa-check"></i><b>13.8.18</b> model_ev_range_prop_mpkwh.csv</a></li>
+<li class="chapter" data-level="13.8.19" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#json-inputs-2"><i class="fa fa-check"></i><b>13.8.19</b> JSON Inputs</a></li>
+<li class="chapter" data-level="13.8.20" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#annvmtinflator"><i class="fa fa-check"></i><b>13.8.20</b> AnnVmtInflator</a></li>
+<li class="chapter" data-level="13.8.21" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#basecostpermile"><i class="fa fa-check"></i><b>13.8.21</b> BaseCostPerMile</a></li>
+<li class="chapter" data-level="13.8.22" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#dvmtbudgetprop"><i class="fa fa-check"></i><b>13.8.22</b> DvmtBudgetProp</a></li>
+<li class="chapter" data-level="13.8.23" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#fuelcost"><i class="fa fa-check"></i><b>13.8.23</b> FuelCost</a></li>
+<li class="chapter" data-level="13.8.24" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#kwhcost"><i class="fa fa-check"></i><b>13.8.24</b> KwhCost</a></li>
+<li class="chapter" data-level="13.8.25" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#gastax"><i class="fa fa-check"></i><b>13.8.25</b> GasTax</a></li>
+<li class="chapter" data-level="13.8.26" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#lttruckprop"><i class="fa fa-check"></i><b>13.8.26</b> LtTruckProp</a></li>
+<li class="chapter" data-level="13.8.27" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#tranrevmiadjfactor"><i class="fa fa-check"></i><b>13.8.27</b> TranRevMiAdjFactor</a></li>
+<li class="chapter" data-level="13.8.28" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#truckvmtgrowthmultiplier"><i class="fa fa-check"></i><b>13.8.28</b> TruckVmtGrowthMultiplier</a></li>
+<li class="chapter" data-level="13.8.29" data-path="inputs-and-parameters-1.html"><a href="inputs-and-parameters-1.html#workvmtprop"><i class="fa fa-check"></i><b>13.8.29</b> WorkVmtProp</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html"><i class="fa fa-check"></i><b>14</b> Modules and Outputs</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#createhouseholds-1"><i class="fa fa-check"></i><b>14.1</b> CreateHouseholds</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-31"><i class="fa fa-check"></i><b>14.1.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.1.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-38"><i class="fa fa-check"></i><b>14.1.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#predictworkers-1"><i class="fa fa-check"></i><b>14.2</b> PredictWorkers</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-32"><i class="fa fa-check"></i><b>14.2.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.2.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-37"><i class="fa fa-check"></i><b>14.2.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.2.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-39"><i class="fa fa-check"></i><b>14.2.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#predictincome-1"><i class="fa fa-check"></i><b>14.3</b> PredictIncome</a>
+<ul>
+<li class="chapter" data-level="14.3.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-33"><i class="fa fa-check"></i><b>14.3.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.3.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-38"><i class="fa fa-check"></i><b>14.3.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.3.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-40"><i class="fa fa-check"></i><b>14.3.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#createbasesyntheticfirms"><i class="fa fa-check"></i><b>14.4</b> CreateBaseSyntheticFirms</a>
+<ul>
+<li class="chapter" data-level="14.4.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-34"><i class="fa fa-check"></i><b>14.4.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.4.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-41"><i class="fa fa-check"></i><b>14.4.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.5" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#createfuturesyntheticfirms"><i class="fa fa-check"></i><b>14.5</b> CreateFutureSyntheticFirms</a>
+<ul>
+<li class="chapter" data-level="14.5.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-2"><i class="fa fa-check"></i><b>14.5.1</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.5.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-39"><i class="fa fa-check"></i><b>14.5.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.5.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-42"><i class="fa fa-check"></i><b>14.5.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.6" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatebaseplacetypes"><i class="fa fa-check"></i><b>14.6</b> CalculateBasePlaceTypes</a>
+<ul>
+<li class="chapter" data-level="14.6.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-35"><i class="fa fa-check"></i><b>14.6.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.6.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-40"><i class="fa fa-check"></i><b>14.6.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.6.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-43"><i class="fa fa-check"></i><b>14.6.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.7" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatefutureplacetypes"><i class="fa fa-check"></i><b>14.7</b> CalculateFuturePlaceTypes</a>
+<ul>
+<li class="chapter" data-level="14.7.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-36"><i class="fa fa-check"></i><b>14.7.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.7.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-41"><i class="fa fa-check"></i><b>14.7.2</b> Internal Module Inputs:</a></li>
+<li class="chapter" data-level="14.7.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-44"><i class="fa fa-check"></i><b>14.7.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.8" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#createbaseaccessibility"><i class="fa fa-check"></i><b>14.8</b> CreateBaseAccessibility</a>
+<ul>
+<li class="chapter" data-level="14.8.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-37"><i class="fa fa-check"></i><b>14.8.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.8.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-42"><i class="fa fa-check"></i><b>14.8.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.8.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-45"><i class="fa fa-check"></i><b>14.8.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.9" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#createfutureaccessibility"><i class="fa fa-check"></i><b>14.9</b> CreateFutureAccessibility</a>
+<ul>
+<li class="chapter" data-level="14.9.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-38"><i class="fa fa-check"></i><b>14.9.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.9.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-3"><i class="fa fa-check"></i><b>14.9.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.9.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-43"><i class="fa fa-check"></i><b>14.9.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.9.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-46"><i class="fa fa-check"></i><b>14.9.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.10" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#assignvehiclefeatures"><i class="fa fa-check"></i><b>14.10</b> AssignVehicleFeatures</a>
+<ul>
+<li class="chapter" data-level="14.10.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-39"><i class="fa fa-check"></i><b>14.10.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.10.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-4"><i class="fa fa-check"></i><b>14.10.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.10.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-44"><i class="fa fa-check"></i><b>14.10.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.10.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-47"><i class="fa fa-check"></i><b>14.10.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.11" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#assignvehiclefeaturesfuture"><i class="fa fa-check"></i><b>14.11</b> AssignVehicleFeaturesFuture</a>
+<ul>
+<li class="chapter" data-level="14.11.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-45"><i class="fa fa-check"></i><b>14.11.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.11.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-48"><i class="fa fa-check"></i><b>14.11.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.12" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatetraveldemand"><i class="fa fa-check"></i><b>14.12</b> CalculateTravelDemand</a>
+<ul>
+<li class="chapter" data-level="14.12.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-40"><i class="fa fa-check"></i><b>14.12.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.12.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-5"><i class="fa fa-check"></i><b>14.12.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.12.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#fixed-input-parameters"><i class="fa fa-check"></i><b>14.12.3</b> Fixed Input Parameters</a></li>
+<li class="chapter" data-level="14.12.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-46"><i class="fa fa-check"></i><b>14.12.4</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.12.5" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-49"><i class="fa fa-check"></i><b>14.12.5</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.13" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatetraveldemandfuture"><i class="fa fa-check"></i><b>14.13</b> CalculateTravelDemandFuture</a>
+<ul>
+<li class="chapter" data-level="14.13.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-41"><i class="fa fa-check"></i><b>14.13.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.13.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-6"><i class="fa fa-check"></i><b>14.13.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.13.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#fixed-input-parameters-1"><i class="fa fa-check"></i><b>14.13.3</b> Fixed Input Parameters</a></li>
+<li class="chapter" data-level="14.13.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-47"><i class="fa fa-check"></i><b>14.13.4</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.13.5" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-50"><i class="fa fa-check"></i><b>14.13.5</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.14" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatecongestionbase"><i class="fa fa-check"></i><b>14.14</b> CalculateCongestionBase</a>
+<ul>
+<li class="chapter" data-level="14.14.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-42"><i class="fa fa-check"></i><b>14.14.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.14.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-7"><i class="fa fa-check"></i><b>14.14.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.14.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-48"><i class="fa fa-check"></i><b>14.14.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.14.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-51"><i class="fa fa-check"></i><b>14.14.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.15" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatecongestionfuture"><i class="fa fa-check"></i><b>14.15</b> CalculateCongestionFuture</a>
+<ul>
+<li class="chapter" data-level="14.15.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-43"><i class="fa fa-check"></i><b>14.15.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.15.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-8"><i class="fa fa-check"></i><b>14.15.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.15.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-49"><i class="fa fa-check"></i><b>14.15.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.15.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-52"><i class="fa fa-check"></i><b>14.15.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.16" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculateinduceddemand"><i class="fa fa-check"></i><b>14.16</b> CalculateInducedDemand</a>
+<ul>
+<li class="chapter" data-level="14.16.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-44"><i class="fa fa-check"></i><b>14.16.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.16.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-50"><i class="fa fa-check"></i><b>14.16.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.16.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-53"><i class="fa fa-check"></i><b>14.16.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.17" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatepolicyvmt"><i class="fa fa-check"></i><b>14.17</b> CalculatePolicyVmt</a>
+<ul>
+<li class="chapter" data-level="14.17.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-45"><i class="fa fa-check"></i><b>14.17.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.17.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-9"><i class="fa fa-check"></i><b>14.17.2</b> User Input Parameters:</a></li>
+<li class="chapter" data-level="14.17.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-51"><i class="fa fa-check"></i><b>14.17.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.17.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-54"><i class="fa fa-check"></i><b>14.17.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.18" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#calculatecongestionpolicy"><i class="fa fa-check"></i><b>14.18</b> CalculateCongestionPolicy</a>
+<ul>
+<li class="chapter" data-level="14.18.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-46"><i class="fa fa-check"></i><b>14.18.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.18.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-parameters-10"><i class="fa fa-check"></i><b>14.18.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="14.18.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-52"><i class="fa fa-check"></i><b>14.18.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.18.4" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-55"><i class="fa fa-check"></i><b>14.18.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="14.19" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#reportrpatmetrics"><i class="fa fa-check"></i><b>14.19</b> ReportRPATMetrics</a>
+<ul>
+<li class="chapter" data-level="14.19.1" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#user-input-files-47"><i class="fa fa-check"></i><b>14.19.1</b> User Input Files</a></li>
+<li class="chapter" data-level="14.19.2" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#internal-module-inputs-53"><i class="fa fa-check"></i><b>14.19.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="14.19.3" data-path="modules-and-outputs-1.html"><a href="modules-and-outputs-1.html#module-outputs-56"><i class="fa fa-check"></i><b>14.19.3</b> Module Outputs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="development-and-installation-1.html"><a href="development-and-installation-1.html"><i class="fa fa-check"></i><b>15</b> Development and Installation</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="development-and-installation-1.html"><a href="development-and-installation-1.html#installation-of-visioneval-and-verpat"><i class="fa fa-check"></i><b>15.1</b> Installation of VisionEval and VERPAT</a></li>
+<li class="chapter" data-level="15.2" data-path="development-and-installation-1.html"><a href="development-and-installation-1.html#running-the-verpat-model"><i class="fa fa-check"></i><b>15.2</b> Running the VERPAT model</a>
+<ul>
+<li class="chapter" data-level="15.2.1" data-path="development-and-installation-1.html"><a href="development-and-installation-1.html#modifying-the-scenario"><i class="fa fa-check"></i><b>15.2.1</b> Modifying the scenario</a></li>
+<li class="chapter" data-level="15.2.2" data-path="development-and-installation-1.html"><a href="development-and-installation-1.html#model-output"><i class="fa fa-check"></i><b>15.2.2</b> Model output</a></li>
+<li class="chapter" data-level="15.2.3" data-path="development-and-installation-1.html"><a href="development-and-installation-1.html#exporting-data-to-csv"><i class="fa fa-check"></i><b>15.2.3</b> Exporting Data to CSV</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="performance-metrics-2.html"><a href="performance-metrics-2.html"><i class="fa fa-check"></i><b>16</b> Performance Metrics</a></li>
+<li class="part"><span><b>IV VEState Tutorial</b></span></li>
+<li class="chapter" data-level="17" data-path="vestate.html"><a href="vestate.html"><i class="fa fa-check"></i><b>17</b> Overview</a>
+<ul>
+<li class="chapter" data-level="17.1" data-path="vestate.html"><a href="vestate.html#ve-state-vs.-ve-rspm"><i class="fa fa-check"></i><b>17.1</b> VE-State Vs. VE-RSPM</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="required-bzone-attributes.html"><a href="required-bzone-attributes.html"><i class="fa fa-check"></i><b>18</b> Required Bzone Attributes</a></li>
+<li class="chapter" data-level="19" data-path="approach-for-synthesizing-bzones-and-their-attributes.html"><a href="approach-for-synthesizing-bzones-and-their-attributes.html"><i class="fa fa-check"></i><b>19</b> Approach for Synthesizing Bzones and their Attributes</a></li>
+<li class="chapter" data-level="20" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html"><i class="fa fa-check"></i><b>20</b> Inputs and Parameters</a>
+<ul>
+<li class="chapter" data-level="20.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#model-definition-files-1"><i class="fa fa-check"></i><b>20.1</b> Model Definition Files</a>
+<ul>
+<li class="chapter" data-level="20.1.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#run_parameters.json-2"><i class="fa fa-check"></i><b>20.1.1</b> run_parameters.json</a></li>
+<li class="chapter" data-level="20.1.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#model_parameters.json-2"><i class="fa fa-check"></i><b>20.1.2</b> model_parameters.json</a></li>
+<li class="chapter" data-level="20.1.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#deflators.csv-2"><i class="fa fa-check"></i><b>20.1.3</b> deflators.csv</a></li>
+<li class="chapter" data-level="20.1.4" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#geo.csv-2"><i class="fa fa-check"></i><b>20.1.4</b> geo.csv</a></li>
+</ul></li>
+<li class="chapter" data-level="20.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#units.csv-2"><i class="fa fa-check"></i><b>20.2</b> units.csv</a></li>
+<li class="chapter" data-level="20.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#input-files-2"><i class="fa fa-check"></i><b>20.3</b> Input Files</a></li>
+<li class="chapter" data-level="20.4" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#modules-and-outputs-2"><i class="fa fa-check"></i><b>20.4</b> # Modules and Outputs</a></li>
+<li class="chapter" data-level="20.5" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#createhouseholds-2"><i class="fa fa-check"></i><b>20.5</b> CreateHouseholds</a>
+<ul>
+<li class="chapter" data-level="20.5.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-48"><i class="fa fa-check"></i><b>20.5.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.5.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-57"><i class="fa fa-check"></i><b>20.5.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.6" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#predictworkers-2"><i class="fa fa-check"></i><b>20.6</b> PredictWorkers</a>
+<ul>
+<li class="chapter" data-level="20.6.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-49"><i class="fa fa-check"></i><b>20.6.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.6.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-54"><i class="fa fa-check"></i><b>20.6.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.6.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-58"><i class="fa fa-check"></i><b>20.6.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.7" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assignlifecycle-1"><i class="fa fa-check"></i><b>20.7</b> AssignLifeCycle</a>
+<ul>
+<li class="chapter" data-level="20.7.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-50"><i class="fa fa-check"></i><b>20.7.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.7.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-55"><i class="fa fa-check"></i><b>20.7.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.7.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-59"><i class="fa fa-check"></i><b>20.7.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.8" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#predictincome-2"><i class="fa fa-check"></i><b>20.8</b> PredictIncome</a>
+<ul>
+<li class="chapter" data-level="20.8.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-51"><i class="fa fa-check"></i><b>20.8.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.8.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-56"><i class="fa fa-check"></i><b>20.8.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.8.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-60"><i class="fa fa-check"></i><b>20.8.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.9" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#initialize"><i class="fa fa-check"></i><b>20.9</b> Initialize</a>
+<ul>
+<li class="chapter" data-level="20.9.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-52"><i class="fa fa-check"></i><b>20.9.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.9.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-53"><i class="fa fa-check"></i><b>20.9.2</b> User Input Files</a></li>
+<li class="chapter" data-level="20.9.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-57"><i class="fa fa-check"></i><b>20.9.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.9.4" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-61"><i class="fa fa-check"></i><b>20.9.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.10" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#simulatehousing"><i class="fa fa-check"></i><b>20.10</b> SimulateHousing</a>
+<ul>
+<li class="chapter" data-level="20.10.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-58"><i class="fa fa-check"></i><b>20.10.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.10.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-62"><i class="fa fa-check"></i><b>20.10.2</b> Module Outputs</a></li>
+<li class="chapter" data-level="20.10.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-59"><i class="fa fa-check"></i><b>20.10.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.10.4" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-63"><i class="fa fa-check"></i><b>20.10.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.11" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#simulate4dmeasures"><i class="fa fa-check"></i><b>20.11</b> Simulate4DMeasures</a>
+<ul>
+<li class="chapter" data-level="20.11.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-60"><i class="fa fa-check"></i><b>20.11.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.11.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-64"><i class="fa fa-check"></i><b>20.11.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.12" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#simulateurbanmixmeasure"><i class="fa fa-check"></i><b>20.12</b> SimulateUrbanMixMeasure</a>
+<ul>
+<li class="chapter" data-level="20.12.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-54"><i class="fa fa-check"></i><b>20.12.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.12.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-61"><i class="fa fa-check"></i><b>20.12.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.12.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-65"><i class="fa fa-check"></i><b>20.12.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.13" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assignparkingrestrictions-1"><i class="fa fa-check"></i><b>20.13</b> AssignParkingRestrictions</a>
+<ul>
+<li class="chapter" data-level="20.13.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-62"><i class="fa fa-check"></i><b>20.13.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.13.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-66"><i class="fa fa-check"></i><b>20.13.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.14" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assigndemandmanagement-1"><i class="fa fa-check"></i><b>20.14</b> AssignDemandManagement</a>
+<ul>
+<li class="chapter" data-level="20.14.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-63"><i class="fa fa-check"></i><b>20.14.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.14.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-67"><i class="fa fa-check"></i><b>20.14.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.15" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assigncarsvcavailability-1"><i class="fa fa-check"></i><b>20.15</b> AssignCarSvcAvailability</a>
+<ul>
+<li class="chapter" data-level="20.15.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-64"><i class="fa fa-check"></i><b>20.15.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.15.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-68"><i class="fa fa-check"></i><b>20.15.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.16" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#simulatetransitservice"><i class="fa fa-check"></i><b>20.16</b> SimulateTransitService</a>
+<ul>
+<li class="chapter" data-level="20.16.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-65"><i class="fa fa-check"></i><b>20.16.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.16.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-69"><i class="fa fa-check"></i><b>20.16.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.17" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#simulateroadmiles"><i class="fa fa-check"></i><b>20.17</b> SimulateRoadMiles</a>
+<ul>
+<li class="chapter" data-level="20.17.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-66"><i class="fa fa-check"></i><b>20.17.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.17.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-70"><i class="fa fa-check"></i><b>20.17.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.18" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assigndrivers-1"><i class="fa fa-check"></i><b>20.18</b> AssignDrivers</a>
+<ul>
+<li class="chapter" data-level="20.18.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-55"><i class="fa fa-check"></i><b>20.18.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.18.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-67"><i class="fa fa-check"></i><b>20.18.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.18.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-71"><i class="fa fa-check"></i><b>20.18.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.19" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assignvehicleownership-1"><i class="fa fa-check"></i><b>20.19</b> AssignVehicleOwnership</a>
+<ul>
+<li class="chapter" data-level="20.19.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-56"><i class="fa fa-check"></i><b>20.19.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.19.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-68"><i class="fa fa-check"></i><b>20.19.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.19.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-72"><i class="fa fa-check"></i><b>20.19.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.20" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assignvehicletype-1"><i class="fa fa-check"></i><b>20.20</b> AssignVehicleType</a>
+<ul>
+<li class="chapter" data-level="20.20.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-57"><i class="fa fa-check"></i><b>20.20.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.20.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-69"><i class="fa fa-check"></i><b>20.20.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.20.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-73"><i class="fa fa-check"></i><b>20.20.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.21" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#createvehicletable-1"><i class="fa fa-check"></i><b>20.21</b> CreateVehicleTable</a>
+<ul>
+<li class="chapter" data-level="20.21.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-58"><i class="fa fa-check"></i><b>20.21.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.21.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-70"><i class="fa fa-check"></i><b>20.21.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.21.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-74"><i class="fa fa-check"></i><b>20.21.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.22" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assignvehicleage-1"><i class="fa fa-check"></i><b>20.22</b> AssignVehicleAge</a>
+<ul>
+<li class="chapter" data-level="20.22.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-59"><i class="fa fa-check"></i><b>20.22.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.22.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-71"><i class="fa fa-check"></i><b>20.22.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.22.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-75"><i class="fa fa-check"></i><b>20.22.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.23" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatevehicleowncost-1"><i class="fa fa-check"></i><b>20.23</b> CalculateVehicleOwnCost</a>
+<ul>
+<li class="chapter" data-level="20.23.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-72"><i class="fa fa-check"></i><b>20.23.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.23.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-76"><i class="fa fa-check"></i><b>20.23.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.24" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#adjustvehicleownership-1"><i class="fa fa-check"></i><b>20.24</b> AdjustVehicleOwnership</a>
+<ul>
+<li class="chapter" data-level="20.24.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-60"><i class="fa fa-check"></i><b>20.24.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.24.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-73"><i class="fa fa-check"></i><b>20.24.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.24.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-77"><i class="fa fa-check"></i><b>20.24.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.25" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatehouseholddvmt-1"><i class="fa fa-check"></i><b>20.25</b> CalculateHouseholdDvmt</a>
+<ul>
+<li class="chapter" data-level="20.25.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-74"><i class="fa fa-check"></i><b>20.25.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.25.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-78"><i class="fa fa-check"></i><b>20.25.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.26" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatealtmodetrips-1"><i class="fa fa-check"></i><b>20.26</b> CalculateAltModeTrips</a>
+<ul>
+<li class="chapter" data-level="20.26.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-75"><i class="fa fa-check"></i><b>20.26.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.26.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-79"><i class="fa fa-check"></i><b>20.26.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.27" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatevehicletrips-1"><i class="fa fa-check"></i><b>20.27</b> CalculateVehicleTrips</a>
+<ul>
+<li class="chapter" data-level="20.27.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-76"><i class="fa fa-check"></i><b>20.27.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.27.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-80"><i class="fa fa-check"></i><b>20.27.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.28" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#divertsovtravel-1"><i class="fa fa-check"></i><b>20.28</b> DivertSovTravel</a>
+<ul>
+<li class="chapter" data-level="20.28.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-77"><i class="fa fa-check"></i><b>20.28.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.28.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-81"><i class="fa fa-check"></i><b>20.28.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.29" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#initialize-vepowertrainsandfuels-1"><i class="fa fa-check"></i><b>20.29</b> Initialize-vepowertrainsandfuels</a>
+<ul>
+<li class="chapter" data-level="20.29.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-78"><i class="fa fa-check"></i><b>20.29.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.29.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-82"><i class="fa fa-check"></i><b>20.29.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.30" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatecarbonintensity-1"><i class="fa fa-check"></i><b>20.30</b> CalculateCarbonIntensity</a>
+<ul>
+<li class="chapter" data-level="20.30.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-61"><i class="fa fa-check"></i><b>20.30.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.30.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-79"><i class="fa fa-check"></i><b>20.30.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.30.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-83"><i class="fa fa-check"></i><b>20.30.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.31" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#assignhhvehiclepowertrain-1"><i class="fa fa-check"></i><b>20.31</b> AssignHhVehiclePowertrain</a>
+<ul>
+<li class="chapter" data-level="20.31.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-62"><i class="fa fa-check"></i><b>20.31.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.31.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-80"><i class="fa fa-check"></i><b>20.31.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.31.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-84"><i class="fa fa-check"></i><b>20.31.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.32" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#initialize-vetravelperformance-1"><i class="fa fa-check"></i><b>20.32</b> Initialize-vetravelperformance</a>
+<ul>
+<li class="chapter" data-level="20.32.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-63"><i class="fa fa-check"></i><b>20.32.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.32.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-81"><i class="fa fa-check"></i><b>20.32.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.32.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-85"><i class="fa fa-check"></i><b>20.32.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.33" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatebaseroaddvmt-1"><i class="fa fa-check"></i><b>20.33</b> CalculateBaseRoadDvmt</a>
+<ul>
+<li class="chapter" data-level="20.33.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-64"><i class="fa fa-check"></i><b>20.33.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.33.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-82"><i class="fa fa-check"></i><b>20.33.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.33.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-86"><i class="fa fa-check"></i><b>20.33.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.34" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatefutureroaddvmt-1"><i class="fa fa-check"></i><b>20.34</b> CalculateFutureRoadDvmt</a>
+<ul>
+<li class="chapter" data-level="20.34.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-65"><i class="fa fa-check"></i><b>20.34.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.34.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-83"><i class="fa fa-check"></i><b>20.34.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.34.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-87"><i class="fa fa-check"></i><b>20.34.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.35" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculateroadperformance-1"><i class="fa fa-check"></i><b>20.35</b> CalculateRoadPerformance</a>
+<ul>
+<li class="chapter" data-level="20.35.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-66"><i class="fa fa-check"></i><b>20.35.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.35.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-parameters-11"><i class="fa fa-check"></i><b>20.35.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="20.35.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-84"><i class="fa fa-check"></i><b>20.35.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.35.4" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-88"><i class="fa fa-check"></i><b>20.35.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.36" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatempgmpkwhadjustments-1"><i class="fa fa-check"></i><b>20.36</b> CalculateMpgMpkwhAdjustments</a>
+<ul>
+<li class="chapter" data-level="20.36.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-67"><i class="fa fa-check"></i><b>20.36.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.36.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-85"><i class="fa fa-check"></i><b>20.36.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.36.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-89"><i class="fa fa-check"></i><b>20.36.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.37" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#adjusthhvehiclempgmpkwh-1"><i class="fa fa-check"></i><b>20.37</b> AdjustHhVehicleMpgMpkwh</a>
+<ul>
+<li class="chapter" data-level="20.37.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-86"><i class="fa fa-check"></i><b>20.37.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.37.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-90"><i class="fa fa-check"></i><b>20.37.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.38" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatevehicleoperatingcost-1"><i class="fa fa-check"></i><b>20.38</b> CalculateVehicleOperatingCost</a>
+<ul>
+<li class="chapter" data-level="20.38.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-68"><i class="fa fa-check"></i><b>20.38.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.38.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-parameters-12"><i class="fa fa-check"></i><b>20.38.2</b> User Input Parameters</a></li>
+<li class="chapter" data-level="20.38.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-87"><i class="fa fa-check"></i><b>20.38.3</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.38.4" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-91"><i class="fa fa-check"></i><b>20.38.4</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.39" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#budgethouseholddvmt-1"><i class="fa fa-check"></i><b>20.39</b> BudgetHouseholdDvmt</a>
+<ul>
+<li class="chapter" data-level="20.39.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-69"><i class="fa fa-check"></i><b>20.39.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.39.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-88"><i class="fa fa-check"></i><b>20.39.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.39.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-92"><i class="fa fa-check"></i><b>20.39.3</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.40" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#balanceroadcostsandrevenues"><i class="fa fa-check"></i><b>20.40</b> BalanceRoadCostsAndRevenues</a>
+<ul>
+<li class="chapter" data-level="20.40.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-89"><i class="fa fa-check"></i><b>20.40.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.40.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-93"><i class="fa fa-check"></i><b>20.40.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.41" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculatecomenergyandemissions-1"><i class="fa fa-check"></i><b>20.41</b> CalculateComEnergyAndEmissions</a>
+<ul>
+<li class="chapter" data-level="20.41.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-90"><i class="fa fa-check"></i><b>20.41.1</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.41.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-94"><i class="fa fa-check"></i><b>20.41.2</b> Module Outputs</a></li>
+</ul></li>
+<li class="chapter" data-level="20.42" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#calculateptranenergyandemissions-1"><i class="fa fa-check"></i><b>20.42</b> CalculatePtranEnergyAndEmissions</a>
+<ul>
+<li class="chapter" data-level="20.42.1" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#user-input-files-70"><i class="fa fa-check"></i><b>20.42.1</b> User Input Files</a></li>
+<li class="chapter" data-level="20.42.2" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#internal-module-inputs-91"><i class="fa fa-check"></i><b>20.42.2</b> Internal Module Inputs</a></li>
+<li class="chapter" data-level="20.42.3" data-path="inputs-and-parameters-2.html"><a href="inputs-and-parameters-2.html#module-outputs-95"><i class="fa fa-check"></i><b>20.42.3</b> Module Outputs</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="21" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html"><i class="fa fa-check"></i><b>21</b> Development and Installation</a>
+<ul>
+<li class="chapter" data-level="21.1" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#installation-of-visioneval-and-ve-state"><i class="fa fa-check"></i><b>21.1</b> Installation of VisionEval and VE-State</a></li>
+<li class="chapter" data-level="21.2" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#in-brief-running-ve-state-base-scenario"><i class="fa fa-check"></i><b>21.2</b> In Brief: Running VE-State Base Scenario</a></li>
+<li class="chapter" data-level="21.3" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#in-detail-running-ve-state-base-scenario"><i class="fa fa-check"></i><b>21.3</b> In Detail: Running VE-State Base Scenario</a>
+<ul>
+<li class="chapter" data-level="21.3.1" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#preparing-inputs-1"><i class="fa fa-check"></i><b>21.3.1</b> Preparing inputs</a></li>
+<li class="chapter" data-level="21.3.2" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#running-the-model-1"><i class="fa fa-check"></i><b>21.3.2</b> Running the Model</a></li>
+</ul></li>
+<li class="chapter" data-level="21.4" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#querying-results"><i class="fa fa-check"></i><b>21.4</b> Querying results</a>
+<ul>
+<li class="chapter" data-level="21.4.1" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#scenarios"><i class="fa fa-check"></i><b>21.4.1</b> Scenarios</a></li>
+</ul></li>
+<li class="chapter" data-level="21.5" data-path="development-and-installation-2.html"><a href="development-and-installation-2.html#performance-metrics-3"><i class="fa fa-check"></i><b>21.5</b> # Performance Metrics</a></li>
+</ul></li>
+<li class="part"><span><b>V Developer Documentation</b></span></li>
+<li class="chapter" data-level="22" data-path="developer.html"><a href="developer.html"><i class="fa fa-check"></i><b>22</b> Contribution Guidelines</a></li>
+<li class="chapter" data-level="23" data-path="testing-strategies.html"><a href="testing-strategies.html"><i class="fa fa-check"></i><b>23</b> Testing Strategies</a></li>
+<li class="chapter" data-level="24" data-path="add-or-modify-a-package.html"><a href="add-or-modify-a-package.html"><i class="fa fa-check"></i><b>24</b> Add or Modify a Package</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">VisionEval User Guide</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="processing" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Processing</h1>
+<p>VisionEval is designed to be easy to install, run, and summarize, even when comparing scores of different scenarios. It produces consistent and detailed performance metrics. The user can modify the metrics produced by the model or define their own from data exported from the model. There are also several ways to think about validation of the model within the VisionEval mindset. These topics are explored in this chapter.</p>
+<div id="running-visioneval-1" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Running VisionEval</h2>
+<p>VisionEval is implemented entirely in the <a href="https://www.r-project.org">R statistical language</a> and operates on recent versions of Microsoft Windows. All development work is done there, although macOS and Linux versions are usually distributed. A fully self-contained installer for the more recent production release of VisionEval can be found on the <a href="https://visioneval.org/category/download.html">download page</a>. It permits installation of the full VisionEval platform, to include example data, even behind firewalls that prevent access to R Project and GitHub repositories.</p>
+<p>Once installed the user assembles data into a <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#12-basic-structure-of-model-system">standard directory structure</a>. Once the <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#17-basic-model-setup">model run script</a> is customized by the user it is typically run from a command prompt. Running it in this manner allows several different scenarios to be run at the same time with minimal user interaction. The results can then be mined or visualized using a variety of VisionEval and third-party products. Some users use <a href="https://shiny.rstudio.com/">R Shiny</a> or similar interactive environments for summarizing and visualizing the output from VisionEval. Such an environment is especially useful when comparing key metrics from a large number of scenarios.</p>
+</div>
+<div id="typical-outputs" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Typical outputs</h2>
+<p>VisionEval generates a large set of performance metrics at varying summary levels. Several pre-defined metrics are compiled for mobility, economic, land use, environmental, and energy categories in each model run. They can be tabulated for individual scenarios or compared to other scenarios, as well as visualized using a variety of tools.</p>
+<p>The intermediate data generated during the various VisionEval module steps can be compiled as performance metrics, both in absolute and per-capita terms and at various geographies. Traditional transportation network metrics such as VMT, vehicle and person hours of travel, and total delay are easily compiled by overall or focused areas within the model. Likewise, emission estimates and fuel consumption are tabulated. These can be viewed in standard reports or in <code>VEScenarioManager</code> files, especially when comparing such values between scenarios.</p>
+<p>One example of a set of region-wide performance metrics used by Oregon DOT includes:</p>
+<ul>
+<li>Mobility
+<ul>
+<li>Daily per capita VMT</li>
+<li>Annual walk trips per capita</li>
+<li>Daily Bike trips per capita</li>
+</ul></li>
+<li>Economy
+<ul>
+<li>Annual all vehicle delay per capita (hours)</li>
+<li>Daily household parking costs</li>
+<li>Annual HH vehicle operating cost (fuel, taxes, parking)</li>
+<li>Annual HH ownership costs (depreciation, vehicle maintenance, tires, finance charge, insurance, registration)</li>
+</ul></li>
+<li>Land Use
+<ul>
+<li>Residents living in mixed use areas</li>
+<li>Housing type (SF: MF)</li>
+</ul></li>
+<li>Environmental
+<ul>
+<li>Annual GHG emissions per capita</li>
+<li>HH vehicle GHG/mile</li>
+<li>Commercial vehicle GHG/mile</li>
+<li>Transit Vehicle GHG/mile</li>
+</ul></li>
+<li>Energy
+<ul>
+<li>Annual all vehicle fuel consumption per capita (gallons)</li>
+<li>Average all vehicle fuel efficiency (net miles per gallon)</li>
+<li>Annual external social costs per households (total/% paid)</li>
+</ul></li>
+</ul>
+</div>
+<div id="exporting-data" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Exporting data</h2>
+<p>Most of the data generated during a VisionEval model run can be exported (using <a href="https://github.com/VisionEval/VisionEval-Dev/blob/development/sources/tools/exporter.R">exporter.R</a>) if desired for further analyses. The user can then mine and visualize the data using a variety of open source and proprietary tools. This provides the user with considerable flexibility for creating more detailed statistics than those provided by the program. These VisionEval outputs might further serve as inputs to other models (e.g., emissions models, economic impact models) and visualization tools, and compilation of additional performance metrics.</p>
+</div>
+<div id="validation" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Validation</h2>
+<p>Setting up the model includes the steps required to apply the model for a given study. It is somewhat related to validation, both for informing what types of studies that VisionEval are appropriately sensitive to and interpreting the results. See the Getting Started page on the wiki for an overview of getting started initially.</p>
+<p>Validation is the assessment of a model’s suitability for its intended purpose, often informed by comparisons against information not used in its original development. In traditional transportation planning models the comparison of observed versus modeled link flows is often a key component of validation. VisionEval is a data-driven model in that most of its inputs values are exogenously defined rather than emergent behavior from complex mathematical equations. Its aggregate representation of travel demand dictates that it be validated at the same level, with an emphasis on a wider number of comparisons than many traditional models.</p>
+<p>The metric used in validation can range from relatively few, such as per-capita mobility estimates (e.g., VMT and VHT by mode), to a large number of more detailed targets. Examples of the latter include comparisons to external sources (e.g., HPMS data, DMV data), sensitivity tests of key variables, and comparison to comparable communities. An example of detailed validation criteria <a href="">used by the Oregon DOT</a> provides examples of these targets.</p>
+<p>There are several options for making adjustments in order to calibrate and validate the models. These adjustments vary in difficulty, and the most appropriate approach varies by module. From easiest to most difficult the options for making adjustments are:</p>
+<ul>
+<li><em>Self-calibration:</em> Several of the modules are self-calibrating in that they automatically adjust calculations to match input values without intervention by the user.[Selected value should be validated to confirm the calculations are done correctly]</li>
+<li><em>Adjustment of model inputs:</em> Some modules allow the user to optionally enter data that can be used to adjust the models to improve their match to observed conditions.</li>
+<li><em>Model estimation data</em>: Several modules use data specific to the region where the model is deployed, such as household synthesis. Functions within each module generate cross-tabulations required from these data. <a href="lexicon.html#lexicon"><span style="color:green">Census PUMS</span></a>Census PUMS data from Oregon were used to develop the original models, and should be replaced with PUMS data for the modeled area.</li>
+<li><em>Model estimation scripts:</em> An advanced user or developer can make adjustments to the model code itself in order to facilitate better matching observed local behavior or patterns. This, of course, is the most difficult option and opens up potential for significant errors, but it is possible for users that know what they are doing.</li>
+</ul>
+<p>The main validation targets have historically included household income, vehicle ownership, vehicle miles of travel, and fuel consumption. The number of workers and drivers within each geography have recently become more widely used. These statistical comparisons can be made for the modeled area as a whole or for large geographies nested within them (e.g., Azones, Mareas). Sensitivity tests should be performed to evaluate the reasonableness (eg. correct direction and magnitude) of the VisionEval output estimates. Comparable community applications of VisionEval may also provide a reasonableness check that the model is functioning appropriately.</p>
+<blockquote>
+<p>Note that HPMS definition of VMT differs from that used in VisionEval. VisionEval reports on all household travel regardless of where it occurs, and adds Commercial vehicle and Heavy Duty Truck and Bus travel on MPO roads. HPMS reports vehicular travel of all modes on roads within the MPO boundary.</p>
+</blockquote>
+<blockquote>
+<p>Additional detail on validation can be found in this <a href="https://github.com/visioneval/VisionEval/wiki/VE-Validation--UNDER-CONSTRUCTION">validation document</a></p>
+</blockquote>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="adjustments.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lexicon.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/05-processing.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

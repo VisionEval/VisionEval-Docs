@@ -1,0 +1,21 @@
+delete_merged_file: true
+new_session: true
+language:
+  ui:
+    chapter_name: "Chapter "
+rmd_files:
+  - index.Rmd
+  - 01-concept-primer.Rmd
+  - 02-getting-started.Rmd
+  - 03-verspm.Rmd
+  - 12-verpat.Rmd
+  - 13-verpat-inputs.Rmd
+  - 14-verpat-modules.Rmd
+  - 15-verpat-development.Rmd
+  - 16-verpat-metrics.Rmd
+  - 17-vestate.Rmd
+  - 18-vestate-inputs.Rmd
+  - 19-vestate-modules.Rmd
+  - 20-vestate-development.Rmd
+  - 21-vestate-metrics.Rmd
+  - 22-developer.Rmd
