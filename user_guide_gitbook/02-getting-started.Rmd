@@ -1,6 +1,6 @@
 # Getting Started
 
-## Overview {-}
+## Overview
 
 The VisionEval software framework is written in the R programming language for statistical computing and graphics.  The purpose of the model system and framework is to enable models be created in a plug-and-play fashion from modules that are also distributed as R packages. A simple R script is used to implement a model by initializing the model environment and then calling modules successively.
 
@@ -13,7 +13,7 @@ This 45 minute video was recorded during a VisionEval Training at Portland State
 knitr::include_url("https://www.youtube.com/embed/-ylFbyLfhbw?t=2203")
 ```
 
-## Installation and Setup {-}
+## Installation and Setup 
 
 There are two paths to getting VisionEval running:
 
@@ -37,7 +37,7 @@ The link above will download a .zip file containing the following:
 To complete the installation and start VisionEval, simply:
    - Double-click **<tt>VisionEval.bat</tt>**
 
-## Running VisionEval {-}
+## Running VisionEval 
 
 Once you have been welcomed to VisionEval, you can follow the instructions under "Running VE Models" on the
 <a href="https://github.com/VisionEval/VisionEval/wiki/Getting-Started">Getting Started</a> page.
@@ -51,31 +51,31 @@ The installation also creates some convenience functions which will run the mode
  - <tt>verspm()</tt> for the VERSPM test model
  - <tt>verspm(scenarios=TRUE)</tt> to run multiple scenarios in VERSPM
 
-## Requirements {-}
+## Requirements 
 
 If the above installation steps did not succeed, ensure that you have downloaded the appropriate version of VisionEval to match the version of R that you have installed.
 
-#### R {-}
+### R 
 The current version of VisionEval is built for the latest version of R, 3.6.1.  If you currently have another version of R installed, you can go to the [GitHub release page](https://github.com/VisionEval/VisionEval/releases) to download VisionEval for R. 
 
 You can find the <a
 href="https://cran.r-project.org/bin/windows/base/" target="_blank">R 3.6.1 installer for Windows here</a>.
 
-#### RStudio (optional) {-}
+### RStudio (optional)
 Many users find that <a href="https://www.rstudio.com/products/rstudio/#Desktop" target="_blank">RStudio</a> is a more user-friendly version of the
 standard R interface.  RStudio is particularly recommended if you plan to clone and explore the
 <a target="_blank" href="https://github.com/VisionEval/VE-Installer">Visioneval source code from GitHub</a>.
 
 **See the VERPAT [tutorial](https://github.com/visioneval/VisionEval/wiki/VERPAT-Tutorial-Running-the-Model)** for more information on running models.
 
-### Running VEGUI to then run a model {-}
+### Running VEGUI to then run a model 
 
 After installing from the stand-alone installer (path 1, above), you can run the VEGUI using the helper functions `vegui()`.
 
-### Running Multiple Scenarios of a Model {-}
-
+### Running Multiple Scenarios of a Model
 After installing from the stand-alone installer (path 1, above), you can run the multiple scenarios examples using the helper functions `verpat(scenarios = T)` and `verspm(scenarios = T)`.
 
 After you run the multiple scenarios tests, you can explore the relationship between input scenarios and results using VEScenarioViewer.  You can try the example interactive [VERPAT](http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/VEScenarioViewer/verpat.html) and [VERSPM](http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/VEScenarioViewer/verspm.html) scenario viewers (visualizers) online.
 
 See the VERPAT [tutorial](https://github.com/visioneval/VisionEval/wiki/VERPAT-Tutorial-Multiple-Scenarios) for more information regarding the visualizers.
+

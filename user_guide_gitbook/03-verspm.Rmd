@@ -172,6 +172,7 @@ This file contains parameters that define key attributes of the model run and re
     "Seed": 1
 }
 ```
+
 #### model_parameters.json
 This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per a Nov 2016 ODOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).
 
@@ -186,6 +187,7 @@ The format of this file is as follows:
   }
 ]
 ```
+
 #### deflators.csv
 This file defines the annual deflator values, such as the consumer price index, that are used to convert currency values between different years for currency denomination. This file does not need to be modified unless the years for which the dollar values used in the input dataset is not contained in this file. The format of the file is as follows:
 
@@ -244,26 +246,26 @@ The VisionEval model system keeps track of the types and units of measure of all
 ### Input Files
 * [**azone_carsvc_characteristics.csv**](): This file specifies the different characteristics for high and low car service level and is used in the [CreateVehicleTable](Modules_and_Outputs.md/#createvehicletable) and [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) modules. 
 * [**azone_charging_availability.csv**](#azone_charging_availability.csv) This file has data on proportion of different household types who has EV charging available  and is used in the [AssignHHVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) module.          
-- [**azone_electricity_carbon_intensity.csv**](#azone_electricity_carbon_intensity.csv-optional) This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
+* [**azone_electricity_carbon_intensity.csv**](#azone_electricity_carbon_intensity.csv-optional) This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
 ) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.      
-- [**azone_fuel_power_cost.csv**](#azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.                 
-- [**azone_gq_pop_by_age.csv**](#group-quarter-population-azone_gq_pop_by_age.csv): This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                    
-- [**azone_hh_pop_by_age.csv**](#household-population-azone_hh_pop_by_age.csv) This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.   - **azone_hh_veh_mean_age.csv** This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) module.                 
-- **azone_hh_veh_own_taxes.csv** This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.                 
-- [**azone_hhsize_targets.csv**](#household-size-azone_hhsize_targets.csv): This file contains the household specific targets and is used in [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                   
-- **azone_lttrk_prop.csv** This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](Modules_and_Outputs.md/#assignvehicletype) module. 
+* [**azone_fuel_power_cost.csv**](#azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.                 
+* [**azone_gq_pop_by_age.csv**](#group-quarter-population-azone_gq_pop_by_age.csv): This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                    
+* [**azone_hh_pop_by_age.csv**](#household-population-azone_hh_pop_by_age.csv) This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module. 
+* **azone_hh_veh_mean_age.csv** This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) module.                 
+* **azone_hh_veh_own_taxes.csv** This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.                 
+* [**azone_hhsize_targets.csv**](#household-size-azone_hhsize_targets.csv): This file contains the household specific targets and is used in [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.               
+* **azone_lttrk_prop.csv** This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](Modules_and_Outputs.md/#assignvehicletype) module. 
 - **azone_payd_insurance_prop.csv** This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.               
 - **azone_per_cap_inc.csv** This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the [PredictIncome](Modules_and_Outputs.md/#predictincome) module.                 
 - **azone_prop_sov_dvmt_diverted.csv** This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the [DivertSovTravel](Modules_and_Outputs.md/#divertsovtravel) module.            
-- **azone_relative_employment.csv** This file contains ratio of workers to persons by age and is used in the [PredictWorkers](Modules_and_Outputs.md/#predictworkers) module. 
+- [**azone_relative_employment.csv**](#relative-employment-azone_relative_employment.csv): This file contains ratio of workers to persons by age and is used in the [PredictWorkers](Modules_and_Outputs.md/#predictworkers) module. 
 - **azone_veh_use_taxes.csv** This file supplies data for vehicle related taxes and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcosts) module.         
 - **azone_vehicle_access_times.csv** This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.              
 - **bzone_transit_service.csv** This file supplies the data on relative public transit accessibility and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                    
 - **bzone_carsvc_availability.csv** This file contains the information about level of car service availability and is used in the [AssignCarSvcAvailability](Modules_and_Outputs.md/#assigncarsvcavailability) module. 
-- **bzone_dwelling_units.csv** This file contains the number single-family, multi-family and group-quarter dwelling units and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                    
-- **bzone_employment.csv** This file contains the total, retail and service employment by zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.                      
-- **bzone_hh_inc_qrtl_prop.csv** This file contains the proportion of households in 1st, 2nd, 3rd, and 4th quartile of household income and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                  
-- **bzone_lat_lon.csv** This file contains the latitude and longitude of the centroid of the zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.                           
+- [**bzone_dwelling_units.csv**](#dwelling-units-bzone_dwelling_units.csv): This file contains the number single-family, multi-family and group-quarter dwelling units and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                    
+- [**bzone_employment.csv**](#employment-data-bzone_employment.csv): This file contains the total, retail and service employment by zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.  - [**bzone_hh_inc_qrtl_prop.csv**](#household-proportion-by-income-bzone_hh_inc_qrtl_prop.csv) This file contains the proportion of households in 1st, 2nd, 3rd, and 4th quartile of household income and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                  
+- [**bzone_lat_lon.csv**](#zonal-latituted-longitude-bzone_lat_lon.csv) This file contains the latitude and longitude of the centroid of the zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.                           
 - **bzone_network_design.csv** This file contains the intersection density in terms of pedestrian-oriented intersections having four or more legs per square mile and is used in the [Calculate4DMeasures](Modules_and_Outputs.md/#calculate4dmeasures) module. 
 - **bzone_parking.csv** This file contains the parking information and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions) module.                          
 - **bzone_travel_demand_mgt.csv** This file contains the information about workers and households participating in demand management programs and is used in the [AssignDemandManagement](Modules_and_Outputs.md/#assigndemandmanagement) module. 
@@ -361,8 +363,8 @@ Here is a snapshot of the file:
 
 | Geo | Year | Age0to14 | Age15to19 | Age20to29 | Age30to54 | Age55to64 | Age65Plus |
 | :--- | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
-|RVMPO | 2010 | 30193 | 10970 | 20557 | 52327 | 24840 | 29240 |
-|RVMPO | 2038 | 39759 | 12781 | 24972 | 75984 | 27563 | 66139 |
+| RVMPO | 2010 | 30193 | 10970 | 20557 | 52327 | 24840 | 29240 |
+| RVMPO | 2038 | 39759 | 12781 | 24972 | 75984 | 27563 | 66139 |
 
 ##### Household Size (azone_hhsize_targets.csv) {-}
 This file contains the household-specific targets for the population synthesizer. This file contains two attributes:
@@ -376,8 +378,8 @@ Here is a snapshot of the file:
 
 | Geo | Year | AveHhSize | Prop1PerHh |
 | :--- | :----: | :----: | :----: |
-|RVMPO | 2010 | NA | 0.3 |
-|RVMPO | 2038 | NA | NA |
+| RVMPO | 2010 | NA | 0.3 |
+| RVMPO | 2038 | NA | NA |
 
 ##### Group Quarter Population (azone_gq_pop_by_age.csv) {-}
 This file contains group quarters population estimates/forecasts by age for each of the base and future years. The file format includes number of persons within the following six age categories:
@@ -392,7 +394,6 @@ This file contains group quarters population estimates/forecasts by age for each
 Group quarters are distinguished between two types: institutional and non-institutional. Institutional group quarter populations are those in correctional facilities or nursing homes. Non-institutional group quarters include college dormitories, military barracks, group homes, missions, or shelters. Only non-institutional group quarters are included in the modeled population, given the assumption that institutional group quarters populations do not account for much, if any, travel. Base year data for group quarter populations can be sourced from the Census.
 
 Here is a snapshot of the file:
-
 ```{r}
 table <- data.frame(
   Geo = c("RVMPO", "RVMPO"),
@@ -435,8 +436,9 @@ This file contains the ratio of workers to persons by age cohort in the model ye
 * **RelEmp55to64**: Ratio of workers to persons age 55 to 64 in model year versus in estimation data year
 * **RelEmp65Plus**: Ratio of workers to persons age 65 or older in model year versus in estimation data year
 
-Here is a snapshot of the file:
+Setting a value of 1 assumes that the ratio of workers to persons is consistent with estimation data for that specific age cohort.
 
+Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
   Geo = c("RVMPO", "RVMPO"),
@@ -451,18 +453,18 @@ kable(table, align = c("l", rep("c", 6))) %>%
   scroll_box(width = "100%", box_css = "border: 0px;")
 ```
 
-#### Internal Module Inputs
-|    Package         |      Module                           |   Outputs    | Description                               |
-|--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age15to19** | Persons in 15 to 19 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age20to29** | Persons in 20 to 29 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age30to54** | Persons in 30 to 54 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age55to64** | Persons in 55 to 64 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age65Plus** | Persons in 65 or older age group          |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHType**    | Coded household age composition           |
+#### Internal Module Inputs {-}
+| Package | Module | Outputs | Description |                            
+| :--- | :----: | :----: | :--- |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age0to14** | Persons in 0 to 14 year old age group |  
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age15to19** | Persons in 15 to 19 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age20to29** | Persons in 20 to 29 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age30to54** | Persons in 30 to 54 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age55to64** | Persons in 55 to 64 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age65Plus** | Persons in 65 or older age group |      
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **HHType** | Coded household age composition  |
 
-#### Module Outputs
+#### Module Outputs {-}
 * **Wkr15to19**: Workers in 15 to 19 year old age group
 * **Wkr20to29**: Workers in 20 to 29 year old age group
 * **Wkr30to54**: Workers in 30 to 54 year old age group
@@ -473,15 +475,13 @@ kable(table, align = c("l", rep("c", 6))) %>%
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictWorkers.md)
 
-[Top](#rspm-modules-and-outputs)
-
 ### AssignLifeCycle
 This module assigns a life cycle category to each household. The life cycle categories are similar, but not the same as, those established for the National Household Travel Survey (NHTS). The age categories used in VisionEval models are broader than those used by the NHTS to identify children of different ages. This is a simple model with set of rules that assigns age group categories based on the age of persons and workers in the household.
 
-#### User Input Files
+#### User Input Files {-}
 This module has no user input requirements.
 
-#### Internal Module Inputs
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
@@ -497,23 +497,30 @@ This module has no user input requirements.
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk55to64** | Workers in 55 to 64 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk65Plus** | Workers in 65 or older age group          |
 
-#### Module Outputs
+#### Module Outputs {-}
 * **LifeCycle**: Household life cycle as defined by 2009 NHTS `LIF_CYC` variable
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/AssignLifeCycle.md)
 
-[Top](#rspm-modules-and-outputs)
 
 ### PredictIncome
 This module predicts the income for each simulated household given the number of workers in each age group and the average per capita income for the `Azone` where the household resides.
 
-#### User Input Files
-1. Regional income (**_azone_per_cap_inc.csv"_**): This file contains information on regional average per capita household (`HHIncomePC`) and group quarters (`GQIncomePC`) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become `HHIncomePC.2015` and `GQIncomePC.2015`. 
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_per_cap_inc.PNG">
+##### Regional Income (azone_per_cap_inc.csv) {-}
+This file contains information on regional average per capita household (`HHIncomePC`) and group quarters (`GQIncomePC`) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become `HHIncomePC.2015` and `GQIncomePC.2015`. 
 
-#### Internal Module Inputs
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("RVMPO", "RVMPO"),
+  Year = c(2010, 2038),
+  HHIncomePC.2010 = c(32164, 43334),
+  GQIncomePC.2010 = c(7500, 10000))
+kable(table, align = c("l", rep("c", 3)))
+```
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHSize**    | Number of persons in the household        |
@@ -524,29 +531,46 @@ This module predicts the income for each simulated household given the number of
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk30to54** | Workers in 30 to 54 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk55to64** | Workers in 55 to 64 year old age group    |
 
-#### Module Outputs
+#### Module Outputs {-}
 * **Income**: Total annual household (non-qroup and group quarters) income
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictIncome.md)
 
-[Top](#rspm-modules-and-outputs)
-
 ### PredictHousing
 This module assigns a housing type, either single-family (`SF`) or multifamily (`MF`) to non-group quarters households based on the respective supplies of `SF` and `MF` dwelling units in the housing market to which the household is assigned (i.e. the `Azone` the household is assigned to) and household characteristics. The model then assigns each household to a `Bzone` based on the household's housing type and income quartile as well as the supply of housing by type and `Bzone` (an input), and the distribution of households by income quartile for each `Bzone` (an input). The module assigns non-institutional group quarters households to `Bzones` based on the supply of group quarters units by `Bzone`.
 
-#### User Input Files
-1. Dwelling units (**_bzone_dwelling_units.csv_**): This file contains the number single-family, multi-family and group-quarter dwelling units by `Bzone` for each of the base and future years.
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_dwelling_units.PNG">
+##### Dwelling Units (bzone_dwelling_units.csv) {-}
+This file contains the number single-family dwelling units (`SFDU`), multifamily dwelling units (`MFDU`) and group-quarter dwelling units (`GQDU`) by `Bzone` for each of the base and future years. Data for the base year for single-family and multifamily dwelling units can be sourced from Census housing data with information on units in structure, with multifamily dwelling units defined as any structures with 2-or-more units. For group quarters, unless more detailed local data is available, Census data for non-institutionalized group quarter population can serve as a proxy for dwelling units assuming a `1:1` ratio of dwelling unit per GQ population.
 
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("D410290014002", "D410290013012", "D410290014001", "D410290014003", "D410290013021"),
+  Year = c(2010, 2010, 2010, 2010, 2010),
+  SFDU = c(559, 79, 1398, 1385, 271),
+  MFDU = c(0, 8, 180, 172, 0),
+  GQDU = c(0, 523, 0, 0, 0))
+kable(table, align = c("l", rep("c", 4)))
+```
 
-2. Household proportion by income (**_bzone_hh_inc_qrtl_prop.csv_**): This file contains the proportion of `Bzone` non-group quarters households by quartile of `Azone` household income category for each of the base and future years.
+##### Household Proportion by Income (bzone_hh_inc_qrtl_prop.csv) {-}
+This file contains the proportion of `Bzone` non-group quarters households by quartile of `Azone` household income category for each of the base and future years. The total for each `Bzone` should sum to `1`. 
 
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/bzone_hh_inc_qrtl_prop.PNG">
- 
-#### Internal Module Inputs
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("D410290014002", "D410290013012", "D410290014001", "D410290014003", "D410290013021"),
+  Year = c(2010, 2010, 2010, 2010, 2010),
+  HhPropIncQ1 = c(0.12, 0, 0.24, 0.16, 0.29),
+  HhPropIncQ2 = c(0.54, 0.32, 0.16, 0.19, 0.29),
+  HhPropIncQ3 = c(0.26, 0.36, 0.26, 0.36, 0.15),
+  HhPropIncQ4 = c(0.54, 0.32, 0.16, 0.19, 0.29))
+kable(table, align = c("l", rep("c", 5)))
+```
+
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHSize**    | Number of persons in the household        |
@@ -559,7 +583,7 @@ This module assigns a housing type, either single-family (`SF`) or multifamily (
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Workers**   | Total workers in the household            |
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 
-#### Module Outputs
+#### Module Outputs {-}
 * **HouseType**: Type of dwelling unit of the household
 * **SF**: Number of households living in single family dwelling units in zone
 * **MF**: Number of households living in multi-family dwelling units in zone
@@ -570,34 +594,50 @@ This module assigns a housing type, either single-family (`SF`) or multifamily (
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/PredictHousing.md)
 
-[Top](#rspm-modules-and-outputs)
-
 ### LocateEmployment    
 This module places employment in `Bzone`s based on input assumptions of employment by type and `Bzone`. The model adjusts the employment numbers to balance with the number of workers in the region. The module creates a worker table and assigns workers to `Bzone` employment locations as a function of the number of jobs in each `Bzone` and the distance between residence and employment `Bzone`s.
 
-#### User Input Files
-1. Employment data (**_bzone_employment.csv_**): This file contains the total, retail and service employment by zone for each of the base and future years.
-   * **TotEmp**: Total number of jobs in zone
-   * **RetEmp**: Number of jobs in retail sector in zone
-   * **SvcEmp**: Number of jobs in service sector in zone
+#### User Input Files {-}
+
+##### Employment Data (bzone_employment.csv) {-}
+This file contains the total, retail and service employment by zone for each of the base and future years. Employment categorizations are from the Environmental Protection Agency's (EPA) [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide) 5-tier employment classification. 
+
+* **TotEmp**: Total number of jobs in zone
+* **RetEmp**: Number of jobs in retail sector in zone (Census LEHD: CNS07)
+* **SvcEmp**: Number of jobs in service sector in zone (Census LEHD: CNS12 + CNS14 + CNS15 + CNS16 + CNS19)
    
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_employment.PNG">
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("D410290014002", "D410290013012", "D410290014001", "D410290014003", "D410290013021"),
+  Year = c(2010, 2010, 2010, 2010, 2010),
+  TotEmp = c(403, 1382, 271, 609, 49),
+  RetEmp = c(262, 73, 12, 66, 1),
+  SvcEmp = c(96, 880, 172, 413, 41))
+kable(table, align = c("l", rep("c", 4)))
+```
 
+##### Zonal Latituted Longitude (bzone_lat_lon.csv) {-}
+This file contains the latitude and longitude of the centroid of the zone.
 
-2. Zonal latituted longitude (**_bzone_lat_lon.csv_**): This file contains the latitude and longitude of the centroid of the zone.
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("D410290014002", "D410290013012", "D410290014001", "D410290014003", "D410290013021"),
+  Year = c(2010, 2010, 2010, 2010, 2010),
+  Latitude = c(42.4865735, 42.4425881, 42.4601016, 42.4767348, 42.3730446),
+  Longitude = c(-122.8013868, -122.8461128, -122.7924738, -122.8007913, -122.7793008))
+kable(table, align = c("l", rep("c", 3)))
+```
 
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_lat_lon.PNG">
-
-#### Internal Module Inputs
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Workers**   | Total workers in the household            |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**NumWkr**    | Number of workers residing in the zone    |
 
-#### Module Outputs
+#### Module Outputs {-}
 * **TotEmp**: Total number of jobs in zone
 * **RetEmp**: Number of jobs in retail sector in zone
 * **SvcEmp**: Number of jobs in service sector in zone
@@ -605,25 +645,37 @@ This module places employment in `Bzone`s based on input assumptions of employme
 * **DistanceToWork**: Distance from home to work assuming location at `Bzone` centroid and 'Manhattan' distance
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md)
-
-[Top](#rspm-modules-and-outputs)
   
 ### AssignLocTypes    
 This module assigns households to location types: `Urban` (located within an urbanized area boundary), `Town` (located in a smaller urban area that does not have enough population to qualify as an urbanized area), and `Rural` (located in an area characterized by low density dispersed development).
 
-#### User Input Files
-1. Urban dwelling proportion (**_bzone_urban-town_du_proportions.csv_**): This file contains proportion of SF, MF and GQ dwelling units within the urban portion of the zone.
-   * **PropUrbanSFDU**: Proportion of single family dwelling units located within the urban portion of the zone
-   * **PropUrbanMFDU**: Proportion of multi-family dwelling units located within the urban portion of the zone
-   * **PropUrbanGQDU**: Proportion of group quarters accommodations located within the urban portion of the zone
-   * **PropTownSFDU**: Proportion of single family dwelling units located within the town portion of the zone
-   * **PropTownMFDU**: Proportion of multi-family dwelling units located within the town portion of the zone
-   * **PropTownGQDU**: Proportion of group quarters accommodations located within the town portion of the zone
+#### User Input Files {-}
+
+##### Urban dwelling proportion (bzone_urban-town_du_proportions.csv) {-}
+This file contains proportion of SF, MF and GQ dwelling units within the urban portion of the zone. 
+
+* **PropUrbanSFDU**: Proportion of single family dwelling units located within the urban portion of the zone
+* **PropUrbanMFDU**: Proportion of multi-family dwelling units located within the urban portion of the zone
+* **PropUrbanGQDU**: Proportion of group quarters accommodations located within the urban portion of the zone
+* **PropTownSFDU**: Proportion of single family dwelling units located within the town portion of the zone
+* **PropTownMFDU**: Proportion of multi-family dwelling units located within the town portion of the zone
+* **PropTownGQDU**: Proportion of group quarters accommodations located within the town portion of the zone
    
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/bzone_urban-town_du_proportions.PNG">
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("D410290014002", "D410290013012", "D410290014001", "D410290014003", "D410290013021"),
+  Year = c(2010, 2010, 2010, 2010, 2010),
+  PropUrbanSFDU = c(0.468694097, 0.886075949, 0.862660944, 0.990613718, 0.014760148),
+  PropUrbanMFDU = c(1, 1, 1, 1, 1),
+  PropUrbanGQDU = c(1, 1, 1, 1, 1),
+  PropTownSFDU = c(0, 0, 0, 0, 0), 
+  PropTownMFDU = c(0, 0, 0, 0, 0),
+  PropTownGQDU = c(0, 0, 0, 0, 0))
+  kable(table, align = c("l", rep("c", 7)))
+```
    
-#### Internal Module Inputs
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -631,31 +683,39 @@ This module assigns households to location types: `Urban` (located within an urb
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VELandUse          | [PredictHousing](#predicthousing)     |**HouseType** | Type of dwelling unit of the household    |
 
-#### Module Outputs
+#### Module Outputs {-}
 * **LocType**: Location type (Urban, Town, Rural) of the place where the household resides
 * **UrbanPop**: Urbanized area population
 * **RuralPop**: Rural (i.e. non-urbanized area) population
 * **TownPop**: Town (i.e. urban but non-urbanized area) population 
-
 * **UrbanIncome**: Total household income of the urbanized area population
 * **TownIncome**: Total household income of the town (i.e. urban but non-urbanized area) population 
 * **RuralIncome**: Total household income of the rural (i.e. non-urbanized area) population
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignLocTypes.md)
-
-[Top](#rspm-modules-and-outputs)
        
 ### Calculate4DMeasures      
-This module calculates several so-called '4D' measures by `Bzone` including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility, i.e., the four 'Ds' of density, diversity, design, and destination accessibility. These measures are the same as or are similar to measures included in the Environmental Protection Agency's (EPA) [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide)
+This module calculates several so-called '4D' measures by `Bzone` including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility, i.e., the four 'Ds' of density, diversity, design, and destination accessibility. These measures are the same as or are similar to measures included in the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide)
 
-#### User Input Files
-1. Developable area (**_bzone_unprotected_area.csv_**): This file contains the information about unprotected (i.e., developable) area within the zone. 
-   * **UrbanArea**: Area that is `Urban` and unprotected (i.e. developable) within the zone (Acres)
-   * **TownArea**: Area that is `Town` and unprotected within the zone (Acres)
-   * **RuralArea**: Area that is `Rural` and unprotected within the zone (Acres)
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_unprotected_area.PNG">
+##### Developable Area (bzone_unprotected_area.csv) {-}
+This file contains the information about unprotected (i.e., developable) area within the zone. 
+
+* **UrbanArea**: Area that is `Urban` and unprotected (i.e. developable) within the zone (Acres)
+* **TownArea**: Area that is `Town` and unprotected within the zone (Acres)
+* **RuralArea**: Area that is `Rural` and unprotected within the zone (Acres)
+
+Here is a snapshot of the file:
+```{r}
+table <- data.frame(
+  Geo = c("D410290014002", "D410290013012", "D410290014001", "D410290014003", "D410290013021"),
+  Year = c(2010, 2010, 2010, 2010, 2010),
+  UrbanArea = c(298.6487137, 830.600945, 983.1506646, 439.2145619, 0.354854836),
+  TownArea = c(0, 0, 0, 0, 0),
+  RuralArea = c(4996.118763, 384.8092231, 3699.940171, 90.86259214, 6212.576395))
+  kable(table, align = c("l", rep("c", 4)))
+```
    
 2. Network density (**_bzone_network_design.csv_**): This file contains the intersection density measured by the number of pedestrian-oriented intersections having four or more legs per square mile (Ref: EPA 2010 Smart Location Database).
 
@@ -2207,8 +2267,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 #### User Input Files
 This module does not have user-supplied input files
 
-
- 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
