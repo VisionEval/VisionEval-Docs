@@ -2,7 +2,7 @@
 
 ## Introduction
 
-VisionEval differs from traditional travel demand models both in how it works and what kind of planning concerns it helps to address. This **Concepts Primer** provides a quick introduction approach to the unique features and applications of VisionEval. It reviews the main model components and key concepts at a high level, to assist new users in understanding concepts they will apply as they set up scenarios, develop inputs and evaluate outputs.  Links to more detailed documentation will allow the reader to delve further into each topic, as they choose.
+VisionEval differs from traditional travel demand models both in how it works and what kind of planning concerns it helps to address. This chapter provides a quick introduction approach to the unique features and applications of VisionEval. It reviews the main model components and key concepts at a high level, to assist new users in understanding concepts they will apply as they set up scenarios, develop inputs and evaluate outputs.  Links to more detailed documentation will allow the reader to delve further into each topic, as they choose.
 
 
 ### What can I do with VisionEval?
