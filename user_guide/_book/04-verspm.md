@@ -1,4 +1,295 @@
-# Modules and Outputs
+# VERSPM Tutorial {#verspm}
+
+
+
+## Overview 
+
+VERSPM is a strategic planning model that assists state and metropolitan area planners with the evaluation of transportation and land use policy scenarios. It considers a large number of factors which affect the performance of transportation systems and their effects on people and the environment. The Regional Strategic Planning Model (RSPM), was developed by the Oregon Department of Transportation (ODOT) for the purpose of estimating and forecasting the effects of various policies and other influences on the amount of vehicle travel, the types of vehicles and fuels used, and the resulting greenhouse gas (GHG) emissions among other outcomes.
+
+The VERSPM model was initially developed to address the following factors:
+
+*	Changes in population demographics (age structure);
+*	Changes in personal income;
+*	Relative amounts of development occurring in metropolitan, urban and rural areas;
+*	Metropolitan, other urban, and rural area densities;
+*	Urban form in metropolitan areas (proportion of population living in mixed use areas with a well interconnected street and walkway system);
+*	Amounts of metropolitan area transit service;
+*	Metropolitan freeway and arterial supplies;
+*	Auto and light truck proportions by year;
+*	Average vehicle fuel economy by vehicle type and year;
+*	Vehicle age distribution by vehicle type;
+*	Electric vehicles (EVs), plug-in hybrid electric vehicles (PHEVs)
+*	Light-weight vehicles such as bicycles, electric bicycles, electric scooters, etc.;
+*	Pricing – fuel, vehicle miles traveled (VMT), parking;
+*	Demand management – employer-based and individual marketing;
+*	Car-sharing;
+*	Effects of congestion on fuel economy;
+*	Effects of incident management on fuel economy;
+*	Vehicle operation and maintenance – eco-driving, low rolling resistance tires, speed limits; 
+*	Carbon intensity of fuels, including the well to wheels emissions; and
+*	Carbon production from the electric power that is generated to run electric vehicles.
+
+### Structure
+
+VERSPM is a disaggregate policy model that predicts travel demand impacts at an individual household level. The  model estimates vehicle ownership, vehicle travel, fuel consumption, and GHG emissions at the individual household level. This structure accounts for the synergistic and antagonistic effects of multiple policies and factors (e.g. gas prices) on vehicle travel and emissions. For example, the battery range of electric vehicles (EVs) and plug‐in hybrid electric vehicles (PHEVs) is less of an issue for households residing in compact mixed‐use neighborhoods because those households tend to drive fewer miles each day. Modeling at the household level makes it possible to evaluate the relationships between travel, emissions and the characteristics of households, land use, transportation systems, vehicles, and other factors. In addition, household level analysis makes it possible to evaluate the equitability of the costs and benefits of different strategies.
+
+The  model comprises sequential steps with feedback. Each calculation step is composed of a number of calculations that operate on the results of the previous calculation step and on input data that reflect inputs.
+
+The VERSPM steps are grouped as follows:
+
+![](images/VE_Steps.png)
+
+The iterative process to balance the VMT with travel costs allows congestion and other costs introduced at this step influence the amount of travel. This step balances the amount of household travel with the cost of travel and recalculates household VMT, Fuel & GHG in the process. The primary outputs of the RSPM are household travel, fuel and power consumption, and GHG emissions calculations, but other information is produced for households and commercial vehicles as well. The amount of commercial (light‐duty) and freight (heavy duty) travel is calculated as well as associated fuel, power consumption and GHG emissions for those vehicles.
+
+### Modules
+
+1. **Household Modules** - *VESimHouseholds package*
+
+The following four modules create a set of households for each forecast year that represents each resident in the model area with the likely household mix of household and person characteristics:
+
+* [Create Households](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/CreateHouseholds.md)
+* [Predict Workers](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictWorkers.md)
+* [Assign Life Cycle](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/AssignLifeCycle.md)
+* [Predict Income](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictIncome.md)
+
+2. **Land Use Modules** - *VELandUse package* 
+
+The following five modules assigns a housing type to households (e.g. single-family, multi-family, etc.) and a development type (metropolitan, town, rural) based on available input dwelling units. Households are assigned a location in the metropolitan area based on the projected supply of housing and neighborhood affordability. Neighborhood population density and mixed-use character are calculated.
+
+* [Predict Housing](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/PredictHousing.md)
+* [Locate Employment](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md)
+* [Assign Location Types](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignDevTypes.md)
+* [Calculate '4D' Measures](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/Calculate4DMeasures.md)
+* [Calculate Urban Mix Measures](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/CalculateUrbanMixMeasure.md)
+  
+The following three modules identifies parking restrictions and prices affecting households, identifies households participating in TDM programs and assigns car service availability to zones (including car sharing and taxis):
+
+* [Assign Parking Restrictions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md)
+* [Assign Demand Management](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignDemandManagement.md)
+* [Assign Car Service Availability](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignCarSvcAvailability.md)
+
+3. **Transport Supply Modules** - *VETransportSupply package* 
+
+The following two modules gather details about the relevant roadway and public transport systems considered in the simulation of travel:
+
+* [Assign Transit Service](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignTransitService.md)
+* [Assign Road Miles](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md)
+
+4. **Household Vehicle Modules** - *VEHouseholdVehicles package*
+
+The following seven modules simulate details about the drivers of vehicles in the simulation and types of vehicles they drive:
+
+* [Assign Drivers](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignDrivers.md)
+* [Assign Vehicle Ownership](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleOwnership.md)
+* [Assign Vehicle Type](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleType.md)
+* [Create Vehicle Table](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CreateVehicleTable.md)
+* [Assign Vehicle Age](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleAge.md)
+* [Calculate Vehicle Ownership Cost](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md)
+* [Adjust Vehicle Ownership](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AdjustVehicleOwnership.md)
+
+5. **Household Travel Modules** - *VEHouseholdTravel package*
+
+The following four module provides an initial estimate of average daily vehicle miles traveled (DVMT) for each household based on the household characteristics (e.g., demographics, income, transportation options, and land use). They also calculate the households non-motorized trips.
+
+* [Calculate Household Daily Vehicle Miles Traveled](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateHouseholdDvmt.md)
+* [Calculate Non-Automobile or 'Alternative' Mode Trips](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateAltModeTrips.md)
+* [Calculate Vehicle Trips](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateVehicleTrips.md)
+* [Divert Single-occupant Vehicle Travel](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md). 
+
+6. **Powertrain and Fuel Modules** - *VEPowertrainsAndFuels package*
+
+The following two modules identifies the vehicles powertrain as an internal combustion engine (ICE), hybrid-electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), or electric vehicle (EV) and calculates each household vehicle's emission. 
+ 
+* [Calculate Carbon Intensity](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md)
+* [Assign Household Vehicle Powertrains](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md)
+
+### Feedback
+
+THe next step balance the amount of household travel with the cost of travel and recalculate household VMT, Fuel and GHG emissions . This is necessary because: 1) congestion calculations affect fuel economy and thus the amount and cost of fuel consumed; 2) congestion pricing affects the amount of travel and household travel costs; 3) fuel, vehicle travel, and other taxes and fees affect the amount and cost of travel; and 4) eco-driving improves fuel economy and reduces fuel cost. The effect of these adjustments to household travel costs need to be included in the total household travel costs and the adjustment to household DVMT.
+
+7. **Travel Performance** - *VETravelPerformance package*
+
+The following modules run iteratively to balance the DVMT and travel costs. Total light duty vehicle (household and commercial service vehicle), truck and bus DVMT is calculated for the metropolitan area and assigned to portions of the road system (freeway, arterial, other). Congestion levels are and associated speed reductions are calculated considering the traffic loads and inputs regarding the deployment of traffic operations programs (e.g. ramp metering, traffic signal coordination) and congestion pricing. Speed-adjusted fuel economy is calculated considering variations by powertrain. Travel cost per mile due to congestion pricing is also calculated. Household travel costs are calculated from the amounts of miles driven, fuel consumed, electricity consumed, and GHG emitted. Other inputs establish the rates for fuel costs, power costs, fuel taxes, VMT taxes, PAYD insurance, and several external costs. Finally a household budget model is used to adjust household DVMT to reflect the effect of household travel costs on the amount of household travel. The adjusted household DVMT is allocated to vehicles in proportion to the previous allocation. This process can run multiple times until DVMT changes very little between iterations.
+
+* [Calculate Road VMT](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadDvmt.md)
+* [Calculate Road Performance](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadPerformance.md);
+* [Calculate Fuel and Electric Energy Economy](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateMpgMpkwhAdjustments.md)
+* [Adjust Fuel and Electric Energy Economy](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/AdjustHhVehicleMpgMpkwh.md)
+* [Calculate Vehicle Operating Cost](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md)
+* [Adjust DVMT Based on Budget](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/BudgetHouseholdDvmt.md)
+
+8. **Heavy Vehicles Emissions** - *VETravelPerformance*
+
+The following two modules calculate heavy vehicle fuel and power consumption and GHG emissions: 
+ 
+* [Calculate Commercial Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateComEnergyAndEmissions.md)
+* [Calculate Transit Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculatePtranEnergyAndEmission.md)
+
+## Inputs and Parameters 
+The VERSPM model directory is organized with the following subdirectories:
+
+* [defs](#model-definition-files)
+* [inputs](#input-files)
+* results (created after a completed model run)
+* scripts
+
+Generally speaking, the VERPSM inputs are classified into the five following categories:
+
+1. **User input model parameters**: These are input parameters (model or scenario specific), or [model definition files](#model-definition-files), that users should review and modify as needed.
+2. **Fixed input model parameters**: These are input parameters, or [model definition files](#model-definition-files), specific to the model that users should not typically modify.
+3. **User input files**: These are [input files](#input-files)(model or scenario specific) that users should review and modify as needed.
+4. **Fixed input files**: These are [input files](#input-files) specific to the model that that users should not typically modify.
+5. **Internal module inputs**: These are inputs created by other VERSPM modules.
+
+### Model Definition Files
+The following five files are located in the "defs" directory:
+
+- [run_parameters.json](#run_parameters.json)
+- [model_parameters.json](#model_parameters.json)
+- [deflators.csv](#deflators.csv)
+- [geo.csv](#geo.csv)
+- [units.csv](#units.csv)
+
+#### run_parameters.json
+This file contains parameters that define key attributes of the model run and relationships to other model runs. This file is a needs to be modified by the user to specify the model base year and run years. A more detailed description of the file can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The results of model run are stored in a directory with the name specified by ```"DatastoreName"```. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to *BaseScenario* by using ```"DatastoreName": "BaseScenario"``` in the file. The format of this file is as follows:
+
+```json
+{
+    "Model": "VERSPM",
+    "Scenario": "Test",
+    "Description": "Test of VERSPM",
+    "Region": "RVMPO",
+    "BaseYear": "2010",
+    "Years": ["2010", "2038"],
+    "DatastoreName": "Datastore",
+    "DatastoreType": "RD",
+    "Seed": 1
+}
+```
+
+#### model_parameters.json
+This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per a Nov 2016 ODOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).
+
+The format of this file is as follows:
+
+```json
+[
+  {"NAME": "ValueOfTime", 
+   "VALUE": "16", 
+   "TYPE": "double", 
+   "UNITS": "base cost year dollars per hour"
+  }
+]
+```
+
+#### deflators.csv
+This file defines the annual deflator values, such as the consumer price index, that are used to convert currency values between different years for currency denomination. This file does not need to be modified unless the years for which the dollar values used in the input dataset is not contained in this file. The format of the file is as follows:
+
+|              Year          |             Value          |
+|----------------------------|----------------------------|
+|              1999          |             172.6          |
+|              2000          |             178.0          |
+|              2001          |             182.4          |
+|              ...           |             ...            |
+|              2010          |             218.344        |
+|              ...           |             ...            |
+|              2016          |             249.426        |
+
+#### geo.csv
+This file describes all of the geographic relationships for the model and the names of geographic entities in a CSV formatted text file. [**Azone**](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography), [**Bzone**](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography), and [**Marea**](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#62-model-geography) should remain consistent with the input data. The format of the file is as follows:
+
+| Azone       | Bzone          | Czone      | Marea      |
+| ----------- | -------------- | ---------- | ---------- |
+| RVMPO       | D410290001001  | NA         | RVMPO      |
+| RVMPO       | D410290001002  | NA         | RVMPO      |
+| RVMPO       | D410290002011  | NA         | RVMPO      |
+| RVMPO       | D410290002012  | NA         | RVMPO      |
+| RVMPO       | D410290002013  | NA         | RVMPO      |
+| RVMPO       | D410290002021  | NA         | RVMPO      |
+| RVMPO       | D410290002022  | NA         | RVMPO      |
+| RVMPO       | D410290002023  | NA         | RVMPO      |
+| RVMPO       | D410290002031  | NA         | RVMPO      |
+| RVMPO       | D410290002032  | NA         | RVMPO      |
+| RVMPO       | D410290002033  | NA         | RVMPO      |
+| RVMPO       | D410290003001  | NA         | RVMPO      |
+| RVMPO       | ...            | NA         | RVMPO      |
+
+To learn more about VERSPM model geographic relationships see [here](docs/VisionEval_Inputs_by_Geo.docx)
+
+#### units.csv
+This file describes the default units to be used for storing complex data types in the model. This file should NOT be modified by the user. The format of the file is as follows:
+
+| Type                 | Units            |
+| -------------------- | ---------------- |
+| currency             | USD              |
+| distance             | MI               |
+| area                 | SQMI             |
+| mass                 | KG               |
+| volume               | GAL              |
+| time                 | DAY              |
+| energy               | GGE              |
+| people               | PRSN             |
+| trips                | VEH              |
+| area                 | TRIP             |
+| households           | HH               |
+| employment           | JOB              |
+| activity             | HHJOB            |
+
+The VisionEval model system keeps track of the types and units of measure of all data that is processed. More details about the file and structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#63-data-types-units-and-currency-deflators).
+
+### Input Files
+* [**azone_carsvc_characteristics.csv**](): This file specifies the different characteristics for high and low car service level and is used in the [CreateVehicleTable](Modules_and_Outputs.md/#createvehicletable) and [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) modules. 
+* [**azone_charging_availability.csv**](#azone_charging_availability.csv) This file has data on proportion of different household types who has EV charging available  and is used in the [AssignHHVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) module.          
+* [**azone_electricity_carbon_intensity.csv**](#azone_electricity_carbon_intensity.csv-optional) This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
+) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.      
+* [**azone_fuel_power_cost.csv**](#azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.                 
+* [**azone_gq_pop_by_age.csv**](#group-quarter-population-azone_gq_pop_by_age.csv): This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                    
+* [**azone_hh_pop_by_age.csv**](#household-population-azone_hh_pop_by_age.csv) This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module. 
+* **azone_hh_veh_mean_age.csv** This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) module.                 
+* **azone_hh_veh_own_taxes.csv** This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.                 
+* [**azone_hhsize_targets.csv**](#household-size-azone_hhsize_targets.csv): This file contains the household specific targets and is used in [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.               
+* **azone_lttrk_prop.csv** This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](Modules_and_Outputs.md/#assignvehicletype) module. 
+- **azone_payd_insurance_prop.csv** This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.               
+- **azone_per_cap_inc.csv** This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the [PredictIncome](Modules_and_Outputs.md/#predictincome) module.                 
+- **azone_prop_sov_dvmt_diverted.csv** This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the [DivertSovTravel](Modules_and_Outputs.md/#divertsovtravel) module.            
+- [**azone_relative_employment.csv**](#relative-employment-azone_relative_employment.csv): This file contains ratio of workers to persons by age and is used in the [PredictWorkers](Modules_and_Outputs.md/#predictworkers) module. 
+- **azone_veh_use_taxes.csv** This file supplies data for vehicle related taxes and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcosts) module.         
+- **azone_vehicle_access_times.csv** This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.              
+- **bzone_transit_service.csv** This file supplies the data on relative public transit accessibility and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                    
+- **bzone_carsvc_availability.csv** This file contains the information about level of car service availability and is used in the [AssignCarSvcAvailability](Modules_and_Outputs.md/#assigncarsvcavailability) module. 
+- [**bzone_dwelling_units.csv**](#dwelling-units-bzone_dwelling_units.csv): This file contains the number single-family, multi-family and group-quarter dwelling units and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                    
+- [**bzone_employment.csv**](#employment-data-bzone_employment.csv): This file contains the total, retail and service employment by zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.  - [**bzone_hh_inc_qrtl_prop.csv**](#household-proportion-by-income-bzone_hh_inc_qrtl_prop.csv) This file contains the proportion of households in 1st, 2nd, 3rd, and 4th quartile of household income and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                  
+- [**bzone_lat_lon.csv**](#zonal-latituted-longitude-bzone_lat_lon.csv) This file contains the latitude and longitude of the centroid of the zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.                           
+- **bzone_network_design.csv** This file contains the intersection density in terms of pedestrian-oriented intersections having four or more legs per square mile and is used in the [Calculate4DMeasures](Modules_and_Outputs.md/#calculate4dmeasures) module. 
+- **bzone_parking.csv** This file contains the parking information and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions) module.                          
+- **bzone_travel_demand_mgt.csv** This file contains the information about workers and households participating in demand management programs and is used in the [AssignDemandManagement](Modules_and_Outputs.md/#assigndemandmanagement) module. 
+- **bzone_unprotected_area.csv** This file contains the information about unprotected (i.e., developable) area within the zone and is used in the [Calculate4DMeasures](Modules_and_Outputs.md/#calculate4dmeasures) module.
+- **bzone_urban-mixed-use_prop.csv** This file contains the target proportion of households located in mixed-used neighborhoods in zone and is used in the [CalculateUrbanMixMeasure](Modules_and_Outputs.md/#calculateurbanmixmeasure) module.               
+- **bzone_urban-town_du_proportions.csv** This file contains proportion of Single-Family, Multi-Family and Group Quarter dwelling units within the urban portion of the zone and is used in the [AssignLocTypes](Modules_and_Outputs.md/#assignloctypes) module.         
+- **marea_base_year_dvmt.csv** This file is used to specify to adjust the dvmt growth factors and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt) modules.
+- **marea_congestion_charges.csv** This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.               
+- **marea_dvmt_split_by_road_class.csv** This file is used to specify the dvmt split for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) modules.         
+- **marea_lane_miles.csv** This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the [AssignRoadMiles](Modules_and_Outputs.md/#assignroadmiles) module.                   
+- **marea_operations_deployment.csv** This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.        
+- **marea_speed_smooth_ecodrive.csv** This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the [CalculateMpgMpkwhAdjustments](Modules_and_Outputs.md/#calculatempgmpkwhadjustments) module.          
+- **marea_transit_ave_fuel_carbon_intensity.csv** This file is used to specify the average carbon intensity of fuel used by transit and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) module. 
+- **marea_transit_biofuel_mix.csv** This file is used to specify the biofuel used by transit and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.             
+- **marea_transit_fuel.csv** This file is used to specify the transit fuel proportions and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.                      
+- **marea_transit_powertrain_prop.csv** This file is used to specify the mixes of transit vehicle powertrains and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculatePtranEnergyAndEmissions](Modules_and_Outputs.md/#calculateptranenergyandemissions) modules.     
+- **marea_transit_service.csv** This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                   
+- **other_ops_effectiveness.csv** This file is used to specify the delay effects of operations in different road classes and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules. 
+- **region_ave_fuel_carbon_intensity.csv** This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.       
+- **region_base_year_hvytrk_dvmt.csv** This file is used to specify the heavy truck dvmt for base year and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt)  modules.            
+- **region_carsvc_powertrain_prop.csv** This file is used to specify the powertrain proportion of car services and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [AssignHhVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh) modules.                      
+- **region_comsvc_lttrk_prop.csv** This file supplies data for the light truck proportion of commercial vehicles and is used in the [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) module.              
+- **region_comsvc_powertrain_prop.csv** This file is used to specify the powertrain proportion of commercial vehicles and is optional. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
+) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.        
+- **region_hh_driver_adjust_prop.csv** This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the [AssignDrivers](Modules_and_Outputs.md/#assigndrivers) module. 
+- **region_hvytrk_powertrain_prop.csv** This file is used to specify the powertrain proportion of heavy duty trucks and is optional. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
+) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.
+- **region_prop_externalities_paid.csv** This file supplies data for climate change and other social costs and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module. 
+
+## Modules and Outputs
 
 The VERSPM model is a compilation of several modules, listed below:
 
@@ -42,53 +333,99 @@ The VERSPM model is a compilation of several modules, listed below:
 |[BudgetHouseholdDvmt](#budgethouseholddvmt)                           |VETravelPerformance    |
 |[CalculateComEnergyAndEmissions](#calculatecomenergyandemissions)     |VETravelPerformance    |
 |[CalculatePtranEnergyAndEmission](#calculateptranenergyandemissions)  |VETravelPerformance    | 
-___
 
-Each of these modules use differnet input data. Generally speaking, the VERPSM inputs are classified into the five following categories:
+The following section describes each module, its required inputs, and its generated outputs.
 
-1. **User input model parameters**: These are input parameters (model or scenario specific), defined in [model_parameters.json](#model_parametersjson), that users should review and modify as needed.
-2. **Fixed input model parameters**: These are input parameters specific to the model, defined in [model_parameters.json](#model_parametersjson), that users should not typically modify.
-3. **User input files**: These are input files (model or scenario specific) that users should review and modify as needed.
-4. **Fixed input files**: These are input parameters specific to the model that are fixed.
-5. **Internal module inputs**: These are inputs created by other VERSPM modules.
+### CreateHouseholds
+This module creates simulated households using inputs of population by age group by simulation year. 
 
-The following section decribes each module, its required inputs, and its generated outputs.
+#### User Input Files {-}
 
-## CreateHouseholds
-This module creates simulated households using inputs of population by age group by sumulation year. 
+##### Household Population (azone_hh_pop_by_age.csv) {-}
+This file contains population estimates/forecasts by age for each of the base and future years. The file format includes number of persons within six age groups:
 
-### User Input Files
-1. Household population (**_azone_hh_pop_by_age.csv_**): This file contains population estimates/forecasts by age for each of the base and future years. The file format includes number of persons within six age groups:
-   * 0-14
-   * 15-19
-   * 20-29
-   * 30-54
-   * 55-64
-   * 65 Plus
-
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_hh_pop_by_age.PNG">
-
-
-2. Household size (**_azone_hhsize_targets.csv_**): This file contains the household-specific targets for the population synthesizer. This file contains two attributes: 
-   * **AveHhSize**: Average household size for non-group quarters households
-   * **Prop1PerHh**: Proportion of non-group quarters households having only one person
-
-   Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_hhsize_targets.PNG">
-
-3. Group quarter population (**_azone_gq_pop_by_age.csv_**):  This file contains group quarters population estimates/forecasts by age for each of the base and future years. The file format includes number of persons within the following six age categories:
-   * 0-14
-   * 15-19
-   * 20-29
-   * 30-54
-   * 55-64
-   * 65 Plus
-
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_gq_pop_by_age.PNG">
+* 0-14
+* 15-19
+* 20-29
+* 30-54
+* 55-64
+* 65 Plus
    
-### Module Outputs
+Base year data for population by age category can be sourced from the Census. Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies and/or local academic sources.
+
+Here is a snapshot of the file:
+
+| Geo | Year | Age0to14 | Age15to19 | Age20to29 | Age30to54 | Age55to64 | Age65Plus |
+| :--- | :----: | :----: | :----: | :----: | :----: | :----: | :----: |
+| RVMPO | 2010 | 30193 | 10970 | 20557 | 52327 | 24840 | 29240 |
+| RVMPO | 2038 | 39759 | 12781 | 24972 | 75984 | 27563 | 66139 |
+
+##### Household Size (azone_hhsize_targets.csv) {-}
+This file contains the household-specific targets for the population synthesizer. This file contains two attributes:
+
+* **AveHhSize**: Average household size for non-group quarters households
+* **Prop1PerHh**: Proportion of non-group quarters households having only one person
+
+Household size data for the base year can be sourced from the Census. 
+
+Here is a snapshot of the file:
+
+| Geo | Year | AveHhSize | Prop1PerHh |
+| :--- | :----: | :----: | :----: |
+| RVMPO | 2010 | NA | 0.3 |
+| RVMPO | 2038 | NA | NA |
+
+##### Group Quarter Population (azone_gq_pop_by_age.csv) {-}
+This file contains group quarters population estimates/forecasts by age for each of the base and future years. The file format includes number of persons within the following six age categories:
+
+* 0-14
+* 15-19
+* 20-29
+* 30-54
+* 55-64
+* 65 Plus
+
+Group quarters are distinguished between two types: institutional and non-institutional. Institutional group quarter populations are those in correctional facilities or nursing homes. Non-institutional group quarters include college dormitories, military barracks, group homes, missions, or shelters. Only non-institutional group quarters are included in the modeled population, given the assumption that institutional group quarters populations do not account for much, if any, travel. Base year data for group quarter populations can be sourced from the Census.
+
+Here is a snapshot of the file:
+<div style="border: 0px;overflow-x: scroll; width:100%; "><table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:right;"> Year </th>
+   <th style="text-align:right;"> GrpAge0to14 </th>
+   <th style="text-align:right;"> GrpAge15to19 </th>
+   <th style="text-align:right;"> GrpAge20to29 </th>
+   <th style="text-align:right;"> GrpAge30to54 </th>
+   <th style="text-align:right;"> GrpAge55to64 </th>
+   <th style="text-align:right;"> GrpAge65Plus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:right;"> 2010 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 666 </td>
+   <td style="text-align:right;"> 382 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:right;"> 2038 </td>
+   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 666 </td>
+   <td style="text-align:right;"> 382 </td>
+   <td style="text-align:right;"> 66 </td>
+   <td style="text-align:right;"> 7 </td>
+   <td style="text-align:right;"> 0 </td>
+  </tr>
+</tbody>
+</table></div>
+
+#### Module Outputs {-}
 Households are created with the number of persons in each of six age categories (0-14, 15-19, 20-29, 30-54, 55-64, and 65+) and the total number of persons in the household. Two types of households are created: regular households (i.e. not persons living in group quarters) and group quarters households .
 
 * **HhId**: Unique household ID
@@ -101,36 +438,69 @@ Households are created with the number of persons in each of six age categories 
 * **Age65Plus**: Persons in 65 or older age group
 * **HhType**: Coded household age composition (e.g., `2-1-0-2-0-0`) or `Grp` for group quarters
 
-For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/CreateHouseholds.md)
-
-[Top](#rspm-modules-and-outputs)
-
-## PredictWorkers
+### PredictWorkers
 This module assigns workers by age to households and to non-institutional group quarters population. It is a simple model which predicts workers as a function of the household type and age composition. 
 
-### User Input Files
-1. Relative employment (**_azone_relative_employment.csv"_**): This file contains the ratio of workers to persons by age cohort in the model year relative to the model estimation data year. This file contains five age cohorts:
-   * **RelEmp15to19**: Ratio of workers to persons age 15 to 19 in model year versus in estimation data year
-   * **RelEmp20to29**: Ratio of workers to persons age 20 to 29 in model year versus in estimation data year
-   * **RelEmp30to54**: Ratio of workers to persons age 30 to 54 in model year versus in estimation data year
-   * **RelEmp55to64**: Ratio of workers to persons age 55 to 64 in model year versus in estimation data year
-   * **RelEmp65Plus**: Ratio of workers to persons age 65 or older in model year versus in estimation data year
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_relative_employment.PNG">
+##### Relative employment (azone_relative_employment.csv) {-}
+This file contains the ratio of workers to persons by age cohort in the model year relative to the model estimation data year. This file contains five age cohorts:
 
-### Internal Module Inputs
-|    Package         |      Module                           |   Outputs    | Description                               |
-|--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age15to19** | Persons in 15 to 19 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age20to29** | Persons in 20 to 29 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age30to54** | Persons in 30 to 54 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age55to64** | Persons in 55 to 64 year old age group    |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age65Plus** | Persons in 65 or older age group          |
-| VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHType**    | Coded household age composition           |
+* **RelEmp15to19**: Ratio of workers to persons age 15 to 19 in model year versus in estimation data year
+* **RelEmp20to29**: Ratio of workers to persons age 20 to 29 in model year versus in estimation data year
+* **RelEmp30to54**: Ratio of workers to persons age 30 to 54 in model year versus in estimation data year
+* **RelEmp55to64**: Ratio of workers to persons age 55 to 64 in model year versus in estimation data year
+* **RelEmp65Plus**: Ratio of workers to persons age 65 or older in model year versus in estimation data year
 
-### Module Outputs
+Setting a value of 1 assumes that the ratio of workers to persons is consistent with estimation data for that specific age cohort.
+
+Here is a snapshot of the file:
+<div style="border: 0px;overflow-x: scroll; width:100%; "><table class="table" style="margin-left: auto; margin-right: auto;">
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> RelEmp15to19 </th>
+   <th style="text-align:center;"> RelEmp20to29 </th>
+   <th style="text-align:center;"> RelEmp30to54 </th>
+   <th style="text-align:center;"> RelEmp55to64 </th>
+   <th style="text-align:center;"> RelEmp65Plus </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2038 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+  </tr>
+</tbody>
+</table></div>
+
+#### Internal Module Inputs {-}
+| Package | Module | Outputs | Description |                            
+| :--- | :----: | :----: | :--- |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age0to14** | Persons in 0 to 14 year old age group |  
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age15to19** | Persons in 15 to 19 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age20to29** | Persons in 20 to 29 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age30to54** | Persons in 30 to 54 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age55to64** | Persons in 55 to 64 year old age group |
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **Age65Plus** | Persons in 65 or older age group |      
+| VESimHouseholds | [CreateHouseholds](#createhouseholds) | **HHType** | Coded household age composition  |
+
+#### Module Outputs {-}
 * **Wkr15to19**: Workers in 15 to 19 year old age group
 * **Wkr20to29**: Workers in 20 to 29 year old age group
 * **Wkr30to54**: Workers in 30 to 54 year old age group
@@ -141,15 +511,13 @@ This module assigns workers by age to households and to non-institutional group 
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictWorkers.md)
 
-[Top](#rspm-modules-and-outputs)
-
-## AssignLifeCycle
+### AssignLifeCycle
 This module assigns a life cycle category to each household. The life cycle categories are similar, but not the same as, those established for the National Household Travel Survey (NHTS). The age categories used in VisionEval models are broader than those used by the NHTS to identify children of different ages. This is a simple model with set of rules that assigns age group categories based on the age of persons and workers in the household.
 
-### User Input Files
+#### User Input Files {-}
 This module has no user input requirements.
 
-### Internal Module Inputs
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
@@ -165,23 +533,46 @@ This module has no user input requirements.
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk55to64** | Workers in 55 to 64 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk65Plus** | Workers in 65 or older age group          |
 
-### Module Outputs
+#### Module Outputs {-}
 * **LifeCycle**: Household life cycle as defined by 2009 NHTS `LIF_CYC` variable
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/AssignLifeCycle.md)
 
-[Top](#rspm-modules-and-outputs)
 
-## PredictIncome
+### PredictIncome
 This module predicts the income for each simulated household given the number of workers in each age group and the average per capita income for the `Azone` where the household resides.
 
-### User Input Files
-1. Regional income (**_azone_per_cap_inc.csv"_**): This file contains information on regional average per capita household (`HHIncomePC`) and group quarters (`GQIncomePC`) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become `HHIncomePC.2015` and `GQIncomePC.2015`. 
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_per_cap_inc.PNG">
+##### Regional Income (azone_per_cap_inc.csv) {-}
+This file contains information on regional average per capita household (`HHIncomePC`) and group quarters (`GQIncomePC`) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become `HHIncomePC.2015` and `GQIncomePC.2015`. 
 
-### Internal Module Inputs
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> HHIncomePC.2010 </th>
+   <th style="text-align:center;"> GQIncomePC.2010 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 32164 </td>
+   <td style="text-align:center;"> 7500 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2038 </td>
+   <td style="text-align:center;"> 43334 </td>
+   <td style="text-align:center;"> 10000 </td>
+  </tr>
+</tbody>
+</table>
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHSize**    | Number of persons in the household        |
@@ -192,29 +583,129 @@ This module predicts the income for each simulated household given the number of
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk30to54** | Workers in 30 to 54 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Wrk55to64** | Workers in 55 to 64 year old age group    |
 
-### Module Outputs
+#### Module Outputs {-}
 * **Income**: Total annual household (non-qroup and group quarters) income
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictIncome.md)
 
-[Top](#rspm-modules-and-outputs)
-
-## PredictHousing
+### PredictHousing
 This module assigns a housing type, either single-family (`SF`) or multifamily (`MF`) to non-group quarters households based on the respective supplies of `SF` and `MF` dwelling units in the housing market to which the household is assigned (i.e. the `Azone` the household is assigned to) and household characteristics. The model then assigns each household to a `Bzone` based on the household's housing type and income quartile as well as the supply of housing by type and `Bzone` (an input), and the distribution of households by income quartile for each `Bzone` (an input). The module assigns non-institutional group quarters households to `Bzones` based on the supply of group quarters units by `Bzone`.
 
-### User Input Files
-1. Dwelling units (**_bzone_dwelling_units.csv_**): This file contains the number single-family, multi-family and group-quarter dwelling units by `Bzone` for each of the base and future years.
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_dwelling_units.PNG">
+##### Dwelling Units (bzone_dwelling_units.csv) {-}
+This file contains the number single-family dwelling units (`SFDU`), multifamily dwelling units (`MFDU`) and group-quarter dwelling units (`GQDU`) by `Bzone` for each of the base and future years. Data for the base year for single-family and multifamily dwelling units can be sourced from Census housing data with information on units in structure, with multifamily dwelling units defined as any structures with 2-or-more units. For group quarters, unless more detailed local data is available, Census data for non-institutionalized group quarter population can serve as a proxy for dwelling units assuming a `1:1` ratio of dwelling unit per GQ population.
 
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> SFDU </th>
+   <th style="text-align:center;"> MFDU </th>
+   <th style="text-align:center;"> GQDU </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> D410290014002 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 559 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013012 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 79 </td>
+   <td style="text-align:center;"> 8 </td>
+   <td style="text-align:center;"> 523 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014001 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 1398 </td>
+   <td style="text-align:center;"> 180 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014003 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 1385 </td>
+   <td style="text-align:center;"> 172 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013021 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 271 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+</tbody>
+</table>
 
-2. Household proportion by income (**_bzone_hh_inc_qrtl_prop.csv_**): This file contains the proportion of `Bzone` non-group quarters households by quartile of `Azone` household income category for each of the base and future years.
+##### Household Proportion by Income (bzone_hh_inc_qrtl_prop.csv) {-}
+This file contains the proportion of `Bzone` non-group quarters households by quartile of `Azone` household income category for each of the base and future years. The total for each `Bzone` should sum to `1`. 
 
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/bzone_hh_inc_qrtl_prop.PNG">
- 
-### Internal Module Inputs
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> HhPropIncQ1 </th>
+   <th style="text-align:center;"> HhPropIncQ2 </th>
+   <th style="text-align:center;"> HhPropIncQ3 </th>
+   <th style="text-align:center;"> HhPropIncQ4 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> D410290014002 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.12 </td>
+   <td style="text-align:center;"> 0.54 </td>
+   <td style="text-align:center;"> 0.26 </td>
+   <td style="text-align:center;"> 0.54 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013012 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.00 </td>
+   <td style="text-align:center;"> 0.32 </td>
+   <td style="text-align:center;"> 0.36 </td>
+   <td style="text-align:center;"> 0.32 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014001 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.24 </td>
+   <td style="text-align:center;"> 0.16 </td>
+   <td style="text-align:center;"> 0.26 </td>
+   <td style="text-align:center;"> 0.16 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014003 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.16 </td>
+   <td style="text-align:center;"> 0.19 </td>
+   <td style="text-align:center;"> 0.36 </td>
+   <td style="text-align:center;"> 0.19 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013021 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.29 </td>
+   <td style="text-align:center;"> 0.29 </td>
+   <td style="text-align:center;"> 0.15 </td>
+   <td style="text-align:center;"> 0.29 </td>
+  </tr>
+</tbody>
+</table>
+
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHSize**    | Number of persons in the household        |
@@ -227,7 +718,7 @@ This module assigns a housing type, either single-family (`SF`) or multifamily (
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Workers**   | Total workers in the household            |
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 
-### Module Outputs
+#### Module Outputs {-}
 * **HouseType**: Type of dwelling unit of the household
 * **SF**: Number of households living in single family dwelling units in zone
 * **MF**: Number of households living in multi-family dwelling units in zone
@@ -238,34 +729,123 @@ This module assigns a housing type, either single-family (`SF`) or multifamily (
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/PredictHousing.md)
 
-[Top](#rspm-modules-and-outputs)
-
-## LocateEmployment    
+### LocateEmployment    
 This module places employment in `Bzone`s based on input assumptions of employment by type and `Bzone`. The model adjusts the employment numbers to balance with the number of workers in the region. The module creates a worker table and assigns workers to `Bzone` employment locations as a function of the number of jobs in each `Bzone` and the distance between residence and employment `Bzone`s.
 
-### User Input Files
-1. Employment data (**_bzone_employment.csv_**): This file contains the total, retail and service employment by zone for each of the base and future years.
-   * **TotEmp**: Total number of jobs in zone
-   * **RetEmp**: Number of jobs in retail sector in zone
-   * **SvcEmp**: Number of jobs in service sector in zone
+#### User Input Files {-}
+
+##### Employment Data (bzone_employment.csv) {-}
+This file contains the total, retail and service employment by zone for each of the base and future years. Employment categorizations are from the Environmental Protection Agency's (EPA) [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide) 5-tier employment classification. 
+
+* **TotEmp**: Total number of jobs in zone
+* **RetEmp**: Number of jobs in retail sector in zone (Census LEHD: CNS07)
+* **SvcEmp**: Number of jobs in service sector in zone (Census LEHD: CNS12 + CNS14 + CNS15 + CNS16 + CNS19)
    
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_employment.PNG">
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> TotEmp </th>
+   <th style="text-align:center;"> RetEmp </th>
+   <th style="text-align:center;"> SvcEmp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> D410290014002 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 403 </td>
+   <td style="text-align:center;"> 262 </td>
+   <td style="text-align:center;"> 96 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013012 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 1382 </td>
+   <td style="text-align:center;"> 73 </td>
+   <td style="text-align:center;"> 880 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014001 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 271 </td>
+   <td style="text-align:center;"> 12 </td>
+   <td style="text-align:center;"> 172 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014003 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 609 </td>
+   <td style="text-align:center;"> 66 </td>
+   <td style="text-align:center;"> 413 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013021 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 49 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 41 </td>
+  </tr>
+</tbody>
+</table>
 
+##### Zonal Latituted Longitude (bzone_lat_lon.csv) {-}
+This file contains the latitude and longitude of the centroid of the zone.
 
-2. Zonal latituted longitude (**_bzone_lat_lon.csv_**): This file contains the latitude and longitude of the centroid of the zone.
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> Latitude </th>
+   <th style="text-align:center;"> Longitude </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> D410290014002 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 42.48657 </td>
+   <td style="text-align:center;"> -122.8014 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013012 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 42.44259 </td>
+   <td style="text-align:center;"> -122.8461 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014001 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 42.46010 </td>
+   <td style="text-align:center;"> -122.7925 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014003 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 42.47673 </td>
+   <td style="text-align:center;"> -122.8008 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013021 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 42.37304 </td>
+   <td style="text-align:center;"> -122.7793 </td>
+  </tr>
+</tbody>
+</table>
 
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_lat_lon.PNG">
-
-### Internal Module Inputs
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Workers**   | Total workers in the household            |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**NumWkr**    | Number of workers residing in the zone    |
 
-### Module Outputs
+#### Module Outputs {-}
 * **TotEmp**: Total number of jobs in zone
 * **RetEmp**: Number of jobs in retail sector in zone
 * **SvcEmp**: Number of jobs in service sector in zone
@@ -273,25 +853,91 @@ This module places employment in `Bzone`s based on input assumptions of employme
 * **DistanceToWork**: Distance from home to work assuming location at `Bzone` centroid and 'Manhattan' distance
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md)
-
-[Top](#rspm-modules-and-outputs)
   
-## AssignLocTypes    
+### AssignLocTypes    
 This module assigns households to location types: `Urban` (located within an urbanized area boundary), `Town` (located in a smaller urban area that does not have enough population to qualify as an urbanized area), and `Rural` (located in an area characterized by low density dispersed development).
 
-### User Input Files
-1. Urban dwelling proportion (**_bzone_urban-town_du_proportions.csv_**): This file contains proportion of SF, MF and GQ dwelling units within the urban portion of the zone.
-   * **PropUrbanSFDU**: Proportion of single family dwelling units located within the urban portion of the zone
-   * **PropUrbanMFDU**: Proportion of multi-family dwelling units located within the urban portion of the zone
-   * **PropUrbanGQDU**: Proportion of group quarters accommodations located within the urban portion of the zone
-   * **PropTownSFDU**: Proportion of single family dwelling units located within the town portion of the zone
-   * **PropTownMFDU**: Proportion of multi-family dwelling units located within the town portion of the zone
-   * **PropTownGQDU**: Proportion of group quarters accommodations located within the town portion of the zone
+#### User Input Files {-}
+
+##### Urban dwelling proportion (bzone_urban-town_du_proportions.csv) {-}
+This file contains proportion of SF, MF and GQ dwelling units within the urban portion of the zone. 
+
+* **PropUrbanSFDU**: Proportion of single family dwelling units located within the urban portion of the zone
+* **PropUrbanMFDU**: Proportion of multi-family dwelling units located within the urban portion of the zone
+* **PropUrbanGQDU**: Proportion of group quarters accommodations located within the urban portion of the zone
+* **PropTownSFDU**: Proportion of single family dwelling units located within the town portion of the zone
+* **PropTownMFDU**: Proportion of multi-family dwelling units located within the town portion of the zone
+* **PropTownGQDU**: Proportion of group quarters accommodations located within the town portion of the zone
    
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/bzone_urban-town_du_proportions.PNG">
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> PropUrbanSFDU </th>
+   <th style="text-align:center;"> PropUrbanMFDU </th>
+   <th style="text-align:center;"> PropUrbanGQDU </th>
+   <th style="text-align:center;"> PropTownSFDU </th>
+   <th style="text-align:center;"> PropTownMFDU </th>
+   <th style="text-align:center;"> PropTownGQDU </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> D410290014002 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.4686941 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013012 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.8860759 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014001 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.8626609 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014003 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.9906137 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013021 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.0147601 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 1 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+</tbody>
+</table>
    
-### Internal Module Inputs
+#### Internal Module Inputs {-}
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -299,38 +945,85 @@ This module assigns households to location types: `Urban` (located within an urb
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VELandUse          | [PredictHousing](#predicthousing)     |**HouseType** | Type of dwelling unit of the household    |
 
-### Module Outputs
+#### Module Outputs {-}
 * **LocType**: Location type (Urban, Town, Rural) of the place where the household resides
 * **UrbanPop**: Urbanized area population
 * **RuralPop**: Rural (i.e. non-urbanized area) population
 * **TownPop**: Town (i.e. urban but non-urbanized area) population 
-
 * **UrbanIncome**: Total household income of the urbanized area population
 * **TownIncome**: Total household income of the town (i.e. urban but non-urbanized area) population 
 * **RuralIncome**: Total household income of the rural (i.e. non-urbanized area) population
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignLocTypes.md)
-
-[Top](#rspm-modules-and-outputs)
        
-## Calculate4DMeasures      
-This module calculates several so-called '4D' measures by `Bzone` including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility, i.e., the four 'Ds' of density, diversity, design, and destination accessibility. These measures are the same as or are similar to measures included in the Environmental Protection Agency's (EPA) [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide)
+### Calculate4DMeasures      
+This module calculates several so-called '4D' measures by `Bzone` including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility, i.e., the four 'Ds' of density, diversity, design, and destination accessibility. These measures are the same as or are similar to measures included in the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide)
 
-### User Input Files
-1. Developable area (**_bzone_unprotected_area.csv_**): This file contains the information about unprotected (i.e., developable) area within the zone. 
-   * **UrbanArea**: Area that is `Urban` and unprotected (i.e. developable) within the zone (Acres)
-   * **TownArea**: Area that is `Town` and unprotected within the zone (Acres)
-   * **RuralArea**: Area that is `Rural` and unprotected within the zone (Acres)
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/bzone_unprotected_area.PNG">
+##### Developable Area (bzone_unprotected_area.csv) {-}
+This file contains the information about unprotected (i.e., developable) area within the zone. 
+
+* **UrbanArea**: Area that is `Urban` and unprotected (i.e. developable) within the zone (Acres)
+* **TownArea**: Area that is `Town` and unprotected within the zone (Acres)
+* **RuralArea**: Area that is `Rural` and unprotected within the zone (Acres)
+
+Here is a snapshot of the file:
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> UrbanArea </th>
+   <th style="text-align:center;"> TownArea </th>
+   <th style="text-align:center;"> RuralArea </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> D410290014002 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 298.6487137 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 4996.11876 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013012 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 830.6009450 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 384.80922 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014001 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 983.1506646 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 3699.94017 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290014003 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 439.2145619 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 90.86259 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> D410290013021 </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.3548548 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 6212.57640 </td>
+  </tr>
+</tbody>
+</table>
    
 2. Network density (**_bzone_network_design.csv_**): This file contains the intersection density measured by the number of pedestrian-oriented intersections having four or more legs per square mile (Ref: EPA 2010 Smart Location Database).
 
    Here is a snapshot of the file:
 <img align="center" width="400" border=1 src="images/bzone_network_design.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [PredictHousing](#predicthousing)     |**Pop**       | Population residing in zone               |
@@ -340,7 +1033,7 @@ This module calculates several so-called '4D' measures by `Bzone` including dens
 | VELandUse          | [LocateEmployment](#locateemployment) |**RetEmp**    | Number of jobs in retail sector in zone   |
 | VELandUse          | [LocateEmployment](#locateemployment) |**SvcEmp**    | Number of jobs in service sector in zone  |
 
-### Module Outputs
+#### Module Outputs
 * **D1B**: Gross population density (people/acre) on unprotected (i.e. developable) land in zone 
 * **D1C**: Gross employment density (jobs/acre) on unprotected land land in zone 
 * **D1D**: Gross activity density (employment + households) on unprotected land in zone 
@@ -353,10 +1046,10 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateUrbanMixMeasure 
+### CalculateUrbanMixMeasure 
 This module calculates an urban mixed-use measure based on the 2001 National Household Travel Survey (NHTS) measure of the tract level urban/rural indicator. This measure, developed by Claritas, uses the density of the tract and surrounding tracts to identify the urban/rural context of the tract. The categories include `urban`, `suburban`, `second city`, `town` and `rural`. Mapping of example metropolitan areas shows that places identified as `urban` correspond to central city and inner neighborhoods characterized by mixed use, higher levels of urban accessibility, and higher levels of walk/bike/transit accessibility.
 
-### User Input Files
+#### User Input Files
 1. Household neighborhood (**_bzone_urban-mixed-use_prop.csv_**): This file contains the target proportion of households located in mixed-used neighborhoods in each zone. 
    
    * **MixUseProp**: Target for proportion of households located in mixed-use neighborhoods in zone (or `NA` if no target)
@@ -372,7 +1065,7 @@ This module calculates an urban mixed-use measure based on the 2001 National Hou
    Here is a snapshot of the file:
 <img align="center" width="500" border=1 src="images/bzone_unprotected_area.PNG">
    
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -381,17 +1074,17 @@ This module calculates an urban mixed-use measure based on the 2001 National Hou
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanPop**  | Urbanized area population                 |
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**RuralPop**  | Rural (i.e. non-urbanized area) population|
 
-### Module Outputs
+#### Module Outputs
 * **IsUrbanMixNbrhd**: Flag identifying whether household is (`1`) or is not (`0`) in an urban, mixed-use neighborhood
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/CalculateUrbanMixMeasure.md)
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignParkingRestrictions
+### AssignParkingRestrictions
 This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area. The parking restriction/cost information is used by other modules in calculating the cost of vehicle ownership and the cost of vehicle use.
 
-### User Input Files
+#### User Input Files
 1. Household neighborhood (**_bzone_parking.csv_**): This file contains the parking information by `Bzone` for each of the base and future years.
    * **PkgSpacesPerSFDU**: Average number of free parking spaces available to residents of single-family dwelling units
    * **PkgSpacesPerMFDU**: Average number of free parking spaces available to residents of multifamily dwelling units
@@ -403,7 +1096,7 @@ This module identifies parking restrictions and prices affecting households at t
    Here is a snapshot of the file:
 <img align="center" width="800" border=1 src="images/bzone_parking.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [PredictHousing](#predicthousing)     |**NumHh**     | Number of households in zone              |
@@ -411,7 +1104,7 @@ This module identifies parking restrictions and prices affecting households at t
 | VELandUse          | [LocateEmployment](#locateemployment) |**RetEmp**    | Number of jobs in retail sector in zone   |
 | VELandUse          | [LocateEmployment](#locateemployment) |**SvcEmp**    | Number of jobs in service sector in zone  |
 
-### Module Outputs
+#### Module Outputs
 * **FreeParkingSpaces**: Number of free parking spaces available to the household
 * **ParkingUnitCost**: Daily cost for long-term parking (e.g., parking paid for on a monthly basis)
 * **OtherParkingCost**: Daily cost for parking at shopping locations or other locations of paid parking not including work
@@ -423,10 +1116,10 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignDemandManagement   
+### AssignDemandManagement   
 This module assigns demand management program participation to households and to workers. Households are assigned to individualized marketing program participation. Workers are assigned to employee commute options participation. The module computes the net proportional reduction in household daily VMT (DVMT) based on the participation in travel demand management programs.
 
-### User Input Files
+#### User Input Files
 1. Demand management (**_bzone_travel_demand_mgt.csv_**): This file contains the information about workers and households participating in demand management programs. 
    * **EcoProp**: Proportion of workers working in `Bzone` who participate in strong employee commute options program
    * **ImpProp**: Proportion of households residing in `Bzone` who participate in strong individualized marketing program
@@ -434,14 +1127,14 @@ This module assigns demand management program participation to households and to
    Here is a snapshot of the file:
 <img align="center" width="400" border=1 src="images/bzone_travel_demand_mgt.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HHSize**    | Number of persons in the household        |
 | VESimHouseholds    | [PredictWorkers](#predictworkers)     |**Workers**   | Total workers in the household            |
 
-### Module Outputs
+#### Module Outputs
 * **IsIMP**: Identifies whether household is participant in travel demand management individualized marketing program (IMP): `1` = yes, `0` = no
 * **PropTdmDvmtReduction**: Proportional reduction in household DVMT due to participation in travel demand management programs
 * **IsECO**: Identifies whether worker is a participant in travel demand management employee commute options program: `1` = yes, `0` = no
@@ -450,26 +1143,26 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignCarSvcAvailability 
+### AssignCarSvcAvailability 
 This module reads in and assigns 'car service' availability in `Bzone`s. Car services include taxis, car sharing services (e.g. Car-To-Go, Zipcar), and future automated taxi services. A high level of car service is increases household car availability -- similar to owning a car. Low levels of car service does not have competitive access time and therefore does not increase household car availability.
 
-### User Input Files
+#### User Input Files
 1. Car service availability (**_bzone_carsvc_availability.csv_**): This file contains the information about level of car service availability for `Bzones`.
 
    Here is a snapshot of the file:
 <img align="center" width="400" border=1 src="images/bzone_carsvc_availability.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 This module does not have any internal module inputs
 
-### Module Outputs
+#### Module Outputs
 * **CarSvcLevel**: Level of car service availability for household. `High` means access is competitive with household owned car; `Low` is not competitive.
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignCarSvcAvailability.md)
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignTransitService 
+### AssignTransitService 
 This module assigns transit service level to the metropolitan area (`Marea`) and neighborhoods (`Bzones`). Annual revenue-miles (i.e. transit miles in revenue service) by transit mode type are read from an input file. The following eight modes are recognized:
 * `DR` = Demand-responsive
 * `VP` = Vanpool and similar
@@ -485,7 +1178,7 @@ Revenue miles are converted to bus (i.e., `MB`) equivalents using factors derive
 Revenue miles by mode type are also translated (using NTD data) into vehicle miles by three vehicle types: van, bus, and rail. Miles by vehicle type are used to calculate public transit energy consumption and emissions.
 
 
-### User Input Files
+#### User Input Files
 1. Transit service for Marea (**_marea_transit_service.csv_**): This file contains annual revenue-miles for different transit modes for metropolitan area.
    * **DRRevMi**: Annual revenue-miles of demand-responsive public transit service
    * **VPRevMi**: Annual revenue-miles of van-pool and similar public transit service
@@ -505,13 +1198,13 @@ Revenue miles by mode type are also translated (using NTD data) into vehicle mil
    Here is a snapshot of the file:
 <img align="center" width="400" border=1 src="images/barea_transit_service.PNG">
    
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanPop**  | Urbanized area population                 |
 
 
-### Module Outputs
+#### Module Outputs
 * **TranRevMiPC**: Ratio of annual bus-equivalent revenue-miles (i.e., revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population
 * **VanDvmt**: Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services.
 * **BusDvmt**: Total daily miles traveled by buses of various sizes to provide bus service of various types.
@@ -521,10 +1214,10 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/ve_r
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignRoadMiles 
+### AssignRoadMiles 
 This module assigns freeway and arterial lane-miles to metropolitan areas (`Marea`) and calculates freeway lane-miles per capita.
 
-### User Input Files
+#### User Input Files
 1. Lane-Miles for `Marea` (**_marea_lane_miles.csv_**): This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles by `Marea` and year.
    * **FwyLaneMi**: Lane-miles of roadways functionally classified as freeways or expressways in the urbanized portion of the metropolitan area
    * **ArtLaneMi**: Lane-miles of roadways functionally classified as arterials (but not freeways or expressways) in the urbanized portion of the metropolitan area
@@ -533,23 +1226,23 @@ This module assigns freeway and arterial lane-miles to metropolitan areas (`Mare
 <img align="center" width="400" border=1 src="images/marea_lane_miles.PNG">
 
      
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanPop**     | Urbanized area population              |
 
 
-### Module Outputs
+#### Module Outputs
 * **FwyLaneMiPC**: Ratio of urbanized area freeway and expressway lane-miles to urbanized area population
 
 For more information see [here](https://github.com/gregorbj/VisionEval/blob/ve_rspm_state/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md)
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignDrivers 
+### AssignDrivers 
 This module assigns drivers by age group to each household as a function of the numbers of persons and workers by age group, the household income, land use characteristics, and public transit availability. 
 
-### User Input Files
+#### User Input Files
 1. Adjustment proportion for household drivers by age group for the region (**_region_hh_driver_adjust_prop.csv_**): This file specifies the relative driver licensing rate relative to the model estimation data year in order to account for observed or projected changes in licensing rates.
    * **Drv15to19AdjProp**: Target proportion of unadjusted model number of drivers 15 to 19 years old (`1` = no adjustment)
    * **Drv20to29AdjProp**: Target proportion of unadjusted model number of drivers 20 to 29 years old (`1` = no adjustment)
@@ -560,7 +1253,7 @@ This module assigns drivers by age group to each household as a function of the 
    Here is a snapshot of the file:
 <img align="center" width="800" border=1 src="images/region_hh_driver_adjust_prop.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply  | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     |Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population              |
@@ -577,7 +1270,7 @@ This module assigns drivers by age group to each household as a function of the 
 | VELandUse          | [AssignLocTypes](#assignloctypes) |**LocType**    | Location type (Urban, Town, Rural) of the place where the household resides        |
 
 
-### Module Outputs
+#### Module Outputs
 * **Drv15to19**: Number of drivers 15 to 19 years old
 * **Drv20to29**: Number of drivers 20 to 29 years old
 * **Drv30to54**: Number of drivers 30 to 54 years old
@@ -592,14 +1285,14 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 ___
 
-## AssignVehicleOwnership 
+### AssignVehicleOwnership 
 This module determines the number of vehicles owned or leased by each household as a function of household characteristics, land use characteristics, and transportation system characteristics.
 
-### User Input Files
+#### User Input Files
 This module has no user input requirements.
 
      
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     | Ratio of annual bus-equivalent revenue-miles to urbanized area population              |
@@ -614,7 +1307,7 @@ This module has no user input requirements.
 | VELandUse    | [AssignLocTypes](#assignloctypes) |**LocType**    | Location type (Urban, Town, Rural) of the place where the household resides        |
 
 
-### Module Outputs  
+#### Module Outputs  
 * **Vehicles**: Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons
 
 
@@ -622,17 +1315,17 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignVehicleType 
+### AssignVehicleType 
 This module identifies how many household vehicles are light trucks and how many are automobiles. Light trucks include pickup trucks, sport utility vehicles, vans, and any other vehicle not classified as a passenger car. Automobiles are vehicles classified as passenger cars.
 
-### User Input Files
+#### User Input Files
 1. Light truck proportion for `Azone` (**_azone_lttrk_prop.csv_**): This file specifies the light truck proportion of the vehicle fleet.
    * **LtTrkProp**: Proportion of household vehicles that are light trucks (pickup, SUV, van).
      
    Here is a snapshot of the file:
 <img align="center" width="300" border=1 src="images/azone_lttrk_prop.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [Calculate4DMeasures](#calculate4dmeasures)     |**D1B** | Gross population density (people/acre) on unprotected (i.e. developable) land in zone    |
@@ -647,7 +1340,7 @@ This module identifies how many household vehicles are light trucks and how many
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
 
 
-### Module Outputs
+#### Module Outputs
 * **NumLtTrk**: Number of light trucks (pickup, sport-utility vehicle, and van) owned or leased by household
 * **NumAuto**: Number of automobiles (i.e., four-tire passenger vehicles that are not light trucks) owned or leased by household
 
@@ -655,28 +1348,33 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-## CreateVehicleTable  
+### CreateVehicleTable  
 This module creates a vehicle table and populates it with household ID and geography fields.
 
-### User Input Files
-1. Car service characteristics for `Azone` (**azone_carsvc_characteristics.csv**): This file specifies the different characteristics for high and low car service levels
-   * **HighCarSvcCost**: Average cost in dollars per mile for travel by high service level car service
-   * **LowCarSvcCost**: Average cost in dollars per mile for travel by low service level car service
-   * **AveCarSvcVehicleAge**: Average age of car service vehicles in years
-   * **LtTrkCarSvcSubProp**: The proportion of light-truck owners who would substitute a less-costly car service option for owning their light truck
-   * **AutoCarSvcSubProp**: The proportion of automobile owners who would substitute a less-costly car service option for owning their automobile
+#### User Input Files
+##### Car service characteristics (**azone_carsvc_characteristics.csv**)
+This file specifies the different characteristics for high and low car service levels by `Azone`. More information on car service can be found here(placeholder). Changing this input is *optional* and using the default input values is standard practice. 
+- **HighCarSvcCost**: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)
+- **LowCarSvcCost**: Average cost in dollars per mile for travel by low service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)
+- **AveCarSvcVehicleAge**: Average age of car service vehicles in years
+- **LtTrkCarSvcSubProp**: The proportion of light-truck owners who would substitute a less-costly car service option for owning their light truck
+- **AutoCarSvcSubProp**: The proportion of automobile owners who would substitute a less-costly car service option for owning their automobile
 
-   Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
+Here is a snapshot of the file:
 
-### Internal Module Inputs
+| Geo | Year | HighCarSvcCost.2010 | LowCarSvcCost.2010 | AveCarSvcVehicleAge | LtTrkCarSvcSubProp | AutoCarSvcSubProp |
+| :--- | :----: | :----: | :----: | :----: | :----: | :----: |
+| RVMPO | 2010 | 1 | 3 | 3 | 0.75 | 1 |
+| RVMPO | 2038 | 1 | 3 | 3 | 0.75 | 1 |
+  
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEHouseholdVehicles    | [AssignVehicleOwnership](#assignvehicleownership)     |**Vehicles**   | Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons           |
 | VEHouseholdVehicles    | [AssignDrivers](#assigndrivers)     |**DrvAgePersons**   | Number of people 15 year old or older in the household           |
 | VELandUse     | [AssignCarSvcAvailability ](#assigncarsvcavailability)     |**CarSvcLevel**   | Level of car service availability for household. High means access is competitive with household owned car. Low is not competitive.          |
 
-### Module Outputs
+#### Module Outputs
 * **VehId**: Unique vehicle ID
 * **VehicleAccess**: Identifier whether vehicle is owned by household (`Own`), if vehicle is low level car service (`LowCarSvc`), or if vehicle is high level car service (`HighCarSvc`)
 
@@ -684,10 +1382,10 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## AssignVehicleAge   
+### AssignVehicleAge   
 This module assigns vehicle ages to each household vehicle. Vehicle age is assigned as a function of the vehicle type (auto or light truck), household income, and assumed mean vehicle age by vehicle type and `Azone`. Car service vehicles are assigned an age based on input assumptions with no distinction between vehicle type.
 
-### User Input Files
+#### User Input Files
 1. Vehicles mean age for `Azone` (**azone_hh_veh_mean_age.csv**): This file provides inputs for mean auto age and mean light truck age in azone.
    * **AutoMeanAge**: Mean age of automobiles owned or leased by households.
    * **LtTrkMeanAge**: Mean age of light trucks owned or leased by households.
@@ -701,7 +1399,7 @@ This module assigns vehicle ages to each household vehicle. Vehicle age is assig
    Here is a snapshot of the file:
 <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -712,7 +1410,7 @@ This module assigns vehicle ages to each household vehicle. Vehicle age is assig
 | VEHouseholdVehicles    | [AssignVehicleType](#assignvehicletype) |**NumAuto**      | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household                              |
 | VEHouseholdVehicles    | [CreateVehicleTable](#createvehicletable) |**VehicleAccess**      | Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (LowCarSvc), or if vehicle is high level car service (`HighCarSvc`)                             |
 
-### Module Outputs
+#### Module Outputs
 * **Type**: Vehicle body type: Auto = automobile, LtTrk = light trucks (i.e. pickup, SUV, Van)
 * **Age**: Vehicle age in years
 
@@ -720,9 +1418,9 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateVehicleOwnCost  
+### CalculateVehicleOwnCost  
 This module calculates average vehicle ownership cost for each vehicle based on the vehicle type and age using data from the American Automobile Association (AAA). To this are added the cost of parking at the vehicle residence if free parking is not available for all household vehicles. The ownership cost is converted into an average ownership cost per mile by predicting the household DVMT, given the number of owned vehicles and splitting the miles equally among each vehicle.
-### User Input Files
+#### User Input Files
 1. Vehicle ownership taxes for `Azone` (**azone_hh_veh_own_taxes.csv**): This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes).
    * **VehOwnFlatRateFee**: Annual flat rate tax per vehicle in dollars
    * **VehOwnAdValoremTax**: Annual proportion of vehicle value paid in taxes
@@ -738,7 +1436,7 @@ This module calculates average vehicle ownership cost for each vehicle based on 
    
    <img align="center" width="300" border=1 src="images/azone_payd_insurance_prop.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -760,7 +1458,7 @@ This module calculates average vehicle ownership cost for each vehicle based on 
 | VEHouseholdVehicles    | [AssignVehicleType](#assignvehicletype) |**NumAuto**      | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household                              |
 
 
-### Module Outputs
+#### Module Outputs
 * **OwnCost**: Annual cost of vehicle ownership including depreciation, financing, insurance, taxes, and residential parking in dollars
 * **OwnCostPerMile**: Annual cost of vehicle ownership per mile of vehicle travel (dollars per mile)
 * **InsCost**: Annual vehicle insurance cost in dollars
@@ -770,10 +1468,10 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-## AdjustVehicleOwnership  
+### AdjustVehicleOwnership  
 This module adjusts household vehicle ownership based on a comparison of the cost of owning a vehicle per mile of travel compared to the cost per mile of using a car service in locations where the level of car service quality is high. The determination of whether car services are substituted for ownership also depends on input assumptions regarding the average likelihood that an owner would substitute car services for a household vehicle.
 
-### User Input Files
+#### User Input Files
 1. Car service characteristics for `Azone` (**azone_carsvc_characteristics.csv**): This file specifies the different characteristics for high and low car service levels
    * **HighCarSvcCost**: Average cost in dollars per mile for travel by high service level car service
    * **LowCarSvcCost**: Average cost in dollars per mile for travel by low service level car service
@@ -785,7 +1483,7 @@ This module adjusts household vehicle ownership based on a comparison of the cos
 <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -802,7 +1500,7 @@ ouseholdVehicles    | [CalculateVehicleOwnCost ](#calculatevehicleowncost ) |**O
 | VEHouseholdVehicles    | [CalculateVehicleOwnCost ](#calculatevehicleowncost ) |**InsCost**      |  Annual vehicle insurance cost in dollars                       |
 
 
-### Module Outputs
+#### Module Outputs
 * **VehicleAccess**: Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (`LowCarSvc`), or if vehicle is high level car service (`HighCarSvc`)
 * **OwnCost**: Annual cost of vehicle ownership per mile of vehicle travel (dollars per mile)
 * **OwnCostPerMile**:Annual cost of vehicle ownership per mile of vehicle travel (dollars per mile)
@@ -819,12 +1517,12 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateHouseholdDvmt  
+### CalculateHouseholdDvmt  
 This module models household average daily vehicle miles traveled as a function of household characteristics, vehicle ownership, and attributes of the neighborhood and metropolitan area where the household resides.
-### User Input Files
+#### User Input Files
 This module has no user input requirements.
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     |Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population              |
@@ -840,7 +1538,7 @@ This module has no user input requirements.
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
 
 
-### Module Outputs
+#### Module Outputs
 * **Dvmt**: Average daily vehicle miles traveled by the household in autos or light trucks
 * **UrbanHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the `Marea`
 * **TownHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in town (urban but not urbanized) portion of the `Marea`
@@ -851,12 +1549,12 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateAltModeTrips   
+### CalculateAltModeTrips   
 This module calculates household transit trips, walk trips, and bike trips. The models are sensitive to household DVMT so they are run after all household DVMT adjustments (e.g. to account for cost on household DVMT) are made.
-### User Input Files
+#### User Input Files
 This module has no user input requirements.
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     |Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population              |
@@ -875,7 +1573,7 @@ This module has no user input requirements.
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#CalculateHouseholdDvmt)     |**Dvmt** | Average daily vehicle miles traveled by the household in autos or light trucks    |
 
 
-### Module Outputs
+#### Module Outputs
 * **WalkTrips**: Average number of walk trips per year by household members
 * **BikeTrips**: Average number of bicycle trips per year by household members
 * **TransitTrips**:Average number of public transit trips per year by household members
@@ -884,13 +1582,13 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateVehicleTrips    
+### CalculateVehicleTrips    
 This module calculates average daily vehicle trips for households consistent with the household DVMT. An average trip length model is applied to estimate average length of household trips reflecting the characteristics of the household and the place where they live. The average trip length is divided into the average household DVMT to get an estimate of average number of daily vehicle trips.
-### User Input Files
+#### User Input Files
 This module has no user input requirements.
 
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [ AssignRoadMiles ](#assignroadmiles)     |**FwyLaneMiPC**     |Ratio of urbanized area freeway and expressway lane-miles to urbanized area population              |
@@ -904,7 +1602,7 @@ This module has no user input requirements.
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#CalculateHouseholdDvmt)     |**Dvmt** | Average daily vehicle miles traveled by the household in autos or light trucks    |
 
 
-### Module Outputs
+#### Module Outputs
 * **VehicleTrips**: Average number of vehicle trips per day by household members
 * **AveVehTripLen**: Average household vehicle trip length in miles
 
@@ -912,19 +1610,19 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## DivertSovTravel    
+### DivertSovTravel    
 This module reduces household single-occupant vehicle (SOV) travel to achieve goals that are inputs to the model. The purpose of this module is to enable users to do 'what if' analysis of the potential of light-weight vehicles (e.g. bicycles, electric bikes, electric scooters) and infrastructure to support their use to reduce SOV travel.
 
 Note: SOV DVMT reduction is only applied to households in urban and town location types (LocTypes) because it is unlikely that actions/services could be provided in rural areas that could significantly divert SOV DVMT to bicycles, electric bicycles, scooters or other similar modes.
 
-### User Input Files
+#### User Input Files
 1. Proportion of diverted SOVs for `Azone` (**azone_prop_sov_dvmt_diverted.csv**): This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance (round trip distance).
    * **PropSovDvmtDiverted**: Goals for the proportion of household DVMT in single occupant vehicle tours with round-trip distances of 20 miles or less be diverted to bicycling or other slow speed modes of travel
    
    Here is a snapshot of the file:
 <img align="center" width="400" border=1 src="images/azone_prop_sov_dvmt_diverted.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [ AssignRoadMiles ](#assignroadmiles)     |**FwyLaneMiPC**     |Ratio of urbanized area freeway and expressway lane-miles to urbanized area population              |
@@ -941,7 +1639,7 @@ Note: SOV DVMT reduction is only applied to households in urban and town locatio
 | VELandUse          | [PredictHousing](#predicthousing)     |**HouseType** | Type of dwelling unit of the household    |
 
 
-### Module Outputs
+#### Module Outputs
 * **PropDvmtDiverted**: Proportion of household DVMT diverted to bicycling, electric bikes, or other 'low-speed' travel modes
 * **AveTrpLenDiverted**: Average length in miles of vehicle trips diverted to bicycling, electric bikes, or other 'low-speed' travel modes
 
@@ -949,15 +1647,23 @@ For more information see [here](https://github.com/gregorbj/VisionEval/blob/deve
 
 [Top](#rspm-modules-and-outputs)
 
-## Initialize-vepowertrainsandfuels  
+### Initialize-vepowertrainsandfuels  
 This module processes vehicle and fuel characteristics files that model users may optionally supply. When these files are supplied, modules in the package that compute carbon intensities of vehicle travel will use the user-supplied data instead of the datasets that are part of the package (see the `LoadDefaultValues.R` script).
-### User Input Files
-1. Carbon intensity of electricity for `Azone` (**azone_electricity_carbon_intensity.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the carbon intensity of electricity.
 
-   * **ElectricityCI**: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)
+#### User Input Files {-}
 
-   Here is a snapshot of the file:
-<img align="center" width="200" border=1 src="images/azone_electricity_carbon_intensity.PNG">
+##### Carbon Intensity of Electricity (**azone_electricity_carbon_intensity.csv**) {-}
+
+This input file specifies the carbon intensity of electricity by `Azone`. This input file is OPTIONAL and is only needed if the user wants to modify the carbon intensity of electricity.
+
+* **ElectricityCI**: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)
+
+Here is a snapshot of the file:
+
+| Geo | Year | ElectricityCI |
+| :--- | :----: | :----: |
+| RVMPO | 2010 | 153 |
+| RVMPO | 2038 | 23 |
 
 2. Average fuel carbon intensity of transit for Marea (**marea_transit_ave_fuel_carbon_intensity.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the average carbon intensity of fuel used by transit.
 
@@ -1058,11 +1764,11 @@ This module processes vehicle and fuel characteristics files that model users ma
 <img align="center" width="400" border=1 src="images/region_hvytrk_powertrain_prop.PNG">
 	
 
-### Internal Module Inputs
+#### Internal Module Inputs
 
 This module uses no datasets that are in the datastore.
 
-### Module Outputs
+#### Module Outputs
 
 This module produces no datasets to store in the datastore.
 
@@ -1072,7 +1778,7 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 ___
 
-## CalculateCarbonIntensity     
+### CalculateCarbonIntensity     
 This module calculates the average carbon intensity of fuels (grams CO2e per megajoule) by transportation mode and vehicle type. The transportation modes and vehicle types are:
 
 |Mode               |Vehicle Types           |
@@ -1085,7 +1791,7 @@ This module calculates the average carbon intensity of fuels (grams CO2e per meg
 
 Average fuel carbon intensities for public transit vehicles are calculated by `Marea`. The average fuel carbon intensities for the other mode vehicles are calculated for the entire model region. The module also calculates the average carbon intensity of electricity at the `Azone` level. Note that this module uses the user input files only if the user runs [Initialize](#initialize) module. Otherwise the module uses default inputs in the [inst\extdata folder](https://github.com/gregorbj/VisionEval/tree/898fc016893f5b7dd78507e101c37d04486826b3/sources/modules/VEPowertrainsAndFuels/inst/extdata). 
 
-### User Input Files
+#### User Input Files
 1. Carbon intensity of electricity for `Azone` (**azone_electricity_carbon_intensity.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the carbon intensity of electricity.
 
    * **ElectricityCI**: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)
@@ -1130,11 +1836,11 @@ Average fuel carbon intensities for public transit vehicles are calculated by `M
    Here is a snapshot of the file:	
  <img align="center" width="800" border=1 src="images/region_ave_fuel_carbon_intensity.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 This module does not have any internal module inputs
 
 
-### Module Outputs
+#### Module Outputs
 * **ElectricityCI**: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)
 * **HhAutoFuelCI**: Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule)
 * **HhLtTrkFuelCI**: Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)
@@ -1153,7 +1859,7 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 ___
 
-## AssignHhVehiclePowertrain     
+### AssignHhVehiclePowertrain     
 This module assigns a powertrain type to each household vehicle. The powertrain types are internal combustion engine vehicle (ICEV), hybrid electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), and battery electric vehicles (BEV). The module also assigns related characteristics to household vehicles including:
 
 * Battery range (for PHEV and BEV)
@@ -1170,17 +1876,13 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
 
 * Carbon dioxide equivalent emissions per mile powered by electricity
 
-### User Input Files
-1. Charging availability for `Azone` (**azone_charging_availability.csv**): This input file supplies data on proportion of different household types who has available charging 
+#### User Input Files
+#### Charging availability (**azone_charging_availability.csv**) {-}
+This input file supplies data on proportion of different household types with plug-in electric vehicle (PEV) charging available by `Azone`.
+- **PropSFChargingAvail**: Proportion of single-family dwellings in Azone that have PEV charging facilities installed or able to be installed
+- **PropMFChargingAvail**: Proportion of multifamily dwelling units in Azone that have PEV charging facilities available
+- **PropGQChargingAvail**: Proportion of group quarters dwelling units in Azone that have PEV charging facilities available
 
-   * **PropSFChargingAvail**: Proportion of single-family dwellings in Azone that have PEV charging facilties installed or able to be installed
-   * **PropMFChargingAvail**: Proportion of multi-family dwelling units in Azone that have PEV charging facilities available
-   * **PropGQChargingAvail**: Proportion of group quarters dwelling units in Azone that have PEV charging facilities available
-   
-   Here is a snapshot of the file:	
-<img align="center" width="500" border=1 src="images/azone_charging_availability.PNG">
-
-  
 2. Car service vehicle powertrain proportions by vehicle type for the model region (**region_carsvc_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.
 
    * **CarSvcAutoPropIcev**: Proportion of car service automobile travel powered by internal combustion engine powertrains
@@ -1194,7 +1896,7 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
  <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
 
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
@@ -1215,7 +1917,7 @@ ESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | House
 | VEHouseholdVehicles    | [CreateVehicleTable](#createvehicletable) |**VehicleAccess**      | Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (LowCarSvc), or if vehicle is high level car service (HighCarSvc)                             |
 
 
-### Module Outputs
+#### Module Outputs
 * **Powertrain**: Vehicle powertrain type: ICEV = internal combustion engine vehicle, HEV = hybrid electric vehicle, PHEV = plug-in hybrid electric vehicle, BEV = battery electric vehicle, NA = not applicable because is a car service vehicle
 * **BatRng**: Miles of travel possible on fully charged battery
 * **MPG**: Average miles of vehicle travel powered by fuel per gasoline equivalent gallon
@@ -1235,11 +1937,11 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 [Top](#rspm-modules-and-outputs)
 
 
-## Initialize-vetravelperformance    
+### Initialize-vetravelperformance    
 This module reads and processes roadway DVMT and operations inputs.
 The following input files are optional. If these data are not provided, the model calculates values based on default data included with the package and processed by the `LoadDefaultRoadDvmtValues.R` script.
 
-### User Input Files
+#### User Input Files
 1. Base year highway truck dvmt for region (**region_base_year_hvytrk_dvmt.csv**): This input file is OPTIONAL. It is only needed if the user wants to adjust heavy truck dvmt for base year
 
    * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
@@ -1319,12 +2021,12 @@ The following input files are optional. If these data are not provided, the mode
 
 		
 
-### Internal Module Inputs
+#### Internal Module Inputs
 
 This module uses no datasets that are in the datastore.
 
 
-### Module Outputs
+#### Module Outputs
 
 This module produces no datasets to store in the datastore.
 
@@ -1334,11 +2036,11 @@ This module produces no datasets to store in the datastore.
 
 ___
 
-## CalculateBaseRoadDvmt     
+### CalculateBaseRoadDvmt     
 This module calculates base year roadway DVMT by vehicle type (light-duty, heavy truck, bus) and the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other)
 This module uses optional user inputs if [Initialize](#initialize-vetravelperformance) module is run. Otherwise, it uses default data in [inst\extdata folder](https://github.com/gregorbj/VisionEval/tree/develop/sources/modules/VETravelPerformance/inst/extdata)
 
-### User Input Files
+#### User Input Files
 1. Base year highway truck dvmt for region (**region_base_year_hvytrk_dvmt.csv**): This input file is OPTIONAL. It is only needed if the user wants to adjust heavy truck dvmt for base year
 
    * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
@@ -1372,7 +2074,7 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
    * **BusArtDvmtProp**: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
    * **BusOthDvmtProp**: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply            | [AssignTransitService](#assigntransitservice) |**VanDvmt**      |  Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services                            |
@@ -1385,7 +2087,7 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#calculatehouseholddvmt)     |**UrbanHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea               |
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#calculatehouseholddvmt)     |**RuralHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the rural (non-urban) portion of the Marea|
 
-### Module Outputs
+#### Module Outputs
 * **HvyTrkDvmtUrbanProp**: Proportion of Region heavy truck daily vehicle miles of travel occurring on urbanized area roadways
 * **HvyTrkDvmtIncomeFactor**: Ratio of Region base year heavy truck DVMT to household income
 * **HvyTrkDvmtPopulationFactor**: Ratio of Region base year heavy truck DVMT to population
@@ -1422,11 +2124,11 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateFutureRoadDvmt     
+### CalculateFutureRoadDvmt     
 This module calculates future year roadway DVMT by vehicle type (light-duty, heavy truck, bus) and the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other)
 This module uses optional user inputs if [Initialize](#initialize-vetravelperformance) module is run. Otherwise, it uses default data in [inst\extdata folder](https://github.com/gregorbj/VisionEval/tree/develop/sources/modules/VETravelPerformance/inst/extdata)
 
-### User Input Files
+#### User Input Files
 1. Base year highway truck dvmt for region (**region_base_year_hvytrk_dvmt.csv**): This input file is OPTIONAL. It is only needed if the user wants to adjust heavy truck dvmt for base year
 
    * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
@@ -1442,7 +2144,7 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
     Here is a snapshot of the file:	
 <img align="center" width="600" border=1 src="images/region_base_year_hvytrk_dvmt.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#calculatebaseroaddvmt)       |**HvyTrkDvmtIncomeFactor**  |  Ratio of Region base year heavy truck DVMT to household income     |
@@ -1472,7 +2174,7 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#calculatehouseholddvmt)     |**UrbanHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea               |
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#calculatehouseholddvmt)     |**RuralHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the rural (non-urban) portion of the Marea|
 
-### Module Outputs
+#### Module Outputs
 * **HvyTrkUrbanDvmt**: Base year Region heavy truck daily vehicle miles of travel in urbanized areas
 * **HvyTrkRuralDvmt**: Base year Region heavy truck daily vehicle miles of travel in rural (i.e. non-urbanized) areas
 * **ComSvcUrbanDvmt**: Commercial service daily vehicle miles of travel associated with Marea urbanized household activity
@@ -1495,7 +2197,7 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
 
 ___
 
-## CalculateRoadPerformance      
+### CalculateRoadPerformance      
 
 This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT between freeways and arterials as a function of relative speeds and congestion prices. Speeds and prices are combined to calculate an average 'effective' speed for freeways and for arterials. The ratio of freeway and arterial 'effective' speeds and a split factor calculated for the metropolitan area are used to split the LDV DVMT. Iteration is used to find an equilibrium split value. In addition to the LDV freeway DVMT and arterial DVMT, the following performance measures are saved to the datastore:
 
@@ -1515,7 +2217,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 
 * Vehicle hours of delay by vehicle type.
 
-### User Input Files
+#### User Input Files
 1. Operations deployment effects on dvmt for Marea (**marea_operations_deployment.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of dvmt affected by operations for different road classes.
 
    * **RampMeterDeployProp**: Proportion of freeway DVMT affected by ramp metering deployment
@@ -1556,7 +2258,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 <img align="center" width="1500" border=1 src="images/marea_congestion_charges.PNG">
  
 
-### User Input Parameters
+#### User Input Parameters
 **Value of time (valueoftime)** : This parameter set the value of time (base cost year dollars per hour).  It should be defined in [model_parameters.json]
 
    ```json
@@ -1566,7 +2268,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
    "UNITS": "base cost year dollars per hour"
   }
    ```  
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanPop**  | Urbanized area population                 |
@@ -1582,7 +2284,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 | VELandUse          | [Calculate4DMeasures](#calculate4dmeasures)     |**UrbanArea**  |  Area that is Urban and unprotected (i.e. developable) within the zone              |
 
 
-### Module Outputs
+#### Module Outputs
 * **LdvFwyDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
 * **LdvArtDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
 * **FwyNoneCongSpeed**: Average freeway speed (miles per hour) when there is no congestion
@@ -1626,11 +2328,11 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 ___
 
-## CalculateMpgMpkwhAdjustments      
+### CalculateMpgMpkwhAdjustments      
 
 This module calculates adjustments to fuel economy and electric energy economy for plug-in vehicles) resulting from traffic congestion, speed smoothing(i.e. active traffic management which reduces speed variation), and ecodriving practices.
 
-### User Input Files
+#### User Input Files
 1. Speed smoothing and ecodriving for Marea (**marea_speed_smooth_ecodrive.csv**): This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type
 
    * **FwySmooth**:Fractional deployment of speed smoothing traffic management on freeways, where 0 is no deployment and 1 is the full potential fuel savings
@@ -1641,7 +2343,7 @@ This module calculates adjustments to fuel economy and electric energy economy f
    Here is a snapshot of the file:	
 <img align="center" width="600" border=1 src="images/marea_speed_smooth_ecodrive.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateRoadPerformance](#calculateroadperformance)     |**LdvFwyDvmt**  | Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways                |
@@ -1673,7 +2375,7 @@ This module calculates adjustments to fuel economy and electric energy economy f
 | VETravelPerformance          | [CalculateRoadPerformance](#calculateroadperformance)     |**ArtDvmtPropExtCong**    |  Proportion of arterial DVMT occurring when congestion is extereme             |
 
 
-### Module Outputs
+#### Module Outputs
 * **LdvSpdSmoothFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing
 * **HvyTrkSpdSmoothFactor**: Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to speed smoothing
 * **BusSpdSmoothFactor**: Proportional adjustment of bus internal combustion engine (ICE) vehicle MPG due to speed smoothing
@@ -1693,10 +2395,10 @@ This module calculates adjustments to fuel economy and electric energy economy f
 
 ___
 
-## AdjustHhVehicleMpgMpkwh      
+### AdjustHhVehicleMpgMpkwh      
 
 This module adjusts the fuel economy and power efficiency of household vehicles to reflect roadway congestion.
-### User Input Files
+#### User Input Files
 1. Car service vehicle powertrain proportions by vehicle type for the model region (**region_carsvc_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.
 
    * **CarSvcAutoPropIcev**: Proportion of car service automobile travel powered by internal combustion engine powertrains
@@ -1709,7 +2411,7 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
    Here is a snapshot of the file:	
  <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#calculatempgmpkwhadjustments)     |**LdvEcoDrive**  | Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1               |
@@ -1737,7 +2439,7 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#assignHhvehiclepowertrain)     |**ElecCO2ePM**  |  Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity |
 
 
-### Module Outputs
+#### Module Outputs
 * **MPG**: Average miles of vehicle travel powered by fuel per gasoline equivalent gallon
 * **GPM**: Average gasoline equivalent gallons per mile of vehicle travel powered by fuel
 * **MPKWH**: Average miles of vehicle travel powered by electricity per kilowatt-hour
@@ -1753,11 +2455,11 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculateVehicleOperatingCost      
+### CalculateVehicleOperatingCost      
 
 This module calculates vehicle operating costs per mile of travel and uses those costs to determine the proportional split of DVMT among household vehicles. The module also calculates the average out-of-pocket costs per mile of vehicle by household, as well as the cost of social and environmental impacts, and road use taxes per mile of vehicle travel.
 
-### User Input Files
+#### User Input Files
 1. Vehicle access time for `Azone` (**azone_vehicle_access_times.csv**): This file supplies data for vehicle access and eagress time.
 
    * **OwnedVehAccessTime**:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip
@@ -1767,14 +2469,18 @@ This module calculates vehicle operating costs per mile of travel and uses those
    Here is a snapshot of the file:	
 <img align="center" width="500" border=1 src="images/azone_vehicle_access_times.PNG">
   
-   
-2. Fuel and electricity cost for `Azone` (**azone_fuel_power_cost.csv**): This file supplies data for retail cost of fuel and electricity
+##### Fuel and Electricity Cost (**azone_fuel_power_cost.csv**) {-}
+This file supplies data for retail cost of fuel and electricity by `Azone`. This input can be developed using local history or querying the Energy Information Administration (EIA) for historical [gasoline and diesel](https://www.eia.gov/petroleum/) and [power](https://www.eia.gov/electricity/) prices. 
 
-   * **FuelCost**:Retail cost of fuel per gas gallon equivalent in dollars
-   * **PowerCost**: Retail cost of electric power per kilowatt-hour in dollars
+* **FuelCost**:Retail cost of fuel per gas gallon equivalent in dollars (before taxes are added)
+* **PowerCost**: Retail cost of electric power per kilowatt-hour in dollars (before taxes are added)
    
-   Here is a snapshot of the file:	
- <img align="center" width="400" border=1 src="images/azone_fuel_power_cost.PNG">
+Here is a snapshot of the file:
+
+| Geo | Year | FuelCost.2005 | PowerCost.2005 |
+| :--- | :----: | :----: | :----: |
+|RVMPO | 2010 | 2.43 | 0.08 |
+|RVMPO | 2038 | 5.75 | 0.208 |
 
 3. Vehicle taxes for `Azone` (**azone_veh_use_taxes.csv**): This file supplies data for vehicle related taxes
 
@@ -1794,7 +2500,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
  <img align="center" width="400" border=1 src="images/region_prop_externalities_paid.PNG">
 
 
-### User Input Parameters
+#### User Input Parameters
 **Value of time (valueoftime)** : This parameter set the value of time (base cost year dollars per hour).  It should be defined in [model_parameters.json]
 
    ```json
@@ -1804,7 +2510,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
    "UNITS": "base cost year dollars per hour"
   }
    ```  
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateRoadPerformance](#calculateroadperformance)     |**AveLdvSpd**  | Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel                |
@@ -1833,7 +2539,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 | VELandUse          | [AssignParkingRestrictions](#assignparkingrestrictions)     |**PaysForParking**  | Does worker pay for parking: 1 = yes, 0 = no             |
 
 
-### Module Outputs
+#### Module Outputs
 * **AveVehCostPM**: Average out-of-pocket cost in dollars per mile of vehicle travel
 * **AveSocEnvCostPM**: Average cost in dollars of the social and environmental impacts per mile of vehicle travel
 * **AveRoadUseTaxPM**: Average road use taxes in dollars collected per mile of vehicle travel
@@ -1849,7 +2555,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 
 ___
 
-## BudgetHouseholdDvmt      
+### BudgetHouseholdDvmt      
 
 This module adjusts average household DVMT to keep the quantity within household operating cost limits. The limit for each household is calculated in several steps. First, the proportion of the household's income that may be spent on vehicle operating costs is calculated using a model that is explained below. This is called the budget proportion. Then an adjusted household income
 for budget calculation purposes is calculated by adding the annual cost of insurance for households subscribing to payd-as-you-drive (PAYD) insurance, cash-out parking payments for workers who work at an employer that has cash-out-buy-back parking, and any vehicle ownership cost savings for households that substitute high level car service for one or more household
@@ -1859,12 +2565,10 @@ midpoint value for each income category to calculate the budget proportion for e
 deviations above the mean is set as the maximum normalized value. The mean values by income group are multiplied by this normalized maximum to derive a budget proportion maximum by income group. A smoothed splines model of the budget proportion as a function of income is then estimated from the calculated budget proportion maximums. This model is used to calculate the budget proportion for a household based on the household income. The minimum and
 maximum values of the calculated budget proportion maximums are used as constraints to avoid unreasonable results for very low incomes and very high incomes.
 
-### User Input Files
+#### User Input Files
 This module does not have user-supplied input files
 
-
- 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#createhouseholds) |**HhId**      | Household id                              |
@@ -1882,7 +2586,7 @@ This module does not have user-supplied input files
 | VELandUse          | [AssignParkingRestrictions](#assignparkingrestrictions)     |**PaysForParking**  | Does worker pay for parking: 1 = yes, 0 = no             |
 | VEHouseholdVehicles    | [CalculateVehicleOwnCost ](#calculatevehicleowncost ) |**InsCost**      |  Annual vehicle insurance cost in dollars                       |
 
-### Module Outputs
+#### Module Outputs
 * **Dvmt**: Average daily vehicle miles traveled by the household in autos or light trucks
 * **UrbanHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea
 * **RuralHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the non-urbanized portion of the Marea
@@ -1898,10 +2602,10 @@ This module does not have user-supplied input files
 
 ___
 
-## CalculateComEnergyAndEmissions      
+### CalculateComEnergyAndEmissions      
 
 This module calculates the energy consumption and carbon emissions of heavy trucks and light-duty commercial service vehicles. It does not calculate the values for car service vehicles which are calculated as part of the household emissions. It also does not calculate public transit emissions which are calculated in the CalculateTransitEnergyAndEmissions module.
-### User Input Files
+#### User Input Files
 1. Light trucks proportion for the region (**region_comsvc_lttrk_prop.csv**): This file supplies data for the light truck proportion og commercial vehicles
 
    * **ComSvcLtTrkProp**: Regional proportion of commercial service vehicles that are light trucks
@@ -1930,7 +2634,7 @@ This module calculates the energy consumption and carbon emissions of heavy truc
    Here is a snapshot of the file:	
 <img align="center" width="400" border=1 src="images/region_hvytrk_powertrain_prop.PNG">
    
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
@@ -1953,7 +2657,7 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#CalculateBaseRoadDvmt)     |**ComSvcRuralDvmt**  | Commercial service daily vehicle miles of travel associated with Marea rural household activity             |
 
 
-### Module Outputs
+#### Module Outputs
 * **ComSvcUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with urban household activity in gas gallon equivalents
 * **ComSvcRuralGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with rural household activity in gas gallon equivalents
 * **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Marea in gas gallon equivalents
@@ -1976,11 +2680,11 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 
 [Top](#rspm-modules-and-outputs)
 
-## CalculatePtranEnergyAndEmissions    
+### CalculatePtranEnergyAndEmissions    
 
 This module calculates the energy consumption and carbon emissions of public transit vehicle emissions in urbanized areas.
 
-### User Input Files
+#### User Input Files
 1. Transit powertrain proportions by transit vehicle type and Marea (**marea_transit_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the mixes of transit vehicle powertrains.
 
    * **VanPropIcev**: Proportion of transit van travel using internal combustion engine powertrains
@@ -1997,7 +2701,7 @@ This module calculates the energy consumption and carbon emissions of public tra
    Here is a snapshot of the file:
  <img align="center" width="1100" border=1 src="images/marea_transit_powertrain_prop.PNG">
 
-### Internal Module Inputs
+#### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
@@ -2009,7 +2713,7 @@ This module calculates the energy consumption and carbon emissions of public tra
 | VETransportSupply            | [AssignTransitService](#assigntransitservice)     |**RailDvmt** | Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles   |
 
 
-### Module Outputs
+#### Module Outputs
 * **BusGGE**: Average daily amount of hydrocarbon fuels consumed by bus transit vehicles in urbanized area in gas gallon equivalents
 * **RailGGE**: Average daily amount of hydrocarbon fuels consumed by rail transit vehicles in urbanized area in gas gallon equivalents
 * **VanGGE**: Average daily amount of hydrocarbon fuels consumed by van transit vehicles in urbanized area in gas gallon equivalents
@@ -2025,3 +2729,371 @@ This module calculates the energy consumption and carbon emissions of public tra
 
 
 [Top](#rspm-modules-and-outputs)
+
+## Development and Installation
+
+**NOTE: This section is the proposed location for new documentation on input development**
+
+This section describes the installation and use of VE-RSPM.
+
+### Installation of VisionEval and VE-RSPM
+
+VE-RSPM and VisionEval framework are implemented in R, a statistical programming language and environment.  Both R and VisionEval are open source and freely available. For running VE-RSPM you need to follow these steps:
+
+1. [Install R](https://cran.r-project.org/) (users are encouraged to also install [RStudio](https://www.rstudio.com/products/rstudio/download/), a free and open-source integrated development environment for R)
+2. [Install VisionEval](https://visioneval.org/category/download.html)
+3. Run VE-RSPM
+
+The VisionEval installer is available [here](https://visioneval.org/category/download.html). Follow the instructions on this page carefully to install the Visioneval on your system.
+
+### Running VE-RSPM Base Scenario
+
+#### Preparing inputs
+Once VisionEval and VE-RSPM have been installed, a directory with sample data will be available at `../models/VERSPM/`. (Note `..` refers to the parent directory of the unzipped installer file). 
+
+The `VE-RSPM` directory serves the dual purposes of providing sample data and serving as a template for local modification to other locations. 
+
+The `../models/VERSPM/` directory contains sample input files for the Rogue Valley region in Oregon. These inputs can be modified or replaced to investigate the impacts of policy changes or to model a different region.  The folder contains multiple files and subfolders:
+
+<img align="center" width="800" border=1 src="images/VERSPM_Folder.PNG">
+
+`run_model.R` is the core script for running the model. It consists of calls to the modules that make up the model. The user may modify the script to call the  desired modules.
+
+<img align="center" width="700" border=1 src="images/run_model.PNG">
+
+The `defs` directory contains five model definition files which is introduced in [Model Definition Files](Inputs_and_Parameters.md)
+
+<img align="center" width="700" border=1 src="images/model_definitions.PNG">
+
+The `inputs` directory contains a number of `CSV` and `JSON` files that provide inputs for the modules. Each module specifies what input files it needs. If you would like to know 
+the description of each input file and how you can change those files for your desired testing see [Inputs_and_Parameters](Inputs_and_Parameters.md/#input-files)
+
+<img align="center" width="700" border=1 src="images/inputs.PNG">
+
+There is complete set of test data for RVMPO which you will find out in the VERSPM_base_model folder. You can use those data to test VERRSPM run.
+
+ the `../models/VERSPM/` directory contains sample input files for RV MPO, Oregon.  These can be modified or replaced to investigate the impacts of policy changes or to model a different region.  
+
+To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md#azone_hh_veh_own_taxescsv) would be modified in Excel, LibreOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038
+
+<img align="center" width="400" border=1 src="images/modify_input.PNG">
+
+#### Running the Model
+
+There are multiple ways to run VisionEval models. VisionEval models can be run via the command line directly or using `openModel`, and can be run for one scenario or multiple scenarios in parallel. Results can be viewed in tabular form or with the interactive `VEScenarioViewer`.
+
+1. Start R (or RStudio) and make sure your directory is set to the installer folder. The easiest way to do this is to double-click `VisionEval.Rproj`, which will be associated with RStudio if that is installed correctly.
+2. You should see 'Welcome to VisionEval!' on the RStudio console. Then run the following commands:
+
+```
+rspmmod <- openModel('VERSPM')
+rspmmod$run()
+```
+
+By default this will run the model in `../models/VERSPM/` directory. The default model is for the Rouge Valley (Oregon) MPO, for 2010 and 2038. 
+
+After running the script you will see how the modules will be running in order.
+
+
+The model run will take approximately 10-15 minutes. Once complete, the output are exported to `../models/VERSPM/outputs` in 3 different zone levels.
+
+
+### Running VE-RSPM Multiple Scenarios
+
+Strategic planning often requires the assessment of large numbers of future scenarios, each assessing a different combination of prioritizations, policy decisions, and constraints. 
+The VEScenarios module provides the capability to quickly set up, run, and visualize large numbers of VE-RSPM scenarios using a baseline scenario combined with multiple changes to model inputs. 
+After going to `../models/VERSPM_Scenarios` folder, you will see multiple subfolders and scripts.
+
+<img align="center" width="600" border=1 src="images/multiple_scenarios.PNG">
+
+
+##### VERSPM_base_model
+
+ This directory contains the inputs and R script necessary to run the base scenario, as described above.
+ 
+##### defs
+
+`VE-RSPM_Scenarios/defs` directory contains the same files as the `VERSPM_base_model/defs` directory, but the `model_parameters.json` file differs between `VERSPM_base_model/defs` and`VE-RSPM_Scenarios/defs` differs in that the latter 
+version contains just four parameters specifying the locations of inputs and outputs, as well as the number of processors (NWorkers) to use. The default is 4, but be sure to set this to a number appropriate to your machine.
+
+```
+[
+  {
+    "NAME": "ModelFolder",
+    "VALUE": "VERSPM_base_model",
+    "TYPE": "character",
+    "UNITS": "NA",
+    "PROHIBIT": "NA",
+    "SIZE": 20,
+    "ISELEMENTOF": ""
+  },
+  {
+    "NAME": "ScenarioInputFolder",
+    "VALUE": "scenario_inputs",
+    "TYPE": "character",
+    "UNITS": "NA",
+    "PROHIBIT": "NA",
+    "SIZE": 20,
+    "ISELEMENTOF": ""
+  },
+  {
+    "NAME" : "ScenarioOutputFolder",
+    "VALUE": "scenarios",
+   "TYPE": "character",
+   "UNITS": "NA",
+   "PROHIBIT": "NA",
+   "SIZE": 20,
+   "ISELEMENTOF": ""
+  },
+  {
+    "NAME" : "NWorkers",
+    "VALUE": "6",
+    "TYPE" : "integer",
+    "UNITS" : "NA",
+    "PROHIBIT" : "c('NA', '< 0')",
+    "ISELEMENTOF" : ""
+  }
+]
+```
+
+##### Inputs
+
+The `inputs` folder in `VERRSPM_Scenarios` also differs from that in `VERSPM_base_model`.  In this case, there is only a single file specifying the output data tables that should be exported as CSV files in the `outputs` directory.
+
+<img align="center" width="400" border=1 src="images/VERSPM_scenarios.PNG">
+
+##### scenario_inputs
+
+Model scenarios are defined in terms of combinations of individual model input parameters and policy choices.  The various inputs are defined in the `scenario_inputs` folder.
+
+Scenario inputs consist of eleven folders, one for each of a particular category of input, as described below.  All eleven folders are required.
+
+Within each folder, there are subfolders containing input files, one per specific input. Each of the folders must contain at least one subfolder named "1", defining the input for the base scenario.  Subsequent numbered folders contain input files modifying parameters of interest, as shown in the screenshots below:
+
+Model inputs not otherwise specified in the `scenario_inputs` directory are drawn from files in `VERSPM_base_model/defs` and `VERSPM_base_model/inputs`
+
+<img align="center" width="800" border=1 src="images/VERSPM_scenarios2.PNG">
+
+The subfolder names and scenario inputs are defined as follows (input file to modify given in parentheses):
+
+  - B - Bicycles (`azone_prop_sov_dvmt_diverted.csv`) : Network improvements, incentives, and technologies that encourage bicycling and other light-weight vehicle travel
+    - 1 - Base bicycling percentage of SOV tours less than 20 miles (9.75%)
+    - 2 - Increase diversion of SOV tours to 20%
+  - C - Vehicle Travel Cost (`azone_hh_veh_own_taxes.csv`) and (`region_prop_externalities_paid.csv`) : Combination of fuel prices and charges to pay for roadway costs and possibly externalities
+    - 1 - No change in fuel prices or increase in roadway or externality charges
+    - 2 - Keep the vehicle ownership cost the same
+    - 3 - Higher climate cost and pay as you drive insurance
+  - D - DemandManagement (`bzone_travel_demand_mgt.csv`) : Programs to encourage less private vehicle travel
+    - 1 - Baseline implementation of ITS
+    - 2 - Increase the effectiveness of implementation of ITS
+  - E - Driving Efficiency (`marea_operations_deployment.csv`) and (`marea_speed_smooth_ecodrive.csv`) and (`other_ops_effectiveness.csv`) : Driving efficiency by increasing implementation of ITS
+    - 1 - Base
+    - 2 - Increased the proportion by 10%	
+  - F - Technology Mix and CI (`marea_transit_powertrain_prop.csv`) and (`region_carsvc_powertrain_prop.csv`) and (region_comsvc_powertrain_prop.csv`) : Vehicle technology mix and carbon intensity of fuels.
+    - 1 - Baseline vehicle technology mix
+    - 2 - Increased percentage of electric vehicles in household and commercial setting by 20%	
+  - G - Fuel Price (`azone_fuel_power_cost.csv`) : Real fuel price in 2010 USD
+    - 1 - Baseline fuel price
+    - 2 - Double fuel price
+	- 3 - Quadruple fuel price
+  - I - Income (`azone_fuel_power_cost.csv`) : Real average household income in 2010 USD
+    - 1 - Baseline household income
+    - 2 - Income growth of 7% w.r.t reference
+	- 3 - Income growth of 14% w.r.t reference
+  - L - LandUse (`azone_hhsize_targets.csv`) and (`bzone_urban_du_proportions.csv`) : Distribution of population and employment by place type
+    - 1 - Base, Maintain current distribution
+    - 2 - LU overlaps with HHsize + Population
+  - P - Parking (`bzone_parking.csv`) : The extent of paid parking and its price
+    - 1 - Current extent and daily fee
+    - 2 - Increase parking cost by 100% and proportion charted by 10%.
+  - T - Transit (`marea_transit_service.csv`) : The extent and frequency of transit service
+    - 1 - Current public transit service level
+    - 2 - Double public transit service level
+    - 3 - Quadruple public transit service level
+  - V - Vehicle Characteristics (`azone_hh_veh_mean_age.csv`) and (`azone_lttrk_prop`): The combination of fuel prices and vehicle travel charges to pay for roadways and to pay for externalities such as carbon pricing
+    - 1 - Base
+    - 2 - Light truck proportion at 35% of the fleet and the average vehicle age at 8 years
+
+Running all of these input values will result in 10368 total scenarios, which would take days to run.  User usually does not need all the possible combinations of scenarios. 
+VE-RSPM Scenarios are grouped in 5 different categories which you can modify in `category_config.json` :
+
+* **Community Design** :  Policies that seek to enable shorter trips and alternate modes such as promotion of mixed use land use, transit service, bicycling, and parking management. ( group of L, B, P , T ) 
+* **Marketing/Incentive** : Policies that improve driving efficiency such as ecodriving,and Intelligent Transportation System efforts, as well as programs that reduce auto demand such as carsharing, and home or work-based transportation demand management.( group of D, E ) 
+* **Pricing : Policies** that move towards true cost pricing such as road user fees to pay for the cost of operating, maintaining and improving roads, pay-as-you-drive (PAYD) insurance, and environmental impact fees such as a carbon tax. ( C )
+* **Vehicles/Fuels** : Factors representing changes to future vehicles and fuels ( group of V, F ) 
+* **Income** : Context factor on the assumed growth of statewide average per capita income ( I )
+
+Depending on how many scenarios exist in each of these five groups, total number of scenarios will be determined.
+
+To test the multi-scenario capability in less time, reduce the number of scenario inputs by deleting some of the numbered folders, making sure to retain the "1" folder for each of the six options.
+Note that if you change the directory structure in scenario_inputs, you will have to change `category_config.json` and `scenario_config.json` to match the new directory structure.
+
+To modify the scenario inputs, the numbered subdirectories can be created or deleted. Each directory contains a single input file containing the modified model parameter.
+
+##### Running the model for multiple scenarios
+
+Similar to base case the model can be run in the command line. To run the model using R, run the following commands:
+
+```
+scenario_rspm <- openModel('VERSPM_Scenarios')
+scenario_rspm$run()
+```
+
+After starting the run,model automatically builds scenarios by creating all possible combinations of settings found in scenario_inputs. The scenarios to run are found in the newly created scenarios directory.
+
+<img align="center" width="800" border=1 src="images/scenarios.PNG">
+
+Each directory is essentially a copy of VERSPM_base_model, with inputs modified as specified in the scenario_inputs directory. Each scenario directory contains the results of a model run with its own inputs, datastore, and log file.
+
+When finished, the VE-RSPM Scenario Viewer will automatically open to display the results. To find out more on exported metrics see [Performance Metrics](Performance.md)
+
+In detail, the model specified by the `run_model.R` script. In this case, the script runs four modules that create the scenarios from the inputs, runs each and combines the results.
+
+<img align="center" width="600" border=1 src="images/run_model_Scenario.PNG">
+
+
+Return to [Tutorial](Main.md). 
+## Performance Metrics
+
+A large number of performance metrics are produced during the run of the RPAT model, including environment and energy impacts, financial and economic impacts, and community impacts.
+
+The full list of outputs available is as follows. Based on the geo level, you will find our these metrics in of the three files ( `Azone.csv` , `Bzone.csv` , `Marea.csv` ) in the `outputs` folder
+
+
+* **VanDvmt**: Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services.
+* **BusDvmt**: Total daily miles traveled by buses of various sizes to provide bus service of various types.
+* **RailDvmt**: Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles.
+* **UrbanHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea
+* **RuralHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the non-urbanized portion of the Marea
+* **TownHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in town (urban but not urbanized) portion of the Marea
+* **ComSvcUrbanDvmt**: Commercial service daily vehicle miles of travel associated with Marea urbanized household activity
+* **ComSvcRuralDvmt**: Commercial service daily vehicle miles of travel associated with Marea rural household activity
+* **HvyTrkUrbanDvmt**: Base year Region heavy truck daily vehicle miles of travel in urbanized areas
+* **LdvOthDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
+* **LdvFwyArtDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeway or arterial roadways
+* **HvyTrkFwyDvmt**: Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
+* **HvyTrkArtDvmt**:Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
+* **HvyTrkOthDvmt**: Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
+* **BusFwyDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
+* **BusArtDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
+* **BusOthDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
+* **LdvFwyDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
+* **LdvArtDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
+* **FwyNoneCongSpeed**: Average freeway speed (miles per hour) when there is no congestion
+* **FwyModCongSpeed**: Average freeway speed (miles per hour) when congestion is moderate
+* **FwyHvyCongSpeed**: Average freeway speed (miles per hour) when congestion is heavy
+* **FwySevCongSpeed**: Average freeway speed (miles per hour) when congestion is severe
+* **FwyExtCongSpeed**: Average freeway speed (miles per hour) when congestion is extreme
+* **ArtNoneCongSpeed**: Average arterial speed (miles per hour) when there is no congestion
+* **ArtModCongSpeed**: Average arterial speed (miles per hour) when congestion is moderate
+* **ArtHvyCongSpeed**: Average arterial speed (miles per hour) when congestion is heavy
+* **ArtSevCongSpeed**: Average arterial speed (miles per hour) when congestion is severe
+* **ArtExtCongSpeed**: Average arterial speed (miles per hour) when congestion is extreme
+* **OthSpd**: Average speed (miles per hour) on other roadways
+* **AveLdvSpd**: Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel
+* **FwyNoneCongDelay**: Average freeway delay (hours per mile) occurring when there is no congestion
+* **FwyModCongDelay**: Average freeway delay (hours per mile) occurring when congestion is moderate
+* **FwyHvyCongDelay**: Average freeway delay (hours per mile) occurring when congestion is heavy
+* **FwySevCongDelay**: Average freeway delay (hours per mile) occurring when congestion is severe
+* **FwyExtCongDelay**: Average freeway delay (hours per mile) occurring when congestion is extreme
+* **ArtNoneCongDelay**: Average arterial delay (hours per mile) occurring when there is no congestion
+* **ArtModCongDelay**: Average arterial delay (hours per mile) occurring when congestion is moderate
+* **ArtHvyCongDelay**: Average arterial delay (hours per mile) occurring when congestion is heavy
+* **ArtSevCongDelay**: Average arterial delay (hours per mile) occurring when congestion is severe
+* **ArtExtCongDelay**: Average arterial delay (hours per mile) occurring when congestion is extreme
+* **FwyDvmtPropNoneCong**: Proportion of freeway DVMT occurring when there is no congestion
+* **FwyDvmtPropModCong**: Proportion of freeway DVMT occurring when congestion is moderate
+* **FwyDvmtPropHvyCong**: Proportion of freeway DVMT occurring when congestion is heavy
+* **FwyDvmtPropSevCong**: Proportion of freeway DVMT occurring when congestion is severe
+* **FwyDvmtPropExtCong**: Proportion of freeway DVMT occurring when congestion is extreme
+* **ArtDvmtPropNoneCong**: Proportion of arterial DVMT occurring when there is no congestion
+* **ArtDvmtPropModCong**: Proportion of arterial DVMT occurring when congestion is moderate
+* **ArtDvmtPropHvyCong**: Proportion of arterial DVMT occurring when congestion is heavy
+* **ArtDvmtPropSevCong**: Proportion of arterial DVMT occurring when congestion is severe
+* **ArtDvmtPropExtCong**: Proportion of arterial DVMT occurring when congestion is extreme
+* **AveCongPrice**: Average price paid (dollars per mile) in congestion fees
+* **LdvSpdSmoothFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing
+* **HvyTrkSpdSmoothFactor**: Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to speed smoothing
+* **BusSpdSmoothFactor**: Proportional adjustment of bus internal combustion engine (ICE) vehicle MPG due to speed smoothing
+* **LdvEcoDriveFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to eco-driving
+* **HvyTrkEcoDriveFactor**: Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to eco-driving
+* **BusEcoDriveFactor**: Proportional adjustment of bus internal combustion engine (ICE) vehicle MPG due to eco-driving
+* **LdIceFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to congestion
+* **LdHevFactor**: Proportional adjustment of light-duty hybrid-electric vehicle (HEV) MPG due to congestion
+* **LdEvFactor**: Proportional adjustment of light-duty battery electric vehicle (EV) MPkWh due to congestion
+* **LdFcvFactor**: Proportional adjustment of light-duty fuel cell vehicle (FCV) MPkWh due to congestion
+* **HdIceFactor**: Proportional adjustment of heavy-duty internal combustion engine (ICE) vehicle MPG due to congestion
+* **ComSvcUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with urban household activity in gas gallon equivalents
+* **ComSvcRuralGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with rural household activity in gas gallon equivalents
+* **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Marea in gas gallon equivalents
+* **ComSvcUrbanKWH**: Average daily amount of electricity consumed by commercial service vehicles associated with urban household activity in kilowatt-hours
+* **ComSvcRuralKWH**: Average daily amount of electricity consumed by commercial service vehicles associated with rural household activity in kilowatt-hours
+* **ComSvcUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with urban household activity in grams
+* **ComSvcRuralCO2e**: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with rural household activity in grams
+* **HvyTrkUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Marea in grams
+* **ComSvcAveUrbanAutoCO2eRate**: Average amount of carbon-dioxide equivalents produced by commercial service automobiles per mile of travel on urbanized area roadways in grams per mile
+* **ComSvcAveUrbanLtTrkCO2eRate**: Average amount of carbon-dioxide equivalents produced by commercial service light trucks per mile of travel on urbanized area roadways in grams per mile
+* **HvyTrkAveUrbanCO2eRate**: Average amount of carbon-dioxide equivalents produced by heavy trucks per mile of travel on urbanized area roadways in grams per mile
+* **HvyTrkRuralGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on rural roadways in the Region in gas gallon equivalents
+* **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Region in gas gallon equivalents
+* **HvyTrkRuralKWH**: Average daily amount of electricity consumed by heavy trucks on rural roadways in the Region in kilowatt-hours
+* **HvyTrkUrbanKWH**: Average daily amount of electricity consumed by heavy trucks on urbanized area roadways in the Region in kilowatt-hours
+* **HvyTrkRuralCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on rural roadways in the Region in grams
+* **HvyTrkUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Region in grams
+* **BusGGE**: Average daily amount of hydrocarbon fuels consumed by bus transit vehicles in urbanized area in gas gallon equivalents
+* **RailGGE**: Average daily amount of hydrocarbon fuels consumed by rail transit vehicles in urbanized area in gas gallon equivalents
+* **VanGGE**: Average daily amount of hydrocarbon fuels consumed by van transit vehicles in urbanized area in gas gallon equivalents
+* **BusKWH**: Average daily amount of electricity consumed by bus transit vehicles in urbanized area in kilowatt-hours
+* **RailKWH**: Average daily amount of electricity consumed by rail transit vehicles in urbanized area in kilowatt-hours
+* **VanKWH**:Average daily amount of electricity consumed by van transit vehicles in urbanized area in kilowatt-hours
+* **BusCO2e**: Average daily amount of carbon-dioxide equivalents produced by bus transit vehicles in urbanized area in grams
+* **RailCO2e**: Average daily amount of carbon-dioxide equivalents produced by rail transit vehicles in urbanized area in grams
+* **VanCO2e**: Average daily amount of carbon-dioxide equivalents produced by van transit vehicles in urbanized area in grams
+* **BusCO2eRate**: Average amount of carbon-dioxide equivalents produced by bus transit vehicles per mile of travel in urbanized area in grams per mile
+* **RailCO2eRate**: Average amount of carbon-dioxide equivalents produced by rail transit vehicles per mile of travel in urbanized area in grams per mile
+* **VanCO2eRate**: Average amount of carbon-dioxide equivalents produced by van transit vehicles per mile of travel in urbanized area in grams per mile
+* **AveVehCostPM**: Average out-of-pocket cost in dollars per mile of vehicle travel
+* **AveSocEnvCostPM**: Average cost in dollars of the social and environmental impacts per mile of vehicle travel
+* **AveRoadUseTaxPM**: Average road use taxes in dollars collected per mile of vehicle travel
+* **WalkTrips**: Average number of walk trips per year by household members
+* **BikeTrips**: Average number of bicycle trips per year by household members
+* **TransitTrips**: Average number of public transit trips per year by household members
+* **VehicleTrips**: Average number of vehicle trips per day by household members
+
+
+For simplicity, eight key metrics are calculated from multiple scenario runs and are shown on the Scenario Viewer output page:
+
+* **GHG Target Reduction**:  percentage reduction in light-duty vehicle CHG emissions
+* **DVMT Per Capita**: daily vehicle miles of travel of residents divided by population
+* **Walk Trips Per Capita**:  annual residents walk trips ( not including recreation or walk to transit)
+* **Air Pollution Emissions**:  daily metric tons of pollutants emitted from all light-duty vehicle travel
+* **Annual Fuel Use**: annual million gallons of gasoline and other fuels consumed by all light-duty vehicle travel
+* **Truck Delay**: daily vehicle-hours of delay for heavy truck trael on area roads
+* **Household Vehicle Cost as Percentage of Income**: average percentage of income spent by all households by owning and operating light-duty vehicles
+* **Low Income Household Vehicle Cost as Percentage of Income**: average percentage of income spent by low-income households on owning and operating light-duty vehicles
+
+   <img align="center" width="1100" border=1 src="https://github.com/visioneval/VisionEval-Docs/blob/master/tutorials/verspm/images/scenario_viewer.PNG">
+
+Using this viewer, users can select inputs of land use or policies and view their effects on model outputs, and the process can also be reversed, allowing users to choose desired outcomes and view the policy scenarios that reflect those outcomes.
+Instructions for using the viewer are built in to the page itself. To access a condensed version of the instructions, click on the Quick Start button at the top of the page.
+
+To understand more detail on the available categories of inputs and their levels as well as more detailed descriptions of the model output shown in the bar charts you can click on Detailed Instructions button
+
+   <img align="center" width="1100" border=1 src="https://github.com/visioneval/VisionEval-Docs/blob/master/tutorials/verspm/images/detailed.PNG">
+   
+To see which policy choices and land use inputs result in desired outcomes, select a range of values within one outcome. In this case, the low end of the DVMT per capita has been chosen: 
+
+   <img align="center" width="1100" border=1 src="https://github.com/visioneval/VisionEval-Docs/blob/master/tutorials/verspm/images/DVMT_per_capita.PNG">
+ 
+
+As the outcome is selected, the bar graphs and the data table at the bottom (not shown) update to show only the scenarios resulting in the selected outcome. 
+For instance, In this case, the low end of DVMT per capita are associated with the most increase in fuel price or more public transit and parking costs for community design.
+
+
+It is also possible to select inputs to view the associated outcomes. To do so, simply click on the bar corresponding to the desired scenario input. In this case (below) the scenario with highest fuel price is selected to view the impacts on outcome variables
+Here, DVMT per capita and annual fuel cost digrams shift to the left as expected since less people are expected to drive in this scenario
+
+   <img align="center" width="1100" border=1 src="https://github.com/visioneval/VisionEval-Docs/blob/master/tutorials/verspm/images/Fuel_Price.PNG">
+
+ Return to [Tutorial](Main.md). 
+
