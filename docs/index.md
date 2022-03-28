@@ -1,28 +1,30 @@
 --- 
 title: "VisionEval User Guide"
-author: 
-date: "Last updated 2022-03-07"
+author: "VisionEval Pooled Fund Team"
+date: "2022-03-28"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
 # url: your book url like https://bookdown.org/yihui/bookdown
-# cover-image: path to the social sharing image like images/cover.jpg
-description: |
-  This is a minimal example of using the bookdown package to write a book.
-  The HTML output format for this example is bookdown::gitbook,
-  set in the _output.yml file.
-link-citations: yes
-colorlinks: yes
-graphics: yes
-lot: yes
-lof: yes
-github-repo: rstudio/bookdown-demo
-cover-image: images/cover.png
+cover-image: "images/cover.png"
+description: 
+biblio-style: apalike
+csl: chicago-fullnote-bibliography.csl
 ---
+
 # Welcome {-}
-This guide contains documentation for users and developers of the VisionEval modeling system.
+This guide contains documentation for users and developers of the VisionEval modeling system. This guide contains a diversity of information intended for different audiences interacting with VisionEval. The table below contains a list of chapters contained in this guide along with their descriptions and can be referenced identify the sections that will serve the best starting points.
 
 <p style="text-align: center;"><img src="images/cover.png" width="300" height="300" alt="VisionEval User Guide" /></a></p>
+
+| Chapter | Description|
+|:--------|:----------------------------|
+| [Concept Primer](#conceptprimer) | A non-technical introduction to the concepts underlying the VisionEval modeling system |
+| [Getting Started][Getting Started] | Instructions on how to get VisionEval installed and running |
+| [VERSPM Tutorial](#verspm) | Comprehensive tutorial materials on the VERSPM model |
+| [VERPAT Tutorial](#verpat) | Comprehensive tutorial materials on the VERPAT model |
+| [VE-State Tutorial](#vestate) | Comprehensive tutorial materials on the VE-State model |
+| [Developer Documentation](#developer) | Information for developer or researcher interested in making contributions to the VisionEval system |
 
 ## About VisionEval {-}
 VisionEval is a collaborative project to build a family of strategic tools for performance-based transportation planning into a single open-source programming framework. Strategic tools are designed to evaluate many alternative futures and policies to help state and metropolitan area governments address pressing issues, despite uncertainty. 
@@ -37,7 +39,7 @@ This guide contains a diversity of information intended for different audiences 
 
 **Decision-maker & semi-technical planner:** You are interested in applying the VisionEval system but want a high-level overview and not the technical details.
 
-* [Concept Primer](#conceptprimer): An introduction to the concepts underlying the VisionEval modeling system and how it can be used to support transportation planning efforts, intended for a non-technical audience
+* [Concept Primer](#conceptprimer): An introduction to the concepts underlying the VisionEval modeling system and how it can be used to support transportation planning efforts, without technical model details.
 
 **Model applier:** You are wanting to learn about the VisionEval system and implement a model application.
 
