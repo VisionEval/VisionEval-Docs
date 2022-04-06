@@ -1,4 +1,4 @@
---- 
+---
 title: "VisionEval User Guide"
 author: "VisionEval Pooled Fund Team"
 date: "2022-03-28"
@@ -15,7 +15,7 @@ csl: chicago-fullnote-bibliography.csl
 # Welcome {-}
 This guide contains documentation for users and developers of the VisionEval modeling system. This guide contains a diversity of information intended for different audiences interacting with VisionEval. The table below contains a list of chapters contained in this guide along with their descriptions and can be referenced identify the sections that will serve the best starting points.
 
-<p style="text-align: center;"><img src="images/cover.png" width="300" height="300" alt="VisionEval User Guide" /></a></p>
+<p style="text-align: center;"><img src="images/cover.png" width="200" height="200" alt="VisionEval User Guide" /></a></p>
 
 | Chapter | Description|
 |:--------|:----------------------------|
@@ -50,5 +50,4 @@ This guide contains a diversity of information intended for different audiences 
 **Developer:** You are a developer or researcher and interested in making contributions to the VisionEval system.
 
 * [Developer Documentation](#developer)
-
 
