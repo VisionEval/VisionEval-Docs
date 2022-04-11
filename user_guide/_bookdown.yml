@@ -16,3 +16,4 @@ rmd_files:
   - 06-vestate.Rmd
   - 07-developer.Rmd
   - 08-api.Rmd
+  - 09-estimation.Rmd

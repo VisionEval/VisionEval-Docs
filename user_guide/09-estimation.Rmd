@@ -1,0 +1,152 @@
+# Estimation in VisionEval {#ve-estimation}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(knitr)
+library(dplyr)
+library(kableExtra)
+options(kableExtra.html.bsTable = TRUE)
+library(data.table)
+library(openxlsx)
+
+```
+```{r read_inputs, include=FALSE}
+
+# Summary spreadsheet
+dt <- read.xlsx("./data/Pooled_Funds_Task4_VE_Estimation.xlsx",sheet = "Sheet1", startRow = 5)
+dt <- data.table(dt)[, AssignedTo := NULL]
+
+# function to concanate a list with commas
+conc_vector <- function(vec){
+  if(!is.null(vec)){
+  
+    if(length(vec) == 0){
+     conc_vec <- "none"
+    }
+    if(length(vec) == 1){
+     conc_vec <- vec
+    }
+    if(length(vec) == 2){
+      conc_vec <- paste(vec[1], "and", vec[2])
+    }
+    if(length(vec) > 2){
+      conc_vec <- paste(paste(vec[1:(length(vec)-1)], sep = ", "), "and", vec[length(vec)])
+    }
+    
+  } else {
+    conc_vec <- "none"
+  }
+    
+  return(conc_vec)  
+}
+
+
+```
+
+## Overview 
+
+Model estimation in VisionEval, either statistical estimation of model parameters (such as estimating linear regression or logit models) or tabulation of external data to produce model parameters, is designed to be integrated into VE modules and to take place during the build process of the modules into packages. 
+
+While this is convenient, the current process in existing VE modules has limitations:
+
+* It is difficult to replace models with local or updated data due to complexity and lack of documentation
+* Several modules obscure data and parameters in the estimation portion of the package and therefore require package rebuilds if changes are made
+* Legacy model estimation is incorporated in several modules, e.g., modules that were part of the RPAT model
+* There are data discontinuities preventing users from estimating models where, for example, restricted or confidential data have been used to estimate model components (e.g., use of restricted spatial data in VETravelDemandMM) preventing the data from being included in the model package.
+
+This chapter forms an element of work to improve the ability for those applying VE to incorporate newer publicly available datasets or custom datasets to develop locally relevant models for use in VE. This includes defining a process for users to make use of the latest NHTS data, local HTS data, and local PUMS data, to update models estimated using older versions of the NHTS and PUMS data from different states or regions. 
+
+This chapter includes a catalog of estimated models and lists the underlying data used in the estimation process for each modules. This includes coverage of legacy pieces of VE code that were estimated in prior models (e.g., GreenStep and RPAT). There is a classification of the data with respect to how important it might be to re-estimate models using localized and/or updated versions of the source information. 
+
+The chapter also documents how the build process currently works, and the requirements to assert new data or assumptions into existing packages. Finally, the chapter discusses several topics for improving the flexiblity and usability of the estimation procedures in VE. 
+
+## VE Modules With Estimation
+
+The table lists the VE modules that currently exist and whether they include estimation. Several of the modules, notably the original and more recently developed household travel modules (VEHouseholdTravel and VETravelDemandMM) contain a high number of estimated models. Several modules include no estimation.
+
+```{r est-modules-estimation, fig.cap="VE Modules that Include Estimation"}
+
+dt[, Estimated := ifelse(!is.na(Model) & !grepl("This module has no estimated parameters", Model),1,0)]
+
+dat <- dt[, .(EstimatedComponents = sum(Estimated)), keyby = Module]
+knitr::kable(dat,
+             col.names = c("Module Name", "Estimated Components and Models"),
+             digits = 0)
+
+```
+
+This section describes the estimation that takes places in each module.
+
+```{r est-module-summary, results='asis'}
+
+# Loop through each module as a heading
+# Module step as a sub heading
+# Quick summary of estimation approach, sources, model types, and documentation
+# Characteristics to report in detail
+# - Models within each module step as a bulleted list
+# -- for each model describe the estimation approach, estimation data, 
+#    estimation script, and output model object
+
+for(i in 1:dt[,.(uniqueN(Module))]$V1){
+  # loop through modules
+  module <- dt[,.(Module = unique(Module))]$Module[i]
+  cat('\n')  
+  cat('### ', module, '\n') 
+  cat('\n')
+  cat(dt[Module == module]$ModuleDescription[1])
+  cat('\n')
+  cat('This modules contains the following step(s):', '\n', '\n')
+  for(j in 1:dt[Module == module,.(uniqueN(ModuleStep))]$V1){
+    
+    # Loop through steps
+    
+    module_step <- dt[Module == module, .(ModuleStep = unique(ModuleStep))]$ModuleStep[j]
+    cat('#### ', module_step, '\n')
+    cat('\n')  
+    cat(dt[Module == module & ModuleStep == module_step]$ModuleStepDescription[1], '\n')
+    cat('\n')
+    
+    # Not all steps include estimated models
+    if(nrow(dt[Module == module & ModuleStep == module_step & !is.na(Model) & !grepl("no estimated parameters",Model)]) == 0){
+      cat('This module step has no estimated parameters or other model types derived from data.', '\n', '\n')
+    } else {
+      cat('* This module step uses data sources including', 
+        conc_vector(unique(dt[Module == module & ModuleStep == module_step & !is.na(DataSource)]$DataSource)), 
+        '\n')
+      cat('* This module step uses model types including', 
+        conc_vector(unique(dt[Module == module & ModuleStep == module_step & !is.na(ModelType)]$ModelType)), 
+        '\n')
+      cat('* This module step is estimated using the following approaches:', 
+        conc_vector(unique(dt[Module == module & ModuleStep == module_step & !is.na(EstimationApproach)]$EstimationApproach)), 
+        '\n')
+      cat('* This module step is documented in', 
+        conc_vector(unique(dt[Module == module & ModuleStep == module_step & !is.na(Documentation)]$Documentation)), 
+        '\n')
+      
+      cat('\n')
+      
+      # Loop through the models
+      cat('The models in this model step are:', '\n', '\n')
+      
+      unique_models <- dt[Module == module & ModuleStep == module_step & !is.na(Model) & !grepl("no estimated parameters", Model), uniqueN(Model)]
+      
+      for(k in 1:unique_models){
+        
+        model_name <- dt[Module == module & ModuleStep == module_step & !is.na(Model)]$Model[k]
+         
+        cat('* Model name:', model_name, '\n')
+        cat('  + Model type:', dt[Module == module & ModuleStep == module_step & Model == model_name]$ModelType, '\n')
+        cat('  + Estimation data:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationData, '\n')
+        cat('  + Estimation approach:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationApproach, '\n')
+        cat('  + Estimation script:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationScript, '\n')
+        cat('  + Output model object:', dt[Module == module & ModuleStep == module_step & Model == model_name]$OutputModel, '\n')
+        cat('  + Notes:', dt[Module == module & ModuleStep == module_step & Model == model_name]$Notes, '\n')
+        cat('\n')  
+        
+      } #Close K loop
+    }  # Close if
+  } # close j loop
+} # close i loop
+
+
+```
