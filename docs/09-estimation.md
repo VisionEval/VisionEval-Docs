@@ -46,7 +46,7 @@ The table lists the VE modules that currently exist and whether they include est
   </tr>
   <tr>
    <td style="text-align:left;"> VENHTS2001 </td>
-   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> VEPowertrainsAndFuels </td>
@@ -66,7 +66,7 @@ The table lists the VE modules that currently exist and whether they include est
   </tr>
   <tr>
    <td style="text-align:left;"> VESimLandUse </td>
-   <td style="text-align:right;"> 6 </td>
+   <td style="text-align:right;"> 9 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> VESimLandUseData </td>
@@ -82,11 +82,11 @@ The table lists the VE modules that currently exist and whether they include est
   </tr>
   <tr>
    <td style="text-align:left;"> VETransportSupply </td>
-   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 1 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> VETransportSupplyUse </td>
-   <td style="text-align:right;"> 0 </td>
+   <td style="text-align:right;"> 3 </td>
   </tr>
   <tr>
    <td style="text-align:left;"> VETravelDemandMM </td>
@@ -111,8 +111,21 @@ This modules contains the following step(s):
 
 This module creates a data frame of data from the publically available data from the 2001 National Household Travel Survey (NHTS) augmented with data on metropolitan area freeway supply and transit supply. The package produces a data frame of values by household. 
 
-This module step has no estimated parameters or other model types derived from data. 
+* This module step uses data sources including NHTS 2001, FHWA HPMS, FTA NTD 
+* This module step uses model types including Tabulation of data by household 
+* This module step is estimated using the following methods: Package build 
+* This module step is documented in R Script only, no md file produced 
+
+The models in this model step are: 
  
+* Model name: Processed NHTS 2001 Dataset 
+  + Model type: Tabulation of data by household 
+  + Estimation data: inst/extdata/highway_statistics.csv, inst/extdata/uza_bus_eq_rev_mi.csv, NHTS data downloaded from "https://raw.githubusercontent.com/gregorbj/NHTS2001/master/data" if not already present in data-raw 
+  + Estimation method: Package build 
+  + Estimation script: R/Make2001NHTSDataset.r 
+  + Model object: data-raw/Dt_df.rda, data-raw/Hh_df.rda, data-raw/Per_df.rda, data-raw/ToursByHh_df.Rda, data-raw/Veh_df.rda 
+  + Notes: Original data are housed in another repository and downloaded and processed if that has not already been done before, checks for presence of processed files in data-raw before initiating new download. The outputs from this module are used in the estimation of many other modules (notes by VE2001 in Estimation data field) 
+
 
 ###  VEHouseholdTravel 
 
@@ -930,7 +943,7 @@ The models in this model step are:
   + Estimation data: bzone_carsvc_availability.csv 
   + Estimation method: Package build  
   + Estimation script: R/AssignCarSvcAvailability.R 
-  + Model object: data/AssignCarSvcAvailabilitySpecifications.rda 
+  + Model object: NA 
   + Notes: User input from csv 
 
 ####  AssignDemandManagement 
@@ -951,7 +964,7 @@ VE2001NHTS::HhTours_df
 inst/extdata/tdm_parameters.csv 
   + Estimation method: Package build  
   + Estimation script: R/AssignDemandManagement.R 
-  + Model object: data/AssignDemandManagementSpecifications.rda 
+  + Model object: NA 
   + Notes: Sources estimation data from the VE NHTS 2001 package and default user specifications 
 
 ####  AssignParkingRestrictions 
@@ -971,7 +984,7 @@ The models in this model step are:
 marea_parking-cost_by_area-type.csv 
   + Estimation method: Package build  
   + Estimation script: R/AssignParkingRestrictions.R 
-  + Model object: data/AssignParkingRestrictionsSpecifications.rda 
+  + Model object: NA 
   + Notes: User input from csv 
 
 ####  CreateSimBzoneModels 
@@ -1010,7 +1023,7 @@ The models in this model step are:
   + Estimation data: VESimLandUse::SimBzone_ls 
   + Estimation method: Package build  
   + Estimation script: R/CreateSimBzones.R 
-  + Model object: data/CreateSimBzonesSpecifications.rda 
+  + Model object: NA 
   + Notes: NA 
 
 ####  Initialize 
@@ -1036,36 +1049,75 @@ The models in this model step are:
 bzone_network_design.csv 
   + Estimation method: Package build  
   + Estimation script: R/Simulate4DMeasures.R 
-  + Model object: data/Simulate4DMeasuresSpecifications.rda 
+  + Model object: NA 
   + Notes: NA 
 
 ####  SimulateEmployment 
 
-NA 
+This module assign workers SimBzone work locations. A worker table is created which identifies a unique worker ID, the household ID the worker is a part of, and the SimBzone, Azone, and Marea of the worker job location. 
 
-This module step has no estimated parameters or other model types derived from data. 
+* This module step uses data sources including none 
+* This module step uses model types including Rule based assignment 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in inst/module_docs/SimulateEmployment.md 
+
+The models in this model step are: 
  
+* Model name: Workers are assigned to Bzone job locations using simple rules 
+  + Model type: Rule based assignment 
+  + Estimation data: NA 
+  + Estimation method: Package build  
+  + Estimation script: R/SimulateEmployment.R 
+  + Model object: NA 
+  + Notes: NA 
+
 ####  Simulate Housing 
 
-NA 
+This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics.  
 
-This module step has no estimated parameters or other model types derived from data. 
+* This module step uses data sources including VELandUse 
+* This module step uses model types including Binary search algorithm 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in inst/module_docs/SimulateHousing.md 
+
+The models in this model step are: 
  
+* Model name: housing choice model estimated by the 'PredictHousing' module in the 'VELandUse' package. 
+  + Model type: Binary search algorithm 
+  + Estimation data: VELandUse::HouseTypeModel_ls 
+  + Estimation method: Package build  
+  + Estimation script: R/SimulateHousing.R 
+  + Model object: NA 
+  + Notes: NA 
+
 ####  SimulateUrbanMixMeasure 
 
-NA 
+This module simulates an urban mixed-use measure based on the 2001 National Household Travel Survey measure of the tract level urban/rural indicator. 
 
-This module step has no estimated parameters or other model types derived from data. 
+* This module step uses data sources including VELandUse 
+* This module step uses model types including Binary Logit 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in inst/module_docs/SimulateUrbanMixMeasure.md 
+
+The models in this model step are: 
  
+* Model name: binary logit model estimated in the CalculateUrbanMixMeasure module of the VELandUse package 
+  + Model type: Binary Logit 
+  + Estimation data: VELandUse::UrbanMixModel_ls 
+  + Estimation method: Package build  
+  + Estimation script: R/SimulateUrbanMixMeasure.R 
+  + Model object: data/UrbanMixModelSim_ls.rda 
+  + Notes: NA 
+
 
 ###  VESimLandUseData 
 
-NA
+This package processes data from several sources to produce a dataset that is used to estimate several models for synthesizing Bzones and their likely land use attributes.
 This modules contains the following step(s): 
  
-####  NA 
+####  MakeSimBzoneEstDataset 
 
-NA 
+This script combines data from the US Census, the EPA Smart Location Database (SLD), and the National Transit Database 
 
 This module step has no estimated parameters or other model types derived from data. 
  
@@ -1102,27 +1154,98 @@ This module step has no estimated parameters or other model types derived from d
 
 ###  VETransportSupply 
 
-NA
+This package contains a number of modules that work in the VisionEval framework to calculate transportation supply characteristics including roadway supply and public transit supply.
 This modules contains the following step(s): 
  
-####  NA 
+####  SimulateRoadMiles 
 
-NA 
+This module assigns freeway and arterial lane-miles to metropolitan areas (Marea) and calculates freeway lane-miles per capita.
+ 
+
+* This module step uses data sources including User specified 
+* This module step uses model types including Calculation steps 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in inst/module_docs/AssignRoadMiles.md 
+
+The models in this model step are: 
+ 
+* Model name: computes the value of freeway lane-miles per capita 
+  + Model type: Calculation steps 
+  + Estimation data: data/marea_lane_miles.csv 
+  + Estimation method: Package build  
+  + Estimation script: R/AssignRoadMiles.R 
+  + Model object: NA 
+  + Notes: NA 
+
+####  SimulateTransitService 
+
+This module assigns transit service level to the urbanized portion of each Marea and to neighborhoods (SimBzones) within the urbanized area. 
 
 This module step has no estimated parameters or other model types derived from data. 
  
 
 ###  VETransportSupplyUse 
 
-NA
+VisionEval module for roadway speeds, delay, and congestion costs using run year data
 This modules contains the following step(s): 
  
-####  NA 
+####  CalculateCongestionBase 
 
-NA 
+This module calculates the amount of congestion for base year - automobile, light truck, truck, and bus vmt are allocated to freeways, arterials, and other roadways. 
 
-This module step has no estimated parameters or other model types derived from data. 
+* This module step uses data sources including User specified 
+* This module step uses model types including Delay-based 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in R Script only, no md file produced 
+
+The models in this model step are: 
  
+* Model name: Speed estimated from demand vs lane-mile supply 
+  + Model type: Delay-based 
+  + Estimation data: azone_its_prop.csv 
+  + Estimation method: Package build  
+  + Estimation script: R/CalculateCongestionBase.R 
+  + Model object: data/CongModel_ls.rda 
+  + Notes: NA 
+
+####  CalculateCongestionFuture 
+
+This module calculates the amount of congestion for future year - automobile, light truck, truck, and bus vmt are allocated to freeways, arterials, and other roadways. 
+
+* This module step uses data sources including User specified 
+* This module step uses model types including Delay-based 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in R Script only, no md file produced 
+
+The models in this model step are: 
+ 
+* Model name: Speed estimated from demand vs lane-mile supply 
+  + Model type: Delay-based 
+  + Estimation data: NA 
+  + Estimation method: Package build  
+  + Estimation script: R/CalculateCongestionFuture.R 
+  + Model object: NA 
+  + Notes: NA 
+
+####  CalculateCongestionPolicy 
+
+This module calculates the amount of congestion - automobile, light truck, truck, and bus vmt are allocated to freeways, arterials, and other roadways adjusted by policy applied for the selected scenario. 
+
+* This module step uses data sources including User specified 
+* This module step uses model types including Delay-based 
+* This module step is estimated using the following methods: Package build  
+* This module step is documented in R Script only, no md file produced 
+
+The models in this model step are: 
+ 
+* Model name: Speed estimated from demand vs lane-mile supply, adjusted by intervention policy 
+  + Model type: Delay-based 
+  + Estimation data: NA 
+  + Estimation method: Package build  
+  + Estimation script: R/CalculateCongestionPolicy.R 
+  + Model object: NA 
+  + Notes: NA 
+
 
 ###  VETravelDemandMM 
 
