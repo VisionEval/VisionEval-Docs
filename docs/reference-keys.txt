@@ -1078,6 +1078,12 @@ add-or-modify-a-package
 api-documentation
 ve-estimation
 overview-3
+ve-estimation-classification
+modules-importing-data-from-venhts2001
+modules-using-confidential-nhts-data
+modules-imported-from-rpat
+modules-estimated-with-local-data
+modules-estimated-with-other-types-of-data
 ve-modules-with-estimation
 venhts2001
 make2001nhtsdataset
@@ -1136,8 +1142,6 @@ simulate-housing
 simulateurbanmixmeasure-1
 vesimlandusedata
 makesimbzoneestdataset
-vesimtransportsupply
-na
 vesyntheticfirms
 createbasesyntheticfirms-1
 createfuturesyntheticfirms-1
