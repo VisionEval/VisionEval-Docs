@@ -116,7 +116,7 @@ for(i in 1:dt[,.(uniqueN(Module))]$V1){
       cat('* This module step uses model types including', 
         conc_vector(unique(dt[Module == module & ModuleStep == module_step & !is.na(ModelType)]$ModelType)), 
         '\n')
-      cat('* This module step is estimated using the following approaches:', 
+      cat('* This module step is estimated using the following methods:', 
         conc_vector(unique(dt[Module == module & ModuleStep == module_step & !is.na(EstimationApproach)]$EstimationApproach)), 
         '\n')
       cat('* This module step is documented in', 
@@ -137,9 +137,9 @@ for(i in 1:dt[,.(uniqueN(Module))]$V1){
         cat('* Model name:', model_name, '\n')
         cat('  + Model type:', dt[Module == module & ModuleStep == module_step & Model == model_name]$ModelType, '\n')
         cat('  + Estimation data:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationData, '\n')
-        cat('  + Estimation approach:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationApproach, '\n')
+        cat('  + Estimation method:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationApproach, '\n')
         cat('  + Estimation script:', dt[Module == module & ModuleStep == module_step & Model == model_name]$EstimationScript, '\n')
-        cat('  + Output model object:', dt[Module == module & ModuleStep == module_step & Model == model_name]$OutputModel, '\n')
+        cat('  + Model object:', dt[Module == module & ModuleStep == module_step & Model == model_name]$OutputModel, '\n')
         cat('  + Notes:', dt[Module == module & ModuleStep == module_step & Model == model_name]$Notes, '\n')
         cat('\n')  
         

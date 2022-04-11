@@ -131,7 +131,7 @@ This module calculates household transit trips, walk trips, and bike trips. The 
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Hurdle 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/CalculateAltModeTrips.md 
 
 The models in this model step are: 
@@ -139,49 +139,49 @@ The models in this model step are:
 * Model name: Metropolitan Walk Trip Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateAltModeTrips.R 
-  + Output model object: data/AltModeModels_ls.rda 
+  + Model object: data/AltModeModels_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Nonmetropolitan Walk Trip Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateAltModeTrips.R 
-  + Output model object: data/AltModeModels_ls.rda 
+  + Model object: data/AltModeModels_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Metropolitan Bike Trip Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateAltModeTrips.R 
-  + Output model object: data/AltModeModels_ls.rda 
+  + Model object: data/AltModeModels_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Nonmetropolitan Bike Trip Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateAltModeTrips.R 
-  + Output model object: data/AltModeModels_ls.rda 
+  + Model object: data/AltModeModels_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Metropolitan Transit Trip Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateAltModeTrips.R 
-  + Output model object: data/AltModeModels_ls.rda 
+  + Model object: data/AltModeModels_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Nonmetropolitan Transit Trip Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateAltModeTrips.R 
-  + Output model object: data/AltModeModels_ls.rda 
+  + Model object: data/AltModeModels_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 ####  CalculateHouseholdDvmt 
@@ -190,7 +190,7 @@ This module models household average daily vehicle miles traveled as a function 
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/CalculateHouseholdDvmt.md 
 
 The models in this model step are: 
@@ -198,33 +198,33 @@ The models in this model step are:
 * Model name: metropolitan household power-transformed simulated average DVMT linear model 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateHouseholdDvmt.R 
-  + Output model object: data/DvmtModel_ls.rda 
+  + Model object: data/DvmtModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a multistep process that estimates a series of models to simulate annual travel from survey day travel 
 
 * Model name: non-metropolitan household power-transformed simulated average DVMT linear model 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateHouseholdDvmt.R 
-  + Output model object: data/DvmtModel_ls.rda 
+  + Model object: data/DvmtModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a multistep process that estimates a series of models to simulate annual travel from survey day travel 
 
 * Model name: 95th percentile DVMT model for metropolitan households 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateHouseholdDvmt.R 
-  + Output model object: data/DvmtModel_ls.rda 
+  + Model object: data/DvmtModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a multistep process that estimates a series of models to simulate annual travel from survey day travel 
 
 * Model name: 95th percentile DVMT model for non-metropolitan households 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateHouseholdDvmt.R 
-  + Output model object: data/DvmtModel_ls.rda 
+  + Model object: data/DvmtModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a multistep process that estimates a series of models to simulate annual travel from survey day travel 
 
 ####  CalculateVehicleTrips 
@@ -233,7 +233,7 @@ This module calculates average daily vehicle trips for households consistent wit
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/CalculateVehicleTrips.md 
 
 The models in this model step are: 
@@ -241,17 +241,17 @@ The models in this model step are:
 * Model name: metropolitan model of average vehicle trip length 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateVehicleTrips.R 
-  + Output model object: data/VehTrpLenModel_ls.rda 
+  + Model object: data/VehTrpLenModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a two step process 
 
 * Model name: non-metropolitan model of average vehicle trip length 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CalculateVehicleTrips.R 
-  + Output model object: data/VehTrpLenModel_ls.rda 
+  + Model object: data/VehTrpLenModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a two step process 
 
 ####  DivertSovTravel 
@@ -260,7 +260,7 @@ This module reduces household single-occupant vehicle (SOV) travel to achieve go
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/DivertSovTravel.md 
 
 The models in this model step are: 
@@ -268,25 +268,25 @@ The models in this model step are:
 * Model name: Model of Proportion of DVMT in Qualifying SOV Tours 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/DivertSovTravel.R 
-  + Output model object: data/SovModel_ls.rda 
+  + Model object: data/SovModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. The final linear regression model is estimated following a two step process 
 
 * Model name: Metropolitan Area Model of Average Length of Trips in Qualifying SOV Tours 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/DivertSovTravel.R 
-  + Output model object: data/SovModel_ls.rda 
+  + Model object: data/SovModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Non-Metropolitan Area Model of Average Length of Trips in Qualifying SOV Tours 
   + Model type: Linear regression 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/DivertSovTravel.R 
-  + Output model object: data/SovModel_ls.rda 
+  + Model object: data/SovModel_ls.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 ####  CalculateInducedDemand 
@@ -301,7 +301,7 @@ This module models adjusts the VMT for the policies entered for the scenario. Th
 
 * This module step uses data sources including ? 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Parameters hardcoded in script 
+* This module step is estimated using the following methods: Parameters hardcoded in script 
 * This module step is documented in R Script only, no md file produced 
 
 The models in this model step are: 
@@ -309,25 +309,25 @@ The models in this model step are:
 * Model name: Metropolitan light vehicle ownership model 
   + Model type: Linear regression 
   + Estimation data: NA 
-  + Estimation approach: Parameters hardcoded in script 
+  + Estimation method: Parameters hardcoded in script 
   + Estimation script: R/CalculatePolicyVmt.R 
-  + Output model object: data/LtVehOwnModels_ls.rda 
+  + Model object: data/LtVehOwnModels_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is generally GreenSTEP models estimated with NHTS 2001 data, See inst/extdata/GreenSTEP_.RData 
 
 * Model name: Non-Metropolitan light vehicle ownership model 
   + Model type: Linear regression 
   + Estimation data: NA 
-  + Estimation approach: Parameters hardcoded in script 
+  + Estimation method: Parameters hardcoded in script 
   + Estimation script: R/CalculatePolicyVmt.R 
-  + Output model object: data/LtVehOwnModels_ls.rda 
+  + Model object: data/LtVehOwnModels_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is generally GreenSTEP models estimated with NHTS 2001 data, See inst/extdata/GreenSTEP_.RData 
 
 * Model name: Average single-occupant vehicle (SOV) travel proportion model 
   + Model type: Linear regression 
   + Estimation data: NA 
-  + Estimation approach: Parameters hardcoded in script 
+  + Estimation method: Parameters hardcoded in script 
   + Estimation script: R/CalculatePolicyVmt.R 
-  + Output model object: data/AveSovPropModels_ls.rda 
+  + Model object: data/AveSovPropModels_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is generally GreenSTEP models estimated with NHTS 2001 data, See inst/extdata/GreenSTEP_.RData 
 
 ####  CalculateTravelDemand 
@@ -336,7 +336,7 @@ This module calculates average daily vehicle miles traveld for households. It al
 
 * This module step uses data sources including NHTS 2001 and ? 
 * This module step uses model types including Linear regression and Tabulation of data by vehicle vintage 
-* This module step is estimated using the following approaches: Parameters hardcoded in script and Data file in data-raw/PhevModelData_ls.rda 
+* This module step is estimated using the following methods: Parameters hardcoded in script and Data file in data-raw/PhevModelData_ls.rda 
 * This module step is documented in R Script only, no md file produced 
 
 The models in this model step are: 
@@ -344,25 +344,25 @@ The models in this model step are:
 * Model name: DVMT assignment models for metropolitan households (Ave DVMT, 95th percentile DVMT, and max DVMT) 
   + Model type: Linear regression 
   + Estimation data: NA 
-  + Estimation approach: Parameters hardcoded in script 
+  + Estimation method: Parameters hardcoded in script 
   + Estimation script: R/CalculateTravelDemand.R 
-  + Output model object: data/DvmtLmModels_ls.rda 
+  + Model object: data/DvmtLmModels_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is generally GreenSTEP models estimated with NHTS 2001 data, See inst/extdata/GreenSTEP_.RData 
 
 * Model name: DVMT assignment models for non-metropolitan households (Ave DVMT, 95th percentile DVMT, and max DVMT) 
   + Model type: Linear regression 
   + Estimation data: NA 
-  + Estimation approach: Parameters hardcoded in script 
+  + Estimation method: Parameters hardcoded in script 
   + Estimation script: R/CalculateTravelDemand.R 
-  + Output model object: data/DvmtLmModels_ls.rda 
+  + Model object: data/DvmtLmModels_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is generally GreenSTEP models estimated with NHTS 2001 data, See inst/extdata/GreenSTEP_.RData 
 
 * Model name: PHEV/HEV model: fixed characteristics files for PHEVs and HEVs from RPAT model 
   + Model type: Tabulation of data by vehicle vintage 
   + Estimation data: data-raw/PhevModelData_ls.rda 
-  + Estimation approach: Data file in data-raw/PhevModelData_ls.rda 
+  + Estimation method: Data file in data-raw/PhevModelData_ls.rda 
   + Estimation script: R/CalculateTravelDemand.R 
-  + Output model object: data/PhevModelData_ls.rda 
+  + Model object: data/PhevModelData_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Data file is a scenario input in GreenSTEP 
 
 ####  CalculateTravelDemandFuture 
@@ -383,7 +383,7 @@ This module processes default carbon intensity of electricity consumption for al
 
 * This module step uses data sources including ? 
 * This module step uses model types including Tabulation of data 
-* This module step is estimated using the following approaches: Data file in inst/extdata/power_co2.csv 
+* This module step is estimated using the following methods: Data file in inst/extdata/power_co2.csv 
 * This module step is documented in R Script only, no md file produced 
 
 The models in this model step are: 
@@ -391,9 +391,9 @@ The models in this model step are:
 * Model name: C02 from Electricity 
   + Model type: Tabulation of data 
   + Estimation data: inst/extdata/power_co2.csv 
-  + Estimation approach: Data file in inst/extdata/power_co2.csv 
+  + Estimation method: Data file in inst/extdata/power_co2.csv 
   + Estimation script: R/LoadDefaultValues.R 
-  + Output model object: data/TravelDemandDefaults_ls.rda 
+  + Model object: data/TravelDemandDefaults_ls.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Uses deafult Power data, which are included in the inst/extdata fold 
 
 
@@ -408,7 +408,7 @@ This module assigns drivers by age group to each household as a function of the 
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Binary Logit 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/AssignDrivers.md 
 
 The models in this model step are: 
@@ -416,17 +416,17 @@ The models in this model step are:
 * Model name: Metropolitan Driver (license) Binary Model 
   + Model type: Binary Logit 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/AssignDrivers.R 
-  + Output model object: data/AssignDriversSpecifications.rda 
+  + Model object: data/AssignDriversSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Non-metropolitan Driver (license) Binary Model 
   + Model type: Binary Logit 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/AssignDrivers.R 
-  + Output model object: data/AssignDriversSpecifications.rda 
+  + Model object: data/AssignDriversSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 ####  AssignVehicleAge 
@@ -435,7 +435,7 @@ This module assigns vehicle ages to each household vehicle. Vehicle age is assig
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Joint Probability Distributions 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/AssignVehicleAge.md 
 
 The models in this model step are: 
@@ -444,9 +444,9 @@ The models in this model step are:
   + Model type: Joint Probability Distributions 
   + Estimation data: VE2001NHTS::Hh_df
 VE2001NHTS::Veh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/AssignVehicleAge.R 
-  + Output model object: data/AssignVehicleAgeSpecifications.rda 
+  + Model object: data/AssignVehicleAgeSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 ####  AssignVehicleOwnership 
@@ -455,7 +455,7 @@ This module determines the number of vehicles owned or leased by each household 
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Hurdle 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/AssignVehicleOwnership.md 
 
 The models in this model step are: 
@@ -463,17 +463,17 @@ The models in this model step are:
 * Model name: Metropolitan Binary Logit Vehicle Ownership Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/AssignVehicleOwnership.R 
-  + Output model object: data/AssignVehicleOwnershipSpecifications.rda 
+  + Model object: data/AssignVehicleOwnershipSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 * Model name: Non-metropolitan Binary Logit Vehicle Ownership Model 
   + Model type: Hurdle 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/AssignVehicleOwnership.R 
-  + Output model object: data/AssignVehicleOwnershipSpecifications.rda 
+  + Model object: data/AssignVehicleOwnershipSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 ####  AssignVehicleType 
@@ -482,7 +482,7 @@ This module identifies how many household vehicles are light trucks and how many
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including Binary Logit 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/AssignVehicleType.md 
 
 The models in this model step are: 
@@ -490,9 +490,9 @@ The models in this model step are:
 * Model name: Truck or Car binary logit 
   + Model type: Binary Logit 
   + Estimation data: VE2001NHTS::Hh_df 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/AssignVehicleType.R 
-  + Output model object: data/AssignVehicleTypeSpecifications.rda 
+  + Model object: data/AssignVehicleTypeSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package. 
 
 ####  CalculateVehicleOwnCost 
@@ -501,7 +501,7 @@ This module calculates average vehicle ownership cost for each vehicle based on 
 
 * This module step uses data sources including AAA Costs 
 * This module step uses model types including Log-Linear Depreciation 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/CalculateVehicleOwnCost.md 
 
 The models in this model step are: 
@@ -509,9 +509,9 @@ The models in this model step are:
 * Model name: (log) Linear Age-Depreciation model 
   + Model type: Log-Linear Depreciation 
   + Estimation data: inst/extdata/aaa_vehicle_ownership_costs.txt 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/CalculateVehicleOwnCost.R 
-  + Output model object: data/CalculateVehicleOwnCostSpecifications.rda 
+  + Model object: data/CalculateVehicleOwnCostSpecifications.rda 
   + Notes: Uses AAA car ownership and depreciation model data 
 
 ####  CreateVehicleTable 
@@ -520,7 +520,7 @@ This module creates a vehicle table and populates it with household ID and geogr
 
 * This module step uses data sources including none 
 * This module step uses model types including none 
-* This module step is estimated using the following approaches: Package build 
+* This module step is estimated using the following methods: Package build 
 * This module step is documented in inst/module_docs/CreateVehicleTable.md 
 
 The models in this model step are: 
@@ -528,9 +528,9 @@ The models in this model step are:
 * Model name: Creates vehicle table populated with household ID and geography 
   + Model type: NA 
   + Estimation data: NA 
-  + Estimation approach: Package build 
+  + Estimation method: Package build 
   + Estimation script: R/CreateVehicleTable.R 
-  + Output model object: data/CreateVehicleTableSpecifications.rda 
+  + Model object: data/CreateVehicleTableSpecifications.rda 
   + Notes: NA 
 
 ####  AdjustVehicleOwnership 
@@ -539,7 +539,7 @@ This module adjusts household vehicle ownership based on a comparison of the cos
 
 * This module step uses data sources including User specified from CreateVehicleTable 
 * This module step uses model types including Deterministic (substitutes random portion of cases where car service is cheaper) 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AdjustVehicleOwnership.md 
 
 The models in this model step are: 
@@ -547,9 +547,9 @@ The models in this model step are:
 * Model name: Adjusts household vehicle ownership based on a comparison of the cost of owning a vehicle per mile of travel compared to the cost per mile of using a car service where the level of service is high 
   + Model type: Deterministic (substitutes random portion of cases where car service is cheaper) 
   + Estimation data: NA 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AdjustVehicleOwnership.R 
-  + Output model object: data/AdjustVehicleOwnershipSpecifications.rda 
+  + Model object: data/AdjustVehicleOwnershipSpecifications.rda 
   + Notes: User input from csv 
 
 
@@ -564,7 +564,7 @@ This module reads in user specified data and assigns car service availability in
 
 * This module step uses data sources including User specified from csv 
 * This module step uses model types including none 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignCarSvcAvailability.md 
 
 The models in this model step are: 
@@ -572,9 +572,9 @@ The models in this model step are:
 * Model name: No Model 
   + Model type: NA 
   + Estimation data: bzone_carsvc_availability.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignCarSvcAvailability.R 
-  + Output model object: data/AssignCarSvcAvailabilitySpecifications.rda 
+  + Model object: data/AssignCarSvcAvailabilitySpecifications.rda 
   + Notes: User input from csv 
 
 ####  AssignDemandManagement 
@@ -583,7 +583,7 @@ This module assigns demand management program participation to households and to
 
 * This module step uses data sources including NHTS 2001 and default user specified from CSV 
 * This module step uses model types including Proportions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignDemandManagement.md 
 
 The models in this model step are: 
@@ -593,9 +593,9 @@ The models in this model step are:
   + Estimation data: VE2001NHTS::Hh_df
 VE2001NHTS::HhTours_df
 inst/extdata/tdm_parameters.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignDemandManagement.R 
-  + Output model object: data/AssignDemandManagementSpecifications.rda 
+  + Model object: data/AssignDemandManagementSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package and default user specifications 
 
 ####  AssignDevTypes 
@@ -604,7 +604,7 @@ This module assigns households to development types: Urban (located within an ur
 
 * This module step uses data sources including User specified from csv 
 * This module step uses model types including Proportions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignDevTypes.md 
 
 The models in this model step are: 
@@ -612,9 +612,9 @@ The models in this model step are:
 * Model name: Proportional assignment (Urban or Rural) 
   + Model type: Proportions 
   + Estimation data: bzone_urban_du_proportions.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignDevTypes.R 
-  + Output model object: data/AssignDevTypesSpecifications.rda 
+  + Model object: data/AssignDevTypesSpecifications.rda 
   + Notes: User input from csv 
 
 ####  AssignLocTypes 
@@ -623,7 +623,7 @@ This module assigns households to location types: Urban (located within an urban
 
 * This module step uses data sources including User specified 
 * This module step uses model types including Proportions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignLocTypes.md 
 
 The models in this model step are: 
@@ -631,9 +631,9 @@ The models in this model step are:
 * Model name: Proportional assignment (Urban, Town, Rural) 
   + Model type: Proportions 
   + Estimation data: bzone_urban-town_du_proportions.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignLocTypes.R 
-  + Output model object: data/AssignLocTypesSpecifications.rda 
+  + Model object: data/AssignLocTypesSpecifications.rda 
   + Notes: User input from csv 
 
 ####  AssignParkingRestrictions 
@@ -642,7 +642,7 @@ This module identifies parking restrictions and prices affecting households at t
 
 * This module step uses data sources including User specified 
 * This module step uses model types including Proportions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignParkingRestrictions.md 
 
 The models in this model step are: 
@@ -650,9 +650,9 @@ The models in this model step are:
 * Model name: Proportional/Average assignment 
   + Model type: Proportions 
   + Estimation data: bzone_parking.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignParkingRestrictions.R 
-  + Output model object: data/AssignParkingRestrictionsSpecifications.rda 
+  + Model object: data/AssignParkingRestrictionsSpecifications.rda 
   + Notes: User input from csv 
 
 ####  Calculate4DMeasures 
@@ -661,7 +661,7 @@ This module calculates several 4D measures by Bzone including density, diversity
 
 * This module step uses data sources including User specified 
 * This module step uses model types including Closed formula 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/Calculate4DMeasures.md 
 
 The models in this model step are: 
@@ -670,9 +670,9 @@ The models in this model step are:
   + Model type: Closed formula 
   + Estimation data: bzone_unprotected_area.csv
 bzone_network_design.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/Calculate4DMeasures.R 
-  + Output model object: data/Calculate4DMeasuresSpecifications.rda 
+  + Model object: data/Calculate4DMeasuresSpecifications.rda 
   + Notes: User input from csv 
 
 ####  CalculateUrbanMixMeasures 
@@ -681,7 +681,7 @@ This module calculates an urban mixed-use measure based on the 2001 National Hou
 
 * This module step uses data sources including NHTS 2001 and default user specified from CSV 
 * This module step uses model types including Binary Logit 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/CalculateUrbanMixMeasure.md 
 
 The models in this model step are: 
@@ -690,9 +690,9 @@ The models in this model step are:
   + Model type: Binary Logit 
   + Estimation data: VE2001NHTS::Hh_df
 bzone_urban-mixed-use_prop.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/CalculateUrbanMixMeasure.R 
-  + Output model object: data/CalculateUrbanMixMeasureSpecifications.rda 
+  + Model object: data/CalculateUrbanMixMeasureSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package and default user specifications 
 
 ####  LocateEmployment 
@@ -701,7 +701,7 @@ This module places employment in Bzones based on input assumptions of employment
 
 * This module step uses data sources including User specified from csv 
 * This module step uses model types including IPF 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/LocateEmployment.md 
 
 The models in this model step are: 
@@ -710,9 +710,9 @@ The models in this model step are:
   + Model type: IPF 
   + Estimation data: bzone_employment.csv
 bzone_lat_lon.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/LocateEmployment.R 
-  + Output model object: data/LocateEmploymentSpecifications.rda 
+  + Model object: data/LocateEmploymentSpecifications.rda 
   + Notes: User input from csv 
 
 ####  PredictHousing 
@@ -721,7 +721,7 @@ This module assigns a housing type, either single-family (SF) or multifamily (MF
 
 * This module step uses data sources including PUMS-based user specified csv 
 * This module step uses model types including Binomial Logit & IPF 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/PredictHousing.md 
 
 The models in this model step are: 
@@ -731,9 +731,9 @@ The models in this model step are:
   + Estimation data: VESimHouseholds::Hh_df
 bzone_hh_inc_qrtl_prop.csv
 bzone_dwelling_units.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/PredictHousing.R 
-  + Output model object: data/PredictHousingSpecifications.rda 
+  + Model object: data/PredictHousingSpecifications.rda 
   + Notes: User input from csv 
 
 ####  CalculateBasePlaceTypes 
@@ -742,7 +742,7 @@ This module calculates place types for households and firms for the base year.
 
 * This module step uses data sources including User defined model and CSV 
 * This module step uses model types including Linear 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in missing? 
 
 The models in this model step are: 
@@ -751,9 +751,9 @@ The models in this model step are:
   + Model type: Linear 
   + Estimation data: VELandUse::HhAllocationModelCoeff_df
 bzone_pop_emp_prop.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/CalculateBasePlaceTypes.R 
-  + Output model object: data/CalculateBasePlaceTypesSpecifications.rda 
+  + Model object: data/CalculateBasePlaceTypesSpecifications.rda 
   + Notes: User input from csv 
 
 ####  CalculateFuturePlaceTypes 
@@ -762,7 +762,7 @@ This module calculates place types for households and firms for the future year.
 
 * This module step uses data sources including User defined model and CSV 
 * This module step uses model types including Linear 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in missing? 
 
 The models in this model step are: 
@@ -770,9 +770,9 @@ The models in this model step are:
 * Model name: Random allocation based on linear model 
   + Model type: Linear 
   + Estimation data: VELandUse::HhAllocationModelCoeff_df 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/CalculateFuturePlaceTypes.R 
-  + Output model object: data/CalculateFuturePlaceTypesSpecifications.rda 
+  + Model object: data/CalculateFuturePlaceTypesSpecifications.rda 
   + Notes: User input from csv 
 
 
@@ -787,7 +787,7 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
 
 * This module step uses data sources including NHTS 2001 
 * This module step uses model types including lookup tables  
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignHhVehiclePowertrain.md 
 
 The models in this model step are: 
@@ -795,9 +795,9 @@ The models in this model step are:
 * Model name: calculate the proportions of PHEV vehicle travel powered by electricity vs. fuel 
   + Model type: lookup tables  
   + Estimation data: VEHouseholdTravel::DvmtModel_ls 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignHhVehiclePowertrain.R 
-  + Output model object: data/PhevElecProp_ls.rda 
+  + Model object: data/PhevElecProp_ls.rda 
   + Notes: Sources models estimated in the VEHouseholdTravel module that were estimated using data in the VE NHTS 2001 package 
 
 ####  CalculateCarbonIntensity 
@@ -818,7 +818,7 @@ Powertrain and fuels data are some of the most complex datasets used in VisionEv
 
 * This module step uses data sources including Described in text files in inst/extdata 
 * This module step uses model types including Tabulation of data 
-* This module step is estimated using the following approaches: Data files in inst/extdata/power_co2.csv 
+* This module step is estimated using the following methods: Data files in inst/extdata/power_co2.csv 
 * This module step is documented in inst/module_docs/LoadDefaultValues.md 
 
 The models in this model step are: 
@@ -826,9 +826,9 @@ The models in this model step are:
 * Model name: Default data for powertrain and fuels data 
   + Model type: Tabulation of data 
   + Estimation data: NA 
-  + Estimation approach: Data files in inst/extdata/power_co2.csv 
+  + Estimation method: Data files in inst/extdata/power_co2.csv 
   + Estimation script: R/LoadDefaultValues.R 
-  + Output model object: data/PowertrainFuelDefaults_ls.rda 
+  + Model object: data/PowertrainFuelDefaults_ls.rda 
   + Notes: Processes a large set of default data into a set of model inputs 
 
 
@@ -849,7 +849,7 @@ This module creates a Household table in the datastore and populates the table
 
 * This module step uses data sources including Census PUMS, OR 2000 Census data are included in the package 
 * This module step uses model types including Tabulation of data 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/CreateHouseholds.md 
 
 The models in this model step are: 
@@ -857,9 +857,9 @@ The models in this model step are:
 * Model name: Probability matrix that a person in each age group is in one of several hundred regular household types 
   + Model type: Tabulation of data 
   + Estimation data: inst/extdata/pums_households.csv, inst/extdata/pums_persons.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CreateHouseholds.R, R/CreateEstimationDatasets.R 
-  + Output model object: data/HtProb_HtAp.rda 
+  + Model object: data/HtProb_HtAp.rda 
   + Notes: This module develops a table of probabilities processed in two scripts from Census PUMS data. The data in the package are for Oregon. 
 
 ####  PredictIncome 
@@ -868,7 +868,7 @@ This module predicts the income for each simulated household given the number of
 
 * This module step uses data sources including Census PUMS, OR 2000 Census data are included in the package 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/PredictIncome.md 
 
 The models in this model step are: 
@@ -876,17 +876,17 @@ The models in this model step are:
 * Model name: Household income linear model 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/pums_households.csv, inst/extdata/pums_persons.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/PredictIncome.R, R/CreateEstimationDatasets.R 
-  + Output model object: data/HHIncModel_ls.rda 
+  + Model object: data/HHIncModel_ls.rda 
   + Notes: This module develops regression models using data processed in a separate module script from Census PUMS data. The data in the package are for Oregon. 
 
 * Model name: Group Quarters households income linear model 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/pums_households.csv, inst/extdata/pums_persons.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/PredictIncome.R, R/CreateEstimationDatasets.R 
-  + Output model object: data/GQIncModel_ls.rda 
+  + Model object: data/GQIncModel_ls.rda 
   + Notes: This module develops regression models using data processed in a separate module script from Census PUMS data. The data in the package are for Oregon. 
 
 ####  PredictWorkers 
@@ -895,7 +895,7 @@ This module assigns workers by age to households and to noninstitutional group q
 
 * This module step uses data sources including Census PUMS, OR 2000 Census data are included in the package 
 * This module step uses model types including Tabulation of data 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/PredictWorkers.md 
 
 The models in this model step are: 
@@ -903,9 +903,9 @@ The models in this model step are:
 * Model name: Probability matrix that a person in each age group in a specified household type is a worker 
   + Model type: Tabulation of data 
   + Estimation data: inst/extdata/pums_households.csv, inst/extdata/pums_persons.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/PredictWokers.R, R/CreateEstimationDatasets.R 
-  + Output model object: data/PropHhWkr_HtAg.rda 
+  + Model object: data/PropHhWkr_HtAg.rda 
   + Notes: This module develops a table of probabilities processed in two scripts from Census PUMS data. The data in the package are for Oregon. 
 
 
@@ -920,7 +920,7 @@ This module assigns car service availability levels (Low, High) to Bzones and ho
 
 * This module step uses data sources including User specified from csv 
 * This module step uses model types including none 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignCarSvcAvailability.md 
 
 The models in this model step are: 
@@ -928,9 +928,9 @@ The models in this model step are:
 * Model name: No Model 
   + Model type: NA 
   + Estimation data: bzone_carsvc_availability.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignCarSvcAvailability.R 
-  + Output model object: data/AssignCarSvcAvailabilitySpecifications.rda 
+  + Model object: data/AssignCarSvcAvailabilitySpecifications.rda 
   + Notes: User input from csv 
 
 ####  AssignDemandManagement 
@@ -939,7 +939,7 @@ This module assigns demand management program participation to households and to
 
 * This module step uses data sources including NHTS 2001 and default user specified from CSV 
 * This module step uses model types including Proportions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignDemandManagement.md 
 
 The models in this model step are: 
@@ -949,9 +949,9 @@ The models in this model step are:
   + Estimation data: VE2001NHTS::Hh_df
 VE2001NHTS::HhTours_df
 inst/extdata/tdm_parameters.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignDemandManagement.R 
-  + Output model object: data/AssignDemandManagementSpecifications.rda 
+  + Model object: data/AssignDemandManagementSpecifications.rda 
   + Notes: Sources estimation data from the VE NHTS 2001 package and default user specifications 
 
 ####  AssignParkingRestrictions 
@@ -960,7 +960,7 @@ This module identifies parking restrictions and prices affecting households at t
 
 * This module step uses data sources including User specified 
 * This module step uses model types including Proportions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/AssignParkingRestrictions.md 
 
 The models in this model step are: 
@@ -969,9 +969,9 @@ The models in this model step are:
   + Model type: Proportions 
   + Estimation data: marea_parking-avail_by_area-type.csv
 marea_parking-cost_by_area-type.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/AssignParkingRestrictions.R 
-  + Output model object: data/AssignParkingRestrictionsSpecifications.rda 
+  + Model object: data/AssignParkingRestrictionsSpecifications.rda 
   + Notes: User input from csv 
 
 ####  CreateSimBzoneModels 
@@ -980,7 +980,7 @@ This module estimates all the models for synthesizing Bzones and their land use 
 
 * This module step uses data sources including VESimLandUseData 
 * This module step uses model types including Distributions 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/CreateSimBzoneModels.md 
 
 The models in this model step are: 
@@ -988,9 +988,9 @@ The models in this model step are:
 * Model name: Distribution profiles 
   + Model type: Distributions 
   + Estimation data: VESimLandUseData::SimLandUseData_df 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/CreateSimBzoneModels.R 
-  + Output model object: data/SimBzone_ls.rda
+  + Model object: data/SimBzone_ls.rda
 data/UsaBlkGrpTypes_df.rda 
   + Notes: NA 
 
@@ -1000,7 +1000,7 @@ This module synthesizes Bzones and their land use attributes as a function of Az
 
 * This module step uses data sources including VESimLandUseData 
 * This module step uses model types including Calculation steps 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/CreateSimBzones.md 
 
 The models in this model step are: 
@@ -1008,9 +1008,9 @@ The models in this model step are:
 * Model name: Calculation steps 
   + Model type: Calculation steps 
   + Estimation data: VESimLandUse::SimBzone_ls 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/CreateSimBzones.R 
-  + Output model object: data/CreateSimBzonesSpecifications.rda 
+  + Model object: data/CreateSimBzonesSpecifications.rda 
   + Notes: NA 
 
 ####  Initialize 
@@ -1025,7 +1025,7 @@ This module calculates several 4D measures by SimBzone including density, divers
 
 * This module step uses data sources including User specified 
 * This module step uses model types including Closed formula 
-* This module step is estimated using the following approaches: Package build  
+* This module step is estimated using the following methods: Package build  
 * This module step is documented in inst/module_docs/Simulate4DMeasures.md 
 
 The models in this model step are: 
@@ -1034,9 +1034,9 @@ The models in this model step are:
   + Model type: Closed formula 
   + Estimation data: marea_d3bpo4_adj.csv
 bzone_network_design.csv 
-  + Estimation approach: Package build  
+  + Estimation method: Package build  
   + Estimation script: R/Simulate4DMeasures.R 
-  + Output model object: data/Simulate4DMeasuresSpecifications.rda 
+  + Model object: data/Simulate4DMeasuresSpecifications.rda 
   + Notes: NA 
 
 ####  SimulateEmployment 
@@ -1135,7 +1135,7 @@ Predicts transit, bike, walk PMT and trips
 
 * This module step uses data sources including NHTS 2009, FHWA HPMS, FTA NTD, EPA SLD 
 * This module step uses model types including Hurdle and Linear regression 
-* This module step is estimated using the following approaches: Pre-estimated, saved objects in data-raw/estimated 
+* This module step is estimated using the following methods: Pre-estimated, saved objects in data-raw/estimated 
 * This module step is documented in inst/module_docs/CalculateAltModeTrips.md 
 
 The models in this model step are: 
@@ -1143,145 +1143,145 @@ The models in this model step are:
 * Model name: Bike PMT for metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/BikePMTModel_df.R 
-  + Output model object: data/BikePMTModel_df.rda 
+  + Model object: data/BikePMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Bike PMT for non-metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/BikePMTModel_df.R 
-  + Output model object: data/BikePMTModel_df.rda 
+  + Model object: data/BikePMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Bike trip freqiency for metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/BikeTFLModel_df.R 
-  + Output model object: data/BikeTFLModel_df.rda 
+  + Model object: data/BikeTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Bike trip freqiency for non-metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/BikeTFLModel_df.R 
-  + Output model object: data/BikeTFLModel_df.rda 
+  + Model object: data/BikeTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Bike trip average distance for metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/BikeTFLModel_df.R 
-  + Output model object: data/BikeTFLModel_df.rda 
+  + Model object: data/BikeTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Bike trip average distance for non-metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/BikeTFLModel_df.R 
-  + Output model object: data/BikeTFLModel_df.rda 
+  + Model object: data/BikeTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Transit PMT for metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/TransitPMTModel_df.R 
-  + Output model object: data/TransitPMTModel_df.rda 
+  + Model object: data/TransitPMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Transit PMT for non-metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/TransitPMTModel_df.R 
-  + Output model object: data/TransitPMTModel_df.rda 
+  + Model object: data/TransitPMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Transit trip freqiency for metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/TransitTFLModel_df.R 
-  + Output model object: data/TransitTFLModel_df.rda 
+  + Model object: data/TransitTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Transit trip freqiency for non-metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/TransitTFLModel_df.R 
-  + Output model object: data/TransitTFLModel_df.rda 
+  + Model object: data/TransitTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Transit trip average distance for metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/TransitTFLModel_df.R 
-  + Output model object: data/TransitTFLModel_df.rda 
+  + Model object: data/TransitTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Transit trip average distance for non-metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/TransitTFLModel_df.R 
-  + Output model object: data/TransitTFLModel_df.rda 
+  + Model object: data/TransitTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Walk PMT for metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/WalkPMTModel_df.R 
-  + Output model object: data/WalkPMTModel_df.rda 
+  + Model object: data/WalkPMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Walk PMT for non-metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/WalkPMTModel_df.R 
-  + Output model object: data/WalkPMTModel_df.rda 
+  + Model object: data/WalkPMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Walk trip freqiency for metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/WalkTFLModel_df.R 
-  + Output model object: data/WalkTFLModel_df.rda 
+  + Model object: data/WalkTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Walk trip freqiency for non-metropolitan households 
   + Model type: Hurdle 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/WalkTFLModel_df.R 
-  + Output model object: data/WalkTFLModel_df.rda 
+  + Model object: data/WalkTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Walk trip average distance for metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/WalkTFLModel_df.R 
-  + Output model object: data/WalkTFLModel_df.rda 
+  + Model object: data/WalkTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Walk trip average distance for non-metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/WalkTFLModel_df.R 
-  + Output model object: data/WalkTFLModel_df.rda 
+  + Model object: data/WalkTFLModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 ####  CalculateHouseholdDvmt 
@@ -1290,7 +1290,7 @@ This module predicts AADVMT for households. It uses the model object in data/AAD
 
 * This module step uses data sources including NHTS 2009, FHWA HPMS, FTA NTD, EPA SLD and NHTS 2001 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Pre-estimated, saved objects in data-raw/estimated 
+* This module step is estimated using the following methods: Pre-estimated, saved objects in data-raw/estimated 
 * This module step is documented in inst/module_docs/CalculateHouseholdDVMT.md and inst/module_docs/HouseholdDvmtQuantileEstimation.md 
 
 The models in this model step are: 
@@ -1298,33 +1298,33 @@ The models in this model step are:
 * Model name: Household Dvmt for metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/AADVMTModel_df.R 
-  + Output model object: data/AADVMTModel_df.rda 
+  + Model object: data/AADVMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: Household Dvmt for non-metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/AADVMTModel_df.R 
-  + Output model object: data/AADVMTModel_df.rda 
+  + Model object: data/AADVMTModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 * Model name: 95th percentile DVMT model for metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/HouseholdDvmtQuantileEstimation.R 
-  + Output model object: data/DvmtModel_ls.rda 
+  + Model object: data/DvmtModel_ls.rda 
   + Notes: These models and estimation scripts are included in this package and were transferred from the VEHouseholdTravel module 
 
 * Model name: 95th percentile DVMT model for non-metropolitan households 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/HouseholdDvmtQuantileEstimation.R 
-  + Output model object: data/DvmtModel_ls.rda 
+  + Model object: data/DvmtModel_ls.rda 
   + Notes: These models and estimation scripts are included in this package and were transferred from the VEHouseholdTravel module 
 
 ####  PredictDrivers 
@@ -1333,7 +1333,7 @@ This module predicts number of licensed drivers for households. It uses the mode
 
 * This module step uses data sources including NHTS 2009, FHWA HPMS, FTA NTD, EPA SLD 
 * This module step uses model types including Ordered logit 
-* This module step is estimated using the following approaches: Pre-estimated, saved objects in data-raw/estimated 
+* This module step is estimated using the following methods: Pre-estimated, saved objects in data-raw/estimated 
 * This module step is documented in inst/module_docs/PredictDrivers.md 
 
 The models in this model step are: 
@@ -1341,9 +1341,9 @@ The models in this model step are:
 * Model name: Drivers in the household 
   + Model type: Ordered logit 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/DriversModel_df.R 
-  + Output model object: data/DriversModel_df.rda 
+  + Model object: data/DriversModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 ####  PredictVehicles 
@@ -1352,7 +1352,7 @@ This module predicts number of light-duty vehicles for households. It uses the m
 
 * This module step uses data sources including NHTS 2009, FHWA HPMS, FTA NTD, EPA SLD 
 * This module step uses model types including Ordered logit 
-* This module step is estimated using the following approaches: Pre-estimated, saved objects in data-raw/estimated 
+* This module step is estimated using the following methods: Pre-estimated, saved objects in data-raw/estimated 
 * This module step is documented in inst/module_docs/PredictVehicles.md 
 
 The models in this model step are: 
@@ -1360,9 +1360,9 @@ The models in this model step are:
 * Model name: Number of light duty vehicles 
   + Model type: Ordered logit 
   + Estimation data: inst/extdata/sources.md, confidential data not included in package 
-  + Estimation approach: Pre-estimated, saved objects in data-raw/estimated 
+  + Estimation method: Pre-estimated, saved objects in data-raw/estimated 
   + Estimation script: data-raw/VehiclesModel_df.R 
-  + Output model object: data/VehiclesModel_df.rda 
+  + Model object: data/VehiclesModel_df.rda 
   + Notes: This model uses confidential spatial elements of the NHTS 2009 data to link to the EPA Smart Location Database. The estimated models are included with the package but not the estimation dataset. 
 
 
@@ -1389,7 +1389,7 @@ This module adjusts average household DVMT to keep the quantity within the limit
 
 * This module step uses data sources including US BEA CES 
 * This module step uses model types including Linear regression 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/BudgetHouseholdDvmt.md 
 
 The models in this model step are: 
@@ -1397,9 +1397,9 @@ The models in this model step are:
 * Model name: model to calculate the maximum proportion of household income a household is willing to pay to operate vehicles used by the household 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/ces_vehicle_op-cost.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/BudgetHouseholdDvmt.R 
-  + Output model object: data/OpPropModel_ls.rda 
+  + Model object: data/OpPropModel_ls.rda 
   + Notes: Estimated model uses CES data, script inst/extdata/ces.R processes data into the format for the estimation input dataset 
 
 ####  CalculateComEnergyAndEmissions 
@@ -1414,7 +1414,7 @@ This module calculates adjustments to fuel economy and electric energy efficienc
 
 * This module step uses data sources including Outputs from EPA PERE model 
 * This module step uses model types including Tabulation of data 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/CalculateMpgMpkwhAdjustments.md 
 
 The models in this model step are: 
@@ -1422,17 +1422,17 @@ The models in this model step are:
 * Model name: Model of the Effects of Speed on Fuel Economy 
   + Model type: Tabulation of data 
   + Estimation data: vehicle_fuel_speed_curves.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateMpgMpkwhAdjustments.R 
-  + Output model object: data/MpgMpkwhAdj_ls.rda 
+  + Model object: data/MpgMpkwhAdj_ls.rda 
   + Notes: Model is based on outputs from the EPA's PERE model, estimation here is limited to tabulation and other simple processing  
 
 * Model name: Speed Smoothing and Eco-driving Model 
   + Model type: Tabulation of data 
   + Estimation data: max_smooth_improve.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateMpgMpkwhAdjustments.R 
-  + Output model object: data/MpgMpkwhAdj_ls.rda 
+  + Model object: data/MpgMpkwhAdj_ls.rda 
   + Notes: Model is based on outputs from the EPA's PERE model, estimation here is limited to tabulation and other simple processing  
 
 ####  CalculatePtranEnergyAndEmissions 
@@ -1453,7 +1453,7 @@ This module calculates freeway and arterial congestion level and the amounts of 
 
 * This module step uses data sources including 2009 Urban Mobility Study and NHTS 2017 research by Bigazzi and Clifton and NHTS 2017 
 * This module step uses model types including lookup tables  and Lookup tables and equation Linear regression and Lookup tables and equation 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/CalculateRoadPerformance.md 
 
 The models in this model step are: 
@@ -1461,33 +1461,33 @@ The models in this model step are:
 * Model name: Model of Congestion as a Function of Daily Demand 
   + Model type: lookup tables  
   + Estimation data: inst/extdata/ums_2009.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateRoadPerformance.R 
-  + Output model object: data/CongestedProportions_ls.rda 
+  + Model object: data/CongestedProportions_ls.rda 
   + Notes: This module estimates models using Urban mobility study data 
 
 * Model name: Model of Congested Speeds and the Effects of Operations Programs (e.g. ramp metering, signal coordination) 
   + Model type: lookup tables  
   + Estimation data: inst/extdata/base_speeds.csv, ramp_metering.csv, incident_management.csv, signal_coordination.csv, access_management.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateRoadPerformance.R, CalculateSpeeds.R 
-  + Output model object: data/BaseSpeeds_df.rda, data/Delay_df.rda, data/Ramp_df.rda, data/Incident_df.rda, data/Signal_df.rda, data/Access_df.rda 
+  + Model object: data/BaseSpeeds_df.rda, data/Delay_df.rda, data/Ramp_df.rda, data/Incident_df.rda, data/Signal_df.rda, data/Access_df.rda 
   + Notes: This module estimates models based on research documented in the package 
 
 * Model name: Model of the Split of Light-duty Vehicle (LDV) DVMT between Freeways and Arterials 
   + Model type: Linear regression 
   + Estimation data: inst/extdata/ums_2009.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateRoadPerformance.R 
-  + Output model object: data/DvmtSplit_LM.rda 
+  + Model object: data/DvmtSplit_LM.rda 
   + Notes: This module estimates models using Urban mobility study data 
 
 * Model name: Model to Calculate Average Non-urban Road Speed from Average Urban Road Speed 
   + Model type: Lookup tables and equation 
   + Estimation data: inst/extdata/urban_rural_trip_length_duration.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateRoadPerformance.R 
-  + Output model object: data/UrbanRuralAveSpeed_ls.rda 
+  + Model object: data/UrbanRuralAveSpeed_ls.rda 
   + Notes: This module estimates models using NHTS 2017 data tabulated and included in the package 
 
 ####  CalculateSafetyMeasures 
@@ -1502,7 +1502,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 
 * This module step uses data sources including ? and data from the American Automobile Association and the Bureau of Labor Statistics 
 * This module step uses model types including Cobb-Douglas utility function and Products of rates 
-* This module step is estimated using the following approaches: Package Build 
+* This module step is estimated using the following methods: Package Build 
 * This module step is documented in inst/module_docs/CalculateVehicleOperatingCost.md 
 
 The models in this model step are: 
@@ -1510,17 +1510,17 @@ The models in this model step are:
 * Model name: model for splitting household DVMT among household vehicles as a function of the unit cost of using each vehicle 
   + Model type: Cobb-Douglas utility function 
   + Estimation data: ? 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateVehicleOperatingCost.R 
-  + Output model object: data/OpCosts_ls.rda 
+  + Model object: data/OpCosts_ls.rda 
   + Notes: Missing estimation script and data for this model? 
 
 * Model name: Models for Calculating Out-of-pocket Costs 
   + Model type: Products of rates 
   + Estimation data: deflators.csv, aa_vehicle_operating_costs.csv 
-  + Estimation approach: Package Build 
+  + Estimation method: Package Build 
   + Estimation script: R/CalculateVehicleOperatingCost.R 
-  + Output model object: data/OpCosts_ls.rda 
+  + Model object: data/OpCosts_ls.rda 
   + Notes: This module estimates models using BLS and AAA data 
 
 ####  LoadDefaultRoadDvmtValues 
@@ -1547,7 +1547,7 @@ This module calculates and reports various performance metrics. These performanc
 
 * This module step uses data sources including ? 
 * This module step uses model types including Tabulation of data 
-* This module step is estimated using the following approaches: Data file in inst/extdata/TruckBusAgeDist_.Rdata 
+* This module step is estimated using the following methods: Data file in inst/extdata/TruckBusAgeDist_.Rdata 
 * This module step is documented in R Script only, no md file produced 
 
 The models in this model step are: 
@@ -1555,9 +1555,9 @@ The models in this model step are:
 * Model name: Truck and Bus age distribution data 
   + Model type: Tabulation of data 
   + Estimation data: inst/extdata/TruckBusAgeDist_.RData 
-  + Estimation approach: Data file in inst/extdata/TruckBusAgeDist_.Rdata 
+  + Estimation method: Data file in inst/extdata/TruckBusAgeDist_.Rdata 
   + Estimation script: R/ReportRPATMetrics.R 
-  + Output model object: data/TruckBusAgeDist_mx.rda 
+  + Model object: data/TruckBusAgeDist_mx.rda 
   + Notes: This module has no estimated model parameters, derived from RPAT scripts. Data file is a model input in GreenSTEP 
 
 
@@ -1572,7 +1572,7 @@ This module gathers the output of scenario runs in data.table and returns it as 
 
 * This module step uses data sources including Hardcoded configuration 
 * This module step uses model types including config file 
-* This module step is estimated using the following approaches: none 
+* This module step is estimated using the following methods: none 
 * This module step is documented in R Script only, no md file produced 
 
 The models in this model step are: 
@@ -1580,9 +1580,9 @@ The models in this model step are:
 * Model name: VERPAT OUTPUT config file 
   + Model type: config file 
   + Estimation data: NA 
-  + Estimation approach: NA 
+  + Estimation method: NA 
   + Estimation script: R/VERPATResults.R 
-  + Output model object: data/VERPATOutputConfig.rda 
+  + Model object: data/VERPATOutputConfig.rda 
   + Notes: This module creates a scenario configuration file during package build 
 
 ####  VERSPMResults 
@@ -1591,7 +1591,7 @@ This module gathers the output of scenario runs in data.table and returns it as 
 
 * This module step uses data sources including Hardcoded configuration 
 * This module step uses model types including config file 
-* This module step is estimated using the following approaches: none 
+* This module step is estimated using the following methods: none 
 * This module step is documented in R Script only, no md file produced 
 
 The models in this model step are: 
@@ -1599,7 +1599,7 @@ The models in this model step are:
 * Model name: VERSPM OUTPUT config file 
   + Model type: config file 
   + Estimation data: NA 
-  + Estimation approach: NA 
+  + Estimation method: NA 
   + Estimation script: R/VERSPMResults.R 
-  + Output model object: data/VERSPMOutputConfig.rda 
+  + Model object: data/VERSPMOutputConfig.rda 
   + Notes: This module creates a scenario configuration file during package build 
