@@ -193,7 +193,7 @@ VEHouseholdTravel
 VEHouseholdVehicles
 </td>
 <td style="text-align:right;">
-9
+7
 </td>
 </tr>
 <tr>
@@ -201,7 +201,7 @@ VEHouseholdVehicles
 VELandUse
 </td>
 <td style="text-align:right;">
-11
+5
 </td>
 </tr>
 <tr>
@@ -249,12 +249,20 @@ VESimHouseholds
 VESimLandUse
 </td>
 <td style="text-align:right;">
-9
+5
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
 VESimLandUseData
+</td>
+<td style="text-align:right;">
+1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VESimTransportSupply
 </td>
 <td style="text-align:right;">
 1
@@ -273,7 +281,7 @@ VESyntheticFirms
 VETransportSupply
 </td>
 <td style="text-align:right;">
-0
+1
 </td>
 </tr>
 <tr>
@@ -571,7 +579,7 @@ This module contains the following step(s):</p>
 </h4>
 <p>This module models adjusts the VMT for the policies entered for the scenario. The outputs form this module contains ‘Policy’ as the suffix in their names</p>
 <ul>
-<li>Data sources include ?</li>
+<li>Data sources include NHTS 2001</li>
 <li>Model types include Linear regression</li>
 <li>Estimation uses the following methods: Parameters hardcoded in script</li>
 <li>Documented in R Script only, no md file produced</li>
@@ -720,7 +728,7 @@ This module contains the following step(s):</p>
 <li>Estimation data: VE2001NHTS::Hh_df</li>
 <li>Estimation method: Package build</li>
 <li>Estimation script: R/AssignDrivers.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/DriverModel_ls.rda</li>
 <li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
@@ -730,7 +738,7 @@ This module contains the following step(s):</p>
 <li>Estimation data: VE2001NHTS::Hh_df</li>
 <li>Estimation method: Package build</li>
 <li>Estimation script: R/AssignDrivers.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/DriverModel_ls.rda</li>
 <li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
@@ -756,7 +764,7 @@ This module contains the following step(s):</p>
 VE2001NHTS::Veh_df</li>
 <li>Estimation method: Package build</li>
 <li>Estimation script: R/AssignVehicleAge.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/VehicleAgeModel_ls.rda</li>
 <li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
@@ -781,7 +789,7 @@ VE2001NHTS::Veh_df</li>
 <li>Estimation data: VE2001NHTS::Hh_df</li>
 <li>Estimation method: Package build</li>
 <li>Estimation script: R/AssignVehicleOwnership.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/AutoOwnModels_ls.rda</li>
 <li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
@@ -791,7 +799,7 @@ VE2001NHTS::Veh_df</li>
 <li>Estimation data: VE2001NHTS::Hh_df</li>
 <li>Estimation method: Package build</li>
 <li>Estimation script: R/AssignVehicleOwnership.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/AutoOwnModels_ls.rda</li>
 <li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
@@ -816,7 +824,7 @@ VE2001NHTS::Veh_df</li>
 <li>Estimation data: VE2001NHTS::Hh_df</li>
 <li>Estimation method: Package build</li>
 <li>Estimation script: R/AssignVehicleType.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/VehicleTypeModel_ls.rda</li>
 <li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
@@ -843,7 +851,7 @@ VE2001NHTS::Veh_df</li>
 <li>Estimation method: Package build<br>
 </li>
 <li>Estimation script: R/CalculateVehicleOwnCost.R</li>
-<li>Model object: NA</li>
+<li>Model object: data/VehOwnCost_ls.rda</li>
 <li>Notes: Uses AAA car ownership and depreciation model data</li>
 </ul>
 </li>
@@ -854,52 +862,14 @@ VE2001NHTS::Veh_df</li>
 <span class="header-section-number">9.3.3.6</span> CreateVehicleTable<a class="anchor" aria-label="anchor" href="#createvehicletable-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module creates a vehicle table and populates it with household ID and geography fields.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include none</li>
-<li>Estimation uses the following methods: Package build</li>
-<li>Documented in inst/module_docs/CreateVehicleTable.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Creates vehicle table populated with household ID and geography
-<ul>
-<li>Model type: NA</li>
-<li>Estimation data: NA</li>
-<li>Estimation method: Package build</li>
-<li>Estimation script: R/CreateVehicleTable.R</li>
-<li>Model object: NA</li>
-<li>Notes: NA</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="adjustvehicleownership-2" class="section level4" number="9.3.3.7">
 <h4>
 <span class="header-section-number">9.3.3.7</span> AdjustVehicleOwnership<a class="anchor" aria-label="anchor" href="#adjustvehicleownership-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module adjusts household vehicle ownership based on a comparison of the cost of owning a vehicle per mile of travel compared to the cost per mile of using a car service where the level of service is high. The determination of whether car services are substituted for ownership also depends on input assumptions regarding the average likelihood that an owner would substitute car services for a household vehicle.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Deterministic (substitutes random portion of cases where car service is cheaper)</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/AdjustVehicleOwnership.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Adjusts household vehicle ownership based on a comparison of the cost of owning a vehicle per mile of travel compared to the cost per mile of using a car service where the level of service is high
-<ul>
-<li>Model type: Deterministic (substitutes random portion of cases where car service is cheaper)</li>
-<li>Estimation data: NA</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/AdjustVehicleOwnership.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 </div>
 <div id="velanduse" class="section level3" number="9.3.4">
@@ -913,27 +883,7 @@ This module contains the following step(s):</p>
 <span class="header-section-number">9.3.4.1</span> AssignCarSvcAvailability<a class="anchor" aria-label="anchor" href="#assigncarsvcavailability-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module reads in user specified data and assigns car service availability in Bzones.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include none</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/AssignCarSvcAvailability.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: No Model
-<ul>
-<li>Model type: NA</li>
-<li>Estimation data: bzone_carsvc_availability.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/AssignCarSvcAvailability.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="assigndemandmanagement-2" class="section level4" number="9.3.4.2">
 <h4>
@@ -941,7 +891,7 @@ This module contains the following step(s):</p>
 </h4>
 <p>This module assigns demand management program participation to households and to workers.</p>
 <ul>
-<li>Data sources include NHTS 2001 and default user specified from CSV</li>
+<li>Data sources include NHTS 2001 and default data specified in CSV</li>
 <li>Model types include Proportions</li>
 <li>Estimation uses the following methods: Package build<br>
 </li>
@@ -969,109 +919,28 @@ inst/extdata/tdm_parameters.csv</li>
 <span class="header-section-number">9.3.4.3</span> AssignDevTypes<a class="anchor" aria-label="anchor" href="#assigndevtypes"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns households to development types: Urban (located within an urbanized area boundary) and Rural (located outside of an urbanized area boundary).</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Proportions</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/AssignDevTypes.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Proportional assignment (Urban or Rural)
-<ul>
-<li>Model type: Proportions</li>
-<li>Estimation data: bzone_urban_du_proportions.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/AssignDevTypes.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="assignloctypes-1" class="section level4" number="9.3.4.4">
 <h4>
 <span class="header-section-number">9.3.4.4</span> AssignLocTypes<a class="anchor" aria-label="anchor" href="#assignloctypes-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns households to location types: Urban (located within an urbanized area boundary), Town (located in a smaller urban area that does not have enough population to qualify as an urbanized area), and Rural (located in an area characterized by low density dispersed development).</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Proportions</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/AssignLocTypes.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Proportional assignment (Urban, Town, Rural)
-<ul>
-<li>Model type: Proportions</li>
-<li>Estimation data: bzone_urban-town_du_proportions.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/AssignLocTypes.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="assignparkingrestrictions-2" class="section level4" number="9.3.4.5">
 <h4>
 <span class="header-section-number">9.3.4.5</span> AssignParkingRestrictions<a class="anchor" aria-label="anchor" href="#assignparkingrestrictions-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Proportions</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/AssignParkingRestrictions.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Proportional/Average assignment
-<ul>
-<li>Model type: Proportions</li>
-<li>Estimation data: bzone_parking.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/AssignParkingRestrictions.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="calculate4dmeasures-1" class="section level4" number="9.3.4.6">
 <h4>
 <span class="header-section-number">9.3.4.6</span> Calculate4DMeasures<a class="anchor" aria-label="anchor" href="#calculate4dmeasures-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates several 4D measures by Bzone including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Closed formula</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/Calculate4DMeasures.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Calculated entropy (diversity) and harmonic mean (accessibility) measures
-<ul>
-<li>Model type: Closed formula</li>
-<li>Estimation data: bzone_unprotected_area.csv
-bzone_network_design.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/Calculate4DMeasures.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="calculateurbanmixmeasures" class="section level4" number="9.3.4.7">
 <h4>
@@ -1090,13 +959,12 @@ bzone_network_design.csv</li>
 <li>Model name: Probability that household is urban mixed-use (binary logit)
 <ul>
 <li>Model type: Binary Logit</li>
-<li>Estimation data: VE2001NHTS::Hh_df
-bzone_urban-mixed-use_prop.csv</li>
+<li>Estimation data: VE2001NHTS::Hh_df</li>
 <li>Estimation method: Package build<br>
 </li>
 <li>Estimation script: R/CalculateUrbanMixMeasure.R</li>
 <li>Model object: data/UrbanMixModel_ls.rda</li>
-<li>Notes: Sources estimation data from the VE NHTS 2001 package and default user specifications</li>
+<li>Notes: Sources estimation data from the VE NHTS 2001 package.</li>
 </ul>
 </li>
 </ul>
@@ -1106,28 +974,7 @@ bzone_urban-mixed-use_prop.csv</li>
 <span class="header-section-number">9.3.4.8</span> LocateEmployment<a class="anchor" aria-label="anchor" href="#locateemployment-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module places employment in Bzones based on input assumptions of employment by type and Bzone</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include IPF</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/LocateEmployment.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Iterative Proportional Fitting
-<ul>
-<li>Model type: IPF</li>
-<li>Estimation data: bzone_employment.csv
-bzone_lat_lon.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/LocateEmployment.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="predicthousing-1" class="section level4" number="9.3.4.9">
 <h4>
@@ -1135,7 +982,7 @@ bzone_lat_lon.csv</li>
 </h4>
 <p>This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics.</p>
 <ul>
-<li>Data sources include PUMS</li>
+<li>Data sources include PUMS (processed in VESimHouseholds)</li>
 <li>Model types include Binomial Logit &amp; IPF</li>
 <li>Estimation uses the following methods: Package build<br>
 </li>
@@ -1146,14 +993,12 @@ bzone_lat_lon.csv</li>
 <li>Model name: Binary logit single family or multifamily dwelling and IPF to balance results
 <ul>
 <li>Model type: Binomial Logit &amp; IPF</li>
-<li>Estimation data: VESimHouseholds::Hh_df
-bzone_hh_inc_qrtl_prop.csv
-bzone_dwelling_units.csv</li>
+<li>Estimation data: VESimHouseholds::Hh_df</li>
 <li>Estimation method: Package build<br>
 </li>
 <li>Estimation script: R/PredictHousing.R</li>
 <li>Model object: data/HouseTypeModel_ls.rda</li>
-<li>Notes: User input from csv</li>
+<li>Notes: Sources estimation from Census PUMS prepared in the VESimHousehold package</li>
 </ul>
 </li>
 </ul>
@@ -1164,24 +1009,21 @@ bzone_dwelling_units.csv</li>
 </h4>
 <p>This module calculates place types for households and firms for the base year.</p>
 <ul>
-<li>Data sources include none</li>
-<li>Model types include Linear</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
+<li>Data sources include NHTS 2001</li>
+<li>Model types include Multinomial Logit</li>
+<li>Estimation uses the following methods: Data file in data-raw/HhAllocationModelCoeff.rda</li>
 <li>Documented in R Script only, no md file produced</li>
 </ul>
 <p>The models in this model step are:</p>
 <ul>
-<li>Model name: Random allocation based on linear model
+<li>Model name: MNL model of household allocation to place types based on household structures and income
 <ul>
-<li>Model type: Linear</li>
-<li>Estimation data: VELandUse::HhAllocationModelCoeff_df
-bzone_pop_emp_prop.csv</li>
-<li>Estimation method: Package build<br>
-</li>
+<li>Model type: Multinomial Logit</li>
+<li>Estimation data: data-raw/HhAllocationModelCoeff.rda</li>
+<li>Estimation method: Data file in data-raw/HhAllocationModelCoeff.rda</li>
 <li>Estimation script: R/CalculateBasePlaceTypes.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
+<li>Model object: data/HhAllocationModelCoeff_df.rda</li>
+<li>Notes: This module has no estimated model parameters, model was estimated in the development of RPAT and transferred as a model object saved in data-raw.</li>
 </ul>
 </li>
 </ul>
@@ -1192,23 +1034,21 @@ bzone_pop_emp_prop.csv</li>
 </h4>
 <p>This module calculates place types for households and firms for the future year.</p>
 <ul>
-<li>Data sources include none</li>
-<li>Model types include Linear</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
+<li>Data sources include NHTS 2001</li>
+<li>Model types include Multinomial Logit</li>
+<li>Estimation uses the following methods: Data file in data-raw/HhAllocationModelCoeff.rda</li>
 <li>Documented in R Script only, no md file produced</li>
 </ul>
 <p>The models in this model step are:</p>
 <ul>
-<li>Model name: Random allocation based on linear model
+<li>Model name: MNL model of household allocation to place types based on household structures and income
 <ul>
-<li>Model type: Linear</li>
-<li>Estimation data: VELandUse::HhAllocationModelCoeff_df</li>
-<li>Estimation method: Package build<br>
-</li>
+<li>Model type: Multinomial Logit</li>
+<li>Estimation data: data-raw/HhAllocationModelCoeff.rda</li>
+<li>Estimation method: Data file in data-raw/HhAllocationModelCoeff.rda</li>
 <li>Estimation script: R/CalculateFuturePlaceTypes.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
+<li>Model object: data/HhAllocationModelCoeff_df.rda</li>
+<li>Notes: This module has no estimated model parameters, model was estimated in the development of RPAT and transferred as a model object saved in data-raw.</li>
 </ul>
 </li>
 </ul>
@@ -1399,27 +1239,7 @@ This module contains the following step(s):</p>
 <span class="header-section-number">9.3.7.1</span> AssignCarSvcAvailability<a class="anchor" aria-label="anchor" href="#assigncarsvcavailability-3"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns car service availability levels (Low, High) to Bzones and households.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include none</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/AssignCarSvcAvailability.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: No Model
-<ul>
-<li>Model type: NA</li>
-<li>Estimation data: bzone_carsvc_availability.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/AssignCarSvcAvailability.R</li>
-<li>Model object: NA</li>
-<li>Notes: User input from csv</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="assigndemandmanagement-3" class="section level4" number="9.3.7.2">
 <h4>
@@ -1429,8 +1249,7 @@ This module contains the following step(s):</p>
 <ul>
 <li>Data sources include NHTS 2001</li>
 <li>Model types include Proportions</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
+<li>Estimation uses the following methods: Imports from VELandUse</li>
 <li>Documented in inst/module_docs/AssignDemandManagement.md</li>
 </ul>
 <p>The models in this model step are:</p>
@@ -1438,14 +1257,11 @@ This module contains the following step(s):</p>
 <li>Model name: Proportional VMT Reduction Estimation
 <ul>
 <li>Model type: Proportions</li>
-<li>Estimation data: VE2001NHTS::Hh_df
-VE2001NHTS::HhTours_df
-inst/extdata/tdm_parameters.csv</li>
-<li>Estimation method: Package build<br>
-</li>
+<li>Estimation data: VELandUse::TdmModel_ls</li>
+<li>Estimation method: Imports from VELandUse</li>
 <li>Estimation script: R/AssignDemandManagement.R</li>
 <li>Model object: NA</li>
-<li>Notes: Sources estimation data from the VE NHTS 2001 package and default user specifications</li>
+<li>Notes: This module has no estimated model parameters. It loads the model estimated in the VELandUse module</li>
 </ul>
 </li>
 </ul>
@@ -1457,23 +1273,20 @@ inst/extdata/tdm_parameters.csv</li>
 <p>This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area.</p>
 <ul>
 <li>Data sources include none</li>
-<li>Model types include Proportions</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
+<li>Model types include none</li>
+<li>Estimation uses the following methods: none</li>
 <li>Documented in inst/module_docs/AssignParkingRestrictions.md</li>
 </ul>
 <p>The models in this model step are:</p>
 <ul>
 <li>Model name: Proportional/Average assignment
 <ul>
-<li>Model type: Proportions</li>
-<li>Estimation data: marea_parking-avail_by_area-type.csv
-marea_parking-cost_by_area-type.csv</li>
-<li>Estimation method: Package build<br>
-</li>
+<li>Model type: NA</li>
+<li>Estimation data: NA</li>
+<li>Estimation method: NA</li>
 <li>Estimation script: R/AssignParkingRestrictions.R</li>
 <li>Model object: NA</li>
-<li>Notes: User input from csv</li>
+<li>Notes: This module has no estimated model parameters. Function appplied by this model is deterministic.</li>
 </ul>
 </li>
 </ul>
@@ -1501,7 +1314,7 @@ marea_parking-cost_by_area-type.csv</li>
 <li>Estimation script: R/CreateSimBzoneModels.R</li>
 <li>Model object: data/SimBzone_ls.rda
 data/UsaBlkGrpTypes_df.rda</li>
-<li>Notes: NA</li>
+<li>Notes: This modules estimates a system of models to synthesize Bzones and their attributes as a funciton of Azone characteristics and other data in the VESimLandUseData pacakge</li>
 </ul>
 </li>
 </ul>
@@ -1511,27 +1324,7 @@ data/UsaBlkGrpTypes_df.rda</li>
 <span class="header-section-number">9.3.7.5</span> CreateSimBzones<a class="anchor" aria-label="anchor" href="#createsimbzones"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module synthesizes Bzones and their land use attributes as a function of Azone characteristics as well as data derived from the US Environmental Protection Agency’s Smart Location Database (SLD) augmented with US Census housing and household income data, and data from the National Transit Database.</p>
-<ul>
-<li>Data sources include VESimLandUseData</li>
-<li>Model types include Calculation steps</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/CreateSimBzones.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Calculation steps
-<ul>
-<li>Model type: Calculation steps</li>
-<li>Estimation data: VESimLandUse::SimBzone_ls</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/CreateSimBzones.R</li>
-<li>Model object: NA</li>
-<li>Notes: NA</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="initialize-3" class="section level4" number="9.3.7.6">
 <h4>
@@ -1545,55 +1338,14 @@ data/UsaBlkGrpTypes_df.rda</li>
 <span class="header-section-number">9.3.7.7</span> Simulate4DMeasures<a class="anchor" aria-label="anchor" href="#simulate4dmeasures-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates several 4D measures by SimBzone including density, diversity (i.e. mixing of land uses), and pedestrian-orientedn transportation network design.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Closed formula</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/Simulate4DMeasures.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Calculated entropy (diversity) and harmonic mean (accessibility) measures
-<ul>
-<li>Model type: Closed formula</li>
-<li>Estimation data: marea_d3bpo4_adj.csv
-bzone_network_design.csv</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/Simulate4DMeasures.R</li>
-<li>Model object: NA</li>
-<li>Notes: NA</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="simulateemployment" class="section level4" number="9.3.7.8">
 <h4>
 <span class="header-section-number">9.3.7.8</span> SimulateEmployment<a class="anchor" aria-label="anchor" href="#simulateemployment"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assign workers SimBzone work locations. A worker table is created which identifies a unique worker ID, the household ID the worker is a part of, and the SimBzone, Azone, and Marea of the worker job location.</p>
-<ul>
-<li>Data sources include none</li>
-<li>Model types include Rule based assignment</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
-<li>Documented in inst/module_docs/SimulateEmployment.md</li>
-</ul>
-<p>The models in this model step are:</p>
-<ul>
-<li>Model name: Workers are assigned to Bzone job locations using simple rules
-<ul>
-<li>Model type: Rule based assignment</li>
-<li>Estimation data: NA</li>
-<li>Estimation method: Package build<br>
-</li>
-<li>Estimation script: R/SimulateEmployment.R</li>
-<li>Model object: NA</li>
-<li>Notes: NA</li>
-</ul>
-</li>
-</ul>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 <div id="simulate-housing" class="section level4" number="9.3.7.9">
 <h4>
@@ -1601,10 +1353,9 @@ bzone_network_design.csv</li>
 </h4>
 <p>This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics. </p>
 <ul>
-<li>Data sources include VELandUse</li>
+<li>Data sources include PUMS (processed in VESimHouseholds)</li>
 <li>Model types include Binary search algorithm</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
+<li>Estimation uses the following methods: Imports from VELandUse</li>
 <li>Documented in inst/module_docs/SimulateHousing.md</li>
 </ul>
 <p>The models in this model step are:</p>
@@ -1613,11 +1364,10 @@ bzone_network_design.csv</li>
 <ul>
 <li>Model type: Binary search algorithm</li>
 <li>Estimation data: VELandUse::HouseTypeModel_ls</li>
-<li>Estimation method: Package build<br>
-</li>
+<li>Estimation method: Imports from VELandUse</li>
 <li>Estimation script: R/SimulateHousing.R</li>
-<li>Model object: NA</li>
-<li>Notes: NA</li>
+<li>Model object: data/HouseTypeModel_ls.rda</li>
+<li>Notes: Sources models estimated in the VELandUse module that were estimated using PUMS data processed in the VESimHouseholds package</li>
 </ul>
 </li>
 </ul>
@@ -1628,10 +1378,9 @@ bzone_network_design.csv</li>
 </h4>
 <p>This module simulates an urban mixed-use measure based on the 2001 National Household Travel Survey measure of the tract level urban/rural indicator.</p>
 <ul>
-<li>Data sources include VELandUse</li>
+<li>Data sources include NHTS 2001</li>
 <li>Model types include Binary Logit</li>
-<li>Estimation uses the following methods: Package build<br>
-</li>
+<li>Estimation uses the following methods: Imports from VELandUse</li>
 <li>Documented in inst/module_docs/SimulateUrbanMixMeasure.md</li>
 </ul>
 <p>The models in this model step are:</p>
@@ -1640,11 +1389,10 @@ bzone_network_design.csv</li>
 <ul>
 <li>Model type: Binary Logit</li>
 <li>Estimation data: VELandUse::UrbanMixModel_ls</li>
-<li>Estimation method: Package build<br>
-</li>
+<li>Estimation method: Imports from VELandUse</li>
 <li>Estimation script: R/SimulateUrbanMixMeasure.R</li>
 <li>Model object: data/UrbanMixModelSim_ls.rda</li>
-<li>Notes: NA</li>
+<li>Notes: Sources models estimated in the VELandUse module that were estimated using PUMS data processed in the VESimHouseholds package</li>
 </ul>
 </li>
 </ul>
@@ -1680,151 +1428,210 @@ data-raw/2010_Agency_Information.csv</li>
 </li>
 <li>Estimation script: R/MakeSimBzoneEstDataset.R</li>
 <li>Model object: data/SimLandUseData_df.rda</li>
-<li>Notes: NA</li>
+<li>Notes: This module processes data for use in the VESimLandUse module</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="vesyntheticfirms" class="section level3" number="9.3.9">
+<div id="vesimtransportsupply" class="section level3" number="9.3.9">
 <h3>
-<span class="header-section-number">9.3.9</span> VESyntheticFirms<a class="anchor" aria-label="anchor" href="#vesyntheticfirms"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.9</span> VESimTransportSupply<a class="anchor" aria-label="anchor" href="#vesimtransportsupply"><i class="fas fa-link"></i></a>
+</h3>
+<p>This package contains modules that work in the VisionEval framework to simulate transportation supply characteristics including roadway supply and public transit supply.
+This module contains the following step(s):</p>
+<div id="simulateroadmiles-1" class="section level4" number="9.3.9.1">
+<h4>
+<span class="header-section-number">9.3.9.1</span> SimulateRoadMiles<a class="anchor" aria-label="anchor" href="#simulateroadmiles-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>This module assigns freeway and arterial lane-miles to metropolitan areas (Marea) and calculates freeway lane-miles per capita.</p>
+<p>This module step has no estimated parameters or other model types derived from data.</p>
+</div>
+<div id="simulatetransitservice-1" class="section level4" number="9.3.9.2">
+<h4>
+<span class="header-section-number">9.3.9.2</span> SimulateTransitService<a class="anchor" aria-label="anchor" href="#simulatetransitservice-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>This module assigns transit service level to the urbanized portion of each Marea and to neighborhoods (SimBzones) within the urbanized area.</p>
+<ul>
+<li>Data sources include VESimLandUseData</li>
+<li>Model types include Distributions</li>
+<li>Estimation uses the following methods: Imports from VELandUse</li>
+<li>Documented in R Script only, no md file produced</li>
+</ul>
+<p>The models in this model step are:</p>
+<ul>
+<li>Model name: Models estimated in the VESimLandUse modules
+<ul>
+<li>Model type: Distributions</li>
+<li>Estimation data: VESimLandUse::SimBzone_ls</li>
+<li>Estimation method: Imports from VELandUse</li>
+<li>Estimation script: R/SimulateTransitService.R</li>
+<li>Model object: data/D4cModels_ls.rda</li>
+<li>Notes: Sources models estimated in the VELandUse module.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="vesyntheticfirms" class="section level3" number="9.3.10">
+<h3>
+<span class="header-section-number">9.3.10</span> VESyntheticFirms<a class="anchor" aria-label="anchor" href="#vesyntheticfirms"><i class="fas fa-link"></i></a>
 </h3>
 <p>VisionEval Synthetic Firms module
 This module contains the following step(s):</p>
-<div id="createbasesyntheticfirms-1" class="section level4" number="9.3.9.1">
+<div id="createbasesyntheticfirms-1" class="section level4" number="9.3.10.1">
 <h4>
-<span class="header-section-number">9.3.9.1</span> CreateBaseSyntheticFirms<a class="anchor" aria-label="anchor" href="#createbasesyntheticfirms-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.10.1</span> CreateBaseSyntheticFirms<a class="anchor" aria-label="anchor" href="#createbasesyntheticfirms-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>Creates a list of base year synthetic firms</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="createfuturesyntheticfirms-1" class="section level4" number="9.3.9.2">
+<div id="createfuturesyntheticfirms-1" class="section level4" number="9.3.10.2">
 <h4>
-<span class="header-section-number">9.3.9.2</span> CreateFutureSyntheticFirms<a class="anchor" aria-label="anchor" href="#createfuturesyntheticfirms-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.10.2</span> CreateFutureSyntheticFirms<a class="anchor" aria-label="anchor" href="#createfuturesyntheticfirms-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>Creates a list of future year synthetic firms</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 </div>
-<div id="vetransportsupply" class="section level3" number="9.3.10">
+<div id="vetransportsupply" class="section level3" number="9.3.11">
 <h3>
-<span class="header-section-number">9.3.10</span> VETransportSupply<a class="anchor" aria-label="anchor" href="#vetransportsupply"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.11</span> VETransportSupply<a class="anchor" aria-label="anchor" href="#vetransportsupply"><i class="fas fa-link"></i></a>
 </h3>
 <p>This package contains a number of modules that work in the VisionEval framework to calculate transportation supply characteristics including roadway supply and public transit supply.
 This module contains the following step(s):</p>
-<div id="simulateroadmiles-1" class="section level4" number="9.3.10.1">
+<div id="simulateroadmiles-2" class="section level4" number="9.3.11.1">
 <h4>
-<span class="header-section-number">9.3.10.1</span> SimulateRoadMiles<a class="anchor" aria-label="anchor" href="#simulateroadmiles-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.11.1</span> SimulateRoadMiles<a class="anchor" aria-label="anchor" href="#simulateroadmiles-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns freeway and arterial lane-miles to metropolitan areas (Marea) and calculates freeway lane-miles per capita.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="simulatetransitservice-1" class="section level4" number="9.3.10.2">
+<div id="simulatetransitservice-2" class="section level4" number="9.3.11.2">
 <h4>
-<span class="header-section-number">9.3.10.2</span> SimulateTransitService<a class="anchor" aria-label="anchor" href="#simulatetransitservice-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.11.2</span> SimulateTransitService<a class="anchor" aria-label="anchor" href="#simulatetransitservice-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns transit service level to the urbanized portion of each Marea and to neighborhoods (SimBzones) within the urbanized area.</p>
-<p>This module step has no estimated parameters or other model types derived from data.</p>
+<ul>
+<li>Data sources include FTA NTD</li>
+<li>Model types include Factors</li>
+<li>Estimation uses the following methods: Package build<br>
+</li>
+<li>Documented in inst/module_docs/AssignTransitService.md</li>
+</ul>
+<p>The models in this model step are:</p>
+<ul>
+<li>Model name: Factors to convert revenue mules, develop bus equivalency factors, compare vehicle miles by mode
+<ul>
+<li>Model type: Factors</li>
+<li>Estimation data: inst/extdata/2015_Agency_information.csv, inst/extdata/2015_Service.csv</li>
+<li>Estimation method: Package build<br>
+</li>
+<li>Estimation script: R/AssignTransitService.R</li>
+<li>Model object: data/BusEquivalents_df.rda, data/VehMiFactors_df.rda, data/UZABusEqRevMile_df.rda</li>
+<li>Notes: The module develops factors based on FTA NTD data</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
-<div id="vetransportsupplyuse" class="section level3" number="9.3.11">
+<div id="vetransportsupplyuse" class="section level3" number="9.3.12">
 <h3>
-<span class="header-section-number">9.3.11</span> VETransportSupplyUse<a class="anchor" aria-label="anchor" href="#vetransportsupplyuse"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.12</span> VETransportSupplyUse<a class="anchor" aria-label="anchor" href="#vetransportsupplyuse"><i class="fas fa-link"></i></a>
 </h3>
 <p>VisionEval module for roadway speeds, delay, and congestion costs using run year data
 This module contains the following step(s):</p>
-<div id="calculatecongestionbase-1" class="section level4" number="9.3.11.1">
+<div id="calculatecongestionbase-1" class="section level4" number="9.3.12.1">
 <h4>
-<span class="header-section-number">9.3.11.1</span> CalculateCongestionBase<a class="anchor" aria-label="anchor" href="#calculatecongestionbase-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.12.1</span> CalculateCongestionBase<a class="anchor" aria-label="anchor" href="#calculatecongestionbase-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the amount of congestion for base year - automobile, light truck, truck, and bus vmt are allocated to freeways, arterials, and other roadways.</p>
 <ul>
-<li>Data sources include none</li>
-<li>Model types include Delay-based</li>
-<li>Estimation uses the following methods: Package build<br>
+<li>Data sources include 2009 Urban Mobility Study</li>
+<li>Model types include lookup tables<br>
 </li>
+<li>Estimation uses the following methods: Data files in inst/extdata</li>
 <li>Documented in R Script only, no md file produced</li>
 </ul>
 <p>The models in this model step are:</p>
 <ul>
 <li>Model name: Speed estimated from demand vs lane-mile supply
 <ul>
-<li>Model type: Delay-based</li>
-<li>Estimation data: azone_its_prop.csv</li>
-<li>Estimation method: Package build<br>
+<li>Model type: lookup tables<br>
 </li>
+<li>Estimation data: inst/extdata/CongModel_ls.RData</li>
+<li>Estimation method: Data files in inst/extdata</li>
 <li>Estimation script: R/CalculateCongestionBase.R</li>
 <li>Model object: data/CongModel_ls.rda</li>
-<li>Notes: NA</li>
+<li>Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is GreenSTEP models.</li>
 </ul>
 </li>
 </ul>
 </div>
-<div id="calculatecongestionfuture-1" class="section level4" number="9.3.11.2">
+<div id="calculatecongestionfuture-1" class="section level4" number="9.3.12.2">
 <h4>
-<span class="header-section-number">9.3.11.2</span> CalculateCongestionFuture<a class="anchor" aria-label="anchor" href="#calculatecongestionfuture-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.12.2</span> CalculateCongestionFuture<a class="anchor" aria-label="anchor" href="#calculatecongestionfuture-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the amount of congestion for future year - automobile, light truck, truck, and bus vmt are allocated to freeways, arterials, and other roadways.</p>
 <ul>
-<li>Data sources include none</li>
-<li>Model types include Delay-based</li>
-<li>Estimation uses the following methods: Package build<br>
+<li>Data sources include 2009 Urban Mobility Study</li>
+<li>Model types include lookup tables<br>
 </li>
+<li>Estimation uses the following methods: Data files in inst/extdata</li>
 <li>Documented in R Script only, no md file produced</li>
 </ul>
 <p>The models in this model step are:</p>
 <ul>
 <li>Model name: Speed estimated from demand vs lane-mile supply
 <ul>
-<li>Model type: Delay-based</li>
-<li>Estimation data: NA</li>
-<li>Estimation method: Package build<br>
+<li>Model type: lookup tables<br>
 </li>
+<li>Estimation data: inst/extdata/CongModel_ls.RData</li>
+<li>Estimation method: Data files in inst/extdata</li>
 <li>Estimation script: R/CalculateCongestionFuture.R</li>
 <li>Model object: NA</li>
-<li>Notes: NA</li>
+<li>Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is GreenSTEP models.</li>
 </ul>
 </li>
 </ul>
 </div>
-<div id="calculatecongestionpolicy-1" class="section level4" number="9.3.11.3">
+<div id="calculatecongestionpolicy-1" class="section level4" number="9.3.12.3">
 <h4>
-<span class="header-section-number">9.3.11.3</span> CalculateCongestionPolicy<a class="anchor" aria-label="anchor" href="#calculatecongestionpolicy-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.12.3</span> CalculateCongestionPolicy<a class="anchor" aria-label="anchor" href="#calculatecongestionpolicy-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the amount of congestion - automobile, light truck, truck, and bus vmt are allocated to freeways, arterials, and other roadways adjusted by policy applied for the selected scenario.</p>
 <ul>
-<li>Data sources include none</li>
-<li>Model types include Delay-based</li>
-<li>Estimation uses the following methods: Package build<br>
+<li>Data sources include 2009 Urban Mobility Study</li>
+<li>Model types include lookup tables<br>
 </li>
+<li>Estimation uses the following methods: Data files in inst/extdata</li>
 <li>Documented in R Script only, no md file produced</li>
 </ul>
 <p>The models in this model step are:</p>
 <ul>
 <li>Model name: Speed estimated from demand vs lane-mile supply, adjusted by intervention policy
 <ul>
-<li>Model type: Delay-based</li>
-<li>Estimation data: NA</li>
-<li>Estimation method: Package build<br>
+<li>Model type: lookup tables<br>
 </li>
+<li>Estimation data: inst/extdata/CongModel_ls.RData</li>
+<li>Estimation method: Data files in inst/extdata</li>
 <li>Estimation script: R/CalculateCongestionPolicy.R</li>
 <li>Model object: NA</li>
-<li>Notes: NA</li>
+<li>Notes: This module has no estimated model parameters, derived from RPAT scripts. Original source of models is GreenSTEP models.</li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="vetraveldemandmm" class="section level3" number="9.3.12">
+<div id="vetraveldemandmm" class="section level3" number="9.3.13">
 <h3>
-<span class="header-section-number">9.3.12</span> VETravelDemandMM<a class="anchor" aria-label="anchor" href="#vetraveldemandmm"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13</span> VETravelDemandMM<a class="anchor" aria-label="anchor" href="#vetraveldemandmm"><i class="fas fa-link"></i></a>
 </h3>
 <p>This package contains a module for the VisionEval framework that simulates multi-modal travel demand for individual households
 This module contains the following step(s):</p>
-<div id="calculatealtmodetrips-3" class="section level4" number="9.3.12.1">
+<div id="calculatealtmodetrips-3" class="section level4" number="9.3.13.1">
 <h4>
-<span class="header-section-number">9.3.12.1</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#calculatealtmodetrips-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13.1</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#calculatealtmodetrips-3"><i class="fas fa-link"></i></a>
 </h4>
 <p>Predicts transit, bike, walk PMT and trips</p>
 <ul>
@@ -2017,9 +1824,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatehouseholddvmt-3" class="section level4" number="9.3.12.2">
+<div id="calculatehouseholddvmt-3" class="section level4" number="9.3.13.2">
 <h4>
-<span class="header-section-number">9.3.12.2</span> CalculateHouseholdDvmt<a class="anchor" aria-label="anchor" href="#calculatehouseholddvmt-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13.2</span> CalculateHouseholdDvmt<a class="anchor" aria-label="anchor" href="#calculatehouseholddvmt-3"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module predicts AADVMT for households. It uses the model object in data/AADVMTModel_df.rda and variables and coefficients therein to predict AADVMT.</p>
 <ul>
@@ -2072,9 +1879,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="predictdrivers" class="section level4" number="9.3.12.3">
+<div id="predictdrivers" class="section level4" number="9.3.13.3">
 <h4>
-<span class="header-section-number">9.3.12.3</span> PredictDrivers<a class="anchor" aria-label="anchor" href="#predictdrivers"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13.3</span> PredictDrivers<a class="anchor" aria-label="anchor" href="#predictdrivers"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module predicts number of licensed drivers for households. It uses the model object in data/DriversModel_df.rda (ordered logit model by default) and variables and coefficients therein to predict Drivers.</p>
 <ul>
@@ -2097,9 +1904,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="predictvehicles" class="section level4" number="9.3.12.4">
+<div id="predictvehicles" class="section level4" number="9.3.13.4">
 <h4>
-<span class="header-section-number">9.3.12.4</span> PredictVehicles<a class="anchor" aria-label="anchor" href="#predictvehicles"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13.4</span> PredictVehicles<a class="anchor" aria-label="anchor" href="#predictvehicles"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module predicts number of light-duty vehicles for households. It uses the model object in data/VehiclesModel_df.rda (ordered logit model by default) and variables and coefficients therein to predict number of vehicles.</p>
 <ul>
@@ -2123,29 +1930,29 @@ This module contains the following step(s):</p>
 </ul>
 </div>
 </div>
-<div id="vetravelperformance" class="section level3" number="9.3.13">
+<div id="vetravelperformance" class="section level3" number="9.3.14">
 <h3>
-<span class="header-section-number">9.3.13</span> VETravelPerformance<a class="anchor" aria-label="anchor" href="#vetravelperformance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14</span> VETravelPerformance<a class="anchor" aria-label="anchor" href="#vetravelperformance"><i class="fas fa-link"></i></a>
 </h3>
 <p>Travel performance metrics
 This module contains the following step(s):</p>
-<div id="adjusthhvehiclempgmpkwh-2" class="section level4" number="9.3.13.1">
+<div id="adjusthhvehiclempgmpkwh-2" class="section level4" number="9.3.14.1">
 <h4>
-<span class="header-section-number">9.3.13.1</span> AdjustHhVehicleMpgMpkwh<a class="anchor" aria-label="anchor" href="#adjusthhvehiclempgmpkwh-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.1</span> AdjustHhVehicleMpgMpkwh<a class="anchor" aria-label="anchor" href="#adjusthhvehiclempgmpkwh-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module adjusts the fuel economy (MPG) and power efficiency (MPKWH) of household vehicles to reflect the effects of congestion, speed smoothing, and eco-driving that are calculated by the CalculateMpgMpkwhAdjustments module.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="balanceroadcostsandrevenues-1" class="section level4" number="9.3.13.2">
+<div id="balanceroadcostsandrevenues-1" class="section level4" number="9.3.14.2">
 <h4>
-<span class="header-section-number">9.3.13.2</span> BalanceRoadCostsAndRevenues<a class="anchor" aria-label="anchor" href="#balanceroadcostsandrevenues-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.2</span> BalanceRoadCostsAndRevenues<a class="anchor" aria-label="anchor" href="#balanceroadcostsandrevenues-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates an extra mileage tax ($ per vehicle mile traveled) for household vehicles needed to make up any difference in the cost of constructing, maintaining, and operating roadways and the revenues from fuel, VMT, and congestion taxes.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="budgethouseholddvmt-2" class="section level4" number="9.3.13.3">
+<div id="budgethouseholddvmt-2" class="section level4" number="9.3.14.3">
 <h4>
-<span class="header-section-number">9.3.13.3</span> BudgetHouseholdDvmt<a class="anchor" aria-label="anchor" href="#budgethouseholddvmt-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.3</span> BudgetHouseholdDvmt<a class="anchor" aria-label="anchor" href="#budgethouseholddvmt-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module adjusts average household DVMT to keep the quantity within the limit of the household vehicle operating cost budget. </p>
 <ul>
@@ -2168,16 +1975,16 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatecomenergyandemissions-2" class="section level4" number="9.3.13.4">
+<div id="calculatecomenergyandemissions-2" class="section level4" number="9.3.14.4">
 <h4>
-<span class="header-section-number">9.3.13.4</span> CalculateComEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculatecomenergyandemissions-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.4</span> CalculateComEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculatecomenergyandemissions-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the energy consumption and carbon emissions of heavy trucks and light-duty commercial service vehicles. </p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculatempgmpkwhadjustments-2" class="section level4" number="9.3.13.5">
+<div id="calculatempgmpkwhadjustments-2" class="section level4" number="9.3.14.5">
 <h4>
-<span class="header-section-number">9.3.13.5</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#calculatempgmpkwhadjustments-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.5</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#calculatempgmpkwhadjustments-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates adjustments to fuel economy and electric energy efficiency (for plug-in vehicles) resulting from traffic congestion, speed smoothing (i.e. active traffic management which reduces speed variation), and eco-driving. Eco-driving is the practice of driving in ways that increase fuel economy and reduce carbon emissions.</p>
 <ul>
@@ -2210,23 +2017,23 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculateptranenergyandemissions-2" class="section level4" number="9.3.13.6">
+<div id="calculateptranenergyandemissions-2" class="section level4" number="9.3.14.6">
 <h4>
-<span class="header-section-number">9.3.13.6</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculateptranenergyandemissions-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.6</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculateptranenergyandemissions-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the energy consumption and carbon emissions from public transportation vehicles in urbanized areas. Note that fuel consumption and emissions from car services (e.g. taxi, Uber, Lyft) are calculated in conjunction with the calculation of household vehicle emissions and are attributed to the household.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculateroaddvmt" class="section level4" number="9.3.13.7">
+<div id="calculateroaddvmt" class="section level4" number="9.3.14.7">
 <h4>
-<span class="header-section-number">9.3.13.7</span> CalculateRoadDvmt<a class="anchor" aria-label="anchor" href="#calculateroaddvmt"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.7</span> CalculateRoadDvmt<a class="anchor" aria-label="anchor" href="#calculateroaddvmt"><i class="fas fa-link"></i></a>
 </h4>
 <p>module computes several factors used in computing roadway DVMT including factors for calculating commercial service vehicle travel and heavy truck travel. </p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculateroadperformance-2" class="section level4" number="9.3.13.8">
+<div id="calculateroadperformance-2" class="section level4" number="9.3.14.8">
 <h4>
-<span class="header-section-number">9.3.13.8</span> CalculateRoadPerformance<a class="anchor" aria-label="anchor" href="#calculateroadperformance-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.8</span> CalculateRoadPerformance<a class="anchor" aria-label="anchor" href="#calculateroadperformance-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates freeway and arterial congestion level and the amounts of DVMT by congestion level. It also calculates the average speed and delay at each congestion level. In addition, it splits light-duty vehicle (LDV) DVMT between freeways and arterials as a function of relative speeds and congestion prices</p>
 <ul>
@@ -2281,16 +2088,16 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatesafetymeasures" class="section level4" number="9.3.13.9">
+<div id="calculatesafetymeasures" class="section level4" number="9.3.14.9">
 <h4>
-<span class="header-section-number">9.3.13.9</span> CalculateSafetyMeasures<a class="anchor" aria-label="anchor" href="#calculatesafetymeasures"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.9</span> CalculateSafetyMeasures<a class="anchor" aria-label="anchor" href="#calculatesafetymeasures"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module aims to calculate safety measures for the model area. It uses the fatality and injury crash rates for different modes All these rates are per miles traveled. Therefore this module simply uses calculated VMT from model to estimate the fatality and injury rates for Marea.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculatehhvehicleoperatingcosts" class="section level4" number="9.3.13.10">
+<div id="calculatehhvehicleoperatingcosts" class="section level4" number="9.3.14.10">
 <h4>
-<span class="header-section-number">9.3.13.10</span> CalculateHhVehicleOperatingCosts<a class="anchor" aria-label="anchor" href="#calculatehhvehicleoperatingcosts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.10</span> CalculateHhVehicleOperatingCosts<a class="anchor" aria-label="anchor" href="#calculatehhvehicleoperatingcosts"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates vehicle operating costs per mile of travel and uses those costs to determine the proportional split of DVMT among household vehicles. The module also calculates the average out-of-pocket costs per mile of vehicle travel by household, as well as the cost of social and environmental impacts, and road use taxes per mile of vehicle travel.</p>
 <ul>
@@ -2323,30 +2130,30 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="loaddefaultroaddvmtvalues" class="section level4" number="9.3.13.11">
+<div id="loaddefaultroaddvmtvalues" class="section level4" number="9.3.14.11">
 <h4>
-<span class="header-section-number">9.3.13.11</span> LoadDefaultRoadDvmtValues<a class="anchor" aria-label="anchor" href="#loaddefaultroaddvmtvalues"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.11</span> LoadDefaultRoadDvmtValues<a class="anchor" aria-label="anchor" href="#loaddefaultroaddvmtvalues"><i class="fas fa-link"></i></a>
 </h4>
 <p>This script calculates default values for base year roadway DVMT by vehicle type (light-duty, heavy truck, bus), the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other), and the ratio of commercial service light-duty vehicle travel to household vehicle travel.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="traveltimereliability" class="section level4" number="9.3.13.12">
+<div id="traveltimereliability" class="section level4" number="9.3.14.12">
 <h4>
-<span class="header-section-number">9.3.13.12</span> TravelTimeReliability<a class="anchor" aria-label="anchor" href="#traveltimereliability"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.12</span> TravelTimeReliability<a class="anchor" aria-label="anchor" href="#traveltimereliability"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates travel time reliability measures for the model area. Average speeds at different congestion levels (None, Mod, Hvy, Sev, Ext) on freeways and arterials by marea calculated in the CalculateRoadPerformance Module are used as inputs to calculate travel time index.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
 </div>
-<div id="vereports" class="section level3" number="9.3.14">
+<div id="vereports" class="section level3" number="9.3.15">
 <h3>
-<span class="header-section-number">9.3.14</span> VEReports<a class="anchor" aria-label="anchor" href="#vereports"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.15</span> VEReports<a class="anchor" aria-label="anchor" href="#vereports"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates and reports various performance metrics
 This module contains the following step(s):</p>
-<div id="reportrpatmetrics-1" class="section level4" number="9.3.14.1">
+<div id="reportrpatmetrics-1" class="section level4" number="9.3.15.1">
 <h4>
-<span class="header-section-number">9.3.14.1</span> ReportRPATMetrics<a class="anchor" aria-label="anchor" href="#reportrpatmetrics-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.15.1</span> ReportRPATMetrics<a class="anchor" aria-label="anchor" href="#reportrpatmetrics-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates and reports various performance metrics. These performance metrics include environment and energey impacts, financial and economic impacts, and community impacts.</p>
 <ul>
@@ -2370,15 +2177,15 @@ This module contains the following step(s):</p>
 </ul>
 </div>
 </div>
-<div id="vescenario" class="section level3" number="9.3.15">
+<div id="vescenario" class="section level3" number="9.3.16">
 <h3>
-<span class="header-section-number">9.3.15</span> VEScenario<a class="anchor" aria-label="anchor" href="#vescenario"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.16</span> VEScenario<a class="anchor" aria-label="anchor" href="#vescenario"><i class="fas fa-link"></i></a>
 </h3>
 <p>Scenario management for VE models
 This module contains the following step(s):</p>
-<div id="verpatresults" class="section level4" number="9.3.15.1">
+<div id="verpatresults" class="section level4" number="9.3.16.1">
 <h4>
-<span class="header-section-number">9.3.15.1</span> VERPATResults<a class="anchor" aria-label="anchor" href="#verpatresults"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.16.1</span> VERPATResults<a class="anchor" aria-label="anchor" href="#verpatresults"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module gathers the output of scenario runs in data.table and returns it as a list</p>
 <ul>
@@ -2401,9 +2208,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="verspmresults" class="section level4" number="9.3.15.2">
+<div id="verspmresults" class="section level4" number="9.3.16.2">
 <h4>
-<span class="header-section-number">9.3.15.2</span> VERSPMResults<a class="anchor" aria-label="anchor" href="#verspmresults"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.16.2</span> VERSPMResults<a class="anchor" aria-label="anchor" href="#verspmresults"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module gathers the output of scenario runs in data.table and returns it as a list</p>
 <ul>
@@ -2463,13 +2270,14 @@ This module contains the following step(s):</p>
 <li><a class="nav-link" href="#vesimhouseholds"><span class="header-section-number">9.3.6</span> VESimHouseholds</a></li>
 <li><a class="nav-link" href="#vesimlanduse"><span class="header-section-number">9.3.7</span> VESimLandUse</a></li>
 <li><a class="nav-link" href="#vesimlandusedata"><span class="header-section-number">9.3.8</span> VESimLandUseData</a></li>
-<li><a class="nav-link" href="#vesyntheticfirms"><span class="header-section-number">9.3.9</span> VESyntheticFirms</a></li>
-<li><a class="nav-link" href="#vetransportsupply"><span class="header-section-number">9.3.10</span> VETransportSupply</a></li>
-<li><a class="nav-link" href="#vetransportsupplyuse"><span class="header-section-number">9.3.11</span> VETransportSupplyUse</a></li>
-<li><a class="nav-link" href="#vetraveldemandmm"><span class="header-section-number">9.3.12</span> VETravelDemandMM</a></li>
-<li><a class="nav-link" href="#vetravelperformance"><span class="header-section-number">9.3.13</span> VETravelPerformance</a></li>
-<li><a class="nav-link" href="#vereports"><span class="header-section-number">9.3.14</span> VEReports</a></li>
-<li><a class="nav-link" href="#vescenario"><span class="header-section-number">9.3.15</span> VEScenario</a></li>
+<li><a class="nav-link" href="#vesimtransportsupply"><span class="header-section-number">9.3.9</span> VESimTransportSupply</a></li>
+<li><a class="nav-link" href="#vesyntheticfirms"><span class="header-section-number">9.3.10</span> VESyntheticFirms</a></li>
+<li><a class="nav-link" href="#vetransportsupply"><span class="header-section-number">9.3.11</span> VETransportSupply</a></li>
+<li><a class="nav-link" href="#vetransportsupplyuse"><span class="header-section-number">9.3.12</span> VETransportSupplyUse</a></li>
+<li><a class="nav-link" href="#vetraveldemandmm"><span class="header-section-number">9.3.13</span> VETravelDemandMM</a></li>
+<li><a class="nav-link" href="#vetravelperformance"><span class="header-section-number">9.3.14</span> VETravelPerformance</a></li>
+<li><a class="nav-link" href="#vereports"><span class="header-section-number">9.3.15</span> VEReports</a></li>
+<li><a class="nav-link" href="#vescenario"><span class="header-section-number">9.3.16</span> VEScenario</a></li>
 </ul>
 </li>
 </ul>
@@ -2489,7 +2297,7 @@ This module contains the following step(s):</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-04-11.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-04-12.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
