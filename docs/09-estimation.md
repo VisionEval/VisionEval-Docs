@@ -1645,15 +1645,15 @@ This module gathers the output of scenario runs in data.table and returns it as 
 
 * Data sources include Hardcoded configuration 
 * Model types include config file 
-* Estimation uses the following methods: none 
+* Estimation uses the following methods: Package Build 
 * Documented in R Script only, no md file produced 
 
 The models in this model step are: 
  
 * Model name: VERPAT OUTPUT config file 
   + Model type: config file 
-  + Estimation data: NA 
-  + Estimation method: NA 
+  + Estimation data: Hardcoded configuration 
+  + Estimation method: Package Build 
   + Estimation script: R/VERPATResults.R 
   + Model object: data/VERPATOutputConfig.rda 
   + Notes: This module creates a scenario configuration file during package build 
@@ -1664,15 +1664,15 @@ This module gathers the output of scenario runs in data.table and returns it as 
 
 * Data sources include Hardcoded configuration 
 * Model types include config file 
-* Estimation uses the following methods: none 
+* Estimation uses the following methods: Package Build 
 * Documented in R Script only, no md file produced 
 
 The models in this model step are: 
  
 * Model name: VERSPM OUTPUT config file 
   + Model type: config file 
-  + Estimation data: NA 
-  + Estimation method: NA 
+  + Estimation data: Hardcoded configuration 
+  + Estimation method: Package Build 
   + Estimation script: R/VERSPMResults.R 
   + Model object: data/VERSPMOutputConfig.rda 
   + Notes: This module creates a scenario configuration file during package build 
