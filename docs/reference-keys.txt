@@ -1077,7 +1077,9 @@ testing-strategies
 add-or-modify-a-package
 api-documentation
 ve-estimation
-overview-3
+introduction-1
+overview-and-content-of-this-chapter
+key-concepts
 ve-estimation-classification
 modules-importing-data-from-venhts2001
 modules-using-confidential-nhts-data
@@ -1178,3 +1180,16 @@ reportrpatmetrics-1
 vescenario
 verpatresults
 verspmresults
+ve-module-structure
+the-r-directory-1
+model-specification-and-estimation-1
+model-estimation-datasets-1
+module-specifications-1
+optional-attribute-1
+call-specification-1
+module-function-1
+module-documentation-1
+initialize-module-1
+the-instextdata-directory-1
+the-data-raw-directory-1
+the-tests-directory-1
