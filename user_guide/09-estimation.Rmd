@@ -53,7 +53,7 @@ While this is convenient, the current process in existing VE modules has limitat
 
 * It is difficult to replace models with local or updated data due to complexity and lack of documentation
 * Several modules obscure data and parameters in the estimation portion of the package and therefore require package rebuilds if changes are made
-* Legacy model estimation is incorporated in several modules, e.g., modules that were part of the RPAT model
+* Legacy model estimation (i.e., from earlier work prior to the development of the VE framework and which does not conform to the current recommended code structure for implementing modules in VE) is incorporated in several modules, e.g., modules that were part of the RPAT model
 * There are data discontinuities preventing users from estimating models where, for example, restricted or confidential data have been used to estimate model components (e.g., use of restricted spatial data in VETravelDemandMM) preventing the data from being included in the model package.
 
 This chapter forms an element of work to improve the ability for those applying VE to incorporate newer publicly available datasets or custom datasets to develop locally relevant models for use in VE. This work will include defining a process for users to make use of the latest NHTS data, local HTS data, and local PUMS data, to update models estimated using older versions of the NHTS and PUMS data from different states or regions. 
@@ -80,7 +80,7 @@ There are several main estimation methods used in current VE modules. Their char
 
 ### Modules importing data from VENHTS2001
 
-The VENHTS2001 module processes the 2001 NHTS publically available datasets to create a household dataset which is augmented with other public data on transport supply. The built VENHTS2001 package can then be used in other modules to support model estimation. For example, the VEHouseholdTravel uses the data output by the VENHTS2001 package to estimate its various travel demand models. There are instances of a second round of dependencies, where models estimated using the data from the VENHTS2001 package are used in the estimation of additional models, for example in the VEPowertrainsAndFuels module.
+The VENHTS2001 module processes the 2001 NHTS publically available datasets to create a household dataset which is augmented with other public data on transport supply. The built VENHTS2001 package can then be used in other modules to support model estimation. For example, the VEHouseholdTravel uses the data output by the VENHTS2001 package to estimate its various travel demand models. There are instances of a second round of dependencies, where models estimated using the data from the VENHTS2001 package are used in the estimation of additional models, for example in the VEPowertrainsAndFuels module. During a complete build of VE, where all packages are built, the order of package building needs to be cognizant of these dependencies -- packages functions, model objects, and datasets required in order to estimate models need to be built first.
 
 The general approach is shown here:
 
@@ -105,7 +105,7 @@ The general approach is shown here:
   
 ```
 
-This sequential and modularized approach, where data processing is contained in one package, and then those data are used to support estimation in several other modules, lends itself well to incorporating updated datasets. In this case, alterantive versions of the NHTS might be substituted for the 2001 NHTS, or a local household travel survey could be used in place of the NHTS, as long as the output format currently used in the VENHTS2001 package was conformed with.
+This sequential and modularized approach, where data processing is contained in one package, and then those data are used to support estimation in several other modules, lends itself well to incorporating updated datasets. In this case, alternative versions of the NHTS might be substituted for the 2001 NHTS, or a local household travel survey could be used in place of the NHTS, as long as the output format currently used in the VENHTS2001 package was conformed with.
 
 The development requirements here are:
 
@@ -138,7 +138,7 @@ The development requirements here are:
 
 ### Modules estimated with local data
 
-In some cases, locally specific data were used to develop model inputs and estimate models that are incorporated into modules. One example is the use of the Census Public User Microdata Sample (PUMS) for Oregon, which is used to estimate income modles and to develop probability distributions used in the VESimHouseholds package. 
+In some cases, locally specific data were used to develop model inputs and estimate models that are incorporated into modules. One example is the use of the Census Public User Microdata Sample (PUMS) for Oregon, which is used to estimate income models and to develop probability distributions used in the VESimHouseholds package. 
 
 Ideally, the implementation of a VE model in another state would replace the Oregon data with a local dataset. The data are also from 2001, and would ideally be replaced with a more recent version of the PUMS data, for example from the American Community Survey (ACS) 5 year data or an alternative local data source.
 
