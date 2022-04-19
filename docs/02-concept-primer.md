@@ -449,261 +449,96 @@ The main validation targets have historically included household income, vehicle
 
 > Additional detail on validation can be found in this [validation document](https://github.com/visioneval/VisionEval/wiki/VE-Validation--UNDER-CONSTRUCTION)
 
-## Lexicon
+## FROM WIKI, FOLD INTO CHAPTER
+====================================THIS IS A DUMP OF UNSHAPED EXCERPTS....TBD
+## 5. Inputs -- Pricing [Add table like in ODOT UG, maybe better in best practices?]
+Pricing is one of the most effective and market-based policy in reducing vehicle miles travelled, promoting healthy active modes, and reducing energy use and emissions.  In VE the following pricing types combine to make up the travel costs faced by households relative to household budget:
+  * **Energy Costs to run vehicles and associated variable use taxes**; This includes fuel and/or electricity costs, gas taxes, mileage (i.e. VMT) taxes, congestion taxes (typically only implemented in the statewide version), carbon taxes, pay-as-you-drive (PAYD) insurance, and parking pricing.
+Per Mile Fees (Gas, VMT, Carbon in 2005$)(DEFAULT)
+Several per mile fees combine to make up the roadway travel costs faced by households in RSPM.  As discussed above they are typically default values used consistently across the state for each modeled year.  They reside in the costs.csv file, as shown in Table 4 and 5.
+    * Fuel & Electricity Costs – Cost for fuel and or electricity to run vehicles.  This is defined as the average cost of gasoline fuels excluding taxes in dollars per gasoline equivalent gallon. 
+    * Gas Tax – Taxes on gasoline (in dollars per gallon)
+    * VMT Fee– Road user fee collected from all vehicles per mile travelled (in dollars per vehicle mile)
 
-<!-- Unnumbered sectionshttps://bookdown.org/yihui/rmarkdown-cookbook/unnumbered-sections.html -->
+  * **Congestion Charges** – The fee collected to manage congestion, by charging a higher price during congested periods, and thereby reducing demand and freeing capacity for higher value users such a freight movement. Separate price schemes can be set by year to be imposed only during severe or extreme congestion (in 2005 dollars per vehicle mile, where imposed (congestion_charges.csv)
+  
+  * **Other costs of vehicle ownership and use that the household pays directly**; This includes vehicle depreciation, vehicle maintenance, tires, finance charges, insurance, and registration. These costs primarily affect vehicle ownership, including CarService substitution with indirect impacts on VMT.  
+  * **External costs** that are paid for by society as a result of the household's vehicle travel; This includes social and environmental costs that accrue to society but are not typically paid for by vehicle users. These costs include air pollution, climate change, energy security, safety, noise, and other resource impacts(e.g., water pollution). Social costs are calculated on a per VMT, per gallon, or per metric ton of CO2 basis so that they can be added to other taxes for scenarios in which it is assumed that some or all of these external costs will be paid by drivers.
+  * **Road system costs**; This includes costs for roadway expansion, other modernization projects, preservation, operations, maintenance and administration. These costs were developed for the STS to compare with total vehicle use taxes (e.g. gas, mileage, congestion) to determine whether sufficient revenues were generated to cover costs.
+  * **Parking pricing** is a trip-based cost, commonly paid for at one or both ends of a trip, and sometimes paid for on a monthly basis. The standard practice for handling parking pricing in urban travel demand models is to include it in the trip costs for auto travel. GreenSTEP handles parking pricing in a more general way within a household budget framework, where overall travel costs impact a household’s daily VMT. Two types of parking costs are addressed in the model - parking costs at places of employment and parking costs at other places. Daily parking costs are calculated for each household and added in with other variable costs.  This includes fees for parking at workplace (including cash-out policies) and for non-work trips.
+  * **Pay-as-you-drive (PAYD) insurance** is automobile insurance that is paid strictly on a mileage traveled basis, rather than on a lump-sum periodic basis. On average, PAYD insurance does not change the amount that households pay for insurance. However, since the cost of PAYD to the motorist varies with the number of miles driven, there is an incentive to reduce travel to save money. It has been estimated that a PAYD insurance rate of 4 to 6 cents per mile, could reduce VMT from light vehicles by about 3.8%.  In RSPM the estimated effect of PAYD insurance will depend on what other travel costs are being paid as well, influencing the VMT estimated based on travel costs relative to the household budget. RSPM requires input on the proportion of households in the full Metropolitan area buying car insurance using PAYD (payd.csv).  A cost of 5 cents per mile (2005$) of PAYD insurance is used, a default value estimated through literature review and testing (payd.csv),* 
 
-5D built form measures
-: The five dimensions considered in designing efficient and sustainable cities include density, design, destination access, distance to transit, and diversity of the built environment. The five dimensions build upon the original 3Ds (density, diversity, and design) advanced by [Cervero & Kockelman (1997)](https://www.sciencedirect.com/science/article/pii/S1361920997000096). These measures are calculated in the `Calculate4DMeasures` module during household synthesis.
+ ## ITS/Operations programs
 
+ITS impact is modeled within RSPM, through speed reductions from basic and enhanced traffic operations, and active management of speed smoothing operational programs. Average speed on roadways in RSPM, is calculated as a function of congestion level and the type and amount of deployment of traffic operations programs. An average speed is associated with each roadway functional class (freeway or arterial) and congestion level. Those speeds are modified depending on the cumulative effect of user-specified deployment of the following traffic operations programs:
+  *  Freeway ramp metering - Metering freeways can reduce delay by keeping mainline vehicle density below unstable levels. It creates delay for vehicles entering the freeway, but this is typically more than offset by the higher speeds and postponed congestion on the freeway facility. The Urban Mobility Report cites a delay reduction of 0 to 12%, with an average of 3%, for 25 U.S. urban areas with ramp metering.  Only urban areas with Heavy, Severe, and Extreme freeway congestion can benefit from ramp metering in RSPM
+  *  Freeway incident management - Incident Response programs are designed to quickly detect and remove incidents which impede traffic flow. The UMR study  reports incident-related freeway delay reductions of 0 to 40%, with an average of 8%, for the 79 U.S. urban areas with incident response programs. This reflects the combined effects of both service patrols to address the incidents and surveillance cameras to detect the incidents. Effects were seen in all sizes of urban area, though the impacts were greater in larger cities. 
+  *  Arterial access management– Access management on arterials can increase speeds by reducing the number of enter/exit points on the arterial and reduce crashes by reducing conflict points. Although improvements such as raised medians can reduce throughput by causing turning queue spillback during heavy congestion, other types of access management, such as reduced business ingress/egress points, show consistent benefits system-wide.
+  *  Arterial signal coordination – Traffic signal coordination, particularly for adaptive traffic signals, can reduce arterial delay by increasing throughput in peak flow directions. UMR and other analysis estimates delay reductions of up to 6-9% due to signal coordination, with more potential savings from more sophisticated control systems. An average arterial delay savings was found to be about 1%.
+  *  Enhanced ITS/Speed Smoothing programs– Insufficient aggregate performance data is available for a number of other current and future ITS/operations strategies.  These include: speed limit reductions, speed enforcement, and variable speed  limits that reduce the amount of high-speed freeway travel; advanced signal optimization techniques that reduce stops and starts on arterials;  and truck/bus-only lanes that can move high-emitting vehicles through congested areas at improved efficiency.
+  *  Other Ops programs – Ability within VE allows flexibility within the model to accommodate future enhancements (other_ops.csv, other_ops_effectiveness.csv).  Further research and significant program investment would be needed to justify benefits in these enhanced ITS programs.
 
-access time
-: The time required to get from the origin to the vehicle (or in the case of [CarService](#car-service), the time for the vehicle to get to the traveler) and the time to get from the vehicle to the destination (including time to park the vehicle). These values are defined for vehicles owned  by the household and for two levels of CarService (low and high availability levels) in each Bzone. These factors are defined in `azone_vehicle_access_times.csv` and used by the `CalculateVehicleOperatingCost` module in the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
+Inputs specifying the level of deployment of several roadway Intelligent Transportation System (ITS) programs, determine the area roadway speeds which influence fuel efficiency.   
 
-age group
-: VisionEval uses the same age groups used in the U.S. Census0-14, 15-19, 20-29, 30-54, 55-64, and 65+ years old. The number of persons in each age group are defined for each synthetic household.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#8111-model-estimation-datasets)
+## Eco-Driving Practices (autos and trucks)
 
-auto operating cost
-: The out-of-pocket costs used to estimate the cost per mile of operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, pay-as-you-drive (PAYD) insurance costs, and road use cost or VMT taxes are included where coded for the household's enclosed Bzone. For car service use, the operating cost is the assumed fare per mile. The costs are calculated in the `CalculateHhVehicleOperatingCosts` module of the `VETravelPerformance` package.
-: [Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md)
+Eco-driving involves educating motorists on how to drive in order to reduce fuel consumption and cut emissions. Examples of eco-driving practices include avoiding rapid starts and stops, matching driving speeds to synchronized traffic signals, and avoiding idling. Practicing eco-driving also involves keeping vehicles maintained in a way that reduces fuel consumption such as keeping tires properly inflated and reducing aerodynamic drag. In RSPM, fuel economy benefits of improved vehicle maintenance are included in the eco-driving benefit. A default 19% improvement in vehicle fuel economy is assumed 
+Vehicle operations and maintenance programs (e.g. eco-driving) based on policy assumptions about the degree of deployment of those programs and the household characteristics.  Vehicle operating programs (eco-driving) reduces emissions per VMT
 
-auto ownership costs
-: The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include depreciation, financing, insurance, etc. They also include any residential parking cost the household may have.  
-: Auto ownership is adjusted when the per-mile cost of owning a car is higher than car service (mobility services) when the latter has high availability. This adjustment is made in the `AdjustVehicleOwnership` module.
-: [Additional details on auto ownership](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost) and [auto ownership adjustments](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership)
+The fuel economy of all household vehicles of participating households is increased by a factor representing the average fuel economy gains of persons who are trained in eco-driving techniques. 
+An RSPM input (speed_smooth_ecodrive.csv) specifies the proportion of light duty vehicle drivers who exhibit eco-driving habits.  The same file makes similar assumptions on the proportion of other (commercial,heavy truck) drivers who are eco-drivers.  
 
-auto sufficiency
-Auto sufficiency is achieved when the number of vehicles available to a household is equal to or greater than the number of licensed drivers in a household. A household in "auto insufficient" when that is not true. Zero-auto households are cases where the household has access to a vehicle. In the age of ubiquitous mobility services this definition may become less important in describing mobility options open to the household.
+## Transportation Options Programs
 
-bus-equivalent-miles
-The total bus revenue miles for a transit system are divided by the assumed transit vehicle type capacities to arrive at bus-equivalent miles of service. 
-The total bus revenue miles for a transit system are divided by the population of the enclosing Marea(s) to compute per capita bus-equivalent miles.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
+In RSPM, each household is assigned as a participant or not in a number of travel demand management programs (e.g. employee commute options program, individualized marketing) based on policy assumptions about the degree of deployment of those programs and the household characteristics.   Individual households are also identified as candidate participants for car sharing programs based on their household characteristics and input assumptions on the market penetration of car sharing vehicles.  
 
-carbon intensity
-A emissions measure in grams of carbon dioxide equivalents per megajoule of energy. VisionEval uses a "well-to-wheels" estimate that takes into account not only the emissions resulting from the use of the fuel ("tank-to-wheels" measures) but also the carbon emissions required to produce and transport the fuel it where it is purchased by consumers. Default values are estimated from various sources in VisionEval. The user can specify different values. These values are used in several places in the `VEPowertrainsAndFuels` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#8-vepowertrainsandfuels-package)
+## Workplace TDM Programs
 
-carbon price
-A carbon price in dollars per ton is used to estimate part of the <span style="color:green">social cost</span> of emissions in the `CalculateVehicleOperatingCost` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
+Level of deployment assumptions for TDM (at work and home locations) lead to reduced VMT, diverting travel to other modes.  Car Sharing reduces VMT through changes in auto ownership and per mile costs. 
+Employee commute options (ECO) programs are work-based travel demand management programs. They may include transportation coordinators, employer-subsidized transit passes, bicycle parking, showers for bicycle commuters, education and promotion, carpool and vanpool programs, etc. The default assumption is that that ECO programs reduce the average commute DVMT of participating households by 5.4%.  It is assumed that all work travel of the household will be reduced by this percentage if any working age persons are identified as ECO participants
+The proportion of employees participating in ECO programs is a policy input at the district level (prop_wrk_eco.csv).  The input assumes workers participate in a strong employee commute options programs (e.g., free transit pass, emergency ride home, bike rider facilities, etc.).  
 
-CarService
-This is a synonym for popular ride-sharing services provided by mobility-as-a-service (MaaS) companies. They are also more commonly referred to as mobility services.
+## Individualized Marketing Program 
 
-cash-out/buy-back program
-Parking cash-out schemes are an employee benefit that enables them to accept taxable cash income in lieu of paid or subsidized parking at the workplace. The cash-out is sometimes combined with discounted transit passes in some places. It is used as an inducement to reduce commuting by auto, especially in single-occupant vehicles.
-FHWA has an [excellent primer on the topic](https://ops.fhwa.dot.gov/publications/fhwahop12026/sec_4.htm), while many consider Donald Shoup's [online book](http://shoup.bol.ucla.edu/Parking%20Cash%20Out%20Report.pdf) a definitive resource on the topic.
+Individualized marketing (IM) programs are travel demand management programs focused on individual households in select neighborhoods. IM programs involve individualized outreach to households that identify residents’ travel needs and ways to meet those needs with less vehicle travel. Customized to the neighborhood, IM programs work best in locations where a number of travel options are available. RSM assumes that households participating in an IM program reduce their DVMT by 9% based on studies done in the Portland area. IM programs target work as well as non-work travel and produce larger reductions than ECO work-based programs. Only the IM reduction is used for households that are identified as participating in both ECO and IM programs.
 
-Census PUMS
-The Public Use Microsample (PUMS) data are anonymized long form responses from the American Community Survey (ACS) that enable custom tabulations, summaries, and visualizations. The PUMS were formerly associated with each dicennial Census of Households and Population. The samples are anonymized by assigning each to a Public Use Microdata Area (PUMA) of 100,000 or more households. Several multi-dimensional summaries used in model estimation are gleaned from the PUMS that cannot be obtained from other Census data. Data indexed along these multiple dimensions permit the PUMS data to be fused with travel survey data and to create synthetic populations.
-ACS PUMS data from 2005-19 in annual increments can be accessed from the [PUMS website](https://www.census.gov/programs-surveys/acs/microdata.html). Data from 1996-2004 can be [accessed separately](https://www2.census.gov/programs-surveys/acs/data/pums/).
+RSPM district-level inputs for IM programs (imp_prop_goal.csv) include an overall assumption for the percentage of households participating in an IM program.  A minimum population density of 4,000 persons per square mile necessary to implement a successful IM program and the requirement that the household reside an urban mixed-use district. The number of households identified as participating is the minimum of the number needed to meet the program goal or the number of qualifying households.
 
-commercial service
-The use of vehicles by firms and government agencies for non-personal travel other than the delivery of freight. (e.g., parcel delivery, business meetings, sales calls). Both automobiles and light trucks can be used for commercial services, and are defined both in terms of <span style="color:green">powertrain</span> and fuel type (gasoline, diesel, or compressed natural gas).
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues)
+## Vehicle/Fuels Technology Inputs 
 
-congestion fee
-The average amount paid per mile in congestion pricing fee. This is an input to the `CalculateRoadPerformance` module in the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module)
+Vehicle and Fuel Technology are expected to change significantly during the next 20-50 years as vehicles turn-over and the newer fleets are purchased.  The characteristics of the fleet of new cars and trucks are influenced by federal CAFÉ standards as well as state energy policies and promotions.  Local areas can contribute through decisions about the light-duty fleet used by local transit agencies and by assisting in deployment of electric vehicle charging stations and their costs in work and home locations, but otherwise have less influence on the characteristics of the future vehicle fleet, including auto, light truck, and heavy truck vehicles.   As a consequence, the RSPM inputs on vehicle and fuel technology are largely specified at the state level.  These include inputs that reflect the default assumptions included in the Metropolitan GHG target rules and a more aggressive future as specified in the Oregon Statewide Transportation Strategy.  These will both be available to provide sensitivity test to assess their impact on energy use and GHG emissions in the metropolitan area.
 
-congestion level
-Five levels of congestion -- none, moderate, heavy, severe, and extreme -- are estimated within each Marea by comparing [relative roadway supply] with the aggregate level of daily VMT (demand). Lookup tables are then used to estimate average speeds and delay for freeways and arterials. The effects of four standard operations programs (freeway ramp metering and incident management, arterial signal progression and access control) and optional user-defined programs are included in the calculations. The calculations are carried out in the `CalculateRoadPerformance` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module)
+The key local contribution to these inputs is the bus electric/fuels inputs; although defaults can be used if no additional local data is available. These variables are briefly summarized below.
 
-dwelling unit type
-Each household inhabits a dwelling unit that is either a single-family dwelling, a multi-family dwelling, or group quarters.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation)
+## Vehicle age, fuel economy, and congestion 
 
-EcoDrive
-A term used to describe energy efficient use of vehicles in order to reduce fuel consumption and emissions. Primarily a [European pursuit](https://www.ecodrive.org), EcoDriving involves changes to vehicular technology, vehicle navigation and automation systems, and driving techniques. Factors expressing the degree of EcoDriving adoption are applied in the `CalculateMpgMpkwhAdjustments` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#96-adjusthhvehiclempgmpkwh-module)
+Several input files specify vehicle attributes and fuel economy for autos, light trucks, heavy truck, and transit vehicles.  Four vehicle powertrain types are modeled : 
 
-employee commute options program
-A voluntary employer-based program aimed at reducing solo commutes by automobile using strategies and incentive tailored towards each specific organization. Strategies range from providing information and management encouragement to use alternative modes of transportation to cash incentives. Cash-out/buy-in programs are one example of the latter.
-A massDOT [guidebook](https://www.mass.gov/doc/guidebook/download) provides extensive information about such programs. 
-In some states such programs are mandatory for large employers. Information on Oregon's [Employee Commute Options](https://www.oregon.gov/deq/aq/programs/pages/eco.aspx) program includes information about conducting employee surveys to demonstrate progress towards commuting trip reduction targets.
+  -  **ICE** - Internal Combustion Engines  having no electrical assist;
+  -  **HEV** - Hybrid-Electric Vehicles  where all motive power is generated on-board;
+  -  **PHEV** - Plug-in Hybrid Electric Vehicles where some motive power comes from arging an on-board battery from external power supplies;
+  -  **EV** - Electric Vehicles where all motive power comes from charging an on-board battery from external power supplies.
 
-employment type
-Zonal employment estimates in VisionEval are made for retail, service, and total employment categories. The delineation of retail and service employment is typically by the [two-digit sectors](https://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2017) in the [North American Industrial Classification System](https://www.census.gov/eos/www/naics/) (NAICS). The NAICS system is widely used in most governmental reporting systems.  
+Household owned vehicles -- sales mix; %LtTrks & veh age from household and the regional trends for its area.  These combine with sales mix (powertain mix). Each Powertrain in each year has an associated fuel efficiency and power efficiency assumptions for PHEVs (MPG for PHEVs in charge-sustaining mode). For EVs and PHEVs, battery range is specified.  
+All other vehicles -- skip sales and jump directly to the mix of vehicles on the road in the modeled year, adjusted by inputs. 
 
-EV surcharge
-Some states impose a tax on electric vehicles beyond sales tax and vehicle registration fees to make up for the shortfall in gasoline sales tax revenue they might otherwise contribute towards the costs of roadway infrastructure. The methods and rates [vary considerably](https://www.wsj.com/articles/more-states-charge-fees-for-electric-vehicles-11585400401), with some EV owners paying more in sales tax and EV surcharges than most owners of conventional autos. The EV surcharge can be accounted for in the `CalculateVehicleOperatingCosts` module in the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
+User inputs on vehicle age adjustment factors by vehicle type and year. The purpose of this input is to allow scenarios to be developed which test faster or slower turn-over of the vehicle fleet
+Households and commercial fleets operate a mix of passenger autos and light trucks or SUVs.  This mix has an impact on fuel economy.  In RSPM a file contains base year and target values for the proportion of the passenger vehicle fleet that is light trucks for each Metropolitan division (`lttruck_prop.csv`), 
 
-freeway lane-miles
-The sum of the number of lanes multiplied by the length of each freeway segment within a metropolitan area (Marea). The lane-miles of arterials are calculated separated (see <span style="color:green">roadway lane-miles</span>). Both are created in the `AssignRoadMiles` module of the `VETransportSupply` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module)
+***NOTE***: the actual EV-HEV split depends on whether enough households have their 95Th percentile daily travel within the EV battery range 
 
-freight vehicle groups
-_see_ vehicle groups
+## Vehicle Fuel Technology
 
-fuel efficiency
-VisionEval does not simulate driving cycles so uses measures of relative fuel efficiency derived from the USEPA's Physical Emission Rate Estimator (PERE) for different vehicle <span style="color:green">powertrains</span> during congested conditions. The user-supplied values in `congestion_efficiency.csv` define the congestion performance of each powertrain relative to best (1.0) and worst (0.0) values. The data are used in the `LoadDefaultValues` module in the `VEPowertrainsAndFuels` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues)
+A second set of inputs specifies the attributes of the fuels and their contributions to GHG emissions (fuel_co2.csv).  This file contains information on lifecycle CO2 equivalent emissions by fuel type in grams per mega joule of fuel energy content. Fuel types are ultra-low sulfur diesel (ULSD), Biodiesel, reformulated gasoline (RFG), CARBOB (California Reformulated Gasoline Blendstock for Oxygenate Blending), Ethanol, compressed natural gas (CNG), LtVehComposite. The latter category is a blend of the carbon values of all of the fuel types relative to the proportions in which they were used in 1990. This allows the model to be more easily run to simulate lower carbon content of fuels without having to specify the relative proportions of each specific fuel type.   The additives in fuel sold that contribute to GHG emissions.  These include the average ethanol proportion in gasoline and biodiesel proportion in diesel (auto_lighttruck_fuel.csv, comm_service_fuel.csv, heavy_truck_fuel.csv). 
 
-fuel-speed curves
-A set of exogenously calculated adjustments to the average fuel economy of vehicles as a function of the vehicle type (light-duty or heavy-duty), <span style="color:green">powertrain</span>, and <span style="color:green">roadway type</span>. The curves and their derivation are described by [Bigazzi & Clifton (2011)](https://pdxscholar.library.pdx.edu/cengin_fac/342/).
+Fuel Mix Shares (the remaining share is assumed to be diesel fuel):
+  * PropGas – The proportion of bus miles using gasoline
+  * PropCng – The proportion of bus miles using compressed natural gas
 
-growth basis
-The growth in commercial and heavy truck travel over time increase at the same rate as the population does, as firms and establishments are not explicitly modeled in VisionEval. Future year daily VMT is calculated as a function of population or income from heavy trucks or population, income, or household daily VMT for commercial service.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#93-calculateroaddvmt-module)
+Biofuel Additives:
+  * DieselPropBio – The biodiesel proportion of diesel fuel used
+  * GasPropEth – The ethanol proportion of gasoline used
 
-heavy truck
-A single class of heavy trucks are used to represent all commercial vehicles larger than the light duty trucks included in the <span style="color:green">commercial service</span> vehicles. The same vehicle operating and emissions parameters specified for other <span style="color:green">vehicle groups</span> are defined for heavy trucks, and their impacts are calculated in several VisionEval packages.
+Electric Emissions Rate (Co2e lbs/ kwhr) of electricity consumed
 
-individualized marketing programs
-Education and public outreach efforts designed to encourage voluntary travel behavior changes. Rather than using broad messages for the entire population this approaches targets specific groups of travelers with information more relevant to them.
-A [concise fact sheet](https://www.oregon.gov/ODOT/Planning/Documents/Mosaic-Individualized-Marketing-Programs.pdf) describes its implementation in Oregon. [Dill & Mohr (2010)](https://trec.pdx.edu/research/project/160/Long_term_evaluation_of_individualized_marketing_programs_for_travel_demand_management) investigate the long-term effectiveness of such programs.
-
-intelligent transportation systems (ITS)
-Systems that integrate information, communications, and advanced vehicular technologies into transportation infrastructure, maintenance, and operations programs to improve mobility and safety. ITS programs are typically centrally controlled by transportation agencies rather than individually autonomous solutions like personal navigation systems. Examples of ITS systems include traveler information systems (e.g., 511 systems, variable message signs), adaptive traffic signal systems, ramp metering, and electronic toll collection.
-
-ITS
-_see_ intelligent transportation systems
-
-lambda parameter
-The assumed split of light-duty household and <span style="color:green">commercial service</span> vehicles between freeways and arterials is calculated dynamically as the ratio of the respective average travel speeds and an urbanized area specific factor (lambda). The latter adjusts the raw ratio of speeds to match observed percentages using data from 90 urbanized areas. The calculation is carried out in the `CalculateRoadPerformance` module.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module)
-
-lifecycle
-A label used to describe the stage of life that a household's members are at. This is guessed at in VisionEval as a function of the number of adults, children, and workers in the household. This is assigned in the `AssignLifeCycle` module. It assumes one of 10 values defined in the [2009 NHTS LIF_CYC variable](https://nhts.ornl.gov/tables09/CodebookPage.aspx?id=1239)
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation)
-
-location type
-Each household is classified by whether its enclosing Bzone is located in an urban, town, or rural area. The `location_type` variable is defined for each Bzone.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model)
-
-metropolitan area (Marea) 
-A select set of Azones that are used in VisionEval to define a common metropolitan area (Marea). Separate VisionEval functions are often applied for metropolitan areas, making use of information on road, transit, and urban mixed used variables only present in the urbanized portion of the metropolitan area. Metropolitan areas in VisionEval are typically equivalent to Census urbanized areas.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model)
-
-mixed use
-_see_ urban mixed-use
-
-National Household Travel Survey (NHTS)
-The NHTS collects household and traveler information and travel diaries from a random sample of U.S. households. The 2017 survey collected data from 26,000 households selected nationwide and an additional 103,112 additional "add-on" samples purchased by nine states and four regional and metropolitan planning agencies. The information collected is comparable to the data collected in bespoke household travel surveys. The latest year for which NHTS data are available is 2017, with seven prior surveys dating to 1969 conducted before it.
-Publicly available data are available with reduced geographic detail (i.e., households only coded to state and place size ranges) for [2017](https://nhts.ornl.gov/) and [prior years](https://nhts.ornl.gov/download.shtml). VisionEval was developed using the public use NHTS data from 2001, while the Multimodal Travel package was developed using confidential 2009 NHTS data.
-
-NHTS
-_see_ National Household Travel Survey
-
-Non-institutional group quarters
-Persons living in non-institutional group dwellings (e.g., college dormitories, halfway houses). Persons living in institutional group dwellings are not included in VisionEval, and include hospital patients, prison inmates, and military barracks.
-
-out-of-pocket cost
-The variable costs of automobile usage are considered out-of-pocket costs. They are often considered the perceived cost of using automobiles. In VisionEval they include the cost of fuel and parking or the cost of using <span style="color:green">CarService</span>. The out-of-pockets are a subset of the <span style="color:green">auto operating costs</span>. 
-
-parking fee
-Parking fees are a subset of <span style="color:green">parking restrictions</span>. Parking fees can be paid for residential, workplace, or other destinations. 
-
-parking restrictions
-Parking restrictions and fees affect households at their places of residence and work, as well as other places they travel to within the modeled area. This information is coded at the Bzone level and typically includes the average number of free parking spaces by dwelling unit type (single family, multi-family, and group quarters), the average daily parking cost, and proportion of workers who pay for parking or participate in a cash out-buy back program.
-Parking restrictions are used for Azones that are members of a defined metropolitan area (Marea) within the model.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md)
-
-Pay-as-you-drive (PAYD)
-An insurance program, also known as usage-based insurance, whose premiums are based on actual usage of the insured vehicle as well as how well you drive. It is viewed by some as the emerging standard in insurance. Using a PAYD assumption in VisionEval enables the analyst to more precisely calculate [auto ownership cost](#auto-ownership-cost) based on household daily VMT estimates. The proportion of households using PAYD are included in the calculations carried out by the `CalculateVehicleOwnCost` module.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost)
-
-Passenger car equivalents (PCE)
-A factor that indicates the number of light-duty vehicles that a <span style="color:green">heavy truck</span> is equivalent to in terms of vehicle length and lane usage when calculating <span style="color:green">roadway capacity</span>. It is used in the `BalanceRoadCostsAndRevenues` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module)
-
-powertrain
-VisionEval uses detailed operating and emissions characteristics from several different types of vehicular powertrains, enabling scenarios to be quickly assembled with different assumptions about their mix in future years. Four powertrain types are presently defined in VisionEvalinternal combustion engines (ICE), hybrid electric vehicles (HEV), plug-in hybrid electric vehicles (PHEV), and battery electric vehicles (BEV). The powertrain is assigned to each household vehicle in the `AssignHhVehiclePowertrain` module.
-
-regular households
-Related and unrelated persons living in the same dwelling unit, but not including persons living in non-institutional group quarters
-
-relative roadway supply
-A synthetic measure that divides the total arterial and freeway lane-miles (i.e., the sum of the length in miles times the number of lanes for each distinct roadway segment) by the sum of the estimated trip lengths for all households. This calculation is carried out for each Marea and year. Thus, it is a measure that only applies in metropolitan areas defined in the model. This value is calculated in the `AssignRoadMiles` module and is used in several other modules.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md) 
-
-road class
-The vehicle miles of travel (VMT) calculated for households, <span style="color:green">commercial service</span>, and <span style="color:green">heavy trucks</span> is split between three classes of roadways -- freeways, arterials, and other roadways -- in the `LoadDefaultRoadDvmtValues` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#91-loaddefaultroaddvmtvalues)
-
-road costs
-VisionEval calculates an average mileage tax for household vehicles needed to make up any differences in the cost of constructing, maintaining, and operating roadways from the revenues from fuel taxes and pricing schemes (e.g., VMT taxes, congestion taxes). The latter are calculated based on assumptions about fuel consumption (a function of total daily VMT) and fuel efficiency, although this information can be both an input (default) and optional calculation with user-supplied data. While VisionEval adds this to the <span style="color:green">auto operating costs</span> of households it is important to note that such costs might not be passed on by governments in future years as assumed by VisionEval. The road costs and revenues are reconciled in the `BalanceRoadCostsAndRevenue` module in the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module)
-
-road lane-miles
-The sum of the number of lanes multiplied by the length of each arterial roadway segment within a metropolitan area (Marea). The lane-miles of freeways are calculated separated (see <span style="color:green">freeway lane-miles</span>. Both are created in the `AssignRoadMiles` module of the `VETransportSupply` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module)
-
-road use taxes
-_see_ road costs
-
-short-trip SOV diversion
-The `DivertSovTravel` module reduces travel in single-occupant vehicles (SOVs) to account for assumed availability of solo travel alternatives such as bicycles (traditional and electric) and scooters. The user inputs a goal for diverting a proportion of SOV travel within a 20-mile round-trip distance (i.e., for trips longer than 10 miles in one direction). 
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md)
-
-social costs
-Present and future generations bear costs due to the impact of transportation that are not fully recouped through <span style="color:green">auto operating costs</span> or <span style="color:green">auto ownership costs</span>, such as the costs of abating pollution, security and safety costs, and noise. VisionEval includes these costs in their full-cost accounting approach to calculating costs and benefits. The social cost parameters are defined as inputs to the `CalculateVehicleOperatingCost` module in the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
-
-speed smoothing
-A traffic management action or design that reduces the speed variation on freeways and arterials. 
-Note that the introduction of autonomous vehicles will likely achieve this effect even when they only constitute a quarter or more of all vehicles on the roadway ([Levin & Boyles 2015](https://doi.org/10.3141/2493-04), [Mahmassani 2016](https://doi.org/10.1287/trsc.2016.0712)). Thus, speed smoothing might become an important property of future traffic systems that analysts should include in future years even in spite of current local interest in such programs.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#95-calculatempgmpkwhadjustments-module)
-
-transit modes
-VisionEval includes eight transit modes, which are also called transit service modes in some places in the documentation. The eight modes include demand-responsive (DR), vanpool and similar (VP), standard motor bus (MB), bus rapid transit and commuter bus (RB), monorail or other automated guideway (MG), streetcar or trolley bus (SR), light or heavy rail (HR), and commuter rail (CR) services. The latter includes specialized CR services such as hybrid rail, cable cars, and aerial tramways.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
-
-transit service level
-User-supplied annual revenue miles of service for each of the eight <span style="color:green">transit modes</span> are translated into bus-equivalents, revenue miles, and ultimately, vehicle miles. The transit service levels are set in the `AssignTransitService` module in the `VETransportSupply` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
-
-transit service miles
-<span style="color:green">Bus-equivalent-miles</span> used to compute <span style="color:green">transit service levels</span> are summed to calculate transit miles by each <span style="color:green">transit mode</span>. The calculations are carried out in the `AssignTransitService` module in the `VETransportSupply` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
-
-transit vehicle type
-Different energy consumption and emissions characteristics are defined for vans, buses, and rail transit modes. 
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#911-calculateptranenergyandemissions-module)
-
-travel demand management (TDM)
-Policies and programs used to discourage travel in single-occupant vehicles in order to achieve safer and more efficient multimodal transportation systems. TDM encompasses a wide variety of initiatives, to include promotion of active transport, public transportation modes, car and bike sharing, and telecommuting. Adjustments in household VMT due to TDM actions are coded in the `BudgetHouseholdDvmt` module in the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#98-budgethouseholddvmt-module)
-
-urban mixed-use
-A mixed use development or neighborhood is one that includes residential and non-residential land uses in close proximity to one another, allowing for pedestrian access to many desired goods and services. Such places are walkable,"bikeable," and encourage a local economy and strong social connections. From a transportation perspective such places are distinguished by their high degree of accessibility using non-motorized modes (active transport).
-In VisionEval the proportion of each Bzone that falls into this category can either be specified by the user or calculated by the program. If the latter a random sampling from an asserted distribution is used to define whether a household is in a mixed-use area. The density of the enclosing Bzone weights the probability of a household being so classified (i.e., the higher the density the higher probability of being assigned to a mixed-use neighborhood). These calculations are carried on in the `CalculateUrbanMixMeasure` module of the `VEHouseholds` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#45-calculateurbanmixmeasure-module)
-
-urbanized area
-Collectively the "urban" <span style="color:green">location type</span> portion of the <span style="color:green">metropolitan area</span> (Marea) set of zones. The road, transit and <span style="color:green">urban mixed use</span> variables only cover this portion of the Marea, which is typically equivalent to a Census urbanized area. 
-
-value of time (VOT)
-The opportunity cost of the time that a person spends traveling rather than engaged in other activities. In theory it represents what the traveler would be willing to pay in order to reduce their time traveling. It is a surrogate for the value of travel times savings, which attempts to place a monetary value on the benefits of more efficient travel. While often an important parameter along with the equally influential value of reliability in pricing studies ([Kockelman et al. 2013](https://www.caee.utexas.edu/prof/kockelman/TransportationEconomics_Website/TranspEconReference.pdf), [Parsons Brinckerhoff et al. 2013](http://onlinepubs.trb.org/onlinepubs/shrp2/SHRP2prepubC04.pdf)) VOT is an average value in VisionEval. It is used in `TimeCost` calculations in the `CalculateVehicleOperatingCost` module. 
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
-
-vehicle age
-The age of each household vehicle is estimated as a function of vehicle type (auto or light truck), household income, and the assumed average vehicle age coded for each vehicle type and Azone. The vehicle age is assigned in the `AssignVehicleAge` module in the `VEHouseholdVehicles` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#65-assignvehicleage)
-
-vehicle groups
-Different groups of vehicles are used in VisionEval by different types of users. Automobiles and light trucks are used by households, car service, and commercial service, and are assigned in the `VEHouseholdVehicles` package. Heavy trucks are treated separately, and three types of vehicles -- vans, buses, and rail -- are used for transit.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#83-calculatecarbonintensity-module)
-
-vehicle hours of delay (VHD)
-An aggregate performance measure usually calculated by subtracting vehicle hours of travel under uncontested conditions from total vehicle hours of travel (VHT). Both measures are approximated for each <span style="color:green">metropolitan area</span> in VisionEval in the `CalculateRoadPerformance` module of the `VETravelPerformance` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module) 
-
-vehicle operating costs
-_see_ auto operating costs
-
-vehicle ownership costs
-_see_ auto ownership costs
-
-vehicle table
-A vehicle table is a list of every vehicle owned by a household in VisionEval. It includes the vehicle characteristics, household ID, and the Azone and Marea the household is allocated to. It is created in the `CreateVehicleTable` module in the `VEHouseholdVehicles` package.
-[Additional details](https://github.com/visioneval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#64-createvehicletable)
-
-vehicle type
-_see_ vehicle groups
-
+Since electricity generation varies across the state, a local input to the model is the average cost and GHG emission rates of the local area.  The average cost of electricity per kilowatt hour (kWh) in dollars across the metropolitan study area is included in the file costs.csv, while the emissions rate (in average pounds of CO2 equivalents generated per kilowatt hour of electricity consumed by the end user) by district and forecast year is found in a separate input file (power_co2.csv).  Statewide default values for these inputs are available, if no local source is obtained.

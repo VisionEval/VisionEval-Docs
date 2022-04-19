@@ -49,15 +49,17 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="conceptprimer.html"><span class="header-section-number">1</span> Concept Primer</a></li>
-<li><a class="" href="getting-started.html"><span class="header-section-number">2</span> Getting Started</a></li>
-<li><a class="" href="visioneval-models.html"><span class="header-section-number">3</span> VisionEval Models</a></li>
-<li><a class="" href="verspm.html"><span class="header-section-number">4</span> VERSPM Tutorial</a></li>
-<li><a class="" href="verpat-tutorial.html"><span class="header-section-number">5</span> VERPAT Tutorial</a></li>
-<li><a class="" href="vestate.html"><span class="header-section-number">6</span> VE-State Tutorial</a></li>
-<li><a class="" href="developer.html"><span class="header-section-number">7</span> Developer Documentation</a></li>
-<li><a class="" href="api-documentation.html"><span class="header-section-number">8</span> API Documentation</a></li>
-<li><a class="active" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></li>
+<li><a class="" href="definitions.html"><span class="header-section-number">3</span> Definitions</a></li>
+<li><a class="" href="visioneval-models.html"><span class="header-section-number">4</span> VisionEval Models</a></li>
+<li><a class="" href="tutorialbest-practices.html"><span class="header-section-number">5</span> Tutorial/Best Practices</a></li>
+<li><a class="" href="verspm-documentation.html"><span class="header-section-number">6</span> VERSPM Tutorial</a></li>
+<li><a class="" href="verpat-documentation.html"><span class="header-section-number">7</span> VERPAT Tutorial</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">8</span> VE-State Tutorial</a></li>
+<li><a class="" href="developer.html"><span class="header-section-number">9</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">10</span> API Documentation</a></li>
+<li><a class="active" href="ve-estimation.html"><span class="header-section-number">11</span> Estimation in VisionEval</a></li>
 </ul>
 
         <div class="book-extra">
@@ -378,9 +380,9 @@ This module contains the following step(s):</p>
 <p>This module applies the computed proportional reductions in household DVMT due to the application of travel demand management programs and the diversion of single-occupant vehicle travel to bicycles, electric bicycles, or other light-weight vehicles. It also computes added bike trips due to the diversion.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculatealtmodetrips-2" class="section level4" number="9.3.2.2">
+<div id="calculatealtmodetrips-1" class="section level4" number="9.3.2.2">
 <h4>
-<span class="header-section-number">9.3.2.2</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#calculatealtmodetrips-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.2.2</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#calculatealtmodetrips-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates household transit trips, walk trips, and bike trips. The models are sensitive to household DVMT so they are run after all household DVMT adjustments (e.g. to account for cost on household DVMT) are made.</p>
 <ul>
@@ -453,9 +455,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatehouseholddvmt-2" class="section level4" number="9.3.2.3">
+<div id="calculatehouseholddvmt-1" class="section level4" number="9.3.2.3">
 <h4>
-<span class="header-section-number">9.3.2.3</span> CalculateHouseholdDvmt<a class="anchor" aria-label="anchor" href="#calculatehouseholddvmt-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.2.3</span> CalculateHouseholdDvmt<a class="anchor" aria-label="anchor" href="#calculatehouseholddvmt-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module models household average daily vehicle miles traveled as a function of household characteristics, vehicle ownership, and attributes of the neighborhood and metropolitan area where the household resides</p>
 <ul>
@@ -508,9 +510,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatevehicletrips-2" class="section level4" number="9.3.2.4">
+<div id="calculatevehicletrips-1" class="section level4" number="9.3.2.4">
 <h4>
-<span class="header-section-number">9.3.2.4</span> CalculateVehicleTrips<a class="anchor" aria-label="anchor" href="#calculatevehicletrips-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.2.4</span> CalculateVehicleTrips<a class="anchor" aria-label="anchor" href="#calculatevehicletrips-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates average daily vehicle trips for households consistent with the household DVMT. An average trip length model is applied to estimate average length of household trips reflecting the characteristics of the household and the place where they live. The average trip length is divided into the average household DVMT to get an estimate of average number of daily vehicle trips.</p>
 <ul>
@@ -543,9 +545,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="divertsovtravel-2" class="section level4" number="9.3.2.5">
+<div id="divertsovtravel-1" class="section level4" number="9.3.2.5">
 <h4>
-<span class="header-section-number">9.3.2.5</span> DivertSovTravel<a class="anchor" aria-label="anchor" href="#divertsovtravel-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.2.5</span> DivertSovTravel<a class="anchor" aria-label="anchor" href="#divertsovtravel-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module reduces household single-occupant vehicle (SOV) travel to achieve goals that are inputs to the model. The purpose of this module is to enable users to do ‘what if’ analysis of the potential of light-weight vehicles (e.g. bicycles, electric bikes, electric scooters) and infrastructure to support their use to reduce SOV travel</p>
 <ul>
@@ -731,9 +733,9 @@ This module contains the following step(s):</p>
 </h3>
 <p>Vehicle ownership simulation package for VisionEval This package contains modules that work in the VisionEval framework to calculate vehicle ownership and to adjust ownership based on participation in carsharing programs
 This module contains the following step(s):</p>
-<div id="assigndrivers-2" class="section level4" number="9.3.3.1">
+<div id="assigndrivers-1" class="section level4" number="9.3.3.1">
 <h4>
-<span class="header-section-number">9.3.3.1</span> AssignDrivers<a class="anchor" aria-label="anchor" href="#assigndrivers-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.1</span> AssignDrivers<a class="anchor" aria-label="anchor" href="#assigndrivers-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns drivers by age group to each household as a function of the numbers of persons and workers by age group, the household income, land use characteristics, and public transit availability. Users may specify the relative driver licensing rate relative to the model estimation data year in order to account for observed or projected changes in licensing rates.</p>
 <ul>
@@ -766,9 +768,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="assignvehicleage-2" class="section level4" number="9.3.3.2">
+<div id="assignvehicleage-1" class="section level4" number="9.3.3.2">
 <h4>
-<span class="header-section-number">9.3.3.2</span> AssignVehicleAge<a class="anchor" aria-label="anchor" href="#assignvehicleage-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.2</span> AssignVehicleAge<a class="anchor" aria-label="anchor" href="#assignvehicleage-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns vehicle ages to each household vehicle. Vehicle age is assigned as a function of the vehicle type (auto or light truck), household income, and assumed mean vehicle age by vehicle type and Azone. Car service vehicles are assigned an age based on input assumptions with no distinction between vehicle type.</p>
 <ul>
@@ -792,9 +794,9 @@ VE2001NHTS::Veh_df</li>
 </li>
 </ul>
 </div>
-<div id="assignvehicleownership-2" class="section level4" number="9.3.3.3">
+<div id="assignvehicleownership-1" class="section level4" number="9.3.3.3">
 <h4>
-<span class="header-section-number">9.3.3.3</span> AssignVehicleOwnership<a class="anchor" aria-label="anchor" href="#assignvehicleownership-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.3</span> AssignVehicleOwnership<a class="anchor" aria-label="anchor" href="#assignvehicleownership-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module determines the number of vehicles owned or leased by each household as a function of household characteristics, land use characteristics, and transportation system characteristics.</p>
 <ul>
@@ -827,9 +829,9 @@ VE2001NHTS::Veh_df</li>
 </li>
 </ul>
 </div>
-<div id="assignvehicletype-2" class="section level4" number="9.3.3.4">
+<div id="assignvehicletype-1" class="section level4" number="9.3.3.4">
 <h4>
-<span class="header-section-number">9.3.3.4</span> AssignVehicleType<a class="anchor" aria-label="anchor" href="#assignvehicletype-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.4</span> AssignVehicleType<a class="anchor" aria-label="anchor" href="#assignvehicletype-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module identifies how many household vehicles are light trucks and how many are automobiles. Light trucks include pickup trucks, sport utility vehicles, vans, and any other vehicle not classified as a passenger car. Automobiles are vehicles classified as passenger cars.</p>
 <ul>
@@ -852,9 +854,9 @@ VE2001NHTS::Veh_df</li>
 </li>
 </ul>
 </div>
-<div id="calculatevehicleowncost-2" class="section level4" number="9.3.3.5">
+<div id="calculatevehicleowncost-1" class="section level4" number="9.3.3.5">
 <h4>
-<span class="header-section-number">9.3.3.5</span> CalculateVehicleOwnCost<a class="anchor" aria-label="anchor" href="#calculatevehicleowncost-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.5</span> CalculateVehicleOwnCost<a class="anchor" aria-label="anchor" href="#calculatevehicleowncost-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates average vehicle ownership cost for each vehicle based on the vehicle type and age using data from the American Automobile Association (AAA).</p>
 <ul>
@@ -879,16 +881,16 @@ VE2001NHTS::Veh_df</li>
 </li>
 </ul>
 </div>
-<div id="createvehicletable-2" class="section level4" number="9.3.3.6">
+<div id="createvehicletable-1" class="section level4" number="9.3.3.6">
 <h4>
-<span class="header-section-number">9.3.3.6</span> CreateVehicleTable<a class="anchor" aria-label="anchor" href="#createvehicletable-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.6</span> CreateVehicleTable<a class="anchor" aria-label="anchor" href="#createvehicletable-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module creates a vehicle table and populates it with household ID and geography fields.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="adjustvehicleownership-2" class="section level4" number="9.3.3.7">
+<div id="adjustvehicleownership-1" class="section level4" number="9.3.3.7">
 <h4>
-<span class="header-section-number">9.3.3.7</span> AdjustVehicleOwnership<a class="anchor" aria-label="anchor" href="#adjustvehicleownership-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.3.7</span> AdjustVehicleOwnership<a class="anchor" aria-label="anchor" href="#adjustvehicleownership-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module adjusts household vehicle ownership based on a comparison of the cost of owning a vehicle per mile of travel compared to the cost per mile of using a car service where the level of service is high. The determination of whether car services are substituted for ownership also depends on input assumptions regarding the average likelihood that an owner would substitute car services for a household vehicle.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
@@ -900,16 +902,16 @@ VE2001NHTS::Veh_df</li>
 </h3>
 <p>Land Use simulation package for VisionEval This package contains a number of modules that work in the VisionEval framework to calculate land use characteristics.
 This module contains the following step(s):</p>
-<div id="assigncarsvcavailability-2" class="section level4" number="9.3.4.1">
+<div id="assigncarsvcavailability-1" class="section level4" number="9.3.4.1">
 <h4>
-<span class="header-section-number">9.3.4.1</span> AssignCarSvcAvailability<a class="anchor" aria-label="anchor" href="#assigncarsvcavailability-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.1</span> AssignCarSvcAvailability<a class="anchor" aria-label="anchor" href="#assigncarsvcavailability-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module reads in user specified data and assigns car service availability in Bzones.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="assigndemandmanagement-2" class="section level4" number="9.3.4.2">
+<div id="assigndemandmanagement-1" class="section level4" number="9.3.4.2">
 <h4>
-<span class="header-section-number">9.3.4.2</span> AssignDemandManagement<a class="anchor" aria-label="anchor" href="#assigndemandmanagement-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.2</span> AssignDemandManagement<a class="anchor" aria-label="anchor" href="#assigndemandmanagement-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns demand management program participation to households and to workers.</p>
 <ul>
@@ -943,23 +945,23 @@ inst/extdata/tdm_parameters.csv</li>
 <p>This module assigns households to development types: Urban (located within an urbanized area boundary) and Rural (located outside of an urbanized area boundary).</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="assignloctypes-1" class="section level4" number="9.3.4.4">
+<div id="assignloctypes" class="section level4" number="9.3.4.4">
 <h4>
-<span class="header-section-number">9.3.4.4</span> AssignLocTypes<a class="anchor" aria-label="anchor" href="#assignloctypes-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.4</span> AssignLocTypes<a class="anchor" aria-label="anchor" href="#assignloctypes"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns households to location types: Urban (located within an urbanized area boundary), Town (located in a smaller urban area that does not have enough population to qualify as an urbanized area), and Rural (located in an area characterized by low density dispersed development).</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="assignparkingrestrictions-2" class="section level4" number="9.3.4.5">
+<div id="assignparkingrestrictions-1" class="section level4" number="9.3.4.5">
 <h4>
-<span class="header-section-number">9.3.4.5</span> AssignParkingRestrictions<a class="anchor" aria-label="anchor" href="#assignparkingrestrictions-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.5</span> AssignParkingRestrictions<a class="anchor" aria-label="anchor" href="#assignparkingrestrictions-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculate4dmeasures-1" class="section level4" number="9.3.4.6">
+<div id="calculate4dmeasures" class="section level4" number="9.3.4.6">
 <h4>
-<span class="header-section-number">9.3.4.6</span> Calculate4DMeasures<a class="anchor" aria-label="anchor" href="#calculate4dmeasures-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.6</span> Calculate4DMeasures<a class="anchor" aria-label="anchor" href="#calculate4dmeasures"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates several 4D measures by Bzone including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
@@ -991,16 +993,16 @@ inst/extdata/tdm_parameters.csv</li>
 </li>
 </ul>
 </div>
-<div id="locateemployment-1" class="section level4" number="9.3.4.8">
+<div id="locateemployment" class="section level4" number="9.3.4.8">
 <h4>
-<span class="header-section-number">9.3.4.8</span> LocateEmployment<a class="anchor" aria-label="anchor" href="#locateemployment-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.8</span> LocateEmployment<a class="anchor" aria-label="anchor" href="#locateemployment"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module places employment in Bzones based on input assumptions of employment by type and Bzone</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="predicthousing-1" class="section level4" number="9.3.4.9">
+<div id="predicthousing" class="section level4" number="9.3.4.9">
 <h4>
-<span class="header-section-number">9.3.4.9</span> PredictHousing<a class="anchor" aria-label="anchor" href="#predicthousing-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.4.9</span> PredictHousing<a class="anchor" aria-label="anchor" href="#predicthousing"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics.</p>
 <ul>
@@ -1082,9 +1084,9 @@ inst/extdata/tdm_parameters.csv</li>
 </h3>
 <p>VisionEval module for calculating energy consumption and emissions from transportation. Includes modules for inputting energy consumption characteristics of different vehicle technologies, carbon intensities of different fuels, functions for calculating energy consumption and emissions from household, commercial, and public transit travel.
 This module contains the following step(s):</p>
-<div id="assignhhvehiclepowertrain-2" class="section level4" number="9.3.5.1">
+<div id="assignhhvehiclepowertrain-1" class="section level4" number="9.3.5.1">
 <h4>
-<span class="header-section-number">9.3.5.1</span> AssignHhVehiclePowertrain<a class="anchor" aria-label="anchor" href="#assignhhvehiclepowertrain-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.5.1</span> AssignHhVehiclePowertrain<a class="anchor" aria-label="anchor" href="#assignhhvehiclepowertrain-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns a powertrain type to each household vehicle. The powertrain types are internal combustion engine vehicle (ICEV), hybrid electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), and battery electric vehicles (BEV). The module also assigns related characteristics to household vehicles</p>
 <ul>
@@ -1111,9 +1113,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatecarbonintensity-2" class="section level4" number="9.3.5.2">
+<div id="calculatecarbonintensity-1" class="section level4" number="9.3.5.2">
 <h4>
-<span class="header-section-number">9.3.5.2</span> CalculateCarbonIntensity<a class="anchor" aria-label="anchor" href="#calculatecarbonintensity-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.5.2</span> CalculateCarbonIntensity<a class="anchor" aria-label="anchor" href="#calculatecarbonintensity-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the average carbon intensity of fuels (grams CO2e per megajoule) by transportation mode and vehicle type.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
@@ -1157,16 +1159,16 @@ This module contains the following step(s):</p>
 </h3>
 <p>Household simulation package for VisionEval This package will contain a number of modules that work in the VisionEval framework to simulate households and their characteristics.
 This module contains the following step(s):</p>
-<div id="assignlifecycle-2" class="section level4" number="9.3.6.1">
+<div id="assignlifecycle-1" class="section level4" number="9.3.6.1">
 <h4>
-<span class="header-section-number">9.3.6.1</span> AssignLifeCycle<a class="anchor" aria-label="anchor" href="#assignlifecycle-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.6.1</span> AssignLifeCycle<a class="anchor" aria-label="anchor" href="#assignlifecycle-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns a life cycle category to each household. The life cycle categories are similar, but not the same as, those established for the NHTS. </p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="createhouseholds-3" class="section level4" number="9.3.6.2">
+<div id="createhouseholds-2" class="section level4" number="9.3.6.2">
 <h4>
-<span class="header-section-number">9.3.6.2</span> CreateHouseholds<a class="anchor" aria-label="anchor" href="#createhouseholds-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.6.2</span> CreateHouseholds<a class="anchor" aria-label="anchor" href="#createhouseholds-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module creates a Household table in the datastore and populates the table with datasets characterizing simulated households.</p>
 <ul>
@@ -1189,9 +1191,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="predictincome-3" class="section level4" number="9.3.6.3">
+<div id="predictincome-2" class="section level4" number="9.3.6.3">
 <h4>
-<span class="header-section-number">9.3.6.3</span> PredictIncome<a class="anchor" aria-label="anchor" href="#predictincome-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.6.3</span> PredictIncome<a class="anchor" aria-label="anchor" href="#predictincome-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module predicts the income for each simulated household given the number of workers in each age group and the average per capita income for the Azone where the household resides.</p>
 <ul>
@@ -1224,9 +1226,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="predictworkers-3" class="section level4" number="9.3.6.4">
+<div id="predictworkers-2" class="section level4" number="9.3.6.4">
 <h4>
-<span class="header-section-number">9.3.6.4</span> PredictWorkers<a class="anchor" aria-label="anchor" href="#predictworkers-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.6.4</span> PredictWorkers<a class="anchor" aria-label="anchor" href="#predictworkers-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns workers by age to households and to noninstitutional group quarters population. It is a simple model which predicts workers as a function of the age composition of household members.</p>
 <ul>
@@ -1256,16 +1258,16 @@ This module contains the following step(s):</p>
 </h3>
 <p>This module simulates various land use characteristics
 This module contains the following step(s):</p>
-<div id="assigncarsvcavailability-3" class="section level4" number="9.3.7.1">
+<div id="assigncarsvcavailability-2" class="section level4" number="9.3.7.1">
 <h4>
-<span class="header-section-number">9.3.7.1</span> AssignCarSvcAvailability<a class="anchor" aria-label="anchor" href="#assigncarsvcavailability-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.7.1</span> AssignCarSvcAvailability<a class="anchor" aria-label="anchor" href="#assigncarsvcavailability-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns car service availability levels (Low, High) to Bzones and households.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="assigndemandmanagement-3" class="section level4" number="9.3.7.2">
+<div id="assigndemandmanagement-2" class="section level4" number="9.3.7.2">
 <h4>
-<span class="header-section-number">9.3.7.2</span> AssignDemandManagement<a class="anchor" aria-label="anchor" href="#assigndemandmanagement-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.7.2</span> AssignDemandManagement<a class="anchor" aria-label="anchor" href="#assigndemandmanagement-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module assigns demand management program participation to households and to workers.</p>
 <ul>
@@ -1288,9 +1290,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="assignparkingrestrictions-3" class="section level4" number="9.3.7.3">
+<div id="assignparkingrestrictions-2" class="section level4" number="9.3.7.3">
 <h4>
-<span class="header-section-number">9.3.7.3</span> AssignParkingRestrictions<a class="anchor" aria-label="anchor" href="#assignparkingrestrictions-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.7.3</span> AssignParkingRestrictions<a class="anchor" aria-label="anchor" href="#assignparkingrestrictions-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area.</p>
 <ul>
@@ -1651,9 +1653,9 @@ This module contains the following step(s):</p>
 </h3>
 <p>This package contains a module for the VisionEval framework that simulates multi-modal travel demand for individual households
 This module contains the following step(s):</p>
-<div id="calculatealtmodetrips-3" class="section level4" number="9.3.13.1">
+<div id="calculatealtmodetrips-2" class="section level4" number="9.3.13.1">
 <h4>
-<span class="header-section-number">9.3.13.1</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#calculatealtmodetrips-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13.1</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#calculatealtmodetrips-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>Predicts transit, bike, walk PMT and trips</p>
 <ul>
@@ -1846,9 +1848,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatehouseholddvmt-3" class="section level4" number="9.3.13.2">
+<div id="calculatehouseholddvmt-2" class="section level4" number="9.3.13.2">
 <h4>
-<span class="header-section-number">9.3.13.2</span> CalculateHouseholdDvmt<a class="anchor" aria-label="anchor" href="#calculatehouseholddvmt-3"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.13.2</span> CalculateHouseholdDvmt<a class="anchor" aria-label="anchor" href="#calculatehouseholddvmt-2"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module predicts AADVMT for households. It uses the model object in data/AADVMTModel_df.rda and variables and coefficients therein to predict AADVMT.</p>
 <ul>
@@ -1958,9 +1960,9 @@ This module contains the following step(s):</p>
 </h3>
 <p>Travel performance metrics
 This module contains the following step(s):</p>
-<div id="adjusthhvehiclempgmpkwh-2" class="section level4" number="9.3.14.1">
+<div id="adjusthhvehiclempgmpkwh-1" class="section level4" number="9.3.14.1">
 <h4>
-<span class="header-section-number">9.3.14.1</span> AdjustHhVehicleMpgMpkwh<a class="anchor" aria-label="anchor" href="#adjusthhvehiclempgmpkwh-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.1</span> AdjustHhVehicleMpgMpkwh<a class="anchor" aria-label="anchor" href="#adjusthhvehiclempgmpkwh-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module adjusts the fuel economy (MPG) and power efficiency (MPKWH) of household vehicles to reflect the effects of congestion, speed smoothing, and eco-driving that are calculated by the CalculateMpgMpkwhAdjustments module.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
@@ -1972,9 +1974,9 @@ This module contains the following step(s):</p>
 <p>This module calculates an extra mileage tax ($ per vehicle mile traveled) for household vehicles needed to make up any difference in the cost of constructing, maintaining, and operating roadways and the revenues from fuel, VMT, and congestion taxes.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="budgethouseholddvmt-2" class="section level4" number="9.3.14.3">
+<div id="budgethouseholddvmt-1" class="section level4" number="9.3.14.3">
 <h4>
-<span class="header-section-number">9.3.14.3</span> BudgetHouseholdDvmt<a class="anchor" aria-label="anchor" href="#budgethouseholddvmt-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.3</span> BudgetHouseholdDvmt<a class="anchor" aria-label="anchor" href="#budgethouseholddvmt-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module adjusts average household DVMT to keep the quantity within the limit of the household vehicle operating cost budget. </p>
 <ul>
@@ -1997,16 +1999,16 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculatecomenergyandemissions-2" class="section level4" number="9.3.14.4">
+<div id="calculatecomenergyandemissions-1" class="section level4" number="9.3.14.4">
 <h4>
-<span class="header-section-number">9.3.14.4</span> CalculateComEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculatecomenergyandemissions-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.4</span> CalculateComEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculatecomenergyandemissions-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the energy consumption and carbon emissions of heavy trucks and light-duty commercial service vehicles. </p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculatempgmpkwhadjustments-2" class="section level4" number="9.3.14.5">
+<div id="calculatempgmpkwhadjustments-1" class="section level4" number="9.3.14.5">
 <h4>
-<span class="header-section-number">9.3.14.5</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#calculatempgmpkwhadjustments-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.5</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#calculatempgmpkwhadjustments-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates adjustments to fuel economy and electric energy efficiency (for plug-in vehicles) resulting from traffic congestion, speed smoothing (i.e. active traffic management which reduces speed variation), and eco-driving. Eco-driving is the practice of driving in ways that increase fuel economy and reduce carbon emissions.</p>
 <ul>
@@ -2039,9 +2041,9 @@ This module contains the following step(s):</p>
 </li>
 </ul>
 </div>
-<div id="calculateptranenergyandemissions-2" class="section level4" number="9.3.14.6">
+<div id="calculateptranenergyandemissions-1" class="section level4" number="9.3.14.6">
 <h4>
-<span class="header-section-number">9.3.14.6</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculateptranenergyandemissions-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.6</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#calculateptranenergyandemissions-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates the energy consumption and carbon emissions from public transportation vehicles in urbanized areas. Note that fuel consumption and emissions from car services (e.g. taxi, Uber, Lyft) are calculated in conjunction with the calculation of household vehicle emissions and are attributed to the household.</p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
@@ -2053,9 +2055,9 @@ This module contains the following step(s):</p>
 <p>module computes several factors used in computing roadway DVMT including factors for calculating commercial service vehicle travel and heavy truck travel. </p>
 <p>This module step has no estimated parameters or other model types derived from data.</p>
 </div>
-<div id="calculateroadperformance-2" class="section level4" number="9.3.14.8">
+<div id="calculateroadperformance-1" class="section level4" number="9.3.14.8">
 <h4>
-<span class="header-section-number">9.3.14.8</span> CalculateRoadPerformance<a class="anchor" aria-label="anchor" href="#calculateroadperformance-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3.14.8</span> CalculateRoadPerformance<a class="anchor" aria-label="anchor" href="#calculateroadperformance-1"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module calculates freeway and arterial congestion level and the amounts of DVMT by congestion level. It also calculates the average speed and delay at each congestion level. In addition, it splits light-duty vehicle (LDV) DVMT between freeways and arterials as a function of relative speeds and congestion prices</p>
 <ul>
@@ -3198,8 +3200,8 @@ saveTestResults(TestSetup_ls)
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/09-estimation.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/09-estimation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/11-estimation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/11-estimation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

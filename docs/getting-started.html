@@ -4,14 +4,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 2 Getting Started | VisionEval User Guide</title>
+<title>Chapter 1 Getting Started | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 2 Getting Started | VisionEval User Guide">
+<meta property="og:title" content="Chapter 1 Getting Started | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:image" content="/images/cover.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 2 Getting Started | VisionEval User Guide">
+<meta name="twitter:title" content="Chapter 1 Getting Started | VisionEval User Guide">
 <meta name="twitter:image" content="/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -23,9 +23,9 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
 <link rel="stylesheet" href="bs4_style.css">
-<meta name="description" content="2.1 Overview The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be...">
-<meta property="og:description" content="2.1 Overview The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be...">
-<meta name="twitter:description" content="2.1 Overview The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be...">
+<meta name="description" content="1.1 Overview The VisionEval strategic modeling system allows rapid evaluation of land use and transportation scenarios to support scenario planning, and to develop strategies to manage...">
+<meta property="og:description" content="1.1 Overview The VisionEval strategic modeling system allows rapid evaluation of land use and transportation scenarios to support scenario planning, and to develop strategies to manage...">
+<meta name="twitter:description" content="1.1 Overview The VisionEval strategic modeling system allows rapid evaluation of land use and transportation scenarios to support scenario planning, and to develop strategies to manage...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -49,15 +49,17 @@
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
         <ul class="book-toc list-unstyled">
 <li><a class="" href="index.html">Welcome</a></li>
-<li><a class="" href="conceptprimer.html"><span class="header-section-number">1</span> Concept Primer</a></li>
-<li><a class="active" href="getting-started.html"><span class="header-section-number">2</span> Getting Started</a></li>
-<li><a class="" href="visioneval-models.html"><span class="header-section-number">3</span> VisionEval Models</a></li>
-<li><a class="" href="verspm.html"><span class="header-section-number">4</span> VERSPM Tutorial</a></li>
-<li><a class="" href="verpat-tutorial.html"><span class="header-section-number">5</span> VERPAT Tutorial</a></li>
-<li><a class="" href="vestate.html"><span class="header-section-number">6</span> VE-State Tutorial</a></li>
-<li><a class="" href="developer.html"><span class="header-section-number">7</span> Developer Documentation</a></li>
-<li><a class="" href="api-documentation.html"><span class="header-section-number">8</span> API Documentation</a></li>
-<li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
+<li><a class="active" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></li>
+<li><a class="" href="definitions.html"><span class="header-section-number">3</span> Definitions</a></li>
+<li><a class="" href="visioneval-models.html"><span class="header-section-number">4</span> VisionEval Models</a></li>
+<li><a class="" href="tutorialbest-practices.html"><span class="header-section-number">5</span> Tutorial/Best Practices</a></li>
+<li><a class="" href="verspm-documentation.html"><span class="header-section-number">6</span> VERSPM Tutorial</a></li>
+<li><a class="" href="verpat-documentation.html"><span class="header-section-number">7</span> VERPAT Tutorial</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">8</span> VE-State Tutorial</a></li>
+<li><a class="" href="developer.html"><span class="header-section-number">9</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">10</span> API Documentation</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">11</span> Estimation in VisionEval</a></li>
 </ul>
 
         <div class="book-extra">
@@ -65,13 +67,458 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="getting-started" class="section level1" number="2">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="getting-started" class="section level1" number="1">
 <h1>
-<span class="header-section-number">2</span> Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1</span> Getting Started<a class="anchor" aria-label="anchor" href="#getting-started"><i class="fas fa-link"></i></a>
 </h1>
-<div id="overview" class="section level2" number="2.1">
+<div id="overview" class="section level2" number="1.1">
 <h2>
-<span class="header-section-number">2.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview"><i class="fas fa-link"></i></a>
+</h2>
+<p>The VisionEval strategic modeling system allows rapid evaluation of land use and transportation
+scenarios to support scenario planning, and to develop strategies to manage transportation system
+performance.</p>
+<p>Configuring and running VisionEval scenarios is simpler and faster than using traditional travel
+demand models, and more flexible and detailed than using traditional spreadsheet sketch models.
+While VisionEval outputs are limited in spatial resolution, the system is very detailed in its
+analysis of demographics and behavioral responses to a variety of transportation policies and system
+improvements (captured in a broad range of computed performance metrics).</p>
+<p>More detailed information on how VisionEval works and what it can do is contained in the <strong><a href="https://github.com/VisionEval/VisionEval/wiki/VisionEval-Primer">Concepts
+Primer</a></strong>.</p>
+<p>The remainder of this document explains the mechanics of VisionEval: how to install it, and what to
+do with it after it is installed.</p>
+<ul>
+<li><a href="getting-started.html#overview">Overview</a></li>
+<li><a href="#installation">Installation and Setup</a></li>
+<li><a href="#workflow">Workflow</a></li>
+<li><a href="#editrun">Editing and Running Models</a></li>
+<li><a href="#results">Getting Results</a></li>
+</ul>
+</div>
+<div id="installation-and-setup" class="section level2" number="1.2">
+<h2>
+<span class="header-section-number">1.2</span> <a name="installation">Installation and Setup</a><a class="anchor" aria-label="anchor" href="#installation-and-setup"><i class="fas fa-link"></i></a>
+</h2>
+<p>VisionEval runs within the R Statistical Environment on any system for
+which R is available. There are two paths to installing VisionEval:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p><strong>Install from stand-alone Windows installer</strong>:</p>
+<ul>
+<li>
+<strong><a href="https://visioneval.org/category/download.html">Download a zipped folder</a></strong> from the VisionEval website for a specific version of R.</li>
+</ul>
+<p>This is the simplest way to quickly get VisionEval on your computer.
+You will first need to install</p>
+<ul>
+<li>
+<a href="https://cran.r-project.org">R, at least version 4.0.x</a>, and</li>
+<li>
+<a href="https://www.rstudio.com/products/rstudio/download/" title="Download RStudio">RStudio</a>
+(a widely-used platform-independent R Visual Environment)</li>
+</ul>
+</li>
+</ol>
+<p><br><br></p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Copy, clone or ‘fork’ the system code repository</strong></li>
+</ol>
+<ul>
+<li>
+<p>If you area a Mac/Linux user, or if you are interested in contributing to the development of VisionEval modules, models, framework, or visualizer,
+choose this path.</p>
+<p>The current release is hosted at <a href="https://VisionEval/VisionEval">VisionEval on **Github</a>**. Development releases are
+available at <a href="https://VisionEval/VisionEval-Dev">VisionEval-dev</a>. Once
+you have downloaded or cloned one of the VisionEval repositories,
+instructions for building a runtime are found in <code>build/Building.md</code>
+(or you can locate that file in the repository).</p>
+</li>
+</ul>
+<div id="install-for-windows" class="section level3" number="1.2.1">
+<h3>
+<span class="header-section-number">1.2.1</span> Install for Windows<a class="anchor" aria-label="anchor" href="#install-for-windows"><i class="fas fa-link"></i></a>
+</h3>
+<div id="pre-requisites" class="section level4" number="1.2.1.1">
+<h4>
+<span class="header-section-number">1.2.1.1</span> Pre-requisites<a class="anchor" aria-label="anchor" href="#pre-requisites"><i class="fas fa-link"></i></a>
+</h4>
+<p>You will need:</p>
+<ul>
+<li><a href="https://cran.r-project.org">R, at least version 4.0.x</a></li>
+<li><a href="https://www.rstudio.com/products/rstudio/download/" title="Download RStudio">RStudio</a></li>
+</ul>
+<p>Once you have R and RStudio installed, you can retrieve the VisionEval
+installer itself:</p>
+</div>
+<div id="installer" class="section level4" number="1.2.1.2">
+<h4>
+<span class="header-section-number">1.2.1.2</span> Installer<a class="anchor" aria-label="anchor" href="#installer"><i class="fas fa-link"></i></a>
+</h4>
+<p><strong><em><a href="https://github.com/VisionEval/VisionEval-Dev/releases">Get VisionEval Here</a></em></strong></p>
+<!-- Eventually: https://github.com/VisionEval/VisionEval/releases/download/v2.0.0/VE-installer-Windows-R4.0.3-latest.zip) -->
+<p><em>Note: 530 Mb download! Packaged for R 4.0.3</em></p>
+<p>The link above will download a .zip file containing the following:</p>
+<ul>
+<li>The VisionEval framework code</li>
+<li>Sample models including VE-RSPM, VE-RPAT, VE-State and VE-ScenarioViewer</li>
+<li>All necessary R packages</li>
+<li>Documentation (this Getting Started document)</li>
+</ul>
+<p><a href="https://github.com/VisionEval/VisionEval/releases/tag/v2.0.0">See this page</a> for eventually for other R versions
+(3.6.1 - 4.0.3) and other operating systems.</p>
+</div>
+<div id="completing-the-installation" class="section level4" number="1.2.1.3">
+<h4>
+<span class="header-section-number">1.2.1.3</span> Completing the Installation<a class="anchor" aria-label="anchor" href="#completing-the-installation"><i class="fas fa-link"></i></a>
+</h4>
+<p>After installing R 4.0.3 (or the version of R corresponding to the
+installer you are retrieving) and RStudio, unzip the VisionEval
+installer into an empty destination folder of your choice.</p>
+<p>To complete the installation and start VisionEval, do this: 1. navigate
+to the folder into which you unzipped the installer: 2. Double-click</p>
+<pre><code>**VisionEval.Rproj**</code></pre>
+<p>RStudio will start, and the VisionEval will load. You should see this
+message:</p>
+<pre><code>Loading VisionEval for R 4.0.3
+Welcome to VisionEval!</code></pre>
+<p>If the <code>VisionEval.Rproj</code> file does not open RStudio when you double-click it,
+you can start RStudio directly, then choose <code>File / Open Project...</code> and get
+to the same place. By default, RStudio remembers the project you last loaded,
+so having done that once you should get back to VisionEval each time you start
+RStudio (unless you work on a different project).</p>
+</div>
+<div id="starting-visioneval-manually" class="section level4" number="1.2.1.4">
+<h4>
+<span class="header-section-number">1.2.1.4</span> Starting VisionEval Manually<a name="changedir"></a><a class="anchor" aria-label="anchor" href="#starting-visioneval-manually"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you need to start VisionEval manually for some reason, just start
+RStudio (or even plain R), change into your installation folder using
+- RStudio’s <code>Session / Set Working Directory...</code> menu option, or
+- In plain R, the <code>File / Change dir...</code> menu option or <code>setwd</code> command.</p>
+<p>Then run this instruction to start VisionEval:</p>
+<pre><code>source("VisionEval.R")</code></pre>
+</div>
+</div>
+</div>
+<div id="workflow-of-visioneval" class="section level2" number="1.3">
+<h2>
+<span class="header-section-number">1.3</span> <a name="workflow">Workflow of VisionEval</a><a class="anchor" aria-label="anchor" href="#workflow-of-visioneval"><i class="fas fa-link"></i></a>
+</h2>
+<p>VisionEval models and the underlying software framework are written in
+the <a href="https://www.r-project.org">R programming language</a> for statistical
+computing and graphics. The purpose of the model system and framework is
+to enable models be created in a plug-and-play fashion from modules that
+are distributed as R packages. A simple R script is used to implement a
+model by initializing the model environment and then calling modules
+successively. Scenarios are then constructed through a set of files that
+provide variant model inputs for evaluation and comparison.</p>
+<p>To use VisionEval to evaluate scenarios, there are several elements that
+users need to set up:</p>
+<ol style="list-style-type: decimal">
+<li>
+<p>Select one of the <a href="https://github.com/VisionEval/VisionEval/wiki/VisionEval-Models">VisionEval
+models</a>,
+customizing it as needed:</p>
+<ul>
+<li>
+<strong><a href="https://github.com/VisionEval/VisionEval-Dev/blob/readme-dev/docs/tutorials/verspm/Main.md">VERSPM</a></strong>
+– Regional Strategic Planning Model</li>
+<li>
+<strong><a href="https://github.com/VisionEval/VisionEval/wiki/VERPAT-Tutorial-Overview">VERPAT</a></strong>
+– Rapid Policy Analysis Tool</li>
+<li>
+<strong><a href="https://github.com/VisionEval/VisionEval/wiki/VE-State-Status">VE-State</a></strong>
+– VisionEval State-Level Model</li>
+</ul>
+<p>Instructions and tutorials for configuring these models are
+presented in the <strong><a href="https://github.com/VisionEval/VisionEval/wiki">VisionEval
+Wiki</a></strong>, which is your
+entry point to a wealth of documentation on the VisionEval models.</p>
+<p>Tutorials for each model are available as well, refer to the <a href="https://visioneval.org/category/users.html">visioneval.org site</a> for details.</p>
+</li>
+<li>
+<p>Develop a <em>Base Scenario</em> for the region under analysis. The Base
+Scenario specifies:</p>
+<ul>
+<li>
+<strong>Model Geography</strong> (zone structure), reported as Marea
+(metropolitan area), AZones (county-sized), and BZones (census-tract-sized)</li>
+<li>
+<strong>Base and Future Years</strong> to be evaluated for each scenario
+(e.g. 2015 and 2040)</li>
+<li>
+<strong>Local Data Files</strong> describing Base Scenario conditions in the
+region (including both observed base year data, and estimates of
+future year conditions with no scenario policies applied)</li>
+</ul>
+</li>
+<li><p>Develop variant <em>Future Actions</em> and <em>Scenarios</em>, by adjusting
+specific input elements for the Future Years. The <a href="https://github.com/VisionEval/VisionEval/wiki/VERPAT-Tutorial-Multiple-Scenarios"><code>VEScenario</code>
+sub-system</a>
+(described for VERPAT, but available for any of the VisionEval
+models) contains functions to help build and run scenarios composed
+of combinations of future actions.</p></li>
+<li><p><a href="#editrun">Run the scenarios</a>, either manually, or using the
+<code>VEScenario</code> sub-system</p></li>
+<li><p><a href="#results">Extract the results</a> for summarization and further
+analysis in R or export tabular data files to other data analysis
+systems.</p></li>
+</ol>
+</div>
+<div id="editing-and-running-models" class="section level2" number="1.4">
+<h2>
+<span class="header-section-number">1.4</span> <a name="editrun">Editing and Running Models</a><a class="anchor" aria-label="anchor" href="#editing-and-running-models"><i class="fas fa-link"></i></a>
+</h2>
+<p>As described in the model tutorials <a href="https://github.com/VisionEval/VisionEval/wiki">on the
+Wiki</a>, a VisionEval
+Scenario contains the following components:</p>
+<ul>
+<li>The model intialization and description file, <code>run_model.R</code>
+</li>
+<li>Global parameters in the <code>/defs</code> folder</li>
+<li>Scenario Input data in the <code>/inputs</code> folder</li>
+</ul>
+<p>The <a href="https://github.com/VisionEval/VisionEval/wiki">documentation on the
+Wiki</a> for each model
+describes what needs to go into the input files and configuration
+options, which of the default scenario files you need to change for your
+model area, and where to obtain the data you need.</p>
+<div id="end-user-interface" class="section level3" number="1.4.1">
+<h3>
+<span class="header-section-number">1.4.1</span> End User Interface<a class="anchor" aria-label="anchor" href="#end-user-interface"><i class="fas fa-link"></i></a>
+</h3>
+<p>VisionEval includes simple R command-line instructions for running
+models and their outputs. Once you have received the
+<code>Welcome to VisionEval!</code> message, you can perform these operations from the R console (either in R or RStudio):</p>
+<p>To list the available models (including those you may create as
+described below, provided you put them in the standard place), do this:</p>
+<pre><code>  dir("models") </code></pre>
+<p>You’ll see a list of available models:</p>
+<pre><code>[1] "VE-State"         "VE-State-Staged"  "VERPAT"           "VERPAT_Scenarios"
+[5] "VERSPM"           "VERSPM_MM"        "VERSPM_Scenarios"</code></pre>
+<p>To open a model from that list, just do this (remember to save the
+result into an R variable, using the assignment operator <code>&lt;-</code> ):</p>
+<pre><code>  rspm &lt;- openModel("VERSPM")</code></pre>
+<p>The resulting R object <code>rspm</code> now lets you work with the VERSPM model
+and its sample scenario. You can customize the inputs to the VERSPM
+model (in the “models/VERSPM” directory), or you can use this command to
+copy the model and test scenario into a new model directory (which we
+are calling <code>MY-RSPM</code>):</p>
+<pre><code>  myrspm &lt;- rspm$copy("MY-RSPM") </code></pre>
+<p>After you run that, VisionEval will tell you the directory that contains
+the copy of the model and its test scenario (the exact directory will
+depend on your Windows user account and where you installed VisionEval):</p>
+<pre><code>"C:/Users/MyVisionEval/Documents/VisionEval/models/MY-RSPM"</code></pre>
+<p>You can run the sample scenario like this:</p>
+<pre><code>  myrspm$run()</code></pre>
+<p>The model will give you progress updates as it runs:</p>
+<pre><code>  Running model stage:
+  C:/Users/MyVisionEval/Documents/VisionEval/models/MY-RSPM
+  run_model.R: script entered
+  run_model.R: library visioneval loaded
+  [1] "2021-02-04 10:50:20 -- Initializing Model. This may take a while."
+  [1] "2021-02-04 10:50:41 -- Model successfully initialized."
+  run_model.R: initializeModel completed 
+  [1] "2021-02-04 10:50:41 -- Starting module 'CreateHouseholds' for year '2010'."
+  [1] "2021-02-04 10:50:44 -- Finish module 'CreateHouseholds' for year '2010'."
+  ...
+  [... More messages ... ]
+  ...
+  [1] "2021-02-04 10:56:13 -- Starting module 'CalculatePtranEnergyAndEmissions' for year '2038'."
+  [1] "2021-02-04 10:56:15 -- Finish module 'CalculatePtranEnergyAndEmissions' for year '2038'."
+  run_model.R: run complete.
+  Model stage C:/Users/MyVisionEval/Documents/VisionEval/models/VERSPM complete
+  Model Stage: /models/MY-RSPM
+  Status: Complete</code></pre>
+<p>If errors are reported and you would like to see the log, you can open
+this file from RStudio’s file pane (in the directory in which your model
+scenario is located):</p>
+<p>“C:/Users/MyVisionEval/Documents/VisionEval/models/MY-RSPM/Log_2021-02-04_10_50_20..txt”</p>
+<p>where the <code>year-day-month_hour_minute_second</code> will be the date and time that the model run
+started (what you see next to the “Initializing Model” message).</p>
+</div>
+</div>
+<div id="extracting-model-results" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> <a name="results">Extracting Model Results</a><a class="anchor" aria-label="anchor" href="#extracting-model-results"><i class="fas fa-link"></i></a>
+</h2>
+<p>Extracting information from a completed model run should be done with
+the VisionEval command line interface. First, make sure your model has
+run to completion, for example by doing this:</p>
+<pre><code>  myrspm &lt;- openModel("MY-RSPM")
+  myrspm$status
+  [1] "Complete"</code></pre>
+<p>If it doesn’t say “Complete,” please review the instructions above for
+setting up and running a scenario.</p>
+<p>Outputs from VisionEval are saved in the scenario “Datastore,” which may be an <a href="https://www.hdfgroup.org/solutions/hdf5">HDF5 file</a>, or a
+directory hierarchy containing saved R objects. The default model
+scenarios all use R object storage. Both of the output file formats are
+complex and difficult to manipulate manually, so you should use the VisionEval command line interface.</p>
+<p>The Datastore is organized hierarchically into “Groups” and “Tables,” with each Table containing “Fields” (a.k.a. “Datasets”), each of which is a vector of values organized by model geography, household ID or vehicle ID. You can list the available Groups by doing this:</p>
+<pre><code>    myrspm$groups
+    Group    Stage Selected
+    1   2010     1      Yes
+    2 Global     1      Yes
+    3   2038     1      Yes</code></pre>
+<p>You can list Tables by doing this:</p>
+<pre><code>    myrspm$tables
+    Group         Table Stage Selected
+    1    2010     Azone     1      Yes
+    2    2010 Household     1      Yes
+    3    2010     Bzone     1      Yes
+    4    2010    Worker     1      Yes
+    5    2010     Marea     1      Yes
+    6    2010   Vehicle     1      Yes
+    7    2010    Region     1      Yes
+    8  Global    Region     1      Yes
+    9  Global     Marea     1      Yes
+    10   2038     Azone     1      Yes
+    11   2038 Household     1      Yes
+    12   2038     Bzone     1      Yes
+    13   2038    Worker     1      Yes
+    14   2038     Marea     1      Yes
+    15   2038   Vehicle     1      Yes
+    16   2038    Region     1      Yes</code></pre>
+<p>You can get the available Fields in all the tables by doing this:</p>
+<pre><code>    flds &lt;- myrspm$fields</code></pre>
+<p>We have in this example saved the result (an R <code>data.frame</code>) into a variable, since it has a lot of rows (the default RSPM model and scenario geography generates 473 rows). You can inspect that using R data.frame operations, or you can save it out to an external comma-separated values (CSV) file like this:</p>
+<pre><code>    write.csv(flds, file = "Field-List.csv")</code></pre>
+<p>Alternatively, you can use the <code>list</code> function to filter the list of fields and select appropriate
+ones. The following command will get the names of all the fields that have been selected (that is, they are
+present in at least one selected group + table):</p>
+<pre><code>    myrspm$list()</code></pre>
+<p>But mostly you’ll use the list with a pattern, like this:</p>
+<pre><code>    myrspm$list(pattern="Dvmt")</code></pre>
+<p>That will show you the names of all the fields that contain “Dvmt.” Then you can select just those fields by doing this:</p>
+<pre><code>    myrspm$fields &lt;- myrspm$list(pattern="Dvmt")</code></pre>
+<p>If you want to get a complete view of the fields you now have selected for extraction, you can do this:</p>
+<pre><code>    myrspm$list(index=TRUE)</code></pre>
+<p>Once you have figured out which groups, tables and fields you’re interested in, you can extract them. Remember that if
+you don’t select anything, you will get the <em>entire</em> datastore, which might be pretty big!</p>
+<p>To extract data from a scenario Datastore, you can execute this instruction:</p>
+<pre><code>    myrspm$extract()
+    Extracting data for Table Azone in Group 2010
+    Extracting data for Table Bzone in Group 2010
+    Extracting data for Table Household in Group 2010
+    Extracting data for Table Marea in Group 2010
+    [... More "Extracting Data" messages ...]
+    Extracting data for Table Region in Group Global
+    Write output file: /models/MY-RSPM/output/Azone_2010_1_2021-02-04_143854.csv
+    Write output file: /models/MY-RSPM/output/Bzone_2010_1_2021-02-04_143854.csv
+    Write output file: /models/MY-RSPM/output/Household_2010_1_2021-02-04_143854.csv
+    [... More "Write output file" messages ...]
+    Write output file: /models/MY-RSPM/output/Region_Global_1_2021-02-04_143854.csv</code></pre>
+<p>That will create a directory called <code>output</code> adjacent to the scenario <code>inputs</code> folder where it will
+write one comma-separated file for each Table, naming the files after the Group, Table and the date
+and time at which the model was run (<em>NOT</em> the date and time at which the data was extracted). If
+you perform the extract, you can verify that all the expected files are there with this command:</p>
+<pre><code>    dir("models\\MY-RSPM\\output")</code></pre>
+<p>And you should see these files:</p>
+<pre><code>  [1] "Azone_2010_1_2021-02-04_143854.csv"
+  [2] "Azone_2038_1_2021-02-04_143854.csv"
+  [3] "Bzone_2010_1_2021-02-04_143854.csv"
+  [4] "Bzone_2038_1_2021-02-04_143854.csv"
+  [5] "Household_2010_1_2021-02-04_143854.csv"
+  [6] "Household_2038_1_2021-02-04_143854.csv"
+  [7] "Marea_2010_1_2021-02-04_143854.csv"
+  [8] "Marea_2038_1_2021-02-04_143854.csv"
+  [9] "Marea_Global_1_2021-02-04_143854.csv"
+ [10] "Region_2010_1_2021-02-04_143854.csv"
+ [11] "Region_2038_1_2021-02-04_143854.csv"
+ [12] "Region_Global_1_2021-02-04_143854.csv"
+ [13] "Vehicle_2010_1_2021-02-04_143854.csv"
+ [14] "Vehicle_2038_1_2021-02-04_143854.csv"
+ [15] "Worker_2010_1_2021-02-04_143854.csv"
+ [16] "Worker_2038_1_2021-02-04_143854.csv"</code></pre>
+<p>The default is to extract all Groups and Tables, and all the Fields within them. You can select a
+subset just by pushing a list of names into the Groups, Tables or Fields (see the instructions
+above). For example, the following commands will generate output files containing only the scenario
+years 2010 and 2038 from the sample model, and leaving out the Global group:</p>
+<pre><code>    myrspm$groups &lt;- c("2010","2038")</code></pre>
+<p>The groups will now look like this:</p>
+<pre><code>    myrspm$groups
+    Group    Stage Selected
+    1   2010     1      Yes
+    2 Global     1      No
+    3   2038     1      Yes</code></pre>
+<p>To clear a selection of <code>groups</code> (or <code>tables</code> or <code>fields</code>), you can just push an empty list, like this:</p>
+<pre><code>    myrspm$groups &lt;- ""
+    myrspm$tables &lt;- ""
+    myrspm$fields &lt;- ""</code></pre>
+<p>And then the groups will again have everything selected.</p>
+<pre><code>    myrspm$groups
+    Group    Stage Selected
+    1   2010     1      Yes
+    2 Global     1      Yes
+    3   2038     1      Yes</code></pre>
+<p>A realistic example might be to select all the fields with ‘vmt’ in their name, from the Marea table in the
+year groups. So we would do this:</p>
+<pre><code>   myrspm$groups &lt;- c("2010","2038")
+   myrspm$tables &lt;- "Marea"   # or c("Marea")
+   myrspm$fields &lt;- myrspm$list(pattern="vmt")</code></pre>
+<p>And we can confirm that we are going to get what we want by doing this:</p>
+<pre><code>   myrspm$list(index=TRUE)</code></pre>
+<p>And finally, we can just extract the results into files, using <code>myrspm$extract()</code>.</p>
+<p>If you want to manipulate the model results within R, using R functions and packages, you can do the following:</p>
+<pre><code>    results &lt;- myrspm$extract(saveTo = FALSE)</code></pre>
+<p>That instruction creates an R list of R data.frames, each of which contains a single Datastore
+table, applying whatever selections you made. Be aware that extract loads the entire Datastore into
+memory. So if your model is large, you may want to select a subset of groups or tables. Or you can
+just save the outputs into files and then load those back into R one at a time for further
+processing.</p>
+<p>The <code>saveTo</code> option can be used to specify an alternate directory, so you can do something like the
+following to create an alternate output directory with only selected groups or tables:</p>
+<pre><code>    myrspm$groups &lt;- c("2010", "2038")
+    myrspm$extract(saveTo = "years-only")</code></pre>
+<p>You will then find a directory called <code>years-only</code> next to the model scenario <code>inputs</code> containing the extracted subset.</p>
+<p>If you try to do a new Datastore extract into an existing folder (<code>outputs</code> or whatever),
+VisionEval will tell you that the directory already has things in it. You should specify the
+<code>overwrite</code> parameter like this to replace the existing files:</p>
+<pre><code>    myrspm$extract(saveTo = "years-only", overwrite = TRUE)</code></pre>
+<p>If you make changes to your scenario inputs and would like to run the model again, you can clear
+the results like this:</p>
+<pre><code>myrspm$clear()</code></pre>
+<p>VisionEval will ask you for confirmation, and if you type ‘y’ and press
+<code>&lt;Enter&gt;</code>, the output files will be erased. You’ll see something this:</p>
+<pre><code>[1] "/models/MY-RSPM/ModelState.Rda"  
+[2] "/models/MY-RSPM/Datastore"  
+[3] "/models/MY-RSPM/Log\_2021-02-04\_10\_50\_20.txt"
+Clear ALL prior model results? (y/n/c)
+y
+Model results cleared. </code></pre>
+<p>Then you can <code>run</code> your scenario again.</p>
+<div id="running-scenarios-directly-from-r" class="section level3" number="1.5.1">
+<h3>
+<span class="header-section-number">1.5.1</span> Running Scenarios directly from R<a class="anchor" aria-label="anchor" href="#running-scenarios-directly-from-r"><i class="fas fa-link"></i></a>
+</h3>
+<p>Rather than use the <code>openModel</code> command line interface, it is easy to manually run a VisionEval
+scenario by <a href="#changedir">changing to the directory</a> that contains the scenario components and then
+<code>source</code>’ing the run_model.R script, with this R command line (or the RStudio <code>Code / Source File...</code> menu option):</p>
+<pre><code>source("run_model.R")</code></pre>
+<p>You can use that instruction as the basis for R scripts to automate running a lot of scenarios.</p>
+<p>To run a VisionEval model from within an operating system batch or shell script, you should change
+to your VisionEval model directory, then use the <code>Rscript</code> program to run the model (note the
+directory separator will be different on a Macintosh or on Linux):</p>
+<pre><code>    cd VisionEval\models\MY-RSPM
+    Rscript run_model.R</code></pre>
+</div>
+<div id="getting-more-information" class="section level3" number="1.5.2">
+<h3>
+<span class="header-section-number">1.5.2</span> Getting More Information<a class="anchor" aria-label="anchor" href="#getting-more-information"><i class="fas fa-link"></i></a>
+</h3>
+<p>Up-to-date information on using VisionEval can be found on <a href="https://github.com/VisionEval/VisionEval/wiki">the VisionEval
+Wiki</a>, including information on developing data file
+inputs, validating the model outputs, and using the outputs to support planning decisions.</p>
+</div>
+</div>
+<div id="old-from-wiki-need-to-integrate" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> OLD FROM WIKI, NEED TO INTEGRATE<a class="anchor" aria-label="anchor" href="#old-from-wiki-need-to-integrate"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="overview-1" class="section level2" number="1.7">
+<h2>
+<span class="header-section-number">1.7</span> Overview<a class="anchor" aria-label="anchor" href="#overview-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>The VisionEval software framework is written in the R programming language for statistical computing and graphics. The purpose of the model system and framework is to enable models be created in a plug-and-play fashion from modules that are also distributed as R packages. A simple R script is used to implement a model by initializing the model environment and then calling modules successively.</p>
 <p><strong>Video Description of Tool installation, setup, and basic usage</strong></p>
@@ -80,9 +527,9 @@
 <iframe src="https://www.youtube.com/embed/-ylFbyLfhbw?t=2203" width="672" height="400px" data-external="1">
 </iframe>
 </div>
-<div id="installation-and-setup" class="section level2" number="2.2">
+<div id="installation-and-setup-1" class="section level2" number="1.8">
 <h2>
-<span class="header-section-number">2.2</span> Installation and Setup<a class="anchor" aria-label="anchor" href="#installation-and-setup"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.8</span> Installation and Setup<a class="anchor" aria-label="anchor" href="#installation-and-setup-1"><i class="fas fa-link"></i></a>
 </h2>
 <p>There are two paths to getting VisionEval running:</p>
 <ol style="list-style-type: decimal">
@@ -100,9 +547,9 @@
 <p>To complete the installation and start VisionEval, simply:
 - Double-click <strong><tt>VisionEval.bat</tt></strong></p>
 </div>
-<div id="running-visioneval-1" class="section level2" number="2.3">
+<div id="running-visioneval" class="section level2" number="1.9">
 <h2>
-<span class="header-section-number">2.3</span> Running VisionEval<a class="anchor" aria-label="anchor" href="#running-visioneval-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.9</span> Running VisionEval<a class="anchor" aria-label="anchor" href="#running-visioneval"><i class="fas fa-link"></i></a>
 </h2>
 <p>Once you have been welcomed to VisionEval, you can follow the instructions under “Running VE Models” on the
 <a href="https://github.com/VisionEval/VisionEval/wiki/Getting-Started">Getting Started</a> page.
@@ -115,36 +562,36 @@ Your destination folder contains everything you need from the VisionEval “sour
 - <tt>verspm()</tt> for the VERSPM test model
 - <tt>verspm(scenarios=TRUE)</tt> to run multiple scenarios in VERSPM</p>
 </div>
-<div id="requirements" class="section level2" number="2.4">
+<div id="requirements" class="section level2" number="1.10">
 <h2>
-<span class="header-section-number">2.4</span> Requirements<a class="anchor" aria-label="anchor" href="#requirements"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.10</span> Requirements<a class="anchor" aria-label="anchor" href="#requirements"><i class="fas fa-link"></i></a>
 </h2>
 <p>If the above installation steps did not succeed, ensure that you have downloaded the appropriate version of VisionEval to match the version of R that you have installed.</p>
-<div id="r" class="section level3" number="2.4.1">
+<div id="r" class="section level3" number="1.10.1">
 <h3>
-<span class="header-section-number">2.4.1</span> R<a class="anchor" aria-label="anchor" href="#r"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.10.1</span> R<a class="anchor" aria-label="anchor" href="#r"><i class="fas fa-link"></i></a>
 </h3>
 <p>The current version of VisionEval is built for the latest version of R, 3.6.1. If you currently have another version of R installed, you can go to the <a href="https://github.com/VisionEval/VisionEval/releases">GitHub release page</a> to download VisionEval for R.</p>
 <p>You can find the <a href="https://cran.r-project.org/bin/windows/base/" target="_blank">R 3.6.1 installer for Windows here</a>.</p>
 </div>
-<div id="rstudio-optional" class="section level3" number="2.4.2">
+<div id="rstudio-optional" class="section level3" number="1.10.2">
 <h3>
-<span class="header-section-number">2.4.2</span> RStudio (optional)<a class="anchor" aria-label="anchor" href="#rstudio-optional"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.10.2</span> RStudio (optional)<a class="anchor" aria-label="anchor" href="#rstudio-optional"><i class="fas fa-link"></i></a>
 </h3>
 <p>Many users find that <a href="https://www.rstudio.com/products/rstudio/#Desktop" target="_blank">RStudio</a> is a more user-friendly version of the
 standard R interface. RStudio is particularly recommended if you plan to clone and explore the
 <a target="_blank" href="https://github.com/VisionEval/VE-Installer">Visioneval source code from GitHub</a>.</p>
 <p><strong>See the VERPAT <a href="https://github.com/visioneval/VisionEval/wiki/VERPAT-Tutorial-Running-the-Model">tutorial</a></strong> for more information on running models.</p>
 </div>
-<div id="running-vegui-to-then-run-a-model" class="section level3" number="2.4.3">
+<div id="running-vegui-to-then-run-a-model" class="section level3" number="1.10.3">
 <h3>
-<span class="header-section-number">2.4.3</span> Running VEGUI to then run a model<a class="anchor" aria-label="anchor" href="#running-vegui-to-then-run-a-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.10.3</span> Running VEGUI to then run a model<a class="anchor" aria-label="anchor" href="#running-vegui-to-then-run-a-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>After installing from the stand-alone installer (path 1, above), you can run the VEGUI using the helper functions <code>vegui()</code>.</p>
 </div>
-<div id="running-multiple-scenarios-of-a-model" class="section level3" number="2.4.4">
+<div id="running-multiple-scenarios-of-a-model" class="section level3" number="1.10.4">
 <h3>
-<span class="header-section-number">2.4.4</span> Running Multiple Scenarios of a Model<a class="anchor" aria-label="anchor" href="#running-multiple-scenarios-of-a-model"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.10.4</span> Running Multiple Scenarios of a Model<a class="anchor" aria-label="anchor" href="#running-multiple-scenarios-of-a-model"><i class="fas fa-link"></i></a>
 </h3>
 <p>After installing from the stand-alone installer (path 1, above), you can run the multiple scenarios examples using the helper functions <code>verpat(scenarios = T)</code> and <code>verspm(scenarios = T)</code>.</p>
 <p>After you run the multiple scenarios tests, you can explore the relationship between input scenarios and results using VEScenarioViewer. You can try the example interactive <a href="http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/VEScenarioViewer/verpat.html">VERPAT</a> and <a href="http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/VEScenarioViewer/verspm.html">VERSPM</a> scenario viewers (visualizers) online.</p>
@@ -154,29 +601,44 @@ standard R interface. RStudio is particularly recommended if you plan to clone a
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="conceptprimer.html"><span class="header-section-number">1</span> Concept Primer</a></div>
-<div class="next"><a href="visioneval-models.html"><span class="header-section-number">3</span> VisionEval Models</a></div>
+<div class="prev"><a href="index.html">Welcome</a></div>
+<div class="next"><a href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#getting-started"><span class="header-section-number">2</span> Getting Started</a></li>
-<li><a class="nav-link" href="#overview"><span class="header-section-number">2.1</span> Overview</a></li>
-<li><a class="nav-link" href="#installation-and-setup"><span class="header-section-number">2.2</span> Installation and Setup</a></li>
-<li><a class="nav-link" href="#running-visioneval-1"><span class="header-section-number">2.3</span> Running VisionEval</a></li>
+<li><a class="nav-link" href="#getting-started"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="nav-link" href="#overview"><span class="header-section-number">1.1</span> Overview</a></li>
 <li>
-<a class="nav-link" href="#requirements"><span class="header-section-number">2.4</span> Requirements</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#r"><span class="header-section-number">2.4.1</span> R</a></li>
-<li><a class="nav-link" href="#rstudio-optional"><span class="header-section-number">2.4.2</span> RStudio (optional)</a></li>
-<li><a class="nav-link" href="#running-vegui-to-then-run-a-model"><span class="header-section-number">2.4.3</span> Running VEGUI to then run a model</a></li>
-<li><a class="nav-link" href="#running-multiple-scenarios-of-a-model"><span class="header-section-number">2.4.4</span> Running Multiple Scenarios of a Model</a></li>
+<a class="nav-link" href="#installation-and-setup"><span class="header-section-number">1.2</span> Installation and Setup</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#install-for-windows"><span class="header-section-number">1.2.1</span> Install for Windows</a></li></ul>
+</li>
+<li><a class="nav-link" href="#workflow-of-visioneval"><span class="header-section-number">1.3</span> Workflow of VisionEval</a></li>
+<li>
+<a class="nav-link" href="#editing-and-running-models"><span class="header-section-number">1.4</span> Editing and Running Models</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#end-user-interface"><span class="header-section-number">1.4.1</span> End User Interface</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#extracting-model-results"><span class="header-section-number">1.5</span> Extracting Model Results</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#running-scenarios-directly-from-r"><span class="header-section-number">1.5.1</span> Running Scenarios directly from R</a></li>
+<li><a class="nav-link" href="#getting-more-information"><span class="header-section-number">1.5.2</span> Getting More Information</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#old-from-wiki-need-to-integrate"><span class="header-section-number">1.6</span> OLD FROM WIKI, NEED TO INTEGRATE</a></li>
+<li><a class="nav-link" href="#overview-1"><span class="header-section-number">1.7</span> Overview</a></li>
+<li><a class="nav-link" href="#installation-and-setup-1"><span class="header-section-number">1.8</span> Installation and Setup</a></li>
+<li><a class="nav-link" href="#running-visioneval"><span class="header-section-number">1.9</span> Running VisionEval</a></li>
+<li>
+<a class="nav-link" href="#requirements"><span class="header-section-number">1.10</span> Requirements</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#r"><span class="header-section-number">1.10.1</span> R</a></li>
+<li><a class="nav-link" href="#rstudio-optional"><span class="header-section-number">1.10.2</span> RStudio (optional)</a></li>
+<li><a class="nav-link" href="#running-vegui-to-then-run-a-model"><span class="header-section-number">1.10.3</span> Running VEGUI to then run a model</a></li>
+<li><a class="nav-link" href="#running-multiple-scenarios-of-a-model"><span class="header-section-number">1.10.4</span> Running Multiple Scenarios of a Model</a></li>
 </ul>
 </li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/02-getting-started.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/02-getting-started.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/rstudio/bookdown-demo/blob/master/01-getting-started.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/rstudio/bookdown-demo/edit/master/01-getting-started.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

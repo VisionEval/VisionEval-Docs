@@ -1,4 +1,4 @@
-# VERSPM Tutorial {#verspm}
+# VERSPM Documentation
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
