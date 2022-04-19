@@ -18,7 +18,11 @@
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
-<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4_style.css">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
 <meta name="description" content="4.1 Overview VERSPM is a strategic planning model that assists state and metropolitan area planners with the evaluation of transportation and land use policy scenarios. It considers a large number...">
 <meta property="og:description" content="4.1 Overview VERSPM is a strategic planning model that assists state and metropolitan area planners with the evaluation of transportation and land use policy scenarios. It considers a large number...">
 <meta name="twitter:description" content="4.1 Overview VERSPM is a strategic planning model that assists state and metropolitan area planners with the evaluation of transportation and land use policy scenarios. It considers a large number...">
@@ -29,10 +33,11 @@
 <div class="row">
   <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-    <div class="d-flex align-items-start justify-content-between">
-      <h1>
-        <a href="index.html" title="">VisionEval User Guide</a>
-      </h1>
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
@@ -99,7 +104,7 @@
 <p>VERSPM is a disaggregate policy model that predicts travel demand impacts at an individual household level. The model estimates vehicle ownership, vehicle travel, fuel consumption, and GHG emissions at the individual household level. This structure accounts for the synergistic and antagonistic effects of multiple policies and factors (e.g. gas prices) on vehicle travel and emissions. For example, the battery range of electric vehicles (EVs) and plug‐in hybrid electric vehicles (PHEVs) is less of an issue for households residing in compact mixed‐use neighborhoods because those households tend to drive fewer miles each day. Modeling at the household level makes it possible to evaluate the relationships between travel, emissions and the characteristics of households, land use, transportation systems, vehicles, and other factors. In addition, household level analysis makes it possible to evaluate the equitability of the costs and benefits of different strategies.</p>
 <p>The model comprises sequential steps with feedback. Each calculation step is composed of a number of calculations that operate on the results of the previous calculation step and on input data that reflect inputs.</p>
 <p>The VERSPM steps are grouped as follows:</p>
-<div class="inline-figure"><img src="images/VE_Steps.png"></div>
+<div class="inline-figure"><img src="images/VE_Steps.png" style="width:100.0%"></div>
 <p>The iterative process to balance the VMT with travel costs allows congestion and other costs introduced at this step influence the amount of travel. This step balances the amount of household travel with the cost of travel and recalculates household VMT, Fuel &amp; GHG in the process. The primary outputs of the RSPM are household travel, fuel and power consumption, and GHG emissions calculations, but other information is produced for households and commercial vehicles as well. The amount of commercial (light‐duty) and freight (heavy duty) travel is calculated as well as associated fuel, power consumption and GHG emissions for those vehicles.</p>
 </div>
 <div id="modules-1" class="section level3" number="4.1.2">
@@ -236,7 +241,7 @@
 <li>
 <strong>Fixed input model parameters</strong>: These are input parameters, or <a href="verspm.html#model-definition-files">model definition files</a>, specific to the model that users should not typically modify.</li>
 <li>
-<strong>User input files</strong>: These are <a href="verspm.html#input-files">input files</a>(model or scenario specific) that users should review and modify as needed.</li>
+<strong>User input files</strong>: These are <a href="verspm.html#input-files">input files</a> (model or scenario specific) that users should review and modify as needed.</li>
 <li>
 <strong>Fixed input files</strong>: These are <a href="verspm.html#input-files">input files</a> specific to the model that that users should not typically modify.</li>
 <li>
@@ -593,7 +598,7 @@
 <strong>marea_transit_fuel.csv</strong> <span style="color:red">(optional)</span> This file is used to specify the transit fuel proportions. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
 </li>
 <li>
-<strong>marea_transit_powertrain_prop.csv</strong> <span style="color:red">(optional)</span> This file is used to specify the mixes of transit vehicle powertrains. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateptranenergyandemissions">CalculatePtranEnergyAndEmissions</a> modules.<br>
+<a href="verspm.html#transit-powertrain-proportions-by-transit-vehicle-type-marea_transit_powertrain_prop.csv"><strong>marea_transit_powertrain_prop.csv</strong></a> <span style="color:red">(optional)</span> This file is used to specify the mixes of transit vehicle powertrains. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateptranenergyandemissions">CalculatePtranEnergyAndEmissions</a> modules.<br>
 </li>
 <li>
 <a href="verspm.html#transit-service-for-marea-marea_transit_service.csv"><strong>marea_transit_service.csv</strong></a> This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the <a href="Modules_and_Outputs.md/#assigntransitservice">AssignTransitService</a> module.<br>
@@ -601,13 +606,13 @@
 <li>
 <strong>other_ops_effectiveness.csv</strong> <span style="color:red">(optional)</span> This file is used to specify the delay effects of operations in different road classes and is only needed if user wants to modify the values. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.</li>
 <li>
-<strong>region_ave_fuel_carbon_intensity.csv</strong> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
+<a href="verspm.html#average-carbon-intensities-of-fuels-region_ave_fuel_carbon_intensity.csv"><strong>region_ave_fuel_carbon_intensity.csv</strong></a> <span style="color:red">(optional)</span> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br>
 </li>
 <li>
 <strong>region_base_year_hvytrk_dvmt.csv</strong> <span style="color:red">(optional)</span> This file is used to specify the heavy truck dvmt for base year. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="Modules_and_Outputs.md/#calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.<br>
 </li>
 <li>
-<strong>region_carsvc_powertrain_prop.csv</strong> <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of car services. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a> and <a href="Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh">AdjustHhVehicleMpgMpkwh</a> modules.<br>
+<a href="verspm.html#car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv"><strong>region_carsvc_powertrain_prop.csv</strong></a> <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of car services. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a> and <a href="Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh">AdjustHhVehicleMpgMpkwh</a> modules.<br>
 </li>
 <li>
 <strong>region_comsvc_lttrk_prop.csv</strong> This file supplies data for the light truck proportion of commercial vehicles and is used in the <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> module.<br>
@@ -618,7 +623,7 @@
 <li>
 <a href="verspm.html#adjustment-for-household-drivers-region_hh_driver_adjust_prop.csv"><strong>region_hh_driver_adjust_prop.csv</strong></a> <span style="color:red">(optional)</span> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the <a href="Modules_and_Outputs.md/#assigndrivers">AssignDrivers</a> module.</li>
 <li>
-<strong>region_hvytrk_powertrain_prop.csv</strong> <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of heavy duty trucks. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.</li>
+<a href="verspm.html#heavy-duty-truck-powertrains-region_hvytrk_powertrain_prop.csv"><strong>region_hvytrk_powertrain_prop.csv</strong></a> <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of heavy duty trucks. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.</li>
 <li>
 <strong>region_prop_externalities_paid.csv</strong> This file supplies data for climate change and other social costs and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.</li>
 </ul>
@@ -6504,7 +6509,7 @@ NA
 <div id="dvmt-split-by-road-class-marea_dvmt_split_by_road_class.csv" class="section level5 unnumbered">
 <h5>DVMT Split by Road Class (marea_dvmt_split_by_road_class.csv)<a class="anchor" aria-label="anchor" href="#dvmt-split-by-road-class-marea_dvmt_split_by_road_class.csv"><i class="fas fa-link"></i></a>
 </h5>
-<p>This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes.</p>
+<p>This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes. This data can be derived from the FHWA <a href="https://www.fhwa.dot.gov/policyinformation/statistics.cfm">Highway Statistics</a> data.</p>
 <ul>
 <li>
 <strong>LdvFwyArtDvmtProp</strong>: Proportion of light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeway or aerial roadways</li>
@@ -6523,12 +6528,75 @@ NA
 <li>
 <strong>BusOthDvmtProp</strong>: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways</li>
 </ul>
-<div class="inline-figure">Here is a snapshot of the file:
-<img align="center" width="1200" border="1" src="images/marea_dvmt_split_by_road_class.PNG">
+Here is a snapshot of the file:
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Geo
+</th>
+<th style="text-align:center;">
+LdvFwyDvmtProp
+</th>
+<th style="text-align:center;">
+LdvArtDvmtProp
+</th>
+<th style="text-align:center;">
+LdvOthDvmtProp
+</th>
+<th style="text-align:center;">
+HvyTrkFwyDvmtProp
+</th>
+<th style="text-align:center;">
+HvyTrkArtDvmtProp
+</th>
+<th style="text-align:center;">
+HvyTrkOthDvmtProp
+</th>
+<th style="text-align:center;">
+BusFwyDvmtProp
+</th>
+<th style="text-align:center;">
+BusArtDvmtProp
+</th>
+<th style="text-align:center;">
+BusOthDvmtProp
+</th>
+</tr></thead>
+<tbody><tr>
+<td style="text-align:left;">
+RVMPO
+</td>
+<td style="text-align:center;">
+0.2632296
+</td>
+<td style="text-align:center;">
+0.47739
+</td>
+<td style="text-align:center;">
+0.2593804
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.6962986
+</td>
+<td style="text-align:center;">
+0.3037014
+</td>
+</tr></tbody>
+</table></div>
 </div>
-<ol start="4" style="list-style-type: decimal">
-<li>
-<p>Operations deployment effects on dvmt for Marea (<strong>marea_operations_deployment.csv</strong>): This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of dvmt affected by operations for different road classes.</p>
+<div id="operations-deployment-effects-on-dvmt-marea_operations_deployment.csv" class="section level5 unnumbered">
+<h5>Operations Deployment Effects on DVMT (<strong>marea_operations_deployment.csv</strong>)<a class="anchor" aria-label="anchor" href="#operations-deployment-effects-on-dvmt-marea_operations_deployment.csv"><i class="fas fa-link"></i></a>
+</h5>
+<p>This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of DVMT affected by operations for different road classes.</p>
 <ul>
 <li>
 <strong>RampMeterDeployProp</strong>: Proportion of freeway DVMT affected by ramp metering deployment</li>
@@ -6543,9 +6611,89 @@ NA
 <li>
 <strong>OtherArtOpsDeployProp</strong>: Proportion of arterial DVMT affected by deployment of other user-defined arterial operations measures</li>
 </ul>
-<p>Here is a snapshot of the file:<br><img align="center" width="1200" border="1" src="images/marea_operations_deployment.PNG"></p>
-</li>
-</ol>
+Here is a snapshot of the file:
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Geo
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+RampMeterDeployProp
+</th>
+<th style="text-align:center;">
+IncidentMgtDeployProp
+</th>
+<th style="text-align:center;">
+SignalCoordDeployProp
+</th>
+<th style="text-align:center;">
+AccessMgtDeployProp
+</th>
+<th style="text-align:center;">
+OtherFwyOpsDeployProp
+</th>
+<th style="text-align:center;">
+OtherArtOpsDeployProp
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+RVMPO
+</td>
+<td style="text-align:center;">
+2010
+</td>
+<td style="text-align:center;">
+0.00
+</td>
+<td style="text-align:center;">
+0.50
+</td>
+<td style="text-align:center;">
+0.50
+</td>
+<td style="text-align:center;">
+0.00
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RVMPO
+</td>
+<td style="text-align:center;">
+2038
+</td>
+<td style="text-align:center;">
+0.95
+</td>
+<td style="text-align:center;">
+0.95
+</td>
+<td style="text-align:center;">
+0.95
+</td>
+<td style="text-align:center;">
+0.24
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <div id="other-operations-effects-other_ops_effectiveness.csv" class="section level5 unnumbered">
 <h5>Other Operations Effects (other_ops_effectiveness.csv)<a class="anchor" aria-label="anchor" href="#other-operations-effects-other_ops_effectiveness.csv"><i class="fas fa-link"></i></a>
@@ -6563,10 +6711,172 @@ NA
 <li>
 <strong>Fwy_NonRcr</strong>: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures</li>
 </ul>
-<p>Here is a snapshot of the file:<br><img align="center" width="500" border="1" src="images/other_ops_effectiveness.PNG"></p>
-<ol start="6" style="list-style-type: decimal">
-<li>
-<p>Charges by congestion levels by road class for Marea (<strong>marea_congestion_charges.csv</strong>): This input file is OPTIONAL. It is only needed if the user wants to modify the charges of vehicle travel for different congestion levels</p>
+Here is a snapshot of the file:
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Level
+</th>
+<th style="text-align:center;">
+Art_Rcr
+</th>
+<th style="text-align:center;">
+Art_NonRcr
+</th>
+<th style="text-align:center;">
+Fwy_Rcr
+</th>
+<th style="text-align:center;">
+Fwy_NonRcr
+</th>
+<th style="text-align:center;">
+AccessMgtDeployProp
+</th>
+<th style="text-align:center;">
+OtherFwyOpsDeployProp
+</th>
+<th style="text-align:center;">
+OtherArtOpsDeployProp
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+None
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Mod
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Hvy
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+sev
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Ext
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="congestion-charges-marea_congestion_charges.csv" class="section level5 unnumbered">
+<h5>Congestion Charges (<strong>marea_congestion_charges.csv</strong>)<a class="anchor" aria-label="anchor" href="#congestion-charges-marea_congestion_charges.csv"><i class="fas fa-link"></i></a>
+</h5>
+<p>This input file is OPTIONAL. It is only needed if the user wants to add a congestion charge policy for vehicle travel using different congestion levels and roadway classes.</p>
 <ul>
 <li>
 <strong>FwyNoneCongChg</strong>: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of no congestion</li>
@@ -6589,9 +6899,125 @@ NA
 <li>
 <strong>ArtExtCongChg</strong>: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of extreme congestion</li>
 </ul>
-<p>Here is a snapshot of the file:<br><img align="center" width="1500" border="1" src="images/marea_congestion_charges.PNG"></p>
-</li>
-</ol>
+Here is a snapshot of the file:
+<div class="inline-table"><table class="table table-sm">
+<thead><tr>
+<th style="text-align:left;">
+Geo
+</th>
+<th style="text-align:center;">
+Year
+</th>
+<th style="text-align:center;">
+FwyNoneCongChg.2010
+</th>
+<th style="text-align:center;">
+FwyModCongChg.2010
+</th>
+<th style="text-align:center;">
+FwyHvyCongChg.2010
+</th>
+<th style="text-align:center;">
+FwySevCongChg.2010
+</th>
+<th style="text-align:center;">
+FwyExtCongChg.2010
+</th>
+<th style="text-align:center;">
+ArtNoneCongChg.2010
+</th>
+<th style="text-align:center;">
+ArtModCongChg.2010
+</th>
+<th style="text-align:center;">
+ArtHvyCongChg.2010
+</th>
+<th style="text-align:center;">
+ArtSevCongChg.2010
+</th>
+<th style="text-align:center;">
+ArtExtCongChg.2010
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+RVMPO
+</td>
+<td style="text-align:center;">
+2010
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.0
+</td>
+<td style="text-align:center;">
+0.0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RVMPO
+</td>
+<td style="text-align:center;">
+2038
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0.1
+</td>
+<td style="text-align:center;">
+0.2
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+<td style="text-align:center;">
+0
+</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 </div>
 <div id="internal-module-inputs-27" class="section level4 unnumbered">
@@ -7752,19 +8178,16 @@ This module uses optional user inputs if <a href="verspm.html#initialize-vetrave
 <h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-34"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>
-<p>Vehicle access time for <code>Azone</code> (<strong>azone_vehicle_access_times.csv</strong>): This file supplies data for vehicle access and eagress time.</p>
+<li>Vehicle access time for <code>Azone</code> (<strong>azone_vehicle_access_times.csv</strong>): This file supplies data for vehicle access and eagress time.</li>
+</ol>
 <ul>
+<li><p><strong>OwnedVehAccessTime</strong>:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip</p></li>
+<li><p><strong>HighCarSvcAccessTime</strong>: Average amount of time in minutes required for access to and egress from a high service level car service for a trip</p></li>
 <li>
-<strong>OwnedVehAccessTime</strong>:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip</li>
-<li>
-<strong>HighCarSvcAccessTime</strong>: Average amount of time in minutes required for access to and egress from a high service level car service for a trip</li>
-<li>
-<strong>LowCarSvcAccessTime</strong>: Average amount of time in minutes required for access to and egress from a low service level car service for a trip</li>
-</ul>
+<p><strong>LowCarSvcAccessTime</strong>: Average amount of time in minutes required for access to and egress from a low service level car service for a trip</p>
 <p>Here is a snapshot of the file:<br><img align="center" width="500" border="1" src="images/azone_vehicle_access_times.PNG"></p>
 </li>
-</ol>
+</ul>
 <div id="fuel-and-electricity-cost-azone_fuel_power_cost.csv" class="section level5 unnumbered">
 <h5>Fuel and Electricity Cost (<strong>azone_fuel_power_cost.csv</strong>)<a class="anchor" aria-label="anchor" href="#fuel-and-electricity-cost-azone_fuel_power_cost.csv"><i class="fas fa-link"></i></a>
 </h5>
@@ -9059,7 +9482,7 @@ Here, DVMT per capita and annual fuel cost digrams shift to the left as expected
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-04-15.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-04-18.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

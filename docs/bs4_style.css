@@ -12,3 +12,8 @@ pre {
 pre code {
   white-space: inherit;
 }
+
+img#cover {
+    margin-top: 1.5rem;
+    width: 60%;
+}

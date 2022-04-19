@@ -37,7 +37,7 @@ The  model comprises sequential steps with feedback. Each calculation step is co
 
 The VERSPM steps are grouped as follows:
 
-![](images/VE_Steps.png)
+![](images/VE_Steps.png){width=100%}
 
 The iterative process to balance the VMT with travel costs allows congestion and other costs introduced at this step influence the amount of travel. This step balances the amount of household travel with the cost of travel and recalculates household VMT, Fuel & GHG in the process. The primary outputs of the RSPM are household travel, fuel and power consumption, and GHG emissions calculations, but other information is produced for households and commercial vehicles as well. The amount of commercial (light‐duty) and freight (heavy duty) travel is calculated as well as associated fuel, power consumption and GHG emissions for those vehicles.
 
@@ -137,7 +137,7 @@ Generally speaking, the VERPSM inputs are classified into the five following cat
 
 1. **User input model parameters**: These are input parameters (model or scenario specific), or [model definition files](#model-definition-files), that users should review and modify as needed.
 2. **Fixed input model parameters**: These are input parameters, or [model definition files](#model-definition-files), specific to the model that users should not typically modify.
-3. **User input files**: These are [input files](#input-files)(model or scenario specific) that users should review and modify as needed.
+3. **User input files**: These are [input files](#input-files) (model or scenario specific) that users should review and modify as needed.
 4. **Fixed input files**: These are [input files](#input-files) specific to the model that that users should not typically modify.
 5. **Internal module inputs**: These are inputs created by other VERSPM modules.
 
@@ -275,17 +275,17 @@ The VisionEval model system keeps track of the types and units of measure of all
 - **marea_transit_ave_fuel_carbon_intensity.csv** <span style="color:red">(optional)</span> This file is used to specify the average carbon intensity of fuel used by transit. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) module. 
 - **marea_transit_biofuel_mix.csv** <span style="color:red">(optional)</span> This file is used to specify the biofuel used by transit. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.             
 - **marea_transit_fuel.csv** <span style="color:red">(optional)</span> This file is used to specify the transit fuel proportions. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.                      
-- **marea_transit_powertrain_prop.csv** <span style="color:red">(optional)</span> This file is used to specify the mixes of transit vehicle powertrains. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculatePtranEnergyAndEmissions](Modules_and_Outputs.md/#calculateptranenergyandemissions) modules.     
+- [**marea_transit_powertrain_prop.csv**](#transit-powertrain-proportions-by-transit-vehicle-type-marea_transit_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the mixes of transit vehicle powertrains. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculatePtranEnergyAndEmissions](Modules_and_Outputs.md/#calculateptranenergyandemissions) modules.     
 - [**marea_transit_service.csv**](#transit-service-for-marea-marea_transit_service.csv) This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                   
 - **other_ops_effectiveness.csv** <span style="color:red">(optional)</span> This file is used to specify the delay effects of operations in different road classes and is only needed if user wants to modify the values. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules. 
-- **region_ave_fuel_carbon_intensity.csv** This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.       
+- [**region_ave_fuel_carbon_intensity.csv**](#average-carbon-intensities-of-fuels-region_ave_fuel_carbon_intensity.csv) <span style="color:red">(optional)</span> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.       
 - **region_base_year_hvytrk_dvmt.csv** <span style="color:red">(optional)</span> This file is used to specify the heavy truck dvmt for base year. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt)  modules.            
-- **region_carsvc_powertrain_prop.csv** <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of car services. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [AssignHhVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh) modules.                      
+- [**region_carsvc_powertrain_prop.csv**](#car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of car services. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [AssignHhVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh) modules.                      
 - **region_comsvc_lttrk_prop.csv** This file supplies data for the light truck proportion of commercial vehicles and is used in the [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) module.              
 - **region_comsvc_powertrain_prop.csv** <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of commercial vehicles. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
 ) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.        
 - [**region_hh_driver_adjust_prop.csv**](#adjustment-for-household-drivers-region_hh_driver_adjust_prop.csv) <span style="color:red">(optional)</span> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the [AssignDrivers](Modules_and_Outputs.md/#assigndrivers) module. 
-- **region_hvytrk_powertrain_prop.csv** <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of heavy duty trucks. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
+- [**region_hvytrk_powertrain_prop.csv**](#heavy-duty-truck-powertrains-region_hvytrk_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of heavy duty trucks. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
 ) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.
 - **region_prop_externalities_paid.csv** This file supplies data for climate change and other social costs and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module. 
 
@@ -2677,7 +2677,7 @@ Here is a snapshot of the file:
 </table>
 			
 ##### DVMT Split by Road Class (marea_dvmt_split_by_road_class.csv) {-}
-This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes.
+This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes. This data can be derived from the FHWA [Highway Statistics](https://www.fhwa.dot.gov/policyinformation/statistics.cfm) data. 
 
 * **LdvFwyArtDvmtProp**: Proportion of light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeway or aerial roadways
 * **LdvOthDvmtProp**: Proportion of light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
@@ -2689,55 +2689,231 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the d
 * **BusOthDvmtProp**: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
 
 Here is a snapshot of the file:	
-<img align="center" width="1200" border=1 src="images/marea_dvmt_split_by_road_class.PNG">
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> LdvFwyDvmtProp </th>
+   <th style="text-align:center;"> LdvArtDvmtProp </th>
+   <th style="text-align:center;"> LdvOthDvmtProp </th>
+   <th style="text-align:center;"> HvyTrkFwyDvmtProp </th>
+   <th style="text-align:center;"> HvyTrkArtDvmtProp </th>
+   <th style="text-align:center;"> HvyTrkOthDvmtProp </th>
+   <th style="text-align:center;"> BusFwyDvmtProp </th>
+   <th style="text-align:center;"> BusArtDvmtProp </th>
+   <th style="text-align:center;"> BusOthDvmtProp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 0.2632296 </td>
+   <td style="text-align:center;"> 0.47739 </td>
+   <td style="text-align:center;"> 0.2593804 </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;">  </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.6962986 </td>
+   <td style="text-align:center;"> 0.3037014 </td>
+  </tr>
+</tbody>
+</table>
 			
-4. Operations deployment effects on dvmt for Marea (**marea_operations_deployment.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of dvmt affected by operations for different road classes.
+##### Operations Deployment Effects on DVMT (**marea_operations_deployment.csv**){-}
+This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of DVMT affected by operations for different road classes. 
 
-   * **RampMeterDeployProp**: Proportion of freeway DVMT affected by ramp metering deployment
-   * **IncidentMgtDeployProp**: Proportion of freeway DVMT affected by incident management deployment
-   * **SignalCoordDeployProp**: Proportion of arterial DVMT affected by signal coordination deployment
-   * **AccessMgtDeployProp**: Proportion of arterial DVMT affected by access management deployment
-   * **OtherFwyOpsDeployProp**: Proportion of freeway DVMT affected by deployment of other user-defined freeway operations measures
-   * **OtherArtOpsDeployProp**: Proportion of arterial DVMT affected by deployment of other user-defined arterial operations measures
+* **RampMeterDeployProp**: Proportion of freeway DVMT affected by ramp metering deployment
+* **IncidentMgtDeployProp**: Proportion of freeway DVMT affected by incident management deployment
+* **SignalCoordDeployProp**: Proportion of arterial DVMT affected by signal coordination deployment
+* **AccessMgtDeployProp**: Proportion of arterial DVMT affected by access management deployment
+* **OtherFwyOpsDeployProp**: Proportion of freeway DVMT affected by deployment of other user-defined freeway operations measures
+* **OtherArtOpsDeployProp**: Proportion of arterial DVMT affected by deployment of other user-defined arterial operations measures
 
-   Here is a snapshot of the file:	
-<img align="center" width="1200" border=1 src="images/marea_operations_deployment.PNG">
+Here is a snapshot of the file:	
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> RampMeterDeployProp </th>
+   <th style="text-align:center;"> IncidentMgtDeployProp </th>
+   <th style="text-align:center;"> SignalCoordDeployProp </th>
+   <th style="text-align:center;"> AccessMgtDeployProp </th>
+   <th style="text-align:center;"> OtherFwyOpsDeployProp </th>
+   <th style="text-align:center;"> OtherArtOpsDeployProp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0.00 </td>
+   <td style="text-align:center;"> 0.50 </td>
+   <td style="text-align:center;"> 0.50 </td>
+   <td style="text-align:center;"> 0.00 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2038 </td>
+   <td style="text-align:center;"> 0.95 </td>
+   <td style="text-align:center;"> 0.95 </td>
+   <td style="text-align:center;"> 0.95 </td>
+   <td style="text-align:center;"> 0.24 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+</tbody>
+</table>
 			
 ##### Other Operations Effects (other_ops_effectiveness.csv) {-}
 This input file is OPTIONAL. It is only needed if the user wants to modify the other delay effects of operations in different road classes
 
-   * **Level**: Congestion levels: None = none, Mod = moderate, Hvy = heavy, Sev = severe, Ext = extreme
-   * **Art_Rcr**: Percentage reduction of recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
-   * **Art_NonRcr**: Percentage reduction of non-recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
-   * **Fwy_Rcr**: Percentage reduction of recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
-   * **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
+* **Level**: Congestion levels: None = none, Mod = moderate, Hvy = heavy, Sev = severe, Ext = extreme
+* **Art_Rcr**: Percentage reduction of recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
+* **Art_NonRcr**: Percentage reduction of non-recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
+* **Fwy_Rcr**: Percentage reduction of recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
+* **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
    
-   Here is a snapshot of the file:	
-<img align="center" width="500" border=1 src="images/other_ops_effectiveness.PNG">
+Here is a snapshot of the file:	
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Level </th>
+   <th style="text-align:center;"> Art_Rcr </th>
+   <th style="text-align:center;"> Art_NonRcr </th>
+   <th style="text-align:center;"> Fwy_Rcr </th>
+   <th style="text-align:center;"> Fwy_NonRcr </th>
+   <th style="text-align:center;"> AccessMgtDeployProp </th>
+   <th style="text-align:center;"> OtherFwyOpsDeployProp </th>
+   <th style="text-align:center;"> OtherArtOpsDeployProp </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> None </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Mod </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Hvy </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> sev </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> Ext </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+</tbody>
+</table>
 			
-6. Charges by congestion levels by road class for Marea  (**marea_congestion_charges.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the charges of vehicle travel for different congestion levels
+##### Congestion Charges  (**marea_congestion_charges.csv**) {-}
+This input file is OPTIONAL. It is only needed if the user wants to add a congestion charge policy for vehicle travel using different congestion levels and roadway classes.
 
-   * **FwyNoneCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of no congestion
-   * **FwyModCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of moderate congestion
-   * **FwyHvyCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of heavy congestion
-   * **FwySevCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of severe congestion
-   * **FwyExtCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of extreme congestion
-   * **ArtNoneCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of no congestion
-   * **ArtModCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of moderate congestion
-   * **ArtHvyCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of heavy congestion
-   * **ArtSevCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of severe congestion
-   * **ArtExtCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of extreme congestion
+* **FwyNoneCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of no congestion
+* **FwyModCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of moderate congestion
+* **FwyHvyCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of heavy congestion
+* **FwySevCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of severe congestion
+* **FwyExtCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of extreme congestion
+* **ArtNoneCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of no congestion
+* **ArtModCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of moderate congestion
+* **ArtHvyCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of heavy congestion
+* **ArtSevCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of severe congestion
+* **ArtExtCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of extreme congestion
 
-   Here is a snapshot of the file:	
-<img align="center" width="1500" border=1 src="images/marea_congestion_charges.PNG">
+Here is a snapshot of the file:	
+<table>
+ <thead>
+  <tr>
+   <th style="text-align:left;"> Geo </th>
+   <th style="text-align:center;"> Year </th>
+   <th style="text-align:center;"> FwyNoneCongChg.2010 </th>
+   <th style="text-align:center;"> FwyModCongChg.2010 </th>
+   <th style="text-align:center;"> FwyHvyCongChg.2010 </th>
+   <th style="text-align:center;"> FwySevCongChg.2010 </th>
+   <th style="text-align:center;"> FwyExtCongChg.2010 </th>
+   <th style="text-align:center;"> ArtNoneCongChg.2010 </th>
+   <th style="text-align:center;"> ArtModCongChg.2010 </th>
+   <th style="text-align:center;"> ArtHvyCongChg.2010 </th>
+   <th style="text-align:center;"> ArtSevCongChg.2010 </th>
+   <th style="text-align:center;"> ArtExtCongChg.2010 </th>
+  </tr>
+ </thead>
+<tbody>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2010 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.0 </td>
+   <td style="text-align:center;"> 0.0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+  <tr>
+   <td style="text-align:left;"> RVMPO </td>
+   <td style="text-align:center;"> 2038 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0.1 </td>
+   <td style="text-align:center;"> 0.2 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+   <td style="text-align:center;"> 0 </td>
+  </tr>
+</tbody>
+</table>
  
 #### Internal Module Inputs {-}
-
 This module uses no datasets that are in the datastore.
 
 
 #### Module Outputs {-}
-
 This module produces no datasets to store in the datastore.
 
 ### CalculateBaseRoadDvmt     
@@ -3133,9 +3309,9 @@ This module calculates vehicle operating costs per mile of travel and uses those
 #### User Input Files {-}
 1. Vehicle access time for `Azone` (**azone_vehicle_access_times.csv**): This file supplies data for vehicle access and eagress time.
 
-   * **OwnedVehAccessTime**:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip
-   * **HighCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a high service level car service for a trip
-   * **LowCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a low service level car service for a trip
+* **OwnedVehAccessTime**:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip
+* **HighCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a high service level car service for a trip
+* **LowCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a low service level car service for a trip
    
    Here is a snapshot of the file:	
 <img align="center" width="500" border=1 src="images/azone_vehicle_access_times.PNG">
