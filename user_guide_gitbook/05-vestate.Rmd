@@ -266,7 +266,7 @@ ___
 ___
 
 Return to [Tutorial](Main.md). 
- 
+
 ## Modules and Outputs
 ----
 
@@ -339,7 +339,7 @@ This module creates simulated households using inputs of population by age group
    * 65 Plus
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_hh_pop_by_age.PNG">
+   <img align="center" width="800" border=1 src="images/azone_hh_pop_by_age.PNG">
 
 
 2. Household size (**_azone_hhsize_targets.csv_**): This file contains the household-specific targets for the population synthesizer. This file contains two attributes: 
@@ -347,7 +347,7 @@ This module creates simulated households using inputs of population by age group
    * **Prop1PerHh**: Proportion of non-group quarters households having only one person
 
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_hhsize_targets.PNG">
+   <img align="center" width="400" border=1 src="images/azone_hhsize_targets.PNG">
 
 3. Group quarter population (**_azone_gq_pop_by_age.csv_**):  This file contains group quarters population estimates/forecasts by age for each of the base and future years. The file format includes number of persons within the following six age categories:
    * 0-14
@@ -358,7 +358,7 @@ This module creates simulated households using inputs of population by age group
    * 65 Plus
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_gq_pop_by_age.PNG">
+   <img align="center" width="800" border=1 src="images/azone_gq_pop_by_age.PNG">
    
    
 #### Module Outputs
@@ -392,7 +392,7 @@ This module assigns workers by age to households and to non-institutional group 
    * **RelEmp65Plus**: Ratio of workers to persons age 65 or older in model year versus in estimation data year
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_relative_employment.PNG">
+   <img align="center" width="800" border=1 src="images/azone_relative_employment.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -491,17 +491,17 @@ It is incumbent on the model user to identify the name of the urbanized area pro
    * **UzaProfileName**: Name of a specific urbanized area for the urbanized area profile to use in SimBzone creation or one of the following: small, medium-small, medium, medium-large, large, very-large
 
    Here is a snapshot of the file:
-<img align="center" width="200" border=1 src="images/uza.PNG">   
+   <img align="center" width="200" border=1 src="images/uza.PNG">   
 
 
-   
+
 2. hh location type proportions (**_azone_hh_loc_type_prop.csv_**): This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone
    * **PropMetroHh**: Proportion of households residing in the metropolitan (i.e. urbanized) part of the Azone
    * **PropTownHh**: Proportion of households residing in towns (i.e. urban-like but not urbanized) in the Azone
    * **PropRuralHh**: Proportion of households residing in rural (i.e. not urbanized or town) parts of the Azone
 
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/hh_loc_type.PNG">   
+   <img align="center" width="400" border=1 src="images/hh_loc_type.PNG">   
    
 3. work location type proportions (**_azone_wkr_loc_type_prop.csv_**): This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone
    * **PropWkrInMetroJobs**: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone
@@ -510,18 +510,18 @@ It is incumbent on the model user to identify the name of the urbanized area pro
    * **PropMetroJobs**: Proportion of the jobs of the metropolitan area that the Azone is associated with that are located in the metropolitan portion of the Azone
    
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/wrk_loc_prop.PNG">
+   <img align="center" width="400" border=1 src="images/wrk_loc_prop.PNG">
    
 4. work location type proportions (**_azone_gq_pop-prop_by_area-type.csv_**): This file provides the proportions for groupquarters in different area types.
    * **MetroLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in the metropolitan (i.e. urbanized) portion of the Azone
    * **TownLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone
    * **RuralAveDensity**: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone
-  
+
   Here is a snapshot of the file:
-  
+
  <img align="center" width="400" border=1 src="images/loc_type_land.PNG"> 
- 
- 
+
+
 5. work location type proportions (**_azone_gq_pop-prop_by_area-type.csv_**): This file provides the average activity density in rural areas 
    * **PropGQPopCenter**: Proportion of Azone non-institutional group quarters population located in center area type
    * **PropGQPopInner**: Proportion of Azone non-institutional group quarters population located in inner area type
@@ -532,8 +532,8 @@ It is incumbent on the model user to identify the name of the urbanized area pro
 
    Here is a snapshot of the file:
 <img align="center" width="400" border=1 src="images/gq_prop.PNG">
- 
- 
+
+
 6. Land area for area types(**_azone_loc_type_land_area.csv_**): This file provides land area data for different area types
    * **MetroLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in the metropolitan (i.e. urbanized) portion of the Azone
    * **TownLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone
@@ -663,7 +663,7 @@ his module assigns a housing type, either single-family (SF) or multifamily (MF)
 For more information see [here](https://github.com/VisionEval/VisionEval-Dev/blob/master/sources/modules/VESimLandUse/inst/module_docs/SimulateHousing.md)
 
 [Top](#rspm-modules-and-outputs)
-___   
+___
 ### SimulateEmployment   
 This module assign workers SimBzone work locations. A worker table is created which identifies a unique worker ID, the household ID the worker is a part of, and the SimBzone, Azone, and Marea of the worker job location.
 #### User Input Files
@@ -688,7 +688,7 @@ This module assign workers SimBzone work locations. A worker table is created wh
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimLandUse/inst/module_docs/SimulateEmployment.md)
 
 [Top](#rspm-modules-and-outputs)
-___     
+___
 
 ### Simulate4DMeasures   
 This module calculates several 4D measures by SimBzone including density, diversity (i.e. mixing of land uses), and pedestrian-orientedn transportation network design. These measures are the same as or are similar to measures included in the Environmental Protection Agency's (EPA)
@@ -699,7 +699,7 @@ This module calculates several 4D measures by SimBzone including density, divers
    * **RuralD3bpo4Adj**: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for rural areas
 
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/d3.PNG">   
+   <img align="center" width="400" border=1 src="images/d3.PNG">   
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -731,7 +731,7 @@ For more information see [here](https://github.com/VisionEval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-___     
+___
 
 ### SimulateUrbanMixMeasure   
 This module simulates an urban mixed-use measure based on the 2001 National Household Travel Survey measure of the tract level urban/rural indicator
@@ -768,7 +768,7 @@ For more information see [here](https://github.com/VisionEval/VisionEval/blob/ma
 [Top](#rspm-modules-and-outputs)
 
 
-___     
+___
 
 ### AssignParkingRestrictions   
 This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area. The module takes user inputs on parking restrictions and prices by Bzone and calculates for each household the number of free parking spaces available at the household's residence, which workers pay for parking and whether their payment is part of a cash-out-buy-back program, the cost of residential parking for household vehicles that can't be parked in a free space, the cost for workplace parking, and the cost of parking for other activities such as shopping. The parking restriction/cost information is used by other modules in calculating the cost of vehicle ownership and the cost of vehicle use.
@@ -785,7 +785,7 @@ This module identifies parking restrictions and prices affecting households at t
    * **OuterPkgSpacesPerGQ**: Average number of free parking spaces available to group quarters residents in outer area type
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/park_availablity.PNG">   
+   <img align="center" width="800" border=1 src="images/park_availablity.PNG">   
 
 2. Parking cost  (**_marea_parking-cost_by_area-type_**): This file has the data related to parking costs and population proportions paying the parking costs
    * **CenterPropWkrPay**: Proportion of workers who pay for parking in center area type
@@ -799,7 +799,7 @@ This module identifies parking restrictions and prices affecting households at t
    * **OuterPkgCost**: Average daily cost for long-term parking (e.g. paid on monthly basis) in outer area type
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/park_cost.PNG">   
+   <img align="center" width="800" border=1 src="images/park_cost.PNG">   
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -826,7 +826,7 @@ For more information see [here](https://github.com/VisionEval/VisionEval/blob/ma
 
 [Top](#rspm-modules-and-outputs)
 
-___     
+___
 
 ### AssignDemandManagement   
 This module assigns demand management program participation to households and to workers. Households are assigned to individualized marketing program participation. Workers are assigned to employee commute options participation. The module computes the net proportional reduction in household DVMT based on the participation in travel demand management programs.
@@ -842,7 +842,7 @@ This module assigns demand management program participation to households and to
    * **FringeImpProp**: Proportion of households residing in fringe area type in Marea who participate in strong individualized marketing program
 
    Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/demand_management.PNG">   
+   <img align="center" width="500" border=1 src="images/demand_management.PNG">   
 
 
 
@@ -866,7 +866,7 @@ __
 
 
 ### AssignCarSvcAvailability 
- 
+
 This module assigns car service availability levels (Low, High) to Bzones and households. Car services include taxis, car sharing services (e.g. Car-To-Go, Zipcar), and future automated taxi services
 #### User Input Files
 1. Car service availability  (**_marea_carsvc_availability_**): This file has the data for acitivity proportions which are served by car services
@@ -876,7 +876,7 @@ This module assigns car service availability levels (Low, High) to Bzones and ho
    * **FringePropHighCarSvc**: Proportion of activity in fringe area type that is served by high level car service (i.e. service competitive with household owned car)
 
    Here is a snapshot of the file:
-<img align="center" width="500" border=1 src="images/car_service.PNG">   
+   <img align="center" width="500" border=1 src="images/car_service.PNG">   
 
 
 
@@ -887,7 +887,7 @@ This module assigns car service availability levels (Low, High) to Bzones and ho
 | VESimLandUse    | [CreateSimBzones](#createsimbzones)  |**AreaType**      | see [CreateSimBzones](#createsimbzones)                              |
 | VESimLandUse    | [CreateSimBzones](#createsimbzones)     |**TotEmp**    | see [CreateSimBzones](#createsimbzones)    |
 | VESimLandUse    | [Calculate4DMeasures](#calculate4dmeasures)  |**D1D**      | see [Calculate4DMeasures](#calculate4dmeasures)                             |
- 
+
 #### Module Outputs
 * **IsIMP**: dentifies whether household is participant in travel demand management individualized marketing program (IMP): 1 = yes, 0 = n
 * **PropTdmDvmtReduction**: Proportional reduction in household DVMT due to participation in travel demand management programs
@@ -914,7 +914,7 @@ This module assigns transit service level to the urbanized portion of each Marea
    * **CRRevMi**: Annual revenue-miles of commuter rail, hybrid rail, cable car, and aerial tramway public transit service
    
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/marea_transit_service.PNG">
+   <img align="center" width="800" border=1 src="images/marea_transit_service.PNG">
 
 
 #### Internal Module Inputs
@@ -926,7 +926,7 @@ This module assigns transit service level to the urbanized portion of each Marea
 | VESimLandUse    | [CreateSimBzones](#createsimbzones)      |**UrbanArea**   | see [CreateSimBzones](#createsimbzones)             |
 | VESimLandUse    | [CreateSimBzones](#createsimbzones)       |**DevType**   | see [CreateSimBzones](#createsimbzones)              |
 |VESimLandUse    | [SimulateHousing](#simulatehousing)    |**UrbanPop**   | see  [SimulateHousing](#simulatehousing)           |
- 
+
 #### Module Outputs
 * **TranRevMiPC**: Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population
 * **VanDvmt**: Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services.
@@ -949,14 +949,14 @@ This module assigns freeway and arterial lane-miles to metropolitan areas (Marea
    * **ArtLaneMi**: Lane-miles of roadways functionally classified as arterials (but not freeways or expressways) in the urbanized portion of the metropolitan area
 
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/marea_lane_miles.PNG">
+   <img align="center" width="400" border=1 src="images/marea_lane_miles.PNG">
 
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 |VESimLandUse    | [SimulateHousing](#simulatehousing)    |**UrbanPop**   | see  [SimulateHousing](#simulatehousing)           |
- 
+
 #### Module Outputs
 * **FwyLaneMiPC**: Ratio of urbanized area freeway and expressway lane-miles to urbanized area population
 
@@ -980,7 +980,7 @@ This module assigns drivers by age group to each household as a function of the 
    * **Drv65PlusAdjProp**: Target proportion of unadjusted model number of drivers 65 or older (`1` = no adjustment)
    
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/region_hh_driver_adjust_prop.PNG">
+   <img align="center" width="800" border=1 src="images/region_hh_driver_adjust_prop.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -1020,7 +1020,7 @@ This module determines the number of vehicles owned or leased by each household 
 #### User Input Files
 This module has no user input requirements.
 
-     
+
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
@@ -1053,8 +1053,9 @@ This module identifies how many household vehicles are light trucks and how many
 1. Light truck proportion for `Azone` (**_azone_lttrk_prop.csv_**): This file specifies the light truck proportion of the vehicle fleet.
    * **LtTrkProp**: Proportion of household vehicles that are light trucks (pickup, SUV, van).
      
+   
    Here is a snapshot of the file:
-<img align="center" width="300" border=1 src="images/azone_lttrk_prop.PNG">
+   <img align="center" width="300" border=1 src="images/azone_lttrk_prop.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -1093,7 +1094,7 @@ This module creates a vehicle table and populates it with household ID and geogr
    * **AutoCarSvcSubProp**: The proportion of automobile owners who would substitute a less-costly car service option for owning their automobile
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
+   <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -1119,15 +1120,15 @@ This module assigns vehicle ages to each household vehicle. Vehicle age is assig
 1. Vehicles mean age for `Azone` (**azone_hh_veh_mean_age.csv**): This file provides inputs for mean auto age and mean light truck age in azone.
    * **AutoMeanAge**: Mean age of automobiles owned or leased by households.
    * **LtTrkMeanAge**: Mean age of light trucks owned or leased by households.
- 
+
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_hh_veh_mean_age.PNG">
+   <img align="center" width="400" border=1 src="images/azone_hh_veh_mean_age.PNG">
 
 2. Car service characteristics for `Azone` (**azone_carsvc_characteristics.csv**): This file specifies the different characteristics for high and low car service levels
    * **AveCarSvcVehicleAge**: Average age of car service vehicles in years
 
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
+   <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -1163,7 +1164,7 @@ This module calculates average vehicle ownership cost for each vehicle based on 
 
 2. Proportion of pay-as-you-drive (PAYD) insurance users for `Azone` (**azone_payd_insurance_prop.csv**): This file provides inputs on the proportion of households having PAYD insurance.
    * **PaydHhProp**: Proportion of households in the Azone who have pay-as-you-drive insurance for their vehicles
-    
+   
    Here is a snapshot of the file:
    
    <img align="center" width="300" border=1 src="images/azone_payd_insurance_prop.PNG">
@@ -1214,7 +1215,7 @@ This module adjusts household vehicle ownership based on a comparison of the cos
    * **AutoCarSvcSubProp**: The proportion of automobile owners who would substitute a less-costly car service option for owning their automobile
    
    Here is a snapshot of the file:
-<img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
+   <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
 
 #### Internal Module Inputs
@@ -1315,9 +1316,9 @@ This module has no user input requirements.
 #### Module Outputs
 * **WalkTrips**: Average number of walk trips per year by household members
 * **BikeTrips**: Average number of bicycle trips per year by household members
-* **TransitTrips**:Average number of public transit trips per year by household members
+* **TransitTrips**: Average number of public transit trips per year by household members
 
-For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateAltModeTrips.md)
+For more information see [<a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/CalculateAltModeTrips.md" target="_blank">here</a>]
 
 [Top](#rspm-modules-and-outputs)
 
@@ -1360,7 +1361,7 @@ This module reduces household single-occupant vehicle (SOV) travel to achieve go
    * **PropSovDvmtDiverted**: Goals for the proportion of household DVMT in single occupant vehicle tours with round-trip distances of 20 miles or less be diverted to bicycling or other slow speed modes of travel
    
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_prop_sov_dvmt_diverted.PNG">
+   <img align="center" width="400" border=1 src="images/azone_prop_sov_dvmt_diverted.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -1405,20 +1406,20 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **TransitBusFuelCI**: Average carbon intensity of fuel used by transit buses (grams CO2e per megajoule)
    * **TransitRailFuelCI**: Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)
 
-    
+   
    Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/marea_transit_ave_fuel_carbon_intensity.PNG">
-			
+	<img align="center" width="400" border=1 src="images/marea_transit_ave_fuel_carbon_intensity.PNG">
+	
 3. Biofuels proportions of transit fuels by `Marea`  (**marea_transit_biofuel_mix.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the biofuel used by transit services.
 
    * **TransitEthanolPropGasoline**: Ethanol proportion of gasoline used by transit vehicles
    * **TransitBiodieselPropDiesel**: Biodiesel proportion of diesel used by transit vehicles
    * **TransitRngPropCng**: Renewable natural gas proportion of compressed natural gas used by transit vehicles
 
-    
+   
    Here is a snapshot of the file:
-<img align="center" width="600" border=1 src="images/marea_transit_biofuel_mix.PNG">
-			
+	<img align="center" width="600" border=1 src="images/marea_transit_biofuel_mix.PNG">
+	
 4. Transit fuels proportions by transit vehicle type and `Marea` (**marea_transit_fuel.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the transit fuels proportions.
 
    * **VanPropDiesel**: Proportion of non-electric transit van travel powered by diesel
@@ -1430,10 +1431,10 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **RailPropDiesel**: Proportion of non-electric transit rail travel powered by diesel
    * **RailPropGasoline**: Proportion of non-electric transit rail travel powered by gasoline
 
-    
+   
    Here is a snapshot of the file:
- <img align="center" width="1100" border=1 src="images/marea_transit_fuel.PNG">
-			
+	 <img align="center" width="1100" border=1 src="images/marea_transit_fuel.PNG">
+	
 5. Transit powertrain proportions by transit vehicle type and `Marea` (**marea_transit_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the mixes of transit vehicle powertrains.
 
    * **VanPropIcev**: Proportion of transit van travel using internal combustion engine powertrains
@@ -1446,10 +1447,10 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **RailPropHev**: Proportion of transit rail travel using hybrid electric powertrains
    * **RailPropEv**: Proportion of transit rail travel using electric powertrains
 
-    
+   
    Here is a snapshot of the file:
- <img align="center" width="1100" border=1 src="images/marea_transit_powertrain_prop.PNG">
-			
+	 <img align="center" width="1100" border=1 src="images/marea_transit_powertrain_prop.PNG">
+	
 6. Average carbon intensities of fuels by vehicle category for the model region (**region_ave_fuel_carbon_intensity.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the average carbon density for different vehicle types.
 
    * **HhFuelCI**: Average carbon intensity of fuels used by household vehicles (grams CO2e per megajoule)
@@ -1461,7 +1462,7 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **TransitRailFuelCI**: Average carbon intensity of fuels used by transit rail vehicles (grams CO2e per megajoule)
 
    Here is a snapshot of the file:	
- <img align="center" width="800" border=1 src="images/region_ave_fuel_carbon_intensity.PNG">
+   <img align="center" width="800" border=1 src="images/region_ave_fuel_carbon_intensity.PNG">
   
 7. Car service vehicle powertrain proportions by vehicle type for the model region (**region_carsvc_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.
 
@@ -1473,7 +1474,7 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **CarSvcLtTrkPropBev**: Proportion of car service light truck travel powered by battery electric powertrains
    
    Here is a snapshot of the file:	
- <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
+   <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
   
 8. Commercial service vehicle powertrain proportions by vehicle type (**region_comsvc_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of commercial vehicles.
 
@@ -1484,7 +1485,7 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **ComSvcLtTrkPropHev**: Proportion of commercial service light truck travel powered by hybrid electric powertrains
    * **ComSvcLtTrkPropBev**: Proportion of commercial service light truck travel powered by battery electric powertrainss
 
-    
+   
    Here is a snapshot of the file:	
 <img align="center" width="800" border=1 src="images/region_comsvc_powertrain_prop.PNG">
 
@@ -1493,9 +1494,9 @@ This module processes vehicle and fuel characteristics files that model users ma
    * **HvyTrkPropIcev**: Proportion of heavy truck travel powered by internal combustion engine powertrains
    * **HvyTrkPropHev**: Proportion of heavy truck travel powered by hybrid electric powertrains
    * **HvyTrkPropBev**: Proportion of heavy truck travel powered by battery electric powertrains
-		
+	
    Here is a snapshot of the file:	
-<img align="center" width="400" border=1 src="images/region_hvytrk_powertrain_prop.PNG">
+	<img align="center" width="400" border=1 src="images/region_hvytrk_powertrain_prop.PNG">
 	
 
 #### Internal Module Inputs
@@ -1539,7 +1540,7 @@ Average fuel carbon intensities for public transit vehicles are calculated by `M
    * **TransitBiodieselPropDiesel**: Biodiesel proportion of diesel used by transit vehicles
    * **TransitRngPropCng**: Renewable natural gas proportion of compressed natural gas used by transit vehicles
 
-    
+   
    Here is a snapshot of the file:
 <img align="center" width="600" border=1 src="images/marea_transit_biofuel_mix.PNG">
 
@@ -1620,7 +1621,7 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
    Here is a snapshot of the file:	
 <img align="center" width="500" border=1 src="images/azone_charging_availability.PNG">
 
-  
+
 2. Car service vehicle powertrain proportions by vehicle type for the model region (**region_carsvc_powertrain_prop.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.
 
    * **CarSvcAutoPropIcev**: Proportion of car service automobile travel powered by internal combustion engine powertrains
@@ -1701,10 +1702,10 @@ The following input files are optional. If these data are not provided, the mode
    * **UrbanLdvDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by light-duty vehicles during the base year
    * **UrbanHvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by heavy trucks during he base year
 
-    
+   
    Here is a snapshot of the file:	
-<img align="center" width="800" border=1 src="images/marea_base_year_dvmt.PNG">
-			
+	<img align="center" width="800" border=1 src="images/marea_base_year_dvmt.PNG">
+	
 3. DVMT split by road class by Marea  (**marea_dvmt_split_by_road_class.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes.
 
    * **LdvFwyArtDvmtProp**: Proportion of light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeway or arterial roadways
@@ -1717,8 +1718,8 @@ The following input files are optional. If these data are not provided, the mode
    * **BusOthDvmtProp**: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
 
    Here is a snapshot of the file:	
-<img align="center" width="1200" border=1 src="images/marea_dvmt_split_by_road_class.PNG">
-			
+	<img align="center" width="1200" border=1 src="images/marea_dvmt_split_by_road_class.PNG">
+	
 4. Operations deployment effects on dvmt for Marea (**marea_operations_deployment.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of dvmt affected by operations for different road classes.
 
    * **RampMeterDeployProp**: Proportion of freeway DVMT affected by ramp metering deployment
@@ -1729,8 +1730,8 @@ The following input files are optional. If these data are not provided, the mode
    * **OtherArtOpsDeployProp**: Proportion of arterial DVMT affected by deployment of other user-defined arterial operations measures
 
    Here is a snapshot of the file:	
-<img align="center" width="1200" border=1 src="images/marea_operations_deployment.PNG">
-			
+	<img align="center" width="1200" border=1 src="images/marea_operations_deployment.PNG">
+	
 5. Other operations effects (**other_ops_effectiveness.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the other delay effects of operations in different road classes
 
    * **Level**: Congestion levels: None = none, Mod = moderate, Hvy = heavy, Sev = severe, Ext = extreme
@@ -1740,8 +1741,8 @@ The following input files are optional. If these data are not provided, the mode
    * **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
    
    Here is a snapshot of the file:	
-<img align="center" width="500" border=1 src="images/other_ops_effectiveness.PNG">
-			
+	<img align="center" width="500" border=1 src="images/other_ops_effectiveness.PNG">
+	
 6. Charges by congestion levels by road class for Marea  (**marea_congestion_charges.csv**): This input file is OPTIONAL. It is only needed if the user wants to modify the charges of vehicle travel for different congestion levels
 
    * **FwyNoneCongChg**: Charge per mile (U.S. dollars) of vehicle travel on freeways during periods of no congestion
@@ -1756,11 +1757,11 @@ The following input files are optional. If these data are not provided, the mode
    * **ArtExtCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of extreme congestion
 
    Here is a snapshot of the file:	
-<img align="center" width="1500" border=1 src="images/marea_congestion_charges.PNG">
- 
+	<img align="center" width="1500" border=1 src="images/marea_congestion_charges.PNG">
+
    
 
-		
+	​	
 
 #### Internal Module Inputs
 
@@ -1800,7 +1801,7 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
    * **UrbanLdvDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by light-duty vehicles during the base year
    * **UrbanHvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by heavy trucks during he base year
 
-    
+   
    Here is a snapshot of the file:	
 <img align="center" width="800" border=1 src="images/marea_base_year_dvmt.PNG">
 
@@ -1880,12 +1881,13 @@ This module uses optional user inputs if [Initialize](#initialize-vetravelperfor
 
    * **ComSvcDvmtGrowthBasis**: Factor used to grow commercial service vehicle DVMT in Marea from base year value
      
+
    Here is a snapshot of the file:	
-<img align="center" width="800" border=1 src="images/marea_base_year_dvmt.PNG">
-   
+   <img align="center" width="800" border=1 src="images/marea_base_year_dvmt.PNG">
+
 
     Here is a snapshot of the file:	
-<img align="center" width="600" border=1 src="images/region_base_year_hvytrk_dvmt.PNG">
+   <img align="center" width="600" border=1 src="images/region_base_year_hvytrk_dvmt.PNG">
 
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
@@ -1999,7 +2001,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 
    Here is a snapshot of the file:	
 <img align="center" width="1500" border=1 src="images/marea_congestion_charges.PNG">
- 
+
 
 #### User Input Parameters
 **Value of time (valueoftime)** : This parameter set the value of time (base cost year dollars per hour).  It should be defined in [model_parameters.json]
@@ -2010,7 +2012,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
    "TYPE": "double", 
    "UNITS": "base cost year dollars per hour"
   }
-   ```  
+   ```
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
@@ -2212,9 +2214,8 @@ This module calculates vehicle operating costs per mile of travel and uses those
    * **LowCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a low service level car service for a trip
    
    Here is a snapshot of the file:	
-<img align="center" width="500" border=1 src="images/azone_vehicle_access_times.PNG">
+  <img align="center" width="500" border=1 src="images/azone_vehicle_access_times.PNG">
   
-   
 2. Fuel and electricity cost for `Azone` (**azone_fuel_power_cost.csv**): This file supplies data for retail cost of fuel and electricity
 
    * **FuelCost**:Retail cost of fuel per gas gallon equivalent in dollars
@@ -2230,7 +2231,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
    * **PevSurchgTaxProp**: Proportion of equivalent gas tax per mile paid by hydrocarbon fuel consuming vehicles to be charged to plug-in electric vehicles per mile of travel powered by electricity
 
    Here is a snapshot of the file:	
- <img align="center" width="400" border=1 src="images/azone_veh_use_taxes.PNG">
+    <img align="center" width="400" border=1 src="images/azone_veh_use_taxes.PNG">
    
 4. Proportional external costs for the ragion  (**region_prop_externalities_paid.csv**): This file supplies data for climate change and other social costs.
 
@@ -2250,7 +2251,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
    "TYPE": "double", 
    "UNITS": "base cost year dollars per hour"
   }
-   ```  
+   ```
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
@@ -2310,7 +2311,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 This module does not have user-supplied input files
 
 
- 
+
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
@@ -2361,7 +2362,7 @@ This module calculates an extra mileage tax ($ per vehicle mile traveled) for ho
    Here is a snapshot of the file:	
 <img align="center" width="300" border=1 src="images/road_cost.PNG">
 
- 
+
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
@@ -2415,9 +2416,9 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 4. Heavy duty truck maean ages (**region_comsvc_veh_mean_age.csv**): This input file contains average age of commercial service vehicles
 
    * **AveComSvcVehicleAge**: average age of commercial service vehicles
- 
+
    Here is a snapshot of the file:	
-<img align="center" width="400" border=1 src="images/age.PNG">
+   <img align="center" width="400" border=1 src="images/age.PNG">
 
    
 #### Internal Module Inputs
@@ -2485,7 +2486,7 @@ This module calculates the energy consumption and carbon emissions of public tra
    * **RailPropHev**: Proportion of transit rail travel using hybrid electric powertrains
    * **RailPropEv**: Proportion of transit rail travel using electric powertrains
 
-    
+   
    Here is a snapshot of the file:
  <img align="center" width="1100" border=1 src="images/marea_transit_powertrain_prop.PNG">
 
@@ -2645,7 +2646,7 @@ ggplot(hh_dvmt, aes(x = Dvmt, fill = year)) +
 
 
 Other query methods are described in the [Getting Started documentation](https://github.com/VisionEval/VisionEval/wiki/Getting-Started-v2## extracting-model-results). 
- 
+
 ### Scenarios
 
 To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md## azone_hh_veh_own_taxescsv) would be modified in Excel, LibreOffice, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
@@ -2783,7 +2784,7 @@ ggplot(hh_dvmt, aes(x = Dvmt, fill = year)) +
 
 
 Other query methods are described in the [Getting Started documentation](https://github.com/VisionEval/VisionEval/wiki/Getting-Started-v2## extracting-model-results). 
- 
+
 ### Scenarios
 
 To modify a scenario, the appropriate input files are edited.  For example, to change the flat rate tax of vehicles for future [`azone_hh_veh_own_taxes.csv`](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CalculateVehicleOwnCost.md## azone_hh_veh_own_taxescsv) would be modified in Excel, LibreOffice, OpenOffice, or a text editor to change the `VehOwnFlatRateFee` of year 2038.
