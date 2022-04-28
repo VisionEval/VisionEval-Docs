@@ -18,11 +18,12 @@ This guide contains documentation for users and developers of the VisionEval mod
 
 | Chapter | Description|
 |:--------|:----------------------------|
-| [Concept Primer](#conceptprimer) | A non-technical introduction to the concepts underlying the VisionEval modeling system |
-| [Getting Started][Getting Started] | Instructions on how to get VisionEval installed and running |
-| [VERSPM Tutorial](#verspm) | Comprehensive tutorial materials on the VERSPM model |
-| [VERPAT Tutorial](#verpat) | Comprehensive tutorial materials on the VERPAT model |
-| [VE-State Tutorial](#vestate) | Comprehensive tutorial materials on the VE-State model |
+| [Getting Started][Getting Started] | Instructions on getting started with VisionEval on your computer |
+| [Concept Primer](#conceptprimer) | A high-level introduction to the concepts and definitions underlying the VisionEval modeling system |
+| [VisionEval Tutorial 101] | Tutorial on how to start applying a VisionEval model |
+| [VERSPM Tutorial](#verspm) | Comprehensive and in-depth tutorial materials on the VERSPM model |
+| [VE-State Tutorial](#vestate) | Comprehensive and in-depth tutorial materials on the VE-State model |
+| [VERPAT Tutorial](#verpat) | Comprehensive and in-depth tutorial materials on the VERPAT model |
 | [Developer Documentation](#developer) | Information for developer or researcher interested in making contributions to the VisionEval system |
 
 ## About VisionEval {-}

@@ -8,12 +8,13 @@ language:
     chapter_name: "Chapter "
 rmd_files:
   - index.Rmd
-  - 01-concept-primer.Rmd
-  - 02-getting-started.Rmd
-  - 03-visioneval-models.Rmd
+  - 01-getting-started.Rmd
+  - 02-concept-primer.Rmd
+  - 03-tutorial.Rmd
   - 04-verspm.Rmd
-  - 05-verpat.Rmd
-  - 06-vestate.Rmd
+  - 05-vestate.Rmd
+  - 06-verpat.Rmd
   - 07-developer.Rmd
   - 08-api.Rmd
   - 09-estimation.Rmd
+  - 10-software.Rmd
