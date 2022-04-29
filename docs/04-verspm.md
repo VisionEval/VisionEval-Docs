@@ -1,4 +1,4 @@
-# VERSPM Documentation
+# VERSPM Tutorial {#verspm}
 
 
 
@@ -3923,5 +3923,4 @@ Here, DVMT per capita and annual fuel cost digrams shift to the left as expected
 
    <img align="center" width="1100" border=1 src="https://github.com/visioneval/VisionEval-Docs/blob/master/tutorials/verspm/images/Fuel_Price.PNG">
 
- Return to [Tutorial](Main.md). 
 

@@ -1,7 +1,7 @@
 --- 
 title: "VisionEval User Guide"
 author: "VisionEval Pooled Fund Team"
-date: "2022-04-18"
+date: "2022-04-29"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -17,13 +17,17 @@ csl: chicago-fullnote-bibliography.csl
 This guide contains documentation for users and developers of the VisionEval modeling system. This guide contains a diversity of information intended for different audiences interacting with VisionEval. The table below contains a list of chapters contained in this guide along with their descriptions and can be referenced identify the sections that will serve the best starting points.
 
 | Chapter | Description|
-|:--------|:----------------------------|
-| [Concept Primer](#conceptprimer) | A non-technical introduction to the concepts underlying the VisionEval modeling system |
-| [Getting Started][Getting Started] | Instructions on how to get VisionEval installed and running |
-| [VERSPM Tutorial](#verspm) | Comprehensive tutorial materials on the VERSPM model |
-| [VERPAT Tutorial](#verpat) | Comprehensive tutorial materials on the VERPAT model |
-| [VE-State Tutorial](#vestate) | Comprehensive tutorial materials on the VE-State model |
-| [Developer Documentation](#developer) | Information for developer or researcher interested in making contributions to the VisionEval system |
+|:-------------|:-----------------------------|
+| [Getting Started][Getting Started] | Instructions on getting started with VisionEval on your computer |
+| [Concept Primer](#conceptprimer) | A high-level introduction to the concepts and definitions underlying the VisionEval modeling system |
+| [VisionEval Tutorial 101](#tutorial) | Introductory tutorial on how to start applying a VisionEval model |
+| [VERSPM Tutorial](#verspm) | Comprehensive and in-depth tutorial materials on the VERSPM model |
+| [VE-State Tutorial](#vestate) | Comprehensive and in-depth tutorial materials on the VE-State model |
+| [VERPAT Tutorial](#verpat) | Comprehensive and in-depth tutorial materials on the VERPAT model |
+| [Developer Documentation](#developer) | Information for developers or researchers interested in making contributions to the VisionEval system |
+| [API Documentation][API Documentation] | Module documentation from the model source code |
+| [Estimation in VisionEval][Estimation in VisionEval] | Overview of model estimation in VisionEval and instructions to customize model applications |
+| [Software Framework][Software Framework] | Technical overview of the VisionEval software framework |
 
 ## About VisionEval {-}
 VisionEval is a collaborative project to build a family of strategic tools for performance-based transportation planning into a single open-source programming framework. Strategic tools are designed to evaluate many alternative futures and policies to help state and metropolitan area governments address pressing issues, despite uncertainty. 
@@ -42,9 +46,9 @@ This guide contains a diversity of information intended for different audiences 
 
 **Model applier:** You are wanting to learn about the VisionEval system and implement a model application.
 
-* [Concept Primer](#conceptprimer): An introduction to the concepts underlying the VisionEval modeling system and how it can be used to support transportation planning efforts, intended for a non-technical audience
 * [Getting Started][Getting Started]: Instructions on how to get VisionEval installed and running
-* Tutorials: Comprehensive tutorial materials on the [VERSPM](#verspm), [VERPAT](#verpat), and [VE-State](#vestate) models
+* [Concept Primer](#conceptprimer): An introduction to the concepts underlying the VisionEval modeling system and how it can be used to support transportation planning efforts, without technical model details
+* Tutorials: Start with VisionEval Tutorial 101 for an introduction to start applying a VisionEval model, followed by referencing more in-depth tutorial materials on the [VERSPM](#verspm), [VERPAT](#verpat), and [VE-State](#vestate) models.
 
 **Developer:** You are a developer or researcher and interested in making contributions to the VisionEval system.
 

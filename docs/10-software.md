@@ -1,25 +1,8 @@
-# VisionEval Models
+# Software Framework
 
-VisionEval is a collaborative project to merge the successful GreenSTEP family of strategic planning
-tools into an open-source framework. The GreenSTEP model was originally developed to assist the Oregon Department of Transportation (ODOT) and its partners in analyzing alternate transportation and land use strategies for reducing greenhouse gas emissions from light-duty vehicles. ODOT made this model and all of the model estimation files available under an open source license. Subsequently several other modeling tools were built from the original GreenSTEP models and code, with various modifications to serve new purposes. These models include:  
+## Definitions
 
-## Models
-
-  - **VERSPM** - The RSPM (Regional Strategic Planning Model) was developed by ODOT as an offshoot of the GreenSTEP model to
-support the preparation of metropolitan area scenario plans. The name reflects a broadening of the policies, beyond state statutory requirements.  This model operates largely at the zonal level (i.e. inputs and outputs are zone-based).
-  - **VERPAT** - The RPAT (Rapid Policy Analysis Tool) was developed under the federal Strategic Highway Research Program (SHRP2).  The model was developed to help planners evaluate the potential effect of growth policies on regional travel. Portions of the GreenSTEP model were used in RPAT, but substantial revisions were made to the code, including use of land use place type categories.  This model operates largely at the region or place type level for the entire region.
-  - **VE-State** - The VE-State model is a state level version of VERSPM.  Like VERSPM, this model operates at the zonal level, but the zones are larger than their VERSPM counterparts.
-
-### Spatial Detail
-
-One key distinction between the VERPAT and VERSPM models is the level of spatial detail.  
-  - VERPAT operates primarily at the region level and therefore requires inputs at the region or place type level.  As shown below, place types are defined as a combination of area type and development type.  Area type (or regional role) describes the interdependencies of each neighborhood compared to the rest of the region, e.g. how centered is it to jobs in the region.   Development type (or neighborhood character) is used to describe the physical characteristics of each neighborhood in isolation.  Operating at the place type level simplifies the input data requirements and the spatial precision of outputs while still capturing the effects of the different place types in the region.  Take a look at the example model [inputs](https://github.com/gregorbj/VisionEval/tree/master/sources/models/VERPAT/inputs), which has only one input by bzone - population and employment - which represents population and employment for each place type.
-  - VERSPM models the region in zones (in a manner similar to traditional travel model zones), which results in improved spatial resolution of outputs, but which also increases the data development burden.  The selection of the right tool therefore depends on a number of factors – available of data, project resources, desired spatial output detail, etc.  Take a look at the example model [inputs](https://github.com/gregorbj/VisionEval/tree/master/sources/models/VERSPM/Test1/inputs), which has many inputs by bzones.
-
-
-## Definitions  
-
-Following are definitions of terms used in this document:  
+Following are definitions of terms used in this chapter:  
 
 - **Model System**  
 A definition for a set of related models and a software framework for implementing that definition. Models built in the modeling system are related by the domains being modeled (e.g. travel, energy consumption, hydrology, etc.), the 'agents' being modeled (e.g. households, cities, watersheds, etc.), how physical space is represented (e.g. zones, grids, cubes, etc.), how time is represented (e.g. continuouse vs. discrete, independent vs. dependent on past states), and other modeling goals and tradeoffs (e.g. representational detail, degree of coupling, run times, etc.). The model system definition includes specifications for model modules that can be used in the model system, file structure specifications for organizing model parameters and input data necessary for running a model. The software framework for the model system is a library of code that manages the execution of model modules that are designed to work in the model system.  
@@ -45,7 +28,9 @@ A software framework is a library of code containing functions that manage the e
 A datastore is a file or set of files for storing all of the inputs used by modules and outputs produced by modules.  
 
 
+
 ## Model System Objectives
+
 The GreenSTEP model and related models are disaggregate strategic planning models. They are disaggregate because, like many modern transportation models, they simulate behavior at the individual household level rather than at a more aggregate 'zonal' level. This enables the assessment of how prospective policies or other changes could have different impacts on different types of households (e.g. low income vs. high income). The models are strategic planning models because they are built to support long-range strategic planning decisions such as community visioning, policy development, and scenario planning. Strategic planning processes most often need to consider a number of possibilities about how the future may unfold and a range of potential actions that might be taken. As a consequence, models built to support strategic planning need to be responsive to a large number of variables and be capable of running quickly so that a large number of runs can be done to explore the decision space. The VisionEval model system supports the development of these types of models. The design objectives for this model system are:  
 
 
