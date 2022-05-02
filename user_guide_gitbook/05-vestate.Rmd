@@ -2043,7 +2043,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 * **ArtSevCongSpeed**: Average arterial speed (miles per hour) when congestion is severe
 * **ArtExtCongSpeed**: Average arterial speed (miles per hour) when congestion is extreme
 * **OthSpd**: Average speed (miles per hour) on other roadways
-* **AveLdvSpd**: Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel
+* **LdvAveSpeed**: Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel
 * **FwyNoneCongDelay**: Average freeway delay (hours per mile) occurring when there is no congestion
 * **FwyModCongDelay**: Average freeway delay (hours per mile) occurring when congestion is moderate
 * **FwyHvyCongDelay**: Average freeway delay (hours per mile) occurring when congestion is heavy
@@ -2255,7 +2255,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 #### Internal Module Inputs
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VETravelPerformance          | [CalculateRoadPerformance](#calculateroadperformance)     |**AveLdvSpd**  | Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel                |
+| VETravelPerformance          | [CalculateRoadPerformance](#calculateroadperformance)     |**LdvAveSpeed**  | Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel                |
 | VETravelPerformance          | [CalculateRoadPerformance](#calculateroadperformance)     |**AveCongPrice**  | Average price paid (dollars per mile) in congestion fees             |
 | VEHouseholdVehicles          | [CreateVehicleTable ](#createvehicletable ) |**HighCarSvcCost**      |  Average cost in dollars per mile for travel by high service level car service                       |
 | VEHouseholdVehicles          | [CreateVehicleTable ](#createvehicletable ) |**LowCarSvcCost**      |  Average cost in dollars per mile for travel by low service level car service                      |
