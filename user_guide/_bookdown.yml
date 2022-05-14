@@ -11,10 +11,12 @@ rmd_files:
   - 01-getting-started.Rmd
   - 02-concept-primer.Rmd
   - 03-tutorial.Rmd
-  - 04-verspm.Rmd
-  - 05-vestate.Rmd
-  - 06-verpat.Rmd
-  - 07-developer.Rmd
-  - 08-api.Rmd
-  - 09-estimation.Rmd
-  - 10-software.Rmd
+  - 04-inputs.Rmd
+  - 05-validation.Rmd
+  - 06-estimation.Rmd
+  - 07-verspm.Rmd
+  - 08-vestate.Rmd
+  - 09-verpat.Rmd
+  - 10-developer.Rmd
+  - 11-api.Rmd
+  - 12-software.Rmd

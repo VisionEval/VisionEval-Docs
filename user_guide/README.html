@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <title>0.0.1 Editing Book Attributes | README</title>
+
+  
+   
+   <meta name="generator" content="placeholder" />
+  <meta property="og:title" content="0.0.1 Editing Book Attributes | README" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="0.0.1 Editing Book Attributes | README" />
+  
+  
+  
+  <!-- JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script>
+    <script src="libs/bs3compat-0.3.1/transition.js"></script>
+    <script src="libs/bs3compat-0.3.1/tabs.js"></script>
+    <script src="libs/bs3compat-0.3.1/bs3compat.js"></script>
+    <link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet" />
+    <script src="libs/bs4_book-1.0.0/bs4_book.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script>
+
+  <!-- CSS -->
+  <style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+      <link rel="stylesheet" href="bs4_style.css" />
+  
+</head>
+
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book">
+    <a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1><a href="index.html" title=""></a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+      </form>
+
+      <nav aria-label="Table of contents">
+        <h2>Table of contents</h2>
+        <div id="book-toc"></div>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="col-sm-12 col-md-9 col-lg-7" id="content">
+<!--bookdown:title:end-->
+<!--bookdown:title:start-->
+<p>Welcome to the VisionEval User Guide. This user guide are formatted using the <a href="https://bookdown.org/">bookdown</a> package. Some high-level instructions for updating the user guide are provided here for convenience, however <a href="https://bookdown.org/yihui/bookdown/">documentation</a> on the bookdown website has more comprehensive instructions on how to interact with bookdown.</p>
+<div id="editing-book-attributes" class="section level3" number="0.0.1">
+<h3><span class="header-section-number">0.0.1</span> Editing Book Attributes</h3>
+<p>Key user guide attributes, such as the title, author, etc. are located and can be edited from the <code>index.RMD</code> file.</p>
+</div>
+<div id="editting-a-chapter" class="section level3" number="0.0.2">
+<h3><span class="header-section-number">0.0.2</span> Editting a Chapter</h3>
+<p>Each chapter has a markdown <code>.RMD</code> file. Note that the Welcome chapter, or home page, is located in the <code>index.RMD</code> file. To edit a chapter users should:</p>
+<ul>
+<li>Edit the chapter markdown <code>.RMD</code> file in the main <code>user_guide</code> directory</li>
+<li>Set working directory as the main <code>user_guide</code> directory</li>
+<li>Build the new book using the <code>render_book()</code> function</li>
+</ul>
+</div>
+<div id="adding-a-chaptereditting-chapter-order" class="section level3" number="0.0.3">
+<h3><span class="header-section-number">0.0.3</span> Adding a Chapter/Editting Chapter Order</h3>
+<p>All the chapters in the user guide and the chapter order are defined in the <code>_bookdown.yml</code> file. To add a chapter users should:</p>
+<ul>
+<li>Add the chapter as a <code>.RMD</code> file in the main <code>user_guide</code> directory</li>
+<li>Add the chapter to <code>_bookdown.yml</code></li>
+<li>Set working directory as the main <code>user_guide</code> directory</li>
+<li>Build the new book using the <code>render_book()</code> function</li>
+</ul>
+<p>To edit the chapter order users should:</p>
+<ul>
+<li>Change the chapter numbering in the <code>.RMD</code> file name in the main <code>user_guide</code> directory</li>
+<li>Change the chapter numbering and order in <code>_bookdown.yml</code></li>
+<li>Set working directory as the main <code>user_guide</code> directory</li>
+<li>Build the new book using the <code>render_book()</code> function</li>
+</ul>
+<p>Additional resources:</p>
+<p>The <strong>bookdown</strong> book: <a href="https://bookdown.org/yihui/bookdown/" class="uri">https://bookdown.org/yihui/bookdown/</a></p>
+<p>The <strong>bookdown</strong> package reference site: <a href="https://pkgs.rstudio.com/bookdown" class="uri">https://pkgs.rstudio.com/bookdown</a></p>
+</div>
+  </main>
+
+  <div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page">
+      <h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5">
+  <div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong></strong>" was written by . </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+
+
+</body>
+
+</html>
