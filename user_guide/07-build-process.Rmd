@@ -1,4 +1,4 @@
-# Module Build Process {#ve-buildprocess}
+# Module Build Process for Custom Data Inputs{#ve-buildprocess}
 
 
 ```{r setup, include=FALSE}
@@ -6,7 +6,15 @@ knitr::opts_chunk$set(echo = TRUE, results='hide')
 ```
 
 ## Introduction
+The build process is a process for updating core VisionEval packages to incorporate 
+
+
+
 The purpose of this chapter is to familiarize you with the build process for creating or modifying VisionEval packages. This chapter is intended to walk you through the process of substituting data and re-building a typical VE package, using the VESimHouseholds package as a case study in this example. 
+
+
+
+**Note**: If you are going to build a package - Start with the Source version of VisionEval - find it here...[ link ]
 
  
 
@@ -22,10 +30,14 @@ The typical steps involved in the process include:
 
 
 
+### Case Study
+
+
+
 ## VESimHouseholds - PUMS example
 The VESimHouseholds contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the VESimHouseholds package. 
 
-+++Action[ put a link to the description of the VESimHouseholds package. Describe - and link to the inputs and the outputs.   ]
++++Action: [ put a link to the description of the VESimHouseholds package. Describe - and link to the inputs and the outputs.   ]
 
 
 
@@ -36,7 +48,7 @@ The objective of this case study is to substitute the default Oregon-based data 
 
 ## Tutorial Objectives
 1. Preprocess and format ``raw'' PUMS data into the comma separated value (CSV) files for VisionEval input
-2. Create the estimated datasets stored as R data files (.Rda) for VisionEval
+2. Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as "datastore format)   ++{do we link to a definition of datastore}
 3. Re-build and install the module to make it available as a VisionEval module package
 
 
@@ -121,9 +133,9 @@ To start, we must download our new "raw" PUMS data.
 
 The 2000 PUMS data comes in two forms, 1% and 5%, available here: https://www2.census.gov/census_2000/datasets/PUMS/
 
-> The 5-percent PUMAs were used to present the 5-percent PUMS files, were required to contain a minimum population of 100,000 persons, and had to nest within states. PUMAs could consist of a single county or an aggregation of one or more counties, census tracts, or minor civil divisions (MCDs) in the New England states. Additionally, an incorporated place with a minimum population of 100,000 persons could be defined as a PUMA.
-
-> The 1-pecent super-PUMAs were used to present 1-percent PUMS files, were required to contain a minimum population of 400,000 persons, and had to nest within states. These super-PUMAs were a new geographic entity for Census 2000 and were aggregations of the smaller, 5-percent PUMAs."
+> "The 1-pecent super-PUMAs were used to present 1-percent PUMS files, were required to contain a minimum population of 400,000 persons, and had to nest within states. These super-PUMAs were a new geographic entity for Census 2000 and were aggregations of the smaller, 5-percent PUMAs.
+>
+> The 5-percent PUMAs were used to present the 5-percent PUMS files, were required to contain a minimum population of 100,000 persons, and had to nest within states. PUMAs could consist of a single county or an aggregation of one or more counties, census tracts, or minor civil divisions (MCDs) in the New England states. Additionally, an incorporated place with a minimum population of 100,000 persons could be defined as a PUMA."
 
 
 In this case we are looking to download the revised 5% data. Within each state directory (e.g., https://www2.census.gov/census_2000/datasets/PUMS/FivePercent/California/) there will be several files. 
@@ -174,7 +186,16 @@ getDecPUMS(STATE, output_dir = './output_folder')
 
 ```
 
+
+
+{ Nick - will add the ASC Scripts - for using more recent acs data  }
+
+
+
+
+
 ## Step 2 - Create the VisionEval estimation data sets
+
 The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval `.Rda` data files stored in `VESimHouseholds\data`. These data files are stored in a structure and format (e.g., dataframes) that VisionEval can use as part of the framework.
 
 a. Start by instantiating the VisionEval R project environment by loading your model build's `VisionEval.Rproj`. If you have already built your VisionEval using `ve.build()`, you will have a `VisionEval.Rproj` file in your `built` directory. For example, `VisionEval\built\visioneval\4.1.2\runtime\VisionEval.Rproj`.
@@ -188,7 +209,10 @@ c. Run the R script `VESimHouseholds/R/CreateEstimationDatasets.R`. This script 
 [
 
 - we need to note where and how this proces may differ from other packages? for instance, can we say - this package includes an estimation script. but others do not.. ]
-- 
+
+
+
+
 
 
 ## Step 3 - Build the VESimHouseholds package
