@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 11 Developer Documentation | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 11 Developer Documentation | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://visioneval.org/book/developer.html">
+<meta property="og:image" content="https://visioneval.org/book/images/cover.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 11 Developer Documentation | VisionEval User Guide">
+<meta name="twitter:image" content="https://visioneval.org/book/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="11.1 Developer Orientation  11.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
+<meta property="og:description" content="11.1 Developer Orientation  11.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
+<meta name="twitter:description" content="11.1 Developer Orientation  11.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></li>
+<li><a class="" href="tutorial.html"><span class="header-section-number">3</span> VisionEval Tutorial</a></li>
+<li><a class="" href="picking-a-model.html"><span class="header-section-number">4</span> Picking a Model</a></li>
+<li><a class="" href="model-geography-and-years.html"><span class="header-section-number">5</span> Model Geography and Years</a></li>
+<li><a class="" href="model-inputs.html"><span class="header-section-number">6</span> Model Inputs</a></li>
+<li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
+<li><a class="" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
+<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">10</span> VisionEval Model Details</a></li>
+<li><a class="active" href="developer.html"><span class="header-section-number">11</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">12</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">13</span> Software Framework</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/visioneval/visioneval-docs/user_guide">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="developer" class="section level1" number="11">
+<h1>
+<span class="header-section-number">11</span> Developer Documentation<a class="anchor" aria-label="anchor" href="#developer"><i class="fas fa-link"></i></a>
+</h1>
+<div id="developer-orientation" class="section level2" number="11.1">
+<h2>
+<span class="header-section-number">11.1</span> Developer Orientation<a class="anchor" aria-label="anchor" href="#developer-orientation"><i class="fas fa-link"></i></a>
+</h2>
+<div id="assumptions-prerequisites" class="section level3" number="11.1.1">
+<h3>
+<span class="header-section-number">11.1.1</span> Assumptions + prerequisites<a class="anchor" aria-label="anchor" href="#assumptions-prerequisites"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Understand [[R|<a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a>]]</li>
+<li>Understand basic statistics, data analysis, and modeling principles</li>
+<li>Understand how to build [[R packages|<a href="https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio" class="uri">https://support.rstudio.com/hc/en-us/articles/200486488-Developing-Packages-with-RStudio</a>]]</li>
+<li>Understand how to use GitHub and [[TravisCI|<a href="https://travis-ci.org/" class="uri">https://travis-ci.org/</a>]]</li>
+<li>Understand [[RShiny|<a href="https://shiny.rstudio.com" class="uri">https://shiny.rstudio.com</a>]] and [[shinytest|<a href="https://github.com/rstudio/shinytest" class="uri">https://github.com/rstudio/shinytest</a>]] if contributing to the User Interface</li>
+</ul>
+</div>
+<div id="get-visioneval-running" class="section level3" number="11.1.2">
+<h3>
+<span class="header-section-number">11.1.2</span> Get VisionEval running<a class="anchor" aria-label="anchor" href="#get-visioneval-running"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Use the [[Quick Start|Getting-Started]] guide to download and run an example</li>
+</ul>
+</div>
+<div id="understand-the-development-principles-and-organization-of-visioneval-framework" class="section level3" number="11.1.3">
+<h3>
+<span class="header-section-number">11.1.3</span> Understand the development principles and organization of VisionEval framework<a class="anchor" aria-label="anchor" href="#understand-the-development-principles-and-organization-of-visioneval-framework"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Review [[System Design Documentation|<a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md" class="uri">https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md</a>]]</li>
+<li>Review [[Contribution Criteria|Contribution-Review-Criteria]]</li>
+</ul>
+</div>
+<div id="skim-useful-references-to-know-about" class="section level3" number="11.1.4">
+<h3>
+<span class="header-section-number">11.1.4</span> Skim useful references to know about<a class="anchor" aria-label="anchor" href="#skim-useful-references-to-know-about"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>VE [[style guide |<a href="https://github.com/visioneval/VisionEval/blob/master/api/Coding_Guidelines.md" class="uri">https://github.com/visioneval/VisionEval/blob/master/api/Coding_Guidelines.md</a>]]</li>
+<li>GitHub repo [[processes / branching and versioning plan | Working-Together]]</li>
+<li>[[Testing requirements, test data, and running tests|Automated-Testing]]</li>
+<li>Developer [[roadmap|Development-Roadmap]]</li>
+<li>Organization and naming of packages and modules, see [[VE Name Registry|<a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VENameRegistry.json" class="uri">https://github.com/visioneval/VisionEval/blob/master/sources/modules/VENameRegistry.json</a>]] [ Status: to be developed ]</li>
+<li>Original GREENSTEP [[documentation | <a href="https://github.com/gregorbj/RSPM/blob/master/Version_3.5/Documentation/GreenSTEP-RSPM_Documentation_20151220.docx" class="uri">https://github.com/gregorbj/RSPM/blob/master/Version_3.5/Documentation/GreenSTEP-RSPM_Documentation_20151220.docx</a>]]</li>
+<li>Organization of data store and test data, see [[VE Name Registry|<a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VENameRegistry.json" class="uri">https://github.com/visioneval/VisionEval/blob/master/sources/modules/VENameRegistry.json</a>]] [ Status: to be developed ]</li>
+<li>List of useful functions in the API for developers [ Status: to be developed; see [[API|<a href="https://github.com/visioneval/VisionEval/tree/master/api" class="uri">https://github.com/visioneval/VisionEval/tree/master/api</a>]] for now ]</li>
+</ul>
+</div>
+<div id="go-thru-relevant-package-development-tutorials" class="section level3" number="11.1.5">
+<h3>
+<span class="header-section-number">11.1.5</span> Go thru relevant Package Development Tutorials<a class="anchor" aria-label="anchor" href="#go-thru-relevant-package-development-tutorials"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Vignette for adding a module to existing package [ Status: needs to be developed ]</li>
+<li>Vignette for making changes to existing module [ Status: needs to be developed ]</li>
+</ul>
+</div>
+<div id="understand-licensing" class="section level3" number="11.1.6">
+<h3>
+<span class="header-section-number">11.1.6</span> Understand licensing<a class="anchor" aria-label="anchor" href="#understand-licensing"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>VisionEval uses this <a href="https://github.com/visioneval/VisionEval/blob/master/LICENSE">LICENSE</a>
+</li>
+<li>Each package has a DESCRIPTION file and a LICENSE file</li>
+<li>The source files do not contain license and/or copyright information</li>
+</ul>
+</div>
+</div>
+<div id="contribution-guidelines" class="section level2" number="11.2">
+<h2>
+<span class="header-section-number">11.2</span> Contribution Guidelines<a class="anchor" aria-label="anchor" href="#contribution-guidelines"><i class="fas fa-link"></i></a>
+</h2>
+<p>When contributing to VisionEval, the set of <a href="developer.html#review-criteria">questions</a> below will be asked of the contribution. These review criteria help ensure contributions to VisionEval satisfy the <a href="https://github.com/visioneval/VisionEval/wiki/Goals-and-Objectives-of-VisionEval-Model-System">Goals and Objectives</a> of the system. Make sure to review the [[Developer Orientation|Developer-Orientation]] before making a submittal. Questions are categorized by review type. The automated test system also provides some helpful information where identified.</p>
+<div id="review-process" class="section level3" number="11.2.1">
+<h3>
+<span class="header-section-number">11.2.1</span> Review Process<a class="anchor" aria-label="anchor" href="#review-process"><i class="fas fa-link"></i></a>
+</h3>
+<p>To submit a contribution for review, issue a pull request with a comment introducing your contribution. The comment should include a brief overview, responses to the <a href="developer.html#review-criteria">questions</a>, and pointers to related information. The entire submittal should ideally be self contained so the documentation of the methods should be in the R package as well. The Repository Manager and [[Review Team|Review-Team-Charter]] Chair will handle the review request, comment on each question, complete the <a href="visioneval-model-details.html#feedback">feedback</a> form, and reply to the pull request. Its a good idea to setup a pre-submittal meeting to discuss questions and better understand expectations. See the <a href="Example-Review">example submittal and review</a> for more information.</p>
+</div>
+<div id="review-criteria" class="section level3" number="11.2.2">
+<h3>
+<span class="header-section-number">11.2.2</span> Review Criteria<a class="anchor" aria-label="anchor" href="#review-criteria"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="50%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
+</colgroup>
+<thead><tr class="header">
+<th>Review Question</th>
+<th>Test System Help</th>
+<th>Review Team - Software</th>
+<th>Review Team - Documentation</th>
+<th>Review Team - Methods</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1. <strong>Consistent with Design Specs</strong>. Does it contain all the elements that are required by the VisionEval <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md">system specifications</a>? To help ease maintenance of VE, it is recommended to minimize the use of new R libraries, and to reuse R libraries used by existing VE modules when possible.</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>2. <strong>Valid Theory and Methods</strong>. Why is it better, and/or different than <a href="https://github.com/visioneval/VisionEval/tree/master/sources/modules">existing modules</a>? Does it do good science and provide documentation justifying this claim? Is it consistent with good practice in strategic modeling? How might it overlap with <a href="https://github.com/visioneval/VisionEval/wiki/Modules-and-Packages">existing modules</a>? How does it fit within the VE ecosystem of modules? If multiple functions, documentation summarizing the functions and their variables is recommended (<a href="Example-Review">example submittal and review</a>)</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr class="odd">
+<td>3. <strong>Documentation</strong>. Is the module documentation complete? Does it include documentation of model estimation, algorithms, and instructions for using?</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>4. <strong>Regional Estimation Ready</strong> (if applicable). If the module allows the estimation of regional parameters, does it provide default data, does it have clear documentation of what the estimation data needs to be and how it is to be formatted, and does it include proper data specifications to ensure that the user’s input data are correct?</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr class="odd">
+<td>5. <strong>Geography</strong>. Is it based on geographic definitions that are consistent with the model system definitions?</td>
+<td></td>
+<td></td>
+<td>x</td>
+<td>x</td>
+</tr>
+<tr class="even">
+<td>6. <strong>Runtime</strong>. Does the module compute quickly enough and provide documentation justifying this claim?</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>7. <strong>Complete Code and Data</strong>. Does it includes all source files and data? If a contributed module does not include all source data, it should include a minimal example data file for testing and so it is clear what data structure is needed to run the module. It should also include clear instructions on how to fetch the data and/or a clear explanation of why non-included data is confidential and contact information for data owners.</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>8. <strong>Non-R code</strong> (if applicable). Does the module only call R code and packages that work on all operating systems? If the code includes any non-R code (e.g. FORTRAN, C++) will that code compile on all operating systems?</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>9. <strong>License</strong>. Is it licensed with the VisionEval <a href="https//github.com/visioneval/VisionEval/blob/master/LICENSE">license</a> that allows the code to be freely distributed and modified and includes attribution so that the ‘provenance’ of the code can be tracked? Does it include an official release of ownership from the funding agency?</td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>10. <strong>Framework</strong>. Does it only interact with the computing environment by returning a properly structured list to the framework (i.e. it does not modify the global environment, does not read or write files, and only calls framework functions that are allowed)? Does it pose any security risk to the user (i.e. if applicable, it uses unsecured methods for authentication?)</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>11. <strong>Pass Automated Tests</strong>. Does it include regression tests to enable checking that consistent results will be returned when updates are made to the framework and/or R programming environment?</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>12. <strong>Sufficient Automated Test</strong>s. Does it include <a href="Automated-Testing">sufficient test coverage</a> and test data? Does it pass the <a href="https://github.com/visioneval/VisionEval/blob/master/api/functions_summary.md#testmodule"><code>testModule</code></a> test which validates that it will run correctly in the model system? If possible, does it test against the existing RVMPO example?</td>
+<td>x</td>
+<td>x</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>13. <strong>Other</strong>. Any other comments? Such as implementation issues (e.g., impact on other modules or the VisionEval framework, changes to automated testing, confidential or oversized data issues), or suggestions for changes to improve developer experience with VisionEval.</td>
+<td></td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="feedback-1" class="section level3" number="11.2.3">
+<h3>
+<span class="header-section-number">11.2.3</span> Feedback<a class="anchor" aria-label="anchor" href="#feedback-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>The Review Team will provide feedback for each review criteria above and tag each submittal category as follows:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="45%">
+<col width="14%">
+<col width="27%">
+<col width="12%">
+</colgroup>
+<thead><tr class="header">
+<th>Status</th>
+<th>Software</th>
+<th>Documentation</th>
+<th>Methods</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Accept</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Accept but recommend revisions</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Do not accept</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Abstain</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="changelog-for-new-versions" class="section level2" number="11.3">
+<h2>
+<span class="header-section-number">11.3</span> Changelog for New Versions<a class="anchor" aria-label="anchor" href="#changelog-for-new-versions"><i class="fas fa-link"></i></a>
+</h2>
+<p>When releasing a new version of VisionEval, we will:</p>
+<ol style="list-style-type: decimal">
+<li>Include the significant changes in the release notes template below</li>
+<li>Record the significant changes in the changelog here</li>
+</ol>
+<div id="release-notes-template" class="section level3" number="11.3.1">
+<h3>
+<span class="header-section-number">11.3.1</span> Release Notes Template<a class="anchor" aria-label="anchor" href="#release-notes-template"><i class="fas fa-link"></i></a>
+</h3>
+<p>For <a href="https://github.com/VisionEval/VisionEval/releases">releases</a>
+Make updates where marked with <code>**</code></p>
+<p>If there are changes to inputs that users need to know, make a note of that.
+Make a note of which models a given new or updated module has been tested with.</p>
+<pre><code>Packaged versions of the VisionEval framework are provided as .zip files. Each has an installation .bat file for Windows to automatically prepare the R environment.
+
+These installers are packaged for R versions from **3.5.1 to 3.6.1**.
+
+This release includes the following changes:
+**
+- Change 1
+- Change 2
+- Change 3
+**
+
+Instructions for Installing
+Install one of the supported R versions using its default options (R **3.5.1 to 3.6.1**). Make sure to leave the box checked that offers to add R to the Windows registry.
+Download the corresponding installer .zip file
+Unzip the downloaded installer into an empty folder of your choice
+Double-click “VisionEval.bat” (this is the standard entry point – use it every time to start VisionEval)
+a. If VisionEval has not run before, the batch file and associated script will set up a few pointers and the convenience functions (see below)
+b. Otherwise, it will move straight to step 5.a below
+A command window will briefly appear followed by one of these:
+a. RGUI with the “Welcome to VisionEval!” message (you’re good to go)
+b. Your default browser pointing at the R download page (if you forgot to do step 1 or if you picked the wrong version) – just redo step 1 or steps 2/3 to get them consistent
+The previous instructions for launching VEGUI, VERPAT, etc. remain the same.
+a. vegui() starts VEGUI
+b. verpat() runs VERPAT in RGUI
+c. verspm() runs VERSPM in RGUI
+d. Note that there’s no helper function to run VESTATE from the command line yet – that will be added to the installation in a future release. You can just setwd() to the VE-State folder under “models” and then source(‘Run_Model.R’).</code></pre>
+</div>
+<div id="changelog" class="section level3" number="11.3.2">
+<h3>
+<span class="header-section-number">11.3.2</span> Changelog<a class="anchor" aria-label="anchor" href="#changelog"><i class="fas fa-link"></i></a>
+</h3>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="32%">
+<col width="68%">
+</colgroup>
+<thead><tr class="header">
+<th>Version</th>
+<th>Changes</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>0.1</td>
+<td>Initial release</td>
+</tr>
+<tr class="even">
+<td>0.1.1</td>
+<td>Numerous updates to VELandUse and other modules</td>
+</tr>
+<tr class="odd">
+<td>1.0</td>
+<td>Added <code>ve.export</code> <br> Fixed bugs in unit conversions <br> Fixed issue with Azone file order dependence <br>
+</td>
+</tr>
+<tr class="even">
+<td>1.0.1</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="testing-strategies" class="section level2" number="11.4">
+<h2>
+<span class="header-section-number">11.4</span> Testing Strategies<a class="anchor" aria-label="anchor" href="#testing-strategies"><i class="fas fa-link"></i></a>
+</h2>
+<p>The VisionEval model system and design of the framework software incorporates a number of features that facilitate automated testing to assure that modules will work within the system. Perhaps the most significant feature is the ‘data typing’ system that requires modules to completely specify all data that the module handles in some fashion: as model inputs, as data fetched from the common datastore, and as data that is output to be saved in the common datastore. These data specifications establish ‘contracts’ that assure data consistency and the framework software includes a number of functions that use the specifications to check consistency. These functions help to ensure that modules will work properly together.</p>
+<p>Following are some of the checks that are done:
+- Input data are checked against input data specifications;
+- Input data geography is checked against specified model geography;
+- Module specifications are checked for correctness;
+- Module specifications for data to be fetched from the datastore are checked against the specifications for the data stored in the datastore; and,
+- Module outputs are checked for consistency with the module specifications for those outputs.</p>
+<p>Because of these checks and related checks, it is possible to automate a number of tests that allow a module developer to test that their module (when supplied with suitable test inputs) will work in the VisionEval model system. These checks are carried out by the ‘testModule’ function. In addition, this test can be run automatically when the package is built, enabling the developer to check at built time that the module works and the correctness to be checked as when the package is added to the VisionEval repository.</p>
+<p>The data specification system also enables a model to be thoroughly checked before it is run. This will greatly reduce, if not eliminate, model runtime crashes. This is done by the ‘initializeModel’ function. The function checks:</p>
+<ul>
+<li>Whether all module packages are installed, those packages contain the identified modules, and all module specifications are correct (have required attributes);</li>
+<li>Specified model geography and consistency of model inputs with the geography;</li>
+<li>Whether model inputs are consistent with specifications; and,</li>
+<li>Whether every module when it is called will have the data it needs to run (either in specified input files or the datastore) and whether the attributes of those data are consistent with the specifications for the module.</li>
+</ul>
+<p>These checks that are built into the framework software make it possible to implement automated checking of VisionEval module packages and VisionEval model whenever a module package and/or model is added to or modified in the VisionEval repository.</p>
+<div id="ui-testing" class="section level3" number="11.4.1">
+<h3>
+<span class="header-section-number">11.4.1</span> UI Testing<a class="anchor" aria-label="anchor" href="#ui-testing"><i class="fas fa-link"></i></a>
+</h3>
+<p>VEGUI is an application that allows a user to run various VisionEval models. VEGUI is tested using shinytest to ensure its functionality and its usability. Multiple test scripts are written to test different functionalities. Following is a list of tests currently implemented:</p>
+<ul>
+<li>
+<a href="https://github.com/VisionEval/VisionEval/blob/develop/sources/VEGUI/tests/opentest.R">open_test</a>: Checks if VEGUI opens and closes without any glitch,</li>
+<li>
+<a href="https://github.com/VisionEval/VisionEval/blob/develop/sources/VEGUI/tests/run_verpat_model_test.R">run_verpat_model_test</a>: Checks if VEGUI opens, runs a VERPAT model, collects all the results, and closes properly.</li>
+</ul>
+<p>A test requires a set of expected results (images or json) to make comparisons and draw conclusions. A test is successful if it finishes. A failed test will prompt the user with the differences compared to the expected results.
+The main test script <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> serves has a host and makes call to all the aforementioned tests.</p>
+<p>The following steps describe a process to create a new test and/or the expected results:
+- Use <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/tests/test_template.R">test_template</a> as a template to write your own script;
+- Set the parameter <code>createExpectedResults</code> in the main test script <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> to TRUE (this will allow a user to create a new set of expected results);
+- Source the new test script in <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a>;
+- Run <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> to save the expected results;
+- Set the parameter <code>createExpectedResults</code> in the main test script <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> to FALSE;
+- Run <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> to ensure that the test finishes successfully.</p>
+</div>
+<div id="test-system" class="section level3" number="11.4.2">
+<h3>
+<span class="header-section-number">11.4.2</span> Test System<a class="anchor" aria-label="anchor" href="#test-system"><i class="fas fa-link"></i></a>
+</h3>
+<p><a href="https://travis-ci.org/">TravisCI</a> services are used to automatically test all modules and models to assure that they work properly. Here are a few details on the test system:
+- Tests automatically run with every commit and the pass/fail status is at the bottom of the README as <a href="https://github.com/visioneval/VisionEval/tree/develop">rendered by GitHub</a>
+- The current Travis build and test script is <a href="https://github.com/visioneval/VisionEval/blob/develop/.travis.yml">here</a>, which includes all the steps to install, build, and run all the VE resources. To add a new module or model, add an additional line to the <code>env</code> property for the module or model. This will result in an additional parallel build process using Travis’ <a href="https://docs.travis-ci.com/user/customizing-the-build/#Build-Matrix">build matrix</a>. Example environment variables are:</p>
+<pre><code>- FOLDER=sources/modules/VELandUse (folder location relative to the root; note framework, modules, and models are fixed)
+- SCRIPT=tests/scripts/test.R (test script to run, which is required by the VisionEval specification)
+- TYPE=module (either module or model)
+- DEPENDS=VE2001NHTS,VESimHouseholds (list of packages required to run this module or model)</code></pre>
+<ul>
+<li>The build logs, which are helpful when errors happen, are <a href="https://travis-ci.org/VisionEval/VisionEval/builds/">here</a>
+</li>
+<li>Mysterious failures sometimes happen. If the log reports a substantive error (e.g. missing documentation, missing package), the problem probably lies in a damaged cache. See the next item, and the following that describes how to delete the cache.</li>
+<li>VE testing with Travis makes use of <a href="https://docs.travis-ci.com/user/caching/">caching</a> due to Travis’ <a href="https://docs.travis-ci.com/user/customizing-the-build#Build-Timeouts">job time limit</a>. In order for all the jobs to complete within the time limit, installation of the package dependencies need to be done from the cache (rather than from source). The caches are built in the first stage of the tests, and then modules are built and tested using the cached contents.</li>
+<li>To delete a Travis cache (if you suspect it might be causing problems), go to the failed build entry via your Dashboard or list of recent build attempts and open the failed build. Look for the “More Options” menu in the upper right, choose “Caches” and find the cache associated with the branch whose build failed. Hit the “garbage can” icon on the right to delete it. Then you can return to the build and push the “Restart Build” button.</li>
+</ul>
+</div>
+</div>
+<div id="add-or-modify-a-package" class="section level2" number="11.5">
+<h2>
+<span class="header-section-number">11.5</span> Add or Modify a Package<a class="anchor" aria-label="anchor" href="#add-or-modify-a-package"><i class="fas fa-link"></i></a>
+</h2>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="visioneval-model-details.html"><span class="header-section-number">10</span> VisionEval Model Details</a></div>
+<div class="next"><a href="api-documentation.html"><span class="header-section-number">12</span> API Documentation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#developer"><span class="header-section-number">11</span> Developer Documentation</a></li>
+<li>
+<a class="nav-link" href="#developer-orientation"><span class="header-section-number">11.1</span> Developer Orientation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#assumptions-prerequisites"><span class="header-section-number">11.1.1</span> Assumptions + prerequisites</a></li>
+<li><a class="nav-link" href="#get-visioneval-running"><span class="header-section-number">11.1.2</span> Get VisionEval running</a></li>
+<li><a class="nav-link" href="#understand-the-development-principles-and-organization-of-visioneval-framework"><span class="header-section-number">11.1.3</span> Understand the development principles and organization of VisionEval framework</a></li>
+<li><a class="nav-link" href="#skim-useful-references-to-know-about"><span class="header-section-number">11.1.4</span> Skim useful references to know about</a></li>
+<li><a class="nav-link" href="#go-thru-relevant-package-development-tutorials"><span class="header-section-number">11.1.5</span> Go thru relevant Package Development Tutorials</a></li>
+<li><a class="nav-link" href="#understand-licensing"><span class="header-section-number">11.1.6</span> Understand licensing</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#contribution-guidelines"><span class="header-section-number">11.2</span> Contribution Guidelines</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#review-process"><span class="header-section-number">11.2.1</span> Review Process</a></li>
+<li><a class="nav-link" href="#review-criteria"><span class="header-section-number">11.2.2</span> Review Criteria</a></li>
+<li><a class="nav-link" href="#feedback-1"><span class="header-section-number">11.2.3</span> Feedback</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#changelog-for-new-versions"><span class="header-section-number">11.3</span> Changelog for New Versions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#release-notes-template"><span class="header-section-number">11.3.1</span> Release Notes Template</a></li>
+<li><a class="nav-link" href="#changelog"><span class="header-section-number">11.3.2</span> Changelog</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#testing-strategies"><span class="header-section-number">11.4</span> Testing Strategies</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ui-testing"><span class="header-section-number">11.4.1</span> UI Testing</a></li>
+<li><a class="nav-link" href="#test-system"><span class="header-section-number">11.4.2</span> Test System</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#add-or-modify-a-package"><span class="header-section-number">11.5</span> Add or Modify a Package</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/visioneval/visioneval-docs/user_guide/blob/master/10-developer.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/visioneval/visioneval-docs/user_guide/edit/master/10-developer.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

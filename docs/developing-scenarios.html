@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 8 Developing Scenarios | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta property="og:title" content="Chapter 8 Developing Scenarios | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://visioneval.org/book/developing-scenarios.html">
+<meta property="og:image" content="https://visioneval.org/book/images/cover.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 8 Developing Scenarios | VisionEval User Guide">
+<meta name="twitter:image" content="https://visioneval.org/book/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="TO BE DEVELOPED  8.1 Case Studies  8.1.1 Using VisionEval to Assess Bike Network Changes A 2020 OregonDOT-Metro-NITC research project being led by Joe Broach of Portland State University, will...">
+<meta property="og:description" content="TO BE DEVELOPED  8.1 Case Studies  8.1.1 Using VisionEval to Assess Bike Network Changes A 2020 OregonDOT-Metro-NITC research project being led by Joe Broach of Portland State University, will...">
+<meta name="twitter:description" content="TO BE DEVELOPED  8.1 Case Studies  8.1.1 Using VisionEval to Assess Bike Network Changes A 2020 OregonDOT-Metro-NITC research project being led by Joe Broach of Portland State University, will...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></li>
+<li><a class="" href="tutorial.html"><span class="header-section-number">3</span> VisionEval Tutorial</a></li>
+<li><a class="" href="picking-a-model.html"><span class="header-section-number">4</span> Picking a Model</a></li>
+<li><a class="" href="model-geography-and-years.html"><span class="header-section-number">5</span> Model Geography and Years</a></li>
+<li><a class="" href="model-inputs.html"><span class="header-section-number">6</span> Model Inputs</a></li>
+<li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
+<li><a class="active" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
+<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">10</span> VisionEval Model Details</a></li>
+<li><a class="" href="developer.html"><span class="header-section-number">11</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">12</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">13</span> Software Framework</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/visioneval/visioneval-docs/user_guide">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="developing-scenarios" class="section level1" number="8">
+<h1>
+<span class="header-section-number">8</span> Developing Scenarios<a class="anchor" aria-label="anchor" href="#developing-scenarios"><i class="fas fa-link"></i></a>
+</h1>
+<p>TO BE DEVELOPED</p>
+<div id="case-studies" class="section level2" number="8.1">
+<h2>
+<span class="header-section-number">8.1</span> Case Studies<a class="anchor" aria-label="anchor" href="#case-studies"><i class="fas fa-link"></i></a>
+</h2>
+<div id="using-visioneval-to-assess-bike-network-changes" class="section level3" number="8.1.1">
+<h3>
+<span class="header-section-number">8.1.1</span> Using VisionEval to Assess Bike Network Changes<a class="anchor" aria-label="anchor" href="#using-visioneval-to-assess-bike-network-changes"><i class="fas fa-link"></i></a>
+</h3>
+<p>A 2020 OregonDOT-Metro-NITC research project being led by Joe Broach of Portland State University, will update VisionEval code (VE-RSPM) to enable VisionEval to respond to bike networks as perceived by differnt users. This includes the following elements.</p>
+<p>In the current VE-RSPM light vehicle (e.g. bicycle, electric bicycle, scooter) diversion module users specify the proportion of single-occupant vehicle (SOV) mileage diverted to light-vehicle travel in the base and future years. Historical value can be derived from household travel surveys bike usage; future year inputs are specified through aspirational goals or exploratory processes. Methods for generating realistic bicycle diversion input have not been established, and the inputs are hard to tie to specific investment actions. The exploratory or aspirational approaches can be useful for strategic planning purposes, providing decision makers with information about what levels of SOV diversion to bicycle travel are necessary to meet identified goals, but they do not offer information about the level of infrastructure or other transportation system investments needed to achieve the given levels of bicycle diversion.</p>
+<p>The objective of the proposed research is to develop a new bicycle diversion module for the GreenSTEP-derived family of scenario planning models that internalizes bicycle diversion within the model by allowing users to specify changes in cycling infrastructure (and allow the model to estimate diversion), rather than assuming the outcome of cycling investments.</p>
+<p>The research will develop new VE-RSPM modules to estimate SOV short-trip diversion, using input variables related to:
+1. Socio-demographic and other household characteristics (drawing from existing variables in the model),
+2. Land use characteristics (again drawing from existing variables in the model), and
+3. Bicycle network characteristics.</p>
+<p>Because VisionEval does not use an explicit network, bicycle network indicators will be used to represent the attractiveness of the bicycle facilities near the home location. The anticipated work includes pre-processors to extract bicycle network indicators from detailed bike network data, and potentially terrain data (from a digital elevation model) to capture the effects of hills on cycling propensity. Bicycle network indicators that may be included in VisionEval include the coverage, connectivity, and quality of bicycle facilities, and other measures shown in past research to have a significant relationship with cycling volumes, cycling mode share, or cycling attractiveness.</p>
+<p>Several pre-processors are under consideration to develop connectivity and quality of bike networks, including: Bike Level of Traffic Stress (LTS)(<a href="https://www.oregon.gov/ODOT/Planning/Documents/APMv2_Ch14.pdf">see ODOT APMv2_Ch14</a>), Highway Capacity Manual Multi-Modal LOS methods (<a href="https://trid.trb.org/view/1326489">see TRB</a>), and Scalable-Risk Analysis Method (<a href="https://safety.fhwa.dot.gov/ped_bike/tools_solve/fhwasa17041/index.cfm">SCRAM</a>).</p>
+<p>The following figures highlight the selected changes that the model makes to the VE-RSPM packages and modules.</p>
+<div class="figure">
+<img src="VE_PackagesModules/VERSPM_Bike.JPG" alt=""><p class="caption">Bike Network Research</p>
+</div>
+<p>Note: The project also intends to synchronize the disaggregate Bike Network assumptions with the Bike Module in Portland Metro’s new Activity Based Model, where the full network, not just the aggregated metrics of VisionEval, could be utilized directly.</p>
+</div>
+<div id="user-impact" class="section level3" number="8.1.2">
+<h3>
+<span class="header-section-number">8.1.2</span> User Impact<a class="anchor" aria-label="anchor" href="#user-impact"><i class="fas fa-link"></i></a>
+</h3>
+<p>The VisionEval Bike upgrades will change both methods, inputs and outputs. Methods will reflect the new functional form of travel by mode, and new data (updated NHTS2009 and EPA SLD land use data), leading to different outcomes for household travel by bike.</p>
+<p>Users will likely need to provide more detailed bike network data (for historic and forecast years) to a pre-processor to develop Bzone inputs for use in VisionEval.</p>
+</div>
+<div id="status" class="section level3" number="8.1.3">
+<h3>
+<span class="header-section-number">8.1.3</span> Status<a class="anchor" aria-label="anchor" href="#status"><i class="fas fa-link"></i></a>
+</h3>
+<p>The multi-agency research agreement was signed in early 2020. The Research team anticipates the project will last roughly 12-18 months. As with other VE research, additional efforts may be needed to implement the work within the VE codebase.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></div>
+<div class="next"><a href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#developing-scenarios"><span class="header-section-number">8</span> Developing Scenarios</a></li>
+<li>
+<a class="nav-link" href="#case-studies"><span class="header-section-number">8.1</span> Case Studies</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-visioneval-to-assess-bike-network-changes"><span class="header-section-number">8.1.1</span> Using VisionEval to Assess Bike Network Changes</a></li>
+<li><a class="nav-link" href="#user-impact"><span class="header-section-number">8.1.2</span> User Impact</a></li>
+<li><a class="nav-link" href="#status"><span class="header-section-number">8.1.3</span> Status</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/visioneval/visioneval-docs/user_guide/blob/master/05-validation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/visioneval/visioneval-docs/user_guide/edit/master/05-validation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-19.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
