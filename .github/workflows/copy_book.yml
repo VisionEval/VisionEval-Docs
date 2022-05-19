@@ -1,0 +1,25 @@
+name: Copy Book To VE.Org
+
+on: push
+
+jobs:
+  copy-book-dir:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+          ref: ${{ github.head_ref }} 
+                
+    - name: Copies all contents to VE.org
+      uses: nkoppel/push-files-to-another-repository@v1.1.1
+      env:
+        API_TOKEN_GITHUB: ${{ secrets.book_copy }}
+      with:
+        source-files: 'docs/'
+        destination-username: 'VisionEval'
+        destination-repository: 'VisionEval.org'
+        destination-directory: 'book'
+        destination-branch: 'main'
+        commit-username: 'dflynn-volpe'
+        commit-email: 'daniel.flynn@dot.gov'
