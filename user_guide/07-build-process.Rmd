@@ -1,0 +1,189 @@
+# Module Build Process {#ve-buildprocess}
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results='hide')
+```
+
+## Introduction
+The purpose of this chapter is to familiarize you with the build process for creating or modifying VisionEval packages and walks you through the process of substituting data and re-building the VESimHouseholds package.  
+
+## PUMS example
+The VESimHouseholds contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the VESimHouseholds package.
+
+The package functions by reading in two comma separated value (CSV) files with linked tables containing disaggregated persons and households data. These data come from Public Use Microdata Sample (PUMS) from the 2000 Decennial US Census. By default, the data in VisionEval is shipped using Oregon-based PUMS. The objective of this tutorial is to substitute the default Oregon-based data with another State PUMS data.
+
+
+## Tutorial Objectives
+1. Preprocess and format ``raw'' PUMS data into the comma separated value (CSV) files for VisionEval input
+2. Create the estimated datasets stored as R data files (.Rda) for VisionEval
+3. Re-build and install the module to make it available as a VisionEval module package
+
+
+## Prerequisites
+To build a VisionEval package, or any R package, you need the follow packages. These should have already been installed as requisite of the overall VisionEval framework.
+
+- [RTools 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+- [devtools](https://www.r-project.org/nosvn/pandoc/devtools.html)
+
+
+## Input files being modified
+As mentioned, the default data inputs shipped with VESimHouseholds are Oregon-based PUMS data. The input files are two CSV files located in:
+`VESimHouseholds/inst/extdata/pums_households.csv`
+`VESimHouseholds/inst/extdata/pums_persons.csv`
+
+The files have the following fields and field values.
+
+```
+HOUSEHOLDS
+----------
+SERIALNO: Housing/Group Quarters Unit Serial Number
+PUMA5: 5% Public Use Microdata Area code
+HWEIGHT: Housing unit weight
+UNITTYPE: Type of housing unit
+    0 = Housing unit
+    1 = Institutional group quarters
+    2 = Noninstitutional group quarters
+PERSONS: Number of persons living in housing unit
+BLDGSZ: Size of Building
+    blank = group quarters
+    1 = mobile home
+    2 = detached one-family house
+    3 = attached one-family house
+    4 = building with 2 apartments
+    5 = building with 3 or 4 apartments
+    6 = building with 5 to 9 apartments
+    7 = building with 10 to 19 apartments
+    8 = building with 20 to 49 apartments
+    9 = building with 50 or more apartments
+    10 = boat, RV, van, etc.
+HINC: Household Total Income in 1999
+
+
+PERSONS
+-------
+SERIALNO: Housing/Group Quarters Unit Serial Number
+AGE: Age
+WRKLYR: Worked in 1999
+    0 = Not in universe (Under 16 years)
+    1 = Yes
+    2 = No
+INCTOT: Person's Total Income in 1999
+    NA = Not in universe (Under 15 years)
+    ?019998 = Loss of $19,998 or more
+    ?000001..019997 = Loss of $1 to $19,997
+    0000000 = No/none
+    0000001 = $1 or break even
+    0000002..4999999 = $2 to $4,999,999
+    5000000 = $5,000,000 or more
+```
+
+
+The data are disaggregated (i.e., records) individual persons and households. For example, household data might look like this:
+```{r pums_households.csv, results='markup', echo=FALSE}
+knitr::kable(read.csv('data/pums_households.csv'))
+```
+
+And an example of the persons data might look like this:
+```{r pums_persons.csv, results='markup', echo=FALSE}
+knitr::kable(read.csv('data/pums_persons.csv'))
+```
+
+Note that the two data files are also linked by a primary key field `SERIALNO`. Meaning that for each unique household, there are at least one or more persons linked to that household by the `SERIALNO` key.
+
+
+## Step 1 - Preprocessing
+
+To start, we must download our new "raw" PUMS data.
+
+**NOTE:** It is important to note here that we are using the 2000 <em>decennial</em> PUMS. All PUMS data post-2000 are based on the American Community Survey (ACS), which is a sampling-based survey method rather than a full decennial Census. Statistically, the ACS-based PUMS are reliable, but the fields differ and will need to be migrated to match the inputs used by VisionEval. More [PUMA history](https://www2.census.gov/geo/pdfs/reference/puma/puma_history.pdf) can be read online at the US Census website.
+
+
+The 2000 PUMS data comes in two forms, 1% and 5%, available here: https://www2.census.gov/census_2000/datasets/PUMS/
+
+> The 5-percent PUMAs were used to present the 5-percent PUMS files, were required to contain a minimum population of 100,000 persons, and had to nest within states. PUMAs could consist of a single county or an aggregation of one or more counties, census tracts, or minor civil divisions (MCDs) in the New England states. Additionally, an incorporated place with a minimum population of 100,000 persons could be defined as a PUMA.
+
+> The 1-pecent super-PUMAs were used to present 1-percent PUMS files, were required to contain a minimum population of 400,000 persons, and had to nest within states. These super-PUMAs were a new geographic entity for Census 2000 and were aggregations of the smaller, 5-percent PUMAs."
+
+
+In this case we are looking to download the revised 5% data. Within each state directory (e.g., https://www2.census.gov/census_2000/datasets/PUMS/FivePercent/California/) there will be several files. 
+
+```
+PUMEQ5-CA.TXT	        30-Aug-2003 05:21	1.0M	 
+PUMS5_06.TXT	        30-Aug-2003 05:35	677M	 
+REVISEDPUMS5_06.TXT   26-Oct-2010 14:24	676M	 
+all_California.zip    02-Sep-2003 23:08	98M
+```
+
+The file named `REVISEDPUMS5_06.TXT` is the one we want. However, the data is not stored in a easy to parse delimited format (e.g., comma separated), but a continuous data string. To help with this process, an R script was written with functions to read the `.txt` files, convert them to dataframes, select the columns we need, and then export the remaining data into the two person and household `.csv` files as VESimHousehold input. The R script is located here: 
+https://github.com/RSGInc/VEProcessPUMS/blob/master/R/ProcessPUMS.R
+
+
+There are two ways to preprocess the PUMS data. You can either manually download the text file and run the 
+
+### Manually download PUMS and process using read_pums {-}
+```
+# This function reads in REVISEDPUMS5_06.TXT,
+# parses the data into two dataframes for persons and households, then
+# returns a list('p'= person_df, 'h' = household_df)
+# It has two input parameters:
+#  - PumsFile: path to PUMS TXT data
+#  - GetPumas: optional vector of PUMAS ids, defaults to 'ALL'
+
+
+PUMS_DATA_LIST <- process_pums(PumsFile='REVISEDPUMS5_06.TXT', GetPumas='ALL')
+```
+
+
+### Automatic download PUMS and process using getDecPUMS {-}
+
+To streamline the whole process, there is also a download wrapper function which both downloads and calls the preprocessing function. The user only needs to specify the State that they want PUMS data from.
+
+```
+# This function downloads the PUMS txt data to a temporary file,
+# parses it using the process_pums function, then
+# saves or returns the processed data.
+# It has two input parameters:
+# - STATE: This can be the State name, abbreviation, or fips code
+#          (e.g., California, CA, or 6)
+# - output_dir: Optional path to save the files pums_persons.csv and pums_households.csv
+#               NA path returns the dataframes in a list
+
+# data_list <- getDecPUMS(STATE, output_dir = NA)
+getDecPUMS(STATE, output_dir = './output_folder')
+
+```
+
+## Step 2 - Create the VisionEval estimation data sets
+The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval `.Rda` data files stored in `VESimHouseholds\data`. These data files are stored in a structure and format (e.g., dataframes) that VisionEval can use as part of the framework.
+
+a. Start by instantiating the VisionEval R project environment by loading your model build's `VisionEval.Rproj`. If you have already built your VisionEval using `ve.build()`, you will have a `VisionEval.Rproj` file in your `built` directory. For example, `VisionEval\built\visioneval\4.1.2\runtime\VisionEval.Rproj`.
+
+b. Next navigate to the VESimHousehold package and set your current working directory to the `your_path_to_this/VESimHouseholds` folder. (hint <em>Session -> Set Working Directory</em>)
+
+c. Run the R script `VESimHouseholds/R/CreateEstimationDatasets.R`. This script reads in the csv input data we created and creates the household data `Hh_df.rda` for VisionEval in the data folder.
+
+
+## Step 3 - Build the VESimHouseholds package
+Although the previous step generated the R data files, your current VisionEval environment will still be using the old package build data. You will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data.
+
+While your VisionEval R project environment is loaded and current working is `VESimHouseholds`, run the following commands:
+
+```
+# This builds the VESimHouseholds data and scripts into an R package
+devtools::build()
+
+# This then installs the VESimHouseholds package into VisionEval library
+devtools::install()
+```
+
+Your new PUMS data should now be ready to use in a VisionEval model run.
+
+
+
+
+
+
+
+
+
