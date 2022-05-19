@@ -19,7 +19,7 @@ jobs:
         source-files: 'docs/'
         destination-username: 'VisionEval'
         destination-repository: 'VisionEval.org'
-        destination-directory: 'book'
+        destination-directory: 'docs'
         destination-branch: 'main'
         commit-username: 'dflynn-volpe'
         commit-email: 'daniel.flynn@dot.gov'
