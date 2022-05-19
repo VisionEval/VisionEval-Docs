@@ -16,7 +16,7 @@ jobs:
       env:
         API_TOKEN_GITHUB: ${{ secrets.book_copy }}
       with:
-        source_file: 'concept_primer/_book/*'
+        source_file: 'docs/*'
         destination_repo: 'VisionEval/VisionEval.org'
         destination_folder: 'book'
         user_email: 'daniel.flynn@dot.gov'

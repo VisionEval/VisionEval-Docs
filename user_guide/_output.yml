@@ -3,7 +3,7 @@ bookdown::bs4_book:
   css: bs4_style.css
   theme:
     primary: "#2b3890"
-  repo: https://github.com/rstudio/bookdown-demo
+  repo: https://github.com/visioneval/visioneval-docs/user_guide
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
