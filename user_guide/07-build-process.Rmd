@@ -6,12 +6,32 @@ knitr::opts_chunk$set(echo = TRUE, results='hide')
 ```
 
 ## Introduction
-The purpose of this chapter is to familiarize you with the build process for creating or modifying VisionEval packages and walks you through the process of substituting data and re-building the VESimHouseholds package.  
+The purpose of this chapter is to familiarize you with the build process for creating or modifying VisionEval packages. This chapter is intended to walk you through the process of substituting data and re-building a typical VE package, using the VESimHouseholds package as a case study in this example. 
 
-## PUMS example
-The VESimHouseholds contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the VESimHouseholds package.
+ 
 
-The package functions by reading in two comma separated value (CSV) files with linked tables containing disaggregated persons and households data. These data come from Public Use Microdata Sample (PUMS) from the 2000 Decennial US Census. By default, the data in VisionEval is shipped using Oregon-based PUMS. The objective of this tutorial is to substitute the default Oregon-based data with another State PUMS data.
+The typical steps involved in the process include:
+
+- Collect the input data for the package
+- Preprocess the inputs
+- Restimate or update the data in the package
+- Build the package for use in VE
+- Call the re-built package 
+
+
+
+
+
+## VESimHouseholds - PUMS example
+The VESimHouseholds contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the VESimHouseholds package. 
+
++++Action[ put a link to the description of the VESimHouseholds package. Describe - and link to the inputs and the outputs.   ]
+
+
+
+The package functions by reading in two comma separated value (CSV) files with linked tables containing disaggregated persons and households data. These data come from Public Use Microdata Sample (PUMS) from the 2000 Decennial US Census. By default, the data in VisionEval is shipped using Oregon-based PUMS. 
+
+The objective of this case study is to substitute the default Oregon-based data with another State PUMS data.
 
 
 ## Tutorial Objectives
@@ -162,6 +182,13 @@ a. Start by instantiating the VisionEval R project environment by loading your m
 b. Next navigate to the VESimHousehold package and set your current working directory to the `your_path_to_this/VESimHouseholds` folder. (hint <em>Session -> Set Working Directory</em>)
 
 c. Run the R script `VESimHouseholds/R/CreateEstimationDatasets.R`. This script reads in the csv input data we created and creates the household data `Hh_df.rda` for VisionEval in the data folder.
+
+
+
+[
+
+- we need to note where and how this proces may differ from other packages? for instance, can we say - this package includes an estimation script. but others do not.. ]
+- 
 
 
 ## Step 3 - Build the VESimHouseholds package
