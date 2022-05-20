@@ -14,9 +14,10 @@ rmd_files:
   - 04-inputs.Rmd
   - 05-validation.Rmd
   - 06-estimation.Rmd
-  - 07-verspm.Rmd
-  - 08-vestate.Rmd
-  - 09-verpat.Rmd
-  - 10-developer.Rmd
-  - 11-api.Rmd
-  - 12-software.Rmd
+  - 07-build-process.Rmd
+  - 08-verspm.Rmd
+  - 09-vestate.Rmd
+  - 10-verpat.Rmd
+  - 11-developer.Rmd
+  - 12-api.Rmd
+  - 13-software.Rmd

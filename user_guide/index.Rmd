@@ -27,6 +27,7 @@ This guide contains documentation for users and developers of the VisionEval mod
 | [Developer Documentation](#developer) | Information for developers or researchers interested in making contributions to the VisionEval system |
 | [API Documentation][API Documentation] | Module documentation from the model source code |
 | [Estimation in VisionEval][Estimation in VisionEval] | Overview of model estimation in VisionEval and instructions to customize model applications |
+| [Module Build Process][Module Build Process] | Overview of building a VisionEval package module using custom data |
 | [Software Framework][Software Framework] | Technical overview of the VisionEval software framework |
 
 ## About VisionEval {-}
