@@ -125,8 +125,7 @@ provide variant model inputs for evaluation and comparison.
 To use VisionEval to evaluate scenarios, there are several elements that
 users need to set up:
 
-1.  Select and install one of the [VisionEval
-    models](https://github.com/VisionEval/VisionEval/wiki/VisionEval-Models),
+1.  Select and install one of the [VisionEval models](https://github.com/VisionEval/VisionEval/wiki/VisionEval-Models),
     customizing it as needed:
 
     -   **[VERSPM](https://github.com/VisionEval/VisionEval-Dev/blob/readme-dev/docs/tutorials/verspm/Main.md)**
@@ -137,9 +136,7 @@ users need to set up:
         – VisionEval State-Level Model
 
     <br/>
-    Instructions and tutorials for configuring these models are presented in the model-specific
-    tutorials elsewhere in [this book](https://visioneval.org/book), which is your entry point to a wealth of
-    documentation on the VisionEval models. 
+    Instructions and tutorials for configuring these models are presented in the model-specific tutorials elsewhere in [this book](https://visioneval.org/book), which is your entry point to a wealth of documentation on the VisionEval models. 
 
 2.  Develop a *Base Model* for the region under analysis. The Base Model specifies:
     -   **Model Geography** (zone structure), reported as Marea (metropolitan area), AZones

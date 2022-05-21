@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 6 Model Inputs | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
-<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Model Inputs | VisionEval User Guide">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://visioneval.org/book/model-inputs.html">
-<meta property="og:image" content="https://visioneval.org/book/images/cover.png">
+<meta property="og:url" content="https://visioneval.org/docs/model-inputs.html">
+<meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 6 Model Inputs | VisionEval User Guide">
-<meta name="twitter:image" content="https://visioneval.org/book/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -59,14 +59,15 @@
 <li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
 <li><a class="" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
 <li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
-<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">10</span> VisionEval Model Details</a></li>
-<li><a class="" href="developer.html"><span class="header-section-number">11</span> Developer Documentation</a></li>
-<li><a class="" href="api-documentation.html"><span class="header-section-number">12</span> API Documentation</a></li>
-<li><a class="" href="software-framework.html"><span class="header-section-number">13</span> Software Framework</a></li>
+<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">10</span> Module Build Process for Custom Data Inputs</a></li>
+<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">11</span> VisionEval Model Details</a></li>
+<li><a class="" href="developer.html"><span class="header-section-number">12</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">13</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">14</span> Software Framework</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/visioneval/visioneval-docs/user_guide">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -371,7 +372,7 @@
 <h4>
 <span class="header-section-number">6.2.2.1</span> Defining “Location Type” (metro, town, rural)<a class="anchor" aria-label="anchor" href="#defining-location-type-metro-town-rural"><i class="fas fa-link"></i></a>
 </h4>
-<p>One method is to define land in MPO boundaries to be <strong>metro</strong>, for urban areas smaller than MPOs, land inside their UGB is a <strong>town</strong>. Everything else is <strong>rural</strong>. Note that if you want to further refine within the MPO, place types can identify low density areas that you might consider “rural” and areas that less accessible/more isolated (don’t have access to broader transit service) as “town”. Some states have official population forecasts done for each urban area that helps with the population inputs. Users can also use LEHD where we used the boundaries identified above to designate location types, and then used LEHD to calculate worker flows between county home location-to-work LocType (any county).</p>
+<p>One method is to define land in MPO boundaries to be <strong>metro</strong>, for urban areas smaller than MPOs, land inside their UGB is a <strong>town</strong>. Everything else is <strong>rural</strong>. Note that if you want to further refine within the MPO, place types can identify low density areas that you might consider “rural” and areas that less accessible/more isolated (don’t have access to broader transit service) as “town.” Some states have official population forecasts done for each urban area that helps with the population inputs. Users can also use LEHD where we used the boundaries identified above to designate location types, and then used LEHD to calculate worker flows between county home location-to-work LocType (any county).</p>
 <p>An alternative method is to use the <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-areas/urban-rural/2010-urban-rural.html">Census Urban and Rural Classification</a>. The Census Urban and Rural Classification distinguishes between two types of urban areas:</p>
 <ul>
 <li>Urbanized Areas (UAs) of 50,000 or more people are defined as <strong>metro</strong>
@@ -527,7 +528,7 @@ Households and commercial fleets operate a mix of passenger autos and light truc
 Three options are available for fuel assumptions. The choices are outlined in the table above and the options described below. User choice of option can vary by <a href=""><code>vehicle group</code></a> and where applicable, <a href=""><code>vehicle type</code></a>:
 (1) Default package datasets. These may represent federal or statewide fuel policies that apply to all <a href=""><code>metropolitan areas</code></a> and all [<code>vehicle groups</code>] in the model (e.g., state ethanol regulations, low carbon fuel policies). NAs would be placed in all user input files.
 (2) Detailed fuel and biofuel inputs. Values for the proportions of <a href=""><code>base fuels types</code></a> (gasoline, diesel, compressed natural gas), as well as <a href=""><code>fuel blend</code></a> proportions (gasoline blended with ethanol, biodiesel blended with diesel, renewable natural gas is blended with natural gas). A third assumption specifies the carbon_intenaity of the fuels (input or default). For example Hvy trucks can be set to 95% diesel, 5% natural gas, with diesel having a 5% biodiesel blend.
-(3) Composite carbon intensity. This option simplifies the process of modeling emissions policies, particularly low carbon fuels policies by bypasses the need to specify fuel types and biofuel blends. Average carbon intensity by <a href=""><code>vehicle group</code></a> and if applicable, <a href=""><code>vehicle type</code></a> is specified directly. These inputs, if present and not ‘NA’, supercede other transit inputs.</p>
+(3) Composite carbon intensity. This option simplifies the process of modeling emissions policies, particularly low carbon fuels policies by bypasses the need to specify fuel types and biofuel blends. Average carbon intensity by <a href=""><code>vehicle group</code></a> and if applicable, <a href=""><code>vehicle type</code></a> is specified directly. These inputs, if present and not ‘NA,’ supercede other transit inputs.</p>
 <p>Note: Given that transit agencies in different metropolitan areas may have substantially different approaches to using biofuels, transit vehicles have the option of region or metropolitan area specifications for Options (1) and (2).<br>
 Note: The proportions in option (2) do not represent volumetric proportions (e.g. gallons), they represent energy proportions (e.g. gasoline gallon equivalents) or DVMT proportions.
 Note: Individual vehicles are modeled for households. Other groups vehicle and fuel attributes apply to VMT. As a result, PHEVs in all but household vehicles should be split into miles driven in HEVs and miles in EVs.</p>
@@ -1014,16 +1015,6 @@ RVMPO
 <p>Base year data for population by age category can be sourced from the Census. Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies such as population data centers, universities, metropolitan planning organizations, or similar agencies.</p>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="8%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-</colgroup>
 <thead><tr class="header">
 <th align="left">Geo</th>
 <th align="center">Year</th>
@@ -1510,7 +1501,7 @@ RVMPO
 <h3>
 <span class="header-section-number">6.3.14</span> azone_veh_use_taxes.csv<a class="anchor" aria-label="anchor" href="#azone_veh_use_taxes.csv"><i class="fas fa-link"></i></a>
 </h3>
-<p>This file supplies data for vehicle taxes related to <a href="conceptprimer.html#auto-operating-cost">auto operating costs</a></p>
+<p>This file supplies data for vehicle taxes related to <a href="#auto-operating-cost">auto operating costs</a></p>
 <ul>
 <li>
 <strong>FuelTax</strong>:Tax per gas gallon equivalent of fuel in dollars</li>
@@ -1561,13 +1552,6 @@ RVMPO
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="7%">
-<col width="6%">
-<col width="27%">
-<col width="30%">
-<col width="28%">
-</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -5087,7 +5071,7 @@ Here is a snapshot of the file:</p>
 <li>
 <strong>n1000_4</strong>: Over 5,000 employees</li>
 </ul>
-<p>While the county field is required to be present, the business synthesis process does not require a meaningful value and therefore users may simply enter ‘region’. The consistency in the naming of the “region” should be maintained across all the files that contains the label <em>“county”</em> or <em>“Geo”</em>. It is also not necessary to use such detailed NAICS categories if those are not available; the current business synthesis model and subsequent models do not use this level of detail (although future versions of the model may) – at minimum, the number of establishments for all employment types can be provided by size category. Regions with significant employment in industries such as government and public administration that are not covered by the CBP may need to add records to the file that cover this type of employment to more accurately match employment totals in their region. The two additional fields contained in the file are:</p>
+<p>While the county field is required to be present, the business synthesis process does not require a meaningful value and therefore users may simply enter ‘region.’ The consistency in the naming of the “region” should be maintained across all the files that contains the label <em>“county”</em> or <em>“Geo”</em>. It is also not necessary to use such detailed NAICS categories if those are not available; the current business synthesis model and subsequent models do not use this level of detail (although future versions of the model may) – at minimum, the number of establishments for all employment types can be provided by size category. Regions with significant employment in industries such as government and public administration that are not covered by the CBP may need to add records to the file that cover this type of employment to more accurately match employment totals in their region. The two additional fields contained in the file are:</p>
 <ul>
 <li>
 <strong>emp</strong>: Total number of employees</li>
@@ -5336,17 +5320,7 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies and/or local academic sources. As with the employment data inputs the future data need not be county specific. Rather, regional totals by age group can be entered into the file with a value such as “region” entered in the county field.</p>
 <p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table style="width:100%;" class="table table-sm">
-<colgroup>
-<col width="13%">
-<col width="6%">
-<col width="12%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-</colgroup>
+<div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -5527,15 +5501,6 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="12%">
-<col width="5%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -6215,13 +6180,6 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="37%">
-<col width="8%">
-<col width="20%">
-<col width="20%">
-<col width="12%">
-</colgroup>
 <thead><tr class="header">
 <th>Parameters</th>
 <th>VMT</th>
@@ -6276,14 +6234,6 @@ Here is a snapshot of the file:</p>
 <p>This file contains the <em>D</em> values, which are proportional values for each of the 13 place types (<em>Bzones</em>) that are relative to a regional average, for each of the five Ds used in VERPAT - design (intersection street density), accessibility (job accessibility by auto), distance to transit (nearest transit stop), density (population density) and diversity (land use mix).
 Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="7%">
-<col width="10%">
-<col width="13%">
-<col width="8%">
-<col width="32%">
-<col width="27%">
-</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Density</th>
@@ -6671,7 +6621,7 @@ The source for highway infrastructure costs is FHWA’s Highway Economic Require
 <li>Resurface pavement</li>
 <li>Improve shoulders</li>
 </ul>
-<p>Additional choices are offered to distinguish between adding a lane at “normal” vs. “high cost”, and also for pavement realignment, also under normal vs. high cost conditions. For practical reasons, it was decided to use only “new construction” (which also includes adding lanes) costs as the basis for the cost estimates, and to ignore the categories of reconstruction, resurfacing, and realignment. These construction costs include right of way, construction, and a “small” allowance for bridges and support facilities.
+<p>Additional choices are offered to distinguish between adding a lane at “normal” vs. “high cost,” and also for pavement realignment, also under normal vs. high cost conditions. For practical reasons, it was decided to use only “new construction” (which also includes adding lanes) costs as the basis for the cost estimates, and to ignore the categories of reconstruction, resurfacing, and realignment. These construction costs include right of way, construction, and a “small” allowance for bridges and support facilities.
 The infrastructure costs focus only on the “urban” system, not rural, which also makes it possible to differentiate by three size classes: Small Urban, Small Urbanized, and Large Urbanized. The numbers from HERS are in 2002 dollars; FHWA advises escalation to current dollars using its NHCCI, which is available online at <a href="http://www.fhwa.dot.gov/policyinformation/nhcci.cfm" class="uri">http://www.fhwa.dot.gov/policyinformation/nhcci.cfm</a>); the report in VERPAT escalates uses this Index to escalate to 2010 values.
 The parameter values in this file are average values per lane mile, simplifying the calculations of highway costs to just differentiate investments in freeway vs. arterial functional class roads.
 Here is a snapshot of the file:</p>
@@ -6717,15 +6667,7 @@ Here is a snapshot of the file:</p>
 </h4>
 <p><strong>Vehicle fuel economy (<em>model_veh_mpg_by_year.csv</em>)</strong>: This file contains the estimates and forecasts of average fuel economy and power economy in miles per gallon for autos, light trucks, heavy trucks (trucks) and miles per kilowatt for trains by vehicle model year. Note that this is not the fleet average for that year. It is the average for new vehicles sold in that year. The fuel economy is the same for all fuel types and is measured in gasoline equivalent gallons (i.e. energy content of a gallon of gasoline). This file is used in the calculations of fuel consumption.
 Here is a snapshot of the file:</p>
-<div class="inline-table"><table style="width:100%;" class="table table-sm">
-<colgroup>
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-</colgroup>
+<div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>ModelYear</th>
 <th>AutoMpg</th>
@@ -6990,13 +6932,6 @@ Here is a snapshot of the file:</p>
 </h4>
 <p><strong>Hybrid electric vehicles characteristics (<em>model_hev_prop_mpg.csv</em>)</strong>: This file contains the estimates and forecasts of fuel efficiency (mpg), and proportions of automobiles and light trucks that are hybrid electric vehicles (that are neither plugin hybrid nor electric vehicle) by vehicle model year. Note that this is not the fleet average for that year. It is the average of new vehicles sold in that year. This file is used in identification of hybrid electric that are not plugin hybrid or electric vehicles. Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="15%">
-<col width="19%">
-<col width="17%">
-<col width="24%">
-<col width="22%">
-</colgroup>
 <thead><tr class="header">
 <th>ModelYear</th>
 <th>AutoPropHev</th>
@@ -7470,8 +7405,8 @@ Here is a snapshot of the file:</p>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/visioneval/visioneval-docs/user_guide/blob/master/04-inputs.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/visioneval/visioneval-docs/user_guide/edit/master/04-inputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/blob/master/04-inputs.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/edit/master/04-inputs.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -7483,7 +7418,7 @@ Here is a snapshot of the file:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-19.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
