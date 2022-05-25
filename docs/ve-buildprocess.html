@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 10 Module Build Process for Custom Data Inputs | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 10 Module Build Process for Custom Data Inputs | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://visioneval.org/docs/ve-buildprocess.html">
+<meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 10 Module Build Process for Custom Data Inputs | VisionEval User Guide">
+<meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="10.1 Introduction The purpose of this chapter is to familiarize users with the package build process for creating or modifying individual modules within the VisionEval framework. The package build...">
+<meta property="og:description" content="10.1 Introduction The purpose of this chapter is to familiarize users with the package build process for creating or modifying individual modules within the VisionEval framework. The package build...">
+<meta name="twitter:description" content="10.1 Introduction The purpose of this chapter is to familiarize users with the package build process for creating or modifying individual modules within the VisionEval framework. The package build...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></li>
+<li><a class="" href="tutorial.html"><span class="header-section-number">3</span> VisionEval Tutorial</a></li>
+<li><a class="" href="picking-a-model.html"><span class="header-section-number">4</span> Picking a Model</a></li>
+<li><a class="" href="model-geography-and-years.html"><span class="header-section-number">5</span> Model Geography and Years</a></li>
+<li><a class="" href="model-inputs.html"><span class="header-section-number">6</span> Model Inputs</a></li>
+<li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
+<li><a class="" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
+<li><a class="active" href="ve-buildprocess.html"><span class="header-section-number">10</span> Module Build Process for Custom Data Inputs</a></li>
+<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">11</span> VisionEval Model Details</a></li>
+<li><a class="" href="developer.html"><span class="header-section-number">12</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">13</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">14</span> Software Framework</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ve-buildprocess" class="section level1" number="10">
+<h1>
+<span class="header-section-number">10</span> Module Build Process for Custom Data Inputs<a class="anchor" aria-label="anchor" href="#ve-buildprocess"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introduction-1" class="section level2" number="10.1">
+<h2>
+<span class="header-section-number">10.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>The purpose of this chapter is to familiarize users with the package build process for creating or modifying individual modules within the VisionEval framework. The package build process is a necessary step for users to incorporate custom or locally specific data into VisionEval. This chapter walks users through the process of substituting data and re-building a typical VE package, using the VESimHouseholds package as a case study in this example.</p>
+<p>The typical steps involved in the process include:</p>
+<ul>
+<li>Collect the input data for the package</li>
+<li>Preprocess the inputs</li>
+<li>Re-stimate or update the data in the package into a VisionEval datastore</li>
+<li>Build &amp; install the package for use in VE</li>
+<li>Call the re-built package</li>
+</ul>
+</div>
+<div id="context" class="section level2" number="10.2">
+<h2>
+<span class="header-section-number">10.2</span> Context<a class="anchor" aria-label="anchor" href="#context"><i class="fas fa-link"></i></a>
+</h2>
+<p>The “build process” in the context of VisionEval is the process of making ready any modifications to core VisionEval packages for use in the overall VisionEval modeling framework. Fundamentally it is the same as building any R-project into a package that can be imported, but in this context it is only able to be imported to the local VisionEval.</p>
+<p>The reason that the underlying data cannot simply be modified and the module must be rebuilt before it is available for use in VisionEval is that the VisionEval framework relies on importing each module as an R package. R packages are a fundamental unit of the R ecosystem and create a structured way to bundle code, data, and documentation together into a single package. Packages are then able to be shared, installed, and utilized among R users. In the context of VisionEval, the package is being built specifically for the local VisionEval install.</p>
+<p>The reason that simply modifying data inputs (e.g., changing a csv file) is that building the package preserves the R project in its current state, so any changes to the base project will not affect the package until it is rebuilt. Users will need to install the new package for the changes to be reflected. Moreover, VisionEval requires data to follow a consistent datastore structure in <code>.rda</code> files within each packages.</p>
+<p><strong>Note</strong>: It is recommended to build VisionEval packages using a version of VisionEval built from the source code located on the <a href="https://github.com/VisionEval/VisionEval">VisionEval github repository</a>. This is different than the zipped VisionEval installer (available on the VisionEval website and GitHub) has been pre-built and bundled together with all necessary dependencies embedded, making it difficult to modify individual VisionEval packages without creating dependency issues.</p>
+<div id="generic-visioneval-module" class="section level3" number="10.2.1">
+<h3>
+<span class="header-section-number">10.2.1</span> Generic VisionEval Module<a class="anchor" aria-label="anchor" href="#generic-visioneval-module"><i class="fas fa-link"></i></a>
+</h3>
+<p>VisionEval packages will generally have a structure similar to the following:</p>
+<pre><code>VisionEval\built\visioneval\4.x.x\src\VEGenericPackage
+├───data
+│   ├─ GenericPackageSpecifications.rda
+│   ├─ GenericPackage_df.rda
+│   └─ GenericPackage_ls.rda
+├───R
+│   ├─ CreateEstimationDatasets.R
+│   └─ GenericModel.R
+└───inst
+    └─ extdata
+        ├─ input_data1.csv
+        └─ input_data2.txt</code></pre>
+<ul>
+<li>
+<code>inst\extdata</code> is where any input data and reference files will be placed</li>
+<li>
+<code>R</code> directory contains any R scripts used in the packages</li>
+<li>
+<code>data</code> contains the datastore files generated/estimated by the R scripts</li>
+<li>
+<code>man</code> and <code>inst\module_docs</code>, contain the markdown documentation generated during the build process.</li>
+</ul>
+<p>The package might function by first creating the datastore files (<code>.rda</code>) from the input files using an <code>initialize.R</code> or the <code>CreateEstimationDatasets.R</code> script to incorporate the data in the comma separated value (<code>.csv</code>) files.</p>
+<p>When the package is called by VisionEval, a function in <code>GenericModel.R</code> runs a model using easily accessed data in the datastore.</p>
+</div>
+</div>
+<div id="case-study---1" class="section level2" number="10.3">
+<h2>
+<span class="header-section-number">10.3</span> Case Study - 1<a class="anchor" aria-label="anchor" href="#case-study---1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="vesimhouseholds---pums-example" class="section level3" number="10.3.1">
+<h3>
+<span class="header-section-number">10.3.1</span> VESimHouseholds - PUMS example<a class="anchor" aria-label="anchor" href="#vesimhouseholds---pums-example"><i class="fas fa-link"></i></a>
+</h3>
+<p>The VESimHouseholds contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the <a href="https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds">VESimHouseholds</a> package. The source code for this package is located on the VisionEval github here: <a href="https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds" class="uri">https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds</a></p>
+<p>It is recommended that package modifications be made withiin your local VisionEval build (i.e., after running <code>ve.build()</code>) located in <code>VisionEval\built\visioneval\4.x.x\src\</code>, and not the cloned source modules. That way any changes can be reverted to the default VisionEval by re-running <code>ve.build()</code>. The “.x.x” will be replaced by whichever R version was used during the build.</p>
+</div>
+</div>
+<div id="objective-of-the-case-study" class="section level2" number="10.4">
+<h2>
+<span class="header-section-number">10.4</span> Objective of the Case Study<a class="anchor" aria-label="anchor" href="#objective-of-the-case-study"><i class="fas fa-link"></i></a>
+</h2>
+<p>The objective of this case study is to substitute the default Oregon-based data with another State PUMS data. This is done in three major steps:</p>
+<ol style="list-style-type: decimal">
+<li>Preprocess and format “raw’’ PUMS data into the comma separated value (.CSV) files for VisionEval input</li>
+<li>Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as “datastore” format) ++{do we link to a definition of datastore in the Lexicon}</li>
+<li>Re-build and install the module to make it available as a VisionEval module package</li>
+</ol>
+</div>
+<div id="prerequisites" class="section level2" number="10.5">
+<h2>
+<span class="header-section-number">10.5</span> Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"><i class="fas fa-link"></i></a>
+</h2>
+<p>To build a VisionEval package, or any R package, you need the follow packages. These should have already been installed as requisite of the overall VisionEval framework.</p>
+<ul>
+<li><a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">RTools 4.0</a></li>
+<li><a href="https://www.r-project.org/nosvn/pandoc/devtools.html">devtools</a></li>
+</ul>
+</div>
+<div id="input-files-being-modified" class="section level2" number="10.6">
+<h2>
+<span class="header-section-number">10.6</span> Input files being modified<a class="anchor" aria-label="anchor" href="#input-files-being-modified"><i class="fas fa-link"></i></a>
+</h2>
+<p>As mentioned, the default data inputs shipped with VESimHouseholds are Oregon-based PUMS data. The input files are two CSV files located in:</p>
+<ul>
+<li><code>VESimHouseholds/inst/extdata/pums_households.csv</code></li>
+<li><code>VESimHouseholds/inst/extdata/pums_persons.csv</code></li>
+</ul>
+<p>The two CSV files contain disaggregated persons and households data linked by a primary key id field. These data come from Public Use Microdata Sample (PUMS) from the 2000 Decennial US Census. By default, the data in VisionEval is shipped using Oregon-based PUMS.</p>
+<p>The files have the following fields and field values.</p>
+<pre><code>HOUSEHOLDS
+----------
+SERIALNO: Housing/Group Quarters Unit Serial Number
+PUMA5: 5% Public Use Microdata Area code
+HWEIGHT: Housing unit weight
+UNITTYPE: Type of housing unit
+    0 = Housing unit
+    1 = Institutional group quarters
+    2 = Noninstitutional group quarters
+PERSONS: Number of persons living in housing unit
+BLDGSZ: Size of Building
+    blank = group quarters
+    1 = mobile home
+    2 = detached one-family house
+    3 = attached one-family house
+    4 = building with 2 apartments
+    5 = building with 3 or 4 apartments
+    6 = building with 5 to 9 apartments
+    7 = building with 10 to 19 apartments
+    8 = building with 20 to 49 apartments
+    9 = building with 50 or more apartments
+    10 = boat, RV, van, etc.
+HINC: Household Total Income in 1999</code></pre>
+<pre><code>PERSONS
+-------
+SERIALNO: Housing/Group Quarters Unit Serial Number
+AGE: Age
+WRKLYR: Worked in 1999
+    0 = Not in universe (Under 16 years)
+    1 = Yes
+    2 = No
+INCTOT: Person's Total Income in 1999
+    NA = Not in universe (Under 15 years)
+    ?019998 = Loss of $19,998 or more
+    ?000001..019997 = Loss of $1 to $19,997
+    0000000 = No/none
+    0000001 = $1 or break even
+    0000002..4999999 = $2 to $4,999,999
+    5000000 = $5,000,000 or more</code></pre>
+<p>The data are disaggregated (i.e., records) individual persons and households. For example, household data might look like this:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">SERIALNO</th>
+<th align="right">PUMA5</th>
+<th align="right">HWEIGHT</th>
+<th align="right">UNITTYPE</th>
+<th align="right">PERSONS</th>
+<th align="right">BLDGSZ</th>
+<th align="right">HINC</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">25080</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">68100</td>
+</tr>
+<tr class="even">
+<td align="right">92</td>
+<td align="right">25060</td>
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">105530</td>
+</tr>
+<tr class="odd">
+<td align="right">103</td>
+<td align="right">25090</td>
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">359000</td>
+</tr>
+<tr class="even">
+<td align="right">142</td>
+<td align="right">25100</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">141500</td>
+</tr>
+<tr class="odd">
+<td align="right">157</td>
+<td align="right">25100</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">159</td>
+<td align="right">25070</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">14700</td>
+</tr>
+</tbody>
+</table></div>
+<p>And an example of the persons data might look like this:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">SERIALNO</th>
+<th align="right">AGE</th>
+<th align="right">WRKLYR</th>
+<th align="right">MILITARY</th>
+<th align="right">INCTOT</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">66</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">68100</td>
+</tr>
+<tr class="even">
+<td align="right">92</td>
+<td align="right">28</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">33000</td>
+</tr>
+<tr class="odd">
+<td align="right">92</td>
+<td align="right">28</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">37000</td>
+</tr>
+<tr class="even">
+<td align="right">92</td>
+<td align="right">26</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">35530</td>
+</tr>
+<tr class="odd">
+<td align="right">103</td>
+<td align="right">53</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">33000</td>
+</tr>
+<tr class="even">
+<td align="right">103</td>
+<td align="right">53</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">326000</td>
+</tr>
+<tr class="odd">
+<td align="right">142</td>
+<td align="right">49</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">111500</td>
+</tr>
+<tr class="even">
+<td align="right">142</td>
+<td align="right">49</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">30000</td>
+</tr>
+<tr class="odd">
+<td align="right">157</td>
+<td align="right">39</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2100</td>
+</tr>
+<tr class="even">
+<td align="right">159</td>
+<td align="right">80</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">14700</td>
+</tr>
+</tbody>
+</table></div>
+<p>Note that the two data files are also linked by a primary key field <code>SERIALNO</code>. Meaning that for each unique household, there are at least one or more persons linked to that household by the <code>SERIALNO</code> key.</p>
+</div>
+<div id="step-1---preprocessing" class="section level2" number="10.7">
+<h2>
+<span class="header-section-number">10.7</span> Step 1 - Preprocessing<a class="anchor" aria-label="anchor" href="#step-1---preprocessing"><i class="fas fa-link"></i></a>
+</h2>
+<p>To start, we must download our new “raw” PUMS data and format it to match the current VisionEval input files. Processing and formatting can be done manually using spreadsheets and text editors, but some PUMS data are stored in a space saving format that most spreadsheets and humans cannot easily read.</p>
+<p>To help with this process, an R script was written with functions that both download the PUMS data and preprocess the data into CSV files for VisionEval, located here: <a href="https://github.com/RSGInc/VEProcessPUMS" class="uri">https://github.com/RSGInc/VEProcessPUMS</a></p>
+<p><strong>NOTE:</strong> It is important to note here that VisionEval household and person fields are based on the 2000 <em>Decennial Census</em> PUMS.</p>
+<p>For year 2000 and earlier, PUMS data were based on the decennial Census counted every ten years. <u>Post-2000 PUMS</u> are based on the American Community Survey (ACS), which is a sampling-based survey method collected continuously rather than from a full decennial Census. Statistically, the ACS-based PUMS are reliable, but the fields <u>differ</u> and will need to be migrated to match the inputs used by VisionEval. More <a href="https://www2.census.gov/geo/pdfs/reference/puma/puma_history.pdf">PUMA history</a> can be read online at the US Census website.</p>
+<ul>
+<li><a href="https://www2.census.gov/census_2000/datasets/PUMS/">2000 Decennial Census PUMS</a></li>
+<li><a href="https://www2.census.gov/programs-surveys/acs/data/pums/">Post-2000 ACS PUMS</a></li>
+</ul>
+<div id="pums-aka-census-pums" class="section level3" number="10.7.1">
+<h3>
+<span class="header-section-number">10.7.1</span> 2000 PUMS (aka Census PUMS)<a class="anchor" aria-label="anchor" href="#pums-aka-census-pums"><i class="fas fa-link"></i></a>
+</h3>
+<p>2000 PUMS data comes in two forms, 1% and 5%, which the Census explains as:</p>
+<blockquote>
+<p>“The 1-percent super-PUMAs were used to present 1-percent PUMS files, were required to contain a minimum population of 400,000 persons, and had to nest within states. These super-PUMAs were a new geographic entity for Census 2000 and were aggregations of the smaller, 5-percent PUMAs.</p>
+<p>The 5-percent PUMAs were used to present the 5-percent PUMS files, were required to contain a minimum population of 100,000 persons, and had to nest within states. PUMAs could consist of a single county or an aggregation of one or more counties, census tracts, or minor civil divisions (MCDs) in the New England states. Additionally, an incorporated place with a minimum population of 100,000 persons could be defined as a PUMA.”</p>
+</blockquote>
+<p>Basically the 1% PUMS have more persons, but cover a larger geographic area than the 5% PUMS. In this case we are looking to download the revised 5% data. Within each state directory (e.g., <a href="https://www2.census.gov/census_2000/datasets/PUMS/FivePercent/California/" class="uri">https://www2.census.gov/census_2000/datasets/PUMS/FivePercent/California/</a>) there will be several files.</p>
+<pre><code>PUMEQ5-CA.TXT           30-Aug-2003 05:21   1.0M
+PUMS5_06.TXT            30-Aug-2003 05:35   677M
+REVISEDPUMS5_06.TXT   26-Oct-2010 14:24 676M
+all_California.zip    02-Sep-2003 23:08 98M</code></pre>
+<p>The file named <code>REVISEDPUMS5_06.TXT</code> is the file to download. However, the data for both households and persons are stored in a continuous string, which is not an easy to parse delimited format (e.g., comma separated). Extracting the data and converting it into a tabular dataframe is non-trivial.</p>
+<p>To help with this process, an R function called <code>process_2000_pums()</code> was written in the <a href="https://github.com/RSGInc/VEProcessPUMS/blob/master/R/ProcessPUMS.R">VEProcessPUMS</a> package to read the <code>.txt</code> files, extract the data columns need, convert to R dataframes, and then export the remaining data into the two person and household <code>.csv</code> files as VESimHousehold input.</p>
+</div>
+<div id="post-2000-pums-aka-acs-pums" class="section level3" number="10.7.2">
+<h3>
+<span class="header-section-number">10.7.2</span> Post-2000 PUMS (aka ACS PUMS)<a class="anchor" aria-label="anchor" href="#post-2000-pums-aka-acs-pums"><i class="fas fa-link"></i></a>
+</h3>
+<p>Post-2000 PUMS data are typically stored as separate CSV files for persons and households. This makes parsing and importing the data into R very easy. However, the columns are different and the new column names will need to be identified and migrated over. Below is a column crosswalk to translate ACS PUMS to the required field names.</p>
+<div id="household" class="section level4 unnumbered">
+<h4>Household<a class="anchor" aria-label="anchor" href="#household"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>2000 PUMS Field</th>
+<th>ACS PUMS Field Name</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>SERIALNO</td>
+<td>SERIALNO</td>
+</tr>
+<tr class="even">
+<td>PUMA5</td>
+<td>PUMA</td>
+</tr>
+<tr class="odd">
+<td>HWEIGHT</td>
+<td>WGTP</td>
+</tr>
+<tr class="even">
+<td>UNITTYPE</td>
+<td>TYPE</td>
+</tr>
+<tr class="odd">
+<td>PERSONS</td>
+<td>NP</td>
+</tr>
+<tr class="even">
+<td>BLDGSZ</td>
+<td>BLD</td>
+</tr>
+<tr class="odd">
+<td>HINC</td>
+<td>HINCP</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="persons" class="section level4 unnumbered">
+<h4>Persons<a class="anchor" aria-label="anchor" href="#persons"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>2000 PUMS Field</th>
+<th>ACS PUMS Field Name</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>SERIALNO</td>
+<td>SERIALNO</td>
+</tr>
+<tr class="even">
+<td>AGE</td>
+<td>AGEP</td>
+</tr>
+<tr class="odd">
+<td>WRKLYR</td>
+<td>WKL</td>
+</tr>
+<tr class="even">
+<td>MILITARY</td>
+<td>MIL</td>
+</tr>
+<tr class="odd">
+<td>INCTOT</td>
+<td>PINCP</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="preprocessing-for-visioneval-input-data" class="section level3" number="10.7.3">
+<h3>
+<span class="header-section-number">10.7.3</span> Preprocessing for VisionEval input data<a class="anchor" aria-label="anchor" href="#preprocessing-for-visioneval-input-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can either manually download the text file and process the PUMS data, or use the automated R wrappers <code>getACSPUMS()</code> and <code>getDecPUMS()</code>.</p>
+<div id="manually-download-pums-and-process-using-process_2000_pums-process_acs_pums" class="section level4 unnumbered">
+<h4>Manually download PUMS and process using process_2000_pums() &amp; process_acs_pums()<a class="anchor" aria-label="anchor" href="#manually-download-pums-and-process-using-process_2000_pums-process_acs_pums"><i class="fas fa-link"></i></a>
+</h4>
+<p>An example PUMS processing using the <code>process_2000_pums</code> and <code>process_acs_pums</code>:</p>
+<pre><code># For the 2000 data:
+# process_2000_pums() function reads in REVISEDPUMS5_06.TXT,
+# parses the data into two dataframes for persons and households, then
+# returns a list('p'= person_df, 'h' = household_df)
+# It has two input parameters:
+#  - PumsFile: path to PUMS TXT data
+#  - GetPumas: optional vector of PUMAS ids, defaults to 'ALL'
+
+PUMS_DATA_LIST &lt;- process_2000_pums(PumsFile='REVISEDPUMS5_06.TXT', GetPumas='ALL')</code></pre>
+<p>The process is similar using the process_acs_pums(). You can specify the path for the extracted .csv or the .zip file. It has one additional parameter to specify the file type as either ‘p’ for persons or ‘h’ for households. For example:</p>
+<pre><code># For the ACS data:
+PUMS_DATA_LIST &lt;- process_acs_pums(PumsFile='csv_pca.csv', type='p' GetPumas='ALL')</code></pre>
+<p>Then from where you only need to save the dataframes to a csv:</p>
+<pre><code># Using base R write.csv
+write.csv(PUMS_DATA_LIST[['p']],
+          file = file.path(output_dir, 'pums_persons.csv'),
+          row.names = FALSE)
+
+# Using fwrite() from `data.table`
+fwrite(PUMS_DATA_LIST[['p']],
+       file = file.path(output_dir, 'pums_persons.csv'))</code></pre>
+</div>
+<div id="automatically-download-pums-and-process-using-getdecpums-and-getacspums" class="section level4 unnumbered">
+<h4>Automatically download PUMS and process using getDecPUMS and getACSPUMS<a class="anchor" aria-label="anchor" href="#automatically-download-pums-and-process-using-getdecpums-and-getacspums"><i class="fas fa-link"></i></a>
+</h4>
+<p>To streamline the whole process, there is also a download wrapper function which both downloads and calls the preprocessing function. The user only needs to specify the State (and year if using ACS) that they want PUMS data from. For example:</p>
+<pre><code># This function downloads the PUMS txt data to a temporary file,
+# parses it using the process_2000_pums function, then
+# saves or returns the processed data.
+# It has two input parameters:
+# - STATE: This can be the State name, abbreviation, or fips code
+#          (e.g., California, CA, or 6)
+# - output_dir: Optional path to save the files pums_persons.csv and pums_households.csv
+#               NA path returns the dataframes in a list
+
+# Get 2000 Decennial Census PUMS
+# data_list &lt;- getDecPUMS(STATE='CA', output_dir = NA)
+getDecPUMS(STATE='CA', output_dir = './output_folder')</code></pre>
+<p>Similarly, ACS PUMS data for more recent years can be downloaded. For example:</p>
+<pre><code># Get ACS PUMS for specified year
+# data_list &lt;- getACSPUMS(STATE='CA', YEAR='2020', output_dir = NA)
+getACSPUMS(STATE='CA', YEAR='2020', output_dir = './output_folder')</code></pre>
+</div>
+</div>
+</div>
+<div id="step-2---create-the-visioneval-estimation-data-sets" class="section level2" number="10.8">
+<h2>
+<span class="header-section-number">10.8</span> Step 2 - Create the VisionEval estimation data sets<a class="anchor" aria-label="anchor" href="#step-2---create-the-visioneval-estimation-data-sets"><i class="fas fa-link"></i></a>
+</h2>
+<p>The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval <code>.Rda</code> data files stored in <code>VESimHouseholds\data</code>. These data files are stored in a structure and format (e.g., dataframes) that VisionEval can use as part of the framework.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>Start by instantiating the VisionEval R project environment by loading your model build’s <code>VisionEval.Rproj</code>. If you have already built your VisionEval using <code>ve.build()</code>, you will have a <code>VisionEval.Rproj</code> file in your <code>built</code> directory. For example, <code>VisionEval\built\visioneval\4.1.2\runtime\VisionEval.Rproj</code>.</p></li>
+<li><p>Next navigate to the VESimHousehold package and set your current working directory to the <code>your_path_to_this/VESimHouseholds</code> folder. (hint <em>Session -&gt; Set Working Directory</em>)</p></li>
+<li><p>Run the R datastore generation scripts. Depending on the purpose of the module you are working with, the generation R script may vary. Within the package’s “R” folder, some will save a datastore with the command <code>visioneval::savePackageDataset()</code>, some may not need any data updates, and others might only contain model functions with no immediate output saved.</p></li>
+</ol>
+<p>For example, the <code>VESimHouseholds/R/CreateEstimationDatasets.R</code> script reads in the csv input data we created and creates the household data <code>Hh_df.rda</code> for VisionEval in the data folder.</p>
+</div>
+<div id="step-3---build-the-vesimhouseholds-package" class="section level2" number="10.9">
+<h2>
+<span class="header-section-number">10.9</span> Step 3 - Build the VESimHouseholds package<a class="anchor" aria-label="anchor" href="#step-3---build-the-vesimhouseholds-package"><i class="fas fa-link"></i></a>
+</h2>
+<p>Although the previous step generated the R data files, your current VisionEval environment will still be using the old package build data. You will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data.</p>
+<p>While your VisionEval R project environment is loaded and current working is <code>VESimHouseholds</code>, run the following commands:</p>
+<pre><code><a href="https://devtools.r-lib.org/reference/build.html"># This builds the VESimHouseholds data and scripts into an R package
+devtools::build()
+
+# This then installs the VESimHouseholds package into VisionEval library
+devtools::install()</a></code></pre>
+<p>Your new PUMS data should now be ready to use in a VisionEval model run.</p>
+</div>
+<div id="case-study---2" class="section level2" number="10.10">
+<h2>
+<span class="header-section-number">10.10</span> Case Study - 2<a class="anchor" aria-label="anchor" href="#case-study---2"><i class="fas fa-link"></i></a>
+</h2>
+<div id="vepowertrainsandfuels---changing-inputs-for-a-scenario-test" class="section level3" number="10.10.1">
+<h3>
+<span class="header-section-number">10.10.1</span> VEPowertrainsandFuels - Changing Inputs for a Scenario Test<a class="anchor" aria-label="anchor" href="#vepowertrainsandfuels---changing-inputs-for-a-scenario-test"><i class="fas fa-link"></i></a>
+</h3>
+<p>This second case study explores a common challenge when certain inputs are embedded in a package. This case study will be documented in the next version of this Build Process example narrative.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></div>
+<div class="next"><a href="visioneval-model-details.html"><span class="header-section-number">11</span> VisionEval Model Details</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ve-buildprocess"><span class="header-section-number">10</span> Module Build Process for Custom Data Inputs</a></li>
+<li><a class="nav-link" href="#introduction-1"><span class="header-section-number">10.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#context"><span class="header-section-number">10.2</span> Context</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#generic-visioneval-module"><span class="header-section-number">10.2.1</span> Generic VisionEval Module</a></li></ul>
+</li>
+<li>
+<a class="nav-link" href="#case-study---1"><span class="header-section-number">10.3</span> Case Study - 1</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#vesimhouseholds---pums-example"><span class="header-section-number">10.3.1</span> VESimHouseholds - PUMS example</a></li></ul>
+</li>
+<li><a class="nav-link" href="#objective-of-the-case-study"><span class="header-section-number">10.4</span> Objective of the Case Study</a></li>
+<li><a class="nav-link" href="#prerequisites"><span class="header-section-number">10.5</span> Prerequisites</a></li>
+<li><a class="nav-link" href="#input-files-being-modified"><span class="header-section-number">10.6</span> Input files being modified</a></li>
+<li>
+<a class="nav-link" href="#step-1---preprocessing"><span class="header-section-number">10.7</span> Step 1 - Preprocessing</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pums-aka-census-pums"><span class="header-section-number">10.7.1</span> 2000 PUMS (aka Census PUMS)</a></li>
+<li><a class="nav-link" href="#post-2000-pums-aka-acs-pums"><span class="header-section-number">10.7.2</span> Post-2000 PUMS (aka ACS PUMS)</a></li>
+<li><a class="nav-link" href="#preprocessing-for-visioneval-input-data"><span class="header-section-number">10.7.3</span> Preprocessing for VisionEval input data</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#step-2---create-the-visioneval-estimation-data-sets"><span class="header-section-number">10.8</span> Step 2 - Create the VisionEval estimation data sets</a></li>
+<li><a class="nav-link" href="#step-3---build-the-vesimhouseholds-package"><span class="header-section-number">10.9</span> Step 3 - Build the VESimHouseholds package</a></li>
+<li>
+<a class="nav-link" href="#case-study---2"><span class="header-section-number">10.10</span> Case Study - 2</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#vepowertrainsandfuels---changing-inputs-for-a-scenario-test"><span class="header-section-number">10.10.1</span> VEPowertrainsandFuels - Changing Inputs for a Scenario Test</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/blob/master/07-build-process.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/edit/master/07-build-process.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-20.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
