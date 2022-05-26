@@ -2,7 +2,15 @@
 
 
 
-The majority of input files are csv-formatted text files. The names of the file identify the geography level for the input data. For example, azone_hh_pop_by_age.csv is the input for household population by age, and should have data at the Azone level. Each input file has:
+Once VisionEval model has been installed, a directory with sample data will be available within the model directory (e.g., `../models/VERSPM/`, note `..` refers to the parent directory of the unzipped installer file). 
+
+The model directory serves the dual purposes of providing sample data and serving as a template for local modification to other locations. 
+
+The default VERSPM and VERPAT directories contains sample input files for the Rogue Valley region in Oregon, while the default VE-State directory contains sample input files for the State of Oregon. These inputs can be modified or replaced to investigate the impacts of policy changes or to model a different region. 
+
+The `defs` directory contains five model definition files which is introduced in [Set-Up Inputs](#defs)
+
+The `inputs` directory contains a number of `CSV` and `JSON` files that provide inputs for the modules. Each module specifies what input files it needs. The majority of input files are `CSV` formatted text files. The names of the file identify the geography level for the input data. For example, azone_hh_pop_by_age.csv is the input for household population by age, and should have data at the Azone level. Each input file has:
 
 * **Field names** identifying dataset names
 * **Year** field when inputs vary by model year
@@ -18,7 +26,7 @@ Field names can also have modifiers, such as the year that money values are deno
 
 The rest of this section will contain generalized best practices for input development applicable to all VisionEval models and go into the details of inputs for each model. 
 
-## Set-up Inputs
+## Set-up Inputs {#defs}
 The set-up inputs are those in the **defs** directory. Most of these files shouldn’t change much from the download, unless users want their own deflators, etc. The exception is the geo.csv file which will need to be developed to inform the model geography. 
 
 - [run_parameters.json](#run_parameters.json)
@@ -188,7 +196,7 @@ Vehicle and fuel technology are expected to change significantly during the next
   * PHEV - Plug-in Hybrid Electric Vehicles where some motive power comes from charging an on-board battery from external power supplies; 
   * EV - Electric Vehicles where all motive power comes from charging an on-board battery from external power supplies. 
 
-* **Household owned vehicles.** Household vehicle characteristics are defined by Azone and model run year to account for regional trends. Characteristics include the passanger fleet share by [<span style="color:green">vehicle type</span>](#vehicle-type) (light truck or auto) and average [<span style="color:green">vehicle age/span>](#vehicle-age). The purpose of these inputs is to allow scenarios to be developed which test faster or slower turn-over of the vehicle fleet or test fleets mixes in terms of passenger autos and light trucks or SUVs, both of which impact fuel economy. Users also define the availability of residential electric vehicle charging stations at the Azone level by [<span style="color:green">dwelling unit type</span>](#dwelling-unit-type) and model run year. Vehicle type and age characteristics combine with powertrain sales by year defined in the [VEPowertrainsAndFuels](https://github.com/VisionEval/VisionEval-Dev/tree/development-next/sources/modules/VVEPowertrainsAndFuels) package. Each powertrain in each year has an associated fuel efficiency and power efficiency assumptions for PHEVs (MPG for PHEVs in charge-sustaining mode). For EVs and PHEVs, battery range is specified. Note that the actual EV-HEV split depends on whether enough households have their 95Th percentile daily travel within the EV battery range 
+* **Household owned vehicles.** Household vehicle characteristics are defined by Azone and model run year to account for regional trends. Characteristics include the passanger fleet share by [<span style="color:green">vehicle type</span>](#vehicle-type) (light truck or auto) and average [<span style="color:green">vehicle age</span>](#vehicle-age). The purpose of these inputs is to allow scenarios to be developed which test faster or slower turn-over of the vehicle fleet or test fleets mixes in terms of passenger autos and light trucks or SUVs, both of which impact fuel economy. Users also define the availability of residential electric vehicle charging stations at the Azone level by [<span style="color:green">dwelling unit type</span>](#dwelling-unit-type) and model run year. Vehicle type and age characteristics combine with powertrain sales by year defined in the [VEPowertrainsAndFuels](https://github.com/VisionEval/VisionEval-Dev/tree/development-next/sources/modules/VVEPowertrainsAndFuels) package. Each powertrain in each year has an associated fuel efficiency and power efficiency assumptions for PHEVs (MPG for PHEVs in charge-sustaining mode). For EVs and PHEVs, battery range is specified. Note that the actual EV-HEV split depends on whether enough households have their 95Th percentile daily travel within the EV battery range 
 
 * **Car service vehicles.** Car services are a specific mode used in VisionEval models treated as vehicles available to the household. Car services can be considered a synonym for popular ride-sharing services provided by mobility-as-a-service (MaaS) companies. VisionEval distinguishes between two levels of car service, categorized as “high” or “low” level service. A high car service level is one that has vehicle access times (time to walk between car and origin or final destination) that are competitive with private car use. High level of car service is considered to increase household car availability similar to owning a car. Users can define the [<span style="color:green">car service substitution probability</span>](#car-service-substitution) by [<span style="color:green">vehicle type</span>](#vehicle-type). Low level car service, approximates current taxi service does not have competitive access time and is not considered as increasing household car availability. Users can define different attributes for each level of car service. Users can define several characteristcs of car service by level, including cost per mile by [<span style="color:green">car service level</span>](#car-service-level), average age of car service vehicles, and limits on household  [<span style="color:green">car service substitution probability</span>](#car-service-substitution) for owned vehicles. Region-level inputs on [<span style="color:green">powertrain</span>](#powertrain) mix by model (not sales) year and (optional) region-wide composite fuel carbon intensity. 
 
@@ -230,7 +238,7 @@ Most of these will be state-led actions and thus reflect the state policies of t
 
 * **Social cost recovery/carbon fees.**  (Optional) Inputs allow per mile fee to cover social costs or externalities, not recovered in this way today, but instead incur costs elsewhere in the economy (e.g., safety, health).  This is the cost imposed on society and future generations, not the cost to the vehicle user. This requires assumptions on the cost incurred from these externalities (per mile, per gallon) and the proportion to be paid by drivers as a per mile fee (varies by vehicle powertrain). The proportion of carbon costs (e.g., impact on fuel price from cap & trade policy) imposed on drivers is specified separately from other social costs, so it can be assessed on its own if desired; including (optionally) specifying the cost of carbon to over-ride the default value of carbon. 
 
-* **Per mile time-equivalent costs.** Users can define the [<span style="color:green">value of time</span>](#value-of-time), which is included in [<span style="color:green">vehicle operating costs/span>](#vehicle-operating-costs) calculations. The model calculates travel time (model-calculated), which includes time to access vehicle on both ends of trip (between vehicle parking location and origin or end destination), multiplied by value of time.
+* **Per mile time-equivalent costs.** Users can define the [<span style="color:green">value of time</span>](#value-of-time), which is included in [<span style="color:green">vehicle operating costs</span>](#vehicle-operating-costs) calculations. The model calculates travel time (model-calculated), which includes time to access vehicle on both ends of trip (between vehicle parking location and origin or end destination), multiplied by value of time.
 
 * **Annual vehicle ownership costs.** [<span style="color:green">Vehicle ownership cost</span>](#vehicle-operating-costs) inputs are defined at the Azone-level by year. These inputs include annual vehicle fees (flat fee and/or tax on vehicle value), [<span style="color:green">pay-as-you-drive (PAYD)</span>](#pay-as-you-drive) insurance participation rates, residential parking limitations and fees, that are combined with model-estimated ownership costs (financing, depreciation, insurance).
 
@@ -251,24 +259,24 @@ Most of these will be state-led actions and thus reflect the state policies of t
   * **Speed smoothing programs** - Insufficient aggregate performance data is available for a number of other current and future ITS/operations strategies.  These include: speed limit reductions, speed enforcement, and variable speed  limits that reduce the amount of high-speed freeway travel; advanced signal optimization techniques that reduce stops and starts on arterials; and truck/bus-only lanes that can move high-emitting vehicles through congested areas at improved efficiency. Literature review of fuel efficiency improvements found that speed smoothing policies could only reasonably achieve a portion of the theoretical maximum of 50%, which is the ratio applied to the user input of full deployment (input of 1=100%).
   * **Eco-drive programs** Eco-driving involves educating motorists on how to drive in order to reduce fuel consumption and cut emissions. Examples of eco-driving practices include avoiding rapid starts and stops, matching driving speeds to synchronized traffic signals, and avoiding idling. Practicing eco-driving also involves keeping vehicles maintained in a way that reduces fuel consumption such as keeping tires properly inflated and reducing aerodynamic drag. In RSPM, fuel economy benefits of improved vehicle maintenance are included in the eco-driving benefit. A default 19% improvement in vehicle fuel economy is assumed. Vehicle operations and maintenance programs (e.g. eco-driving) based on policy assumptions about the degree of deployment of those programs and the household characteristics.  Vehicle operating programs (eco-driving) reduces emissions per VMT at a max of 33% for freeways and 21% for arterials for full deployment (input of 1=100%).
 
-## VERSPM Input Files
+## VERSPM Input Files {#verspm-inputs}
 
 This section details the specific VERSPM input files.
 
-* [**azone_carsvc_characteristics.csv**](#azone_carsvc_characteristics.csv): This file specifies the different characteristics for high and low car service level and is used in the [CreateVehicleTable](Modules_and_Outputs.md/#createvehicletable) and [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) modules. 
+* [**azone_carsvc_characteristics.csv**](#azone_carsvc_characteristics.csv): This file specifies the different characteristics for high and low car service level and is used in the [CreateVehicleTable](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VEHouseholdVehicles/inst/module_docs/CreateVehicleTable.md) and [AssignVehicleAge](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleAge.md) modules. 
 
-* [**azone_charging_availability.csv**](#azone_charging_availability.csv) This file has data on proportion of different household types who has EV charging available  and is used in the [AssignHHVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) module.          
+* [**azone_charging_availability.csv**](#azone_charging_availability.csv) This file has data on proportion of different household types who has EV charging available  and is used in the [AssignHHVehiclePowertrain](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VEPowertrainsAndFuels/inst/module_docs/AssignHhVehiclePowertrain.md) module.          
 
 * [**azone_electricity_carbon_intensity.csv**](#azone_electricity_carbon_intensity.csv) <span style="color:red">(optional)</span> This file is used to specify the carbon intensity of electricity and is only needed if user wants to modify the values). The file is used in [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
-) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.      
+) and [CalculateCarbonIntensity](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md) modules.      
 
-* [**azone_fuel_power_cost.csv**](#azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.         
+* [**azone_fuel_power_cost.csv**](#azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md) module.         
 
 * [**azone_gq_pop_by_age.csv**](#azone_gq_pop_by_age.csv): This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                    
 
 * [**azone_hh_pop_by_age.csv**](#household-population-azone_hh_pop_by_age.csv) This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module. 
 
-* [**azone_hh_veh_mean_age.csv**](#azone_hh_veh_mean_age.csv) This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) module.                 
+* [**azone_hh_veh_mean_age.csv**](#azone_hh_veh_mean_age.csv) This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleAge.md) module.                 
 
 * [**azone_hh_veh_own_taxes.csv**](#azone_hh_veh_own_taxes.csv) This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.             
 
@@ -279,40 +287,78 @@ This section details the specific VERSPM input files.
 * [**azone_payd_insurance_prop.csv**](#azone_payd_insurance_prop.csv) This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.               
 
 * [**azone_per_cap_inc.csv**](#azone_per_cap_inc.csv) This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the [PredictIncome](Modules_and_Outputs.md/#predictincome) module.                 
+
 * [**azone_prop_sov_dvmt_diverted.csv**](#azone_prop_sov_dvmt_diverted.csv) This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the [DivertSovTravel](Modules_and_Outputs.md/#divertsovtravel) module.            
+
 * [**azone_relative_employment.csv**](#azone_relative_employment.csv): This file contains ratio of workers to persons by age and is used in the [PredictWorkers](Modules_and_Outputs.md/#predictworkers) module. 
+
 * [**azone_veh_use_taxes.csv**](#azone_veh_use_taxes.csv) This file supplies data for vehicle related taxes and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcosts) module.         
-* [**azone_vehicle_access_times.csv**](#azone_vehicle_access_times.csv) This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.        
+
+* [**azone_vehicle_access_times.csv**](#azone_vehicle_access_times.csv) This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md) module.        
+
 * [**bzone_transit_service.csv**](#bzone_transit_service.csv) This file supplies the data on relative public transit accessibility and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                    
+
 * [**bzone_carsvc_availability.csv**](#bzone_carsvc_availability.csv) This file contains the information about level of car service availability and is used in the [AssignCarSvcAvailability](Modules_and_Outputs.md/#assigncarsvcavailability) module. 
+
 * [**bzone_dwelling_units.csv**](#dwelling-units-bzone_dwelling_units.csv): This file contains the number single-family, multi-family and group-quarter dwelling units and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                    
+
 * [**bzone_employment.csv**](#bzone_employment.csv): This file contains the total, retail and service employment by zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.
+
 * [**bzone_hh_inc_qrtl_prop.csv**](#household-proportion-by-income-bzone_hh_inc_qrtl_prop.csv) This file contains the proportion of households in 1st, 2nd, 3rd, and 4th quartile of household income and is used in the [PredictHousing](Modules_and_Outputs.md/#predicthousing) module.                  
+
 * [**bzone_lat_lon.csv**](#bzone_lat_lon.csv) This file contains the latitude and longitude of the centroid of the zone and is used in the [LocateEmployment](Modules_and_Outputs.md/#locateemployment) module.                           
+
 * [**bzone_network_design.csv**](#bzone_network_design.csv) This file contains the intersection density in terms of pedestrian-oriented intersections having four or more legs per square mile and is used in the [Calculate4DMeasures](Modules_and_Outputs.md/#calculate4dmeasures) module. 
+
 * [**bzone_parking.csv**](#bzone_parking.csv) This file contains the parking information and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions) module.            
+
 * [**bzone_travel_demand_mgt.csv**](#bzone_travel_demand_mgt.csv) This file contains the information about workers and households participating in demand management programs and is used in the [AssignDemandManagement](Modules_and_Outputs.md/#assigndemandmanagement) module. 
+
 * [**bzone_unprotected_area.csv**](#bzone_unprotected_area.csv) This file contains the information about unprotected (i.e., developable) area within the zone and is used in the [Calculate4DMeasures](Modules_and_Outputs.md/#calculate4dmeasures) module.
+
 * [**bzone_urban-mixed-use_prop.csv**](#bzone_urban-mixed-use_prop.csv) This file contains the target proportion of households located in mixed-used neighborhoods in zone and is used in the [CalculateUrbanMixMeasure](Modules_and_Outputs.md/#calculateurbanmixmeasure) module.
+
 * [**bzone_urban-town_du_proportions.csv**](#bzone_urban-town_du_proportions.csv) This file contains proportion of Single-Family, Multi-Family and Group Quarter dwelling units within the urban portion of the zone and is used in the [AssignLocTypes](Modules_and_Outputs.md/#assignloctypes) module.         
+
 * [**marea_base_year_dvmt.csv**](#marea_base_year_dvmt.csv) <span style="color:red">(optional)</span> This file is used to specify to adjust the DVMT growth factors and is only needed if user wants to modify the values. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt) modules.
+
 * [**marea_congestion_charges.csv**](#marea_congestion_charges.csv) <span style="color:red">(optional)</span> This file is used to specify the charges of vehicle travel for different congestion levels. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.               
+
 * [**marea_dvmt_split_by_road_class.csv**](#marea_dvmt_split_by_road_class.csv) <span style="color:red">(optional)</span> This file is used to specify the dvmt split for different road classes. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) modules.         
+
 * [**marea_lane_miles.csv**](#marea_lane_miles.csv) This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the [AssignRoadMiles](Modules_and_Outputs.md/#assignroadmiles) module.                   
+
 * [**marea_operations_deployment.csv**](#marea_operations_deployment.csv) <span style="color:red">(optional)</span> This file is used to specify the proportion of DVMT affected by operations for different road classes. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.        
+
 * [**marea_speed_smooth_ecodrive.csv**](#marea_speed_smooth_ecodrive.csv) This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the [CalculateMpgMpkwhAdjustments](Modules_and_Outputs.md/#calculatempgmpkwhadjustments) module.   
+
 * [**marea_transit_ave_fuel_carbon_intensity.csv**](#marea_transit_ave_fuel_carbon_intensity.csv) <span style="color:red">(optional)</span> This file is used to specify the average carbon intensity of fuel used by transit. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) module. 
+
 * [**marea_transit_biofuel_mix.csv**](#marea_transit_biofuel_mix.csv) <span style="color:red">(optional)</span> This file is used to specify the biofuel used by transit. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.             
+
 * [**marea_transit_fuel.csv**](#marea_transit_fuel.csv) <span style="color:red">(optional)</span> This file is used to specify the transit fuel proportions. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.                  
+
 * [**marea_transit_powertrain_prop.csv**](#marea_transit_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the mixes of transit vehicle powertrains. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculatePtranEnergyAndEmissions](Modules_and_Outputs.md/#calculateptranenergyandemissions) modules. 
+
 * [**marea_transit_service.csv**](#marea_transit_service.csv) This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                   
+
 * [**other_ops_effectiveness.csv**](#other_ops_effectiveness.csv) <span style="color:red">(optional)</span> This file is used to specify the delay effects of operations in different road classes and is only needed if user wants to modify the values. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules. 
+
 * [**region_ave_fuel_carbon_intensity.csv**](#region_ave_fuel_carbon_intensity.csv) <span style="color:red">(optional)</span> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.       
+
 * [**region_base_year_hvytrk_dvmt.csv**](#region_base_year_hvytrk_dvmt.csv) <span style="color:red">(optional)</span> This file is used to specify the heavy truck dvmt for base year. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt)  modules.            
-* [**region_carsvc_powertrain_prop.csv**](#region_carsvc_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of car services. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [AssignHhVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh) modules.                    * [**region_comsvc_lttrk_prop.csv**](#region_comsvc_lttrk_prop.csv) This file supplies data for the light truck proportion of commercial vehicles and is used in the [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) module.       * [**region_comsvc_powertrain_prop.csv**](#region_comsvc_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of commercial vehicles. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
-) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules. * [**region_hh_driver_adjust_prop.csv**](#region_hh_driver_adjust_prop.csv) <span style="color:red">(optional)</span> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the [AssignDrivers](Modules_and_Outputs.md/#assigndrivers) module. 
+
+* [**region_carsvc_powertrain_prop.csv**](#region_carsvc_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of car services. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [AssignHhVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh) modules.                    
+
+* [**region_comsvc_lttrk_prop.csv**](#region_comsvc_lttrk_prop.csv) This file supplies data for the light truck proportion of commercial vehicles and is used in the [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) module.       
+
+* [**region_comsvc_powertrain_prop.csv**](#region_comsvc_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of commercial vehicles. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
+) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules. 
+* [**region_hh_driver_adjust_prop.csv**](#region_hh_driver_adjust_prop.csv) <span style="color:red">(optional)</span> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the [AssignDrivers](Modules_and_Outputs.md/#assigndrivers) module. 
+
 * [**region_hvytrk_powertrain_prop.csv**](#region_hvytrk_powertrain_prop.csv) <span style="color:red">(optional)</span> This file is used to specify the powertrain proportion of heavy duty trucks. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
 ) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.
+
 * [**region_prop_externalities_paid.csv**](#region_prop_externalities_paid.csv) This file supplies data for climate change and other social costs and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module. 
 
 ### azone_carsvc_characteristics.csv

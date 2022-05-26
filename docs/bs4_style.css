@@ -17,3 +17,11 @@ img#cover {
     margin-top: 1.5rem;
     width: 60%;
 }
+
+table td:first-child > code {
+  white-space: nowrap;
+}
+
+.table-wrapper {
+  white-space: nowrap;
+}
