@@ -233,7 +233,7 @@ The following sections describe each module, which are implemented in sequence:
 Transport supply variables are defined in two steps. Note that these calculations are only carried out within [<span style="color:green">metropolitan areas</span>](#metropolitan-area)
  (Mareas) only:
 
-1. _Assign Transit Service_: Transit service levels are input for each [<span style="color:green">metropolitan areas</span>](#metropolitan-area) and neighborhood (Bzone).  Annual revenue-miles (i.e. transit miles in revenue service) by eight [<span style="color:green">transit modes</span>](#transit-modes) are read from inputs for each metropolitan area. A Bzone-level [<span style="color:green">Transit D</span>](#transit-d) attribute defines access to transit (not yet work access) for each household based on inputs on relative transit accessibility. Using factors derived from the National Transit Database (NTD), input annual transit revenue miles for each of the eight transit modes are converted to [<span style="color:green">bus-equivalent miles</span>](#bus-equivalent-miles) by three [<span style="color:green">transit vehicle types</span>](#transit-vehicle-type) (van, bus, and rail). Per capita relative transit supply and bus-equivalent service-miles are calculated.
+1. _Assign Transit Service_: Transit service levels are input for each [<span style="color:green">metropolitan areas</span>](#metropolitan-area) and neighborhood (Bzone).  Annual revenue-miles (i.e. transit miles in revenue service) by eight [<span style="color:green">transit modes</span>](#transit-modes) are read from inputs for each metropolitan area. A Bzone-level [<span style="color:green">Transit D</span>](#transit-d) attribute defines access to transit (not yet work access) for each household based on inputs on relative transit accessibility. Using factors derived from the National Transit Database (NTD), input annual transit revenue miles for each of the eight transit modes are converted to [<span style="color:green">bus-equivalent miles</span>](#bus-equivalent-miles) by three [<span style="color:green">transit vehicle types</span>](#transit-vehicle-type) (van, bus, and rail). Per capita [<span style="color:green">relative transit supply</span>](#relative-transit-supply) and bus-equivalent service-miles are calculated.
 2. _Assign Road Miles_: Stores input on the numbers of freeway lane-miles and arterial lane-miles by [<span style="color:green">metropolitan area</span>](#metropolitan-area) and year. Computes the [<span style="color:green">relative roadway supply</span>](#relative-roadway-supply), arterial and freeway lane-miles per capita.
 
 #### Household travel calculations
@@ -466,7 +466,7 @@ Aggregations of [Bzones](#bzones), often corresponding to county, city, Census n
 The total bus revenue miles for a transit system are divided by the assumed transit vehicle type capacities to arrive at bus-equivalent miles of service. The total bus revenue miles for a transit system are divided by the population of the enclosing Marea(s) to compute per capita bus-equivalent miles.
 [Additional details](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
 
-### bzones (#bzones)
+### bzones {#bzones}
 The smallest levels of geography coded in VisionEval, and often correspond to Census tracts or block groups. In most instances the Bzones are larger than traffic analysis zones used in traditional travel demand forecasting models.
 [Additional details](#model-geography-and-years) on VisionEval model geography levels.
 
@@ -481,7 +481,10 @@ A carbon price in dollars per ton is used to estimate part of the [social cost](
 ### car service {#car-service}
 Car services are a specific mode used in VisionEval models treated as vehicles available to the household. Car services can be considered a synonym for popular ride-sharing services provided by mobility-as-a-service (MaaS) companies. VisionEval distinguishes between two levels of car service, categorized as “high” or “low” level service. Users can define different attributes for each level of car service. Notably, households in areas with a "high" level of car service, car service will be competitive with vehicle ownership. Users can define the car service substitution probability.
 
-### car service substitution probability
+### car service level {#car-service-level}
+Car services include taxis, car sharing services (e.g. Car-To-Go, Zipcar), and future automated taxi services. A high car service level is one that has vehicle access times (time to walk between car and origin or final destination) that are competitive with private car use. High level of car service is considered to increase household car availability similar to owning a car. Low level car service, approximates current taxi service does not have competitive access time and is not considered as increasing household car availability.
+
+### car service substitution probability {#car-service-substitution}
 Average likelihood that an owner would substitute car services for a household vehicle (separate values by [vehicle type](#vehicle-type).  For example, if the user assumes that only a quarter of light truck owners would substitute car services for owning a light truck (e.g. because car services wouldn't enable them to use their light truck as they intend, such as towing a trailer), then the light truck substitution probability would be 0.25.
 
 ### cash-out/buy-back program {#cash-out-buy-back}
@@ -626,6 +629,9 @@ The region defines the entire modeled area represented in the model. There is no
 ### relative roadway supply {#relative-roadway-supply}
 A synthetic measure that divides the total arterial and freeway lane-miles (i.e., the sum of the length in miles times the number of lanes for each distinct roadway segment) by the sum of the estimated trip lengths for all households. This calculation is carried out for each Marea and year. Thus, it is a measure that only applies in metropolitan areas defined in the model. This value is calculated in the `AssignRoadMiles` module and is used in several other modules.
 [Additional details](https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md) 
+
+### relative transit supply {#relative-transit-supply}
+NEED DEFINITION
 
 ### road class {#road-class}
 The proportion of lane miles that are classified as freeway, arterial, and other roadways. The vehicle miles of travel (VMT) calculated for households, [commercial service](#commercial-service), and [heavy trucks](#heavy-trucks) is split between these three classes of roadways in the `LoadDefaultRoadDvmtValues` module of the `VETravelPerformance` package.

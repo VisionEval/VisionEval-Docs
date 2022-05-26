@@ -55,11 +55,12 @@ age-group
 auto-sufficiency
 azones
 bus-equivalent-miles
-bzones-bzones
+bzones
 carbon-intensity
 carbon-price
 car-service
-car-service-substitution-probability
+car-service-level
+car-service-substitution
 cash-out-buy-back
 census-pums
 commercial-service
@@ -100,6 +101,7 @@ powertrain
 regular-households
 region
 relative-roadway-supply
+relative-transit-supply
 road-class
 road-costs
 road-lane-miles
@@ -140,9 +142,9 @@ household-synthesis-inputs
 land-use-inputs
 defining-location-type-metro-town-rural
 defining-area-type-center-inner-outer-fringe
-household-travel-behavior-inputs
-vehicle-fuels-and-emissions-inputs
-pricing-household-costs-budgets
+travel-behavior-inputs
+vehicle-inputs
+pricing-inputs
 congestion-inputs
 verspm-input-files
 azone_carsvc_characteristics.csv

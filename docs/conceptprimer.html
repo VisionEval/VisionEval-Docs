@@ -110,7 +110,7 @@
 <li>
 <a href="conceptprimer.html#azones"><span style="color:green">Azones</span></a> are large areas such as cities, counties, or Census Public Use Microdata Areas (PUMAs)</li>
 <li>
-<a href="#bzones"><span style="color:green">Bzones</span></a> are subdivisions of Azones that represent neighborhoods, Census tracts or block groups, or other relatively homogenous areas</li>
+<a href="conceptprimer.html#bzones"><span style="color:green">Bzones</span></a> are subdivisions of Azones that represent neighborhoods, Census tracts or block groups, or other relatively homogenous areas</li>
 <li>
 <a href="conceptprimer.html#metropolitan-area"><span style="color:green">Metropolitan areas</span></a> (Marea) are defined as groups of Azones that define them</li>
 </ul>
@@ -394,7 +394,7 @@ _Specific list of metrics under each category above could correspond to standard
 (Mareas) only:</p>
 <ol style="list-style-type: decimal">
 <li>
-<em>Assign Transit Service</em>: Transit service levels are input for each <a href="conceptprimer.html#metropolitan-area"><span style="color:green">metropolitan areas</span></a> and neighborhood (Bzone). Annual revenue-miles (i.e. transit miles in revenue service) by eight <a href="conceptprimer.html#transit-modes"><span style="color:green">transit modes</span></a> are read from inputs for each metropolitan area. A Bzone-level <a href="conceptprimer.html#transit-d"><span style="color:green">Transit D</span></a> attribute defines access to transit (not yet work access) for each household based on inputs on relative transit accessibility. Using factors derived from the National Transit Database (NTD), input annual transit revenue miles for each of the eight transit modes are converted to <a href="conceptprimer.html#bus-equivalent-miles"><span style="color:green">bus-equivalent miles</span></a> by three <a href="conceptprimer.html#transit-vehicle-type"><span style="color:green">transit vehicle types</span></a> (van, bus, and rail). Per capita relative transit supply and bus-equivalent service-miles are calculated.</li>
+<em>Assign Transit Service</em>: Transit service levels are input for each <a href="conceptprimer.html#metropolitan-area"><span style="color:green">metropolitan areas</span></a> and neighborhood (Bzone). Annual revenue-miles (i.e. transit miles in revenue service) by eight <a href="conceptprimer.html#transit-modes"><span style="color:green">transit modes</span></a> are read from inputs for each metropolitan area. A Bzone-level <a href="conceptprimer.html#transit-d"><span style="color:green">Transit D</span></a> attribute defines access to transit (not yet work access) for each household based on inputs on relative transit accessibility. Using factors derived from the National Transit Database (NTD), input annual transit revenue miles for each of the eight transit modes are converted to <a href="conceptprimer.html#bus-equivalent-miles"><span style="color:green">bus-equivalent miles</span></a> by three <a href="conceptprimer.html#transit-vehicle-type"><span style="color:green">transit vehicle types</span></a> (van, bus, and rail). Per capita <a href="conceptprimer.html#relative-transit-supply"><span style="color:green">relative transit supply</span></a> and bus-equivalent service-miles are calculated.</li>
 <li>
 <em>Assign Road Miles</em>: Stores input on the numbers of freeway lane-miles and arterial lane-miles by <a href="conceptprimer.html#metropolitan-area"><span style="color:green">metropolitan area</span></a> and year. Computes the <a href="conceptprimer.html#relative-roadway-supply"><span style="color:green">relative roadway supply</span></a>, arterial and freeway lane-miles per capita.</li>
 </ol>
@@ -767,7 +767,7 @@ _Specific list of metrics under each category above could correspond to standard
 <h3>
 <span class="header-section-number">2.9.5</span> azones<a class="anchor" aria-label="anchor" href="#azones"><i class="fas fa-link"></i></a>
 </h3>
-<p>Aggregations of <a href="#bzones">Bzones</a>, often corresponding to county, city, Census named place, or comparable political divisions.
+<p>Aggregations of <a href="conceptprimer.html#bzones">Bzones</a>, often corresponding to county, city, Census named place, or comparable political divisions.
 <a href="model-geography-and-years.html#model-geography-and-years">Additional details</a> on VisionEval model geography levels.</p>
 </div>
 <div id="bus-equivalent-miles" class="section level3" number="2.9.6">
@@ -777,9 +777,9 @@ _Specific list of metrics under each category above could correspond to standard
 <p>The total bus revenue miles for a transit system are divided by the assumed transit vehicle type capacities to arrive at bus-equivalent miles of service. The total bus revenue miles for a transit system are divided by the population of the enclosing Marea(s) to compute per capita bus-equivalent miles.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a></p>
 </div>
-<div id="bzones-bzones" class="section level3" number="2.9.7">
+<div id="bzones" class="section level3" number="2.9.7">
 <h3>
-<span class="header-section-number">2.9.7</span> bzones (#bzones)<a class="anchor" aria-label="anchor" href="#bzones-bzones"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.7</span> bzones<a class="anchor" aria-label="anchor" href="#bzones"><i class="fas fa-link"></i></a>
 </h3>
 <p>The smallest levels of geography coded in VisionEval, and often correspond to Census tracts or block groups. In most instances the Bzones are larger than traffic analysis zones used in traditional travel demand forecasting models.
 <a href="model-geography-and-years.html#model-geography-and-years">Additional details</a> on VisionEval model geography levels.</p>
@@ -804,388 +804,400 @@ _Specific list of metrics under each category above could correspond to standard
 </h3>
 <p>Car services are a specific mode used in VisionEval models treated as vehicles available to the household. Car services can be considered a synonym for popular ride-sharing services provided by mobility-as-a-service (MaaS) companies. VisionEval distinguishes between two levels of car service, categorized as “high” or “low” level service. Users can define different attributes for each level of car service. Notably, households in areas with a “high” level of car service, car service will be competitive with vehicle ownership. Users can define the car service substitution probability.</p>
 </div>
-<div id="car-service-substitution-probability" class="section level3" number="2.9.11">
+<div id="car-service-level" class="section level3" number="2.9.11">
 <h3>
-<span class="header-section-number">2.9.11</span> car service substitution probability<a class="anchor" aria-label="anchor" href="#car-service-substitution-probability"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.11</span> car service level<a class="anchor" aria-label="anchor" href="#car-service-level"><i class="fas fa-link"></i></a>
+</h3>
+<p>Car services include taxis, car sharing services (e.g. Car-To-Go, Zipcar), and future automated taxi services. A high car service level is one that has vehicle access times (time to walk between car and origin or final destination) that are competitive with private car use. High level of car service is considered to increase household car availability similar to owning a car. Low level car service, approximates current taxi service does not have competitive access time and is not considered as increasing household car availability.</p>
+</div>
+<div id="car-service-substitution" class="section level3" number="2.9.12">
+<h3>
+<span class="header-section-number">2.9.12</span> car service substitution probability<a class="anchor" aria-label="anchor" href="#car-service-substitution"><i class="fas fa-link"></i></a>
 </h3>
 <p>Average likelihood that an owner would substitute car services for a household vehicle (separate values by <a href="#vehicle-type">vehicle type</a>. For example, if the user assumes that only a quarter of light truck owners would substitute car services for owning a light truck (e.g. because car services wouldn’t enable them to use their light truck as they intend, such as towing a trailer), then the light truck substitution probability would be 0.25.</p>
 </div>
-<div id="cash-out-buy-back" class="section level3" number="2.9.12">
+<div id="cash-out-buy-back" class="section level3" number="2.9.13">
 <h3>
-<span class="header-section-number">2.9.12</span> cash-out/buy-back program<a class="anchor" aria-label="anchor" href="#cash-out-buy-back"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.13</span> cash-out/buy-back program<a class="anchor" aria-label="anchor" href="#cash-out-buy-back"><i class="fas fa-link"></i></a>
 </h3>
 <p>Parking cash-out schemes are an employee benefit that enables them to accept taxable cash income in lieu of paid or subsidized parking at the workplace. The cash-out is sometimes combined with discounted transit passes in some places. It is used as an inducement to reduce commuting by auto, especially in single-occupant vehicles.
 FHWA has an <a href="https://ops.fhwa.dot.gov/publications/fhwahop12026/sec_4.htm">excellent primer on the topic</a>, while many consider Donald Shoup’s <a href="http://shoup.bol.ucla.edu/Parking%20Cash%20Out%20Report.pdf">online book</a> a definitive resource on the topic.</p>
 </div>
-<div id="census-pums" class="section level3" number="2.9.13">
+<div id="census-pums" class="section level3" number="2.9.14">
 <h3>
-<span class="header-section-number">2.9.13</span> Census PUMS<a class="anchor" aria-label="anchor" href="#census-pums"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.14</span> Census PUMS<a class="anchor" aria-label="anchor" href="#census-pums"><i class="fas fa-link"></i></a>
 </h3>
 <p>The Public Use Microsample (PUMS) data are anonymized long form responses from the American Community Survey (ACS) that enable custom tabulations, summaries, and visualizations. The PUMS were formerly associated with each dicennial Census of Households and Population. The samples are anonymized by assigning each to a Public Use Microdata Area (PUMA) of 100,000 or more households. Several multi-dimensional summaries used in model estimation are gleaned from the PUMS that cannot be obtained from other Census data. Data indexed along these multiple dimensions permit the PUMS data to be fused with travel survey data and to create synthetic populations.
 ACS PUMS data from 2005-19 in annual increments can be accessed from the <a href="https://www.census.gov/programs-surveys/acs/microdata.html">PUMS website</a>. Data from 1996-2004 can be <a href="https://www2.census.gov/programs-surveys/acs/data/pums/">accessed separately</a>.</p>
 </div>
-<div id="commercial-service" class="section level3" number="2.9.14">
+<div id="commercial-service" class="section level3" number="2.9.15">
 <h3>
-<span class="header-section-number">2.9.14</span> commercial service<a class="anchor" aria-label="anchor" href="#commercial-service"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.15</span> commercial service<a class="anchor" aria-label="anchor" href="#commercial-service"><i class="fas fa-link"></i></a>
 </h3>
 <p>The use of vehicles by firms and government agencies for non-personal travel other than the delivery of freight. (e.g., parcel delivery, business meetings, sales calls). Both automobiles and light trucks can be used for commercial services, and are defined both in terms of <a href="conceptprimer.html#powertrain">powertrain</a> and fuel type (gasoline, diesel, or compressed natural gas).
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues">Additional details</a></p>
 </div>
-<div id="congestion-fee" class="section level3" number="2.9.15">
+<div id="congestion-fee" class="section level3" number="2.9.16">
 <h3>
-<span class="header-section-number">2.9.15</span> congestion fee<a class="anchor" aria-label="anchor" href="#congestion-fee"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.16</span> congestion fee<a class="anchor" aria-label="anchor" href="#congestion-fee"><i class="fas fa-link"></i></a>
 </h3>
 <p>The fee collected to manage congestion, by charging a higher price during congested periods, and thereby reducing demand and freeing capacity for higher value users such a freight movement. Separate price schemes can be set by year to be imposed only during severe or extreme congestion. The input is the average amount paid per mile in congestion pricing fee. This is an input to the <code>CalculateRoadPerformance</code> module in the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a></p>
 </div>
-<div id="congestion-level" class="section level3" number="2.9.16">
+<div id="congestion-level" class="section level3" number="2.9.17">
 <h3>
-<span class="header-section-number">2.9.16</span> congestion level<a class="anchor" aria-label="anchor" href="#congestion-level"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.17</span> congestion level<a class="anchor" aria-label="anchor" href="#congestion-level"><i class="fas fa-link"></i></a>
 </h3>
 <p>Five levels of congestion – none, moderate, heavy, severe, and extreme – are estimated within each Marea by comparing <a href="conceptprimer.html#relative-roadway-supply">relative roadway supply</a> with the aggregate level of daily VMT (demand). Lookup tables are then used to estimate average speeds and delay for freeways and arterials. The effects of four standard operations programs (freeway ramp metering and incident management, arterial signal progression and access control) and optional user-defined programs are included in the calculations. The calculations are carried out in the <code>CalculateRoadPerformance</code> module of the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a></p>
 </div>
-<div id="development-type" class="section level3" number="2.9.17">
+<div id="development-type" class="section level3" number="2.9.18">
 <h3>
-<span class="header-section-number">2.9.17</span> development type<a class="anchor" aria-label="anchor" href="#development-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.18</span> development type<a class="anchor" aria-label="anchor" href="#development-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>NEED MORE INFO The mixing of jobs and housing</p>
 </div>
-<div id="dwelling-unit-type" class="section level3" number="2.9.18">
+<div id="dwelling-unit-type" class="section level3" number="2.9.19">
 <h3>
-<span class="header-section-number">2.9.18</span> dwelling unit type<a class="anchor" aria-label="anchor" href="#dwelling-unit-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.19</span> dwelling unit type<a class="anchor" aria-label="anchor" href="#dwelling-unit-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>Each household inhabits a dwelling unit that is either a single-family dwelling, a multi-family dwelling, or group quarters.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation">Additional details</a></p>
 </div>
-<div id="ecodrive" class="section level3" number="2.9.19">
+<div id="ecodrive" class="section level3" number="2.9.20">
 <h3>
-<span class="header-section-number">2.9.19</span> EcoDrive<a class="anchor" aria-label="anchor" href="#ecodrive"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.20</span> EcoDrive<a class="anchor" aria-label="anchor" href="#ecodrive"><i class="fas fa-link"></i></a>
 </h3>
 <p>A term used to describe energy efficient use of vehicles in order to reduce fuel consumption and emissions. Primarily a <a href="https://www.ecodrive.org">European pursuit</a>, EcoDriving involves changes to vehicular technology, vehicle navigation and automation systems, and driving techniques. Factors expressing the degree of EcoDriving adoption are applied in the <code>CalculateMpgMpkwhAdjustments</code> module of the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#96-adjusthhvehiclempgmpkwh-module">Additional details</a></p>
 </div>
-<div id="employee-commute-options-program" class="section level3" number="2.9.20">
+<div id="employee-commute-options-program" class="section level3" number="2.9.21">
 <h3>
-<span class="header-section-number">2.9.20</span> employee commute options program<a class="anchor" aria-label="anchor" href="#employee-commute-options-program"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.21</span> employee commute options program<a class="anchor" aria-label="anchor" href="#employee-commute-options-program"><i class="fas fa-link"></i></a>
 </h3>
 <p>A voluntary employer-based program aimed at reducing solo commutes by automobile using strategies and incentive tailored towards each specific organization. Strategies range from providing information and management encouragement to use alternative modes of transportation to cash incentives. Cash-out/buy-in programs are one example of the latter.
 A massDOT <a href="https://www.mass.gov/doc/guidebook/download">guidebook</a> provides extensive information about such programs.
 In some states such programs are mandatory for large employers. Information on Oregon’s <a href="https://www.oregon.gov/deq/aq/programs/pages/eco.aspx">Employee Commute Options</a> program includes information about conducting employee surveys to demonstrate progress towards commuting trip reduction targets.</p>
 </div>
-<div id="employment-rate" class="section level3" number="2.9.21">
+<div id="employment-rate" class="section level3" number="2.9.22">
 <h3>
-<span class="header-section-number">2.9.21</span> employment rate<a class="anchor" aria-label="anchor" href="#employment-rate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.22</span> employment rate<a class="anchor" aria-label="anchor" href="#employment-rate"><i class="fas fa-link"></i></a>
 </h3>
 <p>The employment rate is the number potential workers aged 17 and over divided by the total number of persons in the Bzone. Note that it is a calculated rate based on zonal attributes, and is a proxy for the labor force participation rate.</p>
 </div>
-<div id="employment-type" class="section level3" number="2.9.22">
+<div id="employment-type" class="section level3" number="2.9.23">
 <h3>
-<span class="header-section-number">2.9.22</span> employment type<a class="anchor" aria-label="anchor" href="#employment-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.23</span> employment type<a class="anchor" aria-label="anchor" href="#employment-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>Zonal employment estimates in VisionEval are made for retail, service, and total employment categories. The delineation of retail and service employment is typically by the <a href="https://www.census.gov/cgi-bin/sssd/naics/naicsrch?chart=2017">two-digit sectors</a> in the <a href="https://www.census.gov/eos/www/naics/">North American Industrial Classification System</a> (NAICS). The NAICS system is widely used in most governmental reporting systems.</p>
 </div>
-<div id="ev-surcharge" class="section level3" number="2.9.23">
+<div id="ev-surcharge" class="section level3" number="2.9.24">
 <h3>
-<span class="header-section-number">2.9.23</span> EV surcharge<a class="anchor" aria-label="anchor" href="#ev-surcharge"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.24</span> EV surcharge<a class="anchor" aria-label="anchor" href="#ev-surcharge"><i class="fas fa-link"></i></a>
 </h3>
 <p>Some states impose a tax on electric vehicles beyond sales tax and vehicle registration fees to make up for the shortfall in gasoline sales tax revenue they might otherwise contribute towards the costs of roadway infrastructure. The methods and rates <a href="https://www.wsj.com/articles/more-states-charge-fees-for-electric-vehicles-11585400401">vary considerably</a>, with some EV owners paying more in sales tax and EV surcharges than most owners of conventional autos. The EV surcharge can be accounted for in the <code>CalculateVehicleOperatingCosts</code> module in the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a></p>
 </div>
-<div id="freeway-lane-miles" class="section level3" number="2.9.24">
+<div id="freeway-lane-miles" class="section level3" number="2.9.25">
 <h3>
-<span class="header-section-number">2.9.24</span> freeway lane-miles<a class="anchor" aria-label="anchor" href="#freeway-lane-miles"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.25</span> freeway lane-miles<a class="anchor" aria-label="anchor" href="#freeway-lane-miles"><i class="fas fa-link"></i></a>
 </h3>
 <p>The sum of the number of lanes multiplied by the length of each freeway segment within a metropolitan area (Marea). The lane-miles of arterials are calculated separated (see <a href="#roadway-lane-miles">roadway lane-miles</a>. Both are created in the <code>AssignRoadMiles</code> module of the <code>VETransportSupply</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module">Additional details</a></p>
 </div>
-<div id="freight-vehicle-groups" class="section level3" number="2.9.25">
+<div id="freight-vehicle-groups" class="section level3" number="2.9.26">
 <h3>
-<span class="header-section-number">2.9.25</span> freight vehicle groups<a class="anchor" aria-label="anchor" href="#freight-vehicle-groups"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.26</span> freight vehicle groups<a class="anchor" aria-label="anchor" href="#freight-vehicle-groups"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>see</em> <a href="#vehicle-groups">vehicle groups</a></p>
 </div>
-<div id="fuel-efficiency" class="section level3" number="2.9.26">
+<div id="fuel-efficiency" class="section level3" number="2.9.27">
 <h3>
-<span class="header-section-number">2.9.26</span> fuel efficiency<a class="anchor" aria-label="anchor" href="#fuel-efficiency"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.27</span> fuel efficiency<a class="anchor" aria-label="anchor" href="#fuel-efficiency"><i class="fas fa-link"></i></a>
 </h3>
 <p>VisionEval does not simulate driving cycles so uses measures of relative fuel efficiency derived from the USEPA’s Physical Emission Rate Estimator (PERE) for different vehicle <a href="#powertrains">powertrains</a> during congested conditions. The user-supplied values in <code>congestion_efficiency.csv</code> define the congestion performance of each powertrain relative to best (1.0) and worst (0.0) values. The data are used in the <code>LoadDefaultValues</code> module in the <code>VEPowertrainsAndFuels</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#81-loaddefaultvalues">Additional details</a></p>
 </div>
-<div id="fuel-speed-curves" class="section level3" number="2.9.27">
+<div id="fuel-speed-curves" class="section level3" number="2.9.28">
 <h3>
-<span class="header-section-number">2.9.27</span> fuel-speed curves<a class="anchor" aria-label="anchor" href="#fuel-speed-curves"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.28</span> fuel-speed curves<a class="anchor" aria-label="anchor" href="#fuel-speed-curves"><i class="fas fa-link"></i></a>
 </h3>
 <p>A set of exogenously calculated adjustments to the average fuel economy of vehicles as a function of the vehicle type (light-duty or heavy-duty), <a href="conceptprimer.html#powertrain">powertrain</a>, and <a href="#roadway-types">roadway type</a>. The curves and their derivation are described by <a href="https://pdxscholar.library.pdx.edu/cengin_fac/342/">Bigazzi &amp; Clifton (2011)</a>.</p>
 </div>
-<div id="growth-basis" class="section level3" number="2.9.28">
+<div id="growth-basis" class="section level3" number="2.9.29">
 <h3>
-<span class="header-section-number">2.9.28</span> growth basis<a class="anchor" aria-label="anchor" href="#growth-basis"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.29</span> growth basis<a class="anchor" aria-label="anchor" href="#growth-basis"><i class="fas fa-link"></i></a>
 </h3>
 <p>The growth in commercial and heavy truck travel over time increase at the same rate as the population does, as firms and establishments are not explicitly modeled in VisionEval. Future year daily VMT is calculated as a function of population or income from heavy trucks or population, income, or household daily VMT for commercial service.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#93-calculateroaddvmt-module">Additional details</a></p>
 </div>
-<div id="heavy-truck" class="section level3" number="2.9.29">
+<div id="heavy-truck" class="section level3" number="2.9.30">
 <h3>
-<span class="header-section-number">2.9.29</span> heavy truck<a class="anchor" aria-label="anchor" href="#heavy-truck"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.30</span> heavy truck<a class="anchor" aria-label="anchor" href="#heavy-truck"><i class="fas fa-link"></i></a>
 </h3>
 <p>A single class of heavy trucks are used to represent all commercial vehicles larger than the light duty trucks included in the <a href="conceptprimer.html#commercial-service">commercial service</a> vehicles. The same vehicle operating and emissions parameters specified for other <a href="#vehicle-group">vehicle groups</a> are defined for heavy trucks, and their impacts are calculated in several VisionEval packages.</p>
 </div>
-<div id="individualized-marketing-programs" class="section level3" number="2.9.30">
+<div id="individualized-marketing-programs" class="section level3" number="2.9.31">
 <h3>
-<span class="header-section-number">2.9.30</span> individualized marketing programs<a class="anchor" aria-label="anchor" href="#individualized-marketing-programs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.31</span> individualized marketing programs<a class="anchor" aria-label="anchor" href="#individualized-marketing-programs"><i class="fas fa-link"></i></a>
 </h3>
 <p>Education and public outreach efforts designed to encourage voluntary travel behavior changes. Rather than using broad messages for the entire population this approaches targets specific groups of travelers with information more relevant to them.
 A <a href="https://www.oregon.gov/ODOT/Planning/Documents/Mosaic-Individualized-Marketing-Programs.pdf">concise fact sheet</a> describes its implementation in Oregon. <a href="https://trec.pdx.edu/research/project/160/Long_term_evaluation_of_individualized_marketing_programs_for_travel_demand_management">Dill &amp; Mohr (2010)</a> investigate the long-term effectiveness of such programs.</p>
 </div>
-<div id="intelligent-transportation-systems" class="section level3" number="2.9.31">
+<div id="intelligent-transportation-systems" class="section level3" number="2.9.32">
 <h3>
-<span class="header-section-number">2.9.31</span> intelligent transportation systems (ITS)<a class="anchor" aria-label="anchor" href="#intelligent-transportation-systems"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.32</span> intelligent transportation systems (ITS)<a class="anchor" aria-label="anchor" href="#intelligent-transportation-systems"><i class="fas fa-link"></i></a>
 </h3>
 <p>Systems that integrate information, communications, and advanced vehicular technologies into transportation infrastructure, maintenance, and operations programs to improve mobility and safety. ITS programs are typically centrally controlled by transportation agencies rather than individually autonomous solutions like personal navigation systems. Examples of ITS systems include traveler information systems (e.g., 511 systems, variable message signs), adaptive traffic signal systems, ramp metering, and electronic toll collection.</p>
 </div>
-<div id="its" class="section level3" number="2.9.32">
+<div id="its" class="section level3" number="2.9.33">
 <h3>
-<span class="header-section-number">2.9.32</span> ITS<a class="anchor" aria-label="anchor" href="#its"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.33</span> ITS<a class="anchor" aria-label="anchor" href="#its"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>see</em> [intelligent transportation systems](#intelligent-transportation-systems}</p>
 </div>
-<div id="lambda-parameter" class="section level3" number="2.9.33">
+<div id="lambda-parameter" class="section level3" number="2.9.34">
 <h3>
-<span class="header-section-number">2.9.33</span> lambda parameter<a class="anchor" aria-label="anchor" href="#lambda-parameter"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.34</span> lambda parameter<a class="anchor" aria-label="anchor" href="#lambda-parameter"><i class="fas fa-link"></i></a>
 </h3>
 <p>The assumed split of light-duty household and <a href="conceptprimer.html#commercial-service">commercial service</a> vehicles between freeways and arterials is calculated dynamically as the ratio of the respective average travel speeds and an urbanized area specific factor (lambda). The latter adjusts the raw ratio of speeds to match observed percentages using data from 90 urbanized areas. The calculation is carried out in the <code>CalculateRoadPerformance</code> module.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a></p>
 </div>
-<div id="licensure-rate" class="section level3" number="2.9.34">
+<div id="licensure-rate" class="section level3" number="2.9.35">
 <h3>
-<span class="header-section-number">2.9.34</span> licensure rate<a class="anchor" aria-label="anchor" href="#licensure-rate"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.35</span> licensure rate<a class="anchor" aria-label="anchor" href="#licensure-rate"><i class="fas fa-link"></i></a>
 </h3>
 <p>The percent of adults aged 17 and over that possess a drivers license, summarized from the PUMS data for the modeled region.</p>
 </div>
-<div id="lifecycle" class="section level3" number="2.9.35">
+<div id="lifecycle" class="section level3" number="2.9.36">
 <h3>
-<span class="header-section-number">2.9.35</span> lifecycle<a class="anchor" aria-label="anchor" href="#lifecycle"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.36</span> lifecycle<a class="anchor" aria-label="anchor" href="#lifecycle"><i class="fas fa-link"></i></a>
 </h3>
 <p>A label used to describe the stage of life that a household’s members are at. This is guessed at in VisionEval as a function of the number of adults, children, and workers in the household. This is assigned in the <code>AssignLifeCycle</code> module. It assumes one of 10 values defined in the <a href="https://nhts.ornl.gov/tables09/CodebookPage.aspx?id=1239">2009 NHTS LIF_CYC variable</a>
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/api/model_system_design.md#811-model-specification-and-estimation">Additional details</a></p>
 </div>
-<div id="location-type" class="section level3" number="2.9.36">
+<div id="location-type" class="section level3" number="2.9.37">
 <h3>
-<span class="header-section-number">2.9.36</span> location type<a class="anchor" aria-label="anchor" href="#location-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.37</span> location type<a class="anchor" aria-label="anchor" href="#location-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>Each household is classified by whether its enclosing Bzone is located in an urban, town, or rural area. The <code>location_type</code> variable is defined for each Bzone.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#15-geographic-structure-of-a-visioneval-model">Additional details</a></p>
 </div>
-<div id="metropolitan-area" class="section level3" number="2.9.37">
+<div id="metropolitan-area" class="section level3" number="2.9.38">
 <h3>
-<span class="header-section-number">2.9.37</span> metropolitan area (Marea)<a class="anchor" aria-label="anchor" href="#metropolitan-area"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.38</span> metropolitan area (Marea)<a class="anchor" aria-label="anchor" href="#metropolitan-area"><i class="fas fa-link"></i></a>
 </h3>
 <p>In VisionEval a metropolitan area (Marea) is a collection of Azones that define a unique urbanized area with shared characteristics such as freeway lane-miles and transit revenue-miles. In some cases a transit service area might define a metropolitan area rather than political boundaries.
 <a href="model-geography-and-years.html#model-geography-and-years">Additional details</a> on VisionEval model geography levels.</p>
 </div>
-<div id="mixed-use" class="section level3" number="2.9.38">
+<div id="mixed-use" class="section level3" number="2.9.39">
 <h3>
-<span class="header-section-number">2.9.38</span> mixed use<a class="anchor" aria-label="anchor" href="#mixed-use"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.39</span> mixed use<a class="anchor" aria-label="anchor" href="#mixed-use"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>see</em> <a href="conceptprimer.html#urban-mixed-use">urban mixed-use</a></p>
 </div>
-<div id="national-household-travel-survey" class="section level3" number="2.9.39">
+<div id="national-household-travel-survey" class="section level3" number="2.9.40">
 <h3>
-<span class="header-section-number">2.9.39</span> National Household Travel Survey (NHTS)<a class="anchor" aria-label="anchor" href="#national-household-travel-survey"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.40</span> National Household Travel Survey (NHTS)<a class="anchor" aria-label="anchor" href="#national-household-travel-survey"><i class="fas fa-link"></i></a>
 </h3>
 <p>The NHTS collects household and traveler information and travel diaries from a random sample of U.S. households. The 2017 survey collected data from 26,000 households selected nationwide and an additional 103,112 additional “add-on” samples purchased by nine states and four regional and metropolitan planning agencies. The information collected is comparable to the data collected in bespoke household travel surveys. The latest year for which NHTS data are available is 2017, with seven prior surveys dating to 1969 conducted before it. Publicly available data are available with reduced geographic detail (i.e., households only coded to state and place size ranges) for <a href="https://nhts.ornl.gov/">2017</a> and <a href="https://nhts.ornl.gov/download.shtml">prior years</a>. VisionEval was developed using the public use NHTS data from 2001, while the Multimodal Travel package was developed using confidential 2009 NHTS data.</p>
 </div>
-<div id="nhts" class="section level3" number="2.9.40">
+<div id="nhts" class="section level3" number="2.9.41">
 <h3>
-<span class="header-section-number">2.9.40</span> NHTS<a class="anchor" aria-label="anchor" href="#nhts"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.41</span> NHTS<a class="anchor" aria-label="anchor" href="#nhts"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>see</em> <a href="conceptprimer.html#national-household-travel-survey">National Household Travel Survey</a></p>
 </div>
-<div id="non-institutional-group-quarters" class="section level3" number="2.9.41">
+<div id="non-institutional-group-quarters" class="section level3" number="2.9.42">
 <h3>
-<span class="header-section-number">2.9.41</span> Non-institutional group quarters<a class="anchor" aria-label="anchor" href="#non-institutional-group-quarters"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.42</span> Non-institutional group quarters<a class="anchor" aria-label="anchor" href="#non-institutional-group-quarters"><i class="fas fa-link"></i></a>
 </h3>
 <p>Persons living in non-institutional group dwellings (e.g., college dormitories, halfway houses). Persons living in institutional group dwellings are not included in VisionEval, and include hospital patients, prison inmates, and military barracks.</p>
 </div>
-<div id="out-of-pocket-cost" class="section level3" number="2.9.42">
+<div id="out-of-pocket-cost" class="section level3" number="2.9.43">
 <h3>
-<span class="header-section-number">2.9.42</span> out-of-pocket cost<a class="anchor" aria-label="anchor" href="#out-of-pocket-cost"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.43</span> out-of-pocket cost<a class="anchor" aria-label="anchor" href="#out-of-pocket-cost"><i class="fas fa-link"></i></a>
 </h3>
 <p>The variable costs of automobile usage are considered out-of-pocket costs. They are often considered the perceived cost of using automobiles. In VisionEval they include the cost of fuel and parking or the cost of using <a href="conceptprimer.html#car-service">CarService</a>. The out-of-pockets are a subset of the <a href="#auto-operating-costs">auto operating costs</a>.</p>
 </div>
-<div id="parking-costs" class="section level3" number="2.9.43">
+<div id="parking-costs" class="section level3" number="2.9.44">
 <h3>
-<span class="header-section-number">2.9.43</span> parking costs<a class="anchor" aria-label="anchor" href="#parking-costs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.44</span> parking costs<a class="anchor" aria-label="anchor" href="#parking-costs"><i class="fas fa-link"></i></a>
 </h3>
 <p>Parking costs in VisionEval are trip-based costs, commonly paid for at one or both ends of a trip, and sometimes paid for on a monthly basis. The standard practice for handling parking pricing in urban travel demand models is to include it in the trip costs for auto travel. Two types of parking costs are addressed in the model - parking costs at places of employment and parking costs at other places. Daily parking costs are calculated for each household and added in with other variable costs. This includes fees for parking at workplace (including cash-out policies) and for non-work trips. Parking fees are a subset of <a href="conceptprimer.html#parking-restrictions">parking restrictions</a>. Parking fees can be paid for residential, workplace, or other destinations.</p>
 </div>
-<div id="parking-restrictions" class="section level3" number="2.9.44">
+<div id="parking-restrictions" class="section level3" number="2.9.45">
 <h3>
-<span class="header-section-number">2.9.44</span> parking restrictions<a class="anchor" aria-label="anchor" href="#parking-restrictions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.45</span> parking restrictions<a class="anchor" aria-label="anchor" href="#parking-restrictions"><i class="fas fa-link"></i></a>
 </h3>
 <p>Parking restrictions and fees affect households at their places of residence and work, as well as other places they travel to within the modeled area. This information is coded at the Bzone level and typically includes the average number of free parking spaces by dwelling unit type (single family, multi-family, and group quarters), the average daily parking cost, and proportion of workers who pay for parking or participate in a cash out-buy back program. Parking restrictions are used for Azones that are members of a defined metropolitan area (Marea) within the model.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md">Additional details</a></p>
 </div>
-<div id="pay-as-you-drive" class="section level3" number="2.9.45">
+<div id="pay-as-you-drive" class="section level3" number="2.9.46">
 <h3>
-<span class="header-section-number">2.9.45</span> pay-as-you-drive (PAYD)<a class="anchor" aria-label="anchor" href="#pay-as-you-drive"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.46</span> pay-as-you-drive (PAYD)<a class="anchor" aria-label="anchor" href="#pay-as-you-drive"><i class="fas fa-link"></i></a>
 </h3>
 <p>An insurance program, also known as usage-based insurance, whose premiums are based on actual usage of the insured vehicle as well as how well you drive. It is viewed by some as the emerging standard in insurance. Using a PAYD assumption in VisionEval enables the analyst to more precisely calculate <a href="#auto-ownership-cost">auto ownership cost</a> based on household daily VMT estimates. The proportion of households using PAYD are included in the calculations carried out by the <code>CalculateVehicleOwnCost</code> module.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost">Additional details</a></p>
 </div>
-<div id="passenger-car-equivalents" class="section level3" number="2.9.46">
+<div id="passenger-car-equivalents" class="section level3" number="2.9.47">
 <h3>
-<span class="header-section-number">2.9.46</span> passenger car equivalents (PCE)<a class="anchor" aria-label="anchor" href="#passenger-car-equivalents"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.47</span> passenger car equivalents (PCE)<a class="anchor" aria-label="anchor" href="#passenger-car-equivalents"><i class="fas fa-link"></i></a>
 </h3>
 <p>A factor that indicates the number of light-duty vehicles that a <a href="conceptprimer.html#heavy-truck">heavy truck</a> is equivalent to in terms of vehicle length and lane usage when calculating <a href="#roadway-capacity">roadway capacity</a>. It is used in the <code>BalanceRoadCostsAndRevenues</code> module of the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module">Additional details</a></p>
 </div>
-<div id="place-type" class="section level3" number="2.9.47">
+<div id="place-type" class="section level3" number="2.9.48">
 <h3>
-<span class="header-section-number">2.9.47</span> place type<a class="anchor" aria-label="anchor" href="#place-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.48</span> place type<a class="anchor" aria-label="anchor" href="#place-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>NEED DEFINITION</p>
 </div>
-<div id="powertrain" class="section level3" number="2.9.48">
+<div id="powertrain" class="section level3" number="2.9.49">
 <h3>
-<span class="header-section-number">2.9.48</span> powertrain<a class="anchor" aria-label="anchor" href="#powertrain"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.49</span> powertrain<a class="anchor" aria-label="anchor" href="#powertrain"><i class="fas fa-link"></i></a>
 </h3>
 <p>VisionEval uses detailed operating and emissions characteristics from several different types of vehicular powertrains, enabling scenarios to be quickly assembled with different assumptions about their mix in future years. Four powertrain types are presently defined in VisionEval: internal combustion engines (ICE), hybrid electric vehicles (HEV), plug-in hybrid electric vehicles (PHEV), and battery electric vehicles (BEV). The powertrain is assigned to each household vehicle in the <code>AssignHhVehiclePowertrain</code> module.</p>
 </div>
-<div id="regular-households" class="section level3" number="2.9.49">
+<div id="regular-households" class="section level3" number="2.9.50">
 <h3>
-<span class="header-section-number">2.9.49</span> regular households<a class="anchor" aria-label="anchor" href="#regular-households"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.50</span> regular households<a class="anchor" aria-label="anchor" href="#regular-households"><i class="fas fa-link"></i></a>
 </h3>
 <p>Related and unrelated persons living in the same dwelling unit, but not including persons living in non-institutional group quarters</p>
 </div>
-<div id="region" class="section level3" number="2.9.50">
+<div id="region" class="section level3" number="2.9.51">
 <h3>
-<span class="header-section-number">2.9.50</span> region<a class="anchor" aria-label="anchor" href="#region"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.51</span> region<a class="anchor" aria-label="anchor" href="#region"><i class="fas fa-link"></i></a>
 </h3>
 <p>The region defines the entire modeled area represented in the model. There is no limit to the size of the modeled region, although sub-state areas, states, and<a href="https://en.wikipedia.org/wiki/Megaregions_of_the_United_States">megaregions</a> are often simulated using VisionEval.
 <a href="model-geography-and-years.html#model-geography-and-years">Additional details</a> on VisionEval model geography levels.</p>
 </div>
-<div id="relative-roadway-supply" class="section level3" number="2.9.51">
+<div id="relative-roadway-supply" class="section level3" number="2.9.52">
 <h3>
-<span class="header-section-number">2.9.51</span> relative roadway supply<a class="anchor" aria-label="anchor" href="#relative-roadway-supply"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.52</span> relative roadway supply<a class="anchor" aria-label="anchor" href="#relative-roadway-supply"><i class="fas fa-link"></i></a>
 </h3>
 <p>A synthetic measure that divides the total arterial and freeway lane-miles (i.e., the sum of the length in miles times the number of lanes for each distinct roadway segment) by the sum of the estimated trip lengths for all households. This calculation is carried out for each Marea and year. Thus, it is a measure that only applies in metropolitan areas defined in the model. This value is calculated in the <code>AssignRoadMiles</code> module and is used in several other modules.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md">Additional details</a></p>
 </div>
-<div id="road-class" class="section level3" number="2.9.52">
+<div id="relative-transit-supply" class="section level3" number="2.9.53">
 <h3>
-<span class="header-section-number">2.9.52</span> road class<a class="anchor" aria-label="anchor" href="#road-class"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.53</span> relative transit supply<a class="anchor" aria-label="anchor" href="#relative-transit-supply"><i class="fas fa-link"></i></a>
+</h3>
+<p>NEED DEFINITION</p>
+</div>
+<div id="road-class" class="section level3" number="2.9.54">
+<h3>
+<span class="header-section-number">2.9.54</span> road class<a class="anchor" aria-label="anchor" href="#road-class"><i class="fas fa-link"></i></a>
 </h3>
 <p>The proportion of lane miles that are classified as freeway, arterial, and other roadways. The vehicle miles of travel (VMT) calculated for households, <a href="conceptprimer.html#commercial-service">commercial service</a>, and <a href="#heavy-trucks">heavy trucks</a> is split between these three classes of roadways in the <code>LoadDefaultRoadDvmtValues</code> module of the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#91-loaddefaultroaddvmtvalues">Additional details</a></p>
 </div>
-<div id="road-costs" class="section level3" number="2.9.53">
+<div id="road-costs" class="section level3" number="2.9.55">
 <h3>
-<span class="header-section-number">2.9.53</span> road costs<a class="anchor" aria-label="anchor" href="#road-costs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.55</span> road costs<a class="anchor" aria-label="anchor" href="#road-costs"><i class="fas fa-link"></i></a>
 </h3>
 <p>This includes costs for roadway expansion, other modernization projects, preservation, operations, maintenance and administration. VisionEval calculates an average mileage tax for household vehicles needed to make up any differences in the cost of constructing, maintaining, and operating roadways from the revenues from fuel taxes and pricing schemes (e.g., VMT taxes, congestion taxes). The latter are calculated based on assumptions about fuel consumption (a function of total daily VMT) and fuel efficiency. While VisionEval adds this to the <a href="#auto-operating-costs">auto operating costs</a> of households it is important to note that such costs might not be passed on by governments in future years as assumed by VisionEval. The road costs and revenues are reconciled in the <code>BalanceRoadCostsAndRevenue</code> module in the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module">Additional details</a></p>
 </div>
-<div id="road-lane-miles" class="section level3" number="2.9.54">
+<div id="road-lane-miles" class="section level3" number="2.9.56">
 <h3>
-<span class="header-section-number">2.9.54</span> road lane-miles<a class="anchor" aria-label="anchor" href="#road-lane-miles"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.56</span> road lane-miles<a class="anchor" aria-label="anchor" href="#road-lane-miles"><i class="fas fa-link"></i></a>
 </h3>
 <p>The sum of the number of lanes multiplied by the length of each arterial roadway segment within a metropolitan area (Marea). The lane-miles of freeways are calculated separated (see <a href="#roadway-lane-miles">freeway lane-miles</a>. Both are created in the <code>AssignRoadMiles</code> module of the <code>VETransportSupply</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#52-assignroadmiles-module">Additional details</a></p>
 </div>
-<div id="road-use-taxes" class="section level3" number="2.9.55">
+<div id="road-use-taxes" class="section level3" number="2.9.57">
 <h3>
-<span class="header-section-number">2.9.55</span> road use taxes<a class="anchor" aria-label="anchor" href="#road-use-taxes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.57</span> road use taxes<a class="anchor" aria-label="anchor" href="#road-use-taxes"><i class="fas fa-link"></i></a>
 </h3>
 <p><em>see</em> <a href="conceptprimer.html#road-costs">road costs</a></p>
 </div>
-<div id="sov-diversion" class="section level3" number="2.9.56">
+<div id="sov-diversion" class="section level3" number="2.9.58">
 <h3>
-<span class="header-section-number">2.9.56</span> short-trip SOV diversion<a class="anchor" aria-label="anchor" href="#sov-diversion"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.58</span> short-trip SOV diversion<a class="anchor" aria-label="anchor" href="#sov-diversion"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <code>DivertSovTravel</code> module reduces travel in single-occupant vehicles (SOVs) to account for assumed availability of solo travel alternatives such as bicycles (traditional and electric) and scooters. The user inputs a goal for diverting a proportion of SOV travel within a 20-mile round-trip distance (i.e., for trips longer than 10 miles in one direction).
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md">Additional details</a></p>
 </div>
-<div id="social-costs" class="section level3" number="2.9.57">
+<div id="social-costs" class="section level3" number="2.9.59">
 <h3>
-<span class="header-section-number">2.9.57</span> social costs<a class="anchor" aria-label="anchor" href="#social-costs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.59</span> social costs<a class="anchor" aria-label="anchor" href="#social-costs"><i class="fas fa-link"></i></a>
 </h3>
 <p>Present and future generations bear costs due to the impact of transportation that are not fully recouped through <a href="#auto%20operating%20costs">auto operating costs</a> or <a href="#auto-ownership-costs">auto ownership costs</a>, such as the costs of abating pollution, security and safety costs, and noise. VisionEval includes these costs in their full-cost accounting approach to calculating costs and benefits. The social cost parameters are defined as inputs to the <code>CalculateVehicleOperatingCost</code> module in the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a></p>
 </div>
-<div id="speed-smoothing" class="section level3" number="2.9.58">
+<div id="speed-smoothing" class="section level3" number="2.9.60">
 <h3>
-<span class="header-section-number">2.9.58</span> speed smoothing<a class="anchor" aria-label="anchor" href="#speed-smoothing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.60</span> speed smoothing<a class="anchor" aria-label="anchor" href="#speed-smoothing"><i class="fas fa-link"></i></a>
 </h3>
 <p>A traffic management action or design that reduces the speed variation on freeways and arterials. Note that the introduction of autonomous vehicles will likely achieve this effect even when they only constitute a quarter or more of all vehicles on the roadway (<a href="https://doi.org/10.3141/2493-04">Levin &amp; Boyles 2015</a>, <a href="https://doi.org/10.1287/trsc.2016.0712">Mahmassani 2016</a>). Thus, speed smoothing might become an important property of future traffic systems that analysts should include in future years even in spite of current local interest in such programs.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#95-calculatempgmpkwhadjustments-module">Additional details</a></p>
 </div>
-<div id="transit-d" class="section level3" number="2.9.59">
+<div id="transit-d" class="section level3" number="2.9.61">
 <h3>
-<span class="header-section-number">2.9.59</span> transit d<a class="anchor" aria-label="anchor" href="#transit-d"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.61</span> transit d<a class="anchor" aria-label="anchor" href="#transit-d"><i class="fas fa-link"></i></a>
 </h3>
 <p>NEED DEFINITION</p>
 </div>
-<div id="transit-modes" class="section level3" number="2.9.60">
+<div id="transit-modes" class="section level3" number="2.9.62">
 <h3>
-<span class="header-section-number">2.9.60</span> transit modes<a class="anchor" aria-label="anchor" href="#transit-modes"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.62</span> transit modes<a class="anchor" aria-label="anchor" href="#transit-modes"><i class="fas fa-link"></i></a>
 </h3>
 <p>VisionEval includes eight transit modes, which are also called transit service modes in some places in the documentation. The eight modes include demand-responsive (DR), vanpool and similar (VP), standard motor bus (MB), bus rapid transit and commuter bus (RB), monorail or other automated guideway (MG), streetcar or trolley bus (SR), light or heavy rail (HR), and commuter rail (CR) services. The latter includes specialized CR services such as hybrid rail, cable cars, and aerial tramways.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a></p>
 </div>
-<div id="transit-service-levels" class="section level3" number="2.9.61">
+<div id="transit-service-levels" class="section level3" number="2.9.63">
 <h3>
-<span class="header-section-number">2.9.61</span> transit service level<a class="anchor" aria-label="anchor" href="#transit-service-levels"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.63</span> transit service level<a class="anchor" aria-label="anchor" href="#transit-service-levels"><i class="fas fa-link"></i></a>
 </h3>
 <p>User-supplied annual revenue miles of service for each of the eight <a href="conceptprimer.html#transit-modes">transit modes</a> are translated into bus-equivalents, revenue miles, and ultimately, vehicle miles. The transit service levels are set in the <code>AssignTransitService</code> module in the <code>VETransportSupply</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a></p>
 </div>
-<div id="transit-service-miles" class="section level3" number="2.9.62">
+<div id="transit-service-miles" class="section level3" number="2.9.64">
 <h3>
-<span class="header-section-number">2.9.62</span> transit service miles<a class="anchor" aria-label="anchor" href="#transit-service-miles"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.64</span> transit service miles<a class="anchor" aria-label="anchor" href="#transit-service-miles"><i class="fas fa-link"></i></a>
 </h3>
 <p><a href="conceptprimer.html#bus-equivalent-miles">Bus-equivalent-miles</a> used to compute <a href="conceptprimer.html#transit-service-levels">transit service levels</a> are summed to calculate transit miles by each <a href="conceptprimer.html#transit-modes">transit mode</a>. The calculations are carried out in the <code>AssignTransitService</code> module in the <code>VETransportSupply</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module">Additional details</a></p>
 </div>
-<div id="transit-vehicle-type" class="section level3" number="2.9.63">
+<div id="transit-vehicle-type" class="section level3" number="2.9.65">
 <h3>
-<span class="header-section-number">2.9.63</span> transit vehicle type<a class="anchor" aria-label="anchor" href="#transit-vehicle-type"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.65</span> transit vehicle type<a class="anchor" aria-label="anchor" href="#transit-vehicle-type"><i class="fas fa-link"></i></a>
 </h3>
 <p>Different energy consumption and emissions characteristics are defined for vans, buses, and rail transit modes.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#911-calculateptranenergyandemissions-module">Additional details</a></p>
 </div>
-<div id="travel-demand-management" class="section level3" number="2.9.64">
+<div id="travel-demand-management" class="section level3" number="2.9.66">
 <h3>
-<span class="header-section-number">2.9.64</span> travel demand management (TDM)<a class="anchor" aria-label="anchor" href="#travel-demand-management"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.66</span> travel demand management (TDM)<a class="anchor" aria-label="anchor" href="#travel-demand-management"><i class="fas fa-link"></i></a>
 </h3>
 <p>Policies and programs used to discourage travel in single-occupant vehicles in order to achieve safer and more efficient multimodal transportation systems. TDM encompasses a wide variety of initiatives, to include promotion of active transport, public transportation modes, car and bike sharing, and telecommuting. Adjustments in household VMT due to TDM actions are coded in the <code>BudgetHouseholdDvmt</code> module in the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#98-budgethouseholddvmt-module">Additional details</a></p>
 </div>
-<div id="urban-mixed-use" class="section level3" number="2.9.65">
+<div id="urban-mixed-use" class="section level3" number="2.9.67">
 <h3>
-<span class="header-section-number">2.9.65</span> urban mixed-use<a class="anchor" aria-label="anchor" href="#urban-mixed-use"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.67</span> urban mixed-use<a class="anchor" aria-label="anchor" href="#urban-mixed-use"><i class="fas fa-link"></i></a>
 </h3>
 <p>A mixed use development or neighborhood is one that includes residential and non-residential land uses in close proximity to one another, allowing for pedestrian access to many desired goods and services. Such places are walkable,“bikeable,” and encourage a local economy and strong social connections. From a transportation perspective such places are distinguished by their high degree of accessibility using non-motorized modes (active transport).
 In VisionEval the proportion of each Bzone that falls into this category can either be specified by the user or calculated by the program. If the latter a random sampling from an asserted distribution is used to define whether a household is in a mixed-use area. The density of the enclosing Bzone weights the probability of a household being so classified (i.e., the higher the density the higher probability of being assigned to a mixed-use neighborhood). These calculations are carried on in the <code>CalculateUrbanMixMeasure</code> module of the <code>VEHouseholds</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#45-calculateurbanmixmeasure-module">Additional details</a></p>
 </div>
-<div id="urbanized-area-urbanized-area" class="section level3" number="2.9.66">
+<div id="urbanized-area-urbanized-area" class="section level3" number="2.9.68">
 <h3>
-<span class="header-section-number">2.9.66</span> urbanized area {urbanized-area}<a class="anchor" aria-label="anchor" href="#urbanized-area-urbanized-area"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.68</span> urbanized area {urbanized-area}<a class="anchor" aria-label="anchor" href="#urbanized-area-urbanized-area"><i class="fas fa-link"></i></a>
 </h3>
 <p>Collectively the urban, or “metro,” <a href="conceptprimer.html#location-type">location type</a> portion of the <a href="metropolitan-area">metropolitan area</a> (Marea) set of zones. The road, transit and urban mixed use variables only cover this portion of the Marea, which is typically equivalent to a Census urbanized area.</p>
 </div>
-<div id="value-of-time" class="section level3" number="2.9.67">
+<div id="value-of-time" class="section level3" number="2.9.69">
 <h3>
-<span class="header-section-number">2.9.67</span> value of time (VOT)<a class="anchor" aria-label="anchor" href="#value-of-time"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.69</span> value of time (VOT)<a class="anchor" aria-label="anchor" href="#value-of-time"><i class="fas fa-link"></i></a>
 </h3>
 <p>The opportunity cost of the time that a person spends traveling rather than engaged in other activities. In theory it represents what the traveler would be willing to pay in order to reduce their time traveling. It is a surrogate for the value of travel times savings, which attempts to place a monetary value on the benefits of more efficient travel. While often an important parameter along with the equally influential value of reliability in pricing studies (<a href="https://www.caee.utexas.edu/prof/kockelman/TransportationEconomics_Website/TranspEconReference.pdf">Kockelman et al. 2013</a>, <a href="http://onlinepubs.trb.org/onlinepubs/shrp2/SHRP2prepubC04.pdf">Parsons Brinckerhoff et al. 2013</a>) VOT is an average value in VisionEval. It is used in <code>TimeCost</code> calculations in the <code>CalculateVehicleOperatingCost</code> module.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module">Additional details</a></p>
 </div>
-<div id="vehicle-age" class="section level3" number="2.9.68">
+<div id="vehicle-age" class="section level3" number="2.9.70">
 <h3>
-<span class="header-section-number">2.9.68</span> vehicle age<a class="anchor" aria-label="anchor" href="#vehicle-age"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.70</span> vehicle age<a class="anchor" aria-label="anchor" href="#vehicle-age"><i class="fas fa-link"></i></a>
 </h3>
 <p>The age of each household vehicle is estimated as a function of vehicle type (auto or light truck), household income, and the assumed average vehicle age coded for each vehicle type and Azone. The vehicle age is assigned in the <code>AssignVehicleAge</code> module in the <code>VEHouseholdVehicles</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#65-assignvehicleage">Additional details</a></p>
@@ -1193,30 +1205,30 @@ In VisionEval the proportion of each Bzone that falls into this category can eit
 Different types of vehicles are used in VisionEval by different types of users. Automobiles and light trucks are used by households, car service, and commercial service, and are assigned in the <code>VEHouseholdVehicles</code> package. Heavy trucks are treated separately, and three types of vehicles – vans, buses, and rail – are used for transit.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#83-calculatecarbonintensity-module">Additional details</a></p>
 </div>
-<div id="vehicle-hours-of-delay" class="section level3" number="2.9.69">
+<div id="vehicle-hours-of-delay" class="section level3" number="2.9.71">
 <h3>
-<span class="header-section-number">2.9.69</span> vehicle hours of delay (VHD)<a class="anchor" aria-label="anchor" href="#vehicle-hours-of-delay"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.71</span> vehicle hours of delay (VHD)<a class="anchor" aria-label="anchor" href="#vehicle-hours-of-delay"><i class="fas fa-link"></i></a>
 </h3>
 <p>An aggregate performance measure usually calculated by subtracting vehicle hours of travel under uncontested conditions from total vehicle hours of travel (VHT). Both measures are approximated for each <a href="conceptprimer.html#metropolitan-area">metropolitan area</a> in VisionEval in the <code>CalculateRoadPerformance</code> module of the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#94-calculateroadperformance-module">Additional details</a></p>
 </div>
-<div id="vehicle-operating-costs" class="section level3" number="2.9.70">
+<div id="vehicle-operating-costs" class="section level3" number="2.9.72">
 <h3>
-<span class="header-section-number">2.9.70</span> vehicle operating costs<a class="anchor" aria-label="anchor" href="#vehicle-operating-costs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.72</span> vehicle operating costs<a class="anchor" aria-label="anchor" href="#vehicle-operating-costs"><i class="fas fa-link"></i></a>
 </h3>
 <p>A combination of out-of-pocket and travel time costs used to estimate the cost per mile of owning and operating an automobile. These costs include fuel (energy), maintenance, tires, and repairs for all households. In addition, pollution or carbon taxes, parking charges, and pay-as-you-drive (PAYD) insurance costs are included where coded for the household’s enclosed Bzone. The costs are calculated in the <code>CalculateHhVehicleOperatingCosts</code> module of the <code>VETravelPerformance</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md">Additional details</a></p>
 </div>
-<div id="vehicle-ownership-costs" class="section level3" number="2.9.71">
+<div id="vehicle-ownership-costs" class="section level3" number="2.9.73">
 <h3>
-<span class="header-section-number">2.9.71</span> vehicle ownership costs<a class="anchor" aria-label="anchor" href="#vehicle-ownership-costs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.73</span> vehicle ownership costs<a class="anchor" aria-label="anchor" href="#vehicle-ownership-costs"><i class="fas fa-link"></i></a>
 </h3>
 <p>The average cost of auto ownership is calculated based upon vehicle type (automobile, light truck) and age using typical cost figures from AAA data. The cost per mile is estimated by dividing the average cost by the household daily VMT estimates produced by the model. A depreciation model is used to adjust this cost based upon the vehicle type, age, and annual miles driven (daily VMT converted into annual miles). The ownership costs represent the full costs of ownership, to include maintenance, tires, depreciation, fuel, insurance, etc.Auto ownership is adjusted when the per-mile cost of owning a car is higher than car service (mobility services) when the latter has high availability. This adjustment is made in the <code>AdjustVehicleOwnership</code> module.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#66-calculatevehicleowncost">Additional details on auto ownership</a> and <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#67-adjustvehicleownership">auto ownership adjustments</a></p>
 </div>
-<div id="vehicle-table" class="section level3" number="2.9.72">
+<div id="vehicle-table" class="section level3" number="2.9.74">
 <h3>
-<span class="header-section-number">2.9.72</span> vehicle table<a class="anchor" aria-label="anchor" href="#vehicle-table"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.74</span> vehicle table<a class="anchor" aria-label="anchor" href="#vehicle-table"><i class="fas fa-link"></i></a>
 </h3>
 <p>A vehicle table is a list of every vehicle owned by a household in VisionEval. It includes the vehicle characteristics, household ID, and the Azone and Marea the household is allocated to. It is created in the <code>CreateVehicleTable</code> module in the <code>VEHouseholdVehicles</code> package.
 <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#64-createvehicletable">Additional details</a></p>
@@ -1274,72 +1286,74 @@ In VisionEval vehicle type refers to the distinction between automobiles and lig
 <li><a class="nav-link" href="#auto-sufficiency"><span class="header-section-number">2.9.4</span> auto sufficiency</a></li>
 <li><a class="nav-link" href="#azones"><span class="header-section-number">2.9.5</span> azones</a></li>
 <li><a class="nav-link" href="#bus-equivalent-miles"><span class="header-section-number">2.9.6</span> bus-equivalent-miles</a></li>
-<li><a class="nav-link" href="#bzones-bzones"><span class="header-section-number">2.9.7</span> bzones (#bzones)</a></li>
+<li><a class="nav-link" href="#bzones"><span class="header-section-number">2.9.7</span> bzones</a></li>
 <li><a class="nav-link" href="#carbon-intensity"><span class="header-section-number">2.9.8</span> carbon intensity</a></li>
 <li><a class="nav-link" href="#carbon-price"><span class="header-section-number">2.9.9</span> carbon price</a></li>
 <li><a class="nav-link" href="#car-service"><span class="header-section-number">2.9.10</span> car service</a></li>
-<li><a class="nav-link" href="#car-service-substitution-probability"><span class="header-section-number">2.9.11</span> car service substitution probability</a></li>
-<li><a class="nav-link" href="#cash-out-buy-back"><span class="header-section-number">2.9.12</span> cash-out/buy-back program</a></li>
-<li><a class="nav-link" href="#census-pums"><span class="header-section-number">2.9.13</span> Census PUMS</a></li>
-<li><a class="nav-link" href="#commercial-service"><span class="header-section-number">2.9.14</span> commercial service</a></li>
-<li><a class="nav-link" href="#congestion-fee"><span class="header-section-number">2.9.15</span> congestion fee</a></li>
-<li><a class="nav-link" href="#congestion-level"><span class="header-section-number">2.9.16</span> congestion level</a></li>
-<li><a class="nav-link" href="#development-type"><span class="header-section-number">2.9.17</span> development type</a></li>
-<li><a class="nav-link" href="#dwelling-unit-type"><span class="header-section-number">2.9.18</span> dwelling unit type</a></li>
-<li><a class="nav-link" href="#ecodrive"><span class="header-section-number">2.9.19</span> EcoDrive</a></li>
-<li><a class="nav-link" href="#employee-commute-options-program"><span class="header-section-number">2.9.20</span> employee commute options program</a></li>
-<li><a class="nav-link" href="#employment-rate"><span class="header-section-number">2.9.21</span> employment rate</a></li>
-<li><a class="nav-link" href="#employment-type"><span class="header-section-number">2.9.22</span> employment type</a></li>
-<li><a class="nav-link" href="#ev-surcharge"><span class="header-section-number">2.9.23</span> EV surcharge</a></li>
-<li><a class="nav-link" href="#freeway-lane-miles"><span class="header-section-number">2.9.24</span> freeway lane-miles</a></li>
-<li><a class="nav-link" href="#freight-vehicle-groups"><span class="header-section-number">2.9.25</span> freight vehicle groups</a></li>
-<li><a class="nav-link" href="#fuel-efficiency"><span class="header-section-number">2.9.26</span> fuel efficiency</a></li>
-<li><a class="nav-link" href="#fuel-speed-curves"><span class="header-section-number">2.9.27</span> fuel-speed curves</a></li>
-<li><a class="nav-link" href="#growth-basis"><span class="header-section-number">2.9.28</span> growth basis</a></li>
-<li><a class="nav-link" href="#heavy-truck"><span class="header-section-number">2.9.29</span> heavy truck</a></li>
-<li><a class="nav-link" href="#individualized-marketing-programs"><span class="header-section-number">2.9.30</span> individualized marketing programs</a></li>
-<li><a class="nav-link" href="#intelligent-transportation-systems"><span class="header-section-number">2.9.31</span> intelligent transportation systems (ITS)</a></li>
-<li><a class="nav-link" href="#its"><span class="header-section-number">2.9.32</span> ITS</a></li>
-<li><a class="nav-link" href="#lambda-parameter"><span class="header-section-number">2.9.33</span> lambda parameter</a></li>
-<li><a class="nav-link" href="#licensure-rate"><span class="header-section-number">2.9.34</span> licensure rate</a></li>
-<li><a class="nav-link" href="#lifecycle"><span class="header-section-number">2.9.35</span> lifecycle</a></li>
-<li><a class="nav-link" href="#location-type"><span class="header-section-number">2.9.36</span> location type</a></li>
-<li><a class="nav-link" href="#metropolitan-area"><span class="header-section-number">2.9.37</span> metropolitan area (Marea)</a></li>
-<li><a class="nav-link" href="#mixed-use"><span class="header-section-number">2.9.38</span> mixed use</a></li>
-<li><a class="nav-link" href="#national-household-travel-survey"><span class="header-section-number">2.9.39</span> National Household Travel Survey (NHTS)</a></li>
-<li><a class="nav-link" href="#nhts"><span class="header-section-number">2.9.40</span> NHTS</a></li>
-<li><a class="nav-link" href="#non-institutional-group-quarters"><span class="header-section-number">2.9.41</span> Non-institutional group quarters</a></li>
-<li><a class="nav-link" href="#out-of-pocket-cost"><span class="header-section-number">2.9.42</span> out-of-pocket cost</a></li>
-<li><a class="nav-link" href="#parking-costs"><span class="header-section-number">2.9.43</span> parking costs</a></li>
-<li><a class="nav-link" href="#parking-restrictions"><span class="header-section-number">2.9.44</span> parking restrictions</a></li>
-<li><a class="nav-link" href="#pay-as-you-drive"><span class="header-section-number">2.9.45</span> pay-as-you-drive (PAYD)</a></li>
-<li><a class="nav-link" href="#passenger-car-equivalents"><span class="header-section-number">2.9.46</span> passenger car equivalents (PCE)</a></li>
-<li><a class="nav-link" href="#place-type"><span class="header-section-number">2.9.47</span> place type</a></li>
-<li><a class="nav-link" href="#powertrain"><span class="header-section-number">2.9.48</span> powertrain</a></li>
-<li><a class="nav-link" href="#regular-households"><span class="header-section-number">2.9.49</span> regular households</a></li>
-<li><a class="nav-link" href="#region"><span class="header-section-number">2.9.50</span> region</a></li>
-<li><a class="nav-link" href="#relative-roadway-supply"><span class="header-section-number">2.9.51</span> relative roadway supply</a></li>
-<li><a class="nav-link" href="#road-class"><span class="header-section-number">2.9.52</span> road class</a></li>
-<li><a class="nav-link" href="#road-costs"><span class="header-section-number">2.9.53</span> road costs</a></li>
-<li><a class="nav-link" href="#road-lane-miles"><span class="header-section-number">2.9.54</span> road lane-miles</a></li>
-<li><a class="nav-link" href="#road-use-taxes"><span class="header-section-number">2.9.55</span> road use taxes</a></li>
-<li><a class="nav-link" href="#sov-diversion"><span class="header-section-number">2.9.56</span> short-trip SOV diversion</a></li>
-<li><a class="nav-link" href="#social-costs"><span class="header-section-number">2.9.57</span> social costs</a></li>
-<li><a class="nav-link" href="#speed-smoothing"><span class="header-section-number">2.9.58</span> speed smoothing</a></li>
-<li><a class="nav-link" href="#transit-d"><span class="header-section-number">2.9.59</span> transit d</a></li>
-<li><a class="nav-link" href="#transit-modes"><span class="header-section-number">2.9.60</span> transit modes</a></li>
-<li><a class="nav-link" href="#transit-service-levels"><span class="header-section-number">2.9.61</span> transit service level</a></li>
-<li><a class="nav-link" href="#transit-service-miles"><span class="header-section-number">2.9.62</span> transit service miles</a></li>
-<li><a class="nav-link" href="#transit-vehicle-type"><span class="header-section-number">2.9.63</span> transit vehicle type</a></li>
-<li><a class="nav-link" href="#travel-demand-management"><span class="header-section-number">2.9.64</span> travel demand management (TDM)</a></li>
-<li><a class="nav-link" href="#urban-mixed-use"><span class="header-section-number">2.9.65</span> urban mixed-use</a></li>
-<li><a class="nav-link" href="#urbanized-area-urbanized-area"><span class="header-section-number">2.9.66</span> urbanized area {urbanized-area}</a></li>
-<li><a class="nav-link" href="#value-of-time"><span class="header-section-number">2.9.67</span> value of time (VOT)</a></li>
-<li><a class="nav-link" href="#vehicle-age"><span class="header-section-number">2.9.68</span> vehicle age</a></li>
-<li><a class="nav-link" href="#vehicle-hours-of-delay"><span class="header-section-number">2.9.69</span> vehicle hours of delay (VHD)</a></li>
-<li><a class="nav-link" href="#vehicle-operating-costs"><span class="header-section-number">2.9.70</span> vehicle operating costs</a></li>
-<li><a class="nav-link" href="#vehicle-ownership-costs"><span class="header-section-number">2.9.71</span> vehicle ownership costs</a></li>
-<li><a class="nav-link" href="#vehicle-table"><span class="header-section-number">2.9.72</span> vehicle table</a></li>
+<li><a class="nav-link" href="#car-service-level"><span class="header-section-number">2.9.11</span> car service level</a></li>
+<li><a class="nav-link" href="#car-service-substitution"><span class="header-section-number">2.9.12</span> car service substitution probability</a></li>
+<li><a class="nav-link" href="#cash-out-buy-back"><span class="header-section-number">2.9.13</span> cash-out/buy-back program</a></li>
+<li><a class="nav-link" href="#census-pums"><span class="header-section-number">2.9.14</span> Census PUMS</a></li>
+<li><a class="nav-link" href="#commercial-service"><span class="header-section-number">2.9.15</span> commercial service</a></li>
+<li><a class="nav-link" href="#congestion-fee"><span class="header-section-number">2.9.16</span> congestion fee</a></li>
+<li><a class="nav-link" href="#congestion-level"><span class="header-section-number">2.9.17</span> congestion level</a></li>
+<li><a class="nav-link" href="#development-type"><span class="header-section-number">2.9.18</span> development type</a></li>
+<li><a class="nav-link" href="#dwelling-unit-type"><span class="header-section-number">2.9.19</span> dwelling unit type</a></li>
+<li><a class="nav-link" href="#ecodrive"><span class="header-section-number">2.9.20</span> EcoDrive</a></li>
+<li><a class="nav-link" href="#employee-commute-options-program"><span class="header-section-number">2.9.21</span> employee commute options program</a></li>
+<li><a class="nav-link" href="#employment-rate"><span class="header-section-number">2.9.22</span> employment rate</a></li>
+<li><a class="nav-link" href="#employment-type"><span class="header-section-number">2.9.23</span> employment type</a></li>
+<li><a class="nav-link" href="#ev-surcharge"><span class="header-section-number">2.9.24</span> EV surcharge</a></li>
+<li><a class="nav-link" href="#freeway-lane-miles"><span class="header-section-number">2.9.25</span> freeway lane-miles</a></li>
+<li><a class="nav-link" href="#freight-vehicle-groups"><span class="header-section-number">2.9.26</span> freight vehicle groups</a></li>
+<li><a class="nav-link" href="#fuel-efficiency"><span class="header-section-number">2.9.27</span> fuel efficiency</a></li>
+<li><a class="nav-link" href="#fuel-speed-curves"><span class="header-section-number">2.9.28</span> fuel-speed curves</a></li>
+<li><a class="nav-link" href="#growth-basis"><span class="header-section-number">2.9.29</span> growth basis</a></li>
+<li><a class="nav-link" href="#heavy-truck"><span class="header-section-number">2.9.30</span> heavy truck</a></li>
+<li><a class="nav-link" href="#individualized-marketing-programs"><span class="header-section-number">2.9.31</span> individualized marketing programs</a></li>
+<li><a class="nav-link" href="#intelligent-transportation-systems"><span class="header-section-number">2.9.32</span> intelligent transportation systems (ITS)</a></li>
+<li><a class="nav-link" href="#its"><span class="header-section-number">2.9.33</span> ITS</a></li>
+<li><a class="nav-link" href="#lambda-parameter"><span class="header-section-number">2.9.34</span> lambda parameter</a></li>
+<li><a class="nav-link" href="#licensure-rate"><span class="header-section-number">2.9.35</span> licensure rate</a></li>
+<li><a class="nav-link" href="#lifecycle"><span class="header-section-number">2.9.36</span> lifecycle</a></li>
+<li><a class="nav-link" href="#location-type"><span class="header-section-number">2.9.37</span> location type</a></li>
+<li><a class="nav-link" href="#metropolitan-area"><span class="header-section-number">2.9.38</span> metropolitan area (Marea)</a></li>
+<li><a class="nav-link" href="#mixed-use"><span class="header-section-number">2.9.39</span> mixed use</a></li>
+<li><a class="nav-link" href="#national-household-travel-survey"><span class="header-section-number">2.9.40</span> National Household Travel Survey (NHTS)</a></li>
+<li><a class="nav-link" href="#nhts"><span class="header-section-number">2.9.41</span> NHTS</a></li>
+<li><a class="nav-link" href="#non-institutional-group-quarters"><span class="header-section-number">2.9.42</span> Non-institutional group quarters</a></li>
+<li><a class="nav-link" href="#out-of-pocket-cost"><span class="header-section-number">2.9.43</span> out-of-pocket cost</a></li>
+<li><a class="nav-link" href="#parking-costs"><span class="header-section-number">2.9.44</span> parking costs</a></li>
+<li><a class="nav-link" href="#parking-restrictions"><span class="header-section-number">2.9.45</span> parking restrictions</a></li>
+<li><a class="nav-link" href="#pay-as-you-drive"><span class="header-section-number">2.9.46</span> pay-as-you-drive (PAYD)</a></li>
+<li><a class="nav-link" href="#passenger-car-equivalents"><span class="header-section-number">2.9.47</span> passenger car equivalents (PCE)</a></li>
+<li><a class="nav-link" href="#place-type"><span class="header-section-number">2.9.48</span> place type</a></li>
+<li><a class="nav-link" href="#powertrain"><span class="header-section-number">2.9.49</span> powertrain</a></li>
+<li><a class="nav-link" href="#regular-households"><span class="header-section-number">2.9.50</span> regular households</a></li>
+<li><a class="nav-link" href="#region"><span class="header-section-number">2.9.51</span> region</a></li>
+<li><a class="nav-link" href="#relative-roadway-supply"><span class="header-section-number">2.9.52</span> relative roadway supply</a></li>
+<li><a class="nav-link" href="#relative-transit-supply"><span class="header-section-number">2.9.53</span> relative transit supply</a></li>
+<li><a class="nav-link" href="#road-class"><span class="header-section-number">2.9.54</span> road class</a></li>
+<li><a class="nav-link" href="#road-costs"><span class="header-section-number">2.9.55</span> road costs</a></li>
+<li><a class="nav-link" href="#road-lane-miles"><span class="header-section-number">2.9.56</span> road lane-miles</a></li>
+<li><a class="nav-link" href="#road-use-taxes"><span class="header-section-number">2.9.57</span> road use taxes</a></li>
+<li><a class="nav-link" href="#sov-diversion"><span class="header-section-number">2.9.58</span> short-trip SOV diversion</a></li>
+<li><a class="nav-link" href="#social-costs"><span class="header-section-number">2.9.59</span> social costs</a></li>
+<li><a class="nav-link" href="#speed-smoothing"><span class="header-section-number">2.9.60</span> speed smoothing</a></li>
+<li><a class="nav-link" href="#transit-d"><span class="header-section-number">2.9.61</span> transit d</a></li>
+<li><a class="nav-link" href="#transit-modes"><span class="header-section-number">2.9.62</span> transit modes</a></li>
+<li><a class="nav-link" href="#transit-service-levels"><span class="header-section-number">2.9.63</span> transit service level</a></li>
+<li><a class="nav-link" href="#transit-service-miles"><span class="header-section-number">2.9.64</span> transit service miles</a></li>
+<li><a class="nav-link" href="#transit-vehicle-type"><span class="header-section-number">2.9.65</span> transit vehicle type</a></li>
+<li><a class="nav-link" href="#travel-demand-management"><span class="header-section-number">2.9.66</span> travel demand management (TDM)</a></li>
+<li><a class="nav-link" href="#urban-mixed-use"><span class="header-section-number">2.9.67</span> urban mixed-use</a></li>
+<li><a class="nav-link" href="#urbanized-area-urbanized-area"><span class="header-section-number">2.9.68</span> urbanized area {urbanized-area}</a></li>
+<li><a class="nav-link" href="#value-of-time"><span class="header-section-number">2.9.69</span> value of time (VOT)</a></li>
+<li><a class="nav-link" href="#vehicle-age"><span class="header-section-number">2.9.70</span> vehicle age</a></li>
+<li><a class="nav-link" href="#vehicle-hours-of-delay"><span class="header-section-number">2.9.71</span> vehicle hours of delay (VHD)</a></li>
+<li><a class="nav-link" href="#vehicle-operating-costs"><span class="header-section-number">2.9.72</span> vehicle operating costs</a></li>
+<li><a class="nav-link" href="#vehicle-ownership-costs"><span class="header-section-number">2.9.73</span> vehicle ownership costs</a></li>
+<li><a class="nav-link" href="#vehicle-table"><span class="header-section-number">2.9.74</span> vehicle table</a></li>
 </ul>
 </li>
 </ul>
@@ -1359,7 +1373,7 @@ In VisionEval vehicle type refers to the distinction between automobiles and lig
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-20.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-25.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

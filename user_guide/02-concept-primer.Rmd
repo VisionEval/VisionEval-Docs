@@ -466,7 +466,7 @@ Aggregations of [Bzones](#bzones), often corresponding to county, city, Census n
 The total bus revenue miles for a transit system are divided by the assumed transit vehicle type capacities to arrive at bus-equivalent miles of service. The total bus revenue miles for a transit system are divided by the population of the enclosing Marea(s) to compute per capita bus-equivalent miles.
 [Additional details](https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
 
-### bzones (#bzones)
+### bzones {#bzones}
 The smallest levels of geography coded in VisionEval, and often correspond to Census tracts or block groups. In most instances the Bzones are larger than traffic analysis zones used in traditional travel demand forecasting models.
 [Additional details](#model-geography-and-years) on VisionEval model geography levels.
 
