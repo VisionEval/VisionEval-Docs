@@ -6,19 +6,19 @@ knitr::opts_chunk$set(echo = TRUE, results='hide')
 ```
 
 ## Introduction
-This chapter describes the package build process for creating or modifying individual packages and modules within the VisionEval framework, which can be used to incorporate localized or custom data into VisionEval. Two common examples of localizing estimation data walk through the process of substituting data and re-building a typical VE package.
+This chapter describes the package build process for creating or modifying packages and their constituent modules within the VisionEval framework. The build process can be used to incorporate localized or custom data into VE by making a change to a module and then rebuilding the package that is it part of. This chapter includes two case studies that discuss examples of localizing estimation data and walk through the process of substituting data in a module and re-building the VisionEval package that it is part of.
 
 The steps involved in the process include:
 
 - Collect the input data for the package
-- Preprocess the inputs into the required format
+- Preprocess the input data into the required format
 - Update the data files in the VisionEval package source
-- Build & install the package for use in VisionEval
+- Build and install the package for use in VisionEval
 - Use the re-built package in your model
 
 
 ## Context
-The VisionEval "build process" rebuilds VisionEval packages to incorporate modified data in the module estimations in order to update data resources such as PUMS (Public Use Microdata Samples from the US Census) and estimated model coefficients. The build process can be conducted through R or RStudio starting with the VisionEval code available from its Github repository.
+The VisionEval "build process" rebuilds VisionEval packages to incorporate modified data in the module's model estimation and data processing steps in order to update data resources such as PUMS (Public Use Microdata Samples from the US Census) and estimated model coefficients. The build process can be conducted through R or RStudio starting with the VisionEval code available from its Github repository.
 
 The reason that the module must be rebuilt before it is available for use in VisionEval is that the VisionEval framework relies on importing each module from an R package. The data resources in any R package cannot be updated directly. Instead the packages must be rebuilt from their sources. R packages are a fundamental unit of the R ecosystem and create a structured way to bundle code, data, and documentation together into a single unit for distribution. Packages can be easily installed and shared among R users. VisionEval itself is distributed as a set of R packages, and those packages are what must be rebuilt to incorporate localized data.
 
