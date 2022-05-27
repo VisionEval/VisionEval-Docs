@@ -123,13 +123,13 @@ setwd("C:/git_clone_directory/VisionEval-Dev/built/visioneval/4.1.2/src/VESimHou
 ```
 
 3. Select Configure Build Tools from the Build menu:
-![RStudio Build GUI 1](images/buildgui-1.png)
+![RStudio Build GUI 1](images/buildgui-1.png){width=75%}
 
 4. Set the package directory to the VE module (e.g., src/VEGenericPackage) and the build source
-![RStudio Build GUI 2](images/buildgui-2.png)
+![RStudio Build GUI 2](images/buildgui-2.png){width=75%}
 
 5. Build and install the package.
-![RStudio Build GUI 3](images/buildgui-3.png)
+![RStudio Build GUI 3](images/buildgui-3.png){width=75%}
 
 
 
@@ -453,7 +453,7 @@ ggplot(data = melted_powertrains) +
   theme_classic()
 ```
 
-![Household Powertrain Proportions](images/hh_powertrain_prop_view.png)
+![Household Powertrain Proportions](images/hh_powertrain_prop_view.png){width=75%}
 
 
 We can see that battery electric vehicles (BEV), specifically automobiles, are projected to make up the majority of vehicles bought in future years. This causes the share of internal combustion engine to decline proportionally.
@@ -511,7 +511,7 @@ ggplot(data = melted_powertrains) +
 
 ```
 
-![Adjusted Household Powertrain Proportions](images/hh_powertrain_prop_adjustedview.png)
+![Adjusted Household Powertrain Proportions](images/hh_powertrain_prop_adjustedview.png){width=75%}
 
 ### Data modification
 
