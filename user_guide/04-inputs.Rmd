@@ -131,7 +131,7 @@ This file describes the default units to be used for storing complex data types 
 This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
 
 * [VERSPM inputs](#verspm-inputs)
-* [Ve-State inputs](ve-state-inputs)
+* [VE-State inputs](ve-state-inputs)
 * [VERPAT inputs](#verpat-inputs)
 
 ### Household Synthesis Inputs 
@@ -139,7 +139,7 @@ This section covers over generalized inputs by concepts shared by all VisionEval
 The demographic and land use inputs are those related to population, employment, and income that result in the [household synthesis](#household-synthesis-and-land-use). VisionEval takes user input statewide population by age group, assembles them into households with demographic attributes ([<span style="color:green">lifecycle category</span>](#lifecycle), per capita income). 
 
 * **Pool of available households.** Modelwide, [<span style="color:green">Census PUMS</span>](#census-pums) data represents actual households and representative mix of household composition and demographics for your area it is built into the code. Note that users must rebuild the VESimHousehold package to use local PUMS data as Oregon data is the default, see the chapter on [Estimation in VisionEval][Estimation in VisionEval] for instructions on how to rebuild packages.
- 
+
 * **Population by age control totals.** For population inputs, VisionEval models distinguish between the [<span style="color:green">regular household population</span>](#regular-households) and [<span style="color:green">group quarter population</span>](#non-institutional-group-quarters) due to distinct differences in travel behaviors.  Zone-level inputs for (1) regular households and (2) group quarters households (can be 0) include population by [<span style="color:green">age group</span>](#age-group) and average per capita income. Base year totals for the household population can be obtained from Census. Future year forecasts  should be consistent with but may need to be extrapolated beyond adopted regional plans (e.g., RTP, County and City TSPs). Some local governments may have detailed age information generated as part of a Housing Needs Analysis completed for the Periodic Review of the local Comprehensive Plan. If not, future population by age can apply ratios from the base year model set-up. Group quarters population data is best obtained from the university administration, by age if possible.  Group quarters can be approximated from enrollment data by class year. All other group quarters data (e.g., income) are difficult to obtain but not of paramount importance to the model, simplifying assumptions are often required. Per capita income can be obtained from either the Census or Bureau of Economic Analysis. Since the model accounts for inflation, future income can remain the same in future years, or adjusted based on local plans. 
 
 * **Optional household adjustments.** (Optional) constraints on regular households include average household size and proportion of single-person households, adjustments to [<span style="color:green">licensure rate</span>](#licensure-rate) for driving age persons. Household size values can be obtained from the Census and licensure data can be obtained from the state DMV.
@@ -153,7 +153,7 @@ Once households are synthesised, VisionEval allocates them to Bzone-level dwelli
 * **Dwelling units.** Numbers of [<span style="color:green">dwelling units by type</span>](#dwelling-unit-type) in each model year and proportions of each in each [<span style="color:green">development type</span>](#development-type). Income quartiles tied to households in dwelling units help VisionEval assign households to a compatible Bzone location. The base year dwelling unit data can sourced from either the Census or an available travel demand model. Future year dwelling units can be obtained from local Comprehensive Plans. Adjustments may be needed to count only occupied units, and occupancy rates can be obtained from Census block group data, as a starting point. Base and future year dwelling unit counts should be consistent with household assumptions in the region’s travel demand model.
 
 * **Land use.** Inputs set the total developable land area, by [<span style="color:green">development type</span>](#development-type). VERSPM also requires its location (centroid latitude-longitude) for spatially linking to source data, and input assumptions on the [<span style="color:green">built form measures</span>](#buit-form-measures). These inputs can change by model run year. Some land use data use [EPA Smart Location Datasbase](https://www.epa.gov/smartgrowth/smart-location-mapping) (SLD) data. Geospatial SLD data can be downloaded at the block group level and extrapolated to other geographies if needed using just used the EPA block group data.
-     
+  
 * **Land use-household linkages.** VisionEval assigns a Bzone to each household's home and to each household worker's work location, with the associated Bzone attributes. The VisionEval-calculated [<span style="color:green">urban mixed use</span>](#urban-mixed-use) designation of the Bzone can optionally be modified by input targets on the proportion of households assigned that designation in each Bzone  in this process.
   * **Note:**  Input files must be consistent.  This includes: (1) land area must be specified for each azone location type that has households or employment assigned to it; (2) dwelling units must be a reasonable match with population (divided by household size); (3) shares of jobs within each Azone must sum to 1 for all Azones in the Marea.
 
@@ -233,7 +233,7 @@ See the section on [Pricing, Household Costs & Budgets](#pricing-inputs) inputs 
 |Commercial Service|automobile, light truck|ICE, HEV, EV|veh mix, age, %LtTrk|gas/ethanol, diesel/biodiesel, CNG/RNG|default, region composite|
 |Heavy Truck|heavy truck|ICE, HEV, EV|veh mix|gas/ethanol, diesel/biodiesel, CNG/LNG|default, region composite|
 |Public Transit|van, bus, rail|ICE, HEV, EV|veh mix|gas/ethanol, diesel/biodiesel, CNG/RNG|default, fuel/biofuel mix, marea or region composite|
- 
+
 ### Pricing, Household Costs & Budget Inputs {#pricing-inputs}
 
 Most of these will be state-led actions and thus reflect the state policies of the modeled area.
@@ -383,7 +383,7 @@ Here is a snapshot of the file:
 | :--- | :----: | :----: | :----: | :----: | :----: | :----: |
 | RVMPO | 2010 | 1 | 3 | 3 | 0.75 | 1 |
 | RVMPO | 2038 | 1 | 3 | 3 | 0.75 | 1 |
-  
+
 ### azone_charging_availability.csv {#verspm-azone_charging_availability.csv}
 This input file supplies data on proportion of different household types with plug-in electric vehicle (PEV) charging available by `Azone`.
 
@@ -420,7 +420,8 @@ This file supplies data for retail cost of fuel and electricity by `Azone`. This
 
 * **FuelCost**:Retail cost of fuel per gas gallon equivalent in dollars (before taxes are added)
 * **PowerCost**: Retail cost of electric power per kilowatt-hour in dollars (before taxes are added)
-   
+  
+
 Here is a snapshot of the file:
 
 | Geo | Year | FuelCost.2005 | PowerCost.2005 |
@@ -466,7 +467,8 @@ This file contains population estimates/forecasts by age for each of the base an
 * 30-54
 * 55-64
 * 65 Plus
-   
+  
+
 Base year data for population by age category can be sourced from the Census. Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies such as population data centers, universities, metropolitan planning organizations, or similar agencies.
 
 Here is a snapshot of the file:
@@ -481,7 +483,7 @@ This file provides inputs for mean auto age and mean light truck age by `Azone`.
 
 * **AutoMeanAge**: Mean age of automobiles owned or leased by households.
 * **LtTrkMeanAge**: Mean age of light trucks owned or leased by households.
- 
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -497,7 +499,8 @@ This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and
 
 * **VehOwnFlatRateFee**: Annual flat rate tax per vehicle in dollars
 * **VehOwnAdValoremTax**: Annual proportion of vehicle value paid in taxes
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -528,7 +531,8 @@ Here is a snapshot of the file:
 This file specifies the light truck proportion of the vehicle fleet. The user can be developed from local registration data. Alternatively, if MOVES is available for the model region, this input can be calculated from the MOVES vehicle population data (SourceTypeYear). The vehicle types used in MOVES (SourceType) correspond with the two categories of passenger vehicles used in EERPAT: MOVES SourceType 21, Passenger Car, is equivalent to autos in EERPAT and MOVES Source Type 31, Passenger Truck, is equivalent to light trucks.
 
 * **LtTrkProp**: Proportion of household vehicles that are light trucks (pickup, SUV, van).
-     
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -542,7 +546,8 @@ table <- data.frame(
 This file provides inputs on the proportion of households having PAYD insurance.
 
 * **PaydHhProp**: Proportion of households in the Azone who have pay-as-you-drive insurance for their vehicles
-    
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -571,7 +576,8 @@ kable(table, align = c("l", rep("c", 3)))
 This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance (round trip distance). The user can use  local household travel survey data (if available) to develop this input.
 
 * **PropSovDvmtDiverted**: Goals for the proportion of household DVMT in single occupant vehicle tours with round-trip distances of 20 miles or less be diverted to bicycling or other slow speed modes of travel
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -622,7 +628,7 @@ Here is a snapshot of the file:
 | ----- | ---- | ------------ | ----------- | ---------------- |
 | RVMPO | 2010 | 0.424        | 0           | 0                |
 | RVMPO | 2038 | 0.484        | 0           | 0                |
- 
+
 ### azone_vehicle_access_times.csv {#verspm-azone_vehicle_access_times.csv}
 
 This file supplies data for vehicle access and eagress time.
@@ -630,7 +636,10 @@ This file supplies data for vehicle access and eagress time.
 * **OwnedVehAccessTime**:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip
 * **HighCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a high service level car service for a trip
 * **LowCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a low service level car service for a trip
-   
+  
+
+See the bzone_carsvc_availability.csv for inputs on where the High and Low car service are available to households.
+
 Here is a snapshot of the file:	
 
 | Geo   | Year | OwnedVehAccessTime | HighCarSvcAccessTime | LowCarSvcAccessTime |
@@ -643,7 +652,8 @@ Here is a snapshot of the file:
 This file supplies the data on relative public transit accessibility at the `Bzone` level. The data to inform this input can be sourced from the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide).
 
 * **D4c**: Aggregate frequency of transit service within 0.25 miles of block group boundary per hour during evening peak period (Ref: EPA 2010 Smart Location Database)
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -688,7 +698,8 @@ This file contains the total, retail and service employment by zone for each of 
 * **TotEmp**: Total number of jobs in zone
 * **RetEmp**: Number of jobs in retail sector in zone (Census LEHD: CNS07)
 * **SvcEmp**: Number of jobs in service sector in zone (Census LEHD: CNS12 + CNS14 + CNS15 + CNS16 + CNS19)
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -751,7 +762,8 @@ This file contains the parking information by `Bzone` for each of the base and f
 * **PropWkrPay**: Proportion of workers who pay for parking
 * **PropCashOut**: Proportions of workers paying for parking in a cash-out-buy-back program
 * **PkgCost**: Average daily cost for long-term parking (e.g. paid on monthly basis)
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -801,7 +813,7 @@ table <- data.frame(
   RuralArea = c(4996.118763, 384.8092231, 3699.940171, 90.86259214, 6212.576395))
   kable(table, align = c("l", rep("c", 4)))
 ```
-   
+
 ### bzone_urban-town_du_proportions.csv {#verspm-bzone_urban-town_du_proportions.csv}
 
 This file contains proportion of SF, MF and GQ dwelling units within the urban portion of the zone. 
@@ -812,7 +824,8 @@ This file contains proportion of SF, MF and GQ dwelling units within the urban p
 * **PropTownSFDU**: Proportion of single family dwelling units located within the town portion of the zone
 * **PropTownMFDU**: Proportion of multi-family dwelling units located within the town portion of the zone
 * **PropTownGQDU**: Proportion of group quarters accommodations located within the town portion of the zone
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -829,7 +842,7 @@ table <- data.frame(
 
 ### marea_base_year_dvmt.csv {#verspm-marea_base_year_dvmt.csv}
 
-This input file is OPTIONAL. It is only needed if the user wants to modify the adjust dvmt growth factors from base year in by Marea
+This input file is OPTIONAL. It is only needed if the user wants to modify the adjust dvmt growth factors (for commercial, non-household VMT) from base year in by Marea.
 
 * **UrbanLdvDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by light-duty vehicles during the base year
 * **UrbanHvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by heavy trucks during he base year
@@ -879,7 +892,7 @@ table <- data.frame(
 
 ###  marea_dvmt_split_by_road_class.csv {#verspm-marea_dvmt_split_by_road_class.csv}
 
-DVMT Split by Road Class This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes. This data can be derived from the FHWA [Highway Statistics](https://www.fhwa.dot.gov/policyinformation/statistics.cfm) data. 
+DVMT Split by Road Class. This input file is OPTIONAL. It is only needed if the user wants to modify the DVMT split for different road classes. This data can be derived from the FHWA [Highway Statistics](https://www.fhwa.dot.gov/policyinformation/statistics.cfm) data. 
 
 * **LdvFwyArtDvmtProp**: Proportion of light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeway or aerial roadways
 * **LdvOthDvmtProp**: Proportion of light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
@@ -956,7 +969,8 @@ This input file supplies information of deployment of speed smoothing and ecodri
 * **ArtSmooth**: Fractional deployment of speed smoothing traffic management on arterials, where 0 is no deployment and 1 is the full potential fuel savings
 * **LdvEcoDrive**: Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1
 * **HvyTrkEcoDrive**: Eco-driving penetration for heavy-duty vehicles; the fraction of vehicles from 0 to 1
-   
+  
+
 Here is a snapshot of the file:	
 
 | Geo   | Year | FwySmooth | ArtSmooth | LdvEcoDrive | HvyTrkEcoDrive |
@@ -982,7 +996,7 @@ table <- data.frame(
   TransitRailFuelCI = c(NA, NA))
   kable(table, align = c("l", rep("c", 4)))
 ```
-		
+
 ### marea_transit_biofuel_mix.csv {#verspm-marea_transit_biofuel_mix.csv}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the biofuel used by transit services.
@@ -992,6 +1006,7 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the b
 * **TransitRngPropCng**: Renewable natural gas proportion of compressed natural gas used by transit vehicles
 
     
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -1065,7 +1080,7 @@ table <- data.frame(
 
 ### marea_transit_service.csv {#verspm-marea_transit_service.csv}
 
-This file contains annual revenue-miles for different transit modes for metropolitan area. Data to develop this input can be sourced from the Federal Transit Administration NTD.
+This file contains annual revenue-miles for different transit modes for metropolitan area. Data to develop this input can be sourced from the Federal Transit Administration National Transit Database at https://www.transit.dot.gov/ntd. 
 
 * **DRRevMi**: Annual revenue-miles of demand-responsive public transit service
 * **VPRevMi**: Annual revenue-miles of van-pool and similar public transit service
@@ -1076,6 +1091,7 @@ This file contains annual revenue-miles for different transit modes for metropol
 * **HRRevMi**: Annual revenue-miles of light rail and heavy rail public transit service
 * **CRRevMi**: Annual revenue-miles of commuter rail, hybrid rail, cable car, and aerial tramway public transit service
   
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -1094,14 +1110,15 @@ table <- data.frame(
 
 ### other_ops_effectiveness.csv {#verspm-other_ops_effectiveness.csv}
 
-This input file is OPTIONAL. It is only needed if the user wants to modify the other delay effects of operations in different road classes
+This input file is OPTIONAL. It is only needed if the user wants to modify the delay effects of "other operations" in different road classes. This might include ramp meters, improved ITS investments that could clear collisions sooner, etc.
 
 * **Level**: Congestion levels: None = none, Mod = moderate, Hvy = heavy, Sev = severe, Ext = extreme
 * **Art_Rcr**: Percentage reduction of recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
 * **Art_NonRcr**: Percentage reduction of non-recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
 * **Fwy_Rcr**: Percentage reduction of recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
 * **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
-   
+  
+
 Here is a snapshot of the file:	
 ```{r}
 table <- data.frame(
@@ -1145,12 +1162,13 @@ table <- data.frame(
 
 ### region_base_year_dvmt.csv {#verspm-region_base_year_dvmt.csv}
 
-This input file is OPTIONAL. It is only needed if the user wants to adjust heavy truck DVMT for base year
+This input file is OPTIONAL. It is only needed if the user wants to adjust heavy truck DVMT for base year.
 
 * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
 * **HvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the region by heavy trucks during he base year
 * **HvyTrkDvmtUrbanProp**: Proportion of Region heavy truck daily vehicle miles of travel occurring on urbanized area roadways
-   
+  
+
 Here is a snapshot of the file:	
 ```{r}
 table <- data.frame(
@@ -1171,7 +1189,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **CarSvcLtTrkPropIcev**: Proportion of car service light truck travel powered by internal combustion engine powertrains
 * **CarSvcLtTrkPropHev**: Proportion of car service light truck travel powered by hybrid electric powertrains
 * **CarSvcLtTrkPropBev**: Proportion of car service light truck travel powered by battery electric powertrains
-   
+  
+
 Here is a snapshot of the file:	
 ```{r}
 table <- data.frame(
@@ -1226,14 +1245,15 @@ table <- data.frame(
 
 ### region_hh_driver_adjust_prop.csv {#verspm-region_hh_driver_adjust_prop.csv}
 
-This file is optional and can be used to adjust the estimate of household drivers by age cohort. The file specifies the relative driver licensing rate relative to the model estimation data year in order to account for observed or projected changes in licensing rates.
+This file is OPTIONAL and can be used to adjust the estimate of household drivers by age cohort. The file specifies the relative driver licensing rate relative to the model estimation data year in order to account for observed or projected changes in licensing rates.
 
 * **Drv15to19AdjProp**: Target proportion of unadjusted model number of drivers 15 to 19 years old (`1` = no adjustment)
 * **Drv20to29AdjProp**: Target proportion of unadjusted model number of drivers 20 to 29 years old (`1` = no adjustment)
 * **Drv30to54AdjProp**: Target proportion of unadjusted model number of drivers 30 to 54 years old (`1` = no adjustment)
 * **Drv55to64AdjProp**: Target proportion of unadjusted model number of drivers 55 to 64 years old (`1` = no adjustment)
 * **Drv65PlusAdjProp**: Target proportion of unadjusted model number of drivers 65 or older (`1` = no adjustment)
-   
+  
+
 Here is a snapshot of the file:
 ```{r}
 table <- data.frame(
@@ -1254,6 +1274,7 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **HvyTrkPropHev**: Proportion of heavy truck travel powered by hybrid electric powertrains
 * **HvyTrkPropBev**: Proportion of heavy truck travel powered by battery electric powertrains
 		
+
 Here is a snapshot of the file:	
 ```{r}
 table <- data.frame(
@@ -1271,7 +1292,8 @@ Proportional external costs for the ragion  (This file supplies data for climate
 
 * **PropClimateCostPaid**: Proportion of climate change costs paid by users (i.e. ratio of carbon taxes to climate change costs
 * **PropOtherExtCostPaid**: Proportion of other social costs paid by users
-   
+  
+
 Here is a snapshot of the file:	
 
 | Year | PropClimateCostPaid | PropOtherExtCostPaid |
@@ -1402,7 +1424,8 @@ This input file supplies data on proportion of different household types who has
 * **PropSFChargingAvail**: Proportion of single-family dwellings in Azone that have PEV charging facilties installed or able to be installed
 * **PropMFChargingAvail**: Proportion of multi-family dwelling units in Azone that have PEV charging facilities available
 * **PropGQChargingAvail**: Proportion of group quarters dwelling units in Azone that have PEV charging facilities available
-   
+  
+
 Here is a snapshot of the file:	
 
 <img align="center" width="500" border=1 src="images/azone_charging_availability.PNG">
@@ -1423,7 +1446,8 @@ This file supplies data for retail cost of fuel and electricity
 
 * **FuelCost**:Retail cost of fuel per gas gallon equivalent in dollars
 * **PowerCost**: Retail cost of electric power per kilowatt-hour in dollars
-   
+  
+
 Here is a snapshot of the file:	
 
  <img align="center" width="400" border=1 src="images/azone_fuel_power_cost.PNG">
@@ -1451,8 +1475,9 @@ This file provides the proportions for groupquarters in different area types.
 * **TownLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone
 * **RuralAveDensity**: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone
   
+
 Here is a snapshot of the file:
-  
+
 <img align="center" width="400" border=1 src="images/loc_type_land.PNG"> 
 
 ### azone_hh_loc_type_prop.csv {#vestate-azone_hh_loc_type_prop.csv}
@@ -1488,7 +1513,7 @@ This file provides inputs for mean auto age and mean light truck age by Azone.
 
 * **AutoMeanAge**: Mean age of automobiles owned or leased by households.
 * **LtTrkMeanAge**: Mean age of light trucks owned or leased by households.
- 
+
 Here is a snapshot of the file:
 
 <img align="center" width="400" border=1 src="images/azone_hh_veh_mean_age.PNG">
@@ -1499,7 +1524,8 @@ This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and
 
 * **VehOwnFlatRateFee**: Annual flat rate tax per vehicle in dollars
 * **VehOwnAdValoremTax**: Annual proportion of vehicle value paid in taxes
-   
+  
+
 Here is a snapshot of the file:
 
 <img align="center" width="500" border=1 src="images/azone_hh_veh_own_taxes.PNG">
@@ -1532,7 +1558,8 @@ Here is a snapshot of the file:
 This file specifies the light truck proportion of the vehicle fleet.
 
 * **LtTrkProp**: Proportion of household vehicles that are light trucks (pickup, SUV, van).
-     
+  
+
 Here is a snapshot of the file:
 
 <img align="center" width="300" border=1 src="images/azone_lttrk_prop.PNG">
@@ -1542,9 +1569,10 @@ Here is a snapshot of the file:
 This file provides inputs on the proportion of households having PAYD insurance.
 
 * **PaydHhProp**: Proportion of households in the Azone who have pay-as-you-drive insurance for their vehicles
-    
+  
+
 Here is a snapshot of the file:
-   
+
 <img align="center" width="300" border=1 src="images/azone_payd_insurance_prop.PNG">
 
 ### azone_per_cap_inc.csv {#vestate-azone_per_cap_inc.csv}
@@ -1560,7 +1588,8 @@ Here is a snapshot of the file:
 This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance (round trip distance).
 
 * **PropSovDvmtDiverted**: Goals for the proportion of household DVMT in single occupant vehicle tours with round-trip distances of 20 miles or less be diverted to bicycling or other slow speed modes of travel
-   
+  
+
 Here is a snapshot of the file:
 
 <img align="center" width="400" border=1 src="images/azone_prop_sov_dvmt_diverted.PNG">
@@ -1598,7 +1627,8 @@ This file supplies data for vehicle access and eagress time.
 * **OwnedVehAccessTime**:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip
 * **HighCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a high service level car service for a trip
 * **LowCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a low service level car service for a trip
-   
+  
+
 Here is a snapshot of the file:	
 
 <img align="center" width="500" border=1 src="images/azone_vehicle_access_times.PNG">
@@ -1611,11 +1641,12 @@ This file provides the proportions for workers residing in Azone who works in th
 * **PropWkrInTownJobs**: Proportion of workers residing in the Azone who work at jobs in towns (i.e. urban-like but not urbanized) in the Azone
 * **PropWkrInRuralJobs**: Proportion of workers residing in the Azone who work at jobs in rural (i.e. not urbanized or town) parts of the Azone
 * **PropMetroJobs**: Proportion of the jobs of the metropolitan area that the Azone is associated with that are located in the metropolitan portion of the Azone
-   
+  
+
 Here is a snapshot of the file:
 
 <img align="center" width="400" border=1 src="images/wrk_loc_prop.PNG">
-   
+
 ### marea_base_year_dvmt.csv {#vestate-marea_base_year_dvmt.csv}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the adjust dvmt growth factors from base year in by Marea
@@ -1770,7 +1801,8 @@ This input file supplies information of deployment of speed smoothing and ecodri
 * **ArtSmooth**: Fractional deployment of speed smoothing traffic management on arterials, where 0 is no deployment and 1 is the full potential fuel savings
 * **LdvEcoDrive**: Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1
 * **HvyTrkEcoDrive**: Eco-driving penetration for heavy-duty vehicles; the fraction of vehicles from 0 to 1
-   
+  
+
 Here is a snapshot of the file:	
 
 <img align="center" width="600" border=1 src="images/marea_speed_smooth_ecodrive.PNG">
@@ -1832,6 +1864,7 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the m
 * **RailPropEv**: Proportion of transit rail travel using electric powertrains
 
     
+
 Here is a snapshot of the file:
 
 <img align="center" width="1100" border=1 src="images/marea_transit_powertrain_prop.PNG">
@@ -1848,7 +1881,7 @@ This file contains annual revenue-miles for different transit modes for metropol
  **SRRevMi**: Annual revenue-miles of streetcar and trolleybus public transit service
  **HRRevMi**: Annual revenue-miles of light rail and heavy rail public transit service
  **CRRevMi**: Annual revenue-miles of commuter rail, hybrid rail, cable car, and aerial tramway public transit service
-   
+
 Here is a snapshot of the file:
 
 <img align="center" width="800" border=1 src="images/marea_transit_service.PNG">
@@ -1889,7 +1922,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the o
 * **Art_NonRcr**: Percentage reduction of non-recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
 * **Fwy_Rcr**: Percentage reduction of recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
 * **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
-   
+  
+
 Here is a snapshot of the file:	
 
 <img align="center" width="500" border=1 src="images/other_ops_effectiveness.PNG">
@@ -1932,7 +1966,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **CarSvcLtTrkPropIcev**: Proportion of car service light truck travel powered by internal combustion engine powertrains
 * **CarSvcLtTrkPropHev**: Proportion of car service light truck travel powered by hybrid electric powertrains
 * **CarSvcLtTrkPropBev**: Proportion of car service light truck travel powered by battery electric powertrains
-   
+  
+
 Here is a snapshot of the file:	
 
 <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
@@ -1959,7 +1994,7 @@ Here is a snapshot of the file:
 This input file contains average age of commercial service vehicles
 
    * **AveComSvcVehicleAge**: average age of commercial service vehicles
- 
+
 Here is a snapshot of the file:	
 
 <img align="center" width="400" border=1 src="images/age.PNG">
@@ -1973,7 +2008,8 @@ This file specifies the relative driver licensing rate relative to the model est
 * **Drv30to54AdjProp**: Target proportion of unadjusted model number of drivers 30 to 54 years old (`1` = no adjustment)
 * **Drv55to64AdjProp**: Target proportion of unadjusted model number of drivers 55 to 64 years old (`1` = no adjustment)
 * **Drv65PlusAdjProp**: Target proportion of unadjusted model number of drivers 65 or older (`1` = no adjustment)
-   
+  
+
 Here is a snapshot of the file:
 
 <img align="center" width="800" border=1 src="images/region_hh_driver_adjust_prop.PNG">
@@ -1986,6 +2022,7 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
    * **HvyTrkPropHev**: Proportion of heavy truck travel powered by hybrid electric powertrains
    * **HvyTrkPropBev**: Proportion of heavy truck travel powered by battery electric powertrains
 		
+
 Here is a snapshot of the file:	
 
 <img align="center" width="400" border=1 src="images/region_hvytrk_powertrain_prop.PNG">
@@ -1996,7 +2033,7 @@ This file supplies data for climate change and other social costs.
 
    * **PropClimateCostPaid**: Proportion of climate change costs paid by users (i.e. ratio of carbon taxes to climate change costs
    * **PropOtherExtCostPaid**: Proportion of other social costs paid by users
-   
+
 Here is a snapshot of the file:	
 
 <img align="center" width="400" border=1 src="images/region_prop_externalities_paid.PNG">
