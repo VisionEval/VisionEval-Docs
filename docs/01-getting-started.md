@@ -7,9 +7,7 @@ of how the system can used to support scenario planning, and to develop strategi
 transportation system performance.
 
 The remainder of this page explains how to install VisionEval, and provides a brief overview of what
-to do with it after it is installed. Complete details on setting up VisionEval models and scenarios,
-running the models, and extracting and analyzing results are found later in this book. ** Links to
-other pages in the book?? **
+to do with it after it is installed. Content in the [VisionEval Tutorial](#tutorial) found later in this book contains more complete details on setting up VisionEval models with local data, running scenarios, and extracting and analyzing results.
 
 -   [Installation and Setup](#installation)
 -   [Workflow](#workflow)
@@ -65,7 +63,7 @@ The link above will download a .zip file containing the following:
 
   - The VisionEval framework code and sample models
   - All necessary R packages
-  - **?? Documentation (this Getting Started document) ??**
+  - Documentation (both this book as well as API documentation)
 
 Unzip that file into an empty folder of your choice (e.g. `C:\VisionEval`).
 

@@ -1,4 +1,4 @@
-## VERPAT Tutorial {#verpat}
+# VERPAT Model Details {#verpat}
 
 ## Overview
 

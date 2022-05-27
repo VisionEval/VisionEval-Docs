@@ -1,6 +1,4 @@
-# VisionEval Model Details
-
-## VERSPM {#verspm}
+# VERSPM Model Details {#verspm}
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
@@ -534,7 +532,7 @@ kable(table, align = c("l", rep("c", 3)))
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md)
   
-### AssignLocTypes {verspm-assignloctypes }  
+### AssignLocTypes {#verspm-assignloctypes}  
 
 This module assigns households to location types: `Urban` (located within an urbanized area boundary), `Town` (located in a smaller urban area that does not have enough population to qualify as an urbanized area), and `Rural` (located in an area characterized by low density dispersed development).
 
@@ -2319,7 +2317,7 @@ This module calculates adjustments to fuel economy and electric energy economy f
 
 #### User Input Files {-}
 
-### Speed Smoothing and Eco-drive (marea_speed_smooth_ecodrive.csv) {-}
+##### Speed Smoothing and Eco-drive (marea_speed_smooth_ecodrive.csv) {-}
 This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type.
 
 * **FwySmooth**:Fractional deployment of speed smoothing traffic management on freeways, where 0 is no deployment and 1 is the full potential fuel savings
@@ -2460,7 +2458,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 
 #### User Input Files {-}
 
-### Vehicle Access Time (azone_vehicle_access_times.csv) {-}
+##### Vehicle Access Time (azone_vehicle_access_times.csv) {-}
 
 This file supplies data for vehicle access and eagress time by Azone.
 
@@ -2489,7 +2487,7 @@ Here is a snapshot of the file:
 |RVMPO | 2010 | 2.43 | 0.08 |
 |RVMPO | 2038 | 5.75 | 0.208 |
 
-### Vehicle Taxes (azone_veh_use_taxes.csv) {-}
+##### Vehicle Taxes (azone_veh_use_taxes.csv) {-}
 This file supplies data for vehicle taxes related to [vehicle operating costs](#vehicle-operating-costs).
 
 * **FuelTax**:Tax per gas gallon equivalent of fuel in dollars
@@ -2622,19 +2620,20 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 
 #### User Input Files {-}
 
-##### Commercial Service Light Trucks Proportion f(**region_comsvc_lttrk_prop.csv**) {-} 
+##### Commercial Service Light Trucks Proportion (region_comsvc_lttrk_prop.csv) {-} 
 
 This file supplies data for the light truck proportion of commercial vehicles for the region.
 
 * **ComSvcLtTrkProp**: Regional proportion of commercial service vehicles that are light trucks
 
 Here is a snapshot of the file:	
+
 | Year | ComSvcLtTrkProp |
 | ---- | --------------- |
 | 2010 | 0.51            |
 | 2038 | 0.51            |
 
-##### Commercial Service Vehicle Powertrains (region_comsvc_powertrain_prop.csv)
+##### Commercial Service Vehicle Powertrains (region_comsvc_powertrain_prop.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of commercial vehicles.
 
@@ -2659,7 +2658,8 @@ table <- data.frame(
   kable(table, align = c("l", rep("c", 7)))
 ```
 
-##### Heavy duty Truck Powertrains (region_hvytrk_powertrain_prop.csv)
+##### Heavy duty Truck Powertrains (region_hvytrk_powertrain_prop.csv) {-}
+
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of heavy duty trucks.
 
 * **HvyTrkPropIcev**: Proportion of heavy truck travel powered by internal combustion engine powertrains
@@ -2729,7 +2729,7 @@ This module calculates the energy consumption and carbon emissions of public tra
 
 #### User Input Files {-}
 
-##### Transit Powertrain Proportions by Transit Vehicle Type (marea_transit_powertrain_prop.csv)
+##### Transit Powertrain Proportions by Transit Vehicle Type (marea_transit_powertrain_prop.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the mixes of transit vehicle powertrains.
 
@@ -2788,3 +2788,121 @@ table <- data.frame(
 * **BusCO2eRate**: Average amount of carbon-dioxide equivalents produced by bus transit vehicles per mile of travel in urbanized area in grams per mile
 * **RailCO2eRate**: Average amount of carbon-dioxide equivalents produced by rail transit vehicles per mile of travel in urbanized area in grams per mile
 * **VanCO2eRate**: Average amount of carbon-dioxide equivalents produced by van transit vehicles per mile of travel in urbanized area in grams per mile
+
+## Model Outputs
+
+A large number of performance metrics are produced during the run of the RPAT model, including environment and energy impacts, financial and economic impacts, and community impacts.
+
+The full list of outputs available is as follows. Based on the geo level, you will find our these metrics in of the three files ( `Azone.csv` , `Bzone.csv` , `Marea.csv` ) in the `outputs` folder
+
+* **VanDvmt**: Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services.
+* **BusDvmt**: Total daily miles traveled by buses of various sizes to provide bus service of various types.
+* **RailDvmt**: Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles.
+* **UrbanHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea
+* **RuralHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the non-urbanized portion of the Marea
+* **TownHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in town (urban but not urbanized) portion of the Marea
+* **ComSvcUrbanDvmt**: Commercial service daily vehicle miles of travel associated with Marea urbanized household activity
+* **ComSvcRuralDvmt**: Commercial service daily vehicle miles of travel associated with Marea rural household activity
+* **HvyTrkUrbanDvmt**: Base year Region heavy truck daily vehicle miles of travel in urbanized areas
+* **LdvOthDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
+* **LdvFwyArtDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeway or arterial roadways
+* **HvyTrkFwyDvmt**: Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
+* **HvyTrkArtDvmt**:Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
+* **HvyTrkOthDvmt**: Heavy truck daily vehicle miles of travel in the urbanized portion of the Marea occurring on other roadways
+* **BusFwyDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
+* **BusArtDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
+* **BusOthDvmt**: Bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
+* **LdvFwyDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
+* **LdvArtDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways
+* **FwyNoneCongSpeed**: Average freeway speed (miles per hour) when there is no congestion
+* **FwyModCongSpeed**: Average freeway speed (miles per hour) when congestion is moderate
+* **FwyHvyCongSpeed**: Average freeway speed (miles per hour) when congestion is heavy
+* **FwySevCongSpeed**: Average freeway speed (miles per hour) when congestion is severe
+* **FwyExtCongSpeed**: Average freeway speed (miles per hour) when congestion is extreme
+* **ArtNoneCongSpeed**: Average arterial speed (miles per hour) when there is no congestion
+* **ArtModCongSpeed**: Average arterial speed (miles per hour) when congestion is moderate
+* **ArtHvyCongSpeed**: Average arterial speed (miles per hour) when congestion is heavy
+* **ArtSevCongSpeed**: Average arterial speed (miles per hour) when congestion is severe
+* **ArtExtCongSpeed**: Average arterial speed (miles per hour) when congestion is extreme
+* **OthSpd**: Average speed (miles per hour) on other roadways
+* **AveLdvSpd**: Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel
+* **FwyNoneCongDelay**: Average freeway delay (hours per mile) occurring when there is no congestion
+* **FwyModCongDelay**: Average freeway delay (hours per mile) occurring when congestion is moderate
+* **FwyHvyCongDelay**: Average freeway delay (hours per mile) occurring when congestion is heavy
+* **FwySevCongDelay**: Average freeway delay (hours per mile) occurring when congestion is severe
+* **FwyExtCongDelay**: Average freeway delay (hours per mile) occurring when congestion is extreme
+* **ArtNoneCongDelay**: Average arterial delay (hours per mile) occurring when there is no congestion
+* **ArtModCongDelay**: Average arterial delay (hours per mile) occurring when congestion is moderate
+* **ArtHvyCongDelay**: Average arterial delay (hours per mile) occurring when congestion is heavy
+* **ArtSevCongDelay**: Average arterial delay (hours per mile) occurring when congestion is severe
+* **ArtExtCongDelay**: Average arterial delay (hours per mile) occurring when congestion is extreme
+* **FwyDvmtPropNoneCong**: Proportion of freeway DVMT occurring when there is no congestion
+* **FwyDvmtPropModCong**: Proportion of freeway DVMT occurring when congestion is moderate
+* **FwyDvmtPropHvyCong**: Proportion of freeway DVMT occurring when congestion is heavy
+* **FwyDvmtPropSevCong**: Proportion of freeway DVMT occurring when congestion is severe
+* **FwyDvmtPropExtCong**: Proportion of freeway DVMT occurring when congestion is extreme
+* **ArtDvmtPropNoneCong**: Proportion of arterial DVMT occurring when there is no congestion
+* **ArtDvmtPropModCong**: Proportion of arterial DVMT occurring when congestion is moderate
+* **ArtDvmtPropHvyCong**: Proportion of arterial DVMT occurring when congestion is heavy
+* **ArtDvmtPropSevCong**: Proportion of arterial DVMT occurring when congestion is severe
+* **ArtDvmtPropExtCong**: Proportion of arterial DVMT occurring when congestion is extreme
+* **AveCongPrice**: Average price paid (dollars per mile) in congestion fees
+* **LdvSpdSmoothFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing
+* **HvyTrkSpdSmoothFactor**: Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to speed smoothing
+* **BusSpdSmoothFactor**: Proportional adjustment of bus internal combustion engine (ICE) vehicle MPG due to speed smoothing
+* **LdvEcoDriveFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to eco-driving
+* **HvyTrkEcoDriveFactor**: Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to eco-driving
+* **BusEcoDriveFactor**: Proportional adjustment of bus internal combustion engine (ICE) vehicle MPG due to eco-driving
+* **LdIceFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to congestion
+* **LdHevFactor**: Proportional adjustment of light-duty hybrid-electric vehicle (HEV) MPG due to congestion
+* **LdEvFactor**: Proportional adjustment of light-duty battery electric vehicle (EV) MPkWh due to congestion
+* **LdFcvFactor**: Proportional adjustment of light-duty fuel cell vehicle (FCV) MPkWh due to congestion
+* **HdIceFactor**: Proportional adjustment of heavy-duty internal combustion engine (ICE) vehicle MPG due to congestion
+* **ComSvcUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with urban household activity in gas gallon equivalents
+* **ComSvcRuralGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with rural household activity in gas gallon equivalents
+* **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Marea in gas gallon equivalents
+* **ComSvcUrbanKWH**: Average daily amount of electricity consumed by commercial service vehicles associated with urban household activity in kilowatt-hours
+* **ComSvcRuralKWH**: Average daily amount of electricity consumed by commercial service vehicles associated with rural household activity in kilowatt-hours
+* **ComSvcUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with urban household activity in grams
+* **ComSvcRuralCO2e**: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with rural household activity in grams
+* **HvyTrkUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Marea in grams
+* **ComSvcAveUrbanAutoCO2eRate**: Average amount of carbon-dioxide equivalents produced by commercial service automobiles per mile of travel on urbanized area roadways in grams per mile
+* **ComSvcAveUrbanLtTrkCO2eRate**: Average amount of carbon-dioxide equivalents produced by commercial service light trucks per mile of travel on urbanized area roadways in grams per mile
+* **HvyTrkAveUrbanCO2eRate**: Average amount of carbon-dioxide equivalents produced by heavy trucks per mile of travel on urbanized area roadways in grams per mile
+* **HvyTrkRuralGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on rural roadways in the Region in gas gallon equivalents
+* **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Region in gas gallon equivalents
+* **HvyTrkRuralKWH**: Average daily amount of electricity consumed by heavy trucks on rural roadways in the Region in kilowatt-hours
+* **HvyTrkUrbanKWH**: Average daily amount of electricity consumed by heavy trucks on urbanized area roadways in the Region in kilowatt-hours
+* **HvyTrkRuralCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on rural roadways in the Region in grams
+* **HvyTrkUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Region in grams
+* **BusGGE**: Average daily amount of hydrocarbon fuels consumed by bus transit vehicles in urbanized area in gas gallon equivalents
+* **RailGGE**: Average daily amount of hydrocarbon fuels consumed by rail transit vehicles in urbanized area in gas gallon equivalents
+* **VanGGE**: Average daily amount of hydrocarbon fuels consumed by van transit vehicles in urbanized area in gas gallon equivalents
+* **BusKWH**: Average daily amount of electricity consumed by bus transit vehicles in urbanized area in kilowatt-hours
+* **RailKWH**: Average daily amount of electricity consumed by rail transit vehicles in urbanized area in kilowatt-hours
+* **VanKWH**:Average daily amount of electricity consumed by van transit vehicles in urbanized area in kilowatt-hours
+* **BusCO2e**: Average daily amount of carbon-dioxide equivalents produced by bus transit vehicles in urbanized area in grams
+* **RailCO2e**: Average daily amount of carbon-dioxide equivalents produced by rail transit vehicles in urbanized area in grams
+* **VanCO2e**: Average daily amount of carbon-dioxide equivalents produced by van transit vehicles in urbanized area in grams
+* **BusCO2eRate**: Average amount of carbon-dioxide equivalents produced by bus transit vehicles per mile of travel in urbanized area in grams per mile
+* **RailCO2eRate**: Average amount of carbon-dioxide equivalents produced by rail transit vehicles per mile of travel in urbanized area in grams per mile
+* **VanCO2eRate**: Average amount of carbon-dioxide equivalents produced by van transit vehicles per mile of travel in urbanized area in grams per mile
+* **AveVehCostPM**: Average out-of-pocket cost in dollars per mile of vehicle travel
+* **AveSocEnvCostPM**: Average cost in dollars of the social and environmental impacts per mile of vehicle travel
+* **AveRoadUseTaxPM**: Average road use taxes in dollars collected per mile of vehicle travel
+* **WalkTrips**: Average number of walk trips per year by household members
+* **BikeTrips**: Average number of bicycle trips per year by household members
+* **TransitTrips**: Average number of public transit trips per year by household members
+* **VehicleTrips**: Average number of vehicle trips per day by household members
+
+
+For simplicity, eight key metrics are calculated from multiple scenario runs and are shown on the Scenario Viewer output page:
+
+* **GHG Target Reduction**:  percentage reduction in light-duty vehicle CHG emissions
+* **DVMT Per Capita**: daily vehicle miles of travel of residents divided by population
+* **Walk Trips Per Capita**:  annual residents walk trips ( not including recreation or walk to transit)
+* **Air Pollution Emissions**:  daily metric tons of pollutants emitted from all light-duty vehicle travel
+* **Annual Fuel Use**: annual million gallons of gasoline and other fuels consumed by all light-duty vehicle travel
+* **Truck Delay**: daily vehicle-hours of delay for heavy truck trael on area roads
+* **Household Vehicle Cost as Percentage of Income**: average percentage of income spent by all households by owning and operating light-duty vehicles
+* **Low Income Household Vehicle Cost as Percentage of Income**: average percentage of income spent by low-income households on owning and operating light-duty vehicles

@@ -4,15 +4,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Chapter 13 Developer Documentation | VisionEval User Guide</title>
+<title>Chapter 14 Developer Documentation | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
-<meta property="og:title" content="Chapter 13 Developer Documentation | VisionEval User Guide">
+<meta property="og:title" content="Chapter 14 Developer Documentation | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/developer.html">
 <meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Chapter 13 Developer Documentation | VisionEval User Guide">
+<meta name="twitter:title" content="Chapter 14 Developer Documentation | VisionEval User Guide">
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -24,9 +24,9 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
   </style>
 <link rel="stylesheet" href="bs4_style.css">
-<meta name="description" content="13.1 Developer Orientation  13.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
-<meta property="og:description" content="13.1 Developer Orientation  13.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
-<meta name="twitter:description" content="13.1 Developer Orientation  13.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
+<meta name="description" content="14.1 Developer Orientation  14.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
+<meta property="og:description" content="14.1 Developer Orientation  14.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
+<meta name="twitter:description" content="14.1 Developer Orientation  14.1.1 Assumptions + prerequisites Understand [[R|https://cran.r-project.org]] Understand basic statistics, data analysis, and modeling principles Understand how to...">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -57,14 +57,15 @@
 <li><a class="" href="model-geography-and-years.html"><span class="header-section-number">5</span> Model Geography and Years</a></li>
 <li><a class="" href="model-inputs.html"><span class="header-section-number">6</span> Model Inputs</a></li>
 <li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
-<li><a class="" href="section.html"><span class="header-section-number">8</span></a></li>
-<li><a class="" href="developing-scenarios.html"><span class="header-section-number">9</span> Developing Scenarios</a></li>
-<li><a class="" href="ve-estimation.html"><span class="header-section-number">10</span> Estimation in VisionEval</a></li>
-<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">11</span> Module Build Process for Custom Data Inputs</a></li>
-<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">12</span> VisionEval Model Details</a></li>
-<li><a class="active" href="developer.html"><span class="header-section-number">13</span> Developer Documentation</a></li>
-<li><a class="" href="api-documentation.html"><span class="header-section-number">14</span> API Documentation</a></li>
-<li><a class="" href="software-framework.html"><span class="header-section-number">15</span> Software Framework</a></li>
+<li><a class="" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
+<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">10</span> Module Build Process for Custom Data Inputs</a></li>
+<li><a class="" href="verspm.html"><span class="header-section-number">11</span> VERSPM Model Details</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">12</span> VE-State Model Details</a></li>
+<li><a class="" href="verpat.html"><span class="header-section-number">13</span> VERPAT Model Details</a></li>
+<li><a class="active" href="developer.html"><span class="header-section-number">14</span> Developer Documentation</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">15</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">16</span> Software Framework</a></li>
 </ul>
 
         <div class="book-extra">
@@ -72,17 +73,17 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="developer" class="section level1" number="13">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="developer" class="section level1" number="14">
 <h1>
-<span class="header-section-number">13</span> Developer Documentation<a class="anchor" aria-label="anchor" href="#developer"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14</span> Developer Documentation<a class="anchor" aria-label="anchor" href="#developer"><i class="fas fa-link"></i></a>
 </h1>
-<div id="developer-orientation" class="section level2" number="13.1">
+<div id="developer-orientation" class="section level2" number="14.1">
 <h2>
-<span class="header-section-number">13.1</span> Developer Orientation<a class="anchor" aria-label="anchor" href="#developer-orientation"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1</span> Developer Orientation<a class="anchor" aria-label="anchor" href="#developer-orientation"><i class="fas fa-link"></i></a>
 </h2>
-<div id="assumptions-prerequisites" class="section level3" number="13.1.1">
+<div id="assumptions-prerequisites" class="section level3" number="14.1.1">
 <h3>
-<span class="header-section-number">13.1.1</span> Assumptions + prerequisites<a class="anchor" aria-label="anchor" href="#assumptions-prerequisites"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.1</span> Assumptions + prerequisites<a class="anchor" aria-label="anchor" href="#assumptions-prerequisites"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Understand [[R|<a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a>]]</li>
@@ -92,26 +93,26 @@
 <li>Understand [[RShiny|<a href="https://shiny.rstudio.com" class="uri">https://shiny.rstudio.com</a>]] and [[shinytest|<a href="https://github.com/rstudio/shinytest" class="uri">https://github.com/rstudio/shinytest</a>]] if contributing to the User Interface</li>
 </ul>
 </div>
-<div id="get-visioneval-running" class="section level3" number="13.1.2">
+<div id="get-visioneval-running" class="section level3" number="14.1.2">
 <h3>
-<span class="header-section-number">13.1.2</span> Get VisionEval running<a class="anchor" aria-label="anchor" href="#get-visioneval-running"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.2</span> Get VisionEval running<a class="anchor" aria-label="anchor" href="#get-visioneval-running"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Use the [[Quick Start|Getting-Started]] guide to download and run an example</li>
 </ul>
 </div>
-<div id="understand-the-development-principles-and-organization-of-visioneval-framework" class="section level3" number="13.1.3">
+<div id="understand-the-development-principles-and-organization-of-visioneval-framework" class="section level3" number="14.1.3">
 <h3>
-<span class="header-section-number">13.1.3</span> Understand the development principles and organization of VisionEval framework<a class="anchor" aria-label="anchor" href="#understand-the-development-principles-and-organization-of-visioneval-framework"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.3</span> Understand the development principles and organization of VisionEval framework<a class="anchor" aria-label="anchor" href="#understand-the-development-principles-and-organization-of-visioneval-framework"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Review [[System Design Documentation|<a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md" class="uri">https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md</a>]]</li>
 <li>Review [[Contribution Criteria|Contribution-Review-Criteria]]</li>
 </ul>
 </div>
-<div id="skim-useful-references-to-know-about" class="section level3" number="13.1.4">
+<div id="skim-useful-references-to-know-about" class="section level3" number="14.1.4">
 <h3>
-<span class="header-section-number">13.1.4</span> Skim useful references to know about<a class="anchor" aria-label="anchor" href="#skim-useful-references-to-know-about"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.4</span> Skim useful references to know about<a class="anchor" aria-label="anchor" href="#skim-useful-references-to-know-about"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>VE [[style guide |<a href="https://github.com/visioneval/VisionEval/blob/master/api/Coding_Guidelines.md" class="uri">https://github.com/visioneval/VisionEval/blob/master/api/Coding_Guidelines.md</a>]]</li>
@@ -124,18 +125,18 @@
 <li>List of useful functions in the API for developers [ Status: to be developed; see [[API|<a href="https://github.com/visioneval/VisionEval/tree/master/api" class="uri">https://github.com/visioneval/VisionEval/tree/master/api</a>]] for now ]</li>
 </ul>
 </div>
-<div id="go-thru-relevant-package-development-tutorials" class="section level3" number="13.1.5">
+<div id="go-thru-relevant-package-development-tutorials" class="section level3" number="14.1.5">
 <h3>
-<span class="header-section-number">13.1.5</span> Go thru relevant Package Development Tutorials<a class="anchor" aria-label="anchor" href="#go-thru-relevant-package-development-tutorials"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.5</span> Go thru relevant Package Development Tutorials<a class="anchor" aria-label="anchor" href="#go-thru-relevant-package-development-tutorials"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>Vignette for adding a module to existing package [ Status: needs to be developed ]</li>
 <li>Vignette for making changes to existing module [ Status: needs to be developed ]</li>
 </ul>
 </div>
-<div id="understand-licensing" class="section level3" number="13.1.6">
+<div id="understand-licensing" class="section level3" number="14.1.6">
 <h3>
-<span class="header-section-number">13.1.6</span> Understand licensing<a class="anchor" aria-label="anchor" href="#understand-licensing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.1.6</span> Understand licensing<a class="anchor" aria-label="anchor" href="#understand-licensing"><i class="fas fa-link"></i></a>
 </h3>
 <ul>
 <li>VisionEval uses this <a href="https://github.com/visioneval/VisionEval/blob/master/LICENSE">LICENSE</a>
@@ -145,20 +146,20 @@
 </ul>
 </div>
 </div>
-<div id="contribution-guidelines" class="section level2" number="13.2">
+<div id="contribution-guidelines" class="section level2" number="14.2">
 <h2>
-<span class="header-section-number">13.2</span> Contribution Guidelines<a class="anchor" aria-label="anchor" href="#contribution-guidelines"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2</span> Contribution Guidelines<a class="anchor" aria-label="anchor" href="#contribution-guidelines"><i class="fas fa-link"></i></a>
 </h2>
 <p>When contributing to VisionEval, the set of <a href="developer.html#review-criteria">questions</a> below will be asked of the contribution. These review criteria help ensure contributions to VisionEval satisfy the <a href="https://github.com/visioneval/VisionEval/wiki/Goals-and-Objectives-of-VisionEval-Model-System">Goals and Objectives</a> of the system. Make sure to review the [[Developer Orientation|Developer-Orientation]] before making a submittal. Questions are categorized by review type. The automated test system also provides some helpful information where identified.</p>
-<div id="review-process" class="section level3" number="13.2.1">
+<div id="review-process" class="section level3" number="14.2.1">
 <h3>
-<span class="header-section-number">13.2.1</span> Review Process<a class="anchor" aria-label="anchor" href="#review-process"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.1</span> Review Process<a class="anchor" aria-label="anchor" href="#review-process"><i class="fas fa-link"></i></a>
 </h3>
-<p>To submit a contribution for review, issue a pull request with a comment introducing your contribution. The comment should include a brief overview, responses to the <a href="developer.html#review-criteria">questions</a>, and pointers to related information. The entire submittal should ideally be self contained so the documentation of the methods should be in the R package as well. The Repository Manager and [[Review Team|Review-Team-Charter]] Chair will handle the review request, comment on each question, complete the <a href="visioneval-model-details.html#feedback">feedback</a> form, and reply to the pull request. Its a good idea to setup a pre-submittal meeting to discuss questions and better understand expectations. See the <a href="Example-Review">example submittal and review</a> for more information.</p>
+<p>To submit a contribution for review, issue a pull request with a comment introducing your contribution. The comment should include a brief overview, responses to the <a href="developer.html#review-criteria">questions</a>, and pointers to related information. The entire submittal should ideally be self contained so the documentation of the methods should be in the R package as well. The Repository Manager and [[Review Team|Review-Team-Charter]] Chair will handle the review request, comment on each question, complete the <a href="verspm.html#feedback">feedback</a> form, and reply to the pull request. Its a good idea to setup a pre-submittal meeting to discuss questions and better understand expectations. See the <a href="Example-Review">example submittal and review</a> for more information.</p>
 </div>
-<div id="review-criteria" class="section level3" number="13.2.2">
+<div id="review-criteria" class="section level3" number="14.2.2">
 <h3>
-<span class="header-section-number">13.2.2</span> Review Criteria<a class="anchor" aria-label="anchor" href="#review-criteria"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.2</span> Review Criteria<a class="anchor" aria-label="anchor" href="#review-criteria"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
@@ -270,9 +271,9 @@
 </tbody>
 </table></div>
 </div>
-<div id="feedback-1" class="section level3" number="13.2.3">
+<div id="feedback-1" class="section level3" number="14.2.3">
 <h3>
-<span class="header-section-number">13.2.3</span> Feedback<a class="anchor" aria-label="anchor" href="#feedback-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.2.3</span> Feedback<a class="anchor" aria-label="anchor" href="#feedback-1"><i class="fas fa-link"></i></a>
 </h3>
 <p>The Review Team will provide feedback for each review criteria above and tag each submittal category as follows:</p>
 <div class="inline-table"><table class="table table-sm">
@@ -311,18 +312,18 @@
 </table></div>
 </div>
 </div>
-<div id="changelog-for-new-versions" class="section level2" number="13.3">
+<div id="changelog-for-new-versions" class="section level2" number="14.3">
 <h2>
-<span class="header-section-number">13.3</span> Changelog for New Versions<a class="anchor" aria-label="anchor" href="#changelog-for-new-versions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3</span> Changelog for New Versions<a class="anchor" aria-label="anchor" href="#changelog-for-new-versions"><i class="fas fa-link"></i></a>
 </h2>
 <p>When releasing a new version of VisionEval, we will:</p>
 <ol style="list-style-type: decimal">
 <li>Include the significant changes in the release notes template below</li>
 <li>Record the significant changes in the changelog here</li>
 </ol>
-<div id="release-notes-template" class="section level3" number="13.3.1">
+<div id="release-notes-template" class="section level3" number="14.3.1">
 <h3>
-<span class="header-section-number">13.3.1</span> Release Notes Template<a class="anchor" aria-label="anchor" href="#release-notes-template"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.1</span> Release Notes Template<a class="anchor" aria-label="anchor" href="#release-notes-template"><i class="fas fa-link"></i></a>
 </h3>
 <p>For <a href="https://github.com/VisionEval/VisionEval/releases">releases</a>
 Make updates where marked with <code>**</code></p>
@@ -355,9 +356,9 @@ b. verpat() runs VERPAT in RGUI
 c. verspm() runs VERSPM in RGUI
 d. Note that there’s no helper function to run VESTATE from the command line yet – that will be added to the installation in a future release. You can just setwd() to the VE-State folder under “models” and then source(‘Run_Model.R’).</code></pre>
 </div>
-<div id="changelog" class="section level3" number="13.3.2">
+<div id="changelog" class="section level3" number="14.3.2">
 <h3>
-<span class="header-section-number">13.3.2</span> Changelog<a class="anchor" aria-label="anchor" href="#changelog"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.3.2</span> Changelog<a class="anchor" aria-label="anchor" href="#changelog"><i class="fas fa-link"></i></a>
 </h3>
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
@@ -394,9 +395,9 @@ d. Note that there’s no helper function to run VESTATE from the command line y
 </table></div>
 </div>
 </div>
-<div id="testing-strategies" class="section level2" number="13.4">
+<div id="testing-strategies" class="section level2" number="14.4">
 <h2>
-<span class="header-section-number">13.4</span> Testing Strategies<a class="anchor" aria-label="anchor" href="#testing-strategies"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.4</span> Testing Strategies<a class="anchor" aria-label="anchor" href="#testing-strategies"><i class="fas fa-link"></i></a>
 </h2>
 <p>The VisionEval model system and design of the framework software incorporates a number of features that facilitate automated testing to assure that modules will work within the system. Perhaps the most significant feature is the ‘data typing’ system that requires modules to completely specify all data that the module handles in some fashion: as model inputs, as data fetched from the common datastore, and as data that is output to be saved in the common datastore. These data specifications establish ‘contracts’ that assure data consistency and the framework software includes a number of functions that use the specifications to check consistency. These functions help to ensure that modules will work properly together.</p>
 <p>Following are some of the checks that are done:
@@ -414,9 +415,9 @@ d. Note that there’s no helper function to run VESTATE from the command line y
 <li>Whether every module when it is called will have the data it needs to run (either in specified input files or the datastore) and whether the attributes of those data are consistent with the specifications for the module.</li>
 </ul>
 <p>These checks that are built into the framework software make it possible to implement automated checking of VisionEval module packages and VisionEval model whenever a module package and/or model is added to or modified in the VisionEval repository.</p>
-<div id="ui-testing" class="section level3" number="13.4.1">
+<div id="ui-testing" class="section level3" number="14.4.1">
 <h3>
-<span class="header-section-number">13.4.1</span> UI Testing<a class="anchor" aria-label="anchor" href="#ui-testing"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.4.1</span> UI Testing<a class="anchor" aria-label="anchor" href="#ui-testing"><i class="fas fa-link"></i></a>
 </h3>
 <p>VEGUI is an application that allows a user to run various VisionEval models. VEGUI is tested using shinytest to ensure its functionality and its usability. Multiple test scripts are written to test different functionalities. Following is a list of tests currently implemented:</p>
 <ul>
@@ -435,9 +436,9 @@ The main test script <a href="https://github.com/visioneval/VisionEval/blob/deve
 - Set the parameter <code>createExpectedResults</code> in the main test script <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> to FALSE;
 - Run <a href="https://github.com/visioneval/VisionEval/blob/develop/sources/VEGUI/run_vegui_test.R">run_vegui_test</a> to ensure that the test finishes successfully.</p>
 </div>
-<div id="test-system" class="section level3" number="13.4.2">
+<div id="test-system" class="section level3" number="14.4.2">
 <h3>
-<span class="header-section-number">13.4.2</span> Test System<a class="anchor" aria-label="anchor" href="#test-system"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.4.2</span> Test System<a class="anchor" aria-label="anchor" href="#test-system"><i class="fas fa-link"></i></a>
 </h3>
 <p><a href="https://travis-ci.org/">TravisCI</a> services are used to automatically test all modules and models to assure that they work properly. Here are a few details on the test system:
 - Tests automatically run with every commit and the pass/fail status is at the bottom of the README as <a href="https://github.com/visioneval/VisionEval/tree/develop">rendered by GitHub</a>
@@ -455,50 +456,50 @@ The main test script <a href="https://github.com/visioneval/VisionEval/blob/deve
 </ul>
 </div>
 </div>
-<div id="add-or-modify-a-package" class="section level2" number="13.5">
+<div id="add-or-modify-a-package" class="section level2" number="14.5">
 <h2>
-<span class="header-section-number">13.5</span> Add or Modify a Package<a class="anchor" aria-label="anchor" href="#add-or-modify-a-package"><i class="fas fa-link"></i></a>
+<span class="header-section-number">14.5</span> Add or Modify a Package<a class="anchor" aria-label="anchor" href="#add-or-modify-a-package"><i class="fas fa-link"></i></a>
 </h2>
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="visioneval-model-details.html"><span class="header-section-number">12</span> VisionEval Model Details</a></div>
-<div class="next"><a href="api-documentation.html"><span class="header-section-number">14</span> API Documentation</a></div>
+<div class="prev"><a href="verpat.html"><span class="header-section-number">13</span> VERPAT Model Details</a></div>
+<div class="next"><a href="api-documentation.html"><span class="header-section-number">15</span> API Documentation</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#developer"><span class="header-section-number">13</span> Developer Documentation</a></li>
+<li><a class="nav-link" href="#developer"><span class="header-section-number">14</span> Developer Documentation</a></li>
 <li>
-<a class="nav-link" href="#developer-orientation"><span class="header-section-number">13.1</span> Developer Orientation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#assumptions-prerequisites"><span class="header-section-number">13.1.1</span> Assumptions + prerequisites</a></li>
-<li><a class="nav-link" href="#get-visioneval-running"><span class="header-section-number">13.1.2</span> Get VisionEval running</a></li>
-<li><a class="nav-link" href="#understand-the-development-principles-and-organization-of-visioneval-framework"><span class="header-section-number">13.1.3</span> Understand the development principles and organization of VisionEval framework</a></li>
-<li><a class="nav-link" href="#skim-useful-references-to-know-about"><span class="header-section-number">13.1.4</span> Skim useful references to know about</a></li>
-<li><a class="nav-link" href="#go-thru-relevant-package-development-tutorials"><span class="header-section-number">13.1.5</span> Go thru relevant Package Development Tutorials</a></li>
-<li><a class="nav-link" href="#understand-licensing"><span class="header-section-number">13.1.6</span> Understand licensing</a></li>
+<a class="nav-link" href="#developer-orientation"><span class="header-section-number">14.1</span> Developer Orientation</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#assumptions-prerequisites"><span class="header-section-number">14.1.1</span> Assumptions + prerequisites</a></li>
+<li><a class="nav-link" href="#get-visioneval-running"><span class="header-section-number">14.1.2</span> Get VisionEval running</a></li>
+<li><a class="nav-link" href="#understand-the-development-principles-and-organization-of-visioneval-framework"><span class="header-section-number">14.1.3</span> Understand the development principles and organization of VisionEval framework</a></li>
+<li><a class="nav-link" href="#skim-useful-references-to-know-about"><span class="header-section-number">14.1.4</span> Skim useful references to know about</a></li>
+<li><a class="nav-link" href="#go-thru-relevant-package-development-tutorials"><span class="header-section-number">14.1.5</span> Go thru relevant Package Development Tutorials</a></li>
+<li><a class="nav-link" href="#understand-licensing"><span class="header-section-number">14.1.6</span> Understand licensing</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#contribution-guidelines"><span class="header-section-number">13.2</span> Contribution Guidelines</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#review-process"><span class="header-section-number">13.2.1</span> Review Process</a></li>
-<li><a class="nav-link" href="#review-criteria"><span class="header-section-number">13.2.2</span> Review Criteria</a></li>
-<li><a class="nav-link" href="#feedback-1"><span class="header-section-number">13.2.3</span> Feedback</a></li>
+<a class="nav-link" href="#contribution-guidelines"><span class="header-section-number">14.2</span> Contribution Guidelines</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#review-process"><span class="header-section-number">14.2.1</span> Review Process</a></li>
+<li><a class="nav-link" href="#review-criteria"><span class="header-section-number">14.2.2</span> Review Criteria</a></li>
+<li><a class="nav-link" href="#feedback-1"><span class="header-section-number">14.2.3</span> Feedback</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#changelog-for-new-versions"><span class="header-section-number">13.3</span> Changelog for New Versions</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#release-notes-template"><span class="header-section-number">13.3.1</span> Release Notes Template</a></li>
-<li><a class="nav-link" href="#changelog"><span class="header-section-number">13.3.2</span> Changelog</a></li>
+<a class="nav-link" href="#changelog-for-new-versions"><span class="header-section-number">14.3</span> Changelog for New Versions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#release-notes-template"><span class="header-section-number">14.3.1</span> Release Notes Template</a></li>
+<li><a class="nav-link" href="#changelog"><span class="header-section-number">14.3.2</span> Changelog</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#testing-strategies"><span class="header-section-number">13.4</span> Testing Strategies</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#ui-testing"><span class="header-section-number">13.4.1</span> UI Testing</a></li>
-<li><a class="nav-link" href="#test-system"><span class="header-section-number">13.4.2</span> Test System</a></li>
+<a class="nav-link" href="#testing-strategies"><span class="header-section-number">14.4</span> Testing Strategies</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ui-testing"><span class="header-section-number">14.4.1</span> UI Testing</a></li>
+<li><a class="nav-link" href="#test-system"><span class="header-section-number">14.4.2</span> Test System</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#add-or-modify-a-package"><span class="header-section-number">13.5</span> Add or Modify a Package</a></li>
+<li><a class="nav-link" href="#add-or-modify-a-package"><span class="header-section-number">14.5</span> Add or Modify a Package</a></li>
 </ul>
 
       <div class="book-extra">
