@@ -152,17 +152,12 @@ For more information see [here](https://github.com/VisionEval/VisionEval/blob/ma
 This module assigns workers by age to households and to non-institutional group quarters population. It is a simple model which predicts workers as a function of the household type and age composition. 
 
 #### User Input Files
-1. Relative employment (**_azone_relative_employment.csv"_**): This file contains the ratio of workers to persons by age cohort in the model year relative to the model estimation data year. This file contains five age cohorts:
-   * **RelEmp15to19**: Ratio of workers to persons age 15 to 19 in model year versus in estimation data year
-   * **RelEmp20to29**: Ratio of workers to persons age 20 to 29 in model year versus in estimation data year
-   * **RelEmp30to54**: Ratio of workers to persons age 30 to 54 in model year versus in estimation data year
-   * **RelEmp55to64**: Ratio of workers to persons age 55 to 64 in model year versus in estimation data year
-   * **RelEmp65Plus**: Ratio of workers to persons age 65 or older in model year versus in estimation data year
 
-   Here is a snapshot of the file:
-   <img align="center" width="800" border=1 src="images/azone_relative_employment.PNG">
+1. Relative employment ([azone_relative_employment.csv](#vestate-azone_relative_employment.csv))
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
@@ -172,6 +167,7 @@ This module assigns workers by age to households and to non-institutional group 
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**Age55to64** | Persons in 55 to 64 year old age group    |
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**Age65Plus** | Persons in 65 or older age group          |
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HHType**    | Coded household age composition           |
+</div>
 
 #### Module Outputs
 
@@ -190,9 +186,12 @@ For more information see [here](https://github.com/VisionEval/VisionEval/blob/ma
 This module assigns a life cycle category to each household. The life cycle categories are similar, but not the same as, those established for the National Household Travel Survey (NHTS). The age categories used in VisionEval models are broader than those used by the NHTS to identify children of different ages. This is a simple model with set of rules that assigns age group categories based on the age of persons and workers in the household.
 
 #### User Input Files
+
 This module has no user input requirements.
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
@@ -207,6 +206,7 @@ This module has no user input requirements.
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Wrk30to54** | Workers in 30 to 54 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Wrk55to64** | Workers in 55 to 64 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Wrk65Plus** | Workers in 65 or older age group          |
+</div>
 
 #### Module Outputs
 
@@ -215,15 +215,16 @@ This module has no user input requirements.
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/AssignLifeCycle.md)
 
 ### PredictIncome
+
 This module predicts the income for each simulated household given the number of workers in each age group and the average per capita income for the `Azone` where the household resides.
 
 #### User Input Files
-1. Regional income (**_azone_per_cap_inc.csv"_**): This file contains information on regional average per capita household (`HHIncomePC`) and group quarters (`GQIncomePC`) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become `HHIncomePC.2015` and `GQIncomePC.2015`. 
 
-   Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/azone_per_cap_inc.PNG">
+1. Regional income ([azone_per_cap_inc.csv](#vestate-azone_per_cap_inc.csv))
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HHSize**    | Number of persons in the household        |
@@ -233,8 +234,10 @@ This module predicts the income for each simulated household given the number of
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Wrk20to29** | Workers in 20 to 29 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Wrk30to54** | Workers in 30 to 54 year old age group    |
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Wrk55to64** | Workers in 55 to 64 year old age group    |
+</div>
 
 #### Module Outputs
+
 * **Income**: Total annual household (non-group and group quarters) income
 
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimHouseholds/inst/module_docs/PredictIncome.md)
@@ -247,49 +250,17 @@ Many of the models and procedures used in Bzone synthesis pivot from profiles de
 
 It is incumbent on the model user to identify the name of the urbanized area profile that will be used for each of the Mareas in the model. This module reads in the names assigned in the "marea_uza_profile_names.csv" file and checks their validity. If any are invalid, input processing will stop and error messages will be written to the log identifying the problem names. The following table identifies the names that may be used.
 
-#### User Input Files
+#### User Input Files 
 
-1. Metropolitan area names (**_marea_uza_profile_names.csv_**): This file provides the name of a specific urbanized area for the urbanized area profile to use in SimBzone creation
-   * **UzaProfileName**: Name of a specific urbanized area for the urbanized area profile to use in SimBzone creation or one of the following: small, medium-small, medium, medium-large, large, very-large
+1. Metropolitan area names ([marea_uza_profile_names.csv](#vestate-marea_uza_profile_names.csv))
 
-   Here is a snapshot of the file:
-   <img align="center" width="200" border=1 src="images/uza.PNG">   
-
-2. Household location type proportions (**_azone_hh_loc_type_prop.csv_**): This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone
-   * **PropMetroHh**: Proportion of households residing in the metropolitan (i.e. urbanized) part of the Azone
-   * **PropTownHh**: Proportion of households residing in towns (i.e. urban-like but not urbanized) in the Azone
-   * **PropRuralHh**: Proportion of households residing in rural (i.e. not urbanized or town) parts of the Azone
-
-   Here is a snapshot of the file:
-   <img align="center" width="400" border=1 src="images/hh_loc_type.PNG">   
+2. Household location type proportions ([azone_hh_loc_type_prop.csv](#vestate-azone_hh_loc_type_prop.csv))
    
-3. Work location type proportions (**_azone_wkr_loc_type_prop.csv_**): This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone
-   * **PropWkrInMetroJobs**: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone
-   * **PropWkrInTownJobs**: Proportion of workers residing in the Azone who work at jobs in towns (i.e. urban-like but not urbanized) in the Azone
-   * **PropWkrInRuralJobs**: Proportion of workers residing in the Azone who work at jobs in rural (i.e. not urbanized or town) parts of the Azone
-   * **PropMetroJobs**: Proportion of the jobs of the metropolitan area that the Azone is associated with that are located in the metropolitan portion of the Azone
+3. Work location type proportions ([azone_wkr_loc_type_prop.csv](#vestate-azone_wkr_loc_type_prop.csv))
    
-   Here is a snapshot of the file:
-   <img align="center" width="400" border=1 src="images/wrk_loc_prop.PNG">
-   
-4. Land area by location type (azone_loc_type_land_area.csv): This file provides the proportions for groupquarters in different area types.
-   * **MetroLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in the metropolitan (i.e. urbanized) portion of the Azone
-   * **TownLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone
-   * **RuralAveDensity**: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone
+4. Land area by location type ([azone_loc_type_land_area.csv](#vestate-azone_loc_type_land_area.csv))
 
-  Here is a snapshot of the file:
-
- <img align="center" width="400" border=1 src="images/loc_type_land.PNG"> 
-
-
-5. Group quarter population by location type proportions (**_azone_gq_pop-prop_by_area-type.csv_**): This file provides the average activity density in rural areas 
-   * **PropGQPopCenter**: Proportion of Azone non-institutional group quarters population located in center area type
-   * **PropGQPopInner**: Proportion of Azone non-institutional group quarters population located in inner area type
-   * **PropGQPopOuter**: Proportion of Azone non-institutional group quarters population located in outer area type
-   * **PropGQPopFringe**: Proportion of Azone non-institutional group quarters population located in fringe area type
-
-For more information see [here](https://github.com/VisionEval/VisionEval-Dev/blob/master/sources/modules/VESimLandUse/inst/module_docs/Initialize.md)
-)
+5. Group quarter population by location type proportions ([azone_gq_pop-prop_by_area-type.csv](#vestate-azone_gq_pop-prop_by_area-type.csv))
 
 ### CreateSimBzones {#vestate-createsimbzones}
 
@@ -300,24 +271,21 @@ Many of the models and procedures used in Bzone synthesis pivot from profiles de
 The models and procedures in this module create SimBzones within each Azone that simulate the land use characteristics of neighborhoods likely to be found in the Azone. The SimBzones are assigned quantities of households and jobs and are attributed with several land use measures in the process. The characteristics are:
 
 * **Location Type**: Identification of whether the SimBzone is located in an urbanized area, a town (i.e. an urban-type area that is not large enough to be urbanized), rural (i.e. dispersed low-density development)
-
 * **Households**: Number of households in each SimBzone
-
 * **Employment**: Number of jobs in each SimBzone
-
 * **Activity Density**: Number of households and jobs per acre
-
 * **Land Use Diversity**: Measures of the degree of mixing of households and jobs
-
 * **Destination Accessibility**: Measures of proximity to households and jobs
-
 * **Area Type and Development Type**: Categories which describe the relative urban nature of the SimBzone (area type) and the character of development in the SimBzone (development type).
-
 * **Employment Split**: Number of retail, service, and other jobs in each SimBzone.
 
 #### User Input Files
 
+This module has no user input requirements.
+
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)   |**NumWkr**    | see  [PredictWorkers](#vestate-predictworkers)         |
@@ -331,6 +299,7 @@ The models and procedures in this module create SimBzones within each Azone that
 | VESimLandUse    | [Initialize](#vestate-initialize)   |**MetroLandArea**    | see  [Initialize](#vestate-initialize)           |
 | VESimLandUse    | [Initialize](#vestate-initialize)  |**TownLandArea** | see  [Initialize](#vestate-initialize)         |
 | VESimLandUse    | [Initialize](#vestate-initialize)      |**RuralAveDensity**   | see  [Initialize](#vestate-initialize)            |
+</div>
 
 #### Module Outputs
 * **LocType**: Location type (Urban, Town, Rural) of the place where the household resides
@@ -354,9 +323,14 @@ For more information see [here](https://github.com/VisionEval/VisionEval-Dev/blo
 ### SimulateHousing {#vestate-simulatehousing}
 
 This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics. It then assigns each household to a SimBzone based on the household's housing type as well as the supply of housing by type and SimBzone. The module assigns non-institutional group quarters households to SimBzones randomly.
+
 #### User Input Files
 
+This module has no user input requirements.
+
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
@@ -376,6 +350,7 @@ This module assigns a housing type, either single-family (SF) or multifamily (MF
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds)      |**Age55to64**    | Number of workers residing in the zone    |
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds)      |**Age65Plus**   | Total workers in the household            |
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds)      |**HhType**    | Number of workers residing in the zone    |
+</div>
 
 #### Module Outputs
 * **HouseType**: Type of dwelling unit in which the household resides (SF = single family, MF = multi-family, GQ = group quarters
@@ -391,19 +366,24 @@ This module assigns a housing type, either single-family (SF) or multifamily (MF
 
 For more information see [here](https://github.com/VisionEval/VisionEval-Dev/blob/master/sources/modules/VESimLandUse/inst/module_docs/SimulateHousing.md)
 
-
 ### SimulateEmployment {#vestate-simulateemployment}
 
 This module assign workers SimBzone work locations. A worker table is created which identifies a unique worker ID, the household ID the worker is a part of, and the SimBzone, Azone, and Marea of the worker job location.
+
 #### User Input Files
 
+This module has no user input requirements.
+
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**Workers**   | Total workers in the household            |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)     |**TotEmp**    | see [CreateSimBzones](#vestate-createsimbzones)   |
 | VESimLandUse    |[CreateSimBzones](#vestate-createsimbzones) |**LocType**      |see [CreateSimBzones](#vestate-createsimbzones)                              |
+</div>
 
 #### Module Outputs
 * **WkrId**: Unique worker ID
@@ -413,21 +393,17 @@ This module assign workers SimBzone work locations. A worker table is created wh
 
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimLandUse/inst/module_docs/SimulateEmployment.md)
 
-
 ### Simulate4DMeasures {#vestate-4dmeasures}
 
 This module calculates several 4D measures by SimBzone including density, diversity (i.e. mixing of land uses), and pedestrian-orientedn transportation network design. These measures are the same as or are similar to measures included in the Environmental Protection Agency's (EPA)
 
 #### User Input Files
-1. D3bpo4 value or different location types (**_marea_d3bpo4_adj_**): This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database
-   * **UrbanD3bpo4Adj**: Proportion of base urban D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for the urbanized portion of the marea
-   * **TownD3bpo4Adj**: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for towns
-   * **RuralD3bpo4Adj**: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for rural areas
 
-   Here is a snapshot of the file:
-   <img align="center" width="400" border=1 src="images/d3.PNG">   
+1. D3bpo4 value or different location types ([marea_d3bpo4_adj.csv](#vestate-marea_d3bpo4_adj.csv))
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)     |**TotEmp**    | see [CreateSimBzones](#vestate-createsimbzones)    |
@@ -442,6 +418,7 @@ This module calculates several 4D measures by SimBzone including density, divers
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**AreaType**      | see [CreateSimBzones](#vestate-createsimbzones)                              |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)       |**DevType**   | see [CreateSimBzones](#vestate-createsimbzones)              |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**LocType**      | see [CreateSimBzones](#vestate-createsimbzones)                                |
+</div>
 
 #### Module Outputs
 
@@ -459,14 +436,12 @@ For more information see [here](https://github.com/VisionEval/VisionEval/blob/ma
 This module simulates an urban mixed-use measure based on the 2001 National Household Travel Survey measure of the tract level urban/rural indicator
 
 #### User Input Files
-1. Target for proportion of households  (**_marea_mix_targets_**): This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target)
-   * **UrbanMixProp**: Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target)
 
-
-   Here is a snapshot of the file:
-<img align="center" width="400" border=1 src="images/mix.PNG">   
+1. Target for proportion of households in mixed-use neighborhoods ([marea_mix_targets.csv](#vestate-marea_mix_targets.csv))
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 |VESimLandUse    | [SimulateHousing](#vestate-simulatehousing)    |**Pop**   | see  [SimulateHousing](#vestate-simulatehousing)           |
@@ -479,48 +454,27 @@ This module simulates an urban mixed-use measure based on the 2001 National Hous
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**RuralArea**      | see [CreateSimBzones](#vestate-createsimbzones)                              |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**SFDU**      | see [CreateSimBzones](#vestate-createsimbzones)                              |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)       |**MFDU**   | see [CreateSimBzones](#vestate-createsimbzones)              |
+</div>
 
 #### Module Outputs
+
 * **IsUrbanMixNbrhd**: Flag identifying whether household is (1) or is not (0) in urban mixed-use neighborhood
 
-
-
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimLandUse/inst/module_docs/SimulateUrbanMixMeasure.md)
-
 
 ### AssignParkingRestrictions {#vestate-assignparkingrestrictions}
 
 This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area. The module takes user inputs on parking restrictions and prices by Bzone and calculates for each household the number of free parking spaces available at the household's residence, which workers pay for parking and whether their payment is part of a cash-out-buy-back program, the cost of residential parking for household vehicles that can't be parked in a free space, the cost for workplace parking, and the cost of parking for other activities such as shopping. The parking restriction/cost information is used by other modules in calculating the cost of vehicle ownership and the cost of vehicle use.
+
 #### User Input Files
-1. Parking availability  (**_marea_parking-avail_by_area-type_**): This file has the data for avereage number of parkings available to households
-   * **CenterPkgSpacesPerSFDU**: Average number of free parking spaces available to residents of single-family dwelling units in center area type
-   * **InnerPkgSpacesPerSFDU**: Average number of free parking spaces available to residents of single-family dwelling units in inner area type
-   * **OuterPkgSpacesPerSFDU**: Average number of free parking spaces available to residents of single-family dwelling units in outer area type
-   * **CenterPkgSpacesPerMFDU**: Average number of free parking spaces available to residents of multifamily dwelling units in center area type
-   * **InnerPkgSpacesPerMFDU**: Average number of free parking spaces available to residents of multifamily dwelling units in inner area type
-   * **OuterPkgSpacesPerMFDU**: Average number of free parking spaces available to residents of multifamily dwelling units in outer area type
-   * **CenterPkgSpacesPerGQ**: Average number of free parking spaces available to group quarters residents in center area type
-   * **InnerPkgSpacesPerGQ**: Average number of free parking spaces available to group quarters residents in inner area type
-   * **OuterPkgSpacesPerGQ**: Average number of free parking spaces available to group quarters residents in outer area type
 
-   Here is a snapshot of the file:
-   <img align="center" width="800" border=1 src="images/park_availablity.PNG">   
+1. Parking availability  ([marea_parking-avail_by_area-type.csv](#vestate-marea_parking-avail_by_area-type.csv))
 
-2. Parking cost  (**_marea_parking-cost_by_area-type_**): This file has the data related to parking costs and population proportions paying the parking costs
-   * **CenterPropWkrPay**: Proportion of workers who pay for parking in center area type
-   * **InnerPropWkrPay**: Proportion of workers who pay for parking in inner area type
-   * **OuterPropWkrPay**: Proportion of workers who pay for parking in outer area type
-   * **CenterPropCashOut**: Proportions of workers paying for parking in a cash-out-buy-back program in center area type
-   * **InnerPropCashOut**: Proportions of workers paying for parking in a cash-out-buy-back program in inner area type
-   * **OuterPropCashOut**: Proportions of workers paying for parking in a cash-out-buy-back program in outer area type
-   * **CenterPkgCost**: Average daily cost for long-term parking (e.g. paid on monthly basis) in center area type
-   * **InnerPkgCost**: Average daily cost for long-term parking (e.g. paid on monthly basis) in inner area type
-   * **OuterPkgCost**: Average daily cost for long-term parking (e.g. paid on monthly basis) in outer area type
-
-   Here is a snapshot of the file:
-   <img align="center" width="800" border=1 src="images/park_cost.PNG">   
+2. Parking cost  ([marea_parking-cost_by_area-type.csv](#vestate-marea_parking-avail_by_area-type.csv))
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)     |**RetEmp**    | see [CreateSimBzones](#vestate-createsimbzones)    |
@@ -530,6 +484,7 @@ This module identifies parking restrictions and prices affecting households at t
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**AreaType**      | see [CreateSimBzones](#vestate-createsimbzones)                              |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**LocType**      | see [CreateSimBzones](#vestate-createsimbzones)                                |
 | VESimLandUse    | [SimulateHousing](#vestate-simulatehousing)  |**HouseType**      | see [SimulateHousing](#vestate-simulatehousing)                                |
+</div>
 
 #### Module Outputs
 * **FreeParkingSpaces**: Number of free parking spaces available to the household
@@ -539,39 +494,27 @@ This module identifies parking restrictions and prices affecting households at t
 * **IsCashOut**: Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no
 * **ParkingCost**: Daily cost for long-term parking (e.g. paid on monthly basis)
 
-
-
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimLandUse/inst/module_docs/AssignParkingRestrictions.md)
-
 
 ### AssignDemandManagement {#vestate-assigndemandmanagement}
 
 This module assigns demand management program participation to households and to workers. Households are assigned to individualized marketing program participation. Workers are assigned to employee commute options participation. The module computes the net proportional reduction in household DVMT based on the participation in travel demand management programs.
 
 #### User Input Files
-1. Travel demand management  (**_marea_travel-demand-mgt_by_area-type_**): This file has the data for proportions participating in demand management programs
-   * **CenterEcoProp**: Proportion of workers working in center area type in Marea who participate in strong employee commute options program
-   * **InnerEcoProp**: Proportion of workers working in inner area type in Marea who participate in strong employee commute options program
-   * **OuterEcoProp**: Proportion of workers working in outer area type in Marea who participate in strong employee commute options program
-   * **FringeEcoProp**: Proportion of workers working in fringe area type in Marea who participate in strong employee commute options program
-   * **CenterImpProp**: Proportion of households residing in center area type in Marea who participate in strong individualized marketing program
-   * **InnerImpProp**: Proportion of households residing in inner area type in Marea who participate in strong individualized marketing program
-   * **OuterImpProp**: Proportion of households residing in outer area type in Marea who participate in strong individualized marketing program
-   * **FringeImpProp**: Proportion of households residing in fringe area type in Marea who participate in strong individualized marketing program
 
-   Here is a snapshot of the file:
-   <img align="center" width="500" border=1 src="images/demand_management.PNG">   
-
-
+1. Travel demand management  ([marea_travel-demand-mgt_by_area-type.csv](#vestate-marea_travel-demand-mgt_by_area-type.csv))
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds)     |**HhSize**    | see [CreateHouseholds](#vestate-createhouseholds)    |
 | VESimHouseholds    | [PredictWorkers](#vestate-predictworkers)     |**workers** | see [PredictWorkers](#vestate-predictworkers)    |
-
+</div>
 
 #### Module Outputs
+
 * **IsIMP**: dentifies whether household is participant in travel demand management individualized marketing program (IMP): 1 = yes, 0 = n
 * **PropTdmDvmtReduction**: Proportional reduction in household DVMT due to participation in travel demand management programs
 * **IsECO**: Identifies whether worker is a participant in travel demand management employee commute options program: 1 = yes, 0 = no
@@ -595,12 +538,15 @@ This module assigns car service availability levels (Low, High) to Bzones and ho
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)     |**NumHh**    | see [CreateSimBzones](#vestate-createsimbzones)   |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)  |**AreaType**      | see [CreateSimBzones](#vestate-createsimbzones)                              |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)     |**TotEmp**    | see [CreateSimBzones](#vestate-createsimbzones)    |
 | VESimLandUse    | [Calculate4DMeasures](#calculate4dmeasures)  |**D1D**      | see [Calculate4DMeasures](#calculate4dmeasures)                             |
+</div>
 
 #### Module Outputs
 * **IsIMP**: dentifies whether household is participant in travel demand management individualized marketing program (IMP): 1 = yes, 0 = n
@@ -631,6 +577,8 @@ This module assigns transit service level to the urbanized portion of each Marea
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)     |**NumHh**    | see [CreateSimBzones](#vestate-createsimbzones)   |
@@ -639,6 +587,7 @@ This module assigns transit service level to the urbanized portion of each Marea
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)      |**UrbanArea**   | see [CreateSimBzones](#vestate-createsimbzones)             |
 | VESimLandUse    | [CreateSimBzones](#vestate-createsimbzones)       |**DevType**   | see [CreateSimBzones](#vestate-createsimbzones)              |
 |VESimLandUse    | [SimulateHousing](#vestate-simulatehousing)    |**UrbanPop**   | see  [SimulateHousing](#vestate-simulatehousing)           |
+</div>
 
 #### Module Outputs
 * **TranRevMiPC**: Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population
@@ -664,13 +613,15 @@ This module assigns freeway and arterial lane-miles to metropolitan areas (Marea
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 |VESimLandUse    | [SimulateHousing](#vestate-simulatehousing)    |**UrbanPop**   | see  [SimulateHousing](#vestate-simulatehousing)           |
 
 #### Module Outputs
 * **FwyLaneMiPC**: Ratio of urbanized area freeway and expressway lane-miles to urbanized area population
-
+</div>
 
 
 For more information see [here](https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimTransportSupply/inst/module_docs/SimulateRoadMiles.md)
@@ -692,6 +643,8 @@ This module assigns drivers by age group to each household as a function of the 
    <img align="center" width="800" border=1 src="images/region_hh_driver_adjust_prop.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply  | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     |Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population              |
@@ -706,7 +659,7 @@ This module assigns drivers by age group to each household as a function of the 
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HHSize**    | Number of persons in the household        |
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
 | VELandUse          | [AssignLocTypes](#assignloctypes) |**LocType**    | Location type (Urban, Town, Rural) of the place where the household resides        |
-
+</div>
 
 #### Module Outputs
 * **Drv15to19**: Number of drivers 15 to 19 years old
@@ -728,6 +681,8 @@ This module has no user input requirements.
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     | Ratio of annual bus-equivalent revenue-miles to urbanized area population              |
@@ -740,7 +695,7 @@ This module has no user input requirements.
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HHSize**    | Number of persons in the household        |
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
 | VELandUse    | [AssignLocTypes](#assignloctypes) |**LocType**    | Location type (Urban, Town, Rural) of the place where the household resides        |
-
+</div>
 
 #### Module Outputs  
 * **Vehicles**: Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons
@@ -761,6 +716,8 @@ This module identifies how many household vehicles are light trucks and how many
    <img align="center" width="300" border=1 src="images/azone_lttrk_prop.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [Calculate4DMeasures](#calculate4dmeasures)     |**D1B** | Gross population density (people/acre) on unprotected (i.e. developable) land in zone    |
@@ -773,7 +730,7 @@ This module identifies how many household vehicles are light trucks and how many
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HHSize**    | Number of persons in the household        |
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
-
+</div>
 
 #### Module Outputs
 * **NumLtTrk**: Number of light trucks (pickup, sport-utility vehicle, and van) owned or leased by household
@@ -781,9 +738,6 @@ This module identifies how many household vehicles are light trucks and how many
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleType.md)
 
-[Top](#rspm-modules-and-outputs)
-
-___
 
 ### CreateVehicleTable {#vestate-createvehicletable}
 This module creates a vehicle table and populates it with household ID and geography fields.
@@ -800,11 +754,14 @@ This module creates a vehicle table and populates it with household ID and geogr
    <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEHouseholdVehicles    | [AssignVehicleOwnership](#vestate-assignvehicleownership)     |**Vehicles**   | Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons           |
 | VEHouseholdVehicles    | [AssignDrivers](#vestate-assigndrivers)     |**DrvAgePersons**   | Number of people 15 year old or older in the household           |
 | VELandUse     | [AssignCarSvcAvailability ](#vestate-assigncarsvcavailability)     |**CarSvcLevel**   | Level of car service availability for household. High means access is competitive with household owned car. Low is not competitive.          |
+</div>
 
 #### Module Outputs
 * **VehId**: Unique vehicle ID
@@ -830,6 +787,8 @@ This module assigns vehicle ages to each household vehicle. Vehicle age is assig
    <img align="center" width="800" border=1 src="images/azone_carsvc_characteristics.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
@@ -839,6 +798,7 @@ This module assigns vehicle ages to each household vehicle. Vehicle age is assig
 | VEHouseholdVehicles    | [AssignVehicleType](#vestate-assignvehicletype) |**NumLtTrk**      | Number of light trucks (pickup, sport-utility vehicle, and van) owned or leased by household                             |
 | VEHouseholdVehicles    | [AssignVehicleType](#vestate-assignvehicletype) |**NumAuto**      | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household                              |
 | VEHouseholdVehicles    | [CreateVehicleTable](#vestate-createvehicletable) |**VehicleAccess**      | Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (LowCarSvc), or if vehicle is high level car service (`HighCarSvc`)                             |
+</div>
 
 #### Module Outputs
 * **Type**: Vehicle body type: Auto = automobile, LtTrk = light trucks (i.e. pickup, SUV, Van)
@@ -866,6 +826,8 @@ This module calculates average vehicle ownership cost for each vehicle based on 
    <img align="center" width="300" border=1 src="images/azone_payd_insurance_prop.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
@@ -884,7 +846,8 @@ This module calculates average vehicle ownership cost for each vehicle based on 
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VELandUse    | [AssignLocTypes](#assignloctypes) |**LocType**    | Location type (Urban, Town, Rural) of the place where the household resides        |
 | VEHouseholdVehicles    | [AssignVehicleType](#vestate-assignvehicletype) |**NumLtTrk**      | Number of light trucks (pickup, sport-utility vehicle, and van) owned or leased by household                             |
-| VEHouseholdVehicles    | [AssignVehicleType](#vestate-assignvehicletype) |**NumAuto**      | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household                             
+| VEHouseholdVehicles    | [AssignVehicleType](#vestate-assignvehicletype) |**NumAuto**      | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household|
+</div>
 
 #### Module Outputs
 * **OwnCost**: Annual cost of vehicle ownership including depreciation, financing, insurance, taxes, and residential parking in dollars
@@ -912,6 +875,8 @@ This module adjusts household vehicle ownership based on a comparison of the cos
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
@@ -926,7 +891,7 @@ This module adjusts household vehicle ownership based on a comparison of the cos
 ouseholdVehicles    | [CalculateVehicleOwnCost ](#vestate-calculatevehicleowncost ) |**OwnCost**      |  Annual cost of vehicle ownership including depreciation, financing, insurance, taxes, and residential parking in dollars                       |
 | VEHouseholdVehicles    | [CalculateVehicleOwnCost ](#vestate-calculatevehicleowncost ) |**OwnCostPerMile**      |  Annual cost of vehicle ownership per mile of vehicle travel (dollars per mile)                       |
 | VEHouseholdVehicles    | [CalculateVehicleOwnCost ](#vestate-calculatevehicleowncost ) |**InsCost**      |  Annual vehicle insurance cost in dollars                       |
-
+</div>
 
 #### Module Outputs
 * **VehicleAccess**: Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (`LowCarSvc`), or if vehicle is high level car service (`HighCarSvc`)
@@ -950,6 +915,7 @@ This module models household average daily vehicle miles traveled as a function 
 This module has no user input requirements.
 
 #### Internal Module Inputs
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     |Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population              |
@@ -963,7 +929,7 @@ This module has no user input requirements.
 | VEHouseholdVehicles    | [AssignVehicleOwnership](#vestate-assignvehicleownership)     |**Vehicles**   | Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons           |
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
-
+</div>
 
 #### Module Outputs
 * **Dvmt**: Average daily vehicle miles traveled by the household in autos or light trucks
@@ -981,6 +947,8 @@ This module calculates household transit trips, walk trips, and bike trips. The 
 This module has no user input requirements.
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [AssignTransitService](#assigntransitservice)     |**TranRevMiPC**     |Ratio of annual bus-equivalent revenue-miles (i.e. revenue-miles at the same productivity - passenger miles per revenue mile - as standard bus) to urbanized area population              |
@@ -997,7 +965,7 @@ This module has no user input requirements.
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#vestate-calculatehouseholddvmt)     |**Dvmt** | Average daily vehicle miles traveled by the household in autos or light trucks    |
-
+</div>
 
 #### Module Outputs
 * **WalkTrips**: Average number of walk trips per year by household members
@@ -1014,6 +982,8 @@ This module has no user input requirements.
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [ AssignRoadMiles ](#assignroadmiles)     |**FwyLaneMiPC**     |Ratio of urbanized area freeway and expressway lane-miles to urbanized area population              |
@@ -1025,7 +995,7 @@ This module has no user input requirements.
 | VESimHouseholds    | [PredictIncome](#predictincome)       |**Income**    | Total annual income of household          |
 | VELandUse          | [CalculateUrbanMixMeasure](#calculateurbanmixmeasure)     |**IsUrbanMixNbrhd** | Flag identifying whether household is (`1`) or is not (`0`) in urban mixed-use neighborhood    |
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#vestate-calculatehouseholddvmt)     |**Dvmt** | Average daily vehicle miles traveled by the household in autos or light trucks    |
-
+</div>
 
 #### Module Outputs
 * **VehicleTrips**: Average number of vehicle trips per day by household members
@@ -1043,6 +1013,8 @@ This module reduces household single-occupant vehicle (SOV) travel to achieve go
    <img align="center" width="400" border=1 src="images/azone_prop_sov_dvmt_diverted.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply          | [ AssignRoadMiles ](#assignroadmiles)     |**FwyLaneMiPC**     |Ratio of urbanized area freeway and expressway lane-miles to urbanized area population              |
@@ -1057,7 +1029,7 @@ This module reduces household single-occupant vehicle (SOV) travel to achieve go
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**Age0to14**  | Persons in 0 to 14 year old age group     |
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**Age15to19** | Persons in 15 to 19 year old age group    |
 | VELandUse          | [PredictHousing](#predicthousing)     |**HouseType** | Type of dwelling unit of the household    |
-
+</div>
 
 #### Module Outputs
 * **PropDvmtDiverted**: Proportion of household DVMT diverted to bicycling, electric bikes, or other 'low-speed' travel modes
@@ -1306,6 +1278,8 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
@@ -1324,7 +1298,7 @@ ESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**     
 | VEHouseholdVehicles    | [AssignVehicleAge ](#vestate-assignvehicleage ) |**Type**      |  Vehicle body type: Auto = automobile, LtTrk = light trucks (i.e. pickup, SUV, Van)                             |
 | VEHouseholdVehicles    | [AssignVehicleAge ](#vestate-assignvehicleage ) |**Age**      |  Vehicle age in years                             |
 | VEHouseholdVehicles    | [CreateVehicleTable](#vestate-createvehicletable) |**VehicleAccess**      | Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (LowCarSvc), or if vehicle is high level car service (HighCarSvc)                             |
-
+<div>
 
 #### Module Outputs
 * **Powertrain**: Vehicle powertrain type: ICEV = internal combustion engine vehicle, HEV = hybrid electric vehicle, PHEV = plug-in hybrid electric vehicle, BEV = battery electric vehicle, NA = not applicable because is a car service vehicle
@@ -1475,6 +1449,8 @@ This module uses optional user inputs if [Initialize](#vestate-initialize-vetrav
    * **BusOthDvmtProp**: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETransportSupply            | [AssignTransitService](#assigntransitservice) |**VanDvmt**      |  Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services                            |
@@ -1486,6 +1462,7 @@ This module uses optional user inputs if [Initialize](#vestate-initialize-vetrav
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanIncome**  | Total household income of the rural (i.e. non-urbanized area) population|
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#vestate-calculatehouseholddvmt)     |**UrbanHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea               |
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#vestate-calculatehouseholddvmt)     |**RuralHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the rural (non-urban) portion of the Marea|
+</div>
 
 #### Module Outputs
 * **HvyTrkDvmtUrbanProp**: Proportion of Region heavy truck daily vehicle miles of travel occurring on urbanized area roadways
@@ -1539,6 +1516,8 @@ This module uses optional user inputs if [Initialize](#vestate-initialize-vetrav
    <img align="center" width="600" border=1 src="images/region_base_year_hvytrk_dvmt.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)       |**HvyTrkDvmtIncomeFactor**  |  Ratio of Region base year heavy truck DVMT to household income     |
@@ -1567,6 +1546,7 @@ This module uses optional user inputs if [Initialize](#vestate-initialize-vetrav
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanIncome**  | Total household income of the rural (i.e. non-urbanized area) population|
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#vestate-calculatehouseholddvmt)     |**UrbanHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the urbanized portion of the Marea               |
 | VEHouseholdTravel          | [CalculateHouseholdDvmt](#vestate-calculatehouseholddvmt)     |**RuralHhDvmt**  | Average daily vehicle miles traveled in autos or light trucks by households residing in the rural (non-urban) portion of the Marea|
+</div>
 
 #### Module Outputs
 * **HvyTrkUrbanDvmt**: Base year Region heavy truck daily vehicle miles of travel in urbanized areas
@@ -1654,6 +1634,8 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
   }
    ```
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VELandUse          | [AssignLocTypes](#assignloctypes)     |**UrbanPop**  | Urbanized area population                 |
@@ -1667,7 +1649,7 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     |**BusArtDvmt**  | Bus daily vehicle miles of travel in the urbanized portion of the Marea occurring on arterial roadways              |
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     |**BusOthDvmt**    | Bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways               |
 | VELandUse          | [Calculate4DMeasures](#calculate4dmeasures)     |**UrbanArea**  |  Area that is Urban and unprotected (i.e. developable) within the zone              |
-
+</div>
 
 #### Module Outputs
 * **LdvFwyDvmt**: Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways
@@ -1708,11 +1690,6 @@ This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT b
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadPerformance.md)
 
-
-[Top](#rspm-modules-and-outputs)
-
-___
-
 ### CalculateMpgMpkwhAdjustments {#vestate-calculatempgmpkwhadjustments}     
 
 This module calculates adjustments to fuel economy and electric energy economy for plug-in vehicles) resulting from traffic congestion, speed smoothing(i.e. active traffic management which reduces speed variation), and ecodriving practices.
@@ -1729,6 +1706,8 @@ This module calculates adjustments to fuel economy and electric energy economy f
 <img align="center" width="600" border=1 src="images/marea_speed_smooth_ecodrive.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateRoadPerformance](#vestate-calculateroadperformance)     |**LdvFwyDvmt**  | Light-duty daily vehicle miles of travel in the urbanized portion of the Marea occurring on freeways                |
@@ -1758,7 +1737,7 @@ This module calculates adjustments to fuel economy and electric energy economy f
 | VETravelPerformance          | [CalculateRoadPerformance](#vestate-calculateroadperformance)     |**ArtDvmtPropHvyCong**  | Proportion of arterial DVMT occurring when congestion is heavy               |
 | VETravelPerformance          | [CalculateRoadPerformance](#vestate-calculateroadperformance)     |**ArtDvmtPropSevCong**  |  Proportion of arterial DVMT occurring when congestion is severe               |
 | VETravelPerformance          | [CalculateRoadPerformance](#vestate-calculateroadperformance)     |**ArtDvmtPropExtCong**    |  Proportion of arterial DVMT occurring when congestion is extereme             |
-
+</div>
 
 #### Module Outputs
 * **LdvSpdSmoothFactor**: Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing
@@ -1791,6 +1770,8 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
  <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdvEcoDrive**  | Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1               |
@@ -1816,7 +1797,7 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**ElecDvmtProp**  | Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)                |
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**FuelCO2ePM**  | Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel          |
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**ElecCO2ePM**  |  Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity |
-
+</div>
 
 #### Module Outputs
 * **MPG**: Average miles of vehicle travel powered by fuel per gasoline equivalent gallon
@@ -1880,6 +1861,8 @@ This module calculates vehicle operating costs per mile of travel and uses those
   }
    ```
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance          | [CalculateRoadPerformance](#vestate-calculateroadperformance)     |**LdvAveSpeed**  | Average light-duty vehicle speed (miles per hour) on all roadways weighted by the proportions of light-duty vehicle travel                |
@@ -1906,7 +1889,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**ParkingCost**    |Daily cost for long-term parking (e.g. paid on monthly basis)               |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**IsCashOut**  | Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no              |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**PaysForParking**  | Does worker pay for parking: 1 = yes, 0 = no             |
-
+</div>
 
 #### Module Outputs
 * **AveVehCostPM**: Average out-of-pocket cost in dollars per mile of vehicle travel
@@ -1933,6 +1916,8 @@ This module does not have user-supplied input files
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
@@ -1949,6 +1934,7 @@ This module does not have user-supplied input files
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**IsCashOut**  | Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no              |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**PaysForParking**  | Does worker pay for parking: 1 = yes, 0 = no             |
 | VEHouseholdVehicles    | [CalculateVehicleOwnCost ](#vestate-calculatevehicleowncost ) |**InsCost**      |  Annual vehicle insurance cost in dollars                       |
+</div>
 
 #### Module Outputs
 * **Dvmt**: Average daily vehicle miles traveled by the household in autos or light trucks
@@ -1981,6 +1967,8 @@ This module calculates an extra mileage tax ($ per vehicle mile traveled) for ho
 
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VETravelPerformance    | [CalculateBaseRoadDvmt ](#vestate-calculatebaseroaddvmt) |**HvyTrkUrbanDvmt**      |  Base year Region heavy truck daily vehicle miles of travel in urbanized areas                             |
@@ -1991,12 +1979,10 @@ This module calculates an extra mileage tax ($ per vehicle mile traveled) for ho
 | VETransportSupply     | [AssignRoadMiles](#assignroadmiles)  |**ArtLaneMi**      |  Lane-miles of roadways functionally classified as arterials (but not freeways or expressways) in the urbanized portion of the metropolitan area                             |
 | VETravelPerformance     | [CalculateVehicleOperatingCost](#vestate-calculatevehicleoperatingcost)  |**AveRoadUseTaxPM**      |  Average road use taxes in dollars collected per mile of vehicle travel                             |
 | VETravelPerformance          | [BudgetHouseholdDvmt](#vestate-budgethouseholddvmt)     |**Dvmt** | Average daily vehicle miles traveled by the household in autos or light trucks    |
+</div>
 
 #### Module Outputs
 * **ExtraVmtTax**: Added vehicle mile tax for household vehicle use to pay for any deficit between road costs and road revenues (dollars per vehicle mile)
-
-[Top](#rspm-modules-and-outputs)
-___
 
 ### CalculateComEnergyAndEmissions {#vestate-calculatecomenergyandemissions}    
 
@@ -2039,6 +2025,8 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 
    
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
@@ -2059,7 +2047,7 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 | VETravelPerformance    | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)       |**HvyTrkRuralDvmt**    | Base year Region heavy truck daily vehicle miles of travel in rural (i.e. non-urbanized) areas          |
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     |**ComSvcUrbanDvmt** | Commercial service daily vehicle miles of travel associated with Marea urbanized household activity    |
 | VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     |**ComSvcRuralDvmt**  | Commercial service daily vehicle miles of travel associated with Marea rural household activity             |
-
+</div>
 
 #### Module Outputs
 * **ComSvcUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with urban household activity in gas gallon equivalents
@@ -2103,6 +2091,8 @@ This module calculates the energy consumption and carbon emissions of public tra
  <img align="center" width="1100" border=1 src="images/marea_transit_powertrain_prop.PNG">
 
 #### Internal Module Inputs
+
+<div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
 | VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
@@ -2112,7 +2102,7 @@ This module calculates the energy consumption and carbon emissions of public tra
 | VETransportSupply            | [AssignTransitService](#assigntransitservice) |**VanDvmt**      |  Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services                            |
 | VETransportSupply            | [AssignTransitService](#assigntransitservice) |**BusDvmt**      | Total daily miles traveled by buses of various sizes to provide bus service of various types                           |
 | VETransportSupply            | [AssignTransitService](#assigntransitservice)     |**RailDvmt** | Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles   |
-
+</div>
 
 #### Module Outputs
 * **BusGGE**: Average daily amount of hydrocarbon fuels consumed by bus transit vehicles in urbanized area in gas gallon equivalents

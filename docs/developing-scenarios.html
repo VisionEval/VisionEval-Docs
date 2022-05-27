@@ -134,7 +134,7 @@ version contains just four parameters specifying the locations of inputs and out
 <span class="header-section-number">8.1.2</span> Inputs<a class="anchor" aria-label="anchor" href="#inputs"><i class="fas fa-link"></i></a>
 </h3>
 <p>The <code>inputs</code> folder in <code>VERRSPM_Scenarios</code> also differs from that in <code>VERSPM_base_model</code>. In this case, there is only a single file specifying the output data tables that should be exported as CSV files in the <code>outputs</code> directory.</p>
-<p>[](images/VERSPM_scenarios.PNG(width=100%)</p>
+<div class="inline-figure"><img src="images/VERSPM_scenarios.PNG" style="width:100.0%"></div>
 <div id="scenario_inputs" class="section level5" number="8.1.2.0.1">
 <h5>
 <span class="header-section-number">8.1.2.0.1</span> scenario_inputs<a class="anchor" aria-label="anchor" href="#scenario_inputs"><i class="fas fa-link"></i></a>
@@ -143,7 +143,7 @@ version contains just four parameters specifying the locations of inputs and out
 <p>Scenario inputs consist of eleven folders, one for each of a particular category of input, as described below. All eleven folders are required.</p>
 <p>Within each folder, there are subfolders containing input files, one per specific input. Each of the folders must contain at least one subfolder named “1,” defining the input for the base scenario. Subsequent numbered folders contain input files modifying parameters of interest, as shown in the screenshots below:</p>
 <p>Model inputs not otherwise specified in the <code>scenario_inputs</code> directory are drawn from files in <code>VERSPM_base_model/defs</code> and <code>VERSPM_base_model/inputs</code></p>
-<p>[](images/VERSPM_scenarios2.PNG{width=100%}</p>
+<div class="inline-figure"><img src="images/VERSPM_scenarios2.PNG" style="width:100.0%"></div>
 <p>The subfolder names and scenario inputs are defined as follows (input file to modify given in parentheses):</p>
 <ul>
 <li>B - Bicycles (<code>azone_prop_sov_dvmt_diverted.csv</code>) : Network improvements, incentives, and technologies that encourage bicycling and other light-weight vehicle travel
@@ -273,7 +273,7 @@ scenario_rspm$run()</code></pre>
 <p>Several pre-processors are under consideration to develop connectivity and quality of bike networks, including: Bike Level of Traffic Stress (LTS)(<a href="https://www.oregon.gov/ODOT/Planning/Documents/APMv2_Ch14.pdf">see ODOT APMv2_Ch14</a>), Highway Capacity Manual Multi-Modal LOS methods (<a href="https://trid.trb.org/view/1326489">see TRB</a>), and Scalable-Risk Analysis Method (<a href="https://safety.fhwa.dot.gov/ped_bike/tools_solve/fhwasa17041/index.cfm">SCRAM</a>).</p>
 <p>The following figures highlight the selected changes that the model makes to the VE-RSPM packages and modules.</p>
 <div class="figure">
-<img src="VE_PackagesModules/VERSPM_Bike.JPG" alt=""><p class="caption">Bike Network Research</p>
+<img src="VE_PackagesModules/VERSPM_Bike.JPG" style="width:100.0%" alt=""><p class="caption">Bike Network Research</p>
 </div>
 <p>Note: The project also intends to synchronize the disaggregate Bike Network assumptions with the Bike Module in Portland Metro’s new Activity Based Model, where the full network, not just the aggregated metrics of VisionEval, could be utilized directly.</p>
 </div>

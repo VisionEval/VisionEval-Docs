@@ -351,7 +351,7 @@
 <p>This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:</p>
 <ul>
 <li><a href="model-inputs.html#verspm-inputs">VERSPM inputs</a></li>
-<li><a href="ve-state-inputs">Ve-State inputs</a></li>
+<li><a href="vestate-inputs">Ve-State inputs</a></li>
 <li><a href="model-inputs.html#verpat-inputs">VERPAT inputs</a></li>
 </ul>
 <div id="household-synthesis-inputs" class="section level3" number="6.2.1">
@@ -4610,61 +4610,61 @@ RVMPO
 </table></div>
 </div>
 </div>
-<div id="ve-state-input-files" class="section level2" number="6.4">
+<div id="vestate-inputs" class="section level2" number="6.4">
 <h2>
-<span class="header-section-number">6.4</span> VE-State Input Files<a class="anchor" aria-label="anchor" href="#ve-state-input-files"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4</span> VE-State Input Files<a class="anchor" aria-label="anchor" href="#vestate-inputs"><i class="fas fa-link"></i></a>
 </h2>
 <ul>
-<li><p><a href="model-inputs.html#vestate-azone_carsvc_characteristics.csv"><strong>azone_carsvc_characteristics.csv</strong></a> This file specifies the different characteristics for high and low car service level and is used in the <a href="Modules_and_Outputs.md/#createvehicletable">CreateVehicleTable</a> and <a href="Modules_and_Outputs.md/#assignvehicleage">AssignVehicleAge</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_charging_availability.csv"><strong>azone_charging_availability.csv</strong></a> This file has data on proportion of different household types who has EV charging available and is used in the <a href="Modules_and_Outputs.md/#assignhhvehiclepowertrain">AssignHHVehiclePowertrain</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_electricity_carbon_intensity.csv"><strong>azone_electricity_carbon_intensity.csv</strong></a> This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
-<li><p><a href="azone_fuel_power_cost.csv"><strong>azone_fuel_power_cost.csv</strong></a> This file supplies data for retail cost of fuel and electricity and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.<br></p></li>
-<li><p><a href="azone_gq_pop_by_age.csv"><strong>azone_gq_pop_by_age.csv</strong></a> This file contains group quarters population estimates/forecasts by age and is used in the <a href="Modules_and_Outputs.md/#createhouseholds">CreateHouseholds</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_gq_pop-prop_by_area-type.csv"><strong>azone_gq_pop-prop_by_area-type.csv</strong></a> This file provides the proportions for groupquarters in different area types and is used in the <a href="Modules_and_Outputs.md/#initialize">Initialize</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_hh_loc_type_prop.csv"><strong>azone_hh_loc_type_prop.csv</strong></a> This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone and is used in the <a href="Modules_and_Outputs.md/#initialize">Initialize</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_hh_pop_by_age.csv"><strong>azone_hh_pop_by_age.csv</strong></a> This file contains population estimates/forecasts by age and is used in the <a href="Modules_and_Outputs.md/#createhouseholds">CreateHouseholds</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_hh_veh_mean_age.csv"><strong>azone_hh_veh_mean_age.csv</strong></a> This file provides inputs for mean auto age and mean light truck age and is used in the <a href="Modules_and_Outputs.md/#assignvehicleage">AssignVehicleAge</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_carsvc_characteristics.csv"><strong>azone_carsvc_characteristics.csv</strong></a> This file specifies the different characteristics for high and low car service level and is used in the <a href="vestate.html#vestate-createvehicletable">CreateVehicleTable</a> and <a href="#vestate-assignvehicleage">AssignVehicleAge</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_charging_availability.csv"><strong>azone_charging_availability.csv</strong></a> This file has data on proportion of different household types who has EV charging available and is used in the <a href="vestate.html#vestate-assignhhvehiclepowertrain">AssignHHVehiclePowertrain</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_electricity_carbon_intensity.csv"><strong>azone_electricity_carbon_intensity.csv</strong></a> This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in <a href="vestate.html#vestate-initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="vestate.html#vestate-calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
+<li><p><a href="azone_fuel_power_cost.csv"><strong>azone_fuel_power_cost.csv</strong></a> This file supplies data for retail cost of fuel and electricity and is used in the <a href="vestate.html#vestate-calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.</p></li>
+<li><p><a href="azone_gq_pop_by_age.csv"><strong>azone_gq_pop_by_age.csv</strong></a> This file contains group quarters population estimates/forecasts by age and is used in the <a href="vestate.html#vestate-createhouseholds">CreateHouseholds</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_gq_pop-prop_by_area-type.csv"><strong>azone_gq_pop-prop_by_area-type.csv</strong></a> This file provides the proportions for groupquarters in different area types and is used in the <a href="vestate.html#vestate-initialize">Initialize</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_hh_loc_type_prop.csv"><strong>azone_hh_loc_type_prop.csv</strong></a> This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone and is used in the <a href="vestate.html#vestate-initialize">Initialize</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_hh_pop_by_age.csv"><strong>azone_hh_pop_by_age.csv</strong></a> This file contains population estimates/forecasts by age and is used in the <a href="vestate.html#vestate-createhouseholds">CreateHouseholds</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_hh_veh_mean_age.csv"><strong>azone_hh_veh_mean_age.csv</strong></a> This file provides inputs for mean auto age and mean light truck age and is used in the <a href="#vestate-assignvehicleage">AssignVehicleAge</a> module.</p></li>
 <li><p><a href="model-inputs.html#vestate-azone_hh_veh_own_taxes.csv"><strong>azone_hh_veh_own_taxes.csv</strong></a> This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in
-<a href="Modules_and_Outputs.md/#calculatevehicleowncost">CalculateVehicleOwnCost</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_hhsize_targets.csv"><strong>azone_hhsize_targets.csv</strong></a> This file contains the household specific targets and is used in <a href="Modules_and_Outputs.md/#createhouseholds">CreateHouseholds</a> module.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-azone_loc_type_land_area.csv"><strong>azone_loc_type_land_area.csv</strong></a> This file provides land area data for different area types and is used in <a href="Modules_and_Outputs.md/#initialize">Initialize</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_lttrk_prop.csv"><strong>azone_lttrk_prop.csv</strong></a> This file specifies the light truck proportion of the vehicle fleet and is used in <a href="Modules_and_Outputs.md/#assignvehicletype">AssignVehicleType</a> module.</p></li>
-<li><p><a href="#vestate-azone_payd_insurance_prop.csv"><strong>azone_payd_insurance_prop.csv</strong></a> This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleowncost">CalculateVehicleOwnCost</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_per_cap_inc.csv"><strong>azone_per_cap_inc.csv</strong></a> This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the <a href="Modules_and_Outputs.md/#predictincome">PredictIncome</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_prop_sov_dvmt_diverted.csv"><strong>azone_prop_sov_dvmt_diverted.csv</strong></a> This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the <a href="Modules_and_Outputs.md/#divertsovtravel">DivertSovTravel</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_relative_employment.csv"><strong>azone_relative_employment.csv</strong></a> This file contains ratio of workers to persons by age and is used in the <a href="Modules_and_Outputs.md/#predictworkers">PredictWorkers</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_veh_use_taxes.csv"><strong>azone_veh_use_taxes.csv</strong></a> This file supplies data for vehicle related taxes and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcosts">CalculateVehicleOperatingCost</a> module.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-azone_vehicle_access_times.csv"><strong>azone_vehicle_access_times.csv</strong></a> This file supplies data for vehicle access and egress time and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-azone_wkr_loc_type_prop"><strong>azone_wkr_loc_type_prop</strong></a> This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone and is used in <a href="Modules_and_Outputs.md/#initialize">Initialize</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_base_year_dvmt.csv"><strong>marea_base_year_dvmt.csv</strong></a> This file is used to specify to adjust the dvmt growth factors and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="Modules_and_Outputs.md/#calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_carsvc_availability.csv"><strong>marea_carsvc_availability.csv</strong></a> This file has the data for activity proportions which are served by car services and is used in the <a href="Modules_and_Outputs.md/#assigncarsvcavailability">Initialize (AssignCarSvcAvailability)</a></p></li>
-<li><p><a href="model-inputs.html#vestate-marea_congestion_charges.csv"><strong>marea_congestion_charges.csv</strong></a> This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_dvmt_split_by_road_class.csv"><strong>marea_dvmt_split_by_road_class.csv</strong></a> This file is used to specify the dvmt split for different road classes and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_d3bpo4_adj.csv"><strong>marea_d3bpo4_adj.csv</strong></a> This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database and is used in the <a href="Modules_and_Outputs.md/#simulate4dmeasures">Simulate4DMeasures</a></p></li>
-<li><p><a href="model-inputs.html#vestate-marea_lane_miles.csv"><strong>marea_lane_miles.csv</strong></a> This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the <a href="Modules_and_Outputs.md/#assignroadmiles">AssignRoadMiles</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_mix_targets.csv"><strong>marea_mix_targets.csv</strong></a> This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target) and is used in the <a href="Modules_and_Outputs.md/#simulateurbanmixmeasure">SimulateUrbanMixMeasure</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_operations_deployment.csv"><strong>marea_operations_deployment.csv</strong></a> This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_parking-avail_by_area-type.csv"><strong>marea_parking-avail_by_area-type.csv</strong></a> This file has the data for average number of parking spots available to households and is used in the <a href="Modules_and_Outputs.md/#assignparkingrestrictions">AssignParkingRestrictions</a></p></li>
-<li><p><a href="model-inputs.html#vestate-marea_parking-cost_by_area-type.csv"><strong>marea_parking-cost_by_area-type.csv</strong></a> This file has the data related to parking costs and population proportions paying the parking costs and is used in the <a href="Modules_and_Outputs.md/#assignparkingrestrictions">AssignParkingRestrictions</a></p></li>
-<li><p><a href="model-inputs.html#vestate-marea_speed_smooth_ecodrive.csv"><strong>marea_speed_smooth_ecodrive.csv</strong></a> This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the <a href="Modules_and_Outputs.md/#calculatempgmpkwhadjustments">CalculateMpgMpkwhAdjustments</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_transit_ave_fuel_carbon_intensity.csv"><strong>marea_transit_ave_fuel_carbon_intensity.csv</strong></a> This file is used to specify the average carbon intensity of fuel used by transit and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_transit_biofuel_mix.csv"><strong>marea_transit_biofuel_mix.csv</strong></a> This file is used to specify the biofuel used by transit and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_transit_fuel.csv"><strong>marea_transit_fuel.csv</strong></a> This file is used to specify the transit fuel proportions and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-marea_transit_powertrain_prop.csv"><strong>marea_transit_powertrain_prop.csv</strong></a> This file is used to specify the mixes of transit vehicle powertrains and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateptranenergyandemissions">CalculatePtranEnergyAndEmissions</a> modules.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-marea_transit_service.csv"><strong>marea_transit_service.csv</strong></a> This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the <a href="Modules_and_Outputs.md/#assigntransitservice">AssignTransitService</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_travel-demand-mgt_by_area-type.csv"><strong>marea_travel-demand-mgt_by_area-type.csv</strong></a> This file has the data for proportions participating in demand management programs and is used in the <a href="Modules_and_Outputs.md/#assigndemandmanagement">AssignDemandManagement</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-marea_uza_profile_names.csv"><strong>marea_uza_profile_names.csv</strong></a> This file provides the name of a specific urbanized area for the urbanized area profile to use in SimBzone creation and is used in the <a href="Modules_and_Outputs.md/#initialize">Initialize</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-other_ops_effectiveness.csv"><strong>other_ops_effectiveness.csv</strong></a> This file is used to specify the delay effects of operations in different road classes and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculateroadperformance">CalculateRoadPerformance</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_ave_fuel_carbon_intensity.csv"><strong>region_ave_fuel_carbon_intensity.csv</strong></a> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="Modules_and_Outputs.md/#calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_base_year_hvytrk_dvmt.csv"><strong>region_base_year_hvytrk_dvmt.csv</strong></a> This file is used to specify the heavy truck dvmt for base year and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="Modules_and_Outputs.md/#calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_carsvc_powertrain_prop.csv"><strong>region_carsvc_powertrain_prop.csv</strong></a> This file is used to specify the powertrain proportion of car services and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="Modules_and_Outputs.md/#assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a> and <a href="Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh">AdjustHhVehicleMpgMpkwh</a> modules.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-region_comsvc_lttrk_prop.csv"><strong>region_comsvc_lttrk_prop.csv</strong></a> This file supplies data for the light truck proportion of commercial vehicles and is used in the <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> module.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-region_comsvc_powertrain_prop.csv"><strong>region_comsvc_powertrain_prop.csv</strong></a> This file is used to specify the powertrain proportion of commercial vehicles and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.<br></p></li>
-<li><p><a href="model-inputs.html#vestate-region_comsvc_veh_mean_age.csv"><strong>region_comsvc_veh_mean_age.csv</strong></a> This input file contains average age of commercial service vehicles and is used in the <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_hh_driver_adjust_prop.csv"><strong>region_hh_driver_adjust_prop.csv</strong></a> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the <a href="Modules_and_Outputs.md/#assigndrivers">AssignDrivers</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_hvytrk_powertrain_prop.csv"><strong>region_hvytrk_powertrain_prop.csv</strong></a> This file is used to specify the powertrain proportion of heavy duty trucks and is optional. The file is used in the <a href="Modules_and_Outputs.md/#initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="Modules_and_Outputs.md/#calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_prop_externalities_paid.csv"><strong>region_prop_externalities_paid.csv</strong></a> This file supplies data for climate change and other social costs and is used in the <a href="Modules_and_Outputs.md/#calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-region_road_cost.csv"><strong>region_road_cost.csv</strong></a> This file supplies data for different types of road costs and is used in the <a href="Modules_and_Outputs.md/#balanceroadcostsandrevenues">BalanceRoadCostsAndRevenues</a> module.</p></li>
+<a href="vestate.html#vestate-calculatevehicleowncost">CalculateVehicleOwnCost</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_hhsize_targets.csv"><strong>azone_hhsize_targets.csv</strong></a> This file contains the household specific targets and is used in <a href="vestate.html#vestate-createhouseholds">CreateHouseholds</a> module.<br></p></li>
+<li><p><a href="#vestate-vestate-azone_loc_type_land_area.csv"><strong>azone_loc_type_land_area.csv</strong></a> This file provides land area data for different area types and is used in <a href="vestate.html#vestate-initialize">Initialize</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_lttrk_prop.csv"><strong>azone_lttrk_prop.csv</strong></a> This file specifies the light truck proportion of the vehicle fleet and is used in <a href="vestate.html#vestate-assignvehicletype">AssignVehicleType</a> module.</p></li>
+<li><p><a href="#vestate-azone_payd_insurance_prop.csv"><strong>azone_payd_insurance_prop.csv</strong></a> This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the <a href="vestate.html#vestate-calculatevehicleowncost">CalculateVehicleOwnCost</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_per_cap_inc.csv"><strong>azone_per_cap_inc.csv</strong></a> This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the <a href="#vestate-predictincome">PredictIncome</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_prop_sov_dvmt_diverted.csv"><strong>azone_prop_sov_dvmt_diverted.csv</strong></a> This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the <a href="vestate.html#vestate-divertsovtravel">DivertSovTravel</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_relative_employment.csv"><strong>azone_relative_employment.csv</strong></a> This file contains ratio of workers to persons by age and is used in the <a href="vestate.html#vestate-predictworkers">PredictWorkers</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_veh_use_taxes.csv"><strong>azone_veh_use_taxes.csv</strong></a> This file supplies data for vehicle related taxes and is used in the <a href="#vestate-calculatevehicleoperatingcosts">CalculateVehicleOperatingCost</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_vehicle_access_times.csv"><strong>azone_vehicle_access_times.csv</strong></a> This file supplies data for vehicle access and egress time and is used in the <a href="vestate.html#vestate-calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-azone_wkr_loc_type_prop"><strong>azone_wkr_loc_type_prop</strong></a> This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone and is used in <a href="vestate.html#vestate-initialize">Initialize</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_base_year_dvmt.csv"><strong>marea_base_year_dvmt.csv</strong></a> This file is used to specify to adjust the DVMT growth factors and is optional (only needed if user wants to modify the values). The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="vestate.html#vestate-calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="vestate.html#vestate-calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_carsvc_availability.csv"><strong>marea_carsvc_availability.csv</strong></a> This file has the data for activity proportions which are served by car services and is used in the <a href="vestate.html#vestate-assigncarsvcavailability">Initialize (AssignCarSvcAvailability)</a></p></li>
+<li><p><a href="model-inputs.html#vestate-marea_congestion_charges.csv"><strong>marea_congestion_charges.csv</strong></a> This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculateroadperformance">CalculateRoadPerformance</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_dvmt_split_by_road_class.csv"><strong>marea_dvmt_split_by_road_class.csv</strong></a> This file is used to specify the dvmt split for different road classes and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_d3bpo4_adj.csv"><strong>marea_d3bpo4_adj.csv</strong></a> This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database and is used in the <a href="#vestate-simulate4dmeasures">Simulate4DMeasures</a></p></li>
+<li><p><a href="model-inputs.html#vestate-marea_lane_miles.csv"><strong>marea_lane_miles.csv</strong></a> This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the <a href="#vestate-assignroadmiles">AssignRoadMiles</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_mix_targets.csv"><strong>marea_mix_targets.csv</strong></a> This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target) and is used in the <a href="vestate.html#vestate-simulateurbanmixmeasure">SimulateUrbanMixMeasure</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_operations_deployment.csv"><strong>marea_operations_deployment.csv</strong></a> This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculateroadperformance">CalculateRoadPerformance</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_parking-avail_by_area-type.csv"><strong>marea_parking-avail_by_area-type.csv</strong></a> This file has the data for average number of parking spots available to households and is used in the <a href="vestate.html#vestate-assignparkingrestrictions">AssignParkingRestrictions</a></p></li>
+<li><p><a href="model-inputs.html#vestate-marea_parking-cost_by_area-type.csv"><strong>marea_parking-cost_by_area-type.csv</strong></a> This file has the data related to parking costs and population proportions paying the parking costs and is used in the <a href="vestate.html#vestate-assignparkingrestrictions">AssignParkingRestrictions</a></p></li>
+<li><p><a href="model-inputs.html#vestate-marea_speed_smooth_ecodrive.csv"><strong>marea_speed_smooth_ecodrive.csv</strong></a> This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the <a href="ve-estimation.html#calculatempgmpkwhadjustments">CalculateMpgMpkwhAdjustments</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_transit_ave_fuel_carbon_intensity.csv"><strong>marea_transit_ave_fuel_carbon_intensity.csv</strong></a> This file is used to specify the average carbon intensity of fuel used by transit and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_transit_biofuel_mix.csv"><strong>marea_transit_biofuel_mix.csv</strong></a> This file is used to specify the biofuel used by transit and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_transit_fuel.csv"><strong>marea_transit_fuel.csv</strong></a> This file is used to specify the transit fuel proportions and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_transit_powertrain_prop.csv"><strong>marea_transit_powertrain_prop.csv</strong></a> This file is used to specify the mixes of transit vehicle powertrains and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculateptranenergyandemissions">CalculatePtranEnergyAndEmissions</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_transit_service.csv"><strong>marea_transit_service.csv</strong></a> This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the <a href="#vestate-assigntransitservice">AssignTransitService</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_travel-demand-mgt_by_area-type.csv"><strong>marea_travel-demand-mgt_by_area-type.csv</strong></a> This file has the data for proportions participating in demand management programs and is used in the <a href="vestate.html#vestate-assigndemandmanagement">AssignDemandManagement</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-marea_uza_profile_names.csv"><strong>marea_uza_profile_names.csv</strong></a> This file provides the name of a specific urbanized area for the urbanized area profile to use in SimBzone creation and is used in the <a href="vestate.html#vestate-initialize">Initialize</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-other_ops_effectiveness.csv"><strong>other_ops_effectiveness.csv</strong></a> This file is used to specify the delay effects of operations in different road classes and is optional (only needed if user wants to modify the values). The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculateroadperformance">CalculateRoadPerformance</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_ave_fuel_carbon_intensity.csv"><strong>region_ave_fuel_carbon_intensity.csv</strong></a> This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a> and <a href="vestate.html#vestate-calculatecarbonintensity">CalculateCarbonIntensity</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_base_year_hvytrk_dvmt.csv"><strong>region_base_year_hvytrk_dvmt.csv</strong></a> This file is used to specify the heavy truck dvmt for base year and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="vestate.html#vestate-calculatebaseroaddvmt">CalculateBaseRoadDvmt</a> and <a href="vestate.html#vestate-calculatefutureroaddvmt">CalculateFutureRoadDvmt</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_carsvc_powertrain_prop.csv"><strong>region_carsvc_powertrain_prop.csv</strong></a> This file is used to specify the powertrain proportion of car services and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize (VETravelPerformance)</a>, <a href="vestate.html#vestate-assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a> and <a href="vestate.html#vestate-adjusthhvehiclempgmpkwh">AdjustHhVehicleMpgMpkwh</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_comsvc_lttrk_prop.csv"><strong>region_comsvc_lttrk_prop.csv</strong></a> This file supplies data for the light truck proportion of commercial vehicles and is used in the <a href="vestate.html#vestate-calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_comsvc_powertrain_prop.csv"><strong>region_comsvc_powertrain_prop.csv</strong></a> This file is used to specify the powertrain proportion of commercial vehicles and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="vestate.html#vestate-calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_comsvc_veh_mean_age.csv"><strong>region_comsvc_veh_mean_age.csv</strong></a> This input file contains average age of commercial service vehicles and is used in the <a href="vestate.html#vestate-calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_hh_driver_adjust_prop.csv"><strong>region_hh_driver_adjust_prop.csv</strong></a> This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the <a href="vestate.html#vestate-assigndrivers">AssignDrivers</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_hvytrk_powertrain_prop.csv"><strong>region_hvytrk_powertrain_prop.csv</strong></a> This file is used to specify the powertrain proportion of heavy duty trucks and is optional. The file is used in the <a href="vestate.html#vestate-initialize-vepowertrainsandfuels">Initialize (VEPowertrainsAndFuels)</a> and <a href="vestate.html#vestate-calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a> modules.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_prop_externalities_paid.csv"><strong>region_prop_externalities_paid.csv</strong></a> This file supplies data for climate change and other social costs and is used in the <a href="vestate.html#vestate-calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a> module.</p></li>
+<li><p><a href="model-inputs.html#vestate-region_road_cost.csv"><strong>region_road_cost.csv</strong></a> This file supplies data for different types of road costs and is used in the <a href="vestate.html#vestate-balanceroadcostsandrevenues">BalanceRoadCostsAndRevenues</a> module.</p></li>
 </ul>
 <div id="vestate-azone_carsvc_characteristics.csv" class="section level3" number="6.4.1">
 <h3>
@@ -5418,8 +5418,30 @@ RVMPO
 </div>
 <div id="vestate-region_comsvc_lttrk_prop.csv" class="section level3" number="6.4.43">
 <h3>
-<span class="header-section-number">6.4.43</span> region_comsvc_lttrk_prop.csv (TO DO)<a class="anchor" aria-label="anchor" href="#vestate-region_comsvc_lttrk_prop.csv"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4.43</span> region_comsvc_lttrk_prop.csv<a class="anchor" aria-label="anchor" href="#vestate-region_comsvc_lttrk_prop.csv"><i class="fas fa-link"></i></a>
 </h3>
+<p>This input file defines the proportion of commerical vehicles that are light trucks.</p>
+<ul>
+<li>
+<strong>ComSvcLtTrkProp</strong>: Regional proportion of commercial service vehicles that are light trucks</li>
+</ul>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Year</th>
+<th>ComSvcLtTrkProp</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td>0.51</td>
+</tr>
+<tr class="even">
+<td>2040</td>
+<td>0.51</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 <div id="vestate-region_comsvc_powertrain_prop.csv" class="section level3" number="6.4.44">
 <h3>
@@ -5507,13 +5529,69 @@ RVMPO
 </div>
 <div id="vestate-region_road_cost.csv" class="section level3" number="6.4.49">
 <h3>
-<span class="header-section-number">6.4.49</span> region_road_cost.csv (TO DO)<a class="anchor" aria-label="anchor" href="#vestate-region_road_cost.csv"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.4.49</span> region_road_cost.csv<a class="anchor" aria-label="anchor" href="#vestate-region_road_cost.csv"><i class="fas fa-link"></i></a>
 </h3>
+<p>This file supplies data for different types of road costs</p>
+<ul>
+<li>
+<strong>RoadBaseModCost</strong>: Average base modernization cost per light-duty vehicle mile traveled (dollars per vehicle mile). Base modernization includes roadway improvements exclusive of addition of lanes.</li>
+<li>
+<strong>RoadPresOpMaintCost</strong>: Average road preservation, operations, and maintenance cost per light-duty vehicle mile traveled (dollars per vehicle mile).</li>
+<li>
+<strong>RoadOtherCost</strong>: Average other road cost (e.g. administration, planning, project development, safety) per light-duty vehicle mile traveled (dollars per vehicle mile).</li>
+<li>
+<strong>FwyLnMiCost</strong>: Average cost to build one freeway lane-mile (dollars per lane-mile)</li>
+<li>
+<strong>ArtLnMiCost</strong>: Average cost to build one arterial lane-mile (dollars per lane-mile)</li>
+<li>
+<strong>HvyTrkPCE</strong>: Passenger car equivalent (PCE) for heavy trucks. PCE indicates the number of light-duty vehicles a heavy truck is equivalent to in calculating road capacity.</li>
+</ul>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="3%">
+<col width="17%">
+<col width="20%">
+<col width="15%">
+<col width="17%">
+<col width="17%">
+<col width="7%">
+</colgroup>
+<thead><tr class="header">
+<th>Year</th>
+<th>RoadBaseModCost.2005</th>
+<th>RoadPresOpMaintCost.2005</th>
+<th>RoadOtherCost.2005</th>
+<th>FwyLnMiCost.2005.1e3</th>
+<th>ArtLnMiCost.2005.1e3</th>
+<th>HvyTrkPCE</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>2010</td>
+<td>0.004</td>
+<td>0.01</td>
+<td>0.015</td>
+<td>4900</td>
+<td>1800</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>2040</td>
+<td>0.004</td>
+<td>0.01</td>
+<td>0.015</td>
+<td>4900</td>
+<td>1800</td>
+<td>3</td>
+</tr>
+</tbody>
+</table></div>
 </div>
 </div>
 <div id="verpat-inputs" class="section level2" number="6.5">
 <h2>
-<span class="header-section-number">6.5</span> VERPAT Inputs<a class="anchor" aria-label="anchor" href="#verpat-inputs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">6.5</span> VERPAT Input Files<a class="anchor" aria-label="anchor" href="#verpat-inputs"><i class="fas fa-link"></i></a>
 </h2>
 <p>The scenario inputs are split into four (4) categories: <em>Built Environment</em>, <em>Demand</em>, <em>Policy</em>, and <em>Supply</em>. There are two ways to specify these inputs. <strong>CSV Inputs</strong> are specified in a <code>*.csv</code> file and <strong>JSON Inputs</strong> are specified in <code>model_parameters.json</code> file. The users are encouraged to change these inputs to build different scenarios. The <a href="RPAT-To-VERPAT">RPAT to VERPAT</a> the connection between RPAT inputs to VERPAT inputs.</p>
 <p><a href="model-inputs.html#built-environment"><strong>Built Environment</strong></a>
@@ -8134,7 +8212,7 @@ Here is a snapshot of the file:</p>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#ve-state-input-files"><span class="header-section-number">6.4</span> VE-State Input Files</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#vestate-inputs"><span class="header-section-number">6.4</span> VE-State Input Files</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#vestate-azone_carsvc_characteristics.csv"><span class="header-section-number">6.4.1</span> azone_carsvc_characteristics.csv</a></li>
 <li><a class="nav-link" href="#vestate-azone_charging_availability.csv"><span class="header-section-number">6.4.2</span> azone_charging_availability.csv</a></li>
 <li><a class="nav-link" href="#vestate-azone_electricity_carbon_intensity.csv"><span class="header-section-number">6.4.3</span> azone_electricity_carbon_intensity.csv</a></li>
@@ -8177,17 +8255,17 @@ Here is a snapshot of the file:</p>
 <li><a class="nav-link" href="#vestate-region_ave_fuel_carbon_intensity.csv"><span class="header-section-number">6.4.40</span> region_ave_fuel_carbon_intensity.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_base_year_hvytrk_dvmt.csv"><span class="header-section-number">6.4.41</span> region_base_year_hvytrk_dvmt.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_carsvc_powertrain_prop.csv"><span class="header-section-number">6.4.42</span> region_carsvc_powertrain_prop.csv</a></li>
-<li><a class="nav-link" href="#vestate-region_comsvc_lttrk_prop.csv"><span class="header-section-number">6.4.43</span> region_comsvc_lttrk_prop.csv (TO DO)</a></li>
+<li><a class="nav-link" href="#vestate-region_comsvc_lttrk_prop.csv"><span class="header-section-number">6.4.43</span> region_comsvc_lttrk_prop.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_comsvc_powertrain_prop.csv"><span class="header-section-number">6.4.44</span> region_comsvc_powertrain_prop.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_comsvc_veh_mean_age.csv"><span class="header-section-number">6.4.45</span> region_comsvc_veh_mean_age.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_hh_driver_adjust_prop.csv"><span class="header-section-number">6.4.46</span> region_hh_driver_adjust_prop.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_hvytrk_powertrain_prop.csv"><span class="header-section-number">6.4.47</span> region_hvytrk_powertrain_prop.csv</a></li>
 <li><a class="nav-link" href="#vestate-region_prop_externalities_paid.csv"><span class="header-section-number">6.4.48</span> region_prop_externalities_paid.csv</a></li>
-<li><a class="nav-link" href="#vestate-region_road_cost.csv"><span class="header-section-number">6.4.49</span> region_road_cost.csv (TO DO)</a></li>
+<li><a class="nav-link" href="#vestate-region_road_cost.csv"><span class="header-section-number">6.4.49</span> region_road_cost.csv</a></li>
 </ul>
 </li>
 <li>
-<a class="nav-link" href="#verpat-inputs"><span class="header-section-number">6.5</span> VERPAT Inputs</a><ul class="nav navbar-nav">
+<a class="nav-link" href="#verpat-inputs"><span class="header-section-number">6.5</span> VERPAT Input Files</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#input-files-to-change"><span class="header-section-number">6.5.1</span> Input Files to Change</a></li>
 <li><a class="nav-link" href="#built-environment"><span class="header-section-number">6.5.2</span> Built Environment</a></li>
 <li><a class="nav-link" href="#demand"><span class="header-section-number">6.5.3</span> Demand</a></li>

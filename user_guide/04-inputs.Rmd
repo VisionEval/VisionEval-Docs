@@ -131,7 +131,7 @@ This file describes the default units to be used for storing complex data types 
 This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
 
 * [VERSPM inputs](#verspm-inputs)
-* [Ve-State inputs](ve-state-inputs)
+* [Ve-State inputs](vestate-inputs)
 * [VERPAT inputs](#verpat-inputs)
 
 ### Household Synthesis Inputs 
@@ -1286,100 +1286,105 @@ Here is a snapshot of the file:
 | 2010 | 0.004                | 0.01                     | 0.015              | 4900                 | 1800                 | 3         |
 | 2038 | 0.004                | 0.01                     | 0.015              | 4900                 | 1800                 | 3         |
 
-## VE-State Input Files
+## VE-State Input Files {#vestate-inputs}
 
-* [**azone_carsvc_characteristics.csv**](#vestate-azone_carsvc_characteristics.csv) This file specifies the different characteristics for high and low car service level and is used in the [CreateVehicleTable](Modules_and_Outputs.md/#createvehicletable) and [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) modules. 
+* [**azone_carsvc_characteristics.csv**](#vestate-azone_carsvc_characteristics.csv) This file specifies the different characteristics for high and low car service level and is used in the [CreateVehicleTable](#vestate-createvehicletable) and [AssignVehicleAge](#vestate-assignvehicleage) modules. 
 
-* [**azone_charging_availability.csv**](#vestate-azone_charging_availability.csv) This file has data on proportion of different household types who has EV charging available  and is used in the [AssignHHVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) module.          
+* [**azone_charging_availability.csv**](#vestate-azone_charging_availability.csv) This file has data on proportion of different household types who has EV charging available  and is used in the [AssignHHVehiclePowertrain](#vestate-assignhhvehiclepowertrain) module.          
 
-* [**azone_electricity_carbon_intensity.csv**](#vestate-azone_electricity_carbon_intensity.csv) This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
-) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.      
+* [**azone_electricity_carbon_intensity.csv**](#vestate-azone_electricity_carbon_intensity.csv) This file is used to specify the carbon intensity of electricity and is optional (only needed if user wants to modify the values). The file is used in [Initialize (VEPowertrainsAndFuels)](#vestate-initialize-vepowertrainsandfuels) and [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) modules.      
 
-* [**azone_fuel_power_cost.csv**](azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.                 
-* [**azone_gq_pop_by_age.csv**](azone_gq_pop_by_age.csv) This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                    
+* [**azone_fuel_power_cost.csv**](azone_fuel_power_cost.csv) This file supplies data for retail cost of fuel and electricity and is used in the [CalculateVehicleOperatingCost](#vestate-calculatevehicleoperatingcost) module.    
 
-* [**azone_gq_pop-prop_by_area-type.csv**](#vestate-azone_gq_pop-prop_by_area-type.csv) This file provides the proportions for groupquarters in different area types and is used in the [Initialize](Modules_and_Outputs.md/#initialize) module.   
+* [**azone_gq_pop_by_age.csv**](azone_gq_pop_by_age.csv) This file contains group quarters population estimates/forecasts by age and is used in the [CreateHouseholds](#vestate-createhouseholds) module.                    
 
-* [**azone_hh_loc_type_prop.csv**](#vestate-azone_hh_loc_type_prop.csv) This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone and is used in the [Initialize](Modules_and_Outputs.md/#initialize) module.                    
+* [**azone_gq_pop-prop_by_area-type.csv**](#vestate-azone_gq_pop-prop_by_area-type.csv) This file provides the proportions for groupquarters in different area types and is used in the [Initialize](#vestate-initialize) module.   
 
-* [**azone_hh_pop_by_age.csv**](#vestate-azone_hh_pop_by_age.csv) This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.                  
+* [**azone_hh_loc_type_prop.csv**](#vestate-azone_hh_loc_type_prop.csv) This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone and is used in the [Initialize](#vestate-initialize) module.                    
 
-* [**azone_hh_veh_mean_age.csv**](#vestate-azone_hh_veh_mean_age.csv) This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](Modules_and_Outputs.md/#assignvehicleage) module.     
+* [**azone_hh_pop_by_age.csv**](#vestate-azone_hh_pop_by_age.csv) This file contains population estimates/forecasts by age and is used in the [CreateHouseholds](#vestate-createhouseholds) module.                  
+
+* [**azone_hh_veh_mean_age.csv**](#vestate-azone_hh_veh_mean_age.csv) This file provides inputs for mean auto age and mean light truck age and is used in the [AssignVehicleAge](#vestate-assignvehicleage) module.     
 
 * [**azone_hh_veh_own_taxes.csv**](#vestate-azone_hh_veh_own_taxes.csv) This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in 
-[CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.  
+[CalculateVehicleOwnCost](#vestate-calculatevehicleowncost) module.  
 
-* [**azone_hhsize_targets.csv**](#vestate-azone_hhsize_targets.csv) This file contains the household specific targets and is used in [CreateHouseholds](Modules_and_Outputs.md/#createhouseholds) module.          
-* [**azone_loc_type_land_area.csv**](#vestate-azone_loc_type_land_area.csv) This file provides land area data for different area types and is used in [Initialize](Modules_and_Outputs.md/#initialize) module.                  
+* [**azone_hhsize_targets.csv**](#vestate-azone_hhsize_targets.csv) This file contains the household specific targets and is used in [CreateHouseholds](#vestate-createhouseholds) module.          
+* [**azone_loc_type_land_area.csv**](#vestate-vestate-azone_loc_type_land_area.csv) This file provides land area data for different area types and is used in [Initialize](#vestate-initialize) module.                  
 
-* [**azone_lttrk_prop.csv**](#vestate-azone_lttrk_prop.csv) This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](Modules_and_Outputs.md/#assignvehicletype) module. 
+* [**azone_lttrk_prop.csv**](#vestate-azone_lttrk_prop.csv) This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](#vestate-assignvehicletype) module. 
 
-* [**azone_payd_insurance_prop.csv**](#vestate-azone_payd_insurance_prop.csv) This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the [CalculateVehicleOwnCost](Modules_and_Outputs.md/#calculatevehicleowncost) module.               
+* [**azone_payd_insurance_prop.csv**](#vestate-azone_payd_insurance_prop.csv) This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the [CalculateVehicleOwnCost](#vestate-calculatevehicleowncost) module.               
 
-* [**azone_per_cap_inc.csv**](#vestate-azone_per_cap_inc.csv) This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the [PredictIncome](Modules_and_Outputs.md/#predictincome) module.                 
+* [**azone_per_cap_inc.csv**](#vestate-azone_per_cap_inc.csv) This file contains information on regional average per capita household and group quarters income in year 2010 dollars and is used in the [PredictIncome](#vestate-predictincome) module.                 
 
-* [**azone_prop_sov_dvmt_diverted.csv**](#vestate-azone_prop_sov_dvmt_diverted.csv) This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the [DivertSovTravel](Modules_and_Outputs.md/#divertsovtravel) module.            
+* [**azone_prop_sov_dvmt_diverted.csv**](#vestate-azone_prop_sov_dvmt_diverted.csv) This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance and is used in the [DivertSovTravel](#vestate-divertsovtravel) module.            
 
-* [**azone_relative_employment.csv**](#vestate-azone_relative_employment.csv) This file contains ratio of workers to persons by age and is used in the [PredictWorkers](Modules_and_Outputs.md/#predictworkers) module. 
+* [**azone_relative_employment.csv**](#vestate-azone_relative_employment.csv) This file contains ratio of workers to persons by age and is used in the [PredictWorkers](#vestate-predictworkers) module. 
 
-* [**azone_veh_use_taxes.csv**](#vestate-azone_veh_use_taxes.csv) This file supplies data for vehicle related taxes and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcosts) module.         
-* [**azone_vehicle_access_times.csv**](#vestate-azone_vehicle_access_times.csv) This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module.              
-* [**azone_wkr_loc_type_prop**](#vestate-azone_wkr_loc_type_prop) This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone and is used in [Initialize](Modules_and_Outputs.md/#initialize) module.              
+* [**azone_veh_use_taxes.csv**](#vestate-azone_veh_use_taxes.csv) This file supplies data for vehicle related taxes and is used in the [CalculateVehicleOperatingCost](#vestate-calculatevehicleoperatingcosts) module. 
 
-* [**marea_base_year_dvmt.csv**](#vestate-marea_base_year_dvmt.csv) This file is used to specify to adjust the dvmt growth factors and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt) modules.
+* [**azone_vehicle_access_times.csv**](#vestate-azone_vehicle_access_times.csv) This file supplies data for vehicle access and egress time and is used in the [CalculateVehicleOperatingCost](#vestate-calculatevehicleoperatingcost) module.              
 
-* [**marea_carsvc_availability.csv**](#vestate-marea_carsvc_availability.csv) This file has the data for activity proportions which are served by car services and is used in the [Initialize (AssignCarSvcAvailability)](Modules_and_Outputs.md/#assigncarsvcavailability)
+* [**azone_wkr_loc_type_prop**](#vestate-azone_wkr_loc_type_prop) This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone and is used in [Initialize](#vestate-initialize) module.              
 
-* [**marea_congestion_charges.csv**](#vestate-marea_congestion_charges.csv) This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.               
+* [**marea_base_year_dvmt.csv**](#vestate-marea_base_year_dvmt.csv) This file is used to specify to adjust the DVMT growth factors and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance), [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](#vestate-calculatefutureroaddvmt) modules.
 
-* [**marea_dvmt_split_by_road_class.csv**](#vestate-marea_dvmt_split_by_road_class.csv) This file is used to specify the dvmt split for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) modules.         
+* [**marea_carsvc_availability.csv**](#vestate-marea_carsvc_availability.csv) This file has the data for activity proportions which are served by car services and is used in the [Initialize (AssignCarSvcAvailability)](#vestate-assigncarsvcavailability)
 
-* [**marea_d3bpo4_adj.csv**](#vestate-marea_d3bpo4_adj.csv) This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database and is used in the [Simulate4DMeasures](Modules_and_Outputs.md/#simulate4dmeasures) 
+* [**marea_congestion_charges.csv**](#vestate-marea_congestion_charges.csv) This file is used to specify the charges of vehicle travel for different congestion levels and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateRoadPerformance](#vestate-calculateroadperformance) modules.               
 
-* [**marea_lane_miles.csv**](#vestate-marea_lane_miles.csv) This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the [AssignRoadMiles](Modules_and_Outputs.md/#assignroadmiles) module.                   
+* [**marea_dvmt_split_by_road_class.csv**](#vestate-marea_dvmt_split_by_road_class.csv) This file is used to specify the dvmt split for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt) modules.         
 
-* [**marea_mix_targets.csv**](#vestate-marea_mix_targets.csv) This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target) and is used in the [SimulateUrbanMixMeasure](Modules_and_Outputs.md/#simulateurbanmixmeasure) module.                   
+* [**marea_d3bpo4_adj.csv**](#vestate-marea_d3bpo4_adj.csv) This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database and is used in the [Simulate4DMeasures](#vestate-simulate4dmeasures) 
 
-* [**marea_operations_deployment.csv**](#vestate-marea_operations_deployment.csv) This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules.        
+* [**marea_lane_miles.csv**](#vestate-marea_lane_miles.csv) This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles and is used in the [AssignRoadMiles](#vestate-assignroadmiles) module.                   
 
-* [**marea_parking-avail_by_area-type.csv**](#vestate-marea_parking-avail_by_area-type.csv) This file has the data for average number of parking spots available to households and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions)   
+* [**marea_mix_targets.csv**](#vestate-marea_mix_targets.csv) This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target) and is used in the [SimulateUrbanMixMeasure](#vestate-simulateurbanmixmeasure) module.                   
 
-* [**marea_parking-cost_by_area-type.csv**](#vestate-marea_parking-cost_by_area-type.csv) This file has the data related to parking costs and population proportions paying the parking costs and is used in the [AssignParkingRestrictions](Modules_and_Outputs.md/#assignparkingrestrictions) 
+* [**marea_operations_deployment.csv**](#vestate-marea_operations_deployment.csv) This file is used to specify the proportion of dvmt affected by operations for different road classes and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateRoadPerformance](#vestate-calculateroadperformance) modules.        
 
-* [**marea_speed_smooth_ecodrive.csv**](#vestate-marea_speed_smooth_ecodrive.csv) This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the [CalculateMpgMpkwhAdjustments](Modules_and_Outputs.md/#calculatempgmpkwhadjustments) module.          
+* [**marea_parking-avail_by_area-type.csv**](#vestate-marea_parking-avail_by_area-type.csv) This file has the data for average number of parking spots available to households and is used in the [AssignParkingRestrictions](#vestate-assignparkingrestrictions)   
 
-* [**marea_transit_ave_fuel_carbon_intensity.csv**](#vestate-marea_transit_ave_fuel_carbon_intensity.csv) This file is used to specify the average carbon intensity of fuel used by transit and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) module. 
+* [**marea_parking-cost_by_area-type.csv**](#vestate-marea_parking-cost_by_area-type.csv) This file has the data related to parking costs and population proportions paying the parking costs and is used in the [AssignParkingRestrictions](#vestate-assignparkingrestrictions) 
 
-* [**marea_transit_biofuel_mix.csv**](#vestate-marea_transit_biofuel_mix.csv) This file is used to specify the biofuel used by transit and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.             
+* [**marea_speed_smooth_ecodrive.csv**](#vestate-marea_speed_smooth_ecodrive.csv) This input file supplies information of deployment of speed smoothing and ecodriving by road class and vehicle type and is used in the [CalculateMpgMpkwhAdjustments](#calculatempgmpkwhadjustments) module.          
 
-* [**marea_transit_fuel.csv**](#vestate-marea_transit_fuel.csv) This file is used to specify the transit fuel proportions and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.                      
-* [**marea_transit_powertrain_prop.csv**](#vestate-marea_transit_powertrain_prop.csv) This file is used to specify the mixes of transit vehicle powertrains and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculatePtranEnergyAndEmissions](Modules_and_Outputs.md/#calculateptranenergyandemissions) modules.     
-* [**marea_transit_service.csv**](#vestate-marea_transit_service.csv) This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the [AssignTransitService](Modules_and_Outputs.md/#assigntransitservice) module.                   
+* [**marea_transit_ave_fuel_carbon_intensity.csv**](#vestate-marea_transit_ave_fuel_carbon_intensity.csv) This file is used to specify the average carbon intensity of fuel used by transit and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) module. 
 
-* [**marea_travel-demand-mgt_by_area-type.csv**](#vestate-marea_travel-demand-mgt_by_area-type.csv) This file has the data for proportions participating in demand management programs and is used in the [AssignDemandManagement](Modules_and_Outputs.md/#assigndemandmanagement) module.                   
+* [**marea_transit_biofuel_mix.csv**](#vestate-marea_transit_biofuel_mix.csv) This file is used to specify the biofuel used by transit and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) modules.             
 
-* [**marea_uza_profile_names.csv**](#vestate-marea_uza_profile_names.csv) This file provides the name of a specific urbanized area for the urbanized area profile to use in SimBzone creation and is used in the [Initialize](Modules_and_Outputs.md/#initialize) module.
+* [**marea_transit_fuel.csv**](#vestate-marea_transit_fuel.csv) This file is used to specify the transit fuel proportions and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) modules.                      
 
-* [**other_ops_effectiveness.csv**](#vestate-other_ops_effectiveness.csv) This file is used to specify the delay effects of operations in different road classes and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateRoadPerformance](Modules_and_Outputs.md/#calculateroadperformance) modules. 
+* [**marea_transit_powertrain_prop.csv**](#vestate-marea_transit_powertrain_prop.csv) This file is used to specify the mixes of transit vehicle powertrains and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculatePtranEnergyAndEmissions](#vestate-calculateptranenergyandemissions) modules.     
 
-* [**region_ave_fuel_carbon_intensity.csv**](#vestate-region_ave_fuel_carbon_intensity.csv) This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance) and [CalculateCarbonIntensity](Modules_and_Outputs.md/#calculatecarbonintensity) modules.       
+* [**marea_transit_service.csv**](#vestate-marea_transit_service.csv) This file contains annual revenue-miles for different transit modes for metropolitan area and is used in the [AssignTransitService](#vestate-assigntransitservice) module.                   
 
-* [**region_base_year_hvytrk_dvmt.csv**](#vestate-region_base_year_hvytrk_dvmt.csv) This file is used to specify the heavy truck dvmt for base year and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [CalculateBaseRoadDvmt](Modules_and_Outputs.md/#calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](Modules_and_Outputs.md/#calculatefutureroaddvmt)  modules.            
+* [**marea_travel-demand-mgt_by_area-type.csv**](#vestate-marea_travel-demand-mgt_by_area-type.csv) This file has the data for proportions participating in demand management programs and is used in the [AssignDemandManagement](#vestate-assigndemandmanagement) module.                   
 
-* [**region_carsvc_powertrain_prop.csv**](#vestate-region_carsvc_powertrain_prop.csv) This file is used to specify the powertrain proportion of car services and is optional. The file is used in the [Initialize (VETravelPerformance)](Modules_and_Outputs.md/#initialize-vetravelperformance), [AssignHhVehiclePowertrain](Modules_and_Outputs.md/#assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](Modules_and_Outputs.md/#adjusthhvehiclempgmpkwh) modules.                      
-* [**region_comsvc_lttrk_prop.csv**](#vestate-region_comsvc_lttrk_prop.csv) This file supplies data for the light truck proportion of commercial vehicles and is used in the [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) module.              
-* [**region_comsvc_powertrain_prop.csv**](#vestate-region_comsvc_powertrain_prop.csv) This file is used to specify the powertrain proportion of commercial vehicles and is optional. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
-) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.       
-* [**region_comsvc_veh_mean_age.csv**](#vestate-region_comsvc_veh_mean_age.csv) This input file contains average age of commercial service vehicles and is used in the [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) module.     
+* [**marea_uza_profile_names.csv**](#vestate-marea_uza_profile_names.csv) This file provides the name of a specific urbanized area for the urbanized area profile to use in SimBzone creation and is used in the [Initialize](#vestate-initialize) module.
 
-* [**region_hh_driver_adjust_prop.csv**](#vestate-region_hh_driver_adjust_prop.csv) This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the [AssignDrivers](Modules_and_Outputs.md/#assigndrivers) module. 
+* [**other_ops_effectiveness.csv**](#vestate-other_ops_effectiveness.csv) This file is used to specify the delay effects of operations in different road classes and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateRoadPerformance](#vestate-calculateroadperformance) modules. 
 
-* [**region_hvytrk_powertrain_prop.csv**](#vestate-region_hvytrk_powertrain_prop.csv) This file is used to specify the powertrain proportion of heavy duty trucks and is optional. The file is used in the [Initialize (VEPowertrainsAndFuels)](Modules_and_Outputs.md/#initialize-vepowertrainsandfuels
-) and [CalculateComEnergyAndEmissions](Modules_and_Outputs.md/#calculatecomenergyandemissions) modules.
+* [**region_ave_fuel_carbon_intensity.csv**](#vestate-region_ave_fuel_carbon_intensity.csv) This file is used to specify the average carbon density for different vehicle types and is optional (only needed if user wants to modify the values). The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance) and [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) modules.       
 
-* [**region_prop_externalities_paid.csv**](#vestate-region_prop_externalities_paid.csv) This file supplies data for climate change and other social costs and is used in the [CalculateVehicleOperatingCost](Modules_and_Outputs.md/#calculatevehicleoperatingcost) module. 
+* [**region_base_year_hvytrk_dvmt.csv**](#vestate-region_base_year_hvytrk_dvmt.csv) This file is used to specify the heavy truck dvmt for base year and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance), [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt) and [CalculateFutureRoadDvmt](#vestate-calculatefutureroaddvmt)  modules.            
 
-* [**region_road_cost.csv**](#vestate-region_road_cost.csv) This file supplies data for different types of road costs and is used in the [BalanceRoadCostsAndRevenues](Modules_and_Outputs.md/#balanceroadcostsandrevenues) module. 
+* [**region_carsvc_powertrain_prop.csv**](#vestate-region_carsvc_powertrain_prop.csv) This file is used to specify the powertrain proportion of car services and is optional. The file is used in the [Initialize (VETravelPerformance)](#vestate-initialize-vetravelperformance), [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain) and [AdjustHhVehicleMpgMpkwh](#vestate-adjusthhvehiclempgmpkwh) modules.
+
+* [**region_comsvc_lttrk_prop.csv**](#vestate-region_comsvc_lttrk_prop.csv) This file supplies data for the light truck proportion of commercial vehicles and is used in the [CalculateComEnergyAndEmissions](#vestate-calculatecomenergyandemissions) module.   
+
+* [**region_comsvc_powertrain_prop.csv**](#vestate-region_comsvc_powertrain_prop.csv) This file is used to specify the powertrain proportion of commercial vehicles and is optional. The file is used in the [Initialize (VEPowertrainsAndFuels)](#vestate-initialize-vepowertrainsandfuels) and [CalculateComEnergyAndEmissions](#vestate-calculatecomenergyandemissions) modules.   
+
+* [**region_comsvc_veh_mean_age.csv**](#vestate-region_comsvc_veh_mean_age.csv) This input file contains average age of commercial service vehicles and is used in the [CalculateComEnergyAndEmissions](#vestate-calculatecomenergyandemissions) module.     
+
+* [**region_hh_driver_adjust_prop.csv**](#vestate-region_hh_driver_adjust_prop.csv) This file specifies the relative driver licensing rate relative to the model estimation data year and is used in the [AssignDrivers](#vestate-assigndrivers) module. 
+
+* [**region_hvytrk_powertrain_prop.csv**](#vestate-region_hvytrk_powertrain_prop.csv) This file is used to specify the powertrain proportion of heavy duty trucks and is optional. The file is used in the [Initialize (VEPowertrainsAndFuels)](#vestate-initialize-vepowertrainsandfuels) and [CalculateComEnergyAndEmissions](#vestate-calculatecomenergyandemissions) modules.
+
+* [**region_prop_externalities_paid.csv**](#vestate-region_prop_externalities_paid.csv) This file supplies data for climate change and other social costs and is used in the [CalculateVehicleOperatingCost](#vestate-calculatevehicleoperatingcost) module. 
+
+* [**region_road_cost.csv**](#vestate-region_road_cost.csv) This file supplies data for different types of road costs and is used in the [BalanceRoadCostsAndRevenues](#vestate-balanceroadcostsandrevenues) module. 
 
 ### azone_carsvc_characteristics.csv {#vestate-azone_carsvc_characteristics.csv}
 
@@ -1937,8 +1942,18 @@ Here is a snapshot of the file:
 
 <img align="center" width="800" border=1 src="images/region_carsvc_powertrain_prop.PNG">
 
-### region_comsvc_lttrk_prop.csv (TO DO) {#vestate-region_comsvc_lttrk_prop.csv}
+### region_comsvc_lttrk_prop.csv {#vestate-region_comsvc_lttrk_prop.csv}
 
+This input file defines the proportion of commerical vehicles that are light trucks.
+
+* **ComSvcLtTrkProp**: Regional proportion of commercial service vehicles that are light trucks
+
+Here is a snapshot of the file:
+
+| Year | ComSvcLtTrkProp |
+| ---- | --------------- |
+| 2010 | 0.51            |
+| 2040 | 0.51            |
 ### region_comsvc_powertrain_prop.csv {#vestate-region_comsvc_powertrain_prop.csv}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of commercial vehicles.
@@ -2001,9 +2016,26 @@ Here is a snapshot of the file:
 
 <img align="center" width="400" border=1 src="images/region_prop_externalities_paid.PNG">
 
-### region_road_cost.csv (TO DO) {#vestate-region_road_cost.csv}
+### region_road_cost.csv {#vestate-region_road_cost.csv}
 
-## VERPAT Inputs
+This file supplies data for different types of road costs
+
+* **RoadBaseModCost**: Average base modernization cost per light-duty vehicle mile traveled (dollars per vehicle mile). Base modernization includes roadway improvements exclusive of addition of lanes.
+* **RoadPresOpMaintCost**: Average road preservation, operations, and maintenance cost per light-duty vehicle mile traveled (dollars per vehicle mile).
+* **RoadOtherCost**: Average other road cost (e.g. administration, planning, project development, safety) per light-duty vehicle mile traveled (dollars per vehicle mile).
+* **FwyLnMiCost**: Average cost to build one freeway lane-mile (dollars per lane-mile)
+* **ArtLnMiCost**: Average cost to build one arterial lane-mile (dollars per lane-mile)
+* **HvyTrkPCE**: Passenger car equivalent (PCE) for heavy trucks. PCE indicates the number of light-duty vehicles a heavy truck is equivalent to in calculating road capacity.
+
+
+Here is a snapshot of the file:	
+
+| Year | RoadBaseModCost.2005 | RoadPresOpMaintCost.2005 | RoadOtherCost.2005 | FwyLnMiCost.2005.1e3 | ArtLnMiCost.2005.1e3 | HvyTrkPCE |
+| ---- | -------------------- | ------------------------ | ------------------ | -------------------- | -------------------- | --------- |
+| 2010 | 0.004                | 0.01                     | 0.015              | 4900                 | 1800                 | 3         |
+| 2040 | 0.004                | 0.01                     | 0.015              | 4900                 | 1800                 | 3         |
+
+## VERPAT Input Files {#verpat-inputs}
 
 The scenario inputs are split into four (4) categories: *Built Environment*, *Demand*, *Policy*, and *Supply*. There are two ways to specify these inputs. **CSV Inputs** are specified in a ```*.csv``` file and **JSON Inputs** are specified in ```model_parameters.json``` file. The users are encouraged to change these inputs to build different scenarios. The [RPAT to VERPAT](RPAT-To-VERPAT) the connection between RPAT inputs to VERPAT inputs.
 

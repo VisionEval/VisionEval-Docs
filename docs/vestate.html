@@ -381,28 +381,14 @@ All of the VE-RSPM modules which assign Bzone characteristics are contained in t
 <span class="header-section-number">10.4.2.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-39"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>Relative employment (<strong><em>azone_relative_employment.csv”</em></strong>): This file contains the ratio of workers to persons by age cohort in the model year relative to the model estimation data year. This file contains five age cohorts:
-<ul>
-<li>
-<strong>RelEmp15to19</strong>: Ratio of workers to persons age 15 to 19 in model year versus in estimation data year</li>
-<li>
-<strong>RelEmp20to29</strong>: Ratio of workers to persons age 20 to 29 in model year versus in estimation data year</li>
-<li>
-<strong>RelEmp30to54</strong>: Ratio of workers to persons age 30 to 54 in model year versus in estimation data year</li>
-<li>
-<strong>RelEmp55to64</strong>: Ratio of workers to persons age 55 to 64 in model year versus in estimation data year</li>
-<li>
-<strong>RelEmp65Plus</strong>: Ratio of workers to persons age 65 or older in model year versus in estimation data year</li>
-</ul>
-Here is a snapshot of the file:
-<img align="center" width="800" border="1" src="images/azone_relative_employment.PNG">
-</li>
+<li>Relative employment (<a href="model-inputs.html#vestate-azone_relative_employment.csv">azone_relative_employment.csv</a>)</li>
 </ol>
 </div>
 <div id="internal-module-inputs-37" class="section level4" number="10.4.2.2">
 <h4>
 <span class="header-section-number">10.4.2.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-37"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -462,6 +448,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-39" class="section level4" number="10.4.2.3">
 <h4>
 <span class="header-section-number">10.4.2.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-39"><i class="fas fa-link"></i></a>
@@ -500,6 +487,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.3.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-38"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -589,6 +577,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-40" class="section level4" number="10.4.3.3">
 <h4>
 <span class="header-section-number">10.4.3.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-40"><i class="fas fa-link"></i></a>
@@ -610,18 +599,14 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.4.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-41"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>
-<p>Regional income (<strong><em>azone_per_cap_inc.csv”</em></strong>): This file contains information on regional average per capita household (<code>HHIncomePC</code>) and group quarters (<code>GQIncomePC</code>) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become <code>HHIncomePC.2015</code> and <code>GQIncomePC.2015</code>.</p>
-<div class="inline-figure">Here is a snapshot of the file:
-<img align="center" width="400" border="1" src="images/azone_per_cap_inc.PNG">
-</div>
-</li>
+<li>Regional income (<a href="model-inputs.html#vestate-azone_per_cap_inc.csv">azone_per_cap_inc.csv</a>)</li>
 </ol>
 </div>
 <div id="internal-module-inputs-39" class="section level4" number="10.4.4.2">
 <h4>
 <span class="header-section-number">10.4.4.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-39"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -681,6 +666,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-41" class="section level4" number="10.4.4.3">
 <h4>
 <span class="header-section-number">10.4.4.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-41"><i class="fas fa-link"></i></a>
@@ -704,76 +690,12 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.5.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-42"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>
-<p>Metropolitan area names (<strong><em>marea_uza_profile_names.csv</em></strong>): This file provides the name of a specific urbanized area for the urbanized area profile to use in SimBzone creation</p>
-<ul>
-<li>
-<strong>UzaProfileName</strong>: Name of a specific urbanized area for the urbanized area profile to use in SimBzone creation or one of the following: small, medium-small, medium, medium-large, large, very-large</li>
-</ul>
-<div class="inline-figure">Here is a snapshot of the file:
-<img align="center" width="200" border="1" src="images/uza.PNG">
-</div>
-</li>
-<li>
-<p>Household location type proportions (<strong><em>azone_hh_loc_type_prop.csv</em></strong>): This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone</p>
-<ul>
-<li>
-<strong>PropMetroHh</strong>: Proportion of households residing in the metropolitan (i.e. urbanized) part of the Azone</li>
-<li>
-<strong>PropTownHh</strong>: Proportion of households residing in towns (i.e. urban-like but not urbanized) in the Azone</li>
-<li>
-<strong>PropRuralHh</strong>: Proportion of households residing in rural (i.e. not urbanized or town) parts of the Azone</li>
-</ul>
-<div class="inline-figure">Here is a snapshot of the file:
-<img align="center" width="400" border="1" src="images/hh_loc_type.PNG">
-</div>
-</li>
-<li>
-<p>Work location type proportions (<strong><em>azone_wkr_loc_type_prop.csv</em></strong>): This file provides the proportions for workers residing in Azone who works in the metropolitan, towns and rural part of the Azone</p>
-<ul>
-<li>
-<strong>PropWkrInMetroJobs</strong>: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone</li>
-<li>
-<strong>PropWkrInTownJobs</strong>: Proportion of workers residing in the Azone who work at jobs in towns (i.e. urban-like but not urbanized) in the Azone</li>
-<li>
-<strong>PropWkrInRuralJobs</strong>: Proportion of workers residing in the Azone who work at jobs in rural (i.e. not urbanized or town) parts of the Azone</li>
-<li>
-<strong>PropMetroJobs</strong>: Proportion of the jobs of the metropolitan area that the Azone is associated with that are located in the metropolitan portion of the Azone</li>
-</ul>
-<div class="inline-figure">Here is a snapshot of the file:
-<img align="center" width="400" border="1" src="images/wrk_loc_prop.PNG">
-</div>
-</li>
-<li>
-<p>Land area by location type (azone_loc_type_land_area.csv): This file provides the proportions for groupquarters in different area types.</p>
-<ul>
-<li>
-<strong>MetroLandArea</strong>: Land area (excluding large water bodies and large tracts of undevelopable land) in the metropolitan (i.e. urbanized) portion of the Azone</li>
-<li>
-<strong>TownLandArea</strong>: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone</li>
-<li>
-<strong>RuralAveDensity</strong>: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone</li>
-</ul>
-</li>
+<li><p>Metropolitan area names (<a href="model-inputs.html#vestate-marea_uza_profile_names.csv">marea_uza_profile_names.csv</a>)</p></li>
+<li><p>Household location type proportions (<a href="model-inputs.html#vestate-azone_hh_loc_type_prop.csv">azone_hh_loc_type_prop.csv</a>)</p></li>
+<li><p>Work location type proportions (<a href="#vestate-azone_wkr_loc_type_prop.csv">azone_wkr_loc_type_prop.csv</a>)</p></li>
+<li><p>Land area by location type (<a href="model-inputs.html#vestate-azone_loc_type_land_area.csv">azone_loc_type_land_area.csv</a>)</p></li>
+<li><p>Group quarter population by location type proportions (<a href="model-inputs.html#vestate-azone_gq_pop-prop_by_area-type.csv">azone_gq_pop-prop_by_area-type.csv</a>)</p></li>
 </ol>
-<p>Here is a snapshot of the file:</p>
-<div class="inline-figure"><img align="center" width="400" border="1" src="images/loc_type_land.PNG"></div>
-<ol start="5" style="list-style-type: decimal">
-<li>Group quarter population by location type proportions (<strong><em>azone_gq_pop-prop_by_area-type.csv</em></strong>): This file provides the average activity density in rural areas
-<ul>
-<li>
-<strong>PropGQPopCenter</strong>: Proportion of Azone non-institutional group quarters population located in center area type</li>
-<li>
-<strong>PropGQPopInner</strong>: Proportion of Azone non-institutional group quarters population located in inner area type</li>
-<li>
-<strong>PropGQPopOuter</strong>: Proportion of Azone non-institutional group quarters population located in outer area type</li>
-<li>
-<strong>PropGQPopFringe</strong>: Proportion of Azone non-institutional group quarters population located in fringe area type</li>
-</ul>
-</li>
-</ol>
-<p>For more information see <a href="https://github.com/VisionEval/VisionEval-Dev/blob/master/sources/modules/VESimLandUse/inst/module_docs/Initialize.md">here</a>
-)</p>
 </div>
 </div>
 <div id="vestate-createsimbzones" class="section level3" number="10.4.6">
@@ -784,24 +706,34 @@ Here is a snapshot of the file:
 <p>Many of the models and procedures used in Bzone synthesis pivot from profiles developed from these data sources for specific urbanized areas, as well as more general profiles for different urbanized area population size categories, towns, and rural areas. Using these specific and general profiles enables the simulated Bzones (SimBzones) to better represent the areas being modeled and the variety of conditions found in different states. The documentation for the <code>Initialize</code> module has a listing of urbanized area profile names.</p>
 <p>The models and procedures in this module create SimBzones within each Azone that simulate the land use characteristics of neighborhoods likely to be found in the Azone. The SimBzones are assigned quantities of households and jobs and are attributed with several land use measures in the process. The characteristics are:</p>
 <ul>
-<li><p><strong>Location Type</strong>: Identification of whether the SimBzone is located in an urbanized area, a town (i.e. an urban-type area that is not large enough to be urbanized), rural (i.e. dispersed low-density development)</p></li>
-<li><p><strong>Households</strong>: Number of households in each SimBzone</p></li>
-<li><p><strong>Employment</strong>: Number of jobs in each SimBzone</p></li>
-<li><p><strong>Activity Density</strong>: Number of households and jobs per acre</p></li>
-<li><p><strong>Land Use Diversity</strong>: Measures of the degree of mixing of households and jobs</p></li>
-<li><p><strong>Destination Accessibility</strong>: Measures of proximity to households and jobs</p></li>
-<li><p><strong>Area Type and Development Type</strong>: Categories which describe the relative urban nature of the SimBzone (area type) and the character of development in the SimBzone (development type).</p></li>
-<li><p><strong>Employment Split</strong>: Number of retail, service, and other jobs in each SimBzone.</p></li>
+<li>
+<strong>Location Type</strong>: Identification of whether the SimBzone is located in an urbanized area, a town (i.e. an urban-type area that is not large enough to be urbanized), rural (i.e. dispersed low-density development)</li>
+<li>
+<strong>Households</strong>: Number of households in each SimBzone</li>
+<li>
+<strong>Employment</strong>: Number of jobs in each SimBzone</li>
+<li>
+<strong>Activity Density</strong>: Number of households and jobs per acre</li>
+<li>
+<strong>Land Use Diversity</strong>: Measures of the degree of mixing of households and jobs</li>
+<li>
+<strong>Destination Accessibility</strong>: Measures of proximity to households and jobs</li>
+<li>
+<strong>Area Type and Development Type</strong>: Categories which describe the relative urban nature of the SimBzone (area type) and the character of development in the SimBzone (development type).</li>
+<li>
+<strong>Employment Split</strong>: Number of retail, service, and other jobs in each SimBzone.</li>
 </ul>
 <div id="user-input-files-43" class="section level4" number="10.4.6.1">
 <h4>
 <span class="header-section-number">10.4.6.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-43"><i class="fas fa-link"></i></a>
 </h4>
+<p>This module has no user input requirements.</p>
 </div>
 <div id="internal-module-inputs-40" class="section level4" number="10.4.6.2">
 <h4>
 <span class="header-section-number">10.4.6.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-40"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -890,6 +822,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-42" class="section level4" number="10.4.6.3">
 <h4>
 <span class="header-section-number">10.4.6.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-42"><i class="fas fa-link"></i></a>
@@ -933,12 +866,18 @@ Here is a snapshot of the file:
 <h3>
 <span class="header-section-number">10.4.7</span> SimulateHousing<a class="anchor" aria-label="anchor" href="#vestate-simulatehousing"><i class="fas fa-link"></i></a>
 </h3>
-<p>This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics. It then assigns each household to a SimBzone based on the household’s housing type as well as the supply of housing by type and SimBzone. The module assigns non-institutional group quarters households to SimBzones randomly.
-#### User Input Files</p>
-<div id="internal-module-inputs-41" class="section level4" number="10.4.7.1">
+<p>This module assigns a housing type, either single-family (SF) or multifamily (MF) to regular households based on the respective supplies of SF and MF dwelling units in the housing market to which the household is assigned (i.e. the Azone the household is assigned to) and on household characteristics. It then assigns each household to a SimBzone based on the household’s housing type as well as the supply of housing by type and SimBzone. The module assigns non-institutional group quarters households to SimBzones randomly.</p>
+<div id="user-input-files-44" class="section level4" number="10.4.7.1">
 <h4>
-<span class="header-section-number">10.4.7.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-41"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.7.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-44"><i class="fas fa-link"></i></a>
 </h4>
+<p>This module has no user input requirements.</p>
+</div>
+<div id="internal-module-inputs-41" class="section level4" number="10.4.7.2">
+<h4>
+<span class="header-section-number">10.4.7.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-41"><i class="fas fa-link"></i></a>
+</h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -1066,9 +1005,10 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
-<div id="module-outputs-43" class="section level4" number="10.4.7.2">
+</div>
+<div id="module-outputs-43" class="section level4" number="10.4.7.3">
 <h4>
-<span class="header-section-number">10.4.7.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-43"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.7.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-43"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -1099,12 +1039,18 @@ Here is a snapshot of the file:
 <h3>
 <span class="header-section-number">10.4.8</span> SimulateEmployment<a class="anchor" aria-label="anchor" href="#vestate-simulateemployment"><i class="fas fa-link"></i></a>
 </h3>
-<p>This module assign workers SimBzone work locations. A worker table is created which identifies a unique worker ID, the household ID the worker is a part of, and the SimBzone, Azone, and Marea of the worker job location.
-#### User Input Files</p>
-<div id="internal-module-inputs-42" class="section level4" number="10.4.8.1">
+<p>This module assign workers SimBzone work locations. A worker table is created which identifies a unique worker ID, the household ID the worker is a part of, and the SimBzone, Azone, and Marea of the worker job location.</p>
+<div id="user-input-files-45" class="section level4" number="10.4.8.1">
 <h4>
-<span class="header-section-number">10.4.8.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-42"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.8.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-45"><i class="fas fa-link"></i></a>
 </h4>
+<p>This module has no user input requirements.</p>
+</div>
+<div id="internal-module-inputs-42" class="section level4" number="10.4.8.2">
+<h4>
+<span class="header-section-number">10.4.8.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-42"><i class="fas fa-link"></i></a>
+</h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1142,9 +1088,10 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
-<div id="module-outputs-44" class="section level4" number="10.4.8.2">
+</div>
+<div id="module-outputs-44" class="section level4" number="10.4.8.3">
 <h4>
-<span class="header-section-number">10.4.8.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.8.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-44"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -1164,29 +1111,19 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.9</span> Simulate4DMeasures<a class="anchor" aria-label="anchor" href="#vestate-4dmeasures"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates several 4D measures by SimBzone including density, diversity (i.e. mixing of land uses), and pedestrian-orientedn transportation network design. These measures are the same as or are similar to measures included in the Environmental Protection Agency’s (EPA)</p>
-<div id="user-input-files-44" class="section level4" number="10.4.9.1">
+<div id="user-input-files-46" class="section level4" number="10.4.9.1">
 <h4>
-<span class="header-section-number">10.4.9.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-44"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.9.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-46"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>D3bpo4 value or different location types (<strong><em>marea_d3bpo4_adj</em></strong>): This file provides the D3bpo4 value for urban, town and rural areas from the EPA 2010 Smart Location Database
-<ul>
-<li>
-<strong>UrbanD3bpo4Adj</strong>: Proportion of base urban D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for the urbanized portion of the marea</li>
-<li>
-<strong>TownD3bpo4Adj</strong>: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for towns</li>
-<li>
-<strong>RuralD3bpo4Adj</strong>: Proportion of base town D3bpo4 value as tabulated from the EPA 2010 Smart Location Database for rural areas</li>
-</ul>
-Here is a snapshot of the file:
-<img align="center" width="400" border="1" src="images/d3.PNG">
-</li>
+<li>D3bpo4 value or different location types (<a href="model-inputs.html#vestate-marea_d3bpo4_adj.csv">marea_d3bpo4_adj.csv</a>)</li>
 </ol>
 </div>
 <div id="internal-module-inputs-43" class="section level4" number="10.4.9.2">
 <h4>
 <span class="header-section-number">10.4.9.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-43"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1282,6 +1219,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-45" class="section level4" number="10.4.9.3">
 <h4>
 <span class="header-section-number">10.4.9.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-45"><i class="fas fa-link"></i></a>
@@ -1309,25 +1247,19 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.10</span> SimulateUrbanMixMeasure<a class="anchor" aria-label="anchor" href="#vestate-simulateurbanmixmeasure"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module simulates an urban mixed-use measure based on the 2001 National Household Travel Survey measure of the tract level urban/rural indicator</p>
-<div id="user-input-files-45" class="section level4" number="10.4.10.1">
+<div id="user-input-files-47" class="section level4" number="10.4.10.1">
 <h4>
-<span class="header-section-number">10.4.10.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-45"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.10.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-47"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>Target for proportion of households (<strong><em>marea_mix_targets</em></strong>): This file represents Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target)
-<ul>
-<li>
-<strong>UrbanMixProp</strong>: Marea target for proportion of households located in mixed-use neighborhoods (or NA if no target)</li>
-</ul>
-Here is a snapshot of the file:
-<img align="center" width="400" border="1" src="images/mix.PNG">
-</li>
+<li>Target for proportion of households in mixed-use neighborhoods (<a href="model-inputs.html#vestate-marea_mix_targets.csv">marea_mix_targets.csv</a>)</li>
 </ol>
 </div>
 <div id="internal-module-inputs-44" class="section level4" number="10.4.10.2">
 <h4>
 <span class="header-section-number">10.4.10.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-44"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1409,6 +1341,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-46" class="section level4" number="10.4.10.3">
 <h4>
 <span class="header-section-number">10.4.10.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-46"><i class="fas fa-link"></i></a>
@@ -1424,51 +1357,21 @@ Here is a snapshot of the file:
 <h3>
 <span class="header-section-number">10.4.11</span> AssignParkingRestrictions<a class="anchor" aria-label="anchor" href="#vestate-assignparkingrestrictions"><i class="fas fa-link"></i></a>
 </h3>
-<p>This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area. The module takes user inputs on parking restrictions and prices by Bzone and calculates for each household the number of free parking spaces available at the household’s residence, which workers pay for parking and whether their payment is part of a cash-out-buy-back program, the cost of residential parking for household vehicles that can’t be parked in a free space, the cost for workplace parking, and the cost of parking for other activities such as shopping. The parking restriction/cost information is used by other modules in calculating the cost of vehicle ownership and the cost of vehicle use.
-#### User Input Files
-1. Parking availability (<strong><em>marea_parking-avail_by_area-type</em></strong>): This file has the data for avereage number of parkings available to households
-* <strong>CenterPkgSpacesPerSFDU</strong>: Average number of free parking spaces available to residents of single-family dwelling units in center area type
-* <strong>InnerPkgSpacesPerSFDU</strong>: Average number of free parking spaces available to residents of single-family dwelling units in inner area type
-* <strong>OuterPkgSpacesPerSFDU</strong>: Average number of free parking spaces available to residents of single-family dwelling units in outer area type
-* <strong>CenterPkgSpacesPerMFDU</strong>: Average number of free parking spaces available to residents of multifamily dwelling units in center area type
-* <strong>InnerPkgSpacesPerMFDU</strong>: Average number of free parking spaces available to residents of multifamily dwelling units in inner area type
-* <strong>OuterPkgSpacesPerMFDU</strong>: Average number of free parking spaces available to residents of multifamily dwelling units in outer area type
-* <strong>CenterPkgSpacesPerGQ</strong>: Average number of free parking spaces available to group quarters residents in center area type
-* <strong>InnerPkgSpacesPerGQ</strong>: Average number of free parking spaces available to group quarters residents in inner area type
-* <strong>OuterPkgSpacesPerGQ</strong>: Average number of free parking spaces available to group quarters residents in outer area type</p>
-<div class="inline-figure">Here is a snapshot of the file:
-<img align="center" width="800" border="1" src="images/park_availablity.PNG">
-</div>
-<ol start="2" style="list-style-type: decimal">
-<li>Parking cost (<strong><em>marea_parking-cost_by_area-type</em></strong>): This file has the data related to parking costs and population proportions paying the parking costs
-<ul>
-<li>
-<strong>CenterPropWkrPay</strong>: Proportion of workers who pay for parking in center area type</li>
-<li>
-<strong>InnerPropWkrPay</strong>: Proportion of workers who pay for parking in inner area type</li>
-<li>
-<strong>OuterPropWkrPay</strong>: Proportion of workers who pay for parking in outer area type</li>
-<li>
-<strong>CenterPropCashOut</strong>: Proportions of workers paying for parking in a cash-out-buy-back program in center area type</li>
-<li>
-<strong>InnerPropCashOut</strong>: Proportions of workers paying for parking in a cash-out-buy-back program in inner area type</li>
-<li>
-<strong>OuterPropCashOut</strong>: Proportions of workers paying for parking in a cash-out-buy-back program in outer area type</li>
-<li>
-<strong>CenterPkgCost</strong>: Average daily cost for long-term parking (e.g. paid on monthly basis) in center area type</li>
-<li>
-<strong>InnerPkgCost</strong>: Average daily cost for long-term parking (e.g. paid on monthly basis) in inner area type</li>
-<li>
-<strong>OuterPkgCost</strong>: Average daily cost for long-term parking (e.g. paid on monthly basis) in outer area type</li>
-</ul>
-Here is a snapshot of the file:
-<img align="center" width="800" border="1" src="images/park_cost.PNG">
-</li>
-</ol>
-<div id="internal-module-inputs-45" class="section level4" number="10.4.11.1">
+<p>This module identifies parking restrictions and prices affecting households at their residences, workplaces, and other places they are likely to visit in the urban area. The module takes user inputs on parking restrictions and prices by Bzone and calculates for each household the number of free parking spaces available at the household’s residence, which workers pay for parking and whether their payment is part of a cash-out-buy-back program, the cost of residential parking for household vehicles that can’t be parked in a free space, the cost for workplace parking, and the cost of parking for other activities such as shopping. The parking restriction/cost information is used by other modules in calculating the cost of vehicle ownership and the cost of vehicle use.</p>
+<div id="user-input-files-48" class="section level4" number="10.4.11.1">
 <h4>
-<span class="header-section-number">10.4.11.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-45"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.11.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-48"><i class="fas fa-link"></i></a>
 </h4>
+<ol style="list-style-type: decimal">
+<li><p>Parking availability (<a href="model-inputs.html#vestate-marea_parking-avail_by_area-type.csv">marea_parking-avail_by_area-type.csv</a>)</p></li>
+<li><p>Parking cost (<a href="model-inputs.html#vestate-marea_parking-avail_by_area-type.csv">marea_parking-cost_by_area-type.csv</a>)</p></li>
+</ol>
+</div>
+<div id="internal-module-inputs-45" class="section level4" number="10.4.11.2">
+<h4>
+<span class="header-section-number">10.4.11.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-45"><i class="fas fa-link"></i></a>
+</h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1529,9 +1432,10 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
-<div id="module-outputs-47" class="section level4" number="10.4.11.2">
+</div>
+<div id="module-outputs-47" class="section level4" number="10.4.11.3">
 <h4>
-<span class="header-section-number">10.4.11.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-47"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.11.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-47"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -1555,39 +1459,19 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.12</span> AssignDemandManagement<a class="anchor" aria-label="anchor" href="#vestate-assigndemandmanagement"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module assigns demand management program participation to households and to workers. Households are assigned to individualized marketing program participation. Workers are assigned to employee commute options participation. The module computes the net proportional reduction in household DVMT based on the participation in travel demand management programs.</p>
-<div id="user-input-files-46" class="section level4" number="10.4.12.1">
+<div id="user-input-files-49" class="section level4" number="10.4.12.1">
 <h4>
-<span class="header-section-number">10.4.12.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-46"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.12.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-49"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
-<li>Travel demand management (<strong><em>marea_travel-demand-mgt_by_area-type</em></strong>): This file has the data for proportions participating in demand management programs
-<ul>
-<li>
-<strong>CenterEcoProp</strong>: Proportion of workers working in center area type in Marea who participate in strong employee commute options program</li>
-<li>
-<strong>InnerEcoProp</strong>: Proportion of workers working in inner area type in Marea who participate in strong employee commute options program</li>
-<li>
-<strong>OuterEcoProp</strong>: Proportion of workers working in outer area type in Marea who participate in strong employee commute options program</li>
-<li>
-<strong>FringeEcoProp</strong>: Proportion of workers working in fringe area type in Marea who participate in strong employee commute options program</li>
-<li>
-<strong>CenterImpProp</strong>: Proportion of households residing in center area type in Marea who participate in strong individualized marketing program</li>
-<li>
-<strong>InnerImpProp</strong>: Proportion of households residing in inner area type in Marea who participate in strong individualized marketing program</li>
-<li>
-<strong>OuterImpProp</strong>: Proportion of households residing in outer area type in Marea who participate in strong individualized marketing program</li>
-<li>
-<strong>FringeImpProp</strong>: Proportion of households residing in fringe area type in Marea who participate in strong individualized marketing program</li>
-</ul>
-Here is a snapshot of the file:
-<img align="center" width="500" border="1" src="images/demand_management.PNG">
-</li>
+<li>Travel demand management (<a href="model-inputs.html#vestate-marea_travel-demand-mgt_by_area-type.csv">marea_travel-demand-mgt_by_area-type.csv</a>)</li>
 </ol>
 </div>
 <div id="internal-module-inputs-46" class="section level4" number="10.4.12.2">
 <h4>
 <span class="header-section-number">10.4.12.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-46"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1612,6 +1496,7 @@ Here is a snapshot of the file:
 </tr>
 </tbody>
 </table></div>
+</div>
 </div>
 <div id="module-outputs-48" class="section level4" number="10.4.12.3">
 <h4>
@@ -1646,6 +1531,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.13.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-47"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1685,6 +1571,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-49" class="section level4" number="10.4.13.2">
 <h4>
 <span class="header-section-number">10.4.13.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-49"><i class="fas fa-link"></i></a>
@@ -1705,9 +1592,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.14</span> SimulateTransitService<a class="anchor" aria-label="anchor" href="#vestate-simulatetransitservice"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module assigns transit service level to the urbanized portion of each Marea and to neighborhoods (SimBzones) within the urbanized area. Annual revenue-miles (i.e. transit miles in revenue service) by transit mode type are read from an input file</p>
-<div id="user-input-files-47" class="section level4" number="10.4.14.1">
+<div id="user-input-files-50" class="section level4" number="10.4.14.1">
 <h4>
-<span class="header-section-number">10.4.14.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-47"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.14.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-50"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Transit service for Marea (<strong><em>marea_transit_service.csv</em></strong>): This file contains annual revenue-miles for different transit modes for metropolitan area.
@@ -1738,6 +1625,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.14.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-48"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1791,6 +1679,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-50" class="section level4" number="10.4.14.3">
 <h4>
 <span class="header-section-number">10.4.14.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-50"><i class="fas fa-link"></i></a>
@@ -1815,9 +1704,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.15</span> SimulateRoadMiles<a class="anchor" aria-label="anchor" href="#vestate-simulateroadmiles"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module assigns freeway and arterial lane-miles to metropolitan areas (Marea) and calculates freeway lane-miles per capita.</p>
-<div id="user-input-files-48" class="section level4" number="10.4.15.1">
+<div id="user-input-files-51" class="section level4" number="10.4.15.1">
 <h4>
-<span class="header-section-number">10.4.15.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-48"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.15.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-51"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Lane-Miles for <code>Marea</code> (<strong><em>marea_lane_miles.csv</em></strong>): This file contains inputs on the numbers of freeway lane-miles and arterial lane-miles by <code>Marea</code> and year.
@@ -1836,6 +1725,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.15.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-49"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Package</th>
@@ -1851,7 +1741,6 @@ Here is a snapshot of the file:
 </td>
 </tr></tbody>
 </table></div>
-</div>
 <div id="module-outputs-51" class="section level4" number="10.4.15.3">
 <h4>
 <span class="header-section-number">10.4.15.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-51"><i class="fas fa-link"></i></a>
@@ -1860,6 +1749,8 @@ Here is a snapshot of the file:
 <li>
 <strong>FwyLaneMiPC</strong>: Ratio of urbanized area freeway and expressway lane-miles to urbanized area population</li>
 </ul>
+</div>
+</div>
 <p>For more information see <a href="https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimTransportSupply/inst/module_docs/SimulateRoadMiles.md">here</a></p>
 </div>
 </div>
@@ -1868,9 +1759,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.16</span> AssignDrivers<a class="anchor" aria-label="anchor" href="#vestate-assigndrivers"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module assigns drivers by age group to each household as a function of the numbers of persons and workers by age group, the household income, land use characteristics, and public transit availability.</p>
-<div id="user-input-files-49" class="section level4" number="10.4.16.1">
+<div id="user-input-files-52" class="section level4" number="10.4.16.1">
 <h4>
-<span class="header-section-number">10.4.16.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-49"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.16.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-52"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Adjustment proportion for household drivers by age group for the region (<strong><em>region_hh_driver_adjust_prop.csv</em></strong>): This file specifies the relative driver licensing rate relative to the model estimation data year in order to account for observed or projected changes in licensing rates.
@@ -1895,6 +1786,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.16.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-50"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -1984,6 +1876,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-52" class="section level4" number="10.4.16.3">
 <h4>
 <span class="header-section-number">10.4.16.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-52"><i class="fas fa-link"></i></a>
@@ -2012,9 +1905,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.17</span> AssignVehicleOwnership<a class="anchor" aria-label="anchor" href="#vestate-assignvehicleownership"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module determines the number of vehicles owned or leased by each household as a function of household characteristics, land use characteristics, and transportation system characteristics.</p>
-<div id="user-input-files-50" class="section level4" number="10.4.17.1">
+<div id="user-input-files-53" class="section level4" number="10.4.17.1">
 <h4>
-<span class="header-section-number">10.4.17.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-50"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.17.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-53"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module has no user input requirements.</p>
 </div>
@@ -2022,6 +1915,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.17.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-51"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2099,6 +1993,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-53" class="section level4" number="10.4.17.3">
 <h4>
 <span class="header-section-number">10.4.17.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-53"><i class="fas fa-link"></i></a>
@@ -2115,9 +2010,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.18</span> AssignVehicleType<a class="anchor" aria-label="anchor" href="#vestate-assignvehicletype"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module identifies how many household vehicles are light trucks and how many are automobiles. Light trucks include pickup trucks, sport utility vehicles, vans, and any other vehicle not classified as a passenger car. Automobiles are vehicles classified as passenger cars.</p>
-<div id="user-input-files-51" class="section level4" number="10.4.18.1">
+<div id="user-input-files-54" class="section level4" number="10.4.18.1">
 <h4>
-<span class="header-section-number">10.4.18.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-51"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.18.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-54"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Light truck proportion for <code>Azone</code> (<strong><em>azone_lttrk_prop.csv</em></strong>): This file specifies the light truck proportion of the vehicle fleet.
@@ -2134,6 +2029,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.18.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-52"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2211,6 +2107,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-54" class="section level4" number="10.4.18.3">
 <h4>
 <span class="header-section-number">10.4.18.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-54"><i class="fas fa-link"></i></a>
@@ -2222,8 +2119,6 @@ Here is a snapshot of the file:
 <strong>NumAuto</strong>: Number of automobiles (i.e., four-tire passenger vehicles that are not light trucks) owned or leased by household</li>
 </ul>
 <p>For more information see <a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/AssignVehicleType.md">here</a></p>
-<p><a href="#rspm-modules-and-outputs">Top</a></p>
-<hr>
 </div>
 </div>
 <div id="vestate-createvehicletable" class="section level3" number="10.4.19">
@@ -2231,9 +2126,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.19</span> CreateVehicleTable<a class="anchor" aria-label="anchor" href="#vestate-createvehicletable"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module creates a vehicle table and populates it with household ID and geography fields.</p>
-<div id="user-input-files-52" class="section level4" number="10.4.19.1">
+<div id="user-input-files-55" class="section level4" number="10.4.19.1">
 <h4>
-<span class="header-section-number">10.4.19.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-52"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.19.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-55"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Car service characteristics for <code>Azone</code> (<strong>azone_carsvc_characteristics.csv</strong>): This file specifies the different characteristics for high and low car service levels
@@ -2258,6 +2153,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.19.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-53"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2293,6 +2189,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-55" class="section level4" number="10.4.19.3">
 <h4>
 <span class="header-section-number">10.4.19.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-55"><i class="fas fa-link"></i></a>
@@ -2311,9 +2208,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.20</span> AssignVehicleAge<a class="anchor" aria-label="anchor" href="#vestate-assignvehicletype"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module assigns vehicle ages to each household vehicle. Vehicle age is assigned as a function of the vehicle type (auto or light truck), household income, and assumed mean vehicle age by vehicle type and <code>Azone</code>. Car service vehicles are assigned an age based on input assumptions with no distinction between vehicle type.</p>
-<div id="user-input-files-53" class="section level4" number="10.4.20.1">
+<div id="user-input-files-56" class="section level4" number="10.4.20.1">
 <h4>
-<span class="header-section-number">10.4.20.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-53"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.20.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-56"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -2344,6 +2241,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.20.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-54"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2403,6 +2301,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-56" class="section level4" number="10.4.20.3">
 <h4>
 <span class="header-section-number">10.4.20.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-56"><i class="fas fa-link"></i></a>
@@ -2442,6 +2341,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.21.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-55"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2561,6 +2461,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-57" class="section level4" number="10.4.21.2">
 <h4>
 <span class="header-section-number">10.4.21.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-57"><i class="fas fa-link"></i></a>
@@ -2583,9 +2484,9 @@ Here is a snapshot of the file:
 <span class="header-section-number">10.4.22</span> AdjustVehicleOwnership<a class="anchor" aria-label="anchor" href="#vestate-adjustvehicleownership"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module adjusts household vehicle ownership based on a comparison of the cost of owning a vehicle per mile of travel compared to the cost per mile of using a car service in locations where the level of car service quality is high. The determination of whether car services are substituted for ownership also depends on input assumptions regarding the average likelihood that an owner would substitute car services for a household vehicle.</p>
-<div id="user-input-files-54" class="section level4" number="10.4.22.1">
+<div id="user-input-files-57" class="section level4" number="10.4.22.1">
 <h4>
-<span class="header-section-number">10.4.22.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-54"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.22.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-57"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>Car service characteristics for <code>Azone</code> (<strong>azone_carsvc_characteristics.csv</strong>): This file specifies the different characteristics for high and low car service levels
@@ -2610,6 +2511,7 @@ Here is a snapshot of the file:
 <h4>
 <span class="header-section-number">10.4.22.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-56"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2699,6 +2601,7 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-58" class="section level4" number="10.4.22.3">
 <h4>
 <span class="header-section-number">10.4.22.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-58"><i class="fas fa-link"></i></a>
@@ -2741,6 +2644,7 @@ This module has no user input requirements.</p>
 <h4>
 <span class="header-section-number">10.4.23.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-57"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2824,6 +2728,7 @@ This module has no user input requirements.</p>
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-59" class="section level4" number="10.4.23.2">
 <h4>
 <span class="header-section-number">10.4.23.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-59"><i class="fas fa-link"></i></a>
@@ -2849,9 +2754,9 @@ This module has no user input requirements.</p>
 <span class="header-section-number">10.4.24</span> CalculateAltModeTrips<a class="anchor" aria-label="anchor" href="#vestate-calculatealtmodetrips"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates household transit trips, walk trips, and bike trips. The models are sensitive to household DVMT so they are run after all household DVMT adjustments (e.g. to account for cost on household DVMT) are made.</p>
-<div id="user-input-files-55" class="section level4" number="10.4.24.1">
+<div id="user-input-files-58" class="section level4" number="10.4.24.1">
 <h4>
-<span class="header-section-number">10.4.24.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-55"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.24.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-58"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module has no user input requirements.</p>
 </div>
@@ -2859,6 +2764,7 @@ This module has no user input requirements.</p>
 <h4>
 <span class="header-section-number">10.4.24.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-58"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -2960,6 +2866,7 @@ This module has no user input requirements.</p>
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-60" class="section level4" number="10.4.24.3">
 <h4>
 <span class="header-section-number">10.4.24.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-60"><i class="fas fa-link"></i></a>
@@ -2986,6 +2893,7 @@ This module has no user input requirements.</p>
 <h4>
 <span class="header-section-number">10.4.25.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-59"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -3057,6 +2965,7 @@ This module has no user input requirements.</p>
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-61" class="section level4" number="10.4.25.2">
 <h4>
 <span class="header-section-number">10.4.25.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-61"><i class="fas fa-link"></i></a>
@@ -3085,6 +2994,7 @@ This module has no user input requirements.</p>
 <h4>
 <span class="header-section-number">10.4.26.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-60"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -3173,6 +3083,7 @@ This module has no user input requirements.</p>
 </tr>
 </tbody>
 </table></div>
+</div>
 </div>
 <div id="module-outputs-62" class="section level4" number="10.4.26.2">
 <h4>
@@ -3397,9 +3308,9 @@ This module has no user input requirements.</p>
 </tbody>
 </table></div>
 <p>Average fuel carbon intensities for public transit vehicles are calculated by <code>Marea</code>. The average fuel carbon intensities for the other mode vehicles are calculated for the entire model region. The module also calculates the average carbon intensity of electricity at the <code>Azone</code> level. Note that this module uses the user input files only if the user runs <a href="vestate.html#vestate-initialize">Initialize</a> module. Otherwise the module uses default inputs in the <a href="https://github.com/visioneval/VisionEval/tree/master/sources/modules/VEPowertrainsAndFuels/inst/extdata">instfolder</a>.</p>
-<div id="user-input-files-56" class="section level4" number="10.4.28.1">
+<div id="user-input-files-59" class="section level4" number="10.4.28.1">
 <h4>
-<span class="header-section-number">10.4.28.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-56"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.28.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-59"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -3523,9 +3434,9 @@ This module has no user input requirements.</p>
 <li><p>Carbon dioxide equivalent emissions per mile powered by hydrocarbon fuel</p></li>
 <li><p>Carbon dioxide equivalent emissions per mile powered by electricity</p></li>
 </ul>
-<div id="user-input-files-57" class="section level4" number="10.4.29.1">
+<div id="user-input-files-60" class="section level4" number="10.4.29.1">
 <h4>
-<span class="header-section-number">10.4.29.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-57"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.29.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-60"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -3564,6 +3475,7 @@ This module has no user input requirements.</p>
 <h4>
 <span class="header-section-number">10.4.29.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-63"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -3676,6 +3588,8 @@ This module has no user input requirements.</p>
 </tr>
 </tbody>
 </table></div>
+<div>
+
 </div>
 <div id="module-outputs-65" class="section level4" number="10.4.29.3">
 <h4>
@@ -3712,9 +3626,9 @@ This module has no user input requirements.</p>
 </h3>
 <p>This module reads and processes roadway DVMT and operations inputs.
 The following input files are optional. If these data are not provided, the model calculates values based on default data included with the package and processed by the <code>LoadDefaultRoadDvmtValues.R</code> script.</p>
-<div id="user-input-files-58" class="section level4" number="10.4.30.1">
+<div id="user-input-files-61" class="section level4" number="10.4.30.1">
 <h4>
-<span class="header-section-number">10.4.30.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-58"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.30.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-61"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -3846,9 +3760,9 @@ The following input files are optional. If these data are not provided, the mode
 </h3>
 <p>This module calculates base year roadway DVMT by vehicle type (light-duty, heavy truck, bus) and the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other)
 This module uses optional user inputs if <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize</a> module is run. Otherwise, it uses default data in <a href="https://github.com/visioneval/VisionEval/tree/develop/sources/modules/VETravelPerformance/inst/extdata">instfolder</a></p>
-<div id="user-input-files-59" class="section level4" number="10.4.31.1">
+<div id="user-input-files-62" class="section level4" number="10.4.31.1">
 <h4>
-<span class="header-section-number">10.4.31.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-59"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.31.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-62"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -3904,6 +3818,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.31.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-65"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -3975,6 +3890,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-67" class="section level4" number="10.4.31.3">
 <h4>
 <span class="header-section-number">10.4.31.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-67"><i class="fas fa-link"></i></a>
@@ -4045,9 +3961,9 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </h3>
 <p>This module calculates future year roadway DVMT by vehicle type (light-duty, heavy truck, bus) and the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other)
 This module uses optional user inputs if <a href="vestate.html#vestate-initialize-vetravelperformance">Initialize</a> module is run. Otherwise, it uses default data in <a href="https://github.com/visioneval/VisionEval/tree/develop/sources/modules/VETravelPerformance/inst/extdata">instfolder</a></p>
-<div id="user-input-files-60" class="section level4" number="10.4.32.1">
+<div id="user-input-files-63" class="section level4" number="10.4.32.1">
 <h4>
-<span class="header-section-number">10.4.32.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-60"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.32.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-63"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -4074,6 +3990,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.32.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-66"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -4247,6 +4164,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-68" class="section level4" number="10.4.32.3">
 <h4>
 <span class="header-section-number">10.4.32.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-68"><i class="fas fa-link"></i></a>
@@ -4294,9 +4212,9 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <li><p>Average amount paid per mile in congestion pricing fees; and,</p></li>
 <li><p>Vehicle hours of delay by vehicle type.</p></li>
 </ul>
-<div id="user-input-files-61" class="section level4" number="10.4.33.1">
+<div id="user-input-files-64" class="section level4" number="10.4.33.1">
 <h4>
-<span class="header-section-number">10.4.33.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-61"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.33.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-64"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -4376,6 +4294,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.33.3</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-67"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -4459,6 +4378,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-69" class="section level4" number="10.4.33.4">
 <h4>
 <span class="header-section-number">10.4.33.4</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-69"><i class="fas fa-link"></i></a>
@@ -4536,8 +4456,6 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <strong>AveCongPrice</strong>: Average price paid (dollars per mile) in congestion fees</li>
 </ul>
 <p>For more information see <a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadPerformance.md">here</a></p>
-<p><a href="#rspm-modules-and-outputs">Top</a></p>
-<hr>
 </div>
 </div>
 <div id="vestate-calculatempgmpkwhadjustments" class="section level3" number="10.4.34">
@@ -4545,9 +4463,9 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <span class="header-section-number">10.4.34</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#vestate-calculatempgmpkwhadjustments"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates adjustments to fuel economy and electric energy economy for plug-in vehicles) resulting from traffic congestion, speed smoothing(i.e. active traffic management which reduces speed variation), and ecodriving practices.</p>
-<div id="user-input-files-62" class="section level4" number="10.4.34.1">
+<div id="user-input-files-65" class="section level4" number="10.4.34.1">
 <h4>
-<span class="header-section-number">10.4.34.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-62"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.34.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-65"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -4570,6 +4488,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.34.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-68"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -4749,6 +4668,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-70" class="section level4" number="10.4.34.3">
 <h4>
 <span class="header-section-number">10.4.34.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-70"><i class="fas fa-link"></i></a>
@@ -4805,6 +4725,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.35.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-69"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -4960,6 +4881,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-71" class="section level4" number="10.4.35.2">
 <h4>
 <span class="header-section-number">10.4.35.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-71"><i class="fas fa-link"></i></a>
@@ -4989,9 +4911,9 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <span class="header-section-number">10.4.36</span> CalculateVehicleOperatingCost<a class="anchor" aria-label="anchor" href="#vestate-calculatevehicleoperatingcost"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates vehicle operating costs per mile of travel and uses those costs to determine the proportional split of DVMT among household vehicles. The module also calculates the average out-of-pocket costs per mile of vehicle by household, as well as the cost of social and environmental impacts, and road use taxes per mile of vehicle travel.</p>
-<div id="user-input-files-63" class="section level4" number="10.4.36.1">
+<div id="user-input-files-66" class="section level4" number="10.4.36.1">
 <h4>
-<span class="header-section-number">10.4.36.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-63"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.36.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-66"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -5055,6 +4977,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.36.3</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-70"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -5216,6 +5139,7 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-72" class="section level4" number="10.4.36.4">
 <h4>
 <span class="header-section-number">10.4.36.4</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-72"><i class="fas fa-link"></i></a>
@@ -5249,9 +5173,9 @@ The budget proportion model is estimated using data from the Bureau of Labor’s
 midpoint value for each income category to calculate the budget proportion for each income group and each year. From this the mean value is computed for each income group. The budget proportions for each income group and year are divided by the mean values by income group to normalize values. The standard deviation for the combined normalized values is computed and value of 3
 deviations above the mean is set as the maximum normalized value. The mean values by income group are multiplied by this normalized maximum to derive a budget proportion maximum by income group. A smoothed splines model of the budget proportion as a function of income is then estimated from the calculated budget proportion maximums. This model is used to calculate the budget proportion for a household based on the household income. The minimum and
 maximum values of the calculated budget proportion maximums are used as constraints to avoid unreasonable results for very low incomes and very high incomes.</p>
-<div id="user-input-files-64" class="section level4" number="10.4.37.1">
+<div id="user-input-files-67" class="section level4" number="10.4.37.1">
 <h4>
-<span class="header-section-number">10.4.37.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-64"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.37.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-67"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module does not have user-supplied input files</p>
 </div>
@@ -5259,6 +5183,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <h4>
 <span class="header-section-number">10.4.37.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-71"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -5360,6 +5285,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-73" class="section level4" number="10.4.37.3">
 <h4>
 <span class="header-section-number">10.4.37.3</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-73"><i class="fas fa-link"></i></a>
@@ -5414,6 +5340,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <h4>
 <span class="header-section-number">10.4.38.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-72"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -5479,6 +5406,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-74" class="section level4" number="10.4.38.2">
 <h4>
 <span class="header-section-number">10.4.38.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-74"><i class="fas fa-link"></i></a>
@@ -5487,8 +5415,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <li>
 <strong>ExtraVmtTax</strong>: Added vehicle mile tax for household vehicle use to pay for any deficit between road costs and road revenues (dollars per vehicle mile)</li>
 </ul>
-<p><a href="#rspm-modules-and-outputs">Top</a>
-___</p>
 </div>
 </div>
 <div id="vestate-calculatecomenergyandemissions" class="section level3" number="10.4.39">
@@ -5548,6 +5474,7 @@ Here is a snapshot of the file:<br><img align="center" width="300" border="1" sr
 <h4>
 <span class="header-section-number">10.4.39.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-73"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -5673,6 +5600,7 @@ Here is a snapshot of the file:<br><img align="center" width="300" border="1" sr
 </tbody>
 </table></div>
 </div>
+</div>
 <div id="module-outputs-75" class="section level4" number="10.4.39.2">
 <h4>
 <span class="header-section-number">10.4.39.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-75"><i class="fas fa-link"></i></a>
@@ -5703,9 +5631,9 @@ Here is a snapshot of the file:<br><img align="center" width="300" border="1" sr
 <span class="header-section-number">10.4.40</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#vestate-calculateptranenergyandemissions"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates the energy consumption and carbon emissions of public transit vehicle emissions in urbanized areas.</p>
-<div id="user-input-files-65" class="section level4" number="10.4.40.1">
+<div id="user-input-files-68" class="section level4" number="10.4.40.1">
 <h4>
-<span class="header-section-number">10.4.40.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-65"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.4.40.1</span> User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-68"><i class="fas fa-link"></i></a>
 </h4>
 <ol style="list-style-type: decimal">
 <li>
@@ -5740,6 +5668,7 @@ Here is a snapshot of the file:<br><img align="center" width="300" border="1" sr
 <h4>
 <span class="header-section-number">10.4.40.2</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-74"><i class="fas fa-link"></i></a>
 </h4>
+<div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
 <colgroup>
 <col width="17%">
@@ -5798,6 +5727,7 @@ Here is a snapshot of the file:<br><img align="center" width="300" border="1" sr
 </tr>
 </tbody>
 </table></div>
+</div>
 </div>
 <div id="module-outputs-76" class="section level4" number="10.4.40.3">
 <h4>
@@ -6057,7 +5987,53 @@ hh_dvmt &lt;- data.frame(year, Dvmt = hh_dvmt)</code></pre>
 </div>
 </div>
 </div>
-  <div class="chapter-nav">
+  
+
+  
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script><div class="chapter-nav">
 <div class="prev"><a href="verspm.html"><span class="header-section-number">9</span> VERSPM Model Details</a></div>
 <div class="next"><a href="verpat.html"><span class="header-section-number">11</span> VERPAT Model Details</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
@@ -6150,49 +6126,7 @@ hh_dvmt &lt;- data.frame(year, Dvmt = hh_dvmt)</code></pre>
 </div>
     </nav>
 </div>
-
 </div>
-</div> <!-- .container -->
-
-<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-27.</p>
-  </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
-  </div>
-
-</div></div>
-</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
-for (let popover of popovers) {
-  const div = document.createElement('div');
-  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
-  div.innerHTML = popover.getAttribute('data-content');
-
-  var has_math = div.querySelector("span.math");
-  if (has_math) {
-    document.body.appendChild(div);
-    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
-    MathJax.Hub.Queue(function() {
-      popover.setAttribute('data-content', div.innerHTML);
-      document.body.removeChild(div);
-    })
-  }
-}
-</script>
+</div>
 </body>
 </html>

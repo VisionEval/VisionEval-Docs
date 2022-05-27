@@ -24,7 +24,7 @@ are two paths to installing VisionEval:
 
     + **[Download a zipped folder](https://visioneval.org/category/download.html)** from the VisionEval website for a specific version of R.\
         This is the simplest way to quickly get VisionEval on your computer.
-<br/><br/>
+    <br/><br/>
 
 2.  **Copy, clone or 'fork' the system code repository**:
 
@@ -138,8 +138,8 @@ users need to set up:
 
 2.  Develop a *Base Model* for the region under analysis. The Base Model specifies:
     -   **Model Geography** (zone structure), reported as Marea (metropolitan area), AZones
-        (county-sized), and BZones (census-tract-sized) and related configuration files
-    -   **Base and Future Years** to be evaluated for each scenario (e.g. 2019 and 2050)
+        (county-sized), and BZones (often census-tract-sized or could be related to Traffic Analysis Zones in other travel demand models) and related configuration files
+    -   **Base and Future Years** to be evaluated for each scenario (e.g., 2019 and 2050)
     -   **Local Data Files** describing Base Scenario conditions in the region (including both
         observed base year data, and estimates of future year conditions with no scenario policies
         applied)
@@ -150,7 +150,7 @@ users need to set up:
    Future Years. VisionEval models support having many different scenarios. See the scenario
    development chapter later in this book for details.
 
-4. Run the model to process each of its scenarios
+4. Run the model to process each of its scenarios.
 
 5. Extract or query the results for summarization and further analysis in R or export tabular data
    files to other data analysis systems.
@@ -202,8 +202,8 @@ query$run()
 query$export()
 ```
 
-Extracting the results creates a series of `.csv` files in the `outputs` subfolder of `results`.
-Extracting the query will create a table of metrics for each model year and scenario that is defined
+Exporting the results creates a series of `.csv` files in the `outputs` subfolder of `results`.
+Exporting the query will create a table of metrics for each model year and scenario that is defined
 in the model, placing that in another subfolder of `outputs`.
 
 ### Using the Walkthrough
