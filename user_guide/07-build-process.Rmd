@@ -158,15 +158,14 @@ devtools::build()
 devtools::install()
 ```
 
-## Case Study - 1
-
+## Case Study 1 - PUMS data in VESimHouseholds
 
 ### Using Local PUMS data in VESimHouseholds
 The VESimHouseholds package contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the [VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds) package. The source code for this package is located on the VisionEval github repository [sources/modules/VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds).
 
 It is recommended that package modifications be made within your local VisionEval build (i.e., after running `ve.build()`) located in `VisionEval\built\visioneval\4.x.x\src\`, and not the cloned source modules. That way any changes can be reverted to the default VisionEval version by re-running `ve.build()`. The ".x.x" will be replaced by whichever R version was used during the build.
 
-## Objective of the Case Study
+### Objective of the Case Study
 The objective of this case study is to substitute the default Oregon-based Public Use Microdata Sample (PUMS) data with PUMS data from another state . This is done in three major steps:
 
 1. Preprocess and format "raw" PUMS data into the comma separated value (.CSV) files for VisionEval input
@@ -174,7 +173,7 @@ The objective of this case study is to substitute the default Oregon-based Publi
 3. Re-build and install the VisionEval package to make the updated module available with local data.
 
 
-## Input files being modified
+### Input files being modified
 As mentioned, the default data inputs provided with VESimHouseholds are PUMS data for Oregon from the 2000 Decennial US Census. The input files are two .CSV files, with the following names and file paths:
 
 - `VESimHouseholds/inst/extdata/pums_households.csv`
@@ -257,7 +256,7 @@ And an example of the persons data might look like this:
 Note that the two data files are also linked by a primary key field `SERIALNO`. For each unique household, there are one or more persons linked to that household by the `SERIALNO` key.
 
 
-## Step 1 - Preprocessing
+### Step 1 - Preprocessing
 
 To start, we must download our new "raw" PUMS data and format it to match the current VisionEval input files. Processing and formatting can be done manually using spreadsheets and text editors, but some PUMS data are stored in a space saving format that most spreadsheets and humans cannot easily read.
 
@@ -381,7 +380,7 @@ getACSPUMS(STATE='CA', YEAR='2020', output_dir = './output_folder')
 ```
 
 
-## Step 2 - Create the VisionEval estimation data sets
+### Step 2 - Create the VisionEval estimation data sets
 
 The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval `.Rda` data files stored in `VESimHouseholds\data`. These data files are stored in a structure and format (e.g., data frames) that VisionEval can use as part of the framework.
 
@@ -393,21 +392,20 @@ The next step is to use the R scripts in VESimHouseholds to re-generate the Visi
 
    Within the package's "R" folder, some will save a datastore with the command `visioneval::savePackageDataset()`, some may not need any data updates, and others might only contain model functions with no immediate output saved.
 
-## Step 3 - Build the VESimHouseholds package
+### Step 3 - Build the VESimHouseholds package
 Although the previous step generated the R data files, your current VisionEval environment will still be using the old data from the built version of the package. You will need to re-build and re-install the VESimHousehold package for VisionEval to replace the package with a new version containing the new input data. Any of the three build processes described above can be used.
 
 Once the package re-build is complete, your new PUMS data will be ready to use in a VisionEval model run.
 
-## Case Study - 2
-
+## Case Study 2 - Powertrain data in VEPowertrainsandFuels
 
 ### VEPowertrainsandFuels - Changing Inputs for a Scenario Test
 This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package (often this is in order to create an alternative scenario). The critical purpose of the VEPowertrainsandFuels package is to process vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the 'inst/extdata' directory of the source package and build the package.
 
-## Objective of VEPowertrainsandFuels Case Study
+### Objective of VEPowertrainsandFuels Case Study
 The objective of this case study is to define a custom function which alters the default data values as they are read into VisionEval during the build process.
 
-## Data
+### Data
 
 `VEPowertrainsAndFuels\inst\extdata\hh_powertrain_prop.csv` are the default powertrain proportions contained in the package, which resembles the table below (the table is compressed to select years for clarity). The file's purpose is to provide the proportion of vehicle powertrain types by vehicle type (auto and light trucks) and vehicle vintage year.
 
@@ -423,7 +421,7 @@ The objective of this case study is to define a custom function which alters the
 
 The table contains two powertrain proportions, the left-most four columns are for automobiles (i.e., `AutoProp`) and the right-most are for light trucks (i.e., `LtTrkProp`). Each will sum up to 1 (for a rowsum of 2).
 
-## Input modification
+### Input modification
 
 This section walks users through modifying the data as they are read in to VisionEval. Before modifying the code, a brief analysis is conducted to define a modifying function and demonstrate the effects if the modifications. The next subsection utilizes the function in the `LoadDefaultValues.R` script to modify `hh_powertrain_prop.csv` as the data are read in.
 
@@ -613,7 +611,7 @@ adjust_powertrain <- function(powertrain_df, start_year) {
 PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df
 rm(Inp_ls, HhPowertrain_df)
 ```
-## Build the VEPowertrainsAndFuels package
+### Build the VEPowertrainsAndFuels package
 The previous step generated the R data files, and you will need to re-build and re-install the VEPowertrainsAndFuels package for VisionEval to use this new input data. Any of the three build processes described above can be used.
 
 Once the package re-build is complete, your new powertrain data will be ready to use in a VisionEval model run.
