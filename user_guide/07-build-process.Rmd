@@ -20,7 +20,7 @@ The steps involved in the process include:
 ## Context
 The VisionEval "build process" rebuilds VisionEval packages to incorporate modified data in the module's model estimation and data processing steps in order to update data resources such as PUMS (Public Use Microdata Samples from the US Census) and estimated model coefficients. The build process can be conducted through R or RStudio starting with the VisionEval code available from its Github repository.
 
-The reason that the module must be rebuilt before it is available for use in VisionEval is that the VisionEval framework relies on importing each module from an R package. The data resources in any R package cannot be updated directly. Instead the packages must be rebuilt from their sources. R packages are a fundamental unit of the R ecosystem and create a structured way to bundle code, data, and documentation together into a single unit for distribution. Packages can be easily installed and shared among R users. VisionEval itself is distributed as a set of R packages, and those packages are what must be rebuilt to incorporate localized data.
+The reason that a modified module must be rebuilt before it is available for use in VisionEval is that the VisionEval framework relies on importing each module from an R package. The data resources in any R package cannot be updated directly. Instead the R package that contain the modified module must be rebuilt from its source. R packages are a fundamental unit of the R ecosystem and create a structured way to bundle code, data, and documentation together into a single unit for distribution. Packages can be easily installed and shared among R users. VisionEval itself is distributed as a set of R packages, and those packages are what must be rebuilt to incorporate any localized data or other user made modifications.
 
 There are two ways to set up VisionEval to rebuild a package with localized data.
 
@@ -71,7 +71,7 @@ code located in the [VisionEval github repository](https://github.com/VisionEval
 
 Using the Github approach with ve.build, the package source is located in `VisionEval\sources\modules\VEGenericPackage` and there will be no "data" folder, just the other elements. The key in both cases is to locate the `inst\extdata` folder and replace the key files in that location.
 
-The only exception to all this is the MultiModal package, which has an offline step to construct data files (due to dependency on non-public data).
+An exception to this is the VETravelDemandMM package, which has an offline step to construct data files (due to its dependency on non-public data).
 
 VisionEval packages will generally have a structure similar to the following:
 
@@ -164,25 +164,23 @@ devtools::install()
 ### Using Local PUMS data in VESimHouseholds
 The VESimHouseholds package contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the [VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds) package. The source code for this package is located on the VisionEval github repository [sources/modules/VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds).
 
-It is recommended that package modifications be made withiin your local VisionEval build (i.e., after running `ve.build()`) located in `VisionEval\built\visioneval\4.x.x\src\`, and not the cloned source modules. That way any changes can be reverted to the default VisionEval by re-running `ve.build()`. The ".x.x" will be replaced by whichever R version was used during the build.
+It is recommended that package modifications be made within your local VisionEval build (i.e., after running `ve.build()`) located in `VisionEval\built\visioneval\4.x.x\src\`, and not the cloned source modules. That way any changes can be reverted to the default VisionEval version by re-running `ve.build()`. The ".x.x" will be replaced by whichever R version was used during the build.
 
 ## Objective of the Case Study
-The objective of this case study is to substitute the default Oregon-based data with another State PUMS data. This is done in three major steps:
+The objective of this case study is to substitute the default Oregon-based Public Use Microdata Sample (PUMS) data with PUMS data from another state . This is done in three major steps:
 
-1. Preprocess and format "raw'' PUMS data into the comma separated value (.CSV) files for VisionEval input
+1. Preprocess and format "raw" PUMS data into the comma separated value (.CSV) files for VisionEval input
 2. Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as "datastore" format, see the [lexicon documentation](https://rsginc.github.io/VisionEval-Docs/conceptprimer.html#lexicon) for more detailed terminologies). This element is part of building the package to generate the data for installation and may require building twice to ensure the changes take effect.
 3. Re-build and install the VisionEval package to make the updated module available with local data.
 
 
 ## Input files being modified
-As mentioned, the default data inputs shipped with VESimHouseholds are Oregon-based PUMS data. The input files are two CSV files located in:
+As mentioned, the default data inputs provided with VESimHouseholds are PUMS data for Oregon from the 2000 Decennial US Census. The input files are two .CSV files, with the following names and file paths:
 
 - `VESimHouseholds/inst/extdata/pums_households.csv`
 - `VESimHouseholds/inst/extdata/pums_persons.csv`
 
-The two CSV files contain disaggregated persons and households data linked by a primary key id field. These data come from Public Use Microdata Sample (PUMS) from the 2000 Decennial US Census. By default, the data in VisionEval is shipped using Oregon-based PUMS.
-
-The files have the following fields and field values.
+The two .CSV files contain disaggregated person and household data linked by a primary key id field. The files have the following fields and field values.
 
 ```
 HOUSEHOLDS
@@ -256,7 +254,7 @@ And an example of the persons data might look like this:
 |      159|  80|      2|        2|  14700|
 
 
-Note that the two data files are also linked by a primary key field `SERIALNO`. Meaning that for each unique household, there are one or more persons linked to that household by the `SERIALNO` key.
+Note that the two data files are also linked by a primary key field `SERIALNO`. For each unique household, there are one or more persons linked to that household by the `SERIALNO` key.
 
 
 ## Step 1 - Preprocessing
