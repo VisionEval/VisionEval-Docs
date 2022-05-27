@@ -11,7 +11,7 @@ Other common errors users should watch out for include:
   + Zero land area for an azone location type when there are non-zero values for employment in that azone location type
 
 ## Validation
-  
+
 This section summarizes additional detail on the validation of VisionEval models with key considerations by concept. Each concept will highlight its respective model inputs and assumptions that can be changed to better match observed local patterns and trends.
 
 ### Household Synthesis and Land Use Validation
@@ -81,7 +81,7 @@ After going to `../models/VERSPM_Scenarios` folder, you will see multiple subfol
 ## VERSPM Base Model
 
 This directory contains the inputs and R script necessary to run the base scenario, as described above.
- 
+
 ### defs
 
 `VE-RSPM_Scenarios/defs` directory contains the same files as the `VERSPM_base_model/defs` directory, but the `model_parameters.json` file differs between `VERSPM_base_model/defs` and`VE-RSPM_Scenarios/defs` differs in that the latter 
@@ -131,7 +131,7 @@ version contains just four parameters specifying the locations of inputs and out
 
 The `inputs` folder in `VERRSPM_Scenarios` also differs from that in `VERSPM_base_model`.  In this case, there is only a single file specifying the output data tables that should be exported as CSV files in the `outputs` directory.
 
-![](images/VERSPM_scenarios.PNG(width=100%)
+![](images/VERSPM_scenarios.PNG){width=100%}
 
 ##### scenario_inputs
 
@@ -143,7 +143,7 @@ Within each folder, there are subfolders containing input files, one per specifi
 
 Model inputs not otherwise specified in the `scenario_inputs` directory are drawn from files in `VERSPM_base_model/defs` and `VERSPM_base_model/inputs`
 
-![](images/VERSPM_scenarios2.PNG{width=100%}
+![](images/VERSPM_scenarios2.PNG){width=100%}
 
 The subfolder names and scenario inputs are defined as follows (input file to modify given in parentheses):
 
@@ -242,7 +242,7 @@ Several pre-processors are under consideration to develop connectivity and quali
 
 The following figures highlight the selected changes that the model makes to the VE-RSPM packages and modules.
 
-![Bike Network Research](VE_PackagesModules/VERSPM_Bike.JPG)
+![Bike Network Research](VE_PackagesModules/VERSPM_Bike.JPG){width=100%}
 
 Note:  The project also intends to synchronize the disaggregate Bike Network assumptions with the Bike Module in Portland Metro's new Activity Based Model, where the full network, not just the aggregated metrics of VisionEval, could be utilized directly.
 
