@@ -417,14 +417,14 @@ Your new PUMS data should now be ready to use in a VisionEval model run.
 
 
 ### VEPowertrainsandFuels - Changing Inputs for a Scenario Test
-This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package. The critical purpose of the VEPowertrainsandFuels package is to processes vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the 'inst/extdata' directory of the source package and build the package.
+This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package. The critical purpose of the VEPowertrainsandFuels package is to process vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the 'inst/extdata' directory of the source package and build the package.
 
 ## Objective of VEPowertrainsandFuels Case Study
 The objective of this case study is to define a custom function which alters the default data values as they are read into VisionEval during the build process.
 
 ## Data
 
-`VEPowertrainsAndFuels\inst\extdata\hh_powertrain_prop.csv` is the default powertrain proportions contained in the package, which resembles the table below (the table is compressed to select years for clarity). The file's purpose is to provide the proportion of vehicle powertrain types and models per year.
+`VEPowertrainsAndFuels\inst\extdata\hh_powertrain_prop.csv` are the default powertrain proportions contained in the package, which resembles the table below (the table is compressed to select years for clarity). The file's purpose is to provide the proportion of vehicle powertrain types by vehicle type (auto and light trucks) and vehicle vintage year.
 
 |ModelYear|AutoPropIcev|AutoPropHev|AutoPropPhev|AutoPropBev|LtTrkPropIcev|LtTrkPropHev|LtTrkPropPhev|LtTrkPropBev|
 |---------|------------|-----------|------------|-----------|-------------|------------|-------------|------------|
@@ -440,12 +440,11 @@ The table contains two powertrain proportions, the left-most four columns are fo
 
 ## Input modification
 
-This section walks users through modifying the data as it is read in to VisionEval. Before modifying the code, a brief analysis is conducted define a modifying function anddemonstrate the modifications. The next subsection then utilizes the function in the `LoadDefaultValues.R` to modify `hh_powertrain_prop.csv` as the data is read in.
-
+This section walks users through modifying the data as they are read in to VisionEval. Before modifying the code, a brief analysis is conducted to define a modifying function and demonstrate the effects if the modifications. The next subsection utilizes the function in the `LoadDefaultValues.R` script to modify `hh_powertrain_prop.csv` as the data are read in.
 
 ### Analysis
 
-To begin, the code snippets below conducts a brief exploratory analysis to demonstrate visually what the data looks like and how it will be modified. Using some helper packages `ggplot2` and `reshape` we can format the data for visualization. **Note:** These packages is not necessary for modifying the data in VisionEval, but is used for concise plotting here.
+To begin, the code snippets below conduct a brief exploratory analysis to demonstrate visually what the data look like and how they will be modified. Using some helper packages `ggplot2` and `reshape` we can format the data for visualization. **Note:** These packages are not necessary for modifying the data in VisionEval, but are used for formatting and plotting in this case study.
 
 
 ```
@@ -467,7 +466,7 @@ ggplot(data = melted_powertrains) +
 ![Household Powertrain Proportions](images/hh_powertrain_prop_view.png)
 
 
-We can see that battery electric vehicles (BEV), specifically automobiles, are projected to make up the bulk share of vehicles in the future. This causes the share of internal combustion engine to decline proportionally.
+We can see that battery electric vehicles (BEV), specifically automobiles, are projected to make up the majority of vehicles bought in future years. This causes the share of internal combustion engine to decline proportionally.
 
 Let us assume that the state government is deciding whether to aggressively promote BEV cars starting in 2025. The policies cause the share of alternative powertrains (BEV, HEV, and PHEV) to increase more over time. To model this increase, we will use an arbitrary function which adds to the current value of $x$ (i.e., the proportion) at a quadratic rate.
 
@@ -505,7 +504,7 @@ adjust_powertrain <- function(powertrain_df, start_year) {
 
 ```
 
-Visualizing the results atop the existing model it can be combined and plotted, showing an noticable increase in alternative powertrain vehicles.
+The adjusted inputs can be combined with the existing data. The combined plot shows an noticeable increase in alternative powertrain vehicle shares for later vintage years.
 
 ```
 hh_powertrain_prop_high <- adjust_powertrain(hh_powertrain_prop, 2025)
@@ -526,7 +525,7 @@ ggplot(data = melted_powertrains) +
 
 ### Data modification
 
-Once satisfied with a modifying function, the `LoadDefaultValues.R` can be edited to include the function. Beginning on line #422, the R script initializes the household powertrain datastore input, then loads in the CSV file using `processEstimationInputs`. We can insert the new function after the data has been loaded but before it has been stored and cleaned up at `PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df`.
+Once a model user is satisfied with the effects that are represented by applying the modifying function, the `LoadDefaultValues.R` can be edited to include the function. Beginning on line #422, the R script initializes the household powertrain datastore input, then loads in the CSV file using `processEstimationInputs`. We can insert the new function after the data has been loaded but before it has been stored and cleaned up at `PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df`.
 
 ```
 #----------------------------------------
