@@ -1,9 +1,7 @@
-# Module Build Process for Custom Data Inputs{#ve-buildprocess}
+# Module Build Process {#ve-buildprocess}
 
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, results='hide')
-```
+
 
 ## Introduction
 The purpose of this chapter is to familiarize users with the package build process for creating or modifying individual modules within the VisionEval framework. The package build process is a necessary step for users to incorporate custom or locally specific data into VisionEval. This chapter walks users through the process of substituting data and re-building a typical VE package, using the VESimHouseholds package as a case study in this example.
@@ -131,14 +129,30 @@ INCTOT: Person's Total Income in 1999
 
 
 The data are disaggregated (i.e., records) individual persons and households. For example, household data might look like this:
-```{r pums_households.csv, results='markup', echo=FALSE}
-knitr::kable(read.csv('data/pums_households.csv'))
-```
+
+| SERIALNO| PUMA5| HWEIGHT| UNITTYPE| PERSONS| BLDGSZ|   HINC|
+|--------:|-----:|-------:|--------:|-------:|------:|------:|
+|       45| 25080|      22|        0|       1|      9|  68100|
+|       92| 25060|      17|        0|       3|      5| 105530|
+|      103| 25090|      21|        0|       2|      6| 359000|
+|      142| 25100|      25|        0|       2|      2| 141500|
+|      157| 25100|       0|        1|       1|     NA|      0|
+|      159| 25070|      22|        0|       1|      2|  14700|
 
 And an example of the persons data might look like this:
-```{r pums_persons.csv, results='markup', echo=FALSE}
-knitr::kable(read.csv('data/pums_persons.csv'))
-```
+
+| SERIALNO| AGE| WRKLYR| MILITARY| INCTOT|
+|--------:|---:|------:|--------:|------:|
+|       45|  66|      1|        4|  68100|
+|       92|  28|      1|        4|  33000|
+|       92|  28|      1|        4|  37000|
+|       92|  26|      1|        4|  35530|
+|      103|  53|      1|        4|  33000|
+|      103|  53|      1|        4| 326000|
+|      142|  49|      1|        4| 111500|
+|      142|  49|      1|        4|  30000|
+|      157|  39|      1|        4|   2100|
+|      159|  80|      2|        2|  14700|
 
 Note that the two data files are also linked by a primary key field `SERIALNO`. Meaning that for each unique household, there are at least one or more persons linked to that household by the `SERIALNO` key.
 
