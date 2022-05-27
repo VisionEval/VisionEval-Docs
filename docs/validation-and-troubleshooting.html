@@ -92,7 +92,7 @@
 <h2>
 <span class="header-section-number">7.1</span> Validation<a class="anchor" aria-label="anchor" href="#validation-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>This section summarizes additional detail on the validation of VisionEval models with key considerations by concept. Each concept will highlight its respective model inputs and assumptions that can be changed to better match observed local patterns and trends.</p>
+<p>This section summarizes additional detail on the validation of VisionEval models with key considerations by concept. Each concept will highlight its respective model inputs and assumptions that can be changed to better match observed local patterns and trends. These outputs covered are only a handful that can be used to validate the VE model.</p>
 <div id="household-synthesis-and-land-use-validation" class="section level3" number="7.1.1">
 <h3>
 <span class="header-section-number">7.1.1</span> Household Synthesis and Land Use Validation<a class="anchor" aria-label="anchor" href="#household-synthesis-and-land-use-validation"><i class="fas fa-link"></i></a>
@@ -106,7 +106,7 @@
 <li>The relative employment rate by age group by Azone can be specified to match observed differences across a metropolitan area or levels at various points of economic cycles. Lower employment rates, especially in certain age groups, should be reflected in <code>azone_relative_employment.csv</code>. The relative employment rate is relative to the average employment rate for the worker group in the PUMS data (e.g., a value of 0.5 would be entered if the employment rate for 20-29 age group in one Azone was half the employment rate for persons in that age group in the metropolitan area).</li>
 <li>The <code>VELandUse</code> package also uses the PUMS data, which can be further adjusted in two ways:
 <ul>
-<li>The mix of single family versus multi-family households will reflect local patterns if PUMS data for the modeled region are used instead of the default data from Oregon.</li>
+<li>The mix of single family versus multi-family households will reflect local patterns if PUMS data for the modeled region are used instead of the default data from Oregon. See the [ insert link to the build process PUMS case study]</li>
 <li>The proportion of households residing in mixed-use neighborhoods within each Bzone can optionally be set in the <code>bzone_urban-mixed-use_prop.csv</code> file. Such adjustments are subjective, as the definition of “urban mixed-use” neighborhoods <a href="https://nhts.ornl.gov/2009/pub/DerivedAddedVariables2009.pdf">derived from the Claritas data</a> in the <a href="https://nhts.ornl.gov/">NHTS</a> are imprecise.</li>
 </ul>
 </li>

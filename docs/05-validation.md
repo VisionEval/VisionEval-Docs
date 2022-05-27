@@ -12,7 +12,7 @@ Other common errors users should watch out for include:
 
 ## Validation
 
-This section summarizes additional detail on the validation of VisionEval models with key considerations by concept. Each concept will highlight its respective model inputs and assumptions that can be changed to better match observed local patterns and trends.
+This section summarizes additional detail on the validation of VisionEval models with key considerations by concept. Each concept will highlight its respective model inputs and assumptions that can be changed to better match observed local patterns and trends. These outputs covered are only a handful that can be used to validate the VE model. 
 
 ### Household Synthesis and Land Use Validation
 
@@ -24,7 +24,7 @@ Two key metrics to validate are **population** and **income** due to the influen
 * Care should be taken to match the real dollar amount of `azone_per_cap_inc.csv` and other files with dollar values to the year specified in the file to account for inflation.
 * The relative employment rate by age group by Azone can be specified to match observed differences across a metropolitan area or levels at various points of economic cycles. Lower employment rates, especially in certain age groups, should be reflected in `azone_relative_employment.csv`. The relative employment rate is relative to the average employment rate for the worker group in the PUMS data (e.g., a value of 0.5 would be entered if the employment rate for 20-29 age group in one Azone was half the employment rate for persons in that age group in the metropolitan area).
 * The `VELandUse` package also uses the PUMS data, which can be further adjusted in two ways:
-  * The mix of single family versus multi-family households will reflect local patterns if PUMS data for the modeled region are used instead of the default data from Oregon.
+  * The mix of single family versus multi-family households will reflect local patterns if PUMS data for the modeled region are used instead of the default data from Oregon. See the [ insert link to the build process PUMS case study]
   * The proportion of households residing in mixed-use neighborhoods within each Bzone can optionally be set in the `bzone_urban-mixed-use_prop.csv` file. Such adjustments are subjective, as the definition of "urban mixed-use" neighborhoods [derived from the Claritas data](https://nhts.ornl.gov/2009/pub/DerivedAddedVariables2009.pdf) in the [NHTS](https://nhts.ornl.gov/) are imprecise. 
 
 ### Household Travel Behavior Validation
