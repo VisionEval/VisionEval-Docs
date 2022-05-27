@@ -25,7 +25,7 @@ The reason that the module must be rebuilt before it is available for use in Vis
 There are two ways to set up VisionEval to rebuild a package with localized data.
 
   1. The most general approach is to start with the source
-code located in the [VisionEval github repository](https://github.com/VisionEval/VisionEval) and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the "build/Building.md" file in the Github source tree.
+code located in the [VisionEval github repository](https://github.com/VisionEval/VisionEval) and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the ["build/Building.md"](https://github.com/VisionEval/VisionEval/blob/master/build/Building.md) file in the Github source tree.
   2. Alternatively, you can start with a binary VisionEval installation (unzipping the installer file) and then unzip the VisionEval source code file ("src") to create a "src" directory within your runtime. The steps for rebuilding a package using this method are document in "build/RStudio.md" in the Github source tree (**JR:** but probably we should just include them here since if they're going to Github to ge that document, they might as well just use "method one".)
 
 ### Generic VisionEval Module
@@ -75,7 +75,7 @@ The objective of this case study is to substitute the default Oregon-based data 
 
 1. Preprocess and format "raw'' PUMS data into the comma separated value (.CSV) files for VisionEval input
 2. Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as "datastore" format)   ++{do we link to a definition of datastore in the Lexicon} **JR:** in fact, this element of building is just part of building the package - but in general you do need to build it twice to ensure the changes "take". The PUMS example saves us from that by having the CreateEstimationData.R script. In any case, that has nothing to do with the R Datastore (which only gets involved whent the modules are run as part of a model)
-3. Re-build and install the VisionEval package to make the updated module available with local data. 
+3. Re-build and install the VisionEval package to make the updated module available with local data.
 
 
 ## Prerequisites
@@ -315,6 +315,25 @@ Your new PUMS data should now be ready to use in a VisionEval model run.
 
 
 ### VEPowertrainsandFuels - Changing Inputs for a Scenario Test
+This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package. The critical purpose of the VEPowertrainsandFuels package is to processes vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the 'inst/extdata' directory of the source package and build the package.
 
-This second case study explores a common challenge when certain inputs are embedded in a package.  This case study will be documented in the next version of this Build Process example narrative.
+## Objective of VEPowertrainsandFuels Case Study
+The objective of this case study is to define a custom function which alters the default data values as they are read into VisionEval during the build process.
 
+## Data
+
+`VEPowertrainsAndFuels\inst\extdata\hh_powertrain_prop.csv` is the default powertrain proportions contained in the package, which resembles the table below (the table is compressed to select years for clarity). The file's purpose is to provide the proportion of vehicle powertrain types and models per year.
+
+|ModelYear|AutoPropIcev|AutoPropHev|AutoPropPhev|AutoPropBev|LtTrkPropIcev|LtTrkPropHev|LtTrkPropPhev|LtTrkPropBev|
+|---------|------------|-----------|------------|-----------|-------------|------------|-------------|------------|
+|1975     |1           |0          |0           |0          |1            |0           |0            |0           |
+|2000     |1           |0          |0           |0          |1            |0           |0            |0           |
+|2010     |0.878613293 |0.121270484|0           |0.000116223|0.982021904  |0.017978096 |0            |0           |
+|2020     |0.821151391 |0.078848609|0.020150543 |0.079849457|0.95237978   |0.014286887 |0.006716848  |0.026616486 |
+|2030     |0.667585917 |0.090829378|0.03579301  |0.205791695|0.909289205  |0.017893649 |0.010590214  |0.062226933 |
+|2040     |0.570083557 |0.092243728|0.040300121 |0.297372595|0.899646282  |0.019124875 |0.011390308  |0.069838535 |
+|2050     |0.519798309 |0.08950265 |0.040717993 |0.349981048|0.891602578  |0.019311602 |0.011910992  |0.077174828 |
+
+The table contains two powertrain proportions, the left-most four columns are for automobiles (i.e., `AutoProp`) and the right-most are for light trucks (i.e., `LtTrkProp`). Each will sum up to 1 (for a rowsum of 2).
+
+## Input modification
