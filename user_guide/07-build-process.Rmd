@@ -328,12 +328,201 @@ The objective of this case study is to define a custom function which alters the
 |---------|------------|-----------|------------|-----------|-------------|------------|-------------|------------|
 |1975     |1           |0          |0           |0          |1            |0           |0            |0           |
 |2000     |1           |0          |0           |0          |1            |0           |0            |0           |
-|2010     |0.878613293 |0.121270484|0           |0.000116223|0.982021904  |0.017978096 |0            |0           |
-|2020     |0.821151391 |0.078848609|0.020150543 |0.079849457|0.95237978   |0.014286887 |0.006716848  |0.026616486 |
-|2030     |0.667585917 |0.090829378|0.03579301  |0.205791695|0.909289205  |0.017893649 |0.010590214  |0.062226933 |
-|2040     |0.570083557 |0.092243728|0.040300121 |0.297372595|0.899646282  |0.019124875 |0.011390308  |0.069838535 |
-|2050     |0.519798309 |0.08950265 |0.040717993 |0.349981048|0.891602578  |0.019311602 |0.011910992  |0.077174828 |
+|2010     |0.8786      |0.1213     |0           |0.0001     |0.9820       |0.0180      |0            |0           |
+|2020     |0.8212      |0.0788     |0.0202      |0.0798     |0.9524       |0.0143      |0.0067       |0.0266      |
+|2030     |0.6676      |0.0908     |0.0358      |0.2058     |0.9093       |0.0179      |0.0106       |0.0622      |
+|2040     |0.5701      |0.0922     |0.0403      |0.2974     |0.8996       |0.0191      |0.0114       |0.0698      |
+|2050     |0.5198      |0.0895     |0.0407      |0.3500     |0.8916       |0.0193      |0.0119       |0.0772      |
 
 The table contains two powertrain proportions, the left-most four columns are for automobiles (i.e., `AutoProp`) and the right-most are for light trucks (i.e., `LtTrkProp`). Each will sum up to 1 (for a rowsum of 2).
 
 ## Input modification
+
+This section walks users through modifying the data as it is read in to VisionEval. Before modifying the code, a brief analysis is conducted define a modifying function anddemonstrate the modifications. The next subsection then utilizes the function in the `LoadDefaultValues.R` to modify `hh_powertrain_prop.csv` as the data is read in.
+
+
+### Analysis
+
+To begin, the code snippets below conducts a brief exploratory analysis to demonstrate visually what the data looks like and how it will be modified. Using some helper packages `ggplot2` and `reshape` we can format the data for visualization. **Note:** These packages is not necessary for modifying the data in VisionEval, but is used for concise plotting here.
+
+
+```
+# Additional packages
+library(ggplot2)
+library(reshape)
+
+# Load data, uncomment it to run in your project
+hh_powertrain_prop <- read.csv('.YOUR_PACKAGE_DIRECTORY/inst/extdata/hh_powertrain_prop.csv')
+
+melted_powertrains <- reshape::melt(hh_powertrain_prop, id.vars = 'ModelYear')
+
+ggplot(data = melted_powertrains) +
+  geom_line(aes(x=ModelYear, y=value, color=variable)) +
+  scale_y_continuous(labels=scales::percent) +
+  theme_classic()
+```
+
+![Household Powertrain Proportions](images/hh_powertrain_prop_view.png)
+
+
+We can see that battery electric vehicles (BEV), specifically automobiles, are projected to make up the bulk share of vehicles in the future. This causes the share of internal combustion engine to decline proportionally.
+
+Let us assume that the state government is deciding whether to aggressively promote BEV cars starting in 2025. The policies cause the share of alternative powertrains (BEV, HEV, and PHEV) to increase more over time. To model this increase, we will use an arbitrary function which adds to the current value of $x$ (i.e., the proportion) at a quadratic rate.
+
+$$
+f(x) = x + x^2 (1 - x)
+$$
+We then create a wrapper function that adjusts each of the alternative powertrains using our custom modeling function. To ensure that the proportions sum up to 1 for autos and light trucks, respectively, we then calculate the remaining proportion of ICE powertrains by subtracting the proportion of alternative powertrains.
+
+```
+# Wrapper function to adjust the powertrain data
+adjust_powertrain <- function(powertrain_df, start_year) {
+  # Define our adjustment functions
+  adj_fun <- function(xv) xv + (xv^2) * (1 - xv)
+
+  # Which columns to modify
+  cols <- colnames(powertrain_df)
+  ev_cols <- cols[grepl('Hev|Phev|Bev', cols)]
+  ice_cols <- cols[grepl('Icev', cols)]
+
+  # Create the modified data frame
+  df_mod <- powertrain_df
+  yrs_idx <- df_mod$ModelYear > start_year
+
+  # Adjust the alternate powertrain data (BEV, PHEV, HEV) data
+  df_mod[yrs_idx, ev_cols] <- apply(powertrain_df[yrs_idx, ev_cols], 2, adj_fun)
+
+  # Subtract the amount of remaining internal combustion engines (ICE)
+  for(x in ice_cols){
+    sum_cols <- ev_cols[grepl(gsub('Icev', '', x), ev_cols)]
+    df_mod[yrs_idx, eval(x)] <- 1 - rowSums(df_mod[yrs_idx, sum_cols])
+  }
+
+  return(df_mod)
+}
+
+```
+
+Visualizing the results atop the existing model it can be combined and plotted, showing an noticable increase in alternative powertrain vehicles.
+
+```
+hh_powertrain_prop_high <- adjust_powertrain(hh_powertrain_prop, 2025)
+
+melted_powertrains <- rbind(
+  cbind(reshape::melt(hh_powertrain_prop, id.vars = 'ModelYear'), type='existing'),
+  cbind(reshape::melt(hh_powertrain_prop_high, id.vars = 'ModelYear'), type='high')
+  )
+
+ggplot(data = melted_powertrains) +
+  geom_line(aes(x=ModelYear, y=value, color=variable, linetype=type)) +
+  scale_y_continuous(labels=scales::percent) +
+  theme_classic()
+
+```
+
+![Adjusted Household Powertrain Proportions](images/hh_powertrain_prop_adjustedview.png)
+
+### Data modification
+
+Once satisfied with a modifying function, the `LoadDefaultValues.R` can be edited to include the function. Beginning on line #422, the R script initializes the household powertrain datastore input, then loads in the CSV file using `processEstimationInputs`. We can insert the new function after the data has been loaded but before it has been stored and cleaned up at `PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df`.
+
+```
+#----------------------------------------
+#Household vehicle powertrain proportions
+#----------------------------------------
+#Specify input file attributes
+Inp_ls <- items(
+  item(
+    NAME = "ModelYear",
+    TYPE = "integer",
+    PROHIBIT = c("NA", "< 0"),
+    ISELEMENTOF = "",
+    UNLIKELY = "",
+    TOTAL = ""
+  ),
+  item(
+    NAME =
+      items("AutoPropIcev",
+            "AutoPropHev",
+            "AutoPropPhev",
+            "AutoPropBev",
+            "LtTrkPropIcev",
+            "LtTrkPropHev",
+            "LtTrkPropPhev",
+            "LtTrkPropBev"),
+    TYPE = "double",
+    PROHIBIT = c("NA", "< 0", "> 1"),
+    ISELEMENTOF = "",
+    UNLIKELY = "",
+    TOTAL = ""
+  )
+)
+#Load and process data
+HhPowertrain_df <-
+  processEstimationInputs(
+    Inp_ls,
+    "hh_powertrain_prop.csv",
+    "LoadDefaultValues.R")
+#Check whether all years are present
+Years_ <- 1975:2050
+if (!all(Years_ %in% HhPowertrain_df$ModelYear)) {
+  stop(paste(
+    "File 'hh_powertrain_prop.csv' must have values for at least the years",
+    "from 1975 through 2050", sep = " "))
+}
+#Check that powertrain proportion are 0 when powertrain characteristics are NA
+Msg_ <- character(0)
+for (ty in c("Auto", "LtTrk")) {
+  for (pt in c("Icev", "Hev", "Phev", "Bev")) {
+    PtType <- paste0(ty, pt)
+    PropName <- paste0(ty, "Prop", pt)
+    CharName <- paste0(ty, pt, "Mpg")
+    if (pt == "Bev") CharName <- paste0(ty, pt, "Mpkwh")
+    Prop_ <- HhPowertrain_df[[PropName]]
+    Char_ <- PowertrainFuelDefaults_ls$LdvPowertrainCharacteristics_df[[CharName]]
+    if (any(Prop_[is.na(Char_)] != 0)) {
+      Msg <- paste0(
+        "hh_powertrain_prop.csv file error. Non-zero proportion(s) for ",
+        PropName, " where NA values in ldv_powertrain_characteristics.csv for ",
+        CharName)
+      Msg_ <- c(Msg_, Msg)
+    }
+  }
+}
+if (length(Msg_) != 0) {
+  stop(paste(Msg_, collapse = ", "))
+}
+
+#>>>>>>>>> NEW FUNCTION BEGINS
+adjust_powertrain <- function(powertrain_df, start_year) {
+  # Define our adjustment functions
+  adj_fun <- function(xv) xv + (xv^2) * (1 - xv)
+
+  # Which columns to modify
+  cols <- colnames(powertrain_df)
+  ev_cols <- cols[grepl('Hev|Phev|Bev', cols)]
+  ice_cols <- cols[grepl('Icev', cols)]
+
+  # Create the modified data frame
+  df_mod <- powertrain_df
+  yrs_idx <- df_mod$ModelYear > start_year
+
+  # Adjust the alternate powertrain data (BEV, PHEV, HEV) data
+  df_mod[yrs_idx, ev_cols] <- apply(powertrain_df[yrs_idx, ev_cols], 2, adj_fun)
+
+  # Subtract the amount of remaining internal combustion engines (ICE)
+  for(x in ice_cols){
+    sum_cols <- ev_cols[grepl(gsub('Icev', '', x), ev_cols)]
+    df_mod[yrs_idx, eval(x)] <- 1 - rowSums(df_mod[yrs_idx, sum_cols])
+  }
+
+  return(df_mod)
+}
+
+#<<<<<<<<< END OF NEW FUNCTION
+
+#Add to PowertrainFuelDefaults_ls and clean up
+PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df
+rm(Inp_ls, HhPowertrain_df)
+```
+## Build the VEPowertrainsAndFuels package
