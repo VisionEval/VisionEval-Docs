@@ -261,11 +261,11 @@ Note that the two data files are also linked by a primary key field `SERIALNO`. 
 
 To start, we must download our new "raw" PUMS data and format it to match the current VisionEval input files. Processing and formatting can be done manually using spreadsheets and text editors, but some PUMS data are stored in a space saving format that most spreadsheets and humans cannot easily read.
 
-To help with this process, an R script was written with functions that both download the PUMS data and preprocess the data into CSV files for VisionEval, located here: https://github.com/RSGInc/VEProcessPUMS
+To help with this process, an R script was written with functions that both download the PUMS data and preprocess the data into .CSV files for VisionEval, located here: https://github.com/RSGInc/VEProcessPUMS
 
 **NOTE:** It is important to note here that VisionEval household and person fields are based on the 2000 <em>Decennial Census</em> PUMS.
 
-For year 2000 and earlier, PUMS data were based on the decennial Census counted every ten years. <u>Post-2000 PUMS</u> are based on the American Community Survey (ACS), which is a sampling-based survey method collected continuously rather than from a full decennial Census. Statistically, the ACS-based PUMS are reliable, but the fields <u>differ</u> and will need to be migrated to match the inputs used by VisionEval. More [PUMA history](https://www2.census.gov/geo/pdfs/reference/puma/puma_history.pdf) can be read online at the US Census website.
+For year 2000 and earlier, PUMS data were based on the Decennial Census counted every ten years. <u>Post-2000 PUMS</u> are based on the American Community Survey (ACS), which is a sampling-based survey method collected continuously rather than from a full Decennial Census. Statistically, the ACS-based PUMS are reliable, but the fields <u>differ</u> and will need to be migrated to match the inputs used by VisionEval. More [PUMA history](https://www2.census.gov/geo/pdfs/reference/puma/puma_history.pdf) can be read online at the US Census website.
 
 - [2000 Decennial Census PUMS](https://www2.census.gov/census_2000/datasets/PUMS/)
 - [Post-2000 ACS PUMS](https://www2.census.gov/programs-surveys/acs/data/pums/)
@@ -286,12 +286,12 @@ REVISEDPUMS5_06.TXT   26-Oct-2010 14:24	676M
 all_California.zip    02-Sep-2003 23:08	98M
 ```
 
-The file named `REVISEDPUMS5_06.TXT` is the file to download. However, the data for both households and persons are stored in a continuous string, which is not an easy to parse delimited format (e.g., comma separated). Extracting the data and converting it into a tabular dataframe is non-trivial.
+The file named `REVISEDPUMS5_06.TXT` is the file to download. However, the data for both households and persons are stored in a continuous string, which is not an easy to parse delimited format (e.g., comma separated). Extracting the data and converting it into a tabular data frame is non-trivial.
 
-To help with this process, an R function called `process_2000_pums()` was written in the [VEProcessPUMS](https://github.com/RSGInc/VEProcessPUMS/blob/master/R/ProcessPUMS.R) package to read the `.txt` files, extract the data columns need, convert to R dataframes, and then export the remaining data into the two person and household `.csv` files as VESimHousehold input.
+To help with this process, an R function called `process_2000_pums()` was written in the [VEProcessPUMS](https://github.com/RSGInc/VEProcessPUMS/blob/master/R/ProcessPUMS.R) package to read the `.txt` files, extract the data columns need, convert to R data frames, and then export the remaining data into the two person and household `.csv` files as VESimHousehold input.
 
 ### Post-2000 PUMS (aka ACS PUMS)
-Post-2000 PUMS data are typically stored as separate CSV files for persons and households. This makes parsing and importing the data into R very easy. However, the columns are different and the new column names will need to be identified and migrated over. Below is a column crosswalk to translate ACS PUMS to the required field names.
+Post-2000 PUMS data are typically stored as separate .CSV files for persons and households. This makes parsing and importing the data into R very easy. However, the columns are different and the new column names will need to be identified and migrated over. Below is a column crosswalk to translate ACS PUMS to the required field names.
 
 #### Household {-}
 
@@ -340,7 +340,7 @@ The process is similar using the process_acs_pums(). You can specify the path fo
 PUMS_DATA_LIST <- process_acs_pums(PumsFile='csv_pca.csv', type='p' GetPumas='ALL')
 ```
 
-Then from where you only need to save the dataframes to a csv:
+Then you only need to save the data frames to a csv:
 
 ```
 # Using base R write.csv
@@ -355,7 +355,7 @@ fwrite(PUMS_DATA_LIST[['p']],
 
 #### Automatically download PUMS and process using getDecPUMS and getACSPUMS{-}
 
-To streamline the whole process, there is also a download wrapper function which both downloads and calls the preprocessing function. The user only needs to specify the State (and year if using ACS) that they want PUMS data from. For example:
+To streamline the whole process, there is also a download wrapper function which both downloads and calls the pre-processing function. The user only needs to specify the State (and year if using ACS) that they want PUMS data from. For example:
 
 ```
 # This function downloads the PUMS txt data to a temporary file,
@@ -383,27 +383,26 @@ getACSPUMS(STATE='CA', YEAR='2020', output_dir = './output_folder')
 
 ## Step 2 - Create the VisionEval estimation data sets
 
-The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval `.Rda` data files stored in `VESimHouseholds\data`. These data files are stored in a structure and format (e.g., dataframes) that VisionEval can use as part of the framework.
+The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval `.Rda` data files stored in `VESimHouseholds\data`. These data files are stored in a structure and format (e.g., data frames) that VisionEval can use as part of the framework.
 
 1. Start by instantiating the VisionEval R project environment by loading your model build's `VisionEval.Rproj`. If you have already built your VisionEval using `ve.build()`, you will have a `VisionEval.Rproj` file in your `built` directory. For example, `VisionEval\built\visioneval\4.1.2\runtime\VisionEval.Rproj`.
 
 2. Next navigate to the VESimHousehold package and set your current working directory to the `your_path_to_this/VESimHouseholds` folder. (hint <em>Session -> Set Working Directory</em>)
 
-3. Run the R data generation scripts. Depending on the purpose of the module you are working with, the generation R script may vary. For example, the `VESimHouseholds/R/CreateEstimationDatasets.R` script reads in the csv input data we created and creates the household data `Hh_df.rda` for VisionEval in the data folder. If another datastore is being modified, the respective generation script will need to be run.
+3. Run the R data generation scripts. Depending on the purpose of the module you are working with, the generation R script may vary. For example, the `VESimHouseholds/R/CreateEstimationDatasets.R` script reads in the .csv input data we created and creates the household data `Hh_df.rda` for VisionEval in the data folder. If another datastore is being modified, the respective generation script will need to be run.
 
    Within the package's "R" folder, some will save a datastore with the command `visioneval::savePackageDataset()`, some may not need any data updates, and others might only contain model functions with no immediate output saved.
 
 ## Step 3 - Build the VESimHouseholds package
-Although the previous step generated the R data files, your current VisionEval environment will still be using the old package build data. You will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data. Any of the three build processes described above can be used.
+Although the previous step generated the R data files, your current VisionEval environment will still be using the old data from the built version of the package. You will need to re-build and re-install the VESimHousehold package for VisionEval to replace the package with a new version containing the new input data. Any of the three build processes described above can be used.
 
-Once complete, your new PUMS data should now be ready to use in a VisionEval model run.
-
+Once the package re-build is complete, your new PUMS data will be ready to use in a VisionEval model run.
 
 ## Case Study - 2
 
 
 ### VEPowertrainsandFuels - Changing Inputs for a Scenario Test
-This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package. The critical purpose of the VEPowertrainsandFuels package is to process vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the 'inst/extdata' directory of the source package and build the package.
+This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package (often this is in order to create an alternative scenario). The critical purpose of the VEPowertrainsandFuels package is to process vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the 'inst/extdata' directory of the source package and build the package.
 
 ## Objective of VEPowertrainsandFuels Case Study
 The objective of this case study is to define a custom function which alters the default data values as they are read into VisionEval during the build process.
@@ -615,6 +614,6 @@ PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df
 rm(Inp_ls, HhPowertrain_df)
 ```
 ## Build the VEPowertrainsAndFuels package
-The previous step generated the R data files, and you will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data. Any of the three build processes described above can be used.
+The previous step generated the R data files, and you will need to re-build and re-install the VEPowertrainsAndFuels package for VisionEval to use this new input data. Any of the three build processes described above can be used.
 
-Once complete, your new powertrain data should now be ready to use in a VisionEval model run.
+Once the package re-build is complete, your new powertrain data will be ready to use in a VisionEval model run.
