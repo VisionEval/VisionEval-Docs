@@ -97,8 +97,6 @@ src/VEGenericPackage
 - `data` contains the datastore files generated/estimated by the R scripts
 - `man` and `inst\module_docs`, contain the markdown documentation generated during the build process.
 
-**JR:** I'd like to see step-by-step instructions (a la "build/RStudio.md" or "build/Building.md" to explain the process. Probably we need to generate package-specific instructions if they have a "CreateEstimationDatasets.R" or if, like the MultiModal module, there is a "dataraw" folder where data resources can be assembled prior to rebuilding the package.
-
 Some VisionEval packages include helper scripts to facilitate formatting the input data required to build the packages, with names like `CreateEstimationDatasets.R. Those should be run manually prior to rebuilding the package to ensure that the files in inst/extdata are correctly formatted.
 
 ### Generic Package Building
@@ -164,7 +162,7 @@ devtools::install()
 
 
 ### Using Local PUMS data in VESimHouseholds
-The VESimHouseholds package contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the [VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds) package. The source code for this package is located on the VisionEval github here: https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds **JR:** Let's not use branch-specific paths, as those are almost certain to change.
+The VESimHouseholds package contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the [VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds) package. The source code for this package is located on the VisionEval github repository [sources/modules/VESimHouseholds](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds).
 
 It is recommended that package modifications be made withiin your local VisionEval build (i.e., after running `ve.build()`) located in `VisionEval\built\visioneval\4.x.x\src\`, and not the cloned source modules. That way any changes can be reverted to the default VisionEval by re-running `ve.build()`. The ".x.x" will be replaced by whichever R version was used during the build.
 
@@ -172,7 +170,7 @@ It is recommended that package modifications be made withiin your local VisionEv
 The objective of this case study is to substitute the default Oregon-based data with another State PUMS data. This is done in three major steps:
 
 1. Preprocess and format "raw'' PUMS data into the comma separated value (.CSV) files for VisionEval input
-2. Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as "datastore" format)   ++{do we link to a definition of datastore in the Lexicon} **JR:** in fact, this element of building is just part of building the package - but in general you do need to build it twice to ensure the changes "take". The PUMS example saves us from that by having the CreateEstimationData.R script. In any case, that has nothing to do with the R Datastore (which only gets involved whent the modules are run as part of a model)
+2. Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as "datastore" format, see the [lexicon documentation](https://rsginc.github.io/VisionEval-Docs/conceptprimer.html#lexicon) for more detailed terminologies). This element is part of building the package to generate the data for installation and may require building twice to ensure the changes take effect.
 3. Re-build and install the VisionEval package to make the updated module available with local data.
 
 
@@ -393,24 +391,14 @@ The next step is to use the R scripts in VESimHouseholds to re-generate the Visi
 
 2. Next navigate to the VESimHousehold package and set your current working directory to the `your_path_to_this/VESimHouseholds` folder. (hint <em>Session -> Set Working Directory</em>)
 
-3. Run the R data generation scripts. Depending on the purpose of the module you are working with, the generation R script may vary. Within the package's "R" folder, some will save a datastore with the command `visioneval::savePackageDataset()`, some may not need any data updates, and others might only contain model functions with no immediate output saved.
-**JR:** that process varies across packages. There are helpers for PUMS, otherwise the process is run when the package is built (and because of how the build goes, it needs to be built twice to ensure the data is updated.)
+3. Run the R data generation scripts. Depending on the purpose of the module you are working with, the generation R script may vary. For example, the `VESimHouseholds/R/CreateEstimationDatasets.R` script reads in the csv input data we created and creates the household data `Hh_df.rda` for VisionEval in the data folder. If another datastore is being modified, the respective generation script will need to be run.
 
-For example, the `VESimHouseholds/R/CreateEstimationDatasets.R` script reads in the csv input data we created and creates the household data `Hh_df.rda` for VisionEval in the data folder.
-
-
+   Within the package's "R" folder, some will save a datastore with the command `visioneval::savePackageDataset()`, some may not need any data updates, and others might only contain model functions with no immediate output saved.
 
 ## Step 3 - Build the VESimHouseholds package
-Although the previous step generated the R data files, your current VisionEval environment will still be using the old package build data. You will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data.
+Although the previous step generated the R data files, your current VisionEval environment will still be using the old package build data. You will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data. Any of the three build processes described above can be used.
 
-**JR:** devtools is not installed in runtime VisionEval, so the step below won't work in "command-line R" out of the box - they'll need to install "devtools". If they're using RStudio, it's easiest to set up and use the Build menu as documented in build/RStudio.md.
-
-```
-build
-```
-
-Your new PUMS data should now be ready to use in a VisionEval model run.
-
+Once complete, your new PUMS data should now be ready to use in a VisionEval model run.
 
 
 ## Case Study - 2
@@ -441,6 +429,8 @@ The table contains two powertrain proportions, the left-most four columns are fo
 ## Input modification
 
 This section walks users through modifying the data as they are read in to VisionEval. Before modifying the code, a brief analysis is conducted to define a modifying function and demonstrate the effects if the modifications. The next subsection utilizes the function in the `LoadDefaultValues.R` script to modify `hh_powertrain_prop.csv` as the data are read in.
+
+**Note:** The same results of this case study can be achieved by simply modifying the hh_powertrain_prop.csv input file, similar to as done in Case Study 1, but in this demonstration purposes we will modify the generation script rather than the input data.
 
 ### Analysis
 
@@ -627,3 +617,6 @@ PowertrainFuelDefaults_ls$HhPowertrain_df <- HhPowertrain_df
 rm(Inp_ls, HhPowertrain_df)
 ```
 ## Build the VEPowertrainsAndFuels package
+The previous step generated the R data files, and you will need to re-build and re-install the VESimHousehold package for VisionEval to use this new input data. Any of the three build processes described above can be used.
+
+Once complete, your new powertrain data should now be ready to use in a VisionEval model run.
