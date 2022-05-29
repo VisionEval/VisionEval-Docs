@@ -7,9 +7,7 @@ of how the system can used to support scenario planning, and to develop strategi
 transportation system performance.
 
 The remainder of this page explains how to install VisionEval, and provides a brief overview of what
-to do with it after it is installed. Complete details on setting up VisionEval models and scenarios,
-running the models, and extracting and analyzing results are found later in this book. ** Links to
-other pages in the book?? **
+to do with it after it is installed. Content in the [VisionEval Tutorial](#tutorial) found later in this book contains more complete details on setting up VisionEval models with local data, running scenarios, and extracting and analyzing results.
 
 -   [Installation and Setup](#installation)
 -   [Workflow](#workflow)
@@ -26,7 +24,7 @@ are two paths to installing VisionEval:
 
     + **[Download a zipped folder](https://visioneval.org/category/download.html)** from the VisionEval website for a specific version of R.\
         This is the simplest way to quickly get VisionEval on your computer.
-<br/><br/>
+    <br/><br/>
 
 2.  **Copy, clone or 'fork' the system code repository**:
 
@@ -65,7 +63,7 @@ The link above will download a .zip file containing the following:
 
   - The VisionEval framework code and sample models
   - All necessary R packages
-  - **?? Documentation (this Getting Started document) ??**
+  - Documentation (both this book as well as API documentation)
 
 Unzip that file into an empty folder of your choice (e.g. `C:\VisionEval`).
 
@@ -125,8 +123,7 @@ provide variant model inputs for evaluation and comparison.
 To use VisionEval to evaluate scenarios, there are several elements that
 users need to set up:
 
-1.  Select and install one of the [VisionEval
-    models](https://github.com/VisionEval/VisionEval/wiki/VisionEval-Models),
+1.  Select and install one of the [VisionEval models](https://github.com/VisionEval/VisionEval/wiki/VisionEval-Models),
     customizing it as needed:
 
     -   **[VERSPM](https://github.com/VisionEval/VisionEval-Dev/blob/readme-dev/docs/tutorials/verspm/Main.md)**
@@ -137,14 +134,12 @@ users need to set up:
         – VisionEval State-Level Model
 
     <br/>
-    Instructions and tutorials for configuring these models are presented in the model-specific
-    tutorials elsewhere in [this book](https://visioneval.org/book), which is your entry point to a wealth of
-    documentation on the VisionEval models. 
+    Instructions and tutorials for configuring these models are presented in the model-specific tutorials elsewhere in [this book](https://visioneval.org/book), which is your entry point to a wealth of documentation on the VisionEval models. 
 
 2.  Develop a *Base Model* for the region under analysis. The Base Model specifies:
     -   **Model Geography** (zone structure), reported as Marea (metropolitan area), AZones
-        (county-sized), and BZones (census-tract-sized) and related configuration files
-    -   **Base and Future Years** to be evaluated for each scenario (e.g. 2019 and 2050)
+        (county-sized), and BZones (often census-tract-sized or could be related to Traffic Analysis Zones in other travel demand models) and related configuration files
+    -   **Base and Future Years** to be evaluated for each scenario (e.g., 2019 and 2050)
     -   **Local Data Files** describing Base Scenario conditions in the region (including both
         observed base year data, and estimates of future year conditions with no scenario policies
         applied)
@@ -155,7 +150,7 @@ users need to set up:
    Future Years. VisionEval models support having many different scenarios. See the scenario
    development chapter later in this book for details.
 
-4. Run the model to process each of its scenarios
+4. Run the model to process each of its scenarios.
 
 5. Extract or query the results for summarization and further analysis in R or export tabular data
    files to other data analysis systems.
@@ -207,8 +202,8 @@ query$run()
 query$export()
 ```
 
-Extracting the results creates a series of `.csv` files in the `outputs` subfolder of `results`.
-Extracting the query will create a table of metrics for each model year and scenario that is defined
+Exporting the results creates a series of `.csv` files in the `outputs` subfolder of `results`.
+Exporting the query will create a table of metrics for each model year and scenario that is defined
 in the model, placing that in another subfolder of `outputs`.
 
 ### Using the Walkthrough

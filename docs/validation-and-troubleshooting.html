@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 7 Validation and Troubleshooting | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
-<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="Chapter 7 Validation and Troubleshooting | VisionEval User Guide">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://visioneval.org/book/validation-and-troubleshooting.html">
-<meta property="og:image" content="https://visioneval.org/book/images/cover.png">
+<meta property="og:url" content="https://visioneval.org/docs/validation-and-troubleshooting.html">
+<meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 7 Validation and Troubleshooting | VisionEval User Guide">
-<meta name="twitter:image" content="https://visioneval.org/book/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -58,15 +58,17 @@
 <li><a class="" href="model-inputs.html"><span class="header-section-number">6</span> Model Inputs</a></li>
 <li><a class="active" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
 <li><a class="" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
-<li><a class="" href="ve-estimation.html"><span class="header-section-number">9</span> Estimation in VisionEval</a></li>
-<li><a class="" href="visioneval-model-details.html"><span class="header-section-number">10</span> VisionEval Model Details</a></li>
-<li><a class="" href="developer.html"><span class="header-section-number">11</span> Developer Documentation</a></li>
-<li><a class="" href="api-documentation.html"><span class="header-section-number">12</span> API Documentation</a></li>
-<li><a class="" href="software-framework.html"><span class="header-section-number">13</span> Software Framework</a></li>
+<li><a class="" href="verspm.html"><span class="header-section-number">9</span> VERSPM Model Details</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">10</span> VE-State Model Details</a></li>
+<li><a class="" href="verpat.html"><span class="header-section-number">11</span> VERPAT Model Details</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">12</span> Estimation in VisionEval</a></li>
+<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">13</span> Module Build Process</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">14</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">15</span> Software Framework</a></li>
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/visioneval/visioneval-docs/user_guide">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -74,7 +76,7 @@
 <h1>
 <span class="header-section-number">7</span> Validation and Troubleshooting<a class="anchor" aria-label="anchor" href="#validation-and-troubleshooting"><i class="fas fa-link"></i></a>
 </h1>
-<p>Each model run will produce a time stamped Log.txt file. This log file is the first thing that the user should reference in troubleshooting errors. The log file should point to which input files have errors and help to define the error. If a model is not producing a log file, that indicates a more deep-rooted issue related to the model set-up, installation, or one or more packages.</p>
+<p>Each model run will produce a time stamped <code>Log.txt file</code>. This log file is the first thing that the user should reference in troubleshooting errors. The log file should point to which input files have errors and help to define the error. If a model is not producing a log file, that indicates a more deep-rooted issue related to the model set-up, installation, or one or more packages.</p>
 <p>Other common errors users should watch out for include:</p>
 <ul>
 <li>Files having data for years other than model run years will generate an error, files can only have data for model run years</li>
@@ -90,91 +92,82 @@
 <h2>
 <span class="header-section-number">7.1</span> Validation<a class="anchor" aria-label="anchor" href="#validation-1"><i class="fas fa-link"></i></a>
 </h2>
-<p>This section summarizes additional detail on the validation of VisionEval models.</p>
-<div id="more-how" class="section level3" number="7.1.1">
+<p>This section summarizes additional detail on the validation of VisionEval models with key considerations by concept. Each concept will highlight its respective model inputs and assumptions that can be changed to better match observed local patterns and trends. These outputs covered are only a handful that can be used to validate the VE model.</p>
+<div id="household-synthesis-and-land-use-validation" class="section level3" number="7.1.1">
 <h3>
-<span class="header-section-number">7.1.1</span> More How<a class="anchor" aria-label="anchor" href="#more-how"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1.1</span> Household Synthesis and Land Use Validation<a class="anchor" aria-label="anchor" href="#household-synthesis-and-land-use-validation"><i class="fas fa-link"></i></a>
 </h3>
-<p>Adjustments can be made to specific modules within each package:</p>
-<p>Essential…vs. fine tuning
-[using local PUMS is necessary, PowertrainsAndFuels is good practice, most others are fine-tuning]
-[can we put more meat in 7.1, classify by importance, show more detail on necessary, and have this be a drill-down detail on another page?]
-[Can we group these by the concepts, or by the bulleted types in 7.1? “package” organization are obtuse for basic user]
-+ The <code>VESimHouseholds</code> package processes PUMS data to derive parameters for several of its sub-modules. The default PUMS files in the <code>inst/extdata</code> folder from Oregon should be replaced with data for the area they are modeling. Some adjustments specific to simulated households by Azone include:
-+ The average household size (<code>AveHhSize</code>) and proportion of one-person households (<code>Prop1PerHh</code>) can be set in the <a href="">azone_hhsize_targets.csv</a> file.
-+ The relative employment rate by age group by Azone can be specified to match observed differences across a metropolitan area or levels at various points of economic cycles. These changes are coded in the optional <a href="">azone_relative_employment.csv</a> file. The relative employment rate is relative to the average employment rate for the worker group in the PUMS data (e.g., a value of 0.5 would be entered if the employment rate for 20-29 age group in one Azone was half the employment rate for persons in that age group in the metropolitan area).
-+ The prediction of household income as a function of workers by age group and per captia income can be adjusted in the <a href="">azone_per_cap_inc.csv</a> file. Note that adjustments to the relative employment rate described above will influence affect the distribution of incomes across households.</p>
-<ul>
-<li>
-<p>The <code>VELandUse</code> package also uses the PUMS data, which can be further adjusted in two ways:</p>
-<ul>
-<li>The mix of single family versus multi-family households will reflect local patterns if PUMS data for the modeled region are used instead of the default data from Oregon.</li>
-</ul>
-</li>
-<li><p>The proportion of households residing in mixed-use neighborhoods within each Bzone can optionally be set in the <a href="">bzone_urban-mixed-use_prop.csv</a> file. Such adjustments are subjective, as the definition of “urban mixed-use” neighborhoods <a href="https://nhts.ornl.gov/2009/pub/DerivedAddedVariables2009.pdf">derived from the Claritas data</a> in the <a href="https://nhts.ornl.gov/">NHTS</a> are imprecise.</p></li>
-<li><p>Most of the parameters in the <code>VEHouseholdVehicles</code> package are self-calibrating. However, the relative driver licensing rate by age group can be coded in the <a href="">region_hh_driver_adjust_prop.csv</a> file.</p></li>
-<li><p>There are few opportunities to adjust the parameters in the <code>VEHouseholdTravel</code> package, as most are derived from the NHTS and PUMS input data. Note that the optionally specified driver licensing rates described above can substantially affect daily household VMT. It is possible to specify the percentage of household Short Trips SOV travel diverted to bicycles in the <a href="">azone_prop_sov_dvmt_diverted.csv</a> file to better match observed local values.</p></li>
-<li><p>The default data inputs in the <code>VEPowertrainsAndFuels</code> package substantially affect modeled fuel consumption and vehicle emissions rates. These default inputs are contained in the <code>inst/extdata</code> folder of the source package. Note that the package needs to be built (installed) from the source package after adjustments have been made in order for the changes to have effect.</p></li>
-<li>
-<p>The <code>VETravelPerformance</code> package is self-calibrating. However, the user must provide several estimates used as constraints during that process:</p>
-<ul>
-<li>Estimates of urbanized area light-duty vehicle and heavy truck VMT (<code>UrbanLdvDvmt</code> and <code>UrbanHvyTrkDvmt</code>, respectively) must be coded in the <a href="">marea_base_year_dvmt.csv</a> input file.</li>
-</ul>
-</li>
-<li><p>The user must also provide a regional estimate of heavy truck VMT (<code>HvyTrkDvmt</code>) in the <a href="">region_base_year_dvmt.csv</a> that is consistent with the urbanized area heavy truck VMT estimates.</p></li>
-<li><p>The user should check the basis used for estimating commercial service VMT (<code>ComSvcDvmtGrowthBasis</code>) and heavy truck VMT (<code>HvyTrkDvmtGrowthBasis</code>).</p></li>
-</ul>
-</div>
-<div id="key-considerations" class="section level3" number="7.1.2">
-<h3>
-<span class="header-section-number">7.1.2</span> Key Considerations<a class="anchor" aria-label="anchor" href="#key-considerations"><i class="fas fa-link"></i></a>
-</h3>
-<p>[Great to have this in 1 place! Group by Concept?]</p>
-<p>The experience to date suggest that several model inputs and assumptions can be changed to better match observed local patterns and trends:</p>
+<p>Two key metrics to validate are <strong>population</strong> and <strong>income</strong> due to the influential nature of these metrics on model results. Some additional considerations are as follows:</p>
 <ul>
 <li>The choice of geographies used in VisionEval can influence validation results. For example, if economic conditions or driver licensing rates vary significantly across the modeled area it might be a good idea to define Azones to reflect those differences.</li>
-<li>PUMS data for the modeled region should be used in place of the Oregon data used in the original development of the model. This is done by simply replacing the PUMS data in the <code>inst/extdata</code> folder with local data, which are then processed by several modules as part of a normal model run. [I think you have to rebuild the package, need to show how or have FHWA do this for you, keep options available for download]</li>
-<li>Care should be taken in choosing the validation targets to match model predictions. VE household travel modules predict household travel regardless of where the travel occurs within the modeled region. Therefore the results should be compared with household survey data which provide similarly defined estimates.</li>
-<li>Care should similarly be taken in comparing the model results with daily roadway VMT data, such as those reported in Highway Statistics reports or imputed from annual HPMS estimates. If such comparisons are made the model estimates of roadway DVMT calculated by the <code>CalculateRoadDvmt</code> module should be used for comparison.[rather than HPMS data that is defined as all vehicles but only those miles on roadways within a specific geography.]</li>
-<li>If modeled DVMT matches validation data but fuel consumption does not (e.g. light-duty vehicle fuel consumption reported in Highway Statistics), the values in <a href="">ldv_powertrain_characteristics.csv</a> for current and past years can be adjusted to achieve a match. Fuel consumption may not match for several reasons such as:
+<li>The <code>VESimHouseholds</code> package processes PUMS data to derive parameters for several of its sub-modules. The default PUMS files in the <code>inst/extdata</code> folder from Oregon should be replaced with data for the area they are modeling. This is done by simply replacing the PUMS data in the <code>inst/extdata</code> folder with local data, which are then processed by several modules as part of a normal model run. This requires rebuilding the <code>VESimHousehold</code> package, more information can be found in the <a href="ve-buildprocess.html#ve-buildprocess">Module Build Process</a> chapter.</li>
+<li>The average household size (<code>AveHhSize</code>) and proportion of one-person households (<code>Prop1PerHh</code>) can be set in the <code>azone_hhsize_targets.csv</code> file.</li>
+<li>Care should be taken to match the real dollar amount of <code>azone_per_cap_inc.csv</code> and other files with dollar values to the year specified in the file to account for inflation.</li>
+<li>The relative employment rate by age group by Azone can be specified to match observed differences across a metropolitan area or levels at various points of economic cycles. Lower employment rates, especially in certain age groups, should be reflected in <code>azone_relative_employment.csv</code>. The relative employment rate is relative to the average employment rate for the worker group in the PUMS data (e.g., a value of 0.5 would be entered if the employment rate for 20-29 age group in one Azone was half the employment rate for persons in that age group in the metropolitan area).</li>
+<li>The <code>VELandUse</code> package also uses the PUMS data, which can be further adjusted in two ways:
 <ul>
-<li>The definition of crossover vehicles as light trucks vs. autos used in the vehicle type model does not match the average fuel consumption characteristics in the <a href="">ldv_powertrain_characteristics.csv</a> file.</li>
+<li>The mix of single family versus multi-family households will reflect local patterns if PUMS data for the modeled region are used instead of the default data from Oregon. See the [ insert link to the build process PUMS case study]</li>
+<li>The proportion of households residing in mixed-use neighborhoods within each Bzone can optionally be set in the <code>bzone_urban-mixed-use_prop.csv</code> file. Such adjustments are subjective, as the definition of “urban mixed-use” neighborhoods <a href="https://nhts.ornl.gov/2009/pub/DerivedAddedVariables2009.pdf">derived from the Claritas data</a> in the <a href="https://nhts.ornl.gov/">NHTS</a> are imprecise.</li>
 </ul>
 </li>
-<li>The average fuel consumption characteristics in <a href="">ldv_powertrain_characteristics.csv</a> do not represent real world fuel economy.</li>
+</ul>
+</div>
+<div id="household-travel-behavior-validation" class="section level3" number="7.1.2">
+<h3>
+<span class="header-section-number">7.1.2</span> Household Travel Behavior Validation<a class="anchor" aria-label="anchor" href="#household-travel-behavior-validation"><i class="fas fa-link"></i></a>
+</h3>
+<p>One key metric to validate for household travel behavior is <strong>household DVMT</strong>. Because VisionEval models do not have a network, users should prioritize validating household DVMT using NHTS or local household travel survey data. Users can also use Highway Statistics reports or imputed from annual HPMS estimates to validate at higher levels of geography, such as the state or metropolitan area level.</p>
+<ul>
+<li>Care should be taken in choosing the validation targets to match model predictions. VE household travel modules predict household travel regardless of where the travel occurs within the modeled region. Therefore the results should be compared with household survey data where possible which provide similarly defined estimates.</li>
+<li>Care should similarly be taken in comparing the model results with daily roadway VMT data, such as those reported in Highway Statistics reports or imputed from annual HPMS estimates. If such comparisons are made the model estimates of roadway DVMT calculated by the <code>CalculateRoadDvmt</code> module should be used for comparison (rather than HPMS data that is defined as all vehicles but only those miles on roadways within a specific geography).</li>
+<li>If the modeled road DVMT estimates match for the base year but not for prior years the modeled household DVMT trends should be checked against road DVMT trends. In particular, check whether reduction of DVMT (or reduction of DVMT growth rate) observed during the <a href="https://en.wikipedia.org/wiki/Great_Recession">Great Recession</a> and increase in DVMT (or increase in the DVMT growth rate) afterwards are reflected in the modeled household DVMT. If not, the values in the following files should be checked and adjusted if warranted:</li>
+<li>There are few opportunities to adjust the parameters in the <code>VEHouseholdTravel</code> package, as most are derived from the NHTS and PUMS input data. Note that the optionally specified driver licensing rates described above can substantially affect daily household VMT. It is possible to specify the percentage of household SOV travel diverted to bicycles in the <code>azone_prop_sov_dvmt_diverted.csv</code> file to better match observed local values.</li>
+</ul>
+</div>
+<div id="vehicles-and-fuels-validation" class="section level3" number="7.1.3">
+<h3>
+<span class="header-section-number">7.1.3</span> Vehicles and Fuels Validation<a class="anchor" aria-label="anchor" href="#vehicles-and-fuels-validation"><i class="fas fa-link"></i></a>
+</h3>
+<p>Another important metric to validate is <strong>vehicle ownership</strong>, which has a strong correlation with household DVMT.</p>
+<ul>
+<li>If modeled DVMT matches validation data but fuel consumption does not (e.g. light-duty vehicle fuel consumption reported in Highway Statistics), the values in <code>ldv_powertrain_characteristics.csv</code> for current and past years can be adjusted to achieve a match. Fuel consumption may not match for several reasons such as:
+<ul>
+<li>The definition of crossover vehicles as light trucks vs. autos used in the vehicle type model does not match the average fuel consumption characteristics in the <code>ldv_powertrain_characteristics.csv</code> file.</li>
+<li>The average fuel consumption characteristics in <code>ldv_powertrain_characteristics.csv</code> do not represent real world fuel economy.</li>
+</ul>
+</li>
+<li>Most of the parameters in the <code>VEHouseholdVehicles</code> package are self-calibrating. However, the relative driver licensing rate by age group can be coded in the <code>region_hh_driver_adjust_prop.csv</code> file and should be used to account for the reduction in driver licensing rates among young or elderly drivers.</li>
+<li>Users can also use the <code>azone_hh_ave_veh_per_driver.csv</code> to reduce or increase vehicle ownership at the Azone level. It should be noted that this file inherently reduces the sensitivity of the <code>AdjustVehicleOwnership</code> module.</li>
 <li>If validation data are available for commercial service vehicles, heavy trucks, and public transit vehicles changes can be made to the respective powertrain characteristics files for those vehicle types to match observed values.</li>
-<li>If the modeled road DVMT estimates match for the base year but not for prior years the modeled household DVMT trends should be checked against road DVMT trends. In particular, check whether reduction of DVMT (or reduction of DVMT growth rate) observed during the <a href="https://en.wikipedia.org/wiki/Great_Recession">Great Recession</a> and increase in DVMT (or increase in the DVMT growth rate) afterwards are reflected in the modeled household DVMT. If not, the values in the following files should be checked and adjusted if warranted:
+<li>Rebuilding the <code>VEPowertrainsAndFuels</code> package is good practice. The default data inputs in the <code>VEPowertrainsAndFuels</code> package substantially affect modeled fuel consumption and vehicle emissions rates. These default inputs are contained in the <code>inst/extdata</code> folder of the source package. Note that the package needs to be built (installed) from the source package after adjustments have been made in order for the changes to have effect. more information can be found in the <a href="ve-buildprocess.html#ve-buildprocess">Module Build Process</a> chapter.</li>
+</ul>
+</div>
+<div id="congestion-and-roadway-travel-validation" class="section level3" number="7.1.4">
+<h3>
+<span class="header-section-number">7.1.4</span> Congestion and Roadway Travel Validation<a class="anchor" aria-label="anchor" href="#congestion-and-roadway-travel-validation"><i class="fas fa-link"></i></a>
+</h3>
 <ul>
-<li>Young persons that moved back in with parents during recession and left afterwards when earning more should be accounted for in <a href="">azone_hhsize_targets.csv</a>
-</li>
+<li>The <code>VETravelPerformance</code> package is self-calibrating. However, the user must provide several estimates used as constraints during that process:
+<ul>
+<li>Estimates of urbanized area light-duty vehicle and heavy truck VMT (<code>UrbanLdvDvmt</code> and <code>UrbanHvyTrkDvmt</code>, respectively) must be coded in the <code>marea_base_year_dvmt.csv</code> input file.</li>
 </ul>
 </li>
-<li>The lower incomes during the recession should be reflected in the <a href="">azone_per_cap_inc.csv</a> file</li>
-<li>Lower employment rates, especially in certain age groups, should be reflected in <a href="">azone_relative_employment.csv</a>
-</li>
-<li>The reduction in driver licensing rates among young drivers should be accounted for in the <a href="">region_hh_driver_adjust_prop.csv</a> file</li>
+<li>The user must also provide a regional estimate of heavy truck VMT (<code>HvyTrkDvmt</code>) in the <code>region_base_year_dvmt.csv</code> that is consistent with the urbanized area heavy truck VMT estimates.</li>
+<li>The user should check the basis used for estimating commercial service VMT (<code>ComSvcDvmtGrowthBasis</code>) and heavy truck VMT (<code>HvyTrkDvmtGrowthBasis</code>).</li>
 </ul>
 </div>
 </div>
-<div id="customizing-packages" class="section level2" number="7.2">
+<div id="additional-customizations" class="section level2" number="7.2">
 <h2>
-<span class="header-section-number">7.2</span> Customizing Packages<a class="anchor" aria-label="anchor" href="#customizing-packages"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.2</span> Additional Customizations<a class="anchor" aria-label="anchor" href="#additional-customizations"><i class="fas fa-link"></i></a>
 </h2>
-<p>Users have the option to customize or re-estimate the model packages based on local data. Customizing packages is a more advanced user technique that is recommended only after users have some experience using the VisionEval system.</p>
-<p>For a deeper dive into how to customize packages and the various data that is available for local estimation, users should reference the <a href="ve-estimation.html#ve-estimation">Estimation in VisionEval</a> chapter.</p>
+<p>The <code>VESimHouseholds</code> and <code>PowertrainsAndFuels</code> packages are the two that should be prioritized for re-estimating with local data. Users do have the option to customize or re-estimate other model packages based on local data. Some additional packages with built-in estimation scripts are described below.</p>
+<p>Note: For a deeper dive into how to customize packages and the various data that is available for local estimation, users should reference the <a href="ve-estimation.html#ve-estimation">Estimation in VisionEval</a> and <a href="ve-buildprocess.html#ve-buildprocess">Module Build Process</a> chapters.</p>
 <ul>
-<li>PUMS</li>
-<li>PowertrainsAndFuels
-VETravelPerformance/<a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#91-loaddefaultroaddvmtvalues"><em>LoadDefaultRoadDvmtValues</em></a> datasets from the 2010 Highway Statistics reports are used to calculate state and urbanized area travel statistics as described below. A data from the Transportation Energy Databook (Edition 31) are used to calculate the ratio of commercial service vehicle DVMT with household DVMT. These datasets are in the “inst/extdata” folder of the package. Documentation for these datasets are included. Advanced users may update the datasets if desired.
-Various <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api/VE_Training_March_13-14_2019/VE_Training.md#advanced-user-inputs">VETravelPerformance default files</a> are included in the inst/extdata directory of the PowertrainsAndFuels package. Each file is documented with a correspondingly named text file. Advanced users may modify these files to create other default scenarios.</li>
-</ul>
-<p>PACKAGE MAINTENANCE
-* BudgetHouseholdDvmt Ext_data: The CES data used to estimate the BudgetHouseholdDvmt model are included in ‘ces_vehicle_op-cost.csv’ with documentation in ‘ces_vehicle_op-cost.txt’. The ‘ces.R’ R script file contains the code used to download the raw CES dataset from the BLS website and process it to produce the dataset in the ‘ces_vehicle_op-cost.csv’ file. CES data for the years 2003 to 2015 are used in model estimation. 2003 being the first year that the BLS included income subcategories for incomes greater than $70,000. 2015 being the last year of complete data when the model was estimated.</p>
-<ul>
-<li><p>VETravelPerformanceModule: <a href="">vehicle maintenance, repair, and tire cost</a> as a function of the vehicle age is calculated based on data from the American Automobile Association (AAA) and the Bureau of Labor Statistics (BLS). AAA publishes reports yearly on the cost of vehicle use by vehicle type over the first 5 years of the vehicle’s life. The 2017 report, a copy of which is included as the ‘17-0013_Your-Driving-Costs-Brochure-2017-FNL-CX-1.pdf’ file in the ‘inst/extdata/sources’ directory of this package, is used to calculate baseline MRT cost by vehicle type. Data from a BLS report, “Beyond the Numbers, Prices and Spending, Americans’ Aging Autos, BLS, May 2014, Vol.3/No.9”, are used to establish the relationship between MRT cost and vehicle age. A copy of the report is included as the ‘americans-aging-autos.pdf’ file in the ‘inst/extdata/sources’ directory of this package. This report includes estimates of average MRT cost by vehicle age category for all household vehicles. The MRT costs by vehicle type and age are calculated as the outer product of the AAA costs by vehicle type and the BLS ratio of MRT cost by vehicle age. Since the BLS data don’t distinguish between vehicle types, it is assumed that the effect of age on MRT expenses is the same for all vehicle types.</p></li>
-<li><p>VETravelPerformanceModule: <strong>Default Carbon Cost</strong> values are from “Technical Support Document: Technical Update of the Social Cost of Carbon for Regulatory Impact Analysis Under Executive Order 12866, Interagency Working Group on Social Cost of Greenhouse Gases, United States Government, August 2016”. A copy of the report is included as the ‘sc_co2_tsd_august_2016.pdf’ file in the ‘inst/extdata/sources’ directory of this package.Carbon costs are estimated by year and assumed discount rate scenarios: 5%, 3%, 2.5%. In addition, they are calculated for a lower probability but higher impact scenario. The default carbon costs used in the model are the values listed for the 3% discount rate.</p></li>
-<li><p>VETravelPerformanceModule: <strong>Non-Carbon Social Costs</strong>: Values for other social costs are derived from an white paper prepared for the Oregon Department of Transportation (ODOT) to support the development of ODOT’s statewide transportation strategy for reducing greenhouse gas emissions from the transportation sector. This paper is included as the ‘STS_White_Paper_on_External_Costs_9-21-2011.pdf’ file in the ‘inst/extdata/sources’ directory of this package. The included social cost categories are air pollution, other resource pollution, energy security, safety, and noise.</p></li>
-<li><p>VETravelPerformanceModule: <strong>region_road_cost.csv</strong> file includes unit costs for freeway and arterial operation, preservation, modernization, and other costs. Based on values in original GreenSTEP model (ODOT, 2012).</p></li>
+<li><p><strong>VETravelPerformance</strong>: The <a href="https://github.com/VisionEval/VisionEval-Dev/blob/development-next/sources/modules/VETravelPerformance/R/LoadDefaultRoadDvmtValues.R">LoadDefaultRoadDvmtValues</a> script pulls in datasets from the 2010 Highway Statistics reports are used to calculate state and urbanized area travel statistics as described below. A data from the Transportation Energy Databook (Edition 31) are used to calculate the ratio of commercial service vehicle DVMT with household DVMT. These datasets are in the “inst/extdata” folder of the package. Documentation for these datasets are included. Advanced users may update the datasets if desired.</p></li>
+<li><p><strong>BudgetHouseholdDvmt</strong>: The CES data used to estimate the BudgetHouseholdDvmt model are included in <code>inst/extdata</code> folder of the source package in the <code>ces_vehicle_op-cost.csv</code> with documentation in <code>ces_vehicle_op-cost.txt</code>. The <code>ces.R</code> R script file contains the code used to download the raw CES dataset from the BLS website and process it to produce the dataset in the <code>ces_vehicle_op-cost.csv</code> file. CES data for the years 2003 to 2015 are used in model estimation. 2003 being the first year that the BLS included income subcategories for incomes greater than $70,000. 2015 being the last year of complete data when the model was estimated.</p></li>
+<li><p><strong>VETravelPerformance &amp; CalculateVehicleOperatingCost</strong>: Vehicle maintenance, repair, and tire costs as a function of the vehicle age are calculated based on data from the American Automobile Association (AAA) and the Bureau of Labor Statistics (BLS). AAA publishes reports yearly on the cost of vehicle use by vehicle type over the first 5 years of the vehicle’s life. The 2017 report, a copy of which is included as the ‘17-0013_Your-Driving-Costs-Brochure-2017-FNL-CX-1.pdf’ file in the <code>inst/extdata/sources</code> directory of this package, is used to calculate baseline MRT cost by vehicle type. Data from a BLS report, “Beyond the Numbers, Prices and Spending, Americans’ Aging Autos, BLS, May 2014, Vol.3/No.9,” are used to establish the relationship between MRT cost and vehicle age. A copy of the report is included as the ‘americans-aging-autos.pdf’ file in the <code>inst/extdata/sources</code> directory of this package. This report includes estimates of average MRT cost by vehicle age category for all household vehicles. The MRT costs by vehicle type and age are calculated as the outer product of the AAA costs by vehicle type and the BLS ratio of MRT cost by vehicle age. Since the BLS data don’t distinguish between vehicle types, it is assumed that the effect of age on MRT expenses is the same for all vehicle types.</p></li>
+<li><p><strong>VETravelPerformance &amp; CalculateVehicleOperatingCost</strong>: Default carbon cost values are from “Technical Support Document: Technical Update of the Social Cost of Carbon for Regulatory Impact Analysis Under Executive Order 12866, Interagency Working Group on Social Cost of Greenhouse Gases, United States Government, August 2016.” A copy of the report is included as the ‘sc_co2_tsd_august_2016.pdf’ file in the <code>inst/extdata</code> directory of this package. Carbon costs are estimated by year and assumed discount rate scenarios: 5%, 3%, 2.5%. In addition, they are calculated for a lower probability but higher impact scenario. The default carbon costs used in the model are the values listed for the 3% discount rate. Non-carbon social costs for other social costs are derived from an white paper prepared for ODOT to support the development of ODOT’s statewide transportation strategy for reducing greenhouse gas emissions from the transportation sector. This paper is included as the ‘STS_White_Paper_on_External_Costs_9-21-2011.pdf’ file in the <code>inst/extdata</code> directory of this package. The included social cost categories are air pollution, other resource pollution, energy security, safety, and noise.</p></li>
 </ul>
 </div>
 </div>
@@ -187,17 +180,19 @@ Various <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api
 <li><a class="nav-link" href="#validation-and-troubleshooting"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
 <li>
 <a class="nav-link" href="#validation-1"><span class="header-section-number">7.1</span> Validation</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#more-how"><span class="header-section-number">7.1.1</span> More How</a></li>
-<li><a class="nav-link" href="#key-considerations"><span class="header-section-number">7.1.2</span> Key Considerations</a></li>
+<li><a class="nav-link" href="#household-synthesis-and-land-use-validation"><span class="header-section-number">7.1.1</span> Household Synthesis and Land Use Validation</a></li>
+<li><a class="nav-link" href="#household-travel-behavior-validation"><span class="header-section-number">7.1.2</span> Household Travel Behavior Validation</a></li>
+<li><a class="nav-link" href="#vehicles-and-fuels-validation"><span class="header-section-number">7.1.3</span> Vehicles and Fuels Validation</a></li>
+<li><a class="nav-link" href="#congestion-and-roadway-travel-validation"><span class="header-section-number">7.1.4</span> Congestion and Roadway Travel Validation</a></li>
 </ul>
 </li>
-<li><a class="nav-link" href="#customizing-packages"><span class="header-section-number">7.2</span> Customizing Packages</a></li>
+<li><a class="nav-link" href="#additional-customizations"><span class="header-section-number">7.2</span> Additional Customizations</a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/visioneval/visioneval-docs/user_guide/blob/master/05-validation.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/visioneval/visioneval-docs/user_guide/edit/master/05-validation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/blob/master/05-validation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/edit/master/05-validation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -209,7 +204,7 @@ Various <a href="https://github.com/gregorbj/Archive-VisionEval/blob/develop/api
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-19.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

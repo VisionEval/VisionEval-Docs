@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 13 Module Build Process | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 13 Module Build Process | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://visioneval.org/docs/ve-buildprocess.html">
+<meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 13 Module Build Process | VisionEval User Guide">
+<meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+<meta name="description" content="13.1 Introduction This chapter describes the package build process for creating or modifying packages and their constituent modules within the VisionEval framework. The build process can be used...">
+<meta property="og:description" content="13.1 Introduction This chapter describes the package build process for creating or modifying packages and their constituent modules within the VisionEval framework. The build process can be used...">
+<meta name="twitter:description" content="13.1 Introduction This chapter describes the package build process for creating or modifying packages and their constituent modules within the VisionEval framework. The build process can be used...">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></li>
+<li><a class="" href="tutorial.html"><span class="header-section-number">3</span> VisionEval Tutorial</a></li>
+<li><a class="" href="picking-a-model.html"><span class="header-section-number">4</span> Picking a Model</a></li>
+<li><a class="" href="model-geography-and-years.html"><span class="header-section-number">5</span> Model Geography and Years</a></li>
+<li><a class="" href="model-inputs.html"><span class="header-section-number">6</span> Model Inputs</a></li>
+<li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">7</span> Validation and Troubleshooting</a></li>
+<li><a class="" href="developing-scenarios.html"><span class="header-section-number">8</span> Developing Scenarios</a></li>
+<li><a class="" href="verspm.html"><span class="header-section-number">9</span> VERSPM Model Details</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">10</span> VE-State Model Details</a></li>
+<li><a class="" href="verpat.html"><span class="header-section-number">11</span> VERPAT Model Details</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">12</span> Estimation in VisionEval</a></li>
+<li><a class="active" href="ve-buildprocess.html"><span class="header-section-number">13</span> Module Build Process</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">14</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">15</span> Software Framework</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="ve-buildprocess" class="section level1" number="13">
+<h1>
+<span class="header-section-number">13</span> Module Build Process<a class="anchor" aria-label="anchor" href="#ve-buildprocess"><i class="fas fa-link"></i></a>
+</h1>
+<div id="introduction-1" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> Introduction<a class="anchor" aria-label="anchor" href="#introduction-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>This chapter describes the package build process for creating or modifying packages and their constituent modules within the VisionEval framework. The build process can be used to incorporate localized or custom data into VE by making a change to a module and then rebuilding the package that is it part of. This chapter includes two case studies that discuss examples of localizing estimation data and walk through the process of substituting data in a module and re-building the VisionEval package that it is part of.</p>
+<p>The steps involved in the process include:</p>
+<ul>
+<li>Collect the input data for the package</li>
+<li>Preprocess the input data into the required format</li>
+<li>Update the data files in the VisionEval package source</li>
+<li>Build and install the package for use in VisionEval</li>
+<li>Use the re-built package in your model</li>
+</ul>
+</div>
+<div id="context" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Context<a class="anchor" aria-label="anchor" href="#context"><i class="fas fa-link"></i></a>
+</h2>
+<p>The VisionEval “build process” rebuilds VisionEval packages to incorporate modified data in the module’s model estimation and data processing steps in order to update data resources such as PUMS (Public Use Microdata Samples from the US Census) and estimated model coefficients. The build process can be conducted through R or RStudio starting with the VisionEval code available from its Github repository.</p>
+<p>The reason that a modified module must be rebuilt before it is available for use in VisionEval is that the VisionEval framework relies on importing each module from an R package. The data resources in any R package cannot be updated directly. Instead the R package that contain the modified module must be rebuilt from its source. R packages are a fundamental unit of the R ecosystem and create a structured way to bundle code, data, and documentation together into a single unit for distribution. Packages can be easily installed and shared among R users. VisionEval itself is distributed as a set of R packages, and those packages are what must be rebuilt to incorporate any localized data or other user made modifications.</p>
+<p>There are two ways to set up VisionEval to rebuild a package with localized data.</p>
+<ol style="list-style-type: decimal">
+<li><p>The most general approach is to start with the source
+code located in the <a href="https://github.com/VisionEval/VisionEval">VisionEval github repository</a> and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the <a href="https://github.com/VisionEval/VisionEval/blob/master/build/Building.md">“build/Building.md”</a> file in the Github source tree.</p></li>
+<li><p>Install <a href="https://git-scm.com/">[Git for Windows][Git4W]</a> or equivalent<br>
+(optional: makes it easier to access the repositories)</p></li>
+<li><p><a href="https://www.r-project.org/">Install R</a><br>
+(usually the most recent version works; must be 3.6.0 or later)</p></li>
+<li><p><a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">Install RTools 4.0</a></p></li>
+<li><p><a href="https://www.rstudio.com/">Install RStudio</a><br>
+(a version compatible with RTools40, and with the version of R you’re using)</p></li>
+<li><p>Copy or clone the <a href="https://github.com/VisionEval/VisionEval">VisionEval</a> (or <a href="https://github.com/VisionEval/VisionEval-dev">VisionEval-dev</a> repository</p></li>
+<li><p>Start RStudio and open the VisionEval-dev.Rproj project file<br>
+(On most graphic display machines, just double-click it)</p></li>
+<li>
+<p>Execute the <code>ve.build()</code> function:<br>
+(A full build from scratch takes from 45 minutes to an hour and a
+half on a typical Windows machine. A build on other architectures may
+take longer as many of the dependency packages will have to be built
+from source code.)</p>
+<pre><code>ve.build()</code></pre>
+</li>
+<li>
+<p>Once the build is done, you can get into the runtime environment in several ways:</p>
+<ol style="list-style-type: decimal">
+<li>By executing ve.run() from the VisionEval-dev RStudio project.</li>
+<li>By entering your file manager program, navigating to the runtime directory and
+double-clicking the VisionEval.Rproj RStudio project file down in the
+runtime directory (as you would for the standard binary release installer).</li>
+<li>Starting the R GUI (or R terminal) for the version of R that you used to build
+VisionEval, setting the working directory (<code>setwd</code>) to the runtime folder you
+just built, and then <code>source</code>-ing <code>Visioneval.R</code>
+</li>
+</ol>
+</li>
+<li>
+<p>If the build is successful, you can make an installer .zip file by doing this:</p>
+<pre><code>ve.build("installer")</code></pre>
+</li>
+<li>
+<p>Alternatively, you can start with a binary VisionEval installation (unzipping the installer file) and then unzip the VisionEval source code file (“src”) to create a “src” directory within your runtime. The steps for rebuilding a package using this method are document in <a href="https://github.com/VisionEval/VisionEval/blob/master/build/RStudio.md">“build/RStudio.md”</a> in the Github source tree.
+1. Download the runtime installer (zip file) from <a href="https://visioneval.org/category/download.html" title="VisionEval Download">the VisionEval Download Page</a></p>
+<ul>
+<li>Pick the installer for your version of R and your Operating System</li>
+<li>Windows and Mac OSX are supported for binary installations
+<ol start="2" style="list-style-type: decimal">
+<li>Install the PackageSources (zip file) for the same release date, also from <a href="https://visioneval.org/category/download.html" title="VisionEval Download">the VisionEval Download Page</a>
+</li>
+</ol>
+</li>
+<li>Just unzip the PackageSources into the exact same folder you put the VisionEval runtime</li>
+<li>It will create a new <code>src</code> sub-directory next to the other VisionEval folders
+<ol start="3" style="list-style-type: decimal">
+<li>Make sure you have [RTools40][getRTools40]</li>
+</ol>
+</li>
+<li>RStudio itself will help you get it, or you can download and install it manually.</li>
+</ul>
+</li>
+</ol>
+<div id="generic-visioneval-module" class="section level3" number="13.2.1">
+<h3>
+<span class="header-section-number">13.2.1</span> Generic VisionEval Module<a class="anchor" aria-label="anchor" href="#generic-visioneval-module"><i class="fas fa-link"></i></a>
+</h3>
+<p>Using the Github approach with ve.build, the package source is located in <code>VisionEval\sources\modules\VEGenericPackage</code> and there will be no “data” folder, just the other elements. The key in both cases is to locate the <code>inst\extdata</code> folder and replace the key files in that location.</p>
+<p>An exception to this is the VETravelDemandMM package, which has an offline step to construct data files (due to its dependency on non-public data).</p>
+<p>VisionEval packages will generally have a structure similar to the following:</p>
+<pre><code>src/VEGenericPackage
+├───data
+│   ├─ GenericPackageSpecifications.rda
+│   ├─ GenericPackage_df.rda
+│   └─ GenericPackage_ls.rda
+├───R
+│   ├─ CreateEstimationDatasets.R
+│   └─ GenericModel.R
+└───inst
+    └─ extdata
+        ├─ input_data1.csv
+        └─ input_data2.txt</code></pre>
+<ul>
+<li><p>The root ‘src’ directory location depends on which build method was used. If built from the github source, it will reside in a built folder (e.g., <code>GitCloneVisionEval\built\visioneval\4.x.x\src\VEGenericPackage</code>), and if unzipped from the installer it will reside where it was unzipped (e.g., <code>MyUnzippedVisionEval\src\VEGenericPackage</code>)</p></li>
+<li><p><code>inst\extdata</code> is where localized input data and reference files will be placed</p></li>
+<li><p>The <code>R</code> directory contains any R scripts used in the packages</p></li>
+<li><p><code>data</code> contains the datastore files generated/estimated by the R scripts</p></li>
+<li><p><code>man</code> and <code>inst\module_docs</code>, contain the markdown documentation generated during the build process.</p></li>
+</ul>
+<p>Some VisionEval packages include helper scripts to facilitate formatting the input data required to build the packages, with names like `CreateEstimationDatasets.R. Those should be run manually prior to rebuilding the package to ensure that the files in inst/extdata are correctly formatted.</p>
+</div>
+<div id="generic-package-building" class="section level3" number="13.2.2">
+<h3>
+<span class="header-section-number">13.2.2</span> Generic Package Building<a class="anchor" aria-label="anchor" href="#generic-package-building"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are several different ways to build an R package:
+1. RStudio GUI
+2. command line
+3. devtools package</p>
+</div>
+<div id="build-using-rstudio-gui" class="section level3" number="13.2.3">
+<h3>
+<span class="header-section-number">13.2.3</span> Build using Rstudio GUI<a class="anchor" aria-label="anchor" href="#build-using-rstudio-gui"><i class="fas fa-link"></i></a>
+</h3>
+<p>RStudio comes with a GUI for building packages. There are many tutorials and <a href="https://support.rstudio.com/hc/en-us/articles/200486488?version=2021.09.1%2B372&amp;mode=desktop">Rstudio build documentations</a> available on the internet.</p>
+<ol style="list-style-type: decimal">
+<li>Check current R runtime library path. It is critical to ensure that your VisionEval R project runtime environment is loaded and the current working directory is <code>VESimHouseholds</code>. It can be checked by entering <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code> in the console. If the VisionEval library is loaded, it will be listed as item 1, for example:</li>
+</ol>
+<pre><code>[1] "C:/git_clone_directory/VisionEval-Dev/built/visioneval/4.1.2/ve-lib"
+[2] "C:/Program Files/R/R-4.1.2/library"</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Check the current working directory, which should the package directory, using <code><a href="https://rdrr.io/r/base/getwd.html">getwd()</a></code> and can be set using:</li>
+</ol>
+<pre><code>setwd("C:/git_clone_directory/VisionEval-Dev/built/visioneval/4.1.2/src/VESimHouseholds")</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><div class="inline-figure">Select Configure Build Tools from the Build menu:
+<img src="images/buildgui-1.png" style="width:75.0%" alt="RStudio Build GUI 1">
+</div></li>
+<li><div class="inline-figure">Set the package directory to the VE module (e.g., src/VEGenericPackage) and the build source
+<img src="images/buildgui-2.png" style="width:75.0%" alt="RStudio Build GUI 2">
+</div></li>
+<li><div class="inline-figure">Build and install the package.
+<img src="images/buildgui-3.png" style="width:75.0%" alt="RStudio Build GUI 3">
+</div></li>
+</ol>
+</div>
+<div id="build-using-command-line" class="section level3" number="13.2.4">
+<h3>
+<span class="header-section-number">13.2.4</span> Build using command line<a class="anchor" aria-label="anchor" href="#build-using-command-line"><i class="fas fa-link"></i></a>
+</h3>
+<p>The fundamental command to build an r package can be run from R console using <code>system("R CMD INSTALL package_path -l lib_path")</code>. The GUI method essentially constructs this command and executes it.</p>
+<ul>
+<li>
+<code>package_path</code> is the path to the package you are building. If your working directory is already located in the package, you can use <code>.</code> to denote the local directory.</li>
+<li><code>lib_path</code></li>
+</ul>
+<pre><code>system("R CMD INSTALL . -l C:\your_git_clone_folder\VisionEval-Dev\built\visioneval\4.1.2\ve-lib")
+</code></pre>
+</div>
+<div id="build-using-devtools" class="section level3" number="13.2.5">
+<h3>
+<span class="header-section-number">13.2.5</span> Build using devtools<a class="anchor" aria-label="anchor" href="#build-using-devtools"><i class="fas fa-link"></i></a>
+</h3>
+<p>Alternatively, the <a href="https://www.r-project.org/nosvn/pandoc/devtools.html">devtools</a> provides a useful suite of tools for package building.</p>
+<pre><code><a href="https://devtools.r-lib.org/reference/document.html"># This runs the scripts and creates documentation, if included
+devtools::document()
+
+# This builds the VESimHouseholds data and scripts into an R package
+devtools::build()
+
+# This then installs the VESimHouseholds package into VisionEval library
+devtools::install()</a></code></pre>
+</div>
+</div>
+<div id="case-study-1---pums-data-in-vesimhouseholds" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Case Study 1 - PUMS data in VESimHouseholds<a class="anchor" aria-label="anchor" href="#case-study-1---pums-data-in-vesimhouseholds"><i class="fas fa-link"></i></a>
+</h2>
+<div id="using-local-pums-data-in-vesimhouseholds" class="section level3" number="13.3.1">
+<h3>
+<span class="header-section-number">13.3.1</span> Using Local PUMS data in VESimHouseholds<a class="anchor" aria-label="anchor" href="#using-local-pums-data-in-vesimhouseholds"><i class="fas fa-link"></i></a>
+</h3>
+<p>The VESimHouseholds package contains a number of modules that work within the VisionEval framework to simulate households and their characteristics. The critical purpose of this package is that the data contained within the package are available throughout the VisionEval framework simply by referencing the <a href="https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds">VESimHouseholds</a> package. The source code for this package is located on the VisionEval github repository <a href="https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VESimHouseholds">sources/modules/VESimHouseholds</a>.</p>
+<p>It is recommended that package modifications be made within your local VisionEval build (i.e., after running <code>ve.build()</code>) located in <code>VisionEval\built\visioneval\4.x.x\src\</code>, and not the cloned source modules. That way any changes can be reverted to the default VisionEval version by re-running <code>ve.build()</code>. The “.x.x” will be replaced by whichever R version was used during the build.</p>
+</div>
+<div id="objective-of-the-case-study" class="section level3" number="13.3.2">
+<h3>
+<span class="header-section-number">13.3.2</span> Objective of the Case Study<a class="anchor" aria-label="anchor" href="#objective-of-the-case-study"><i class="fas fa-link"></i></a>
+</h3>
+<p>The objective of this case study is to substitute the default Oregon-based Public Use Microdata Sample (PUMS) data with PUMS data from another state . This is done in three major steps:</p>
+<ol style="list-style-type: decimal">
+<li>Preprocess and format “raw” PUMS data into the comma separated value (.CSV) files for VisionEval input</li>
+<li>Create the estimated dataset stored as R data files (.Rda) for VisionEval (commonly referred to as “datastore” format, see the <a href="https://rsginc.github.io/VisionEval-Docs/conceptprimer.html#lexicon">lexicon documentation</a> for more detailed terminologies). This element is part of building the package to generate the data for installation and may require building twice to ensure the changes take effect.</li>
+<li>Re-build and install the VisionEval package to make the updated module available with local data.</li>
+</ol>
+</div>
+<div id="input-files-being-modified" class="section level3" number="13.3.3">
+<h3>
+<span class="header-section-number">13.3.3</span> Input files being modified<a class="anchor" aria-label="anchor" href="#input-files-being-modified"><i class="fas fa-link"></i></a>
+</h3>
+<p>As mentioned, the default data inputs provided with VESimHouseholds are PUMS data for Oregon from the 2000 Decennial US Census. The input files are two .CSV files, with the following names and file paths:</p>
+<ul>
+<li><code>VESimHouseholds/inst/extdata/pums_households.csv</code></li>
+<li><code>VESimHouseholds/inst/extdata/pums_persons.csv</code></li>
+</ul>
+<p>The two .CSV files contain disaggregated person and household data linked by a primary key id field. The files have the following fields and field values.</p>
+<pre><code>HOUSEHOLDS
+----------
+SERIALNO: Housing/Group Quarters Unit Serial Number
+PUMA5: 5% Public Use Microdata Area code
+HWEIGHT: Housing unit weight
+UNITTYPE: Type of housing unit
+    0 = Housing unit
+    1 = Institutional group quarters
+    2 = Noninstitutional group quarters
+PERSONS: Number of persons living in housing unit
+BLDGSZ: Size of Building
+    blank = group quarters
+    1 = mobile home
+    2 = detached one-family house
+    3 = attached one-family house
+    4 = building with 2 apartments
+    5 = building with 3 or 4 apartments
+    6 = building with 5 to 9 apartments
+    7 = building with 10 to 19 apartments
+    8 = building with 20 to 49 apartments
+    9 = building with 50 or more apartments
+    10 = boat, RV, van, etc.
+HINC: Household Total Income in 1999</code></pre>
+<pre><code>PERSONS
+-------
+SERIALNO: Housing/Group Quarters Unit Serial Number
+AGE: Age
+WRKLYR: Worked in 1999
+    0 = Not in universe (Under 16 years)
+    1 = Yes
+    2 = No
+INCTOT: Person's Total Income in 1999
+    NA = Not in universe (Under 15 years)
+    ?019998 = Loss of $19,998 or more
+    ?000001..019997 = Loss of $1 to $19,997
+    0000000 = No/none
+    0000001 = $1 or break even
+    0000002..4999999 = $2 to $4,999,999
+    5000000 = $5,000,000 or more</code></pre>
+<p>The data are disaggregated records of individual persons and households. For example, household data might look like this:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">SERIALNO</th>
+<th align="right">PUMA5</th>
+<th align="right">HWEIGHT</th>
+<th align="right">UNITTYPE</th>
+<th align="right">PERSONS</th>
+<th align="right">BLDGSZ</th>
+<th align="right">HINC</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">25080</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">9</td>
+<td align="right">68100</td>
+</tr>
+<tr class="even">
+<td align="right">92</td>
+<td align="right">25060</td>
+<td align="right">17</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">105530</td>
+</tr>
+<tr class="odd">
+<td align="right">103</td>
+<td align="right">25090</td>
+<td align="right">21</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">6</td>
+<td align="right">359000</td>
+</tr>
+<tr class="even">
+<td align="right">142</td>
+<td align="right">25100</td>
+<td align="right">25</td>
+<td align="right">0</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">141500</td>
+</tr>
+<tr class="odd">
+<td align="right">157</td>
+<td align="right">25100</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">NA</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="right">159</td>
+<td align="right">25070</td>
+<td align="right">22</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">2</td>
+<td align="right">14700</td>
+</tr>
+</tbody>
+</table></div>
+<p>And an example of the persons data might look like this:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th align="right">SERIALNO</th>
+<th align="right">AGE</th>
+<th align="right">WRKLYR</th>
+<th align="right">MILITARY</th>
+<th align="right">INCTOT</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="right">45</td>
+<td align="right">66</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">68100</td>
+</tr>
+<tr class="even">
+<td align="right">92</td>
+<td align="right">28</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">33000</td>
+</tr>
+<tr class="odd">
+<td align="right">92</td>
+<td align="right">28</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">37000</td>
+</tr>
+<tr class="even">
+<td align="right">92</td>
+<td align="right">26</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">35530</td>
+</tr>
+<tr class="odd">
+<td align="right">103</td>
+<td align="right">53</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">33000</td>
+</tr>
+<tr class="even">
+<td align="right">103</td>
+<td align="right">53</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">326000</td>
+</tr>
+<tr class="odd">
+<td align="right">142</td>
+<td align="right">49</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">111500</td>
+</tr>
+<tr class="even">
+<td align="right">142</td>
+<td align="right">49</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">30000</td>
+</tr>
+<tr class="odd">
+<td align="right">157</td>
+<td align="right">39</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">2100</td>
+</tr>
+<tr class="even">
+<td align="right">159</td>
+<td align="right">80</td>
+<td align="right">2</td>
+<td align="right">2</td>
+<td align="right">14700</td>
+</tr>
+</tbody>
+</table></div>
+<p>Note that the two data files are also linked by a primary key field <code>SERIALNO</code>. For each unique household, there are one or more persons linked to that household by the <code>SERIALNO</code> key.</p>
+</div>
+<div id="step-1---preprocessing" class="section level3" number="13.3.4">
+<h3>
+<span class="header-section-number">13.3.4</span> Step 1 - Preprocessing<a class="anchor" aria-label="anchor" href="#step-1---preprocessing"><i class="fas fa-link"></i></a>
+</h3>
+<p>To start, we must download our new “raw” PUMS data and format it to match the current VisionEval input files. Processing and formatting can be done manually using spreadsheets and text editors, but some PUMS data are stored in a space saving format that most spreadsheets and humans cannot easily read.</p>
+<p>To help with this process, an R script was written with functions that both download the PUMS data and preprocess the data into .CSV files for VisionEval, located here: <a href="https://github.com/RSGInc/VEProcessPUMS" class="uri">https://github.com/RSGInc/VEProcessPUMS</a></p>
+<p><strong>NOTE:</strong> It is important to note here that VisionEval household and person fields are based on the 2000 <em>Decennial Census</em> PUMS.</p>
+<p>For year 2000 and earlier, PUMS data were based on the Decennial Census counted every ten years. <u>Post-2000 PUMS</u> are based on the American Community Survey (ACS), which is a sampling-based survey method collected continuously rather than from a full Decennial Census. Statistically, the ACS-based PUMS are reliable, but the fields <u>differ</u> and will need to be migrated to match the inputs used by VisionEval. More <a href="https://www2.census.gov/geo/pdfs/reference/puma/puma_history.pdf">PUMA history</a> can be read online at the US Census website.</p>
+<ul>
+<li><a href="https://www2.census.gov/census_2000/datasets/PUMS/">2000 Decennial Census PUMS</a></li>
+<li><a href="https://www2.census.gov/programs-surveys/acs/data/pums/">Post-2000 ACS PUMS</a></li>
+</ul>
+</div>
+<div id="pums-aka-census-pums" class="section level3" number="13.3.5">
+<h3>
+<span class="header-section-number">13.3.5</span> 2000 PUMS (aka Census PUMS)<a class="anchor" aria-label="anchor" href="#pums-aka-census-pums"><i class="fas fa-link"></i></a>
+</h3>
+<p>2000 PUMS data comes in two forms, 1% and 5%, which the Census explains as:</p>
+<blockquote>
+<p>“The 1-percent super-PUMAs were used to present 1-percent PUMS files, were required to contain a minimum population of 400,000 persons, and had to nest within states. These super-PUMAs were a new geographic entity for Census 2000 and were aggregations of the smaller, 5-percent PUMAs.</p>
+<p>The 5-percent PUMAs were used to present the 5-percent PUMS files, were required to contain a minimum population of 100,000 persons, and had to nest within states. PUMAs could consist of a single county or an aggregation of one or more counties, census tracts, or minor civil divisions (MCDs) in the New England states. Additionally, an incorporated place with a minimum population of 100,000 persons could be defined as a PUMA.”</p>
+</blockquote>
+<p>Basically the 1% PUMS have more persons, but cover a larger geographic area than the 5% PUMS. In this case we are looking to download the revised 5% data. Within each state directory (e.g., <a href="https://www2.census.gov/census_2000/datasets/PUMS/FivePercent/California/" class="uri">https://www2.census.gov/census_2000/datasets/PUMS/FivePercent/California/</a>) there will be several files.</p>
+<pre><code>PUMEQ5-CA.TXT           30-Aug-2003 05:21   1.0M
+PUMS5_06.TXT            30-Aug-2003 05:35   677M
+REVISEDPUMS5_06.TXT   26-Oct-2010 14:24 676M
+all_California.zip    02-Sep-2003 23:08 98M</code></pre>
+<p>The file named <code>REVISEDPUMS5_06.TXT</code> is the file to download. However, the data for both households and persons are stored in a continuous string, which is not an easy to parse delimited format (e.g., comma separated). Extracting the data and converting it into a tabular data frame is non-trivial.</p>
+<p>To help with this process, an R function called <code>process_2000_pums()</code> was written in the <a href="https://github.com/RSGInc/VEProcessPUMS/blob/master/R/ProcessPUMS.R">VEProcessPUMS</a> package to read the <code>.txt</code> files, extract the data columns need, convert to R data frames, and then export the remaining data into the two person and household <code>.csv</code> files as VESimHousehold input.</p>
+</div>
+<div id="post-2000-pums-aka-acs-pums" class="section level3" number="13.3.6">
+<h3>
+<span class="header-section-number">13.3.6</span> Post-2000 PUMS (aka ACS PUMS)<a class="anchor" aria-label="anchor" href="#post-2000-pums-aka-acs-pums"><i class="fas fa-link"></i></a>
+</h3>
+<p>Post-2000 PUMS data are typically stored as separate .CSV files for persons and households. This makes parsing and importing the data into R very easy. However, the columns are different and the new column names will need to be identified and migrated over. Below is a column crosswalk to translate ACS PUMS to the required field names.</p>
+<div id="household" class="section level4 unnumbered">
+<h4>Household<a class="anchor" aria-label="anchor" href="#household"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>2000 PUMS Field</th>
+<th>ACS PUMS Field Name</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>SERIALNO</td>
+<td>SERIALNO</td>
+</tr>
+<tr class="even">
+<td>PUMA5</td>
+<td>PUMA</td>
+</tr>
+<tr class="odd">
+<td>HWEIGHT</td>
+<td>WGTP</td>
+</tr>
+<tr class="even">
+<td>UNITTYPE</td>
+<td>TYPE</td>
+</tr>
+<tr class="odd">
+<td>PERSONS</td>
+<td>NP</td>
+</tr>
+<tr class="even">
+<td>BLDGSZ</td>
+<td>BLD</td>
+</tr>
+<tr class="odd">
+<td>HINC</td>
+<td>HINCP</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<div id="persons" class="section level4 unnumbered">
+<h4>Persons<a class="anchor" aria-label="anchor" href="#persons"><i class="fas fa-link"></i></a>
+</h4>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>2000 PUMS Field</th>
+<th>ACS PUMS Field Name</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>SERIALNO</td>
+<td>SERIALNO</td>
+</tr>
+<tr class="even">
+<td>AGE</td>
+<td>AGEP</td>
+</tr>
+<tr class="odd">
+<td>WRKLYR</td>
+<td>WKL</td>
+</tr>
+<tr class="even">
+<td>MILITARY</td>
+<td>MIL</td>
+</tr>
+<tr class="odd">
+<td>INCTOT</td>
+<td>PINCP</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div id="preprocessing-for-visioneval-input-data" class="section level3" number="13.3.7">
+<h3>
+<span class="header-section-number">13.3.7</span> Preprocessing for VisionEval input data<a class="anchor" aria-label="anchor" href="#preprocessing-for-visioneval-input-data"><i class="fas fa-link"></i></a>
+</h3>
+<p>You can either manually download the text file and process the PUMS data, or use the automated R wrappers <code>getACSPUMS()</code> and <code>getDecPUMS()</code>.</p>
+<div id="manually-download-pums-and-process-using-process_2000_pums-process_acs_pums" class="section level4 unnumbered">
+<h4>Manually download PUMS and process using process_2000_pums() &amp; process_acs_pums()<a class="anchor" aria-label="anchor" href="#manually-download-pums-and-process-using-process_2000_pums-process_acs_pums"><i class="fas fa-link"></i></a>
+</h4>
+<p>An example PUMS processing using the <code>process_2000_pums</code> and <code>process_acs_pums</code>:</p>
+<pre><code># For the 2000 data:
+# process_2000_pums() function reads in REVISEDPUMS5_06.TXT,
+# parses the data into two dataframes for persons and households, then
+# returns a list('p'= person_df, 'h' = household_df)
+# It has two input parameters:
+#  - PumsFile: path to PUMS TXT data
+#  - GetPumas: optional vector of PUMAS ids, defaults to 'ALL'
+
+PUMS_DATA_LIST &lt;- process_2000_pums(PumsFile='REVISEDPUMS5_06.TXT', GetPumas='ALL')</code></pre>
+<p>The process is similar using the process_acs_pums(). You can specify the path for the extracted .csv or the .zip file. It has one additional parameter to specify the file type as either ‘p’ for persons or ‘h’ for households. For example:</p>
+<pre><code># For the ACS data:
+PUMS_DATA_LIST &lt;- process_acs_pums(PumsFile='csv_pca.csv', type='p' GetPumas='ALL')</code></pre>
+<p>Then you only need to save the data frames to a csv:</p>
+<pre><code># Using base R write.csv
+write.csv(PUMS_DATA_LIST[['p']],
+          file = file.path(output_dir, 'pums_persons.csv'),
+          row.names = FALSE)
+
+# Using fwrite() from `data.table`
+fwrite(PUMS_DATA_LIST[['p']],
+       file = file.path(output_dir, 'pums_persons.csv'))</code></pre>
+</div>
+<div id="automatically-download-pums-and-process-using-getdecpums-and-getacspums" class="section level4 unnumbered">
+<h4>Automatically download PUMS and process using getDecPUMS and getACSPUMS<a class="anchor" aria-label="anchor" href="#automatically-download-pums-and-process-using-getdecpums-and-getacspums"><i class="fas fa-link"></i></a>
+</h4>
+<p>To streamline the whole process, there is also a download wrapper function which both downloads and calls the pre-processing function. The user only needs to specify the State (and year if using ACS) that they want PUMS data from. For example:</p>
+<pre><code># This function downloads the PUMS txt data to a temporary file,
+# parses it using the process_2000_pums function, then
+# saves or returns the processed data.
+# It has two input parameters:
+# - STATE: This can be the State name, abbreviation, or fips code
+#          (e.g., California, CA, or 6)
+# - output_dir: Optional path to save the files pums_persons.csv and pums_households.csv
+#               NA path returns the dataframes in a list
+
+# Get 2000 Decennial Census PUMS
+# data_list &lt;- getDecPUMS(STATE='CA', output_dir = NA)
+getDecPUMS(STATE='CA', output_dir = './output_folder')</code></pre>
+<p>Similarly, ACS PUMS data for more recent years can be downloaded. For example:</p>
+<pre><code># Get ACS PUMS for specified year
+# data_list &lt;- getACSPUMS(STATE='CA', YEAR='2020', output_dir = NA)
+getACSPUMS(STATE='CA', YEAR='2020', output_dir = './output_folder')</code></pre>
+</div>
+</div>
+<div id="step-2---create-the-visioneval-estimation-data-sets" class="section level3" number="13.3.8">
+<h3>
+<span class="header-section-number">13.3.8</span> Step 2 - Create the VisionEval estimation data sets<a class="anchor" aria-label="anchor" href="#step-2---create-the-visioneval-estimation-data-sets"><i class="fas fa-link"></i></a>
+</h3>
+<p>The next step is to use the R scripts in VESimHouseholds to re-generate the VisionEval <code>.Rda</code> data files stored in <code>VESimHouseholds\data</code>. These data files are stored in a structure and format (e.g., data frames) that VisionEval can use as part of the framework.</p>
+<ol style="list-style-type: decimal">
+<li><p>Start by instantiating the VisionEval R project environment by loading your model build’s <code>VisionEval.Rproj</code>. If you have already built your VisionEval using <code>ve.build()</code>, you will have a <code>VisionEval.Rproj</code> file in your <code>built</code> directory. For example, <code>VisionEval\built\visioneval\4.1.2\runtime\VisionEval.Rproj</code>.</p></li>
+<li><p>Next navigate to the VESimHousehold package and set your current working directory to the <code>your_path_to_this/VESimHouseholds</code> folder. (hint <em>Session -&gt; Set Working Directory</em>)</p></li>
+<li>
+<p>Run the R data generation scripts. Depending on the purpose of the module you are working with, the generation R script may vary. For example, the <code>VESimHouseholds/R/CreateEstimationDatasets.R</code> script reads in the .csv input data we created and creates the household data <code>Hh_df.rda</code> for VisionEval in the data folder. If another datastore is being modified, the respective generation script will need to be run.</p>
+<p>Within the package’s “R” folder, some will save a datastore with the command <code>visioneval::savePackageDataset()</code>, some may not need any data updates, and others might only contain model functions with no immediate output saved.</p>
+</li>
+</ol>
+</div>
+<div id="step-3---build-the-vesimhouseholds-package" class="section level3" number="13.3.9">
+<h3>
+<span class="header-section-number">13.3.9</span> Step 3 - Build the VESimHouseholds package<a class="anchor" aria-label="anchor" href="#step-3---build-the-vesimhouseholds-package"><i class="fas fa-link"></i></a>
+</h3>
+<p>Although the previous step generated the R data files, your current VisionEval environment will still be using the old data from the built version of the package. You will need to re-build and re-install the VESimHousehold package for VisionEval to replace the package with a new version containing the new input data. Any of the three build processes described above can be used.</p>
+<p>Once the package re-build is complete, your new PUMS data will be ready to use in a VisionEval model run.</p>
+</div>
+</div>
+<div id="case-study-2---powertrain-data-in-vepowertrainsandfuels" class="section level2" number="13.4">
+<h2>
+<span class="header-section-number">13.4</span> Case Study 2 - Powertrain data in VEPowertrainsandFuels<a class="anchor" aria-label="anchor" href="#case-study-2---powertrain-data-in-vepowertrainsandfuels"><i class="fas fa-link"></i></a>
+</h2>
+<div id="vepowertrainsandfuels---changing-inputs-for-a-scenario-test" class="section level3" number="13.4.1">
+<h3>
+<span class="header-section-number">13.4.1</span> VEPowertrainsandFuels - Changing Inputs for a Scenario Test<a class="anchor" aria-label="anchor" href="#vepowertrainsandfuels---changing-inputs-for-a-scenario-test"><i class="fas fa-link"></i></a>
+</h3>
+<p>This second case study explores a common challenge when certain inputs are embedded in a package and users want to modify the model values within the package (often this is in order to create an alternative scenario). The critical purpose of the VEPowertrainsandFuels package is to process vehicle and fuel characteristics files that model users may optionally supply. Users can develop custom scenarios by modifying the relevant input files included in the ‘inst/extdata’ directory of the source package and build the package.</p>
+</div>
+<div id="objective-of-vepowertrainsandfuels-case-study" class="section level3" number="13.4.2">
+<h3>
+<span class="header-section-number">13.4.2</span> Objective of VEPowertrainsandFuels Case Study<a class="anchor" aria-label="anchor" href="#objective-of-vepowertrainsandfuels-case-study"><i class="fas fa-link"></i></a>
+</h3>
+<p>The objective of this case study is to define a custom function which alters the default data values as they are read into VisionEval during the build process.</p>
+</div>
+<div id="data" class="section level3" number="13.4.3">
+<h3>
+<span class="header-section-number">13.4.3</span> Data<a class="anchor" aria-label="anchor" href="#data"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>VEPowertrainsAndFuels\inst\extdata\hh_powertrain_prop.csv</code> are the default powertrain proportions contained in the package, which resembles the table below (the table is compressed to select years for clarity). The file’s purpose is to provide the proportion of vehicle powertrain types by vehicle type (auto and light trucks) and vehicle vintage year.</p>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="8%">
+<col width="11%">
+<col width="10%">
+<col width="11%">
+<col width="10%">
+<col width="12%">
+<col width="11%">
+<col width="12%">
+<col width="11%">
+</colgroup>
+<thead><tr class="header">
+<th>ModelYear</th>
+<th>AutoPropIcev</th>
+<th>AutoPropHev</th>
+<th>AutoPropPhev</th>
+<th>AutoPropBev</th>
+<th>LtTrkPropIcev</th>
+<th>LtTrkPropHev</th>
+<th>LtTrkPropPhev</th>
+<th>LtTrkPropBev</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>1975</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2000</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td>2010</td>
+<td>0.8786</td>
+<td>0.1213</td>
+<td>0</td>
+<td>0.0001</td>
+<td>0.9820</td>
+<td>0.0180</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td>2020</td>
+<td>0.8212</td>
+<td>0.0788</td>
+<td>0.0202</td>
+<td>0.0798</td>
+<td>0.9524</td>
+<td>0.0143</td>
+<td>0.0067</td>
+<td>0.0266</td>
+</tr>
+<tr class="odd">
+<td>2030</td>
+<td>0.6676</td>
+<td>0.0908</td>
+<td>0.0358</td>
+<td>0.2058</td>
+<td>0.9093</td>
+<td>0.0179</td>
+<td>0.0106</td>
+<td>0.0622</td>
+</tr>
+<tr class="even">
+<td>2040</td>
+<td>0.5701</td>
+<td>0.0922</td>
+<td>0.0403</td>
+<td>0.2974</td>
+<td>0.8996</td>
+<td>0.0191</td>
+<td>0.0114</td>
+<td>0.0698</td>
+</tr>
+<tr class="odd">
+<td>2050</td>
+<td>0.5198</td>
+<td>0.0895</td>
+<td>0.0407</td>
+<td>0.3500</td>
+<td>0.8916</td>
+<td>0.0193</td>
+<td>0.0119</td>
+<td>0.0772</td>
+</tr>
+</tbody>
+</table></div>
+<p>The table contains two powertrain proportions, the left-most four columns are for automobiles (i.e., <code>AutoProp</code>) and the right-most are for light trucks (i.e., <code>LtTrkProp</code>). Each will sum up to 1 (for a rowsum of 2).</p>
+</div>
+<div id="input-modification" class="section level3" number="13.4.4">
+<h3>
+<span class="header-section-number">13.4.4</span> Input modification<a class="anchor" aria-label="anchor" href="#input-modification"><i class="fas fa-link"></i></a>
+</h3>
+<p>This section walks users through modifying the data as they are read in to VisionEval. Before modifying the code, a brief analysis is conducted to define a modifying function and demonstrate the effects if the modifications. The next subsection utilizes the function in the <code>LoadDefaultValues.R</code> script to modify <code>hh_powertrain_prop.csv</code> as the data are read in.</p>
+<p><strong>Note:</strong> The same results of this case study can be achieved by simply modifying the hh_powertrain_prop.csv input file, similar to as done in Case Study 1, but in this demonstration purposes we will modify the generation script rather than the input data.</p>
+</div>
+<div id="analysis" class="section level3" number="13.4.5">
+<h3>
+<span class="header-section-number">13.4.5</span> Analysis<a class="anchor" aria-label="anchor" href="#analysis"><i class="fas fa-link"></i></a>
+</h3>
+<p>To begin, the code snippets below conduct a brief exploratory analysis to demonstrate visually what the data look like and how they will be modified. Using some helper packages <code>ggplot2</code> and <code>reshape</code> we can format the data for visualization. <strong>Note:</strong> These packages are not necessary for modifying the data in VisionEval, but are used for formatting and plotting in this case study.</p>
+<pre><code><a href="https://ggplot2.tidyverse.org"># Additional packages
+library(ggplot2)
+library(reshape)
+
+# Load data, uncomment it to run in your project
+hh_powertrain_prop &lt;- read.csv('.YOUR_PACKAGE_DIRECTORY/inst/extdata/hh_powertrain_prop.csv')
+
+melted_powertrains &lt;- reshape::melt(hh_powertrain_prop, id.vars = 'ModelYear')
+
+ggplot(data = melted_powertrains) +
+  geom_line(aes(x=ModelYear, y=value, color=variable)) +
+  scale_y_continuous(labels=scales::percent) +
+  theme_classic()</a></code></pre>
+<div class="figure">
+<img src="images/hh_powertrain_prop_view.png" style="width:75.0%" alt=""><p class="caption">Household Powertrain Proportions</p>
+</div>
+<p>We can see that battery electric vehicles (BEV), specifically automobiles, are projected to make up the majority of vehicles bought in future years. This causes the share of internal combustion engine to decline proportionally.</p>
+<p>Let us assume that the state government is deciding whether to aggressively promote BEV cars starting in 2025. The policies cause the share of alternative powertrains (BEV, HEV, and PHEV) to increase more over time. To model this increase, we will use an arbitrary function which adds to the current value of <span class="math inline">\(x\)</span> (i.e., the proportion) at a quadratic rate.</p>
+<p><span class="math display">\[
+f(x) = x + x^2 (1 - x)
+\]</span>
+We then create a wrapper function that adjusts each of the alternative powertrains using our custom modeling function. To ensure that the proportions sum up to 1 for autos and light trucks, respectively, we then calculate the remaining proportion of ICE powertrains by subtracting the proportion of alternative powertrains.</p>
+<pre><code># Wrapper function to adjust the powertrain data
+adjust_powertrain &lt;- function(powertrain_df, start_year) {
+  # Define our adjustment functions
+  adj_fun &lt;- function(xv) xv + (xv^2) * (1 - xv)
+
+  # Which columns to modify
+  cols &lt;- colnames(powertrain_df)
+  ev_cols &lt;- cols[grepl('Hev|Phev|Bev', cols)]
+  ice_cols &lt;- cols[grepl('Icev', cols)]
+
+  # Create the modified data frame
+  df_mod &lt;- powertrain_df
+  yrs_idx &lt;- df_mod$ModelYear &gt; start_year
+
+  # Adjust the alternate powertrain data (BEV, PHEV, HEV) data
+  df_mod[yrs_idx, ev_cols] &lt;- apply(powertrain_df[yrs_idx, ev_cols], 2, adj_fun)
+
+  # Subtract the amount of remaining internal combustion engines (ICE)
+  for(x in ice_cols){
+    sum_cols &lt;- ev_cols[grepl(gsub('Icev', '', x), ev_cols)]
+    df_mod[yrs_idx, eval(x)] &lt;- 1 - rowSums(df_mod[yrs_idx, sum_cols])
+  }
+
+  return(df_mod)
+}
+</code></pre>
+<p>The adjusted inputs can be combined with the existing data. The combined plot shows an noticeable increase in alternative powertrain vehicle shares for later vintage years.</p>
+<pre><code>hh_powertrain_prop_high &lt;- adjust_powertrain(hh_powertrain_prop, 2025)
+
+melted_powertrains &lt;- rbind(
+  cbind(reshape::melt(hh_powertrain_prop, id.vars = 'ModelYear'), type='existing'),
+  cbind(reshape::melt(hh_powertrain_prop_high, id.vars = 'ModelYear'), type='high')
+  )
+
+ggplot(data = melted_powertrains) +
+  geom_line(aes(x=ModelYear, y=value, color=variable, linetype=type)) +
+  scale_y_continuous(labels=scales::percent) +
+  theme_classic()
+</code></pre>
+<div class="figure">
+<img src="images/hh_powertrain_prop_adjustedview.png" style="width:75.0%" alt=""><p class="caption">Adjusted Household Powertrain Proportions</p>
+</div>
+</div>
+<div id="data-modification" class="section level3" number="13.4.6">
+<h3>
+<span class="header-section-number">13.4.6</span> Data modification<a class="anchor" aria-label="anchor" href="#data-modification"><i class="fas fa-link"></i></a>
+</h3>
+<p>Once a model user is satisfied with the effects that are represented by applying the modifying function, the <code>LoadDefaultValues.R</code> can be edited to include the function. Beginning on line #422, the R script initializes the household powertrain datastore input, then loads in the CSV file using <code>processEstimationInputs</code>. We can insert the new function after the data has been loaded but before it has been stored and cleaned up at <code>PowertrainFuelDefaults_ls$HhPowertrain_df &lt;- HhPowertrain_df</code>.</p>
+<pre><code>#----------------------------------------
+#Household vehicle powertrain proportions
+#----------------------------------------
+#Specify input file attributes
+Inp_ls &lt;- items(
+  item(
+    NAME = "ModelYear",
+    TYPE = "integer",
+    PROHIBIT = c("NA", "&lt; 0"),
+    ISELEMENTOF = "",
+    UNLIKELY = "",
+    TOTAL = ""
+  ),
+  item(
+    NAME =
+      items("AutoPropIcev",
+            "AutoPropHev",
+            "AutoPropPhev",
+            "AutoPropBev",
+            "LtTrkPropIcev",
+            "LtTrkPropHev",
+            "LtTrkPropPhev",
+            "LtTrkPropBev"),
+    TYPE = "double",
+    PROHIBIT = c("NA", "&lt; 0", "&gt; 1"),
+    ISELEMENTOF = "",
+    UNLIKELY = "",
+    TOTAL = ""
+  )
+)
+#Load and process data
+HhPowertrain_df &lt;-
+  processEstimationInputs(
+    Inp_ls,
+    "hh_powertrain_prop.csv",
+    "LoadDefaultValues.R")
+#Check whether all years are present
+Years_ &lt;- 1975:2050
+if (!all(Years_ %in% HhPowertrain_df$ModelYear)) {
+  stop(paste(
+    "File 'hh_powertrain_prop.csv' must have values for at least the years",
+    "from 1975 through 2050", sep = " "))
+}
+#Check that powertrain proportion are 0 when powertrain characteristics are NA
+Msg_ &lt;- character(0)
+for (ty in c("Auto", "LtTrk")) {
+  for (pt in c("Icev", "Hev", "Phev", "Bev")) {
+    PtType &lt;- paste0(ty, pt)
+    PropName &lt;- paste0(ty, "Prop", pt)
+    CharName &lt;- paste0(ty, pt, "Mpg")
+    if (pt == "Bev") CharName &lt;- paste0(ty, pt, "Mpkwh")
+    Prop_ &lt;- HhPowertrain_df[[PropName]]
+    Char_ &lt;- PowertrainFuelDefaults_ls$LdvPowertrainCharacteristics_df[[CharName]]
+    if (any(Prop_[is.na(Char_)] != 0)) {
+      Msg &lt;- paste0(
+        "hh_powertrain_prop.csv file error. Non-zero proportion(s) for ",
+        PropName, " where NA values in ldv_powertrain_characteristics.csv for ",
+        CharName)
+      Msg_ &lt;- c(Msg_, Msg)
+    }
+  }
+}
+if (length(Msg_) != 0) {
+  stop(paste(Msg_, collapse = ", "))
+}
+
+#&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt; NEW FUNCTION BEGINS
+adjust_powertrain &lt;- function(powertrain_df, start_year) {
+  # Define our adjustment functions
+  adj_fun &lt;- function(xv) xv + (xv^2) * (1 - xv)
+
+  # Which columns to modify
+  cols &lt;- colnames(powertrain_df)
+  ev_cols &lt;- cols[grepl('Hev|Phev|Bev', cols)]
+  ice_cols &lt;- cols[grepl('Icev', cols)]
+
+  # Create the modified data frame
+  df_mod &lt;- powertrain_df
+  yrs_idx &lt;- df_mod$ModelYear &gt; start_year
+
+  # Adjust the alternate powertrain data (BEV, PHEV, HEV) data
+  df_mod[yrs_idx, ev_cols] &lt;- apply(powertrain_df[yrs_idx, ev_cols], 2, adj_fun)
+
+  # Subtract the amount of remaining internal combustion engines (ICE)
+  for(x in ice_cols){
+    sum_cols &lt;- ev_cols[grepl(gsub('Icev', '', x), ev_cols)]
+    df_mod[yrs_idx, eval(x)] &lt;- 1 - rowSums(df_mod[yrs_idx, sum_cols])
+  }
+
+  return(df_mod)
+}
+
+#&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt;&lt; END OF NEW FUNCTION
+
+#Add to PowertrainFuelDefaults_ls and clean up
+PowertrainFuelDefaults_ls$HhPowertrain_df &lt;- HhPowertrain_df
+rm(Inp_ls, HhPowertrain_df)</code></pre>
+</div>
+<div id="build-the-vepowertrainsandfuels-package" class="section level3" number="13.4.7">
+<h3>
+<span class="header-section-number">13.4.7</span> Build the VEPowertrainsAndFuels package<a class="anchor" aria-label="anchor" href="#build-the-vepowertrainsandfuels-package"><i class="fas fa-link"></i></a>
+</h3>
+<p>The previous step generated the R data files, and you will need to re-build and re-install the VEPowertrainsAndFuels package for VisionEval to use this new input data. Any of the three build processes described above can be used.</p>
+<p>Once the package re-build is complete, your new powertrain data will be ready to use in a VisionEval model run.</p>
+
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="ve-estimation.html"><span class="header-section-number">12</span> Estimation in VisionEval</a></div>
+<div class="next"><a href="api-documentation.html"><span class="header-section-number">14</span> API Documentation</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#ve-buildprocess"><span class="header-section-number">13</span> Module Build Process</a></li>
+<li><a class="nav-link" href="#introduction-1"><span class="header-section-number">13.1</span> Introduction</a></li>
+<li>
+<a class="nav-link" href="#context"><span class="header-section-number">13.2</span> Context</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#generic-visioneval-module"><span class="header-section-number">13.2.1</span> Generic VisionEval Module</a></li>
+<li><a class="nav-link" href="#generic-package-building"><span class="header-section-number">13.2.2</span> Generic Package Building</a></li>
+<li><a class="nav-link" href="#build-using-rstudio-gui"><span class="header-section-number">13.2.3</span> Build using Rstudio GUI</a></li>
+<li><a class="nav-link" href="#build-using-command-line"><span class="header-section-number">13.2.4</span> Build using command line</a></li>
+<li><a class="nav-link" href="#build-using-devtools"><span class="header-section-number">13.2.5</span> Build using devtools</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#case-study-1---pums-data-in-vesimhouseholds"><span class="header-section-number">13.3</span> Case Study 1 - PUMS data in VESimHouseholds</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#using-local-pums-data-in-vesimhouseholds"><span class="header-section-number">13.3.1</span> Using Local PUMS data in VESimHouseholds</a></li>
+<li><a class="nav-link" href="#objective-of-the-case-study"><span class="header-section-number">13.3.2</span> Objective of the Case Study</a></li>
+<li><a class="nav-link" href="#input-files-being-modified"><span class="header-section-number">13.3.3</span> Input files being modified</a></li>
+<li><a class="nav-link" href="#step-1---preprocessing"><span class="header-section-number">13.3.4</span> Step 1 - Preprocessing</a></li>
+<li><a class="nav-link" href="#pums-aka-census-pums"><span class="header-section-number">13.3.5</span> 2000 PUMS (aka Census PUMS)</a></li>
+<li><a class="nav-link" href="#post-2000-pums-aka-acs-pums"><span class="header-section-number">13.3.6</span> Post-2000 PUMS (aka ACS PUMS)</a></li>
+<li><a class="nav-link" href="#preprocessing-for-visioneval-input-data"><span class="header-section-number">13.3.7</span> Preprocessing for VisionEval input data</a></li>
+<li><a class="nav-link" href="#step-2---create-the-visioneval-estimation-data-sets"><span class="header-section-number">13.3.8</span> Step 2 - Create the VisionEval estimation data sets</a></li>
+<li><a class="nav-link" href="#step-3---build-the-vesimhouseholds-package"><span class="header-section-number">13.3.9</span> Step 3 - Build the VESimHouseholds package</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#case-study-2---powertrain-data-in-vepowertrainsandfuels"><span class="header-section-number">13.4</span> Case Study 2 - Powertrain data in VEPowertrainsandFuels</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#vepowertrainsandfuels---changing-inputs-for-a-scenario-test"><span class="header-section-number">13.4.1</span> VEPowertrainsandFuels - Changing Inputs for a Scenario Test</a></li>
+<li><a class="nav-link" href="#objective-of-vepowertrainsandfuels-case-study"><span class="header-section-number">13.4.2</span> Objective of VEPowertrainsandFuels Case Study</a></li>
+<li><a class="nav-link" href="#data"><span class="header-section-number">13.4.3</span> Data</a></li>
+<li><a class="nav-link" href="#input-modification"><span class="header-section-number">13.4.4</span> Input modification</a></li>
+<li><a class="nav-link" href="#analysis"><span class="header-section-number">13.4.5</span> Analysis</a></li>
+<li><a class="nav-link" href="#data-modification"><span class="header-section-number">13.4.6</span> Data modification</a></li>
+<li><a class="nav-link" href="#build-the-vepowertrainsandfuels-package"><span class="header-section-number">13.4.7</span> Build the VEPowertrainsAndFuels package</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/blob/master/10-build-process.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/edit/master/10-build-process.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-27.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

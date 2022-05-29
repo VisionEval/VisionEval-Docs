@@ -13,10 +13,10 @@ rmd_files:
   - 03-tutorial.Rmd
   - 04-inputs.Rmd
   - 05-validation.Rmd
-  - 06-estimation.Rmd
-  - 07-verspm.Rmd
-  - 08-vestate.Rmd
-  - 09-verpat.Rmd
-  - 10-developer.Rmd
+  - 06-verspm.Rmd
+  - 07-vestate.Rmd
+  - 08-verpat.Rmd
+  - 09-estimation.Rmd
+  - 10-build-process.Rmd
   - 11-api.Rmd
   - 12-software.Rmd
