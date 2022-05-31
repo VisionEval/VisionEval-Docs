@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 1 Getting Started | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
 <meta property="og:title" content="Chapter 1 Getting Started | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/getting-started.html">
@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 1 Getting Started | VisionEval User Guide">
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -68,7 +68,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -90,6 +90,7 @@ to do with it after it is installed. Content in the <a href="tutorial.html#tutor
 <li><a href="#workflow">Workflow</a></li>
 <li><a href="#editrun">Editing and Running Models</a></li>
 <li><a href="#results">Getting Results</a></li>
+<li><a href="#walkthrough">Using Walkthrough</a></li>
 </ul>
 </div>
 <div id="installation-and-setup" class="section level2" number="1.2">
@@ -115,7 +116,7 @@ This is the simplest way to quickly get VisionEval on your computer.
 <li><p>If you area a Mac/Linux user, or if you are interested in contributing to the development of
 VisionEval modules, models, framework, or visualizer, choose this path.</p></li>
 <li><p>The most recent stable release is hosted at <a href="https://VisionEval/VisionEval">VisionEval on
-<strong>Github</strong></a>. Development releases are available at
+<strong>GitHub</strong></a>. Development releases are available at
 <a href="https://VisionEval/VisionEval-Dev">VisionEval-dev</a>. Once you have downloaded or cloned one of
 the VisionEval repositories, instructions for building a runtime are found in
 <code>build/Building.md</code> (or you can locate that file in the repository to preview it).</p></li>
@@ -252,7 +253,7 @@ files to other data analysis systems.</p></li>
 </div>
 <div id="editing-and-running-models" class="section level2" number="1.4">
 <h2>
-<span class="header-section-number">1.4</span> Editing and Running Models<a class="anchor" aria-label="anchor" href="#editing-and-running-models"><i class="fas fa-link"></i></a>
+<span class="header-section-number">1.4</span> <a name="editrun">Editing and Running Models </a><a class="anchor" aria-label="anchor" href="#editing-and-running-models"><i class="fas fa-link"></i></a>
 </h2>
 <p>As described in the model tutorials, a VisionEval Model contains the following components:</p>
 <ul>
@@ -274,10 +275,11 @@ local area. Typically, you will start by installing one of the standard models a
 <code>visioneval.cnf</code>, <code>/defs</code> and <code>/inputs</code> to complete your local Base Model. Once you have completed
 the Base Model, you can add scenarios to your model (as described later) by varying a few inputs to
 describe alternate future conditions.</p>
-<div id="end-user-interface" class="section level3" number="1.4.1">
-<h3>
-<span class="header-section-number">1.4.1</span> End User Interface<a class="anchor" aria-label="anchor" href="#end-user-interface"><i class="fas fa-link"></i></a>
-</h3>
+</div>
+<div id="end-user-interface" class="section level2" number="1.5">
+<h2>
+<span class="header-section-number">1.5</span> <a name="results"> End User Interface </a><a class="anchor" aria-label="anchor" href="#end-user-interface"><i class="fas fa-link"></i></a>
+</h2>
 <p>VisionEval includes a simple R command-line interface for running models and extracting their results.</p>
 <p>The tutorials later in this book will explain how to select and customize one of the VisionEval
 models, as well as how to develop inputs and create scenarios for your area.</p>
@@ -297,52 +299,64 @@ query$export()</code></pre>
 Exporting the query will create a table of metrics for each model year and scenario that is defined
 in the model, placing that in another subfolder of <code>outputs</code>.</p>
 </div>
-<div id="using-the-walkthrough" class="section level3" number="1.4.2">
-<h3>
-<span class="header-section-number">1.4.2</span> Using the Walkthrough<a class="anchor" aria-label="anchor" href="#using-the-walkthrough"><i class="fas fa-link"></i></a>
-</h3>
+<div id="using-the-walkthrough" class="section level2" number="1.6">
+<h2>
+<span class="header-section-number">1.6</span> <a name="walkthrough"> Using the Walkthrough </a><a class="anchor" aria-label="anchor" href="#using-the-walkthrough"><i class="fas fa-link"></i></a>
+</h2>
 <p>Many additional features of VisionEval are systematically explored in commented R scripts located in
 the VisionEval runtime <code>/walkthrough</code> folder. The walkthrough files are best explored using RStudio.</p>
 <p>Here is an overview of the walkthrough files and what you will learn from each of them:</p>
 <dl>
 <dt>00-setup.R</dt>
-<dd>Sets up the walkthrough runtime directory
+<dd>
+Sets up the walkthrough runtime directory
 </dd>
 <dt>00-walkthrough.R</dt>
-<dd>Master list of walkthrough scripts (nothing specific to run here)
+<dd>
+Master list of walkthrough scripts (nothing specific to run here)
 </dd>
 <dt>01-install.R</dt>
-<dd>How to install a VisionEval model sample from the packaged examples
+<dd>
+How to install a VisionEval model sample from the packaged examples
 </dd>
 <dt>02-running.R</dt>
-<dd>How to run a VisionEval model
+<dd>
+How to run a VisionEval model
 </dd>
 <dt>03-structure.R</dt>
-<dd>The components of a VisionEval model
+<dd>
+The components of a VisionEval model
 </dd>
 <dt>04-extract.R</dt>
-<dd>How to get raw results (or a subset) from a VisionEval model
+<dd>
+How to get raw results (or a subset) from a VisionEval model
 </dd>
 <dt>05-mini-model.R</dt>
-<dd>How to build a small model programatically (extended view of structure.R)
+<dd>
+How to build a small model programatically (extended view of structure.R)
 </dd>
 <dt>06-model-stages.R</dt>
-<dd>The concept of model stages and how to manipulate them
+<dd>
+The concept of model stages and how to manipulate them
 </dd>
 <dt>07-queries.R</dt>
-<dd>How to run queries (summarizing results) on model results (including scenarios)
+<dd>
+How to run queries (summarizing results) on model results (including scenarios)
 </dd>
 <dt>08-scenarios.R</dt>
-<dd>How to set model stages up as scenarios, run such a model, and examine results
+<dd>
+How to set model stages up as scenarios, run such a model, and examine results
 </dd>
 <dt>09-run-parameters.R</dt>
-<dd>Understanding run parameters (model configuration settings)
+<dd>
+Understanding run parameters (model configuration settings)
 </dd>
 <dt>10-debugging.R</dt>
-<dd>Using partial models to debug VisionEval
+<dd>
+Using partial models to debug VisionEval
 </dd>
 </dl>
-<p>Once you have seen the message “Welcome to the new VisionEval,” you can set up the walkthrough by
+<p>Once you have seen the message “Welcome to the new VisionEval”, you can set up the walkthrough by
 running this instruction:</p>
 <pre><code>walkthrough()</code></pre>
 <p>The walkthrough will create a special runtime directory (within your main runtime folder), so
@@ -362,7 +376,6 @@ runtime models directory will remain untouched.</p>
 
 </div>
 </div>
-</div>
   <div class="chapter-nav">
 <div class="prev"><a href="index.html">Welcome</a></div>
 <div class="next"><a href="conceptprimer.html"><span class="header-section-number">2</span> Concept Primer</a></div>
@@ -375,18 +388,15 @@ runtime models directory will remain untouched.</p>
 <a class="nav-link" href="#installation-and-setup"><span class="header-section-number">1.2</span> Installation and Setup</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#install-for-windows"><span class="header-section-number">1.2.1</span> Install for Windows</a></li></ul>
 </li>
 <li><a class="nav-link" href="#workflow-of-visioneval"><span class="header-section-number">1.3</span> Workflow of VisionEval</a></li>
-<li>
-<a class="nav-link" href="#editing-and-running-models"><span class="header-section-number">1.4</span> Editing and Running Models</a><ul class="nav navbar-nav">
-<li><a class="nav-link" href="#end-user-interface"><span class="header-section-number">1.4.1</span> End User Interface</a></li>
-<li><a class="nav-link" href="#using-the-walkthrough"><span class="header-section-number">1.4.2</span> Using the Walkthrough</a></li>
-</ul>
-</li>
+<li><a class="nav-link" href="#editing-and-running-models"><span class="header-section-number">1.4</span> Editing and Running Models </a></li>
+<li><a class="nav-link" href="#end-user-interface"><span class="header-section-number">1.5</span>  End User Interface </a></li>
+<li><a class="nav-link" href="#using-the-walkthrough"><span class="header-section-number">1.6</span>  Using the Walkthrough </a></li>
 </ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/blob/master/01-getting-started.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/edit/master/01-getting-started.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs//blob/master/01-getting-started.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs//edit/master/01-getting-started.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -398,7 +408,7 @@ runtime models directory will remain untouched.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-27.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

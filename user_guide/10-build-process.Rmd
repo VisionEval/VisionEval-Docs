@@ -25,51 +25,51 @@ The reason that a modified module must be rebuilt before it is available for use
 There are two ways to set up VisionEval to rebuild a package with localized data.
 
   1. The most general approach is to start with the source
-code located in the [VisionEval github repository](https://github.com/VisionEval/VisionEval) and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the ["build/Building.md"](https://github.com/VisionEval/VisionEval/blob/master/build/Building.md) file in the Github source tree.
-1. Install [[Git for Windows][Git4W]](https://git-scm.com/) or equivalent\
-    (optional: makes it easier to access the repositories)
-2. [Install R](https://www.r-project.org/)\
-   (usually the most recent version works; must be 3.6.0 or later)
-3. [Install RTools 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
-4. [Install RStudio](https://www.rstudio.com/)\
-   (a version compatible with RTools40, and with the version of R you're using)
-5. Copy or clone the [VisionEval](https://github.com/VisionEval/VisionEval) (or [VisionEval-dev](https://github.com/VisionEval/VisionEval-dev) repository
-6. Start RStudio and open the VisionEval-dev.Rproj project file\
-   (On most graphic display machines, just double-click it)
-7. Execute the `ve.build()` function:\
-   (A full build from scratch takes from 45 minutes to an hour and a
-   half on a typical Windows machine. A build on other architectures may
-   take longer as many of the dependency packages will have to be built
-   from source code.)
-   ```
-   ve.build()
-   ```
-8. Once the build is done, you can get into the runtime environment in several ways:
-      1. By executing ve.run() from the VisionEval-dev RStudio project.
-      2. By entering your file manager program, navigating to the runtime directory and
-      double-clicking the VisionEval.Rproj RStudio project file down in the
-      runtime directory (as you would for the standard binary release installer).
-      3. Starting the R GUI (or R terminal) for the version of R that you used to build
-      VisionEval, setting the working directory (`setwd`) to the runtime folder you
-      just built, and then `source`-ing `Visioneval.R`
-9. If the build is successful, you can make an installer .zip file by doing this:
-   ```
-   ve.build("installer")
-   ```
+code located in the [VisionEval GitHub repository](https://github.com/VisionEval/VisionEval) and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the ["build/Building.md"](https://github.com/VisionEval/VisionEval/blob/master/build/Building.md) file in the Github source tree.
+  + Install [Git for Windows](https://git-scm.com/) or equivalent\
+(optional: makes it easier to access the repositories)
+  + [Install R](https://www.r-project.org/)\
+(usually the most recent version works; must be 3.6.0 or later, currently recommend 4.1.3)
+  + [Install RTools 4.0](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+  + [Install RStudio](https://www.rstudio.com/)\
+(a version compatible with RTools40, and with the version of R you're using)
+  + Copy or clone the [VisionEval](https://github.com/VisionEval/VisionEval) (or [VisionEval-Dev](https://github.com/VisionEval/VisionEval-dev)) repository
+  + Start RStudio and open the VisionEval-dev.Rproj project file\ (On most graphic display machines, just double-click it)
+  + Execute the `ve.build()` function:\
+  (A full build from scratch takes from 45 minutes to an hour and a
+  half on a typical Windows machine. A build on other architectures may
+  take longer as many of the dependency packages will have to be built
+  from source code.)
+
+```
+ve.build()
+```
+  + Once the build is done, you can get into the runtime environment in several ways:
+    1. By executing ve.run() from the VisionEval-dev RStudio project.
+    2. By entering your file manager program, navigating to the runtime directory and
+double-clicking the VisionEval.Rproj RStudio project file down in the
+runtime directory (as you would for the standard binary release installer).
+    3. Starting the R GUI (or R terminal) for the version of R that you used to build
+VisionEval, setting the working directory (`setwd`) to the runtime folder you
+just built, and then `source`-ing `Visioneval.R`
+  + If the build is successful, you can make an installer .zip file by doing this:
+```
+ve.build("installer")
+```
 
   2. Alternatively, you can start with a binary VisionEval installation (unzipping the installer file) and then unzip the VisionEval source code file ("src") to create a "src" directory within your runtime. The steps for rebuilding a package using this method are document in ["build/RStudio.md"](https://github.com/VisionEval/VisionEval/blob/master/build/RStudio.md) in the Github source tree.
-    1. Download the runtime installer (zip file) from [the VisionEval Download Page](https://visioneval.org/category/download.html "VisionEval Download")
-      * Pick the installer for your version of R and your Operating System
-      * Windows and Mac OSX are supported for binary installations
-    2. Install the PackageSources (zip file) for the same release date, also from [the VisionEval Download Page](https://visioneval.org/category/download.html "VisionEval Download")
-      * Just unzip the PackageSources into the exact same folder you put the VisionEval runtime
-      * It will create a new `src` sub-directory next to the other VisionEval folders
-    3. Make sure you have [RTools40][getRTools40]
-      * RStudio itself will help you get it, or you can download and install it manually.
+  + Download the runtime installer (zip file) from [the VisionEval Download Page](https://visioneval.org/category/download.html "VisionEval Download")
+    * Pick the installer for your version of R and your Operating System
+    * Windows and Mac OSX are supported for binary installations
+  + Install the PackageSources (zip file) for the same release date, also from [the VisionEval Download Page](https://visioneval.org/category/download.html "VisionEval Download")
+    * Just unzip the PackageSources into the exact same folder you put the VisionEval runtime
+    * It will create a new `src` sub-directory next to the other VisionEval folders
+  + On a Windows machine, make sure you have [RTools40](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+    * RStudio itself will help you get it, or you can download and install it manually.
 
 ### Generic VisionEval Module
 
-Using the Github approach with ve.build, the package source is located in `VisionEval\sources\modules\VEGenericPackage` and there will be no "data" folder, just the other elements. The key in both cases is to locate the `inst\extdata` folder and replace the key files in that location.
+Using the GitHub approach with ve.build, the package source is located in `VisionEval\sources\modules\VEGenericPackage` and there will be no "data" folder, just the other elements. The key in both cases is to locate the `inst\extdata` folder and replace the key files in that location.
 
 An exception to this is the VETravelDemandMM package, which has an offline step to construct data files (due to its dependency on non-public data).
 
@@ -109,7 +109,8 @@ There are several different ways to build an R package:
 
 
 ### Build using Rstudio GUI
-RStudio comes with a GUI for building packages. There are many tutorials and [Rstudio build documentations](https://support.rstudio.com/hc/en-us/articles/200486488?version=2021.09.1%2B372&mode=desktop) available on the internet.
+
+RStudio comes with a GUI for building packages. There are many tutorials and [RStudio build documentations](https://support.rstudio.com/hc/en-us/articles/200486488?version=2021.09.1%2B372&mode=desktop) available on the internet.
 
 1. Check current R runtime library path. It is critical to ensure that your VisionEval R project runtime environment is loaded and the current working directory is `VESimHouseholds`. It can be checked by entering `.libPaths()` in the console. If the VisionEval library is loaded, it will be listed as item 1, for example:
 ```

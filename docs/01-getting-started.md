@@ -13,6 +13,7 @@ to do with it after it is installed. Content in the [VisionEval Tutorial](#tutor
 -   [Workflow](#workflow)
 -   [Editing and Running Models](#editrun)
 -   [Getting Results](#results)
+-   [Using Walkthrough](#walkthrough)
 
 <a name='installation'>Installation and Setup</a>
 -------------------------------------------------
@@ -32,7 +33,7 @@ are two paths to installing VisionEval:
       VisionEval modules, models, framework, or visualizer, choose this path.
 
     + The most recent stable release is hosted at [VisionEval on
-      **Github**](https://VisionEval/VisionEval). Development releases are available at
+      **GitHub**](https://VisionEval/VisionEval). Development releases are available at
       [VisionEval-dev](https://VisionEval/VisionEval-Dev). Once you have downloaded or cloned one of
       the VisionEval repositories, instructions for building a runtime are found in
       `build/Building.md` (or you can locate that file in the repository to preview it).
@@ -155,7 +156,7 @@ users need to set up:
 5. Extract or query the results for summarization and further analysis in R or export tabular data
    files to other data analysis systems.
 
-Editing and Running Models
+<a name='editrun'>Editing and Running Models </a>
 --------------------------
 
 As described in the model tutorials, a VisionEval Model contains the following components:
@@ -179,7 +180,8 @@ local area. Typically, you will start by installing one of the standard models a
 the Base Model, you can add scenarios to your model (as described later) by varying a few inputs to
 describe alternate future conditions.
 
-### End User Interface
+<a name='results'> End User Interface </a>
+--------------------------
 
 VisionEval includes a simple R command-line interface for running models and extracting their results.
 
@@ -206,7 +208,9 @@ Exporting the results creates a series of `.csv` files in the `outputs` subfolde
 Exporting the query will create a table of metrics for each model year and scenario that is defined
 in the model, placing that in another subfolder of `outputs`.
 
-### Using the Walkthrough
+<a name='walkthrough'> Using the Walkthrough </a>
+--------------------------
+
 
 Many additional features of VisionEval are systematically explored in commented R scripts located in
 the VisionEval runtime `/walkthrough` folder. The walkthrough files are best explored using RStudio.

@@ -18,7 +18,7 @@ While this is convenient, the current process in existing VE modules has limitat
 
 This chapter forms an element of work to improve the ability for those applying VE to incorporate newer publicly available datasets or custom datasets to develop locally relevant models for use in VE. This work will include defining a process for users to make use of the latest NHTS data, local HTS data, and local PUMS data, to update models estimated using older versions of the NHTS and PUMS data from different states or regions. 
 
-This chapter includes, in the section [VE Estimation Classification], a classification of the source data and estimation approaches with respect to how important it might be to re-estimate models using localized and/or updated versions of the source information, and whether the estimation approach used in those packages forms a barrier to that re-estimation. The discussion is intended to provide input to the next step of work, which is designed approaches to improve the flexiblity and usability of the estimation procedures in VE. 
+This chapter includes, in the section [VE Estimation Classification], a classification of the source data and estimation approaches with respect to how important it might be to re-estimate models using localized and/or updated versions of the source information, and whether the estimation approach used in those packages forms a barrier to that re-estimation. The discussion is intended to provide input to the next step of work, which is designed approaches to improve the flexibility and usability of the estimation procedures in VE. 
 
 This chapter includes, in the section [VE Modules With Estimation], a detailed catalog of estimated models in all of the VE modules and lists the underlying data used in the estimation process for each module.
 
@@ -40,7 +40,7 @@ There are several main estimation methods used in current VE modules. Their char
 
 ### Modules importing data from VENHTS2001
 
-The VENHTS2001 module processes the 2001 NHTS publically available datasets to create a household dataset which is augmented with other public data on transport supply. The built VENHTS2001 package can then be used in other modules to support model estimation. For example, the VEHouseholdTravel uses the data output by the VENHTS2001 package to estimate its various travel demand models. There are instances of a second round of dependencies, where models estimated using the data from the VENHTS2001 package are used in the estimation of additional models, for example in the VEPowertrainsAndFuels module. During a complete build of VE, where all packages are built, the order of package building needs to be cognizant of these dependencies -- packages functions, model objects, and datasets required in order to estimate models need to be built first.
+The VENHTS2001 module processes the 2001 NHTS publicly available datasets to create a household dataset which is augmented with other public data on transport supply. The built VENHTS2001 package can then be used in other modules to support model estimation. For example, the VEHouseholdTravel uses the data output by the VENHTS2001 package to estimate its various travel demand models. There are instances of a second round of dependencies, where models estimated using the data from the VENHTS2001 package are used in the estimation of additional models, for example in the VEPowertrainsAndFuels module. During a complete build of VE, where all packages are built, the order of package building needs to be cognizant of these dependencies -- packages functions, model objects, and datasets required in order to estimate models need to be built first.
 
 The general approach is shown here:
 
@@ -75,21 +75,21 @@ The development requirements here are:
 
 ### Modules using confidential NHTS data
 
-The use of publically available data for model estimation, where the data and estimation scripts are included in modules and are freely available to model users, is an attractive aspect of VE. 
+The use of publicly available data for model estimation, where the data and estimation scripts are included in modules and are freely available to model users, is an attractive aspect of VE. 
 
-A new package developed using the NHTS 2009, VETravelDemandMM, doesn't fully conform to this ideal. Estimation in this package incorporates neighborhood land use characteristics around each of the NHTS households taken from the EPA's Smart Location Database. However, the connection between the NHTS and the SLD requires the data item describing the Census blockgroup of the household, which is a confidential data item only provided to researchers by FHWA following the completion of a non-disclosure process. 
+A new package developed using the NHTS 2009, VETravelDemandMM, doesn't fully conform to this ideal. Estimation in this package incorporates neighborhood land use characteristics around each of the NHTS households taken from the EPA's Smart Location Database. However, the connection between the NHTS and the SLD requires the data item describing the Census block group of the household, which is a confidential data item only provided to researchers by FHWA following the completion of a non-disclosure process. 
 
 In this case, estimated model objects can be included in the package but the estimation data cannot be included, preventing easy re-estimation of the models by other developers.
 
 The development requirements here are:
 
-* Consider alternative methods for attributing the NHTS with the neighboorhood land use variables that might not require confidentiality requriements.
+* Consider alternative methods for attributing the NHTS with the neighborhood land use variables that might not require confidentiality requirements.
 
 ### Modules imported from RPAT
 
 VERPAT is the VE implementation of the RPAT model, which was originally developed as part of the SHRP 2 C16 project. While the RPAT model was converted to run as a set of VE modules, the modules do not incorporate model estimation during package build. In most cases, RPAT used models imported from the GreenSTEP model, which were later incorporated into VE and form the basis of many of the models still used in, for example, the VEHouseholdTravel module.
 
-If VERPAT is to be maintained, it would be of benefit to re-establish the connections back to the model estimation porcesses used in modules such as VEHouseholdTravel and VEHouseholdVehicles
+If VERPAT is to be maintained, it would be of benefit to re-establish the connections back to the model estimation processes used in modules such as VEHouseholdTravel and VEHouseholdVehicles
 
 The development requirements here are:
 
@@ -105,11 +105,11 @@ Ideally, the implementation of a VE model in another state would replace the Ore
 The development requirements here are:
 
 * Documentation of an approach to replace the 2001 Oregon data with an alternative data source
-* Consider the development of a seperate package or module in VESimHouseholds to process a selected state or region's ACS data via an automatic download or API call to source the data.
+* Consider the development of a separate package or module in VESimHouseholds to process a selected state or region's ACS data via an automatic download or API call to source the data.
 
 ### Modules estimated with other types of data
 
-Several other data sources are used in the development of modules, particularly those that deal with vehicle operations and congestion. These are generally reasonably well documented and the estimation process is traceable from data included in the modules through an estimation script to a final model object. The estimation work could be considered for updating by model users where local conditions are sufficiently different from those covered in the original estimation date, or over time as the origimal estimation data being aged and are superseded.
+Several other data sources are used in the development of modules, particularly those that deal with vehicle operations and congestion. These are generally reasonably well documented and the estimation process is traceable from data included in the modules through an estimation script to a final model object. The estimation work could be considered for updating by model users where local conditions are sufficiently different from those covered in the original estimation date, or over time as the original estimation data being aged and are superseded.
 
 The development requirements here are:
 
@@ -1758,7 +1758,7 @@ The *R* directory is where all the R scripts are placed which define the modules
 
 When a binary (installed) package is built from the source package, each R script is run; estimation datasets are processed, model parameters are saved, module specifications are saved, functions are parsed into a more efficient form. Following section describe the structure of a module R script in more detail. An example of the *AssignTransitService* module script from the *VETransportSupply* package is included in Appendix E.  
 
-By convention, the module script is organized into 4 sections reflecting the list above. Following sections 8.1.1 to 8.1.4 explain each module script section in detail. Section 8.1.1 explains how model specification and estimation is handled. Subsection 8.1.1.1 focuses in on the handling of model estimation data which, in some cases, may use specialized scripts. Section 8.1.2 explains how to write module specifications which tell the framework how the module is to be run, what input data are to be processed, what data are to be retrieved from the datastore, and what data are to be saved to the datastore. Subsection 8.1.2.1 focuses in on the *OPTIONAL* specification that module developers can use to enable optional model inputs. Subsection 8.1.2.2 focues in the the *CALL* specification that enables modules to call other modules to perform calculation services. Section 8.1.3 describes how to write a main function and supporting functions to implement a module. Section 8.1.4 explains test code that is commonly included in a module to assist the module developer in the module development process. Finally, Section 8.1.5 explains a special module named *Initialize* that may be included in a package. The purpose of this module is to enable module developers to include specialized input data checks and preparation. 
+By convention, the module script is organized into 4 sections reflecting the list above. Following sections 8.1.1 to 8.1.4 explain each module script section in detail. Section 8.1.1 explains how model specification and estimation is handled. Subsection 8.1.1.1 focuses in on the handling of model estimation data which, in some cases, may use specialized scripts. Section 8.1.2 explains how to write module specifications which tell the framework how the module is to be run, what input data are to be processed, what data are to be retrieved from the datastore, and what data are to be saved to the datastore. Subsection 8.1.2.1 focuses in on the *OPTIONAL* specification that module developers can use to enable optional model inputs. Subsection 8.1.2.2 focuses in the the *CALL* specification that enables modules to call other modules to perform calculation services. Section 8.1.3 describes how to write a main function and supporting functions to implement a module. Section 8.1.4 explains test code that is commonly included in a module to assist the module developer in the module development process. Finally, Section 8.1.5 explains a special module named *Initialize* that may be included in a package. The purpose of this module is to enable module developers to include specialized input data checks and preparation. 
 
 #### Model Specification and Estimation
 
@@ -1982,7 +1982,7 @@ usethis::use_data(HouseTypeModel_ls, overwrite = TRUE)
 
 ```
 
-The *use_data* function in the *usethis* package saves the data and documention correctly in the package and simplifies the procedure for doing so.
+The *use_data* function in the *usethis* package saves the data and documentation correctly in the package and simplifies the procedure for doing so.
 
 Although model estimation code is usually included in the module script, in some instances it may be more understandable to estimate the models for several modules in one script. This is what is done in the *CreateSimBzoneModels.R* script in the *VESimLandUse* package. This script estimates all the models for modules in the package. Model estimation is handled this way because the same model estimation dataset is used for all the models and the models build upon each other. Including all the model estimations in one file makes it easier to code and easier to review.
 
@@ -2130,7 +2130,7 @@ The meanings of these specifications are as follows:
 - **NAME** This is the name(s) of the data column in the file. The name must be a character string (i.e. surrounded by quotation marks). If multiple columns of the file have the same specifications except for their names, they can listed as in the first item in the example. This method avoids a lot of redundant specifications. Note that the order of specifications does not need to be the same as the order of the columns in the file. Also note that it is OK if the file contains columns that are not specified, as long as it contains all of the columns that are specified. Columns that are not listed are ignored.  
 - **TYPE** This the data type of the data contained in the column. Allowable types are the 4 primitive types recognized by the R language (integer, double, character, and logical), the complex types listed in section 6.4, or 'compound'. The type must be a character string.  
 - **PROHIBIT** This is a character vector which identifies all prohibited data conditions. For example, the specification for the "PERSONS" data column in the example above is c("NA", "< 0"). This means that there cannot be any values that are undefined (NA) or less than 0. The symbols that may be used in a PROHIBIT specification are: NA, ==, !=, <, <=, >, >= (i.e. undefined, equal to, not equal to, less than, less than or equal to, greater than, greater than or equal to). Note that prohibited conditions must be represented as character strings. If there is more than one prohibited condition, as in the example, the conditions must be entered as an R vector using the 'c()' function, as shown in the example. The absence of prohibited conditions is represented by an empty character string (i.e. "").  
-- **ISELEMENTOF** This is a vector which specifies the set of allowed values. It is used when the input values must be elements of a set of discrete values. The vector describing the set must be of the same type as is specified for the input data. Vectors of elements are entered using the 'c()' function. For example, if the entries in a column of data could only have the values 'urban' or 'rural', then the specification owould be written as c("urban", "rural"). The absence of a specification for this is represented by an empty character string.  
+- **ISELEMENTOF** This is a vector which specifies the set of allowed values. It is used when the input values must be elements of a set of discrete values. The vector describing the set must be of the same type as is specified for the input data. Vectors of elements are entered using the 'c()' function. For example, if the entries in a column of data could only have the values 'urban' or 'rural', then the specification would be written as c("urban", "rural"). The absence of a specification for this is represented by an empty character string.  
 - **UNLIKELY** This is a vector of conditions that while not prohibited, are not likely to occur. While conditions identified in the PROHIBIT and ISELEMENTOF specifications will produce an error if they are not met (thereby stopping the calculation of parameters), the conditions identified in the UNLIKELY specification will only produce a warning message. Vectors of conditions are entered using the 'c()' function. 
 - **TOTAL** This specifies a required total value for the column of data. This is useful if the data represents proportions or percentages and must add up to 1 or 100. The absence of a specification for this is represented by an empty character string.
 

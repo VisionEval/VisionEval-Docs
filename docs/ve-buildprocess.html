@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 13 Module Build Process | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.26 with bs4_book()">
 <meta property="og:title" content="Chapter 13 Module Build Process | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/ve-buildprocess.html">
@@ -14,7 +14,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 13 Module Build Process | VisionEval User Guide">
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
@@ -68,7 +68,7 @@
 </ul>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide">View book source <i class="fab fa-github"></i></a></p>
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/">View book source <i class="fab fa-github"></i></a></p>
         </div>
       </nav>
 </div>
@@ -98,28 +98,30 @@
 <p>The reason that a modified module must be rebuilt before it is available for use in VisionEval is that the VisionEval framework relies on importing each module from an R package. The data resources in any R package cannot be updated directly. Instead the R package that contain the modified module must be rebuilt from its source. R packages are a fundamental unit of the R ecosystem and create a structured way to bundle code, data, and documentation together into a single unit for distribution. Packages can be easily installed and shared among R users. VisionEval itself is distributed as a set of R packages, and those packages are what must be rebuilt to incorporate any localized data or other user made modifications.</p>
 <p>There are two ways to set up VisionEval to rebuild a package with localized data.</p>
 <ol style="list-style-type: decimal">
-<li><p>The most general approach is to start with the source
-code located in the <a href="https://github.com/VisionEval/VisionEval">VisionEval github repository</a> and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the <a href="https://github.com/VisionEval/VisionEval/blob/master/build/Building.md">“build/Building.md”</a> file in the Github source tree.</p></li>
-<li><p>Install <a href="https://git-scm.com/">[Git for Windows][Git4W]</a> or equivalent<br>
-(optional: makes it easier to access the repositories)</p></li>
-<li><p><a href="https://www.r-project.org/">Install R</a><br>
-(usually the most recent version works; must be 3.6.0 or later)</p></li>
-<li><p><a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">Install RTools 4.0</a></p></li>
-<li><p><a href="https://www.rstudio.com/">Install RStudio</a><br>
-(a version compatible with RTools40, and with the version of R you’re using)</p></li>
-<li><p>Copy or clone the <a href="https://github.com/VisionEval/VisionEval">VisionEval</a> (or <a href="https://github.com/VisionEval/VisionEval-dev">VisionEval-dev</a> repository</p></li>
-<li><p>Start RStudio and open the VisionEval-dev.Rproj project file<br>
-(On most graphic display machines, just double-click it)</p></li>
+<li>The most general approach is to start with the source
+code located in the <a href="https://github.com/VisionEval/VisionEval">VisionEval GitHub repository</a> and to use the build system included with that code. Using that integrated build process will ensure that all the parts of VisionEval are consistent. This steps for rebuilding packages are documented in the <a href="https://github.com/VisionEval/VisionEval/blob/master/build/Building.md">“build/Building.md”</a> file in the Github source tree.</li>
+</ol>
+<ul>
+<li>Install <a href="https://git-scm.com/">Git for Windows</a> or equivalent<br>
+(optional: makes it easier to access the repositories)</li>
 <li>
-<p>Execute the <code>ve.build()</code> function:<br>
+<a href="https://www.r-project.org/">Install R</a><br>
+(usually the most recent version works; must be 3.6.0 or later, currently recommend 4.1.3)</li>
+<li><a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">Install RTools 4.0</a></li>
+<li>
+<a href="https://www.rstudio.com/">Install RStudio</a><br>
+(a version compatible with RTools40, and with the version of R you’re using)</li>
+<li>Copy or clone the <a href="https://github.com/VisionEval/VisionEval">VisionEval</a> (or <a href="https://github.com/VisionEval/VisionEval-dev">VisionEval-Dev</a>) repository</li>
+<li>Start RStudio and open the VisionEval-dev.Rproj project file (On most graphic display machines, just double-click it)</li>
+<li>Execute the <code>ve.build()</code> function:<br>
 (A full build from scratch takes from 45 minutes to an hour and a
 half on a typical Windows machine. A build on other architectures may
 take longer as many of the dependency packages will have to be built
-from source code.)</p>
+from source code.)</li>
+</ul>
 <pre><code>ve.build()</code></pre>
-</li>
-<li>
-<p>Once the build is done, you can get into the runtime environment in several ways:</p>
+<ul>
+<li>Once the build is done, you can get into the runtime environment in several ways:
 <ol style="list-style-type: decimal">
 <li>By executing ve.run() from the VisionEval-dev RStudio project.</li>
 <li>By entering your file manager program, navigating to the runtime directory and
@@ -131,36 +133,36 @@ just built, and then <code>source</code>-ing <code>Visioneval.R</code>
 </li>
 </ol>
 </li>
-<li>
-<p>If the build is successful, you can make an installer .zip file by doing this:</p>
+<li>If the build is successful, you can make an installer .zip file by doing this:</li>
+</ul>
 <pre><code>ve.build("installer")</code></pre>
-</li>
-<li>
-<p>Alternatively, you can start with a binary VisionEval installation (unzipping the installer file) and then unzip the VisionEval source code file (“src”) to create a “src” directory within your runtime. The steps for rebuilding a package using this method are document in <a href="https://github.com/VisionEval/VisionEval/blob/master/build/RStudio.md">“build/RStudio.md”</a> in the Github source tree.
-1. Download the runtime installer (zip file) from <a href="https://visioneval.org/category/download.html" title="VisionEval Download">the VisionEval Download Page</a></p>
+<ol start="2" style="list-style-type: decimal">
+<li>Alternatively, you can start with a binary VisionEval installation (unzipping the installer file) and then unzip the VisionEval source code file (“src”) to create a “src” directory within your runtime. The steps for rebuilding a package using this method are document in <a href="https://github.com/VisionEval/VisionEval/blob/master/build/RStudio.md">“build/RStudio.md”</a> in the Github source tree.</li>
+</ol>
+<ul>
+<li>Download the runtime installer (zip file) from <a href="https://visioneval.org/category/download.html" title="VisionEval Download">the VisionEval Download Page</a>
 <ul>
 <li>Pick the installer for your version of R and your Operating System</li>
-<li>Windows and Mac OSX are supported for binary installations
-<ol start="2" style="list-style-type: decimal">
+<li>Windows and Mac OSX are supported for binary installations</li>
+</ul>
+</li>
 <li>Install the PackageSources (zip file) for the same release date, also from <a href="https://visioneval.org/category/download.html" title="VisionEval Download">the VisionEval Download Page</a>
-</li>
-</ol>
-</li>
+<ul>
 <li>Just unzip the PackageSources into the exact same folder you put the VisionEval runtime</li>
-<li>It will create a new <code>src</code> sub-directory next to the other VisionEval folders
-<ol start="3" style="list-style-type: decimal">
-<li>Make sure you have [RTools40][getRTools40]</li>
-</ol>
+<li>It will create a new <code>src</code> sub-directory next to the other VisionEval folders</li>
+</ul>
 </li>
+<li>On a Windows machine, make sure you have <a href="https://cran.r-project.org/bin/windows/Rtools/rtools40.html">RTools40</a>
+<ul>
 <li>RStudio itself will help you get it, or you can download and install it manually.</li>
 </ul>
 </li>
-</ol>
+</ul>
 <div id="generic-visioneval-module" class="section level3" number="13.2.1">
 <h3>
 <span class="header-section-number">13.2.1</span> Generic VisionEval Module<a class="anchor" aria-label="anchor" href="#generic-visioneval-module"><i class="fas fa-link"></i></a>
 </h3>
-<p>Using the Github approach with ve.build, the package source is located in <code>VisionEval\sources\modules\VEGenericPackage</code> and there will be no “data” folder, just the other elements. The key in both cases is to locate the <code>inst\extdata</code> folder and replace the key files in that location.</p>
+<p>Using the GitHub approach with ve.build, the package source is located in <code>VisionEval\sources\modules\VEGenericPackage</code> and there will be no “data” folder, just the other elements. The key in both cases is to locate the <code>inst\extdata</code> folder and replace the key files in that location.</p>
 <p>An exception to this is the VETravelDemandMM package, which has an offline step to construct data files (due to its dependency on non-public data).</p>
 <p>VisionEval packages will generally have a structure similar to the following:</p>
 <pre><code>src/VEGenericPackage
@@ -197,7 +199,7 @@ just built, and then <code>source</code>-ing <code>Visioneval.R</code>
 <h3>
 <span class="header-section-number">13.2.3</span> Build using Rstudio GUI<a class="anchor" aria-label="anchor" href="#build-using-rstudio-gui"><i class="fas fa-link"></i></a>
 </h3>
-<p>RStudio comes with a GUI for building packages. There are many tutorials and <a href="https://support.rstudio.com/hc/en-us/articles/200486488?version=2021.09.1%2B372&amp;mode=desktop">Rstudio build documentations</a> available on the internet.</p>
+<p>RStudio comes with a GUI for building packages. There are many tutorials and <a href="https://support.rstudio.com/hc/en-us/articles/200486488?version=2021.09.1%2B372&amp;mode=desktop">RStudio build documentations</a> available on the internet.</p>
 <ol style="list-style-type: decimal">
 <li>Check current R runtime library path. It is critical to ensure that your VisionEval R project runtime environment is loaded and the current working directory is <code>VESimHouseholds</code>. It can be checked by entering <code><a href="https://rdrr.io/r/base/libPaths.html">.libPaths()</a></code> in the console. If the VisionEval library is loaded, it will be listed as item 1, for example:</li>
 </ol>
@@ -237,14 +239,14 @@ just built, and then <code>source</code>-ing <code>Visioneval.R</code>
 <span class="header-section-number">13.2.5</span> Build using devtools<a class="anchor" aria-label="anchor" href="#build-using-devtools"><i class="fas fa-link"></i></a>
 </h3>
 <p>Alternatively, the <a href="https://www.r-project.org/nosvn/pandoc/devtools.html">devtools</a> provides a useful suite of tools for package building.</p>
-<pre><code><a href="https://devtools.r-lib.org/reference/document.html"># This runs the scripts and creates documentation, if included
+<pre><code># This runs the scripts and creates documentation, if included
 devtools::document()
 
 # This builds the VESimHouseholds data and scripts into an R package
 devtools::build()
 
 # This then installs the VESimHouseholds package into VisionEval library
-devtools::install()</a></code></pre>
+devtools::install()</code></pre>
 </div>
 </div>
 <div id="case-study-1---pums-data-in-vesimhouseholds" class="section level2" number="13.3">
@@ -1014,8 +1016,8 @@ rm(Inp_ls, HhPowertrain_df)</code></pre>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/blob/master/10-build-process.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs/tree/main/user_guide/edit/master/10-build-process.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs//blob/master/10-build-process.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs//edit/master/10-build-process.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -1027,7 +1029,7 @@ rm(Inp_ls, HhPowertrain_df)</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-27.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-05-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
