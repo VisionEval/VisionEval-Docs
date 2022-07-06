@@ -46,7 +46,7 @@ are two paths to installing VisionEval:
 
 You will need:
 
-   - [R, at least version 4.1.2](https://cran.r-project.org)
+   - [R, at least version 4.1.3](https://cran.r-project.org)
    - [RStudio](https://www.rstudio.com/products/rstudio/download/ "Download RStudio")
 
 Once you have R and RStudio installed, you can retrieve the VisionEval
@@ -58,7 +58,7 @@ installer itself:
 
 <!-- Eventually: https://github.com/VisionEval/VisionEval/releases/download/v2.0.0/VE-installer-Windows-R4.0.3-latest.zip) -->
 
-*Note: 530 Mb download! Packaged for R 4.1.2*
+*Note: 580 Mb download! Packaged for R 4.1.3*
 
 The link above will download a .zip file containing the following:
 
@@ -70,7 +70,7 @@ Unzip that file into an empty folder of your choice (e.g. `C:\VisionEval`).
 
 #### Completing the Installation
 
-After installing R 4.1.2 (or the version of R corresponding to the installer you are retrieving) and
+After installing R 4.1.3 (or the version of R corresponding to the installer you are retrieving) and
 RStudio, unzip the VisionEval installer into an empty destination folder of your choice.
 
 To complete the installation and start VisionEval, do this:
@@ -82,7 +82,7 @@ RStudio will start, and the VisionEval will load. You should see a message simil
 in the RStudio Console:
 
 ```
-Loading VisionEval for R4.1.2
+Loading VisionEval for R4.1.3
 Loading required package: VEModel
 Welcome to the new VisionEval!
 Running in C:/VisionEval
@@ -106,8 +106,6 @@ Then run this instruction to start VisionEval:
 
     source("VisionEval.R")
 
-Alternatively, you can double-click `launch.bat` to start VisionEval within the standard R Graphical
-User Interface (`RGUI`).
 
 <a name='workflow'>Workflow of VisionEval</a>
 ---------------------------------------------
