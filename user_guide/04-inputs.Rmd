@@ -59,7 +59,7 @@ This file contains parameters that define key attributes of the model run and re
 ```
 
 ### model_parameters.json
-This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr is per a Nov 2016 ODOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).
+This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr in 2010$ was derived from a Nov 2014 Oregon DOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).  Note the input looks for the dollars in the year of the base model.
 
 The format of this file is as follows:
 
@@ -110,28 +110,28 @@ This file describes all of the geographic relationships for the model and the na
 
 This file describes the default units to be used for storing complex data types in the model. This file should NOT be modified by the user. The VisionEval model system keeps track of the types and units of measure of all data that is processed. More details about the file and structure can be found [here](#data-types-units-and-currency-deflators). The format of the file is as follows:
 
-| Type                 | Units            |
-| -------------------- | ---------------- |
-| currency             | USD              |
-| distance             | MI               |
-| area                 | SQMI             |
-| mass                 | KG               |
-| volume               | GAL              |
-| time                 | DAY              |
-| energy               | GGE              |
-| people               | PRSN             |
-| trips                | VEH              |
-| area                 | TRIP             |
-| households           | HH               |
-| employment           | JOB              |
-| activity             | HHJOB            |
+| Type       | Units |
+| ---------- | ----- |
+| currency   | USD   |
+| distance   | MI    |
+| area       | SQMI  |
+| mass       | KG    |
+| volume     | GAL   |
+| time       | DAY   |
+| energy     | GGE   |
+| people     | PRSN  |
+| vehicles   | VEH   |
+| trips      | TRIP  |
+| households | HH    |
+| employment | JOB   |
+| activity   | HHJOB |
 
 ## Inputs by Concept
 
 This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
 
 * [VERSPM inputs](#verspm-inputs)
-* [Ve-State inputs](vestate-inputs)
+* [VE-State inputs](vestate-inputs)
 * [VERPAT inputs](#verpat-inputs)
 
 ### Household Synthesis Inputs 
@@ -152,7 +152,7 @@ Once households are synthesised, VisionEval allocates them to Bzone-level dwelli
 
 * **Dwelling units.** Numbers of [<span style="color:green">dwelling units by type</span>](#dwelling-unit-type) in each model year and proportions of each in each [<span style="color:green">development type</span>](#development-type). Income quartiles tied to households in dwelling units help VisionEval assign households to a compatible Bzone location. The base year dwelling unit data can sourced from either the Census or an available travel demand model. Future year dwelling units can be obtained from local Comprehensive Plans. Adjustments may be needed to count only occupied units, and occupancy rates can be obtained from Census block group data, as a starting point. Base and future year dwelling unit counts should be consistent with household assumptions in the region’s travel demand model.
 
-* **Land use.** Inputs set the total developable land area, by [<span style="color:green">development type</span>](#development-type). VERSPM also requires its location (centroid latitude-longitude) for spatially linking to source data, and input assumptions on the [<span style="color:green">built form measures</span>](#buit-form-measures). These inputs can change by model run year. Some land use data use [EPA Smart Location Datasbase](https://www.epa.gov/smartgrowth/smart-location-mapping) (SLD) data. Geospatial SLD data can be downloaded at the block group level and extrapolated to other geographies if needed using just used the EPA block group data.
+* **Land use.** Inputs set the total developable land area, by [<span style="color:green">development type</span>](#development-type). VERSPM also requires its location (centroid latitude-longitude) for spatially linking to source data, and input assumptions on the [<span style="color:green">built form measures</span>](#buit-form-measures). These inputs can change by model run year. Some land use data use [EPA Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-mapping) (SLD) data. Geospatial SLD data can be downloaded at the block group level and extrapolated to other geographies if needed using just used the EPA block group data.
   
 * **Land use-household linkages.** VisionEval assigns a Bzone to each household's home and to each household worker's work location, with the associated Bzone attributes. The VisionEval-calculated [<span style="color:green">urban mixed use</span>](#urban-mixed-use) designation of the Bzone can optionally be modified by input targets on the proportion of households assigned that designation in each Bzone  in this process.
   * **Note:**  Input files must be consistent.  This includes: (1) land area must be specified for each azone location type that has households or employment assigned to it; (2) dwelling units must be a reasonable match with population (divided by household size); (3) shares of jobs within each Azone must sum to 1 for all Azones in the Marea.
@@ -166,6 +166,8 @@ An alternative method is to use the [Census Urban and Rural Classification](http
 *	Urbanized Areas (UAs) of 50,000 or more people are defined as **metro**
 *	Urban Clusters (UCs) of at least 2,500 and less than 50,000 people are definied as **town**
 * Everything else is **rural**
+
+**NOTE: the 2020 Census has removed the Urban Cluster specification. 
 
 #### Defining "Area Type" (center, inner, outer, fringe)
 
