@@ -1,0 +1,457 @@
+---
+title: "VE NHTS"
+author: "Aditya Gore"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+always_allow_html: yes
+---
+
+# Using VE with Other Data Sets including more recent National Household Travel Surveys {#ve-nhts}
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, results='hide')
+```
+
+## Introduction
+
+VE has been created to be a nationally valid model that can be customized and calibrated to meet the local and regional needs of any model application. Key elements of VE have been designed and estimated using the 2001 National Household Travel Survey. The model specification, the explanatory variables, and model coefficients for several models within VE modules were originally estimated using the 2001 data and are still used in the current version of VE. over 20 years after the 2001 NHTS data were collected. Since then, two further rounds of NHTS data have been collected, in 2009, and 2017, and a new NHTS survey is being implemented in 2022. This document has been created to summarize the efforts to update the core VE platform to use the 2017 NHTS as a proof of concept to understand the feasibility of updating the survey data used in VE to either later versions of the NHTS or an alternative data source such as a regional household travel survey.
+
+The following topics are discussed below:
+
+- A generalized VENHTS module that allows model users to select a specific version of the NHTS. This module has been prototyped in this task and incorporates the original processing work on the 2001 NHTS that was previously part of the VE2001NHTS module and adds processing of the 2017 NHTS. This document provides an brief overview of how the module functions.
+
+- A comparison between the 2001 NHTS and 2017 NHTS to explain the differences between the two datasets. The document also discusses how the 2017 data can be made backwards compatible with the existing 2001 NHTS data framework for use in VisionEval.
+
+- To test the 2017 NHTS, two versions of the model were run: the original version of the model based on the 2001 NHTS and a new version based on the 2017 NHTS. The comparison uses the example Rogue Valley VERSPM model incorporated in VE.
+
+- An overview of differences in the estimation results between VE model's estimated using the 2001 and 2017 NHTS. This includes some discussion of the difficulties of working within the existing VE modules to extract and compare model estimation results given the non-standard model objects structures that are saved and used in model application.
+
+This work builds on some past efforts to explore updates to individual VE modules. For example, the Multimodal Module was developed by Portland State University using the 2009 NHTS. That update included creating a new travel demand model design as well as updating the estimation dataset from the 2001 NHTS to 2009 and also updating other datasets to describe land use and transportation supply. While that effort was an extensive effort to research, re-specify, and re-estimate a single module, the work in this task is an attempt at a broader re-estimation without any re-specification of models, in order to see whether this type of update is possible, what level of effort it requires, and the impacts on the results from a VE model application. It should be noted that the Multimodal Module has also been the focus of additional study to update that specific package to the 2017 NHTS. When that work is complete it will be offered as an optional module for VisionEval.
+
+The NHTS is the major estimation dataset used in the models that comprise VE. Therefore, updating the version of the NHTS or considering replacing the NHTS with an alternative household travel survey dataset is an extremely significant change to the model framework with the potential to change the results from many of the modules in the VE system. Given the number of models estimated using the NHTS, it is difficult to predict the effects of updating the dataset.
+
+The discussion in this document highlights difficulties found in replacing the 2001 NHTS data with an ostensibly very similar dataset, the 2017 NHTS. Once straightforward changes between the two datasets had been dealt with, including some renaming and recoding of variables, there were more important changes to the NHTS that caused estimation problems. This included the lack of a home type variable, that describes the type of structure (e.g., single family home) that the household lives in and that had been used as an explanatory variable in models in the framework. While this was dealt with in this effort by imputing values for home type based on the relationship between home type and other household variables observed in the survey. A more supportable approach would be to re=specify the models that used that variable. If a user were to attempt to replace the NHTS data with other locally collected household travel survey data, it is likely that the number of missing variables would be higher than one and that additional models would require re-specification.
+
+An additional and more nuanced problem than an entirely missing variable is a change in handling of younger household members in the NHTS and in particular whether there were under 18s in the household who were licensed drivers. A slight change in the dataset led to a estimation error due to a coding assumption based on the structure of the 2001 dataset that no longer held in 2017. While it was ultimately resolved, the error is indicative of potential problems in repurposing code written to work with one dataset. Given the extensive number of models and estimation scripts used throughout the VE system, it was impossible in this effort to carefully step through the estimation of each model with the new dataset, and instead errors in the build process and a review of model results were relied upon to evaluate whether the estimation process was successful.
+
+Ultimately and as documented below, it was possible to complete a model build using the 2017 NHTS as processed by the new VENHTS package. The build process updated the estimation of the models that are based on the NHTS. That newly built model ran successfully, and as shown in the comparison of results, the results are moderately different for some performance metrics. 
+
+It was not possible to in this task to do a model by model review of the impact on the estimated model results due to the change in dataset. Some efforts were made to provide tools that support comparison of the estimated models, however the approach taken in saving many of the estimated model objects using reduced size model objects that only contain the elements required for application mean that meaningful comparisons after the build process had run its course is difficult.
+
+While it has been demonstrated that it is possible to update the NHTS data to a newer version and then re-estimate and run VE, it is a somewhat difficult process that required some imputation in the data to add a variable that is no longer collected in the NHTS, some debugging to isolate estimation failures and their causes, and grappling with non-standard model object formats in order to understand the reasonableness of the newly estimated models. This generally points to some considerations for users and the future development of the VE framework:
+
+1. It is feasible that VE could be updated to new versions of the NHTS (e.g., 2017 or 2022 when it becomes available), although rather than the simple re-estimation without re-specification approach taken here it would be preferable to at least respecify models that include now missing explanatory variables such as home type.
+
+2. Coding differences between the datasets need to be carefully considering and any models that use variables that have been recoded or collected using different parameters should be very carefully explored and considered for re-specification as opposed to relying on the more automated re-estimation relied upon here.
+
+3. For a comprehensive comparison of model estimation across model versions to be successful, it is recommended that complete model objects are saved during the estimation process. This might be included as an option during the build process if it is important to retain the more compact application ready model objects that are currently exported.
+
+4. Given the effort required to update the model system with a later version of the NHTS, which, despite the differences discussed here, was still very similar to the 2001 data, it is likely to be difficult for model users to successfully incorporate a local household travel survey. However, it would be reasonable to focus on a more targeted update to individual modules. 
+
+5. The initial comparison of the results from the 2001 and 2017 applications of RSPM suggest (in a very preliminary finding) that updating the estimation data source moderately (as opposed to significantly) affects the outputs of the model. This effort did not include the more extensive sensitivity testing and validation that should be considered for the transition to a new estimation dataset.  
+
+## Key Findings and Considerations
+
+This effort to develop a prototype module to ingest specific versions of NHTS data revealed key challenges in data collection, consistency between variables over time, and model specifications. The following considerations apply to those hoping to use 2017 NHTS:
+
+- Specify the 2017 NHTS data in `Make2001NHTSDataset.R`. The script has been extended and reorganized to allow users to switch between data inputs using the NHTSYEAR parameter in the NHTS package. 
+
+- Understand the processing that was required to reformat the NHTS data to work within the VE model specifications as well as input specific variables.
+
+- Be aware:
+  –	Review the differences in the model inputs.
+  –	Review the changes in model outputs associated with the different input years
+
+The work identified key challenges in adapting the 2017 NHTS for use within VE. It is not a simple substitution process because of the changes inherent in the NHTS process itself - less about VE. Following this initial investigation, the differences in model outputs appear not to be significantly different between the two versions of NHTS, which suggests that it is not imperative to update VisionEval to a more current NHTS.
+
+This work also should allow user to estimate the level of investigation and analysis necessary to use a local household travel survey to complement or substitute for the NHTS data. This effort did not address how to locate and update other VE model estimation data sets to ensure consistency with the 2017 NHTS; prior to using the 2017 NHTS in production, it will be important to check consistency of all the VE model estimation inputs. 
+
+## VENHTS Module Documentation
+
+The VENHTS module is a modified version of the original VE2001NHTS module, which provides three critical changes.
+
+1.  Includes a processed 2017 version of NHTS dataset for VisionEval (VE).
+2.  Refactors VisionEval to use the more generic VENHTS module rather than the 2001 specific module.
+3.  Generalizes the data ingestion process to make switching between 2001, 2017, and potential future versions more easily.
+
+This document provides a brief overview of how the module functions and how the 2017 data are made backwards compatible with existing 2001 NHTS data framework in VisionEval.
+
+While this module does not "future proof" any future NHTS data releases, or third-party household travel surveys, the purpose is to provide a transparent documentation of methods for users if they wish to format future NHTS data or inject their own datasets.
+
+### Overview
+
+A key element for users to understand about VisionEval is that modules can have multiple dependencies both upstream, downstream, and in parallel throughout the VisionEval ecosystem. Data in the VENHTS (previously VE2001NHTS) are used in several downstream VE packages. Simply swapping out the data in a module does not only affect that module, but can have cascading impacts if the data are insufficient in subsequent models. Conversely, to have changes be reflected in downstream modules, they must also be re-built using the new upstream data (see build process [LINK]).
+
+Below is a general diagram of how NHTS data feeds through the VE ecosystem.
+
+```{r diagram, results=T, include=T, echo=F}
+DiagrammeR::grViz("digraph {
+  graph [layout = dot, rankdir = TB]
+
+  node                  [shape = rectangle]
+  VENHTS                [label = 'VENHTS', fillcolor='#2171b5', style='filled']
+  VEHouseholdVehicles   [label = 'VEHouseholdVehicles', fillcolor='#6baed6', style='filled']
+  VEPowertrainsAndFuels [label = 'VEPowertrainsAndFuels', fillcolor='#6baed6', style='filled']
+  VELandUse             [label = 'VELandUse', fillcolor='#6baed6', style='filled']
+  VEHouseholdTravel     [label = 'VEHouseholdTravel', fillcolor='#6baed6', style='filled']
+  VELandUse             [label = 'VELandUse']
+  VETravelPerformance   [label = 'VETravelPerformance', fillcolor='#bdd7e7', style='filled']
+  VESimLandUse          [label = 'VESimLandUse', fillcolor='#bdd7e7', style='filled']
+  VESimTransportSupply  [label = 'VESimTransportSupply', fillcolor='#eff3ff', style='filled']
+  Model                 [label = 'Model', fillcolor='#fcae91', style='filled,rounded']
+
+
+  # edge definitions with the node IDs
+  VENHTS -> VEHouseholdTravel
+  VENHTS -> VEHouseholdVehicles
+  VENHTS -> VELandUse
+  VESimHouseholds -> VELandUse
+  VENHTS -> VEPowertrainsAndFuels
+  VEHouseholdTravel -> VEPowertrainsAndFuels
+  VELandUse -> VESimLandUse
+  VESimLandUseData -> VESimLandUse
+  VEHouseholdTravel -> VETravelPerformance
+  VEPowertrainsAndFuels -> VETravelPerformance
+  VESimLandUse -> VESimTransportSupply
+  VETransportSupply -> VESimTransportSupply
+
+  VEHouseholdTravel -> Model
+  VEHouseholdVehicles -> Model
+  VEPowertrainsAndFuels -> Model
+  VESimHouseholds -> Model
+  VESimLandUse -> Model
+  VESimTransportSupply -> Model
+  VETravelPerformance -> Model
+
+  }",
+  height = 400)
+```
+
+While most of the VisionEval ecosystem likely uses NHTS data or a derivative at some stage, there are currently only four primary modules that NHTS data are directly fed into:
+
+-   VEHouseholdTravel
+-   VEHouseholdVehicles
+-   VEPowertrainsAndFuels
+-   VELandUse
+
+This narrows the number of "entry points" that need to be closely monitored to ensure successful building using the new data.
+
+### Module Contents
+
+The VEHNHTS module contains a single R script `MakeNHTSDataset.R`. This R scripts is organized into 5 primary stages:
+
+1.  **Function Definition**
+
+2.  **Fetching of NHTS Data from web**
+
+3.  **Load Metropolitan Road and Transit data**
+
+4.  **Process Datasets**
+
+5.  **Save Datasets**
+
+In general, the script is largely the same as the previous `Make2001NHTSDataset.R`, but has been extended and reorganized to allow users to switch between data inputs using the `NHTSYEAR` parameter.
+
+### Pre-processing of NHTS 2017 for VisionEval
+
+For the most part, most columns remain intact between 2017 and 2001 NHTS. However, there are many derived features (e.g., aggregate number of persons at the household level), relabeled features, removed redundancies, and occasionally remove altogether. The table below provides an overall summary "crosswalk" of NHTS 2001 to 2017 columns. For further data attribute details, see the 2001 and 2017 NHTS codebooks:
+
+-   [2001 NHTS Codebook](https://nhts.ornl.gov/assets/codebook_v1.2.pdf)
+-   [2017 NHTS Codebook](https://nhts.ornl.gov/2001/usersguide/UsersGuide.pdf)
+
+#### 2001 to 2017 Column crosswalk
+
+##### vehicle file {-}
+| NHTS2001 | NHTS2017   | Notes    |
+|----------|------------|----------|
+| HOUSEID  | HOUSEID    |          |
+| VEHID    | VEHID      |          |
+| BESTMILE | BESTMILE   |          |
+| EIADMPG  | FEGEMPG    |          |
+| GSCOST   | GSCOST     |          |
+| VEHTYPE  | VEHTYPE    |          |
+| VEHYEAR  | VEHYEAR    |          |
+| VEHMILES | ANNMILES   |          |
+
+
+#### day/trip file {-}
+| NHTS2001 | NHTS2017   | Notes      |
+|----------|------------|------------|
+| HOUSEID  | HOUSEID    |            |
+| TDCASEID | TDCASEID   |            |
+| VEHID    | VEHID      |            |
+| VEHUSED  | VEHID      |            |
+| TRPHHVEH | TRPHHVEH   |            |
+| PERSONID | PERSONID   |            |
+| NUMONTRP | NUMONTRP   |            |
+| TRPTRANS | TRPTRANS   |            |
+| TRPMILES | TRPMILES   |            |
+| TRVL_MIN | TRVLCMIN   |            |
+| DWELTIME | DWELTIME   |            |
+| PSGR_FLG | PSGR_FLG   |            |
+| WHYFROM  | WHYFROM    |            |
+| WHYTO    | WHYTO      |            |
+| VEHTYPE  | VEHTYPE    |            |
+
+#### Persons file {-}
+| NHTS2001 | NHTS2017   | Notes      |
+|----------|------------|------------|
+| HOUSEID  | HOUSEID    |                                                            |
+| PERSONID | PERSONID   |                                                            |
+| COMMDRVR |            | Missing, assumed "-8=Don't Know"                           |
+| NBIKETRP | NBIKETRP   |                                                            |
+| NWALKTRP | NWALKTRP   |                                                            |
+| USEPUBTR | USEPUBTR   |                                                            |
+| WRKDRIVE |            | Missing, assumed "-8=Don't Know"                           |
+| WRKTRANS | WRKTRANS   |                                                            |
+| WORKER   | WORKER     |                                                            |
+| DTGAS    |            | Derived from PRICE variable in households file             |
+| DISTTOWK | DISTTOWK17 |                                                            |
+| DRIVER   | DRIVER     |                                                            |
+| R_AGE    | R_AGE      |                                                            |
+| R_SEX    | R_SEX      |                                                            |
+
+#### Households file {-}
+| NHTS2001 | NHTS2017   | Notes      |
+|----------|------------|------------|
+| HOUSEID  | HOUSEID    |                                                            |
+| AGE_P1   |            | Derived from persons file                                  |
+| AGE_P2   |            | Derived from persons file                                  |
+| AGE_P3   |            | Derived from persons file                                  |
+| AGE_P4   |            | Derived from persons file                                  |
+| AGE_P5   |            | Derived from persons file                                  |
+| AGE_P6   |            | Derived from persons file                                  |
+| AGE_P7   |            | Derived from persons file                                  |
+| AGE_P8   |            | Derived from persons file                                  |
+| AGE_P9   |            | Derived from persons file                                  |
+| AGE_P10  |            | Derived from persons file                                  |
+| AGE_P11  |            | Derived from persons file                                  |
+| AGE_P12  |            | Derived from persons file                                  |
+| AGE_P13  |            | Derived from persons file                                  |
+| AGE_P14  |            | Derived from persons file                                  |
+| CENSUS_D | CENSUS_D   |                                                            |
+| CENSUS_R | CENSUS_R   |                                                            |
+| DRVRCNT  | DRVRCNT    |                                                            |
+| DRV_P1   |            | Derived from persons file                                  |
+| DRV_P2   |            | Derived from persons file                                  |
+| DRV_P3   |            | Derived from persons file                                  |
+| DRV_P4   |            | Derived from persons file                                  |
+| DRV_P5   |            | Derived from persons file                                  |
+| DRV_P6   |            | Derived from persons file                                  |
+| DRV_P7   |            | Derived from persons file                                  |
+| DRV_P8   |            | Derived from persons file                                  |
+| DRV_P9   |            | Derived from persons file                                  |
+| DRV_P10  |            | Derived from persons file                                  |
+| DRV_P11  |            | Derived from persons file                                  |
+| DRV_P12  |            | Derived from persons file                                  |
+| DRV_P13  |            | Derived from persons file                                  |
+| DRV_P14  |            | Derived from persons file                                  |
+| EXPFLHHN | WTHHFIN    |                                                            |
+| EXPFLLHH | WTHHFIN    |                                                            |
+| FLGFINCM |            | Assumed "1=Yes" all household members incomes are reported |
+| HBHRESDN | HBRESDN    |                                                            |
+| HBHUR    | HBHUR      |                                                            |
+| HBPPOPDN | HBPPOPDN   |                                                            |
+| HHC_MSA  | HH_CBSA    | Derived from msa_xwalk of HH_CBSA                          |
+| HHFAMINC | HHFAMINC   |                                                            |
+| HHINCTTL | HHFAMINC   |                                                            |
+| HHNUMBIK |            | Missing, assumed "-8=Don't Know"                           |
+| HHR_AGE  |            | Derived from persons file                                  |
+| HHR_DRVR |            | Derived from persons file                                  |
+| HHR_RACE | HH_RACE    | Derived from persons file                                  |
+| HHR_SEX  |            | Derived from persons file                                  |
+| HHSIZE   | HHSIZE     |                                                            |
+| HHVEHCNT | HHVEHCNT   |                                                            |
+| HOMETYPE |            | Missing, critical column that must be imputed              |
+| HTEEMPDN | HTEEMPDN   |                                                            |
+| HTHRESDN | HTRESDN    |                                                            |
+| HTHUR    | HBHUR      |                                                            |
+| HTPPOPDN | HTPPOPDN   |                                                            |
+| LIF_CYC  | LIF_CYC    |                                                            |
+| MSAPOP   |            | Imputed as mean value of MSASIZE bins                      |
+| MSACAT   | MSACAT     |                                                            |
+| MSASIZE  | MSASIZE    |                                                            |
+| RAIL     | RAIL       |                                                            |
+| RATIO16V |            | Derived from persons and households table                  |
+| URBAN    | URBAN      |                                                            |
+| URBRUR   | URBRUR     |                                                            |
+| WRKCOUNT | WRKCOUNT   |                                                            |
+| WKR_P1   |            | Derived from persons file                                  |
+| WKR_P2   |            | Derived from persons file                                  |
+| WKR_P3   |            | Derived from persons file                                  |
+| WKR_P4   |            | Derived from persons file                                  |
+| WKR_P5   |            | Derived from persons file                                  |
+| WKR_P6   |            | Derived from persons file                                  |
+| WKR_P7   |            | Derived from persons file                                  |
+| WKR_P8   |            | Derived from persons file                                  |
+| WKR_P9   |            | Derived from persons file                                  |
+| WKR_P10  |            | Derived from persons file                                  |
+| WKR_P11  |            | Derived from persons file                                  |
+| WKR_P12  |            | Derived from persons file                                  |
+| WKR_P13  |            | Derived from persons file                                  |
+| WKR_P14  |            | Derived from persons file                                  |
+| CNTTDHH  | CNTTDHH    |                                                            |
+
+#### CBSA to MSA Crosswalk
+
+VisionEval uses Metropolitan Statistical Areas (MSA) to join road and transit data onto NHTS data. However, the 2017 version of NHTS uses core based statistical areas (CBSA), which include both MSAs and the smaller micropolitan statistical areas. To make the 2017 NHTS data backwards compatible, a CBSA to MSA crosswalk was used to aggregate CBSAs in the 2017 NHTS data to MSAs.
+
+#### Feature Derivations
+
+Derived features require no imputation, but are created by joining and aggregating or calculating the data to create the new column as necessary. For example, the age group columns (e.g., AGE_P1-14, DRV_P1-14, and WKR_P1-14) are created by joining the persons table to the households table on `HOUSEID`, then tabulating the number of persons in each age group in each household.
+
+#### Imputation of Missing `HOMETYPE` column
+
+There are several missing data variables in the 2017 data since the 2001 version:
+
+-   `HOMETYPE`: Housing structure type (e.g., Single Family, Duplex, Multi-Family, etc.)
+
+-   `COMMDRV`: Commercial driver
+
+-   `WRKDRIVE`: Driving required for work
+
+-   `HHNUMBIK`: Number of bicycles in household
+
+One variable is absolutely critical to the current VisionEval model: `HOMETYPE`. This variable used in the downstream models and will cause estimations in downstream models to fail.
+
+### Module Build status
+
+Below is a summary of build results if `HOMETYPE` is missing.
+
+#### VEHouseholdVehicles
+
+| R script                    | Model                        | Outcome                                                                                                                                       | Notes                          |
+|-----------------------------|------------------------------|---------|-------|
+| AdjustVehicleOwnership      | None (adjustment)            | Success                                                                                                                                       |                                |
+| AssignDrivers               | lm in estimateDriverModel    | Warning message: In predict.lm(object, newdata, se.fit, scale = 1, type = if (type == : prediction from a rank-deficient fit may be isleading | Missing Hometype causes error. |
+| AssignVehicleAge            | None (assignment)            | Success with minor modification to "vehyear"                                                                                                  |                                |
+| AssignVehicleFeatures       | None (assignment)            | Success                                                                                                                                       |                                |
+| AssignVehicleFeaturesFuture | None (assignment)            | Success                                                                                                                                       |                                |
+| AssignVehicleOwnership      | clm & glm                    | Success with warning on AutoOwnModels_ls\$Metro\$Zero \<- glm()                                                                                 | Missing Hometype causes error  |
+| AssignVehicleType           | glm estimateVehicleTypeModel | Error (Error in 'binarySearch' function to match target value)                                                                                | Missing Hometype coefficient   |
+| CalculateVehicleOwnCost     | None (calculation)           | Success                                                                                                                                       |                                |
+| CreateVehicleTable          | None (assignment)            | Success                                                                                                                                       |                                |
+| Finalize                    | None (assignment)            | Success                                                                                                                                       |                                |
+
+#### VEHouseholdTravel
+
+| R script                    | Model              | Outcome | Notes |
+|-----------------------------|--------------------|---------|-------|
+| ApplyDvmtReductions         | None (assignment)  | Success |       |
+| CalculateAltModeTrips       | Hurdle             | Success |       |
+| CalculateHouseholdDvmt      | BinarySearch       | Success |       |
+| CalculateInducedDemand      | None (calculation) | Success |       |
+| CalculatePolicyVmt          | None (calculation) | Success |       |
+| CalculateTravelDemand       | None (calculation) | Success |       |
+| CalculateTravelDemandFuture | None (calculation) | Success |       |
+| CalculateVehicleTrips       | None (calculation) | Success |       |
+| DivertSovTravel             | ZeroSov_GLM        | Success |       |
+| Initialize                  | None               | Success |       |
+| LoadDefaultValues           | None               | Success |       |
+
+#### VEPowertrainsAndFuel
+
+| R script                  | Model              | Outcome | Notes |
+|---------------------------|--------------------|---------|-------|
+| Initialize                | None               | Success |       |
+| LoadDefaultValues         | None               | Success |       |
+| CalculateCarbonIntensity  | None (calculation) | Success |       |
+| AssignHhVehiclePowertrain | None (assignment)  | Success |       |
+
+#### VELandUse
+
+| R script                  | Model                                 | Outcome                                                        | Notes                                             |
+|-----------------|-----------------|----------------------|-----------------|
+| AssignCarSvcAvailability  | None (assignment)                     | Success                                                        |                                                   |
+| AssignDemandManagement    | None (assignment)                     | Success                                                        |                                                   |
+| AssignDevTypes            | None (assignment)                     | Success                                                        |                                                   |
+| AssignLocTypes            | None (assignment)                     | Success                                                        |                                                   |
+| AssignParkingRestrictions | None (assignment)                     | Success                                                        |                                                   |
+| Calculate4DMeasures       | None (calculation)                    | Success                                                        |                                                   |
+| CalculateBasePlaceTypes   | None (calculation)                    | Success                                                        |                                                   |
+| CalculateFuturePlaceTypes | None (calculation)                    | Success                                                        |                                                   |
+| CalculateUrbanMixMeasure  | CalculateUrbanMixMeasure binarySearch | Error (Error in 'binarySearch' function to match target value) | Likely due to missing Hometype                    |
+| LocateEmployment          | None (assignment)                     | Success                                                        |                                                   |
+| PredictHousing            | HouseTypeModel glm                    | Success                                                        | but doubt results given missing Hometype variable |
+
+### 2017 vs 2001 Input Summary
+
+To provide an overview of NHTS 2001 to 2017 results, below are comparative user_guide/_bookdown_files/15-VENHTS_files/figure-html for each data column between data sets. As expected, most variables do differ between the 2001 and the 2017 data. These are a result of absolute changes in investment in infrastructure and changes in the location and characteristics of the US population. The green color represents the 2017 data while the blue shows the 2001 data.
+
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-1.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-2.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-3.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-4.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-5.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-6.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-7.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-8.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-9.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/hh_plots-10.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure-1.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure-2.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure-3.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure-4.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure-5.png)
+
+### VE-RSPM Model using 2017 vs 2001
+
+To test the 2017 NHTS, the two versions of the model were run, the original version of the model with 2001 NHTS and the new version with 2017 NHTS. Below are a set of limited comparative user_guide/_bookdown_files/15-VENHTS_files/figure-html showing select results from the VERSPM model. These user_guide/_bookdown_files/15-VENHTS_files/figure-html exclude variables with no change reported between the two years of data. The user_guide/_bookdown_files/15-VENHTS_files/figure-html and data are organized by the scale of the vertical axis (e.g., those variables with greater changes are all put on one plot, while those with minor changes are on another plot) with the percent change relative to the 2001 model results.
+
+These should not be represented as key travel differences between 2017 and 2001. The NHTS data should be used directly for that purpose. The analysis summarizing the differences between the two NHTS datasets indicates that the new data is not as simple as ‘plug and play’ requiring that the data must be reviewed for consistency with the model specifications.
+
+However, these charts do provide insights on how the outputs from VE might differ when the input data changes. 
+
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure2-1.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure2-2.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure2-3.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure2-4.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure2-5.png)
+![](user_guide/_bookdown_files/15-VENHTS_files/figure-html/show_figure2-6.png)
+
+### Estimation Comparison
+
+```{r read_inputs, include=FALSE}
+
+# Diagnostics list object
+estlist <- readRDS("user_guide/data/LIST_PACKAGES_COMPARE_LIST.RDS")
+
+```
+
+A proof of concept script has been developed to import the model objects from two builds of VE, in this case the original 2001 version of the model and the build completed with the  2017 NHTS dataset. This provides a structured list holding the estimated model objects from every module, an indication of whether the model objects changed between the reference and updated model version, and then some example comparisons between model objects.
+
+However, the ability to carry out a comprehensive comparison between models is limited by the removal of many of the estimation outputs from the model objects during their reformatting to smaller objects for application purposes. 
+
+The tables below show some example comparisons between the auto ownership models in the VEHouseholdVehicles package, listing the model objects, a summary of the variables in the models that have changed significantly, and then a more comprehensive comparison between the two sets of models. In general, it is recommended that model users compare:
+
+1. Overall model fit statistics (such as R squared from a linear regression, Rho squared from a logit model, or other statistics such as AIC)
+2. Coefficient level changes between models such as changes in sign and magnitude
+3. Changes in coefficient statistical significance
+4. Fit between the model's predicted values and the estimation dataset or an independent validation dataset
+5. Changes in overall model sensitivity and the reasonable of model forecasts given changes in inputs.
+
+```{r setup2, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, results = TRUE)
+```
+
+
+```{r est-modules-estimation1, fig.cap="VEHouseholdVehicles-AutoOwnModels_ls.rda-SegmentsModels"}
+
+knitr::kable(estlist$VEHouseholdVehicles$AutoOwnModels_ls.rda$SegmentsModels)
+
+```
+
+```{r est-modules-estimation2, fig.cap="VEHouseholdVehicles-AutoOwnModels_ls.rda-Summary"}
+
+knitr::kable(estlist$VEHouseholdVehicles$AutoOwnModels_ls.rda$Summary)
+
+```
+
+```{r est-modules-estimation3, fig.cap="VEHouseholdVehicles-AutoOwnModels_ls.rda-Comparison"}
+
+knitr::kable(estlist$VEHouseholdVehicles$AutoOwnModels_ls.rda$Comparison)
+
+```
