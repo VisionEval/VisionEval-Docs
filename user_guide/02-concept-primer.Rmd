@@ -155,7 +155,7 @@ Note that the number of combinatorial scenarios is a function of the number of c
 One of the strengths of VisionEval is the rich detail on individual households. This allows for household specific policies, travel behavior can respond to specific household costs and attributes, and outputs can be mined for differences by population groups. The approach of building on a synthesized population borrows from the state of the practice in activity-based travel demand models.
 
 > Watch a [short video](https://youtu.be/-ylFbyLfhbw?t=5371) on household synthesis
- 
+
 VisionEval creates simulated households in each Azone from user-supplied projections of persons by [<span style="color:green">age group</span>](#age-group) and average per capita income. Each simulated household has the characteristics of the number of persons in each of 6 age groups, number of workers in each of 5 age groups, [<span style="color:green">lifecycle category</span>](#lifecycle), and household income. The simulated households are assigned a [<span style="color:green">dwelling unit type</span>](#dwelling-unit-type) (single family or multi-family) using a model that is sensitive to the household characteristics and the number of units of each type assigned to the Azone (based on user inputs). Each simulated household is assigned to a Bzone based on the number of dwelling units of their assigned type in each Bzone and the household's income compared to the relative income distribution by BZone. Separately, Bzones are attributed with employment and land use attributes ([<span style="color:green">location type</span>](#location-type), [<span style="color:green">built form 'D' values</span>](#buit-form-measures), [<span style="color:green">urban mixed use</span>](#urban-mixed-use), and [<span style="color:green">employment by type</span>](#employment-type)). Household members who are workers are assigned a Bzone work location as a function of the distribution of jobs in the model area. Each home and work location is tied to a specific Bzone with its associated attributes.
 
 Policies are added to each household as a function of their home and work Bzones:
@@ -371,7 +371,7 @@ Three primary adjustments adjustments to auto operating cost are carried out in 
 + **Gas taxes** are federal, state and local per gallon taxes to cover road costs. For Electric vehicles, an equivalent per mile cost is calculated and can be applied to some or all electric vehicles ($/gallon or EV vehicle surcharge tax).
 + **Other Road Cost Recovery taxes** (i.e. VMT tax) is a user input. If the (optional) `BalanceRoadCostsAndRevenues` module is run, an extra VMT tax is calculated that recovers household share of road costs, consistent across all model households.
 + **Congestion fees** are calculated average congestion price ($/mile) for travel on urbanized roads in the Marea multiplied by the proportion of household travel occurring on those roads.
-+ **Carbon fee** and **other social cost fees** are carbon cost per mile is calculated as the input [<span style="color:green">carbon price</span>](#carbon-price) times the average household emissions rate (grams/mile), a VMT-weighting of all vehicles in the household.  Of the other [<span style="color:green">social costs</span>](#social-costs), some are per gallon (non-EV vehicle miles) others per mile (regardless of [<span style="color:green">powertrain</span>](#powertrain)). The full per mile costs are discounted to only reflect the input proportion of [<span style="color:green">social cost</span>](#social-costs) paid by user.
++ **Carbon fee** and **other social cost fees** are carbon cost per mile is calculated as the input [<span style="color:green">carbon price</span>](#carbon-price) times the average household emissions rate (grams/mile), a VMT-weighting of all vehicles in the household.  Of the other [<span style="color:green">social costs</span>](#social-costs), some are per gallon (non-EV vehicle miles) others per mile (regardless of [<span style="color:green">powertrain</span>](#powertrain)). The full per mile costs are discounted to only reflect the input proportion of [<span style="color:green">social cost</span>](#social-costs) paid by user. Note that both the Carbon Price and the other Externality Social Costs have defaults which can be overwritten in the inputs or in the VETravelPeformance package.
 + Daily **parking costs** from work parking costs (workers who pay for parking) and other parking cost (cost of parking for shopping, etc.) are summed and divided by the household DMVT. Note that residential parking costs are included in the vehicle ownership not per mile cost calculations.
 + **Pay-as-you-drive (PAYD) insurance** is defined for participating households as the sum of the annual insurance cost for all the household vehicles is divided by the annual household VMT.
 + **Car-service costs** are the cost of using a [<span style="color:green">car service</span>](#car-service) (dollars/mile) is a user input by car service level (Low, High).
@@ -656,20 +656,23 @@ _see_ [road costs](#road-costs)
 The `DivertSovTravel` module reduces travel in single-occupant vehicles (SOVs) to account for assumed availability of solo travel alternatives such as bicycles (traditional and electric) and scooters. The user inputs a goal for diverting a proportion of SOV travel within a 20-mile round-trip distance (i.e., for trips longer than 10 miles in one direction). 
 [Additional details](https://github.com/visioneval/visioneval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md)
 
-### social costs {#social-costs}
+### Social Costs {#social-costs}
 Present and future generations bear costs due to the impact of transportation that are not fully recouped through [auto operating costs](#auto operating costs) or [auto ownership costs](#auto-ownership-costs), such as the costs of abating pollution, security and safety costs, and noise. VisionEval includes these costs in their full-cost accounting approach to calculating costs and benefits. The social cost parameters are defined as inputs to the `CalculateVehicleOperatingCost` module in the `VETravelPerformance` package.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
 
-### speed smoothing {#speed-smoothing}
+### Speed Smoothing {#speed-smoothing}
 A traffic management action or design that reduces the speed variation on freeways and arterials. Note that the introduction of autonomous vehicles will likely achieve this effect even when they only constitute a quarter or more of all vehicles on the roadway ([Levin & Boyles 2015](https://doi.org/10.3141/2493-04), [Mahmassani 2016](https://doi.org/10.1287/trsc.2016.0712)). Thus, speed smoothing might become an important property of future traffic systems that analysts should include in future years even in spite of current local interest in such programs.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#95-calculatempgmpkwhadjustments-module)
 
-<!--
-### transit d {#transit-d}
-NEED DEFINITION
--->
 
-### transit modes {#transit-modes}
+### Transit d (D4C) {#transit-d}
+The Multimodal Module introduces additional sensitivity to variables, including the Transit Frequency at the Bzone level. The input *bzone_transit_service.csv* accounts for the [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-mapping#SLD) D4c: Aggregate frequency of transit service within 0.25 miles of CBG boundary per hour during evening peak period.”  [Smart Location Database (2021) User Guide, page 5](https://www.epa.gov/sites/default/files/2021-06/documents/epa_sld_3.0_technicaldocumentationuserguide_may2021.pdf)
+
+
+
+
+
+### Transit Modes {#transit-modes}
 VisionEval includes eight transit modes, which are also called transit service modes in some places in the documentation. The eight modes include demand-responsive (DR), vanpool and similar (VP), standard motor bus (MB), bus rapid transit and commuter bus (RB), monorail or other automated guideway (MG), streetcar or trolley bus (SR), light or heavy rail (HR), and commuter rail (CR) services. The latter includes specialized CR services such as hybrid rail, cable cars, and aerial tramways.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
 
