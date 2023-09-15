@@ -164,7 +164,7 @@ One method is to define land in MPO boundaries to be **metro**, for urban areas 
 An alternative method is to use the [Census Urban and Rural Classification](https://www.census.gov/programs-surveys/geography/guidance/geo-areas/urban-rural/2010-urban-rural.html). The Census Urban and Rural Classification distinguishes between two types of urban areas: 
 
 *	Urbanized Areas (UAs) of 50,000 or more people are defined as **metro**
-*	Urban Clusters (UCs) of at least 2,500 and less than 50,000 people are definied as **town**
+*	Urban Clusters (UCs) of at least 2,500 and less than 50,000 people are defined as **town**
 * Everything else is **rural**
 
 **NOTE: the 2020 Census has removed the Urban Cluster specification. 
