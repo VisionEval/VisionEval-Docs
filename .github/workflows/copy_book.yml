@@ -12,13 +12,14 @@ jobs:
           ref: ${{ github.head_ref }} 
                 
     - name: Copies all contents to VE.org
-      uses: nkoppel/push-files-to-another-repository@v1.1.1
+      uses: cpina/github-action-push-to-another-repository@v1.7.2
+          
       env:
-        API_TOKEN_GITHUB: ${{ secrets.book_copy }}
+        API_TOKEN_GITHUB: ${{ secrets.docs_sync }}
       with:
-        source-files: 'docs/'
-        destination-username: 'VisionEval'
-        destination-repository: 'VisionEval.org'
-        destination-branch: 'main'
-        commit-username: 'dflynn-volpe'
-        commit-email: 'daniel.flynn@dot.gov'
+        source-directory: 'docs/'
+        target-directory: 'docs/'
+        destination-github-username: 'VisionEval'
+        destination-repository-name: 'VisionEval.org'
+        user-email: 'daniel.flynn@dot.gov'
+        target-branch: 'main'

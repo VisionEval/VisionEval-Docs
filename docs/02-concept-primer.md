@@ -56,7 +56,7 @@ The following table summarizes many of the possible performance metrics that can
     + Annual all vehicle delay per capita (hours)
     + Daily household [<span style="color:green">parking costs</span>](#parking-costs)
     + Annual household [<span style="color:green">vehicle operating cost</span>](#vehicle-operating-costs) (fuel, taxes, parking)
-    + Annual household [<span style="color:green">vehicle ownership costs</span>](#vehicle-ownership-costs) (depreciation, vehicle maintenance, tires, finance charge, insurance, registration)
+    + Annual household [<span style="color:green">vehicle ownership costs</span>](#vehicle-operating-costs) (depreciation, vehicle maintenance, tires, finance charge, insurance, registration)
 
 
 + Land Use
@@ -116,7 +116,7 @@ VisionEval is well suited for evaluating a wide range of local policies at varyi
 + Transportation Operations Actions
     + [<span style="color:green">Road lane-miles</span>](#road-lane-miles) (freeways, arterials) (Marea)
     + [<span style="color:green">Transit service</span>](#transit-service-miles) (service miles by transit mode) (Marea)
-    + [<span style="color:green">Short SOV trip diversion</span>](#sov-diversion) (to bikes, personal electrics, etc.) (Azone)
+    + [<span style="color:green">Short SOV trip diversion</span>](#short-trip-sov-diversion) (to bikes, personal electrics, etc.) (Azone)
     + [<span style="color:green">ITS</span>](#its) Operations (Ramp metering, Incident response, (Marea)
     + ITS [<span style="color:green">speed smoothing</span>](#speed-smoothing) (Freeway ATM, Art Signal optimization) (Marea)
     + VMT covered by Drivers in [<span style="color:green">Eco-Drive</span>](#ecodrive) programs (Marea)
@@ -136,7 +136,7 @@ VisionEval is well suited for evaluating a wide range of local policies at varyi
     + LDV-HH [<span style="color:green">vehicle age</span>](#vehicle-age) average (Azone)
     + LDV [<span style="color:green">car service</span>](#car-service), vehicle mix (stock) (Region)
     + Transit vehicles & fuels mix (Marea)
-    + LDV [<span style="color:green">commercial service</span>](#commercial-service) vehicle mix, %Light Trucks (stock) (Region)
+    + LDV [<span style="color:green">commercial service</span>](#commerical-service) vehicle mix, %Light Trucks (stock) (Region)
     + [<span style="color:green">Heavy truck</span>](#heavy-truck) vehicle mix (stock) (Region)
 
 ## Scenario analyses
@@ -155,7 +155,7 @@ Note that the number of combinatorial scenarios is a function of the number of c
 One of the strengths of VisionEval is the rich detail on individual households. This allows for household specific policies, travel behavior can respond to specific household costs and attributes, and outputs can be mined for differences by population groups. The approach of building on a synthesized population borrows from the state of the practice in activity-based travel demand models.
 
 > Watch a [short video](https://youtu.be/-ylFbyLfhbw?t=5371) on household synthesis
- 
+
 VisionEval creates simulated households in each Azone from user-supplied projections of persons by [<span style="color:green">age group</span>](#age-group) and average per capita income. Each simulated household has the characteristics of the number of persons in each of 6 age groups, number of workers in each of 5 age groups, [<span style="color:green">lifecycle category</span>](#lifecycle), and household income. The simulated households are assigned a [<span style="color:green">dwelling unit type</span>](#dwelling-unit-type) (single family or multi-family) using a model that is sensitive to the household characteristics and the number of units of each type assigned to the Azone (based on user inputs). Each simulated household is assigned to a Bzone based on the number of dwelling units of their assigned type in each Bzone and the household's income compared to the relative income distribution by BZone. Separately, Bzones are attributed with employment and land use attributes ([<span style="color:green">location type</span>](#location-type), [<span style="color:green">built form 'D' values</span>](#buit-form-measures), [<span style="color:green">urban mixed use</span>](#urban-mixed-use), and [<span style="color:green">employment by type</span>](#employment-type)). Household members who are workers are assigned a Bzone work location as a function of the distribution of jobs in the model area. Each home and work location is tied to a specific Bzone with its associated attributes.
 
 Policies are added to each household as a function of their home and work Bzones:
@@ -194,7 +194,7 @@ Two steps are required to add land use attributes to the synthetic population:
 
 Several land use attributes are added to each household:
 
-1. [_Assign Location Types_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#43-assignloctypes-module): Households are assigned to land use [<span style="color:green">location types</span>](#location-type) -- urban, town, or rural -- by random allocation based on the household's [<span style="color:green">dwelling unit type</span>](#dwelling-unit-type) and input proportions on the mix of dwelling types in its enclosing Bzone.
+1. _Assign Location Types_: Households are assigned to land use [<span style="color:green">location types</span>](#location-type) -- urban, town, or rural -- by random allocation based on the household's [<span style="color:green">dwelling unit type</span>](#dwelling-unit-type) and input proportions on the mix of dwelling types in its enclosing Bzone.
 2. [_Predict Housing_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#41-predicthousing-module): [<span style="color:green">Dwelling unit types</span>](#dwelling-unit-type) are assigned to regular and group quarter households based on the input Bzone supply of dwelling units by type. Residential households also consider the relative costliness of housing within the Azone (logged ratio of the household’s income relative to mean income in their Azone), household size, oldest age person, and the interaction of size and income ratio.
 3. [_Locate Employment_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#42-locateemployment-module): The number of input jobs by Bzone and [<span style="color:green">employment type</span>](#employment-type) (retail, service, total) are scaled so that total jobs equals total household workers within the Marea. A worker table is developed and each worker is assigned to a work Bzone. The assignment essentially uses a gravity-type model with tabulations of workers and jobs by Bzone (marginal controls) and distance between residence and employment Bzones (IPF seed, inverse of straight-line distances between home and all work Bzone centroids).
 
@@ -324,8 +324,8 @@ No fuel efficiency adjustments for congestion or policies are made to non-urban 
 The roadway conditions in the model are calculated in three steps:
 
 1. [_Load Default Road VMT Values:_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#91-loaddefaultroaddvmtvalues)  These calculations are completed before the model run starts. The base year roadway VMT is processed, including light duty vehicle and [<span style="color:green">heavy truck</span>](#heavy-truck) VMT by state and urbanized area as well as VMT proportions by urbanized area, [<span style="color:green">vehicle group</span>](#vehicle-group) (light duty vehicle, heavy truck, bus), and [<span style="color:green">road class</span>](#road-class). The user can either provide direct inputs for these values or specify a state and/or urbanized area and the model will use default data from the [20xx USDOT Highway Statistics](https://github.com/VisionEval/VisionEval/tree/master/sources/modules/VETravelPerformance/inst/extdata/sources), where available.
-2. [_Initialize:_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#92-initialize-module) This step is run when the model run is initialized. User inputs used by several modules are read and checked (many with several valid options, proportions sum to 1, consistency, congestion fees increase with congestion level). Some of these values are optional, using default data where not specified. This includes various assumptions on base year VMT within both [<span style="color:green">urbanized area(s)</span>](#urbanized-area) and the full model region, by [<span style="color:green">vehicle group</span>](#vehicle-group), allocation among [<span style="color:green">road class</span>](#road-class), [<span style="color:green">growth basis</span>](#growth-basis), and assumptions for [<span style="color:green">freight vehicle groups</span>](#freight-vehicle-groups). It also checks inputs on [<span style="color:green">ITS</span>](#its) operational policies and [<span style="color:green">EcoDriving</span>](#ecodrive) programs, including any user-specified "other ops" programs and [<span style="color:green">congestion fees</span>](#congestion-fee) (by road class and [<span style="color:green">congestion level</span>](#congestion-level)). 
-3. [_Calculate Road VMT:_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#93-calculateroaddvmt-module)  Adds together [<span style="color:green">metropolitan area</span>](#metropolitan-area) VMT of all [<span style="color:green">vehicle groups</span>](#vehicle-group) (Households, CarService, Commercial Service, Heavy Truck, Transit) and allocates it across [<span style="color:green">road classes</span>](#road-class) (freeway, arterial, other), limiting it to urbanized area roadways for use in congestion calculations. To do so, several factors are established in the base year.  One uses the input [<span style="color:green">growth basis</span>](#growth-basis) (population, income, household VMT) to estimate future year [<span style="color:green">freight vehicle group</span>](#vehicle-group) (commercial service and heavy truck) VMT (using input base year VMT values by region and Marea, if provided, model-estimates otherwise). A second base year factor identifies the urban and non-urban allocation of VMT from [<span style="color:green">metropolitan area</span>](#metropolitan-area) households and related commercial service vehicles. For Heavy Trucks VMT an input specifies the proportion of VMT on urbanized roads while transit VMT (of all [<span style="color:green">transit service modes</span>](#transit-service-modes)) is assumed to only occur on urbanized roads. Base year allocations of urban VMT by [<span style="color:green">vehicle group</span>](#vehicle-group) among [<span style="color:green">road classes</span>](#road-class) are based on input shares, subject to adjustment during subsequent congestion calculations. Finally, to assess delay faced by each household and associated fuel efficiency impacts, each individual household's VMT is split between miles on urbanized and other road miles.
+2. [_Initialize:_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#92-initialize-module). This step is run when the model run is initialized. User inputs used by several modules are read and checked (many with several valid options, proportions sum to 1, consistency, congestion fees increase with congestion level). Some of these values are optional, using default data where not specified. This includes various assumptions on base year VMT within both [<span style="color:green">urbanized area(s)</span>](#urbanized-area) and the full model region, by [<span style="color:green">vehicle group</span>](#vehicle-group), allocation among [<span style="color:green">road class</span>](#road-class), [<span style="color:green">growth basis</span>](#growth-basis), and assumptions for [<span style="color:green">freight vehicle groups</span>](#freight-vehicle-groups). It also checks inputs on [<span style="color:green">ITS</span>](#its) operational policies and [<span style="color:green">EcoDriving</span>](#ecodrive) programs, including any user-specified "other ops" programs and [<span style="color:green">congestion fees</span>](#congestion-fee) (by road class and [<span style="color:green">congestion level</span>](#congestion-level)). 
+3. [_Calculate Road VMT:_](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#93-calculateroadVMT-module)  Adds together [<span style="color:green">metropolitan area</span>](#metropolitan-area) VMT of all [<span style="color:green">vehicle groups</span>](#vehicle-group) (Households, CarService, Commercial Service, Heavy Truck, Transit) and allocates it across [<span style="color:green">road classes</span>](#road-class) (freeway, arterial, other), limiting it to urbanized area roadways for use in congestion calculations. To do so, several factors are established in the base year.  One uses the input [<span style="color:green">growth basis</span>](#growth-basis) (population, income, household VMT) to estimate future year [<span style="color:green">freight vehicle group</span>](#vehicle-group) (commercial service and heavy truck) VMT (using input base year VMT values by region and Marea, if provided, model-estimates otherwise). A second base year factor identifies the urban and non-urban allocation of VMT from [<span style="color:green">metropolitan area</span>](#metropolitan-area) households and related commercial service vehicles. For Heavy Trucks VMT an input specifies the proportion of VMT on urbanized roads while transit VMT (of all [<span style="color:green">transit service modes</span>](#transit-service-modes)) is assumed to only occur on urbanized roads. Base year allocations of urban VMT by [<span style="color:green">vehicle group</span>](#vehicle-group) among [<span style="color:green">road classes</span>](#road-class) are based on input shares, subject to adjustment during subsequent congestion calculations. Finally, to assess delay faced by each household and associated fuel efficiency impacts, each individual household's VMT is split between miles on urbanized and other road miles.
 
 #### Congestion model and adjustments
 
@@ -371,7 +371,7 @@ Three primary adjustments adjustments to auto operating cost are carried out in 
 + **Gas taxes** are federal, state and local per gallon taxes to cover road costs. For Electric vehicles, an equivalent per mile cost is calculated and can be applied to some or all electric vehicles ($/gallon or EV vehicle surcharge tax).
 + **Other Road Cost Recovery taxes** (i.e. VMT tax) is a user input. If the (optional) `BalanceRoadCostsAndRevenues` module is run, an extra VMT tax is calculated that recovers household share of road costs, consistent across all model households.
 + **Congestion fees** are calculated average congestion price ($/mile) for travel on urbanized roads in the Marea multiplied by the proportion of household travel occurring on those roads.
-+ **Carbon fee** and **other social cost fees** are carbon cost per mile is calculated as the input [<span style="color:green">carbon price</span>](#carbon-price) times the average household emissions rate (grams/mile), a VMT-weighting of all vehicles in the household.  Of the other [<span style="color:green">social costs</span>](#social-costs), some are per gallon (non-EV vehicle miles) others per mile (regardless of [<span style="color:green">powertrain</span>](#powertrain)). The full per mile costs are discounted to only reflect the input proportion of [<span style="color:green">social cost</span>](#social-costs) paid by user.
++ **Carbon fee** and **other social cost fees** are carbon cost per mile is calculated as the input [<span style="color:green">carbon price</span>](#carbon-price) times the average household emissions rate (grams/mile), a VMT-weighting of all vehicles in the household.  Of the other [<span style="color:green">social costs</span>](#social-costs), some are per gallon (non-EV vehicle miles) others per mile (regardless of [<span style="color:green">powertrain</span>](#powertrain)). The full per mile costs are discounted to only reflect the input proportion of [<span style="color:green">social cost</span>](#social-costs) paid by user. Note that both the Carbon Price and the other Externality Social Costs have defaults which can be overwritten in the inputs or in the VETravelPeformance package.
 + Daily **parking costs** from work parking costs (workers who pay for parking) and other parking cost (cost of parking for shopping, etc.) are summed and divided by the household DMVT. Note that residential parking costs are included in the vehicle ownership not per mile cost calculations.
 + **Pay-as-you-drive (PAYD) insurance** is defined for participating households as the sum of the annual insurance cost for all the household vehicles is divided by the annual household VMT.
 + **Car-service costs** are the cost of using a [<span style="color:green">car service</span>](#car-service) (dollars/mile) is a user input by car service level (Low, High).
@@ -562,7 +562,7 @@ A [concise fact sheet](https://www.oregon.gov/ODOT/Planning/Documents/Mosaic-Ind
 Systems that integrate information, communications, and advanced vehicular technologies into transportation infrastructure, maintenance, and operations programs to improve mobility and safety. ITS programs are typically centrally controlled by transportation agencies rather than individually autonomous solutions like personal navigation systems. Examples of ITS systems include traveler information systems (e.g., 511 systems, variable message signs), adaptive traffic signal systems, ramp metering, and electronic toll collection.
 
 ### ITS
-_see_ [intelligent transportation systems](#intelligent-transportation-systems)
+_see_ [intelligent transportation systems](#intelligent-transportation-systems}
 
 ### lambda parameter {#lambda-parameter}
 The assumed split of light-duty household and [commercial service](#commercial-service) vehicles between freeways and arterials is calculated dynamically as the ratio of the respective average travel speeds and an urbanized area specific factor (lambda). The latter adjusts the raw ratio of speeds to match observed percentages using data from 90 urbanized areas. The calculation is carried out in the `CalculateRoadPerformance` module.
@@ -613,8 +613,10 @@ An insurance program, also known as usage-based insurance, whose premiums are ba
 A factor that indicates the number of light-duty vehicles that a [heavy truck](#heavy-truck) is equivalent to in terms of vehicle length and lane usage when calculating [roadway capacity](#roadway-capacity). It is used in the `BalanceRoadCostsAndRevenues` module of the `VETravelPerformance` package.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#99-balanceroadcostsandrevenues-module)
 
+<!--
 ### place type {#place-type}
 NEED DEFINITION
+-->
 
 ### powertrain {#powertrain}
 VisionEval uses detailed operating and emissions characteristics from several different types of vehicular powertrains, enabling scenarios to be quickly assembled with different assumptions about their mix in future years. Four powertrain types are presently defined in VisionEval: internal combustion engines (ICE), hybrid electric vehicles (HEV), plug-in hybrid electric vehicles (PHEV), and battery electric vehicles (BEV). The powertrain is assigned to each household vehicle in the `AssignHhVehiclePowertrain` module.
@@ -630,8 +632,10 @@ The region defines the entire modeled area represented in the model. There is no
 A synthetic measure that divides the total arterial and freeway lane-miles (i.e., the sum of the length in miles times the number of lanes for each distinct roadway segment) by the sum of the estimated trip lengths for all households. This calculation is carried out for each Marea and year. Thus, it is a measure that only applies in metropolitan areas defined in the model. This value is calculated in the `AssignRoadMiles` module and is used in several other modules.
 [Additional details](https://github.com/visioneval/visioneval/blob/master/sources/modules/VETransportSupply/inst/module_docs/AssignRoadMiles.md) 
 
+<!--
 ### relative transit supply {#relative-transit-supply}
 NEED DEFINITION
+-->
 
 ### road class {#road-class}
 The proportion of lane miles that are classified as freeway, arterial, and other roadways. The vehicle miles of travel (VMT) calculated for households, [commercial service](#commercial-service), and [heavy trucks](#heavy-trucks) is split between these three classes of roadways in the `LoadDefaultRoadDvmtValues` module of the `VETravelPerformance` package.
@@ -652,18 +656,23 @@ _see_ [road costs](#road-costs)
 The `DivertSovTravel` module reduces travel in single-occupant vehicles (SOVs) to account for assumed availability of solo travel alternatives such as bicycles (traditional and electric) and scooters. The user inputs a goal for diverting a proportion of SOV travel within a 20-mile round-trip distance (i.e., for trips longer than 10 miles in one direction). 
 [Additional details](https://github.com/visioneval/visioneval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md)
 
-### social costs {#social-costs}
+### Social Costs {#social-costs}
 Present and future generations bear costs due to the impact of transportation that are not fully recouped through [auto operating costs](#auto operating costs) or [auto ownership costs](#auto-ownership-costs), such as the costs of abating pollution, security and safety costs, and noise. VisionEval includes these costs in their full-cost accounting approach to calculating costs and benefits. The social cost parameters are defined as inputs to the `CalculateVehicleOperatingCost` module in the `VETravelPerformance` package.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#97-calculatevehicleoperatingcost-module)
 
-### speed smoothing {#speed-smoothing}
+### Speed Smoothing {#speed-smoothing}
 A traffic management action or design that reduces the speed variation on freeways and arterials. Note that the introduction of autonomous vehicles will likely achieve this effect even when they only constitute a quarter or more of all vehicles on the roadway ([Levin & Boyles 2015](https://doi.org/10.3141/2493-04), [Mahmassani 2016](https://doi.org/10.1287/trsc.2016.0712)). Thus, speed smoothing might become an important property of future traffic systems that analysts should include in future years even in spite of current local interest in such programs.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#95-calculatempgmpkwhadjustments-module)
 
-### transit d {#transit-d}
-NEED DEFINITION
 
-### transit modes {#transit-modes}
+### Transit d (D4C) {#transit-d}
+The Multimodal Module introduces additional sensitivity to variables, including the Transit Frequency at the Bzone level. The input *bzone_transit_service.csv* accounts for the [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-mapping#SLD) D4c: Aggregate frequency of transit service within 0.25 miles of CBG boundary per hour during evening peak period.”  [Smart Location Database (2021) User Guide, page 5](https://www.epa.gov/sites/default/files/2021-06/documents/epa_sld_3.0_technicaldocumentationuserguide_may2021.pdf)
+
+
+
+
+
+### Transit Modes {#transit-modes}
 VisionEval includes eight transit modes, which are also called transit service modes in some places in the documentation. The eight modes include demand-responsive (DR), vanpool and similar (VP), standard motor bus (MB), bus rapid transit and commuter bus (RB), monorail or other automated guideway (MG), streetcar or trolley bus (SR), light or heavy rail (HR), and commuter rail (CR) services. The latter includes specialized CR services such as hybrid rail, cable cars, and aerial tramways.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#51-assigntransitservice-module)
 
@@ -688,7 +697,7 @@ A mixed use development or neighborhood is one that includes residential and non
 In VisionEval the proportion of each Bzone that falls into this category can either be specified by the user or calculated by the program. If the latter a random sampling from an asserted distribution is used to define whether a household is in a mixed-use area. The density of the enclosing Bzone weights the probability of a household being so classified (i.e., the higher the density the higher probability of being assigned to a mixed-use neighborhood). These calculations are carried on in the `CalculateUrbanMixMeasure` module of the `VEHouseholds` package.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#45-calculateurbanmixmeasure-module)
 
-### urbanized area {#urbanized-area}
+### urbanized area {urbanized-area}
 Collectively the urban, or "metro", [location type](#location-type) portion of the [metropolitan area](metropolitan-area) (Marea) set of zones. The road, transit and urban mixed use variables only cover this portion of the Marea, which is typically equivalent to a Census urbanized area. 
 
 ### value of time (VOT) {#value-of-time}
@@ -699,7 +708,7 @@ The opportunity cost of the time that a person spends traveling rather than enga
 The age of each household vehicle is estimated as a function of vehicle type (auto or light truck), household income, and the assumed average vehicle age coded for each vehicle type and Azone. The vehicle age is assigned in the `AssignVehicleAge` module in the `VEHouseholdVehicles` package.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#65-assignvehicleage)
 
-### vehicle group {#vehicle-group}
+vehicle group {#vehicle-group}
 Different types of vehicles are used in VisionEval by different types of users. Automobiles and light trucks are used by households, car service, and commercial service, and are assigned in the `VEHouseholdVehicles` package. Heavy trucks are treated separately, and three types of vehicles -- vans, buses, and rail -- are used for transit.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#83-calculatecarbonintensity-module)
 

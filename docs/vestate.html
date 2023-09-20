@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Chapter 10 VE-State Model Details | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
-<meta name="generator" content="bookdown 0.25 with bs4_book()">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
 <meta property="og:title" content="Chapter 10 VE-State Model Details | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/vestate.html">
@@ -16,7 +16,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -62,9 +62,10 @@
 <li><a class="active" href="vestate.html"><span class="header-section-number">10</span> VE-State Model Details</a></li>
 <li><a class="" href="verpat.html"><span class="header-section-number">11</span> VERPAT Model Details</a></li>
 <li><a class="" href="ve-estimation.html"><span class="header-section-number">12</span> Estimation in VisionEval</a></li>
-<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">13</span> Module Build Process</a></li>
-<li><a class="" href="api-documentation.html"><span class="header-section-number">14</span> API Documentation</a></li>
-<li><a class="" href="software-framework.html"><span class="header-section-number">15</span> Software Framework</a></li>
+<li><a class="" href="visioneval-module-build-process-ve-buildprocess.html"><span class="header-section-number">13</span> VisionEval Module Build Process {#ve-buildprocess}</a></li>
+<li><a class="" href="common-use-cases.html"><span class="header-section-number">14</span> Common Use Cases</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">15</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">16</span> Software Framework</a></li>
 </ul>
 
         <div class="book-extra">
@@ -3787,12 +3788,12 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.33.2</span> User Input Parameters<a class="anchor" aria-label="anchor" href="#user-input-parameters-2"><i class="fas fa-link"></i></a>
 </h4>
-<p><strong>Value of time (valueoftime)</strong> : This parameter set the value of time (base cost year dollars per hour). It should be defined in <a href="verpat.html#model_parameters.json-1">model_parameters.json</a></p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="vestate.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
-<span id="cb31-2"><a href="vestate.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
-<span id="cb31-3"><a href="vestate.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
-<span id="cb31-4"><a href="vestate.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
-<span id="cb31-5"><a href="vestate.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>Value of time (valueoftime)</strong> : This parameter set the value of time (base cost year dollars per hour). It should be defined in <a href="model-inputs.html#model_parameters.json">model_parameters.json</a></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="vestate.html#cb31-1" tabindex="-1"></a><span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
+<span id="cb31-2"><a href="vestate.html#cb31-2" tabindex="-1"></a><span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
+<span id="cb31-3"><a href="vestate.html#cb31-3" tabindex="-1"></a><span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
+<span id="cb31-4"><a href="vestate.html#cb31-4" tabindex="-1"></a><span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
+<span id="cb31-5"><a href="vestate.html#cb31-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="internal-module-inputs-67" class="section level4" number="10.4.33.3">
 <h4>
@@ -4408,12 +4409,12 @@ This module uses optional user inputs if <a href="vestate.html#vestate-initializ
 <h4>
 <span class="header-section-number">10.4.36.2</span> User Input Parameters<a class="anchor" aria-label="anchor" href="#user-input-parameters-3"><i class="fas fa-link"></i></a>
 </h4>
-<p><strong>Value of time (valueoftime)</strong> : This parameter set the value of time (base cost year dollars per hour). It should be defined in <a href="verpat.html#model_parameters.json-1">model_parameters.json</a></p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="vestate.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
-<span id="cb32-2"><a href="vestate.html#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
-<span id="cb32-3"><a href="vestate.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
-<span id="cb32-4"><a href="vestate.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
-<span id="cb32-5"><a href="vestate.html#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<p><strong>Value of time (valueoftime)</strong> : This parameter set the value of time (base cost year dollars per hour). It should be defined in <a href="model-inputs.html#model_parameters.json">model_parameters.json</a></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="vestate.html#cb32-1" tabindex="-1"></a><span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
+<span id="cb32-2"><a href="vestate.html#cb32-2" tabindex="-1"></a><span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
+<span id="cb32-3"><a href="vestate.html#cb32-3" tabindex="-1"></a><span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
+<span id="cb32-4"><a href="vestate.html#cb32-4" tabindex="-1"></a><span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
+<span id="cb32-5"><a href="vestate.html#cb32-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="internal-module-inputs-70" class="section level4" number="10.4.36.3">
 <h4>
@@ -5367,7 +5368,7 @@ hh_dvmt &lt;- data.frame(year, Dvmt = hh_dvmt)</code></pre>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2022-07-06.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2023-09-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
