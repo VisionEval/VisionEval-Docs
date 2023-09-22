@@ -9,6 +9,6 @@ for(i in depends){
   }
 }
 
-bookdown::render_book()
+bookdown::render_book() 
 
 shell.exec(file.path(dirname(getwd()), 'docs/index.html'))

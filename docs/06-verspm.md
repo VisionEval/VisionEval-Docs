@@ -62,6 +62,7 @@ The following five modules assigns a housing type to households (e.g. single-fam
 * [Calculate '4D' Measures](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/Calculate4DMeasures.md)
 * [Calculate Urban Mix Measures](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/CalculateUrbanMixMeasure.md)
   
+
 The following three modules identifies parking restrictions and prices affecting households, identifies households participating in TDM programs and assigns car service availability to zones (including car sharing and taxis):
 
 * [Assign Parking Restrictions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/AssignParkingRestrictions.md)
@@ -99,7 +100,7 @@ The following four module provides an initial estimate of average daily vehicle 
 6. **Powertrain and Fuel Modules** - *VEPowertrainsAndFuels package*
 
 The following two modules identifies the vehicles powertrain as an internal combustion engine (ICE), hybrid-electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), or electric vehicle (EV) and calculates each household vehicle's emission. 
- 
+
 * [Calculate Carbon Intensity](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md)
 * [Assign Household Vehicle Powertrains](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md)
 
@@ -121,7 +122,7 @@ The following modules run iteratively to balance the DVMT and travel costs. Tota
 8. **Heavy Vehicles Emissions** - *VETravelPerformance*
 
 The following two modules calculate heavy vehicle fuel and power consumption and GHG emissions: 
- 
+
 * [Calculate Commercial Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateComEnergyAndEmissions.md)
 * [Calculate Transit Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculatePtranEnergyAndEmission.md)
 
@@ -204,7 +205,8 @@ This file contains population estimates/forecasts by age for each of the base an
 * 30-54
 * 55-64
 * 65 Plus
-   
+  
+
 Base year data for population by age category can be sourced from the Census. Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies such as population data centers, universities, metropolitan planning organizations, or similar agencies.
 
 Here is a snapshot of the file:
@@ -281,6 +283,8 @@ Here is a snapshot of the file:
 </tbody>
 </table></div>
 
+
+
 #### Module Outputs {-}
 
 Households are created with the number of persons in each of six age categories (0-14, 15-19, 20-29, 30-54, 55-64, and 65+) and the total number of persons in the household. Two types of households are created: regular households (i.e. not persons living in group quarters) and group quarters households .
@@ -348,6 +352,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table></div>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -443,6 +449,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -521,6 +529,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Household Proportion by Income (bzone_hh_inc_qrtl_prop.csv) {-}
 
 This file contains the proportion of `Bzone` non-group quarters households by quartile of `Azone` household income category for each of the base and future years. The total for each `Bzone` should sum to `1`. 
@@ -581,6 +591,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -621,7 +633,8 @@ This file contains the total, retail and service employment by zone for each of 
 * **TotEmp**: Total number of jobs in zone
 * **RetEmp**: Number of jobs in retail sector in zone (Census LEHD: CNS07)
 * **SvcEmp**: Number of jobs in service sector in zone (Census LEHD: CNS12 + CNS14 + CNS15 + CNS16 + CNS19)
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -672,6 +685,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Zonal Latituted Longitude (bzone_lat_lon.csv) {-}
 
 This file contains the latitude and longitude of the centroid of the zone.
@@ -720,6 +735,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -739,7 +756,7 @@ Here is a snapshot of the file:
 * **DistanceToWork**: Distance from home to work assuming location at `Bzone` centroid and 'Manhattan' distance
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VELandUse/inst/module_docs/LocateEmployment.md)
-  
+
 ### AssignLocTypes {#verspm-assignloctypes}  
 
 This module assigns households to location types: `Urban` (located within an urbanized area boundary), `Town` (located in a smaller urban area that does not have enough population to qualify as an urbanized area), and `Rural` (located in an area characterized by low density dispersed development).
@@ -756,7 +773,8 @@ This file contains proportion of SF, MF and GQ dwelling units within the urban p
 * **PropTownSFDU**: Proportion of single family dwelling units located within the town portion of the zone
 * **PropTownMFDU**: Proportion of multi-family dwelling units located within the town portion of the zone
 * **PropTownGQDU**: Proportion of group quarters accommodations located within the town portion of the zone
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -824,7 +842,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-   
+
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -910,7 +930,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-   
+
+
+
 ##### Network density (bzone_network_design.csv) {-}
 
 This file contains values for `D3bpo4`, a measure for intersection density determined by the number of pedestrian-oriented intersections having four or more legs per square mile. The data to inform this input can be sourced from the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide).
@@ -953,6 +975,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -987,7 +1011,7 @@ This module calculates an urban mixed-use measure based on the 2001 National Hou
 ##### Household Neighborhood (bzone_urban-mixed-use_prop.csv) {-}
 
 This file contains the target proportion of households located in mixed-used neighborhoods in each zone. 
-   
+
 * **MixUseProp**: Target for proportion of households located in mixed-use neighborhoods in zone (or `NA` if no target)
 
 Here is a snapshot of the file:
@@ -1027,7 +1051,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-   
+
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -1062,7 +1088,8 @@ This file contains the parking information by `Bzone` for each of the base and f
 * **PropWkrPay**: Proportion of workers who pay for parking
 * **PropCashOut**: Proportions of workers paying for parking in a cash-out-buy-back program
 * **PkgCost**: Average daily cost for long-term parking (e.g. paid on monthly basis)
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1130,6 +1157,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -1208,6 +1237,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -1273,6 +1304,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### Internal Module Inputs {-}
 
 This module does not have any internal module inputs
@@ -1314,6 +1347,7 @@ This file contains annual revenue-miles for different transit modes for metropol
 * **HRRevMi**: Annual revenue-miles of light rail and heavy rail public transit service
 * **CRRevMi**: Annual revenue-miles of commuter rail, hybrid rail, cable car, and aerial tramway public transit service
   
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1358,12 +1392,15 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Transit service for Bzone (bzone_transit_service.csv) {-}
 
 This file supplies the data on relative public transit accessibility at the `Bzone` level. The data to inform this input can be sourced from the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide).
 
 * **D4c**: Aggregate frequency of transit service within 0.25 miles of block group boundary per hour during evening peak period (Ref: EPA 2010 Smart Location Database)
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1401,7 +1438,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-   
+
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -1457,6 +1496,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -1485,7 +1526,8 @@ This file is optional and can be used to adjust the estimate of household driver
 * **Drv30to54AdjProp**: Target proportion of unadjusted model number of drivers 30 to 54 years old (`1` = no adjustment)
 * **Drv55to64AdjProp**: Target proportion of unadjusted model number of drivers 55 to 64 years old (`1` = no adjustment)
 * **Drv65PlusAdjProp**: Target proportion of unadjusted model number of drivers 65 or older (`1` = no adjustment)
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1517,6 +1559,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -1589,7 +1633,8 @@ This module identifies how many household vehicles are light trucks and how many
 This file specifies the light truck proportion of the vehicle fleet. The user can be developed from local registration data. Alternatively, if MOVES is available for the model region, this input can be calculated from the MOVES vehicle population data (SourceTypeYear). The vehicle types used in MOVES (SourceType) correspond with the two categories of passenger vehicles used in EERPAT: MOVES SourceType 21, Passenger Car, is equivalent to autos in EERPAT and MOVES Source Type 31, Passenger Truck, is equivalent to light trucks.
 
 * **LtTrkProp**: Proportion of household vehicles that are light trucks (pickup, SUV, van).
-     
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1612,6 +1657,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -1658,7 +1705,7 @@ Here is a snapshot of the file:
 | :--- | :----: | :----: | :----: | :----: | :----: | :----: |
 | RVMPO | 2010 | 1 | 3 | 3 | 0.75 | 1 |
 | RVMPO | 2038 | 1 | 3 | 3 | 0.75 | 1 |
-  
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -1687,7 +1734,7 @@ This file provides inputs for mean auto age and mean light truck age by `Azone`.
 
 * **AutoMeanAge**: Mean age of automobiles owned or leased by households.
 * **LtTrkMeanAge**: Mean age of light trucks owned or leased by households.
- 
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1713,6 +1760,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -1746,7 +1795,8 @@ This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and
 
 * **VehOwnFlatRateFee**: Annual flat rate tax per vehicle in dollars
 * **VehOwnAdValoremTax**: Annual proportion of vehicle value paid in taxes
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1773,11 +1823,14 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Proportion of Pay-as-you-drive (PAYD) Insurance (azone_payd_insurance_prop.csv) {-}
 This file provides inputs on the proportion of households having PAYD insurance.
 
 * **PaydHhProp**: Proportion of households in the Azone who have pay-as-you-drive insurance for their vehicles
-    
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -1800,7 +1853,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-  
+
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -2007,7 +2062,8 @@ Note: SOV DVMT reduction is only applied to households in urban and town locatio
 This file provides inputs for a goal for diverting a portion of SOV travel within a 20-mile tour distance (round trip distance). The user can use  local household travel survey data (if available) to develop this input.
 
 * **PropSovDvmtDiverted**: Goals for the proportion of household DVMT in single occupant vehicle tours with round-trip distances of 20 miles or less be diverted to bicycling or other slow speed modes of travel
-   
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -2030,6 +2086,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -2112,7 +2170,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Biofuels Proportions of Transit Fuels (marea_transit_biofuel_mix.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the biofuel used by transit services.
@@ -2120,7 +2180,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the b
 * **TransitEthanolPropGasoline**: Ethanol proportion of gasoline used by transit vehicles
 * **TransitBiodieselPropDiesel**: Biodiesel proportion of diesel used by transit vehicles
 * **TransitRngPropCng**: Renewable natural gas proportion of compressed natural gas used by transit vehicles
-    
+  
+
 Here is a snapshot of the file:
 <table>
  <thead>
@@ -2149,7 +2210,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Transit Fuels Proportions by Transit Vehicle Type (marea_transit_fuel.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the transit fuels proportions.
@@ -2206,6 +2269,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 ##### Transit Powertrain Proportions by Transit Vehicle Type (marea_transit_powertrain_prop.csv)
 
@@ -2268,6 +2333,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Average Carbon Intensities of Fuels (region_ave_fuel_carbon_intensity.csv)
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the average carbon density for different vehicle types for the model region.
@@ -2321,6 +2388,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Car Service Vehicle Powertrains (region_carsvc_powertrain_prop.csv)
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.
@@ -2331,7 +2400,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **CarSvcLtTrkPropIcev**: Proportion of car service light truck travel powered by internal combustion engine powertrains
 * **CarSvcLtTrkPropHev**: Proportion of car service light truck travel powered by hybrid electric powertrains
 * **CarSvcLtTrkPropBev**: Proportion of car service light truck travel powered by battery electric powertrains
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -2369,7 +2439,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-  
+
+
+
 ##### Commercial Service Vehicle Powertrains (region_comsvc_powertrain_prop.csv)
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of commercial vehicles.
@@ -2419,13 +2491,15 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Heavy duty Truck Powertrains (region_hvytrk_powertrain_prop.csv)
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of heavy duty trucks.
 
 * **HvyTrkPropIcev**: Proportion of heavy truck travel powered by internal combustion engine powertrains
 * **HvyTrkPropHev**: Proportion of heavy truck travel powered by hybrid electric powertrains
 * **HvyTrkPropBev**: Proportion of heavy truck travel powered by battery electric powertrains
-		
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -2454,7 +2528,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-	
+
+
+
 #### Internal Module Inputs {-}
 This module uses no datasets that are in the datastore.
 
@@ -2507,6 +2583,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 This module does not have any internal module inputs
@@ -2579,6 +2657,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Car Service Vehicle Powertrains (region_carsvc_powertrain_prop.csv)
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.
@@ -2589,7 +2669,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **CarSvcLtTrkPropIcev**: Proportion of car service light truck travel powered by internal combustion engine powertrains
 * **CarSvcLtTrkPropHev**: Proportion of car service light truck travel powered by hybrid electric powertrains
 * **CarSvcLtTrkPropBev**: Proportion of car service light truck travel powered by battery electric powertrains
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -2627,6 +2708,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -2679,7 +2762,8 @@ This input file is OPTIONAL. It is only needed if the user wants to adjust heavy
 * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
 * **HvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the region by heavy trucks during he base year
 * **ComSvcDvmtGrowthBasis**: Factor used to grow commercial service vehicle DVMT in Marea from base year value
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -2699,6 +2783,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 ##### Base Year DVMT (marea_base_year_dvmt.csv) {-}
 This input file is OPTIONAL. It is only needed if the user wants to modify the adjust dvmt growth factors from base year in by Marea
@@ -2725,7 +2811,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### DVMT Split by Road Class (marea_dvmt_split_by_road_class.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the DVMT split for different road classes. This data can be derived from the FHWA [Highway Statistics](https://www.fhwa.dot.gov/policyinformation/statistics.cfm) data. 
@@ -2770,7 +2858,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Operations Deployment Effects on DVMT (**marea_operations_deployment.csv**){-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the proportion of DVMT affected by operations for different road classes. 
@@ -2819,7 +2909,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Other Operations Effects (other_ops_effectiveness.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the other delay effects of operations in different road classes
@@ -2829,7 +2921,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the o
 * **Art_NonRcr**: Percentage reduction of non-recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
 * **Fwy_Rcr**: Percentage reduction of recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
 * **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -2897,7 +2990,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Congestion Charges  (**marea_congestion_charges.csv**) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to add a congestion charge policy for vehicle travel using different congestion levels and roadway classes.
@@ -2962,7 +3057,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
- 
+
+
+
 #### Internal Module Inputs {-}
 
 This module uses no datasets that are in the datastore.
@@ -2985,7 +3082,8 @@ This input file is OPTIONAL. It is only needed if the user wants to adjust heavy
 * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
 * **HvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the region by heavy trucks during he base year
 * **ComSvcDvmtGrowthBasis**: Factor used to grow commercial service vehicle DVMT in Marea from base year value
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -3005,6 +3103,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 ##### Base Year DVMT (**marea_base_year_dvmt.csv**) {-}
 This input file is OPTIONAL. It is only needed if the user wants to modify the adjust dvmt growth factors from base year in by Marea
@@ -3031,7 +3131,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### DVMT Split by Road Class (marea_dvmt_split_by_road_class.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the dvmt split for different road classes. This data can be derived from the FHWA [Highway Statistics](https://www.fhwa.dot.gov/policyinformation/statistics.cfm) data. 
@@ -3076,6 +3178,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
@@ -3137,7 +3241,8 @@ This input file is OPTIONAL. It is only needed if the user wants to adjust heavy
 * **HvyTrkDvmtGrowthBasis**: Factor used to grow heavy truck DVMT from base year value
 * **HvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the region by heavy trucks during he base year
 * **ComSvcDvmtGrowthBasis**: Factor used to grow commercial service vehicle DVMT in Marea from base year value
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -3157,6 +3262,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 ##### Base Year DVMT (marea_base_year_dvmt.csv) {-}
 This input file is OPTIONAL. It is only needed if the user wants to modify the adjust dvmt growth factors from base year in by Marea
@@ -3183,7 +3290,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 #### Internal Module Inputs
 
 <div class="table-wrapper" markdown="block">
@@ -3295,7 +3404,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Other Operations Effects (other_ops_effectiveness.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the other delay effects of operations in different road classes
@@ -3305,7 +3416,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the o
 * **Art_NonRcr**: Percentage reduction of non-recurring arterial delay that would occur with full deployment of other user-defined arterial operations measures
 * **Fwy_Rcr**: Percentage reduction of recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
 * **Fwy_NonRcr**: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -3373,7 +3485,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-			
+
+
+
 ##### Congestion Charges  (**marea_congestion_charges.csv**) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to add a congestion charge policy for vehicle travel using different congestion levels and roadway classes.
@@ -3439,6 +3553,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 #### User Input Parameters {-}
 
 **Value of time (valueoftime)** : This parameter set the value of time (base cost year dollars per hour).  It should be defined in [model_parameters.json]
@@ -3449,7 +3565,7 @@ Here is a snapshot of the file:
    "TYPE": "double", 
    "UNITS": "base cost year dollars per hour"
   }
-   ```  
+   ```
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -3521,7 +3637,8 @@ This input file supplies information of deployment of speed smoothing and ecodri
 * **ArtSmooth**: Fractional deployment of speed smoothing traffic management on arterials, where 0 is no deployment and 1 is the full potential fuel savings
 * **LdvEcoDrive**: Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1
 * **HvyTrkEcoDrive**: Eco-driving penetration for heavy-duty vehicles; the fraction of vehicles from 0 to 1
-   
+  
+
 Here is a snapshot of the file:	
 
 | Geo   | Year | FwySmooth | ArtSmooth | LdvEcoDrive | HvyTrkEcoDrive |
@@ -3593,7 +3710,8 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **CarSvcLtTrkPropIcev**: Proportion of car service light truck travel powered by internal combustion engine powertrains
 * **CarSvcLtTrkPropHev**: Proportion of car service light truck travel powered by hybrid electric powertrains
 * **CarSvcLtTrkPropBev**: Proportion of car service light truck travel powered by battery electric powertrains
-   
+  
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -3631,6 +3749,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs
 
@@ -3686,7 +3806,8 @@ This file supplies data for vehicle access and eagress time by Azone.
 * **OwnedVehAccessTime**:Average amount of time in minutes required for access to and egress from a household-owned vehicle for a trip
 * **HighCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a high service level car service for a trip
 * **LowCarSvcAccessTime**: Average amount of time in minutes required for access to and egress from a low service level car service for a trip
-   
+  
+
 Here is a snapshot of the file:	
 
 | Geo   | Year | OwnedVehAccessTime | HighCarSvcAccessTime | LowCarSvcAccessTime |
@@ -3700,7 +3821,8 @@ This file supplies data for retail cost of fuel and electricity by Azone. This i
 
 * **FuelCost**:Retail cost of fuel per gas gallon equivalent in dollars (before taxes are added)
 * **PowerCost**: Retail cost of electric power per kilowatt-hour in dollars (before taxes are added)
-   
+  
+
 Here is a snapshot of the file:
 
 | Geo | Year | FuelCost.2005 | PowerCost.2005 |
@@ -3721,14 +3843,14 @@ Here is a snapshot of the file:
 | ----- | ---- | ------------ | ----------- | ---------------- |
 | RVMPO | 2010 | 0.424        | 0           | 0                |
 | RVMPO | 2038 | 0.484        | 0           | 0                |
-   
+
 ### External Costs (region_prop_externalities_paid.csv) {-}
 
-Proportional external costs for the ragion  (This file supplies data for climate change and other social costs.
+Proportional external costs for the region. This input file allocates the percent of the total cost that is charged to region vehicles on a per mile basis. 
 
-* **PropClimateCostPaid**: Proportion of climate change costs paid by users (i.e. ratio of carbon taxes to climate change costs
-* **PropOtherExtCostPaid**: Proportion of other social costs paid by users
-   
+* **PropClimateCostPaid**: Proportion of climate change costs paid by users (i.e. ratio of carbon taxes to climate change costs). The dollar value of Climate Cost Paid is given in the optional input file: *region_co2e_costs.csv*.  
+* **PropOtherExtCostPaid**: Proportion of other social costs paid by users. The other social costs paid are included in an input file within the VETravelPerformance package. For more information on these values [click here](https://github.com/RSGInc/VisionEval-Dev/blob/development-next/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md#social-costs).
+
 Here is a snapshot of the file:	
 
 | Year | PropClimateCostPaid | PropOtherExtCostPaid |
@@ -3746,7 +3868,7 @@ Here is a snapshot of the file:
    "TYPE": "double", 
    "UNITS": "base cost year dollars per hour"
   }
-   ```  
+   ```
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -3791,7 +3913,7 @@ Here is a snapshot of the file:
 ### BudgetHouseholdDvmt {#verspm-budgethouseholddvmt}
 
 This module adjusts average household DVMT to keep the quantity within household operating cost limits. The limit for each household is calculated in several steps. First, the proportion of the household's income that may be spent on vehicle operating costs is calculated using a model that is explained below. This is called the budget proportion. Then an adjusted household income
-for budget calculation purposes is calculated by adding the annual cost of insurance for households subscribing to payd-as-you-drive (PAYD) insurance, cash-out parking payments for workers who work at an employer that has cash-out-buy-back parking, and any vehicle ownership cost savings for households that substitute high level car service for one or more household vehicles. The adjusted household income is muliplied by the budget proportion and divided by the average vehicle operating cost per mile for the household to determine the maximum household DVMT that fits within the household budget. The household DVMT is then set at the lesser of this budget maximum or the modeled household DVMT.
+for budget calculation purposes is calculated by adding the annual cost of insurance for households subscribing to payd-as-you-drive (PAYD) insurance, cash-out parking payments for workers who work at an employer that has cash-out-buy-back parking, and any vehicle ownership cost savings for households that substitute high level car service for one or more household vehicles. The adjusted household income is multiplied by the budget proportion and divided by the average vehicle operating cost per mile for the household to determine the maximum household DVMT that fits within the household budget. The household DVMT is then set at the lesser of this budget maximum or the modeled household DVMT.
 
 The budget proportion model is estimated using data from the Bureau of Labor's consumer expenditure survey for the years from 2003 to 2015. The data used are the nominal dollar expenditures by household income category and year by transportation category. The values for the operating cost categories (gas and oil, and maintenance and repair) are summed and then divided by the midpoint value for each income category to calculate the budget proportion for each income group and each year. From this the mean value is computed for each income group. The budget proportions for each income group and year are divided by the mean values by income group to normalize values. The standard deviation for the combined normalized values is computed and value of 3 deviations above the mean is set as the maximum normalized value. The mean values by income group are multiplied by this normalized maximum to derive a budget proportion maximum by income group. A smoothed splines model of the budget proportion as a function of income is then estimated from the calculated budget proportion maximums. This model is used to calculate the budget proportion for a household based on the household income. The minimum and
 maximum values of the calculated budget proportion maximums are used as constraints to avoid unreasonable results for very low incomes and very high incomes.
@@ -3903,6 +4025,8 @@ Here is a snapshot of the file:
 </tbody>
 </table>
 
+
+
 ##### Heavy duty Truck Powertrains (region_hvytrk_powertrain_prop.csv) {-}
 
 This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of heavy duty trucks.
@@ -3910,7 +4034,7 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **HvyTrkPropIcev**: Proportion of heavy truck travel powered by internal combustion engine powertrains
 * **HvyTrkPropHev**: Proportion of heavy truck travel powered by hybrid electric powertrains
 * **HvyTrkPropBev**: Proportion of heavy truck travel powered by battery electric powertrains
-		
+
 Here is a snapshot of the file:	
 <table>
  <thead>
@@ -3939,7 +4063,9 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
-   
+
+
+
 #### Internal Module Inputs {-}
 
 <div class="table-wrapper" markdown="block">
@@ -4052,6 +4178,8 @@ Here is a snapshot of the file:
   </tr>
 </tbody>
 </table>
+
+
 
 #### Internal Module Inputs {-}
 
