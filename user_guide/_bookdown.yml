@@ -8,7 +8,8 @@ language:
     chapter_name: "Chapter "
 rmd_files:
   - index.Rmd
-  - 01-getting-started.Rmd
+  - 01-A-getting-started.Rmd
+  - 01-B-detailed-installation.Rmd
   - 02-concept-primer.Rmd
   - 03-tutorial.Rmd
   - 04-inputs.Rmd
@@ -20,3 +21,4 @@ rmd_files:
   - 10-build-process.Rmd
   - 11-api.Rmd
   - 12-software.Rmd
+  - 20-Topic-Index.Rmd
