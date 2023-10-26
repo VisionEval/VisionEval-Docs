@@ -1,19 +1,21 @@
 name: Copy Book To VE.Org
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   copy-book-dir:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
       with:
-          ref: ${{ github.head_ref }} 
+          ref: main
                 
-    - name: Copies all contents to VE.org
+    - name: Copy contents to VisionEval/VisionEval.org
       uses: cpina/github-action-push-to-another-repository@v1.7.2
-          
       env:
         API_TOKEN_GITHUB: ${{ secrets.docs_sync }}
       with:
@@ -21,5 +23,5 @@ jobs:
         target-directory: 'docs/'
         destination-github-username: 'VisionEval'
         destination-repository-name: 'VisionEval.org'
-        user-email: 'daniel.flynn@dot.gov'
+        user-email: 'visioneval@dot.gov'
         target-branch: 'main'
