@@ -34,7 +34,7 @@ policy-levers
 household-multimodal-travel
 transport-supply
 household-travel-calculations
-hh-sov-diversion
+sov-diversion
 dvmt-reductions
 vehicles-fuels-and-emissions
 household-vehicle-table
@@ -109,7 +109,6 @@ road-class
 road-costs
 road-lane-miles
 road-use-taxes
-sov-diversion
 social-costs
 speed-smoothing
 transit-d

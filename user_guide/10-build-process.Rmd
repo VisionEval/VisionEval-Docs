@@ -1,6 +1,6 @@
 # VisionEval Module Build Process {#ve-buildprocess}
 
-    knitr::opts_chunk$set(echo = TRUE, results='hide')
+   knitr::opts_chunk$set(echo = TRUE, results='hide')
 
 ## (Re)Building VisionEval
 

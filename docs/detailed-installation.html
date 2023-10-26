@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Detailed Installation | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="description" content="2.1 Selecting an Installation Strategy When you install VisionEval, you need to choose whether do do an End-User Version or to set up a full Development Environment? Here are some considerations:...">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Detailed Installation | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://visioneval.org/docs/detailed-installation.html">
+<meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
+<meta property="og:description" content="2.1 Selecting an Installation Strategy When you install VisionEval, you need to choose whether do do an End-User Version or to set up a full Development Environment? Here are some considerations:...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Detailed Installation | VisionEval User Guide">
+<meta name="twitter:description" content="2.1 Selecting an Installation Strategy When you install VisionEval, you need to choose whether do do an End-User Version or to set up a full Development Environment? Here are some considerations:...">
+<meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="active" href="detailed-installation.html"><span class="header-section-number">2</span> Detailed Installation</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">3</span> Concept Primer</a></li>
+<li><a class="" href="tutorial.html"><span class="header-section-number">4</span> VisionEval Tutorial</a></li>
+<li><a class="" href="picking-a-model.html"><span class="header-section-number">5</span> Picking a Model</a></li>
+<li><a class="" href="model-geography-and-years.html"><span class="header-section-number">6</span> Model Geography and Years</a></li>
+<li><a class="" href="model-inputs.html"><span class="header-section-number">7</span> Model Inputs</a></li>
+<li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">8</span> Validation and Troubleshooting</a></li>
+<li><a class="" href="developing-scenarios.html"><span class="header-section-number">9</span> Developing Scenarios</a></li>
+<li><a class="" href="verspm.html"><span class="header-section-number">10</span> VERSPM Model Details</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">11</span> VE-State Model Details</a></li>
+<li><a class="" href="verpat.html"><span class="header-section-number">12</span> VERPAT Model Details</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">13</span> Estimation in VisionEval</a></li>
+<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">14</span> VisionEval Module Build Process</a></li>
+<li><a class="" href="common-use-cases.html"><span class="header-section-number">15</span> Common Use Cases</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">16</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">17</span> Software Framework</a></li>
+<li><a class="" href="topic-index.html"><span class="header-section-number">18</span> VisionEval Topic Index</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="detailed-installation" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Detailed Installation<a class="anchor" aria-label="anchor" href="#detailed-installation"><i class="fas fa-link"></i></a>
+</h1>
+<div id="selecting-an-installation-strategy" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Selecting an Installation Strategy<a class="anchor" aria-label="anchor" href="#selecting-an-installation-strategy"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you install VisionEval, you need to choose whether do do an <a href="#End-User%20Installation">End-User Version</a> or to set up a full <a href="#development-environment">Development Environment</a>?</p>
+<p>Here are some considerations:</p>
+<ul>
+<li>The End-user version is easier to install and has fewer requirements. It is also the place to start if you are new to VisionEval.</li>
+<li>The Developer version lets you stay up-to-the-minute on new changes, and also to make
+changes to the software yourself (if you’re up for that)</li>
+<li>You can install both and go back and forth if you like (especially if you create a <a href="#production-environment">Production Environment</a>).</li>
+</ul>
+<p>Setting up a <a href="#production-environment">Production Environment</a> will let you keep all your models in their own folder
+separate from where the VisionEval code resides. Use a Production Environment to avoid having to move your
+models when you upgrade to a new VisionEval version. A Productrion Environment also makes it easier to keep your models
+backed up without having to copy gigabytes of VisionEval code</p>
+<div id="recommended-installation-workflow" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Recommended installation workflow:<a class="anchor" aria-label="anchor" href="#recommended-installation-workflow"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Do an <a href="#enduser-installation">End User Installation</a>
+<ul>
+<li>That’s all you need if you’re just trying it out and running the walkthrough tutorials</li>
+</ul>
+</li>
+<li>Set up a <a href="#production-environment">Production Environment</a> for your own model
+<ul>
+<li>Start by connecting the Production Environment to the End User Installation</li>
+</ul>
+</li>
+<li>Add a <a href="#development-environment">Development Installation</a> to build VisionEval on your own
+<ul>
+<li>“Development Light” (‘<code>src</code>’ installation within your End User installation)</li>
+<li>Full Development Version (Github)
+<ul>
+<li>The Full Development Version lets you stay current with the most recent VisionEval development.</li>
+<li>You’ll need to build the Full Development Version before you can run your model.</li>
+<li>See the separate instructions on how to use the Full Development Version.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Re-connect your Production Environment to the Development Installation</li>
+<li>When you get a new version of VisionEval, update <code>VE_RUNTIME</code> and <code>VE_HOME</code> in the .Renviron
+files to link the new VisionEval to your Production Environment</li>
+</ol>
+</div>
+</div>
+<div id="end-user-installation" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> <a name="enduser-installation">End-User Installation</a><a class="anchor" aria-label="anchor" href="#end-user-installation"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Install R itself
+<ul>
+<li>R does not require administrative permission to install</li>
+<li>Pick a supported R version
+<ul>
+<li>If you already have R installed, make sure VisionEval is available for your R version.</li>
+<li>You can have multiple R versions installed on your computer</li>
+<li>Choose R 4.3.1 if you haven’t already chosen for other reasons</li>
+<li>You can download a specific supported version using the following links:
+<ul>
+<li>R 4.1.3: <a href="https://cran.r-project.org/bin/windows/base/old/4.1.3">https://cran.r-project.org/bin/windows/base/old/4.1.3</a>
+</li>
+<li>R 4.2.3: <a href="https://cran.r-project.org/bin/windows/base/old/4.2.3">https://cran.r-project.org/bin/windows/base/old/4.2.3</a>
+</li>
+<li>R 4.3.1: <a href="https://cran.r-project.org/bin/windows/base/old/4.3.1">https://cran.r-project.org/bin/windows/base/old/4.3.1</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Install RStudio (optional; administrative permission required)
+<ul>
+<li>Get the latest version here: <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a>
+<ul>
+<li>RStudio is now (November 2022) being maintained and distributed by a new company called “Posit” (the same key people are involved)</li>
+</ul>
+</li>
+<li>Start RStudio</li>
+<li>If RStudio doesn’t find your desired R version automatically, connect it to the version of R you want to use for your VisionEval installation
+using the RStudio <code>Tools / Global Options</code> menu item</li>
+</ul>
+</li>
+<li>Download the VisionEval installer for your version of R
+<ul>
+<li>These are hosted in the VisionEval-dev repository in the “releases” section</li>
+<li>VisionEval is available for these R versions (September 26, 2023):
+<ul>
+<li>R 4.1.3: <a href="https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.0.4/VE-3.0-Installer-Windows-R4.1.3_2023-09-25.zip">https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.0.4/VE-3.0-Installer-Windows-R4.1.3_2023-09-25.zip</a>
+</li>
+<li>R 4.2.3: <a href="https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.0.4/VE-3.0-Installer-Windows-R4.2.3_2023-09-25.zip">https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.0.4/VE-3.0-Installer-Windows-R4.2.3_2023-09-25.zip</a>
+</li>
+<li>R 4.3.1: <a href="https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.0.4/VE-3.0-Installer-Windows-R4.3.1_2023-09-25.zip">https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.0.4/VE-3.0-Installer-Windows-R4.3.1_2023-09-25.zip</a>
+</li>
+</ul>
+</li>
+<li>Visit this page to check for newer releases:
+<ul>
+<li><a href="https://github.com/VisionEval/VisionEval-Dev/releases">https://github.com/VisionEval/VisionEval-Dev/releases</a></li>
+</ul>
+</li>
+<li>“Ignore the source, Luke”. You can find out about the PackageSources zip files in the <a href="#development-environment">Development Installation</a> section</li>
+</ul>
+</li>
+<li>Unzip the installer
+<ul>
+<li>On Windows, it is best NOT to install VisionEval in your “Documents” folder because of how Windows redirects access to it</li>
+<li>A better location would be in your <code>%USERPROFILE%</code> (same place R probably went if you did a non-administrative installation…)</li>
+<li>To find your User Profile folder:
+<ul>
+<li>Press the Windows key</li>
+<li>Type “%USERPROFILE%” and hit enter (File Explorer will open, showing you the folder)</li>
+<li>Use ‘New Folder’ to create the folder for the installation</li>
+</ul>
+</li>
+<li>You can use a standalone unzipper (e.g. SecureZip or 7zip) or Windows itself will let you use the zip file
+as a folder so you can open it, then highlight and copy everything inside it to your installation location.</li>
+</ul>
+</li>
+<li>To complete the installation, start R from the place you installed VisionEval
+<ul>
+<li>Double-click VisionEval.Rproj
+<ul>
+<li>You can use the “launch.bat” script to avoid having to install RStudio</li>
+<li>launch.bat requires the R_HOME user environment variable to be set (or for R to be found in %USERPROFILE% or another well-known location)</li>
+</ul>
+</li>
+<li>If everything is working, an R console window will open where you can type instructions for VisionEval</li>
+<li>The “Welcome to VisionEval!” message should appear</li>
+<li>Return to the Getting Started page for how to run VisionEval and to use the walkthrough to explore VisionEval models and features.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="setting-up-a-production-environment" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> <a name="production-environment">Setting up a Production Environment</a><a class="anchor" aria-label="anchor" href="#setting-up-a-production-environment"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Where should I put my own model?
+<ul>
+<li>By default, VisionEval looks for models in the “models” folder of the VisionEval runtime</li>
+<li>In production, that’s a problem because you will need to move the model setups every time you change
+the version of R or VisionEval</li>
+<li>You can save headaches by setting up a separate folder for your models (VE_RUNTIME)</li>
+</ul>
+</li>
+<li>For production use (i.e. in the “real world”) it is best to put your VisionEval models in a separate
+folder</li>
+<li>The VisionEval startup code knows about two locations:
+<ul>
+<li>VE_HOME, which is where the VisionEval application code is located</li>
+<li>VE_RUNTIME, which is where the “models” folder is located</li>
+<li>These can be entirely different folders on different drives</li>
+<li>Out of the box, VE_HOME and VE_RUNTIME are both the same, and they point to the folder
+where you unzipped VisionEval</li>
+</ul>
+</li>
+<li>Decide how you would like to start VisionEval
+<ul>
+<li>You can start from VE_HOME</li>
+<li>Or, you can start from VE_RUNTIME</li>
+<li>Or you can set up both and see what works for you</li>
+<li>We suggest staring from VE_RUNTIME, since it is then easier to update your R or VisionEval version
+(You don’t need to remember which installation to visit to start)</li>
+</ul>
+</li>
+<li>To start from your installation directory using a different VE_RUNTIME location
+<ul>
+<li>The first thing to do is decide where you want your VisionEval runtime (VE_RUNTIME)</li>
+<li>Create a folder (e.g. %USERPROFILE%/VE_Models)</li>
+<li>Go to your VisionEval installation and open the .Renviron file
+<ul>
+<li>if that file does not exist, please start your VisionEval installation once using VisionEval.Rproj or launch.bat,</li>
+</ul>
+</li>
+<li>Using your favorite text editor (or Notepad, which is nobody’s favorite but does work), add this line with the
+directory adjusted to the place you created the new runtime folder:
+VE_RUNTIME=C:/Users/MyUserProfileDirectory/VE_Models</li>
+<li>Now when you start VisionEval, you’ll see that it is running in the folder you assigned to VE_RUNTIME
+<ul>
+<li>You’ll also notice that there is now an empty “models” directory created when you ran VisionEval for the first time</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>You can move some of the runtime support files over to your new VE_RUNTIME if you like
+<ul>
+<li>Consider moving just these files and folders to have access to tutorial and support tools
+<ul>
+<li>tools</li>
+<li>walkthrough</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>To start from within your VE_RUNTIME, you need to copy some files from the installation runtime and add a line to .Renviron
+<ul>
+<li>Copy these runtime files from your installation directory to your VE_RUNTIME:
+<ul>
+<li>launch.bat</li>
+<li>.Rprofile</li>
+<li>.Renviron</li>
+<li>VisionEval.Rproj</li>
+<li>visioneval.cnf.sample (OPTIONAL)</li>
+</ul>
+</li>
+<li>If you do not have an end user installation (just the development environment from Github),
+you need to do the following first:
+<ul>
+<li>Build visioneval (see the section on setting up a development environment and building VisionEval)</li>
+<li>Get the runtime files from “MyVisionEval-Github-clone/built/visioneval/4.3.1/runtime”)</li>
+</ul>
+</li>
+<li>Do NOT move the following files and folders (it won’t hurt, but it just wastes disk space and is confusing):
+<ul>
+<li>ve-lib</li>
+<li>VisionEval.R</li>
+<li>LICENSE</li>
+</ul>
+</li>
+<li>Do NOT delete the original runtime folder (the startup script requires it)</li>
+<li>Edit .Renviron to add this line (you can use either kind of slash: / or \ )
+VE_HOME=c:/My/Installed/VisionEval</li>
+<li>If VE_HOME points into a development environment
+<ul>
+<li>VE_HOME should be the location of the Git root directory (NOT the built runtime)</li>
+<li>It will still work if you point VE_HOME at the built runtime, you just won’t have access
+to the developmment environment tools.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></div>
+<div class="next"><a href="conceptprimer.html"><span class="header-section-number">3</span> Concept Primer</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#detailed-installation"><span class="header-section-number">2</span> Detailed Installation</a></li>
+<li>
+<a class="nav-link" href="#selecting-an-installation-strategy"><span class="header-section-number">2.1</span> Selecting an Installation Strategy</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#recommended-installation-workflow"><span class="header-section-number">2.1.1</span> Recommended installation workflow:</a></li></ul>
+</li>
+<li><a class="nav-link" href="#end-user-installation"><span class="header-section-number">2.2</span> End-User Installation</a></li>
+<li><a class="nav-link" href="#setting-up-a-production-environment"><span class="header-section-number">2.3</span> Setting up a Production Environment</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs//blob/master/01-B-detailed-installation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs//edit/master/01-B-detailed-installation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2023-10-26.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>
