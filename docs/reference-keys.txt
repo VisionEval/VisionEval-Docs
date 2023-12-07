@@ -856,7 +856,7 @@ initialize-module
 the-instextdata-directory
 the-data-raw-directory
 the-tests-directory
-visioneval-module-build-process-ve-buildprocess
+ve-buildprocess
 rebuilding-visioneval
 what-is-an-r-package
 why-is-this-relevant

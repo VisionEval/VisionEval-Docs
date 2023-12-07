@@ -1,7 +1,7 @@
 --- 
 title: "VisionEval User Guide"
 author: "VisionEval Pooled Fund Team"
-date: "2023-09-20"
+date: "2023-12-07"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -23,7 +23,7 @@ This guide contains documentation for users and developers of the VisionEval mod
 | [VisionEval Tutorial](#tutorial) | Introductory tutorial on how to start applying a VisionEval model, with chapters on [picking a model](#picking-a-model), [model geography](#model-geography-and-years), [inputs](#model-inputs), [validation](#validation-and-troubleshooting), and [scenarios](#developing-scenarios) |
 | VisionEval Model Details | Comprehensive and in-depth documentation on the three VisionEval models: [VERSPM](#verspm), [VE-State](#vestate), and [VERPAT](#verpat) |
 | [Estimation in VisionEval][Estimation in VisionEval] | Overview of model estimation in VisionEval and instructions to customize model applications |
-| [Module Build Process][Module Build Process] | Overview of building a VisionEval package module using custom data |
+| [Module Build Process](#ve-buildprocess) | Overview of building a VisionEval package module using custom data |
 | [Developer Documentation](#developer) | Information for developers or researchers interested in making contributions to the VisionEval system |
 | [API Documentation][API Documentation] | Module documentation from the model source code |
 | [Software Framework][Software Framework] | Technical overview of the VisionEval software framework |

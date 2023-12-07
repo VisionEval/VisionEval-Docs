@@ -14,7 +14,7 @@ jobs:
       with:
           ref: main
                 
-    - name: Copy contents to VisionEval/VisionEval.org
+    - name: Copy contents to VisionEval/VisionEval.github.io
       uses: cpina/github-action-push-to-another-repository@v1.7.2
       env:
         API_TOKEN_GITHUB: ${{ secrets.docs_sync }}
@@ -22,6 +22,6 @@ jobs:
         source-directory: 'docs/'
         target-directory: 'docs/'
         destination-github-username: 'VisionEval'
-        destination-repository-name: 'VisionEval.org'
+        destination-repository-name: 'VisionEval.github.io'
         user-email: 'visioneval@dot.gov'
         target-branch: 'main'
