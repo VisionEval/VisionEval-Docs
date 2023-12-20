@@ -523,6 +523,10 @@ A voluntary employer-based program aimed at reducing solo commutes by automobile
 A massDOT [guidebook](https://www.mass.gov/doc/guidebook/download) provides extensive information about such programs. 
 In some states such programs are mandatory for large employers. Information on Oregon's [Employee Commute Options](https://www.oregon.gov/deq/aq/programs/pages/eco.aspx) program includes information about conducting employee surveys to demonstrate progress towards commuting trip reduction targets.
 
+This input is used within the Travel Demand Management input for work-based policies. The input assumes workers participate in a strong employee commute options programs (e.g., free transit pass, emergency ride home, bike rider facilities, etc.).  
+
+This input is the complement to the IMP [(Individualized marketing programs)](#individualized-marketing-programs)
+
 ### employment rate {#employment-rate}
 The employment rate is the number potential workers aged 17 and over divided by the total number of persons in the Bzone. Note that it is a calculated rate based on zonal attributes, and is a proxy for the labor force participation rate.
 
@@ -554,9 +558,13 @@ The growth in commercial and heavy truck travel over time increase at the same r
 ### heavy truck {#heavy-truck}	
 A single class of heavy trucks are used to represent all commercial vehicles larger than the light duty trucks included in the [commercial service](#commercial-service) vehicles. The same vehicle operating and emissions parameters specified for other [vehicle groups](#vehicle-group) are defined for heavy trucks, and their impacts are calculated in several VisionEval packages.
 
-### individualized marketing programs {#individualized-marketing-programs}
+### individualized marketing programs {#individualized-marketing-programs} (IMP)
 Education and public outreach efforts designed to encourage voluntary travel behavior changes. Rather than using broad messages for the entire population this approaches targets specific groups of travelers with information more relevant to them.
 A [concise fact sheet](https://www.oregon.gov/ODOT/Planning/Documents/Mosaic-Individualized-Marketing-Programs.pdf) describes its implementation in Oregon. [Dill & Mohr (2010)](https://trec.pdx.edu/research/project/160/Long_term_evaluation_of_individualized_marketing_programs_for_travel_demand_management) investigate the long-term effectiveness of such programs.
+
+The IMP policies are used in the Travel Demand Management inputs. They are complementary to the [employee based programs](#employee-commute-options-program). 
+
+In VE-RSPM, it assumes a minimum population density of 4,000 persons per square mile necessary to implement a successful IM program and the requirement that the household reside an urban mixed-use district. The number of households identified as participating is the minimum of the number needed to meet the program goal or the number of qualifying households. *source: ODOT*
 
 ### intelligent transportation systems (ITS) {#intelligent-transportation-systems}
 Systems that integrate information, communications, and advanced vehicular technologies into transportation infrastructure, maintenance, and operations programs to improve mobility and safety. ITS programs are typically centrally controlled by transportation agencies rather than individually autonomous solutions like personal navigation systems. Examples of ITS systems include traveler information systems (e.g., 511 systems, variable message signs), adaptive traffic signal systems, ramp metering, and electronic toll collection.
@@ -691,6 +699,8 @@ Different energy consumption and emissions characteristics are defined for vans,
 ### travel demand management (TDM) {#travel-demand-management}
 Policies and programs used to discourage travel in single-occupant vehicles in order to achieve safer and more efficient multimodal transportation systems. TDM encompasses a wide variety of initiatives, to include promotion of active transport, public transportation modes, car and bike sharing, and telecommuting. Adjustments in household VMT due to TDM actions are coded in the `BudgetHouseholdDvmt` module in the `VETravelPerformance` package.
 [Additional details](https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#98-budgethouseholddvmt-module)
+
+The two components are workplace [(employee based)](#employee-commute-options-program) and home based [(individualized marketing programs)](#individualized-marketing-programs). 
 
 ### urban mixed-use {#urban-mixed-use}
 A mixed use development or neighborhood is one that includes residential and non-residential land uses in close proximity to one another, allowing for pedestrian access to many desired goods and services. Such places are walkable,"bikeable," and encourage a local economy and strong social connections. From a transportation perspective such places are distinguished by their high degree of accessibility using non-motorized modes (active transport).
