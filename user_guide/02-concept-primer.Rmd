@@ -660,7 +660,7 @@ The sum of the number of lanes multiplied by the length of each arterial roadway
 ### road use taxes {#road-use-taxes}
 _see_ [road costs](#road-costs)
 
-### short-trip SOV diversion {#sov-diversion}
+### short-trip SOV diversion {#short-trip-sov-diversion}
 The `DivertSovTravel` module reduces travel in single-occupant vehicles (SOVs) to account for assumed availability of solo travel alternatives such as bicycles (traditional and electric) and scooters. The user inputs a goal for diverting a proportion of SOV travel within a 20-mile round-trip distance (i.e., for trips longer than 10 miles in one direction). 
 [Additional details](https://github.com/visioneval/visioneval/blob/master/sources/modules/VEHouseholdTravel/inst/module_docs/DivertSovTravel.md)
 

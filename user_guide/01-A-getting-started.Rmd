@@ -3,14 +3,14 @@
 ## Overview
 
 This page explains how to obtain the VisionEval software and install it, and
-provides a brief tour of how the system can used to support scenario planning,
-and to develop strategies to manage transportation system performance.
+provides a brief overview of what to do with it after it is installed. Please
+look at the Concept Primary to learn how VisionEval can support scenario
+planning and help develop strategies to manage transportation system
+performance.
 
-The remainder of this page explains how to install VisionEval, and provides a
-brief overview of what to do with it after it is installed. Content in the
-[VisionEval Tutorial](#tutorial) found later in this book contains more complete
-details on setting up VisionEval models with local data, running scenarios, and
-extracting and analyzing results.
+The [Concept Primer](#concept-primer) and the [VisionEval Tutorial](#tutorial)
+found later in this book contain more complete details on setting up VisionEval
+models with local data, running scenarios, and extracting and analyzing results.
 
 -   [Installation and Setup](#installation-and-setup)
 
@@ -22,36 +22,33 @@ extracting and analyzing results.
 
 -   [Using the Walkthrough](#using-the-walkthrough)
 
-## Installation and Setup
-
 VisionEval runs within the R Statistical Environment on any system for which R
 is available. There are two paths to installing VisionEval:
 
 1.  **Install from the stand-alone Windows installer**:
 
-    1.  [Download a zipped folder](https://visioneval.org/category/download.html) from the
+    1.  [Download a zipped
+        folder](https://visioneval.org/category/download.html) from the
         VisionEval website for a specific version of R.  
         This is the simplest way to quickly get VisionEval on your computer.
 
-2.  **Copy, clone or 'fork' the system code repository**:
+2.  **Copy or clone the system code repository**:
 
     1.  If you area a Mac/Linux user, or if you are interested in contributing
         to the development of VisionEval modules, models, framework, or
         visualizer, choose this path.
 
     2.  The most recent stable release is hosted at [VisionEval on
-        **GitHub**](https://VisionEval/VisionEval). Development releases are
-        available at [VisionEval-dev](https://VisionEval/VisionEval-Dev). Once
-        you have downloaded or cloned one of the VisionEval repositories,
-        you will need to build it before you can run it.
+        **GitHub**](https://visioneval.github.io). Development releases are
+        available at
+        [VisionEval-dev](https://visioneval/VisionEval-Dev/releases). Once you
+        have downloaded or cloned one of the VisionEval repositories, you will
+        need to build it before you can run it.
 
-    3.  Instructions for building VisionEval from the code repository can be
-        found in [Building VisionEval from Github](#visioneval-full-build-process)
+Detailed setup instructions on setting up the VisionEval runtime, or building VisionEval from the source code, can be
+found in on the [Detailed Installation Instructions](#detailed-installation) page.
 
-Detailed setup instructions on setting up the VisionEval runtime can
-be found in the [Detailed Installation Instructions](#detailed-installation)
-
-### Install for Windows
+## Installation and Setup
 
 #### Pre-requisites
 
@@ -61,14 +58,16 @@ You will need:
 
 -   [RStudio](https://www.rstudio.com/products/rstudio/download/)
 
-Once you have R and RStudio installed, you can retrieve the VisionEval installer
-itself:
+Once you have R and RStudio installed, you can retrieve the VisionEval
+installer itself. RStudio is optional. Read on for information about
+how to run VisionEval within the base R GUI.
 
 #### Installer
 
-[Get VisionEval Here](https://github.com/VisionEval/VisionEval-Dev/releases)
+[Get VisionEval Here](https://visioneval.github.io/category/download.html)
 
-*Note: 580 Mb download! Packaged for R 4.1.3*
+*Note: 580 Mb download! Pick the version corresponding to your R installation
+(4.1.3, 4.2.3, 4.3.2, etc).*
 
 The link above will download a .zip file containing the following:
 
@@ -82,21 +81,17 @@ Unzip that file into an empty folder of your choice (e.g. `C:\VisionEval`).
 
 #### Completing the Installation
 
-After installing R 4.1.3 (or the version of R corresponding to the installer you
-are retrieving) and RStudio, unzip the VisionEval installer into an empty
-destination folder of your choice.
-
 To complete the installation and start VisionEval, do this:
 
 1.  Navigate to the folder into which you unzipped the installer:
 
 2.  Double-click `VisionEval.Rproj`
 
-RStudio will start, and the VisionEval will load. You should see a message
+RStudio will start, and VisionEval will load. You should see a message
 similar to the following in the RStudio Console:
 
 ```
-Loading VisionEval for R4.1.3
+Loading VisionEval for R4.3.2
 Loading required package: VEModel
 Welcome to the new VisionEval!
 Running in C:/VisionEval
@@ -124,16 +119,57 @@ Then run this instruction to start VisionEval:
 source("VisionEval.R")
 ```
 
+#### Starting VisionEval from the RGUI
+
+RStudio is not mandatory for using VisionEval. It is also possible to run
+VisionEval within the RGUI that comes with R. You will need to do that if you
+have no administrative rights on your machine, since RStudio requires
+administrative permissions to install.
+
+To run without RStudio, double-click the `launch.bat` batch file (from Windows Explorer).
+
+If you have installed R manually, you may need to set the R_HOME environment variable for `launch.bat` to work. You'll
+know if that's a problem if you get a message about the wrong version or R, or a batch file message saying that R cannot
+be found, or a Window briefly opens and then shuts without starting R.
+
+To find the proper value for R_HOME, start the version of R for which you have
+installed VisionEval (it should be on the Windows start menu even if you did a
+non-administrative installation). Then run this R command:
+
+```R
+R.home()
+```
+
+You get a string that should look something like this:
+
+```
+[1] "C:/PROGRA~1/R/R-43~1.2"
+```
+
+You want to copy the part inside the quotes that says `C:/PROGRA~1/R/R-43~1.2`
+
+Put that value into a
+[User Environment Variable](https://learn.microsoft.com/en-us/windows/win32/shell/user-environment-variables)
+called `R_HOME` or you can edit it into `launch.bat` itself by replacing the default R_HOME value in that file. Edit
+`launch.bat` with a text editor (or - ugh - Notepad) and it should be reasonably obvious what to do.
+
+If `launch.bat` is working, an RGUI instance should open and you should see the same startup message that appears in RStudio:
+
+```
+Loading VisionEval for R4.3.2
+Loading required package: VEModel
+Welcome to the new VisionEval!
+Running in C:/VisionEval
+```
+
 ## Workflow of VisionEval
 
-VisionEval models and the underlying software framework are written in the [R
-programming language](https://www.r-project.org) for statistical computing and
-graphics. The purpose of the model system and framework is to enable models be
-created in a plug-and-play fashion from modules that are distributed as R
-packages. A simple R script is used to implement a model by initializing the
-model environment and then calling modules successively. Scenarios are then
-constructed through a set of files that provide variant model inputs for
-evaluation and comparison.
+VisionEval models and the underlying software framework are written in the
+[R programming language](https://www.r-project.org) for statistical computing and graphics. The purpose of the model
+system and framework is to enable models be created in a plug-and-play fashion from modules that are distributed as R
+packages. A simple R script is used to implement a model by initializing the model environment and then calling modules
+successively. Scenarios are then constructed through a set of files that provide variant model inputs for evaluation and
+comparison.
 
 To use VisionEval to evaluate scenarios, there are several elements that users
 need to set up:
@@ -176,10 +212,12 @@ need to set up:
 5.  Extract or query the results for summarization and further analysis in R or
     export tabular data files to other data analysis systems.
 
+These steps are described on other pages of this documentation.
+
 ## Editing and Running Models
 
-As described in the [model tutorials](#visioneval-tutorials), a
-VisionEval Model contains the following components:
+As described in the [model tutorials](#visioneval-tutorials), a VisionEval Model
+contains the following components:
 
 -   Model configuration: `visioneval.cnf`
 
@@ -196,8 +234,8 @@ VisionEval Model contains the following components:
     useful metrics from the model scenarios once they have run
 
 -   Additional optional folders for the model scenarios (either as top-level
-    directories or within the `/scenarios` sub-folder, which describe how that
-    scenario various from the Base Model. Scenarios may have some different
+    directories or within the `/scenarios` sub-folder, which describe
+    deviations from the Base Model). Scenarios may have different
     inputs or a different model script.
 
 Once any of the model scenarios have been run, the model will also have a
@@ -206,13 +244,13 @@ a tabular data format like `.csv`, there will be a sub-folder within `/results`
 called `/output`.
 
 See the tutorial chapters later in this book for instructions on how to set up
-VisionEval for your local area. Typically, you will start by installing one of
+VisionEval for your study area. Typically, you will start by installing one of
 the standard models and then adjusting `visioneval.cnf`, `/defs` and `/inputs`
-to complete your local Base Model. Once you have completed the Base Model, you
+to complete your Base Model. Once you have completed the Base Model, you
 can add scenarios to your model (as described later) by varying a few inputs to
 describe alternate future conditions.
 
-## End User Interface
+## Running VisionEval Models
 
 VisionEval includes a simple R command-line interface for running models and
 extracting their results.
@@ -223,10 +261,7 @@ your area.
 
 Once you have received the `Welcome to the new VisionEval!` message, you can try
 things out by copying or entering the following instructions into the R Console
-window. They will install the sample VisionEval RSPM (Regional Strategic
-Planning Model) with inputs for the small Rogue Valley MPO in Oregon, run the
-models, dump the model results into a text table (.csv format), and run a set of
-basic queries to report model performance metrics.
+window:
 
 ```
 rspm <- installModel("VERSPM")
@@ -238,49 +273,51 @@ query$run()
 query$export()
 ```
 
-Exporting the results creates a series of `.csv` files in the `outputs`
-subfolder of `results`. Exporting the query will create a table of metrics for
-each model year and scenario that is defined in the model, placing each of those
-in another subfolder of `outputs`.
+The instructions will do the following:
+
+-   Install the sample VisionEval RSPM (Regional Strategic Planning Model)
+
+    -   The model has data from the small Rogue Valley MPO in Oregon
+
+    -   The model is installed in `VisionEval/models/VERSPM-base`
+
+    -   You can re-open the model later by using this instruction;
+
+        ```
+        rspm <- openModel("VERSPM-base")
+        ```
+
+-   Run the model
+
+    -   The results are placed in `VisionEval/models/VERSPM-base/results`
+
+    -   The results are in a difficult internal R format, so you’ll want to
+        export them into something more useful for subsequent analysis.
+
+-   Export the model results into several files in a friendly text table format
+    (.csv) that you can open with Excel or a text editor
+
+    -   The CSV files are placed in a dated subfolder of
+        `VisionEval/models/VERSPM-base/results/outputs`
+
+    -   You can export the results into an SQLite database (created in the
+        `outputs` folder) by using this export instruction:
+
+        ```
+        rspm$export("sql")
+        ```
+
+-   Run a set of basic queries to report summary model performance metrics
+
+    -   When exported, those metrics appear in .csv files in another subfolder of
+        `VisionEval/models/VERSPM-base/results/outputs`
+    -   By default, the query output file has one row per metric and one column per
+        model scenario.
 
 ## Using the Walkthrough
 
-Many additional features of VisionEval are systematically explored in commented
-R scripts located in the VisionEval runtime `/walkthrough` folder. The
-walkthrough files are best explored using RStudio.
-
-Here is an overview of the walkthrough files and what you will learn from each
-of them:
-
-00-setup.R : Sets up the walkthrough runtime directory
-
-00-walkthrough.R : Master list of walkthrough scripts (nothing specific to run
-here)
-
-01-install.R : How to install a VisionEval model sample from the packaged
-examples
-
-02-running.R : How to run a VisionEval model
-
-03-structure.R : The components of a VisionEval model
-
-04-extract.R : How to get raw results (or a subset) from a VisionEval model
-
-05-mini-model.R : How to build a small model programatically (extended view of
-structure.R)
-
-06-model-stages.R : The concept of model stages and how to manipulate them
-
-07-queries.R : How to run queries (summarizing results) on model results
-(including scenarios)
-
-08-scenarios.R : How to set model stages up as scenarios, run such a model, and
-examine results
-
-09-run-parameters.R : Understanding run parameters (model configuration
-settings)
-
-10-debugging.R : Using partial models to debug VisionEval
+Additional features of the VisionEval R interface are somewhat systematically explored in commented R scripts located in
+the VisionEval runtime `VisionEval/walkthrough` folder. The walkthrough files are most easily explored using RStudio.
 
 Once you have seen the message "Welcome to the new VisionEval", you can set up
 the walkthrough by running this instruction:
@@ -293,12 +330,16 @@ The walkthrough will create a special runtime directory (within your main
 runtime folder), so nothing you do while trying it out will affect any of your
 "real" models, which will remain untouched in your "models" directory.
 
-To explore any of the walkthrough scripts, open them in RStudio by navigating in
-the RStudio "Files" pane to the walkthrough directory, then double-clicking one
-of the scripts to open it in the RStudio script editor. You then select
-individual lines in script editor and press "Enter" to run that line in the
-console. You should run the lines in order ("walk through them") and not skip
-any!
+To explore any of the walkthrough scripts:
+
+-   Open the script in the RStudio script editor by navigating in the RStudio
+    "Files" pane to the VisionEval/walkthrough directory, then double-clicking
+    one of the scripts.
+
+-   Select individual lines in script editor and press "Enter" to run that line
+    in the console. You should run the lines in order ("walk through them") and
+    not skip any! The commented lines (starting with “\#” describe what is going
+    on).
 
 If things get messed up because you didn't run the walkthrough lines in order,
 it's usually enough to back up and run the lines you skipped. If you need to,
@@ -312,3 +353,24 @@ Be careful: the "reset=TRUE" instruction will clear the walkthrough runtime.
 Anything you saved there (including outputs from running and exporting the test
 models) will be lost. Your regular runtime models directory will remain
 untouched.
+
+Here is an overview of the walkthrough files and what you will learn from each
+of them:
+
+-   `00-walkthrough.R` : Master list of walkthrough scripts (nothing specific to
+    run here - it's just a script listing the other scripts)
+
+-   `01-install.R` : How to install various VisionEval model sample from the packaged
+    examples
+
+-   `02-running.R` : Running (or re-running) a VisionEval model
+
+-   `03-extract.R` : Getting raw results (or a subset) from a VisionEval model
+
+-   `03A-advanced-export.R` : Exporting to other file formats (SQL or Excel)
+
+-   `04-scenarios.R` : Working with model scenarios - this is about running them,
+    not setting them up
+
+-   `05-queries.R` : How to run queries to generate summary metrics of model results
+    (including sets of scenarios)
