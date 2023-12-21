@@ -362,7 +362,7 @@ _Specific list of metrics under each category above could correspond to standard
 </ul>
 </li>
 <li>
-<p><a href="https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#47-assigndemandmanagement-module"><em>Assign Demand Management</em></a>: Households are assigned to <a href="conceptprimer.html#individualized-marketing-programs"><span style="color:green">individualized marketing programs</span></a> based on input participation levels within their home Bzone. Each worker in the household can also be assigned to an <a href="conceptprimer.html#employee-commute-options-program"><span style="color:green">employee commute options program</span></a> based on input participation levels for workers within their assigned work Bzone. A simple percentage reduction in household VMT is applied based on the household’s participation in one or more of these program (maximum of multiple program participation, to avoid double-counting). Worker reductions are only applied to that worker’s work travel portion of overall household VMT, and summed if multiple workers in the household participate in such programs.</p>
+<p><a href="https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#47-assigndemandmanagement-module"><em>Assign Demand Management</em></a>: Households are assigned to <a href="#individualized-marketing-programs"><span style="color:green">individualized marketing programs</span></a> based on input participation levels within their home Bzone. Each worker in the household can also be assigned to an <a href="conceptprimer.html#employee-commute-options-program"><span style="color:green">employee commute options program</span></a> based on input participation levels for workers within their assigned work Bzone. A simple percentage reduction in household VMT is applied based on the household’s participation in one or more of these program (maximum of multiple program participation, to avoid double-counting). Worker reductions are only applied to that worker’s work travel portion of overall household VMT, and summed if multiple workers in the household participate in such programs.</p>
 <blockquote>
 <p>Caution: The model assumes high-caliber TDM programs are in place that produce significant VMT savings. Inputs should reflect this.</p>
 </blockquote>
@@ -880,6 +880,8 @@ ACS PUMS data from 2005-19 in annual increments can be accessed from the <a href
 <p>A voluntary employer-based program aimed at reducing solo commutes by automobile using strategies and incentive tailored towards each specific organization. Strategies range from providing information and management encouragement to use alternative modes of transportation to cash incentives. Cash-out/buy-in programs are one example of the latter.
 A massDOT <a href="https://www.mass.gov/doc/guidebook/download">guidebook</a> provides extensive information about such programs.
 In some states such programs are mandatory for large employers. Information on Oregon’s <a href="https://www.oregon.gov/deq/aq/programs/pages/eco.aspx">Employee Commute Options</a> program includes information about conducting employee surveys to demonstrate progress towards commuting trip reduction targets.</p>
+<p>This input is used within the Travel Demand Management input for work-based policies. The input assumes workers participate in a strong employee commute options programs (e.g., free transit pass, emergency ride home, bike rider facilities, etc.).</p>
+<p>This input is the complement to the IMP <a href="#individualized-marketing-programs">(Individualized marketing programs)</a></p>
 </div>
 <div id="employment-rate" class="section level3" number="2.9.22">
 <h3>
@@ -939,12 +941,14 @@ In some states such programs are mandatory for large employers. Information on O
 </h3>
 <p>A single class of heavy trucks are used to represent all commercial vehicles larger than the light duty trucks included in the <a href="conceptprimer.html#commercial-service">commercial service</a> vehicles. The same vehicle operating and emissions parameters specified for other <a href="#vehicle-group">vehicle groups</a> are defined for heavy trucks, and their impacts are calculated in several VisionEval packages.</p>
 </div>
-<div id="individualized-marketing-programs" class="section level3" number="2.9.31">
+<div id="individualized-marketing-programs-individualized-marketing-programs-imp" class="section level3" number="2.9.31">
 <h3>
-<span class="header-section-number">2.9.31</span> individualized marketing programs<a class="anchor" aria-label="anchor" href="#individualized-marketing-programs"><i class="fas fa-link"></i></a>
+<span class="header-section-number">2.9.31</span> individualized marketing programs {#individualized-marketing-programs} (IMP)<a class="anchor" aria-label="anchor" href="#individualized-marketing-programs-individualized-marketing-programs-imp"><i class="fas fa-link"></i></a>
 </h3>
 <p>Education and public outreach efforts designed to encourage voluntary travel behavior changes. Rather than using broad messages for the entire population this approaches targets specific groups of travelers with information more relevant to them.
 A <a href="https://www.oregon.gov/ODOT/Planning/Documents/Mosaic-Individualized-Marketing-Programs.pdf">concise fact sheet</a> describes its implementation in Oregon. <a href="https://trec.pdx.edu/research/project/160/Long_term_evaluation_of_individualized_marketing_programs_for_travel_demand_management">Dill &amp; Mohr (2010)</a> investigate the long-term effectiveness of such programs.</p>
+<p>The IMP policies are used in the Travel Demand Management inputs. They are complementary to the <a href="conceptprimer.html#employee-commute-options-program">employee based programs</a>.</p>
+<p>In VE-RSPM, it assumes a minimum population density of 4,000 persons per square mile necessary to implement a successful IM program and the requirement that the household reside an urban mixed-use district. The number of households identified as participating is the minimum of the number needed to meet the program goal or the number of qualifying households. <em>source: ODOT</em></p>
 </div>
 <div id="intelligent-transportation-systems" class="section level3" number="2.9.32">
 <h3>
@@ -1171,6 +1175,7 @@ NEED DEFINITION
 </h3>
 <p>Policies and programs used to discourage travel in single-occupant vehicles in order to achieve safer and more efficient multimodal transportation systems. TDM encompasses a wide variety of initiatives, to include promotion of active transport, public transportation modes, car and bike sharing, and telecommuting. Adjustments in household VMT due to TDM actions are coded in the <code>BudgetHouseholdDvmt</code> module in the <code>VETravelPerformance</code> package.
 <a href="https://github.com/VisionEval/VisionEval/blob/master/api/VE_Training_March_13-14_2019/VE_Training.md#98-budgethouseholddvmt-module">Additional details</a></p>
+<p>The two components are workplace <a href="conceptprimer.html#employee-commute-options-program">(employee based)</a> and home based <a href="#individualized-marketing-programs">(individualized marketing programs)</a>.</p>
 </div>
 <div id="urban-mixed-use" class="section level3" number="2.9.65">
 <h3>
@@ -1308,7 +1313,7 @@ In VisionEval vehicle type refers to the distinction between automobiles and lig
 <li><a class="nav-link" href="#fuel-speed-curves"><span class="header-section-number">2.9.28</span> fuel-speed curves</a></li>
 <li><a class="nav-link" href="#growth-basis"><span class="header-section-number">2.9.29</span> growth basis</a></li>
 <li><a class="nav-link" href="#heavy-truck"><span class="header-section-number">2.9.30</span> heavy truck</a></li>
-<li><a class="nav-link" href="#individualized-marketing-programs"><span class="header-section-number">2.9.31</span> individualized marketing programs</a></li>
+<li><a class="nav-link" href="#individualized-marketing-programs-individualized-marketing-programs-imp"><span class="header-section-number">2.9.31</span> individualized marketing programs {#individualized-marketing-programs} (IMP)</a></li>
 <li><a class="nav-link" href="#intelligent-transportation-systems"><span class="header-section-number">2.9.32</span> intelligent transportation systems (ITS)</a></li>
 <li><a class="nav-link" href="#its"><span class="header-section-number">2.9.33</span> ITS</a></li>
 <li><a class="nav-link" href="#lambda-parameter"><span class="header-section-number">2.9.34</span> lambda parameter</a></li>
@@ -1369,7 +1374,7 @@ In VisionEval vehicle type refers to the distinction between automobiles and lig
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2023-12-07.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2023-12-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

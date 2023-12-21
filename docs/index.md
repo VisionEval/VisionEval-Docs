@@ -1,7 +1,7 @@
 --- 
 title: "VisionEval User Guide"
 author: "VisionEval Pooled Fund Team"
-date: "2023-12-07"
+date: "2023-12-21"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
