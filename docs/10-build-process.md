@@ -1,6 +1,6 @@
 # VisionEval Module Build Process {#ve-buildprocess}
 
-    knitr::opts_chunk$set(echo = TRUE, results='hide')
+   knitr::opts_chunk$set(echo = TRUE, results='hide')
 
 ## (Re)Building VisionEval
 
@@ -48,7 +48,7 @@ Users at this point should have a full *VisionEval* installed and running. If no
 
 Rebuilding a package in this *VisionEval* setup will require source code for the specific build that was installed (specific R, operating system, etc.) which is made available in a zip file \[here\]. This zip file contains the source code and default data for all the VisionEval packages that can be easily installed in *VisionEval* using R native command “install.packages” or [RStudio build tools](https://support.posit.co/hc/en-us/articles/200486518-Customizing-Package-Build-Options-in-the-RStudio-IDE). The user can download and unzip the zip file into their *VisionEval* directory. After unzipping, the *VisionEval* directory structure should look similar to Figure 1.
 
-![](images/image1.png)
+![](images/10_image1.png)
 
 Figure 1 VisionEval runtime directory structure with source code unzipped
 
@@ -56,9 +56,9 @@ The source code of these packages contains code and data upon which the modules 
 
 ### Users who created *VisionEval* through source code from GitHub
 
-For advanced users who have a complete *VisionEval* built using the source code from GitHub, the process for updating and rebuilding individual modules and packages can be done without the need to download additional source code material. A version of source code, easily installable in R, is created during the “build process”. A default directory structure for this setup is shown in Figure 2.
+For advanced users who have a complete *VisionEval* built using the source code from GitHub, the process for updating and rebuilding individual modules and packages can be done without the need to download additional source code material. A version of the source code, easily installable in R, is created during the “build process”. A default directory structure for this setup is shown in Figure 2.
 
-![A picture containing timeline Description automatically generated](images/image2.png)
+![Directory structure for built VisionEval](images/10_image2.png)
 
 Figure 2 VisionEval build directory structure
 
@@ -70,7 +70,7 @@ Figure 2 VisionEval build directory structure
 
 -   *Git* – Git for windows can be downloaded here: <https://github.com/git-for-windows/git/releases/download/v2.39.2.windows.1/Git-2.39.2-64-bit.exe>.
 
-#### (Re)Building Package
+#### (Re)Building Packages Using Package Sources
 
 The source code created during the build process can be used to rebuild packages in this *VisionEval* setup. The process of rebuilding is the same as before, the only difference is the location of the source code relative to the *VisionEval* setup.
 

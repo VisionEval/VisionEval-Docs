@@ -1,15 +1,22 @@
 getting-started
 overview
 installation-and-setup
-install-for-windows
 pre-requisites
 installer
 completing-the-installation
 starting-visioneval-manually
+starting-visioneval-from-the-rgui
 workflow-of-visioneval
 editing-and-running-models
-end-user-interface
+running-visioneval-models
 using-the-walkthrough
+detailed-installation
+selecting-an-installation-strategy
+recommended-installation-workflow
+end-user-installation
+setting-up-a-production-environment
+setting-up-a-development-environment
+frequently-asked-questions-development
 conceptprimer
 what-can-i-do-with-visioneval
 strengths-and-limitations
@@ -104,6 +111,7 @@ road-class
 road-costs
 road-lane-miles
 road-use-taxes
+short-trip-sov-diversion
 social-costs
 speed-smoothing
 transit-d
@@ -470,6 +478,7 @@ vestate-createvehicletable
 user-input-files-56
 internal-module-inputs-53
 module-outputs-55
+vestate-assignvehicleage
 user-input-files-57
 internal-module-inputs-54
 module-outputs-56
@@ -868,7 +877,7 @@ software-requirements
 rebuilding-package
 users-who-created-visioneval-through-source-code-from-github
 additional-software-requirements
-rebuilding-package-1
+rebuilding-packages-using-package-sources
 visioneval-full-build-process
 common-use-cases
 case-study-1-using-local-pums-data
@@ -1503,3 +1512,5 @@ arguments-70
 details-80
 value-80
 calls-80
+topic-index
+developer
