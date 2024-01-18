@@ -22,7 +22,7 @@ VisionEval relies on this fundamental package framework for sharing code and dat
 
 #### Build vs Runtime Environment
 
-It is crucial for users to understand the distinction between the VisionEval runtime environment and the VisionEval build environment. The VisionEval begins as source code and data in the build environment from which the VisionEval R packages are built, and a runtime environment is created. VisionEval models can only be run from a runtime environment where the built packages are loaded (into an R session) and used by R to perform the model steps. VisionEval runtime environment will be referred to as *VisionEval* from this point on in the document.
+It is crucial for users to understand the distinction between the VisionEval runtime environment and the VisionEval build environment. VisionEval begins as source code and data in the build environment from which the VisionEval R packages are built, and a runtime environment is created. VisionEval models can only be run from a runtime environment where the built packages are loaded (into an R session) and used by R to perform the model steps. The VisionEval runtime environment will be referred to as *VisionEval* from this point on in the document.
 
 ## Where do we Start the ‘Re-Building’ Process
 
@@ -40,27 +40,19 @@ Users at this point should have a full *VisionEval* installed and running. If no
 
 #### Software Requirements
 
--   *R* – R for windows can be downloaded here: <https://cran.rstudio.com/> *(Tested using 4.1.3). It is suggested to use an R version that aligns with the VE R version. The Cran website includes links to past versions although the most current is the one often highlighted on the first page.*
+-   *R* – R for windows can be downloaded here: <https://cran.rstudio.com/> *(The most recent version is usually supported in VisionEval within a few weeks of its release). It is suggested to use an R version that aligns with the VE R version. The Cran website includes links to past versions although the most current is the one often highlighted on the first page.*
 
--   *RStudio –* RStudio for windows can be downloaded here: <https://www.rstudio.com/products/rstudio/download/>
+-   *RStudio –* RStudio for windows can be downloaded here: <https://posit.co/download/rstudio-desktop/>
 
 #### (Re)Building Package
 
-Rebuilding a package in this *VisionEval* setup will require source code for the specific build that was installed (specific R, operating system, etc.) which is made available in a zip file \[here\]. This zip file contains the source code and default data for all the VisionEval packages that can be easily installed in *VisionEval* using R native command “install.packages” or [RStudio build tools](https://support.posit.co/hc/en-us/articles/200486518-Customizing-Package-Build-Options-in-the-RStudio-IDE). The user can download and unzip the zip file into their *VisionEval* directory. After unzipping, the *VisionEval* directory structure should look similar to Figure 1.
+Rebuilding a package in this *VisionEval* setup will require source code for the specific build that was installed (specific R, operating system, etc.) which is made available in a zip file that you can get from [the Github release](https://github.com/VisionEval/VisionEval-Dev/releases). Be sure to pick the version corresponding your installed version of R and VisionEval. This zip file contains the source code and default data for all the VisionEval packages that can be easily installed in *VisionEval* using R native command “install.packages” or [RStudio build tools](https://support.posit.co/hc/en-us/articles/200486518-Customizing-Package-Build-Options-in-the-RStudio-IDE). The user can download and unzip the zip file into their *VisionEval* directory. After unzipping a `src` folder will be present alongside `ve-lib`. Each VisionEval package is present in a sub-folder of `src` and you can change files there and rebuild the package as described below.
 
-![](images/10_image1.png)
-
-Figure 1 VisionEval runtime directory structure with source code unzipped
-
-The source code of these packages contains code and data upon which the modules are built. This data can then be updated with localized or custom data and the module can be rebuilt into *VisionEval*. The process of rebuilding is explained in more detail in the \[Common Use Cases\] section of this document.
+The source code of these packages contains code and data upon which the modules are built. This data can then be updated with localized or custom data and the module can be rebuilt into *VisionEval*. The process of rebuilding is explained in more detail in the section of this document.
 
 ### Users who created *VisionEval* through source code from GitHub
 
-For advanced users who have a complete *VisionEval* built using the source code from GitHub, the process for updating and rebuilding individual modules and packages can be done without the need to download additional source code material. A version of the source code, easily installable in R, is created during the “build process”. A default directory structure for this setup is shown in Figure 2.
-
-![Directory structure for built VisionEval](images/10_image2.png)
-
-Figure 2 VisionEval build directory structure
+For advanced users who have a complete *VisionEval* built using the source code from GitHub, the process for updating and rebuilding individual modules and packages can be done without the need to download additional source code material. A version of the source code, easily installable in R, is created during the “build process”.
 
 *Note: if you want to install a complete VisionEval model from the source code please see the section* *VisionEval Full Build Process.*
 
@@ -68,7 +60,7 @@ Figure 2 VisionEval build directory structure
 
 -   *RTools* – RTools for windows can be downloaded here: <https://cran.r-project.org/bin/windows/Rtools/rtools43/files/rtools43-5493-5475.exe>.
 
--   *Git* – Git for windows can be downloaded here: <https://github.com/git-for-windows/git/releases/download/v2.39.2.windows.1/Git-2.39.2-64-bit.exe>.
+-   *Git* – Git for windows can be downloaded here: <https://git-scm.com/download/win>.
 
 #### (Re)Building Packages Using Package Sources
 
@@ -88,11 +80,7 @@ Advanced users may want to build VisionEval natively from the source code for de
 
     -   For developers, there is a separate development repository with the latest unreleased source code: <https://github.com/VisionEval/VisionEval-Dev>
 
-    -   Users not familiar with [git](https://git-scm.com/downloads) and GitHub can simply download the repository as a zip file (<https://github.com/VisionEval/VisionEval/archive/refs/heads/master.zip>). In either case, the download is very large (over 900MB compressed download and 3.4GB uncompressed on disk). The Zip file download is shown in the figure below.
-
-    &nbsp;
-
-    -   [![](images/image3.png "fig:")](https://github.com/VisionEval/VisionEval/archive/refs/heads/master.zip)
+    -   Users not familiar with [git](https://git-scm.com/downloads) and GitHub can simply download the repository as a zip file (<https://github.com/VisionEval/VisionEval/archive/refs/heads/master.zip>). In either case, the download is very large (over 900MB compressed download and 3.4GB uncompressed on disk).
 
 3.  Start VisionEval by double clicking the `VisionEval.RProj` file in the newly cloned `VisionEval-Source` directory.
 
