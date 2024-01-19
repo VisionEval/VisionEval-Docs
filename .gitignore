@@ -2,7 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-docs/*
 user_guide/packages.bib
 user_guide/user_guide.rds
 user_guide/render*.rds

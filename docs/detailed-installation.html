@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 2 Detailed Installation | VisionEval User Guide</title>
+<meta name="author" content="VisionEval Pooled Fund Team">
+<meta name="description" content="2.1 Selecting an Installation Strategy When you install VisionEval, you need to choose whether to perform an End-User Installation or to set up a full Development Environment? Here are some...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="Chapter 2 Detailed Installation | VisionEval User Guide">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://visioneval.org/docs/detailed-installation.html">
+<meta property="og:image" content="https://visioneval.org/docs/images/cover.png">
+<meta property="og:description" content="2.1 Selecting an Installation Strategy When you install VisionEval, you need to choose whether to perform an End-User Installation or to set up a full Development Environment? Here are some...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 2 Detailed Installation | VisionEval User Guide">
+<meta name="twitter:description" content="2.1 Selecting an Installation Strategy When you install VisionEval, you need to choose whether to perform an End-User Installation or to set up a full Development Environment? Here are some...">
+<meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
+<script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4_style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start flex-column justify-content-between">
+      <div class="p-2"><img id="cover" class="d-none d-lg-block" src="images/cover-small.png"></div>
+      <div class="p-2"><h1>
+<a href="index.html" title="">VisionEval User Guide</a>
+      </h1></div>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Welcome</a></li>
+<li><a class="" href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></li>
+<li><a class="active" href="detailed-installation.html"><span class="header-section-number">2</span> Detailed Installation</a></li>
+<li><a class="" href="conceptprimer.html"><span class="header-section-number">3</span> Concept Primer</a></li>
+<li><a class="" href="tutorial.html"><span class="header-section-number">4</span> VisionEval Tutorial</a></li>
+<li><a class="" href="picking-a-model.html"><span class="header-section-number">5</span> Picking a Model</a></li>
+<li><a class="" href="model-geography-and-years.html"><span class="header-section-number">6</span> Model Geography and Years</a></li>
+<li><a class="" href="model-inputs.html"><span class="header-section-number">7</span> Model Inputs</a></li>
+<li><a class="" href="validation-and-troubleshooting.html"><span class="header-section-number">8</span> Validation and Troubleshooting</a></li>
+<li><a class="" href="developing-scenarios.html"><span class="header-section-number">9</span> Developing Scenarios</a></li>
+<li><a class="" href="verspm.html"><span class="header-section-number">10</span> VERSPM Model Details</a></li>
+<li><a class="" href="vestate.html"><span class="header-section-number">11</span> VE-State Model Details</a></li>
+<li><a class="" href="verpat.html"><span class="header-section-number">12</span> VERPAT Model Details</a></li>
+<li><a class="" href="ve-estimation.html"><span class="header-section-number">13</span> Estimation in VisionEval</a></li>
+<li><a class="" href="ve-buildprocess.html"><span class="header-section-number">14</span> VisionEval Module Build Process</a></li>
+<li><a class="" href="common-use-cases.html"><span class="header-section-number">15</span> Common Use Cases</a></li>
+<li><a class="" href="api-documentation.html"><span class="header-section-number">16</span> API Documentation</a></li>
+<li><a class="" href="software-framework.html"><span class="header-section-number">17</span> Software Framework</a></li>
+<li><a class="" href="topic-index.html"><span class="header-section-number">18</span> VisionEval Topic Index</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/VisionEval/VisionEval-Docs/">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="detailed-installation" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Detailed Installation<a class="anchor" aria-label="anchor" href="#detailed-installation"><i class="fas fa-link"></i></a>
+</h1>
+<div id="selecting-an-installation-strategy" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Selecting an Installation Strategy<a class="anchor" aria-label="anchor" href="#selecting-an-installation-strategy"><i class="fas fa-link"></i></a>
+</h2>
+<p>When you install VisionEval, you need to choose whether to perform an <a href="#enduser-installation">End-User Installation</a>
+or to set up a full <a href="#development-environment">Development Environment</a>?</p>
+<p>Here are some considerations:</p>
+<ul>
+<li>The End-user version is easier to install and has fewer requirements. It is also the place to start if you are new to VisionEval.</li>
+<li>The Developer version lets you stay up-to-the-minute on new changes, and also to make
+changes to the software yourself (if you’re up for that)</li>
+<li>You can install both and go back and forth if you like (especially if you create a <a href="#production-environment">Production Environment</a>).</li>
+</ul>
+<p>Setting up a <a href="#production-environment">Production Environment</a> will let you keep all your models in their own folder
+separate from where the VisionEval code resides. Use a Production Environment to avoid having to move your models when
+you upgrade to a new version of VisionEval or R. A Production Environment also makes it easier to keep your models
+backed up (without having to copy gigabytes of VisionEval code), and straightfoward to create a Github repository just
+for your model.</p>
+<div id="recommended-installation-workflow" class="section level3" number="2.1.1">
+<h3>
+<span class="header-section-number">2.1.1</span> Recommended installation workflow:<a class="anchor" aria-label="anchor" href="#recommended-installation-workflow"><i class="fas fa-link"></i></a>
+</h3>
+<ol style="list-style-type: decimal">
+<li>Do an <a href="#enduser-installation">End User Installation</a>
+<ul>
+<li>That’s all you need if you’re just trying it out and running the walkthrough tutorials</li>
+</ul>
+</li>
+<li>Set up a <a href="#production-environment">Production Environment</a> for your own model
+<ul>
+<li>Start by connecting the Production Environment to the End User Installation</li>
+</ul>
+</li>
+<li>Add a <a href="#development-environment">Development Installation</a> to build VisionEval on your own
+<ul>
+<li>You can just do “Development Light” (‘<code>src</code>’ installation within your End User installation) if you are re-creating certain packages
+(<a href="ve-buildprocess.html#ve-buildprocess">Instructions Here</a>)</li>
+<li>Or you can do a Full Development Version (Github)
+<ul>
+<li>The Full Development Version lets you stay current with the most recent VisionEval development.</li>
+<li>You’ll need to build the Full Development Version locally before you can run your model.</li>
+</ul>
+</li>
+<li>Re-connect your Production Environment to the Development Installation when you’re ready</li>
+</ul>
+</li>
+<li>When you get a new version of VisionEval, update the links in your Production environment
+<ul>
+<li>
+<code>VE_RUNTIME</code> to <code>.Renviron</code> in your VisionEval Home (i.e. where VisionEval code is)</li>
+<li>
+<code>VE_HOME</code> to <code>.Renviron</code> in your VisionEval Runtime (i.e. where your VisionEval models are)</li>
+</ul>
+</li>
+</ol>
+<p>Full instructions are found below.</p>
+</div>
+</div>
+<div id="end-user-installation" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> <a name="enduser-installation">End-User Installation</a><a class="anchor" aria-label="anchor" href="#end-user-installation"><i class="fas fa-link"></i></a>
+</h2>
+<ol style="list-style-type: decimal">
+<li>Install R. Pick a recent version for which an installer exists
+<ul>
+<li>R does not require administrative permission to install</li>
+<li>Pick a supported R version
+<ul>
+<li>If you already have R installed, make sure VisionEval is available for your R version.</li>
+<li>You can have multiple R versions installed on your computer. Just make sure you use one that is consistent with the VisionEval code you have installed.</li>
+<li>Choose the latest suppored R (R 4.3.2 as of January 2024) if you haven’t already chosen for other reasons</li>
+<li>You can download a specific supported version of R (as of January 2024) using the following links:
+<ul>
+<li>R 4.1.3: <a href="https://cran.r-project.org/bin/windows/base/old/4.1.3">https://cran.r-project.org/bin/windows/base/old/4.1.3</a>
+</li>
+<li>R 4.2.3: <a href="https://cran.r-project.org/bin/windows/base/old/4.2.3">https://cran.r-project.org/bin/windows/base/old/4.2.3</a>
+</li>
+<li>R 4.3.2: <a href="https://cran.r-project.org/bin/windows/base/old/4.3.2">https://cran.r-project.org/bin/windows/base/old/4.3.2</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Install RStudio.
+<ul>
+<li>You don’t need RStudio to run VisionEval, but many people find it helpful. If your computer is locked down, you won’t be able to install it as it requires administrative permissions.</li>
+<li>Get the latest version here: <a href="https://posit.co/download/rstudio-desktop/">https://posit.co/download/rstudio-desktop/</a>
+<ul>
+<li>RStudio is now (November 2022) being maintained and distributed by a new company called “Posit” (the same key people are involved)</li>
+</ul>
+</li>
+<li>Start RStudio and check that it is using your intended version of R. The startup message in the console window will show the R version, or you can display the built-in variable <code>R.version</code> and look at the <code>version.string</code>
+</li>
+<li>If RStudio doesn’t find your desired R version automatically, connect it to the version of R you want to use for your VisionEval installation using the RStudio <code>Tools / Global Options</code> menu item</li>
+</ul>
+</li>
+<li>Download the VisionEval installer for your version of R
+<ul>
+<li>These are hosted in the <a href="https://github.com/visioneval/VisionEval-dev/releases">VisionEval-dev</a> repository in the “releases” section</li>
+<li>The latest development release is always located at <a href="https://github.com/VisionEval/VisionEval-Dev/releases/latest">https://github.com/VisionEval/VisionEval-Dev/releases/latest</a>
+</li>
+<li>VisionEval is available for these R versions (January 5, 2024):
+<ul>
+<li>R 4.1.3: <a href="https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.1/VE-3.0-Installer-Windows-R4.1.3_2023-09-25.zip">https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.1/VE-3.0-Installer-Windows-R4.1.3_2023-09-25.zip</a>
+</li>
+<li>R 4.2.3: <a href="https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.1/VE-3.0-Installer-Windows-R4.2.3_2023-09-25.zip">https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.1/VE-3.0-Installer-Windows-R4.2.3_2023-09-25.zip</a>
+</li>
+<li>R 4.3.2: <a href="https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.1/VE-3.0-Installer-Windows-R4.3.2_2023-09-25.zip">https://github.com/VisionEval/VisionEval-Dev/releases/download/VE-3.1/VE-3.0-Installer-Windows-R4.3.1_2023-09-25.zip</a>
+</li>
+</ul>
+</li>
+<li>Visit this page to check for newer releases: <a href="https://github.com/VisionEval/VisionEval-Dev/releases">https://github.com/VisionEval/VisionEval-Dev/releases</a>
+</li>
+<li>“Ignore the source, Luke.” You can find out about the PackageSources zip files in the <a href="ve-buildprocess.html#ve-buildprocess">Build Process</a> section</li>
+</ul>
+</li>
+<li>Unzip the installer into a new folder
+<ul>
+<li>On Windows, it is best NOT to install VisionEval in your “Documents” folder because of how Windows redirects access to that folder.</li>
+<li>A better location would be in your User Profile that Windows refers to as <code>%USERPROFILE%</code>
+</li>
+<li>To find your User Profile folder:
+<ul>
+<li>Press the Windows key</li>
+<li>Type “%USERPROFILE%” and hit enter (File Explorer will open, showing you the folder)</li>
+<li>Use ‘New Folder’ to create the folder that will hold the unzipped VisionEval installation</li>
+</ul>
+</li>
+<li>You can use a standalone unzipper (e.g. SecureZip or 7zip) to extract the VisionEval installer. Windows itself will let you use the zip file
+as a folder so you can open it (double click in Windows explorer), then highlight and copy everything inside it to your installation location.</li>
+<li>The folder where you put the extracted files is referred to below as <code>VE_HOME</code>
+</li>
+</ul>
+</li>
+<li>To complete the installation, start R from the place you installed VisionEval
+<ul>
+<li>In Windows Explorer, Double-click VisionEval.Rproj
+<ul>
+<li>You can also use the <code>launch.bat</code> script to run VisionEval in the standard R GUI, if you can’t (or don’t want
+to) install and run RStudio</li>
+<li>See the <code>launch.bat</code> <a href="getting-started.html#starting-visioneval-from-the-rgui">instructions here</a>.</li>
+</ul>
+</li>
+<li>If everything is working, an R console window will open where you can type instructions for VisionEval</li>
+<li>The “Welcome to VisionEval!” message should appear</li>
+<li>Return to the <a href="getting-started.html#getting-started">Getting Started</a> page for how to run VisionEval, how to use the walkthrough to
+explore VisionEval models and features, and how to develop a VisionEval model setup for your own region.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div id="setting-up-a-production-environment" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> <a name="production-environment">Setting up a Production Environment</a><a class="anchor" aria-label="anchor" href="#setting-up-a-production-environment"><i class="fas fa-link"></i></a>
+</h2>
+<p>Though it is possible to build your own local VisionEval model in the “models” folder of your VisionEval installation,
+we don’t recommend that since you will need to move the model every time you install a new version of VisionEval.
+Having your models in their own location makes it much easier to back up the models or to put them under version
+control without having to bring along the entire VisionEval code base.</p>
+<p>To keep the code and models separate, you can set up a “Production Environment” and store your model in a location
+distinct from where the VisionEval code is located. That way you can upgrade (or downgrade) VisionEval without having to
+move your model, or you can shift from using the end-user installation (downloadable .zip installer) to a development
+installation (cloning the Github repository).</p>
+<p>By default, VisionEval looks for models in the “models” folder of the VisionEval runtime, which itself defaults to the
+folder into which you extracted the VisionEval installer .zip file.</p>
+<ul>
+<li>In production, the default behavior is a problem because you will need to move the model setups every time you change
+the version of R or VisionEval</li>
+<li>You can prevent headaches by setting up a separate permanent folder for your models, which we’ll refer to as <code>VE_RUNTIME</code>
+</li>
+</ul>
+<p>The VisionEval startup code knows about two locations referred to in environment variables (see below if you don’t know
+what environment variables are):</p>
+<ul>
+<li>
+<code>VE_HOME</code> is where the VisionEval application code is located</li>
+<li>
+<code>VE_RUNTIME</code> is where the “models” folder is located</li>
+</ul>
+<p>These can be entirely different folders on different drives. Out of the box, <code>VE_HOME</code> and VE_RUNTIME are both the same, and they point to the folder
+where you unzipped VisionEval.</p>
+<p>By setting <code>VE_HOME</code> and <code>VE_RUNTIME</code> yourself, you can start visioneval from the same place you put your model, and
+simply adjusting <code>VE_HOME</code> will allow you to run the model with a different version of R or VisionEval.</p>
+<p>You can set VisionEval up to start either from within <code>VE_HOME</code> or from within `VE_RUNTIME. Separating these two
+locations is what we call “creating a <strong>Production Environment</strong>”.</p>
+<p>We suggest that you set up your system so you can start VisionEval from <code>VE_RUNTIME</code> (the place you store your models),
+since it is then easier to update your R or VisionEval version. Here is how to set that up:</p>
+<ul>
+<li><p>The first thing to do is decide where you want your VisionEval runtime (<code>VE_RUNTIME</code>)</p></li>
+<li><p>Create that folder (for example <code>%USERPROFILE%/VE_Models</code>)</p></li>
+<li><p>Go to your VisionEval installation (<code>VE_HOME</code> which is the place where you installed the VisionEval code)</p></li>
+<li>
+<p>Open the <code>.Renviron</code> file with your favorite text editor (or Notepad, which is nobody’s favorite, but which will do
+the job)</p>
+<ul>
+<li>If the <code>.Renviron</code> file does not exist, please start your VisionEval installation once using VisionEval.Rproj or launch.bat and
+it will be created automatically</li>
+</ul>
+</li>
+<li>
+<p>Add a line like the following line (or change that line if it already exists) so that it refers to the folder you
+created to store your models:</p>
+<pre><code>VE_RUNTIME=C:/Users/MyUserProfileDirectory/VE_Models</code></pre>
+</li>
+</ul>
+<p>Now when you start VisionEval by clicking <code>VisionEval.Rproj</code> (or <code>launch.bat</code>), you’ll see that it is running in the
+folder you assigned to <code>VE_RUNTIME</code>. Also notice that an empty “models” directory was created there when you ran
+VisionEval for the first time. The “models” folder is where you will be creating and running your own VisionEval
+models.</p>
+<p>To start VisionEval from within your <code>VE_RUNTIME</code> folder, you will need to copy some of the runtime support files from
+the installation location.</p>
+<ul>
+<li>Copy these runtime files from your installation directory to your VE_RUNTIME:
+<ul>
+<li><code>launch.bat</code></li>
+<li><code>.Rprofile</code></li>
+<li><code>.Renviron</code></li>
+<li><code>VisionEval.Rproj</code></li>
+</ul>
+</li>
+<li>If you’re learning VisionEval, you’ll also want to copy the <code>walkthrough</code> folder.</li>
+<li>Do NOT move the following files and folders, which make up the actual VisionEval executable. It won’t hurt to copy
+them, but it just wastes disk space and is confusing):
+<ul>
+<li><code>ve-lib</code></li>
+<li><code>VisionEval.R</code></li>
+<li><code>LICENSE</code></li>
+</ul>
+</li>
+</ul>
+<p>The <code>.Renviron</code> file should already have <code>VE_HOME</code> correctly defined, but you can check by opening it in a text editor.
+You can also define <code>VE_HOME</code> yourself. It should point to the folder where you unzipped the VisionEval installer, or to
+the folder into which you cloned the Github repository.</p>
+<p>If you later change the R or VisionEval version, you can just copy over the <code>.Renviron</code> file from the new installation after
+you have opened it once in R (or you can manually edit <code>.Renviron</code> to point to the new <code>VE_HOME</code> location.</p>
+<p>To configure your <code>VE_RUNTIME</code> to use a development environment (the cloned Github repository) the steps are a little
+different:</p>
+<ul>
+<li>Build visioneval (see the section on setting up a development environment and building VisionEval, below). That step
+is necessary to have runnable VisionEval code, and for it to generate a suitable <code>.Renviron</code> file for locating
+<code>VE_HOME</code>.</li>
+<li>Find and copy the runtime files from “MyVisionEval-Github-clone/built/visioneval/4.3.2/runtime” (or whatever R
+version you built VisionEval with). These are the files to copy:
+<ul>
+<li><code>launch.bat</code></li>
+<li><code>.Rprofile</code></li>
+<li><code>.Renviron</code></li>
+<li><code>VisionEval.Rproj</code></li>
+</ul>
+</li>
+<li>If you set the <code>VE_BUILD</code> variable (see below for setting up a development environment), the runtime files will be located
+in <code>VE_BUILD/built/VE_BRANCH/VE_R_VERSION/runtime</code> where:
+<ul>
+<li>VE_BUILD is the directory you set up to receive the built</li>
+<li>VE_BRANCH is the Github branch you are building from. The default for <code>ve.build</code> is “visioneval” and all branches will
+be built into that same location.
+<ul>
+<li>You can create different builds for the Github branches by running <code>ve.build(use.git=TRUE)</code>
+</li>
+</ul>
+</li>
+<li>VE_R_VERSION is the version of R with which you built VisionEval.</li>
+</ul>
+</li>
+<li>Do NOT delete the original runtime folder from the <code>built</code> directory (the startup script requires it to be present,
+even if it is not going to be used).</li>
+<li>Finally, find the generated <code>.Renviron</code> file in the root directory of your development environment and copy that to <code>VE_RUNTIME</code>.
+<ul>
+<li>
+<code>VE_HOME</code> in <code>.Renviron</code> should be the location of the Git root directory (NOT the built runtime)</li>
+<li>It will still work if you point <code>VE_HOME</code> at the built runtime (where the runtime files are located),
+you just won’t have access to the developmment environment tools.</li>
+<li>The Github root also contains a <code>launch.bat</code> and a <code>VisionEval-dev.Rproj</code>. You can use those to start VisionEval.</li>
+<li>To start VisionEval from your development environment (Github clone), you will need to add (or edit) the <code>VE_RUNTIME</code>
+line in the <code>.Renviron</code> file located in the development environment root directory (set it to the full path
+of your runtime folder).</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="setting-up-a-development-environment" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> <a name="development-environment">Setting up a Development Environment</a><a class="anchor" aria-label="anchor" href="#setting-up-a-development-environment"><i class="fas fa-link"></i></a>
+</h2>
+<p>A development environment will allow you to build and rebuild VisionEval from the Github. Building VisionEval is easy;
+it requires a little more software setup and it’s just a bit time-consuming the first time. Here are the basic steps:</p>
+<ul>
+<li>You will need a copy of git to clone the development source code, or you can download a snapshot of the code as a
+zip file from Github</li>
+<li>You need one additional software installation (RTools43), in addition to R and (optionally) RStudio to run VisionEval</li>
+<li>Then you just start R from the root of the Github and run the <code>ve.build()</code> function</li>
+</ul>
+<p>After that you can make any change you want to VisionEval and rebuild those changes just by running <code>ve.build()</code> again.</p>
+<p>To get the development code, you clone the Github repository.You can find VisionEval at these Github repositories:</p>
+<ol style="list-style-type: decimal">
+<li>
+<a href="https://github.com/visioneval/Visioneval.git">https://github.com/visioneval/Visioneval.git</a> for the release
+version of the code (doesn’t change often, but may be missing new features and bug fixes)</li>
+<li>
+<a href="https://github.com/visioneval/Visioneval-dev.git">https://github.com/visioneval/Visioneval-dev.git</a> for the
+development version, which is probably what you want to use if you’re doing any development rather than just
+installing.</li>
+</ol>
+<p>If you don’t want to work with git, but would still like to build from code, you can do that. Visit the <a href="https://github.com/VisionEval/VisionEval-Dev">Github</a>,
+nd hit the green Code button, select “Local”, then choose “Download ZIP”.</p>
+<p>If you plan to contribute code back to the VisionEval project, you should work with <code>Visioneval-dev</code>. If you’re just
+making local changes or rebuilding certain packages for your own use, you can use <code>VisionEval</code></p>
+<p>We’re not going to teach you <code>git</code> here. For an introduction try <a href="https://git-scm.com/book/en/v2">the Git Book</a> or the
+<a href="https://www.w3schools.com/git/default.asp">W3 Schools tutorial</a>.</p>
+<p>You can use any Git client you are familiar with. <a href="https://gitforwindows.org">Git for Windows</a> is one good choice, or you
+can use the <a href="https://desktop.github.com">Github desktop client</a>. Either of those would need to be installed.</p>
+<p>To clone the repository, you will want to execute the following instruction in your Git client of choice. Please be
+aware that you do <em>NOT</em> need to “fork” the repository in order to make a clone and build VisionEval locally. See the
+discussion of forking below for more information. Most people will NOT want to “fork”.</p>
+<pre><code>cd /folder/for/Git-Repos
+git clone https://github.com/visioneval/VisionEval-dev.git VisionEval-dev</code></pre>
+<p>The rest of this section on the development environment will presume your VisionEval git clone is in a folder called
+“VisionEval-dev”. If you’re attaching your <a href="#production-environment">Production Environment</a> to your new VisionEval
+clone, use the Github root folder (e.g. <code>/folder/for/Git-Repos/VisionEval-dev</code>) as the value for the <code>VE_HOME</code>
+environment variable. Or you can just copy the <code>.Renviron</code> file that is created when you first run <code>ve.build()</code>, which
+will set VE_HOME to the correct value.</p>
+<p>Once you’ve got the cloned repository, make sure you have the following software available. The first two (R and
+RStudio) are the same that you would need for an end-user installation from the .zip installer.</p>
+<ul>
+<li>R for one of the supported versions (see <code>VisionEval-dev/build/R-versions.yml</code> for a complete list of supported versions)
+<ul>
+<li><a href="https://cran.r-project.org">Get R here</a></li>
+<li>R installation will work, even without administrative permissions (ignore the warning about not having access to certain features - none of them matter to VisionEval)</li>
+</ul>
+</li>
+<li>RStudio (optional)
+<ul>
+<li><a href="https://posit.co/download/rstudio-desktop/">Get RStudio here</a></li>
+<li>RStudio needs administrative permissions; to continue without it, see the command line instructions below</li>
+</ul>
+</li>
+<li>RTools43
+<ul>
+<li><a href="https://cran.r-project.org/bin/windows/Rtools/rtools43/rtools.html">Get RTools43 here</a></li>
+<li>Technically, you need a different RTools package for R 4.3.2 compared to R 4.1.x and R 4.2.x. In practice, you
+can always use RTools43 because the only part of RTools used by VisionEval is the <code>make</code> program and a couple of
+other standard GNU utilities, and the RTools shell for the command line is the same for all practical purposes in
+those versions.</li>
+<li>You do NOT need administrative permissions to install RTools43, but you may need to hunt around for a folder in
+which you have write permissions (%USERPROFILE% is a good choice).</li>
+</ul>
+</li>
+</ul>
+<p>To build or re-build VisionEval from the Git code with RStudio, do this:</p>
+<ul>
+<li>Start RStudio by double-clicking the “VisionEval-dev.Rproj” file at the root of the Git code (in “VisionEval-dev”)</li>
+<li>If you don’t have RStudio, make sure R_HOME is set to point to your version of R (see above) and just double-click
+“launch.bat”. That will give you the standard R GUI with the VisionEval development environment loaded.</li>
+<li>Execute this R command from with the running R console to perform the build:</li>
+</ul>
+<pre><code>ve.build()</code></pre>
+<ul>
+<li>The build needs an internet connection and will take an hour or so to complete depending on how fast your machine
+and internet connection are.</li>
+<li>You can run the built VisionEval with the command “ve.run()” and also do the walkthrough with the command
+“ve.test()”</li>
+</ul>
+<p>When you run <code>ve.build()</code> it creates two new non-versioned folders in “VisionEval-dev” as well as a couple of files.</p>
+<ul>
+<li>In the Git root (VisionEval-dev), an .Renviron file is created that you can use to set up your <a href="#production-environment">Production Environment</a>
+</li>
+<li>In the existing build directory, a build configuration file is created called “ve-output-visioneval-4.x.x.make” where the “4.x.x” is whatever R version you were building for</li>
+<li>Two new folders are created at the top of the repository:
+<ul>
+<li>“dev” which contains build log files, build status, and a library of R packages that are used during building but are not included in the end-user installation</li>
+<li>“built” which contains the built compoenents</li>
+</ul>
+</li>
+<li>The directory structure under “built” looks like this:
+<ul>
+<li>built
+<ul>
+<li>visioneval (or really, VE_BRANCH - see below to build different git branches separately)
+<ul>
+<li>4.x.x (where x.x is whatever sub-version of R you’re using; if you build a different R version from the same repository branch you’ll get additional folders)
+<ul>
+<li>docs (internal documentation, which will be empty unless you do <code>ve.build("docs")</code>
+</li>
+<li>pkg-dependencies (a local R repository with all the dependency packages needed by VisionEval; these are also installed into ve-lib below)</li>
+<li>pkg-ve-repo (a local R repository with the built-but-uninstalled VisionEval packages)</li>
+<li>runtime (the base folder whose contents become the basis for an end-user installer; ve.run() copies this folder so as not to pollute eventual installers with results of your tests)</li>
+<li>runtime.test (this folder won’t exist until you do <code>ve.run()</code>)</li>
+<li>src (this is the assembled source code for the framework and module packages that ends up the Source installer zip file; you can build or rebuild packages from these folders using R Studie or the R CMD instructions)</li>
+<li>ve-lib (installed binary versions of the VisionEval packages and dependencies for windows; this is placed into the “runtime” folder of the VisionEval installer zip file)</li>
+<li>ve-pkg (installable tar.gz package files that are only built for Mac or Linux for a source installation on those platforms; usually this folder will be empty on Windows though there are magic internal flags that can force ve-pkg to be populated)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>You should NOT put real work or real models into the “runtime” or “runtime.test” folders. Those will get blown away when
+you rebuild VisionEval. Set up a <a href="#production-environment">Production Environment</a> instead to define <code>VE_RUNTIME</code>.</p>
+<p>If you have a git feature branch for VisionEval-dev, you can build that branch separately from the default git branch
+(and if that makes no sense to you, you don’t need to know…).</p>
+<p>You’ll want to build a feature branch separately if you need to keep a built instance of your base branch alongside your
+experiments and not have to rebuild everythign when you change branches back and forth. To use the name of your branch
+(instead of the default “visioneval”) just add a parameter to ve.build:</p>
+<pre><code>ve.build(use.git=TRUE)</code></pre>
+<p>You’ll then get a subfolder of “built” named after your git branch (e.g. “built/mybranch/4.x.x/…”)</p>
+<p>If you’re really working different branches (or if you’re
+<a href="https://opensource.com/article/21/4/git-worktree">using git worktrees</a>, which we recommend but won’t explain
+here), it can help to put all your VisionEval builds in the same separate folder. This amounts to creating a “build
+environment” similar to your “production environment”.</p>
+<p>To put your builds somewhere else than in your git repository clone, just define a <code>VE_BUILD</code> environment variable in the
+<code>.Renviron</code> in the root of your development environment (VisionEval-dev). <code>VE_BUILD</code> should name an existing folder
+somewhere outside your VisionEval git directory (e.g. :%USERPROFILE%-build”)</p>
+<p>Once you have defined VE_BUILD, restart R or RStudio, and then when you run <code>ve.build()</code> or the command line equivalent,
+you’ll get this structure of files and folders:</p>
+<ul>
+<li>VE_BUILD
+<ul>
+<li>built (just like the “built” folder within the git repository )
+<ul>
+<li>mybranch (or “visioneval” if you don’t set use.git=TRUE)
+<ul>
+<li>4.x.x.
+<ul>
+<li>… etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>dev (same contents as the “dev” folder within the git repository
+if you don’t have VE_BUILD set)
+<ul>
+<li>lib</li>
+<li>logs</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>ve.build()</code> will still create “.Renviron” file in the git root and also create the “build/ve-output-visioneval-4.x.x.make” file within the Git repository</p>
+<p>If you define <code>VE_BUILD</code>, you do NOT need to change <code>VE_HOME</code>: it should still point to the root of your VisionEval git repository.</p>
+<div id="frequently-asked-questions-development" class="section level3" number="2.4.1">
+<h3>
+<span class="header-section-number">2.4.1</span> Frequently Asked Questions (development)<a class="anchor" aria-label="anchor" href="#frequently-asked-questions-development"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>
+<p>Do I need to “fork” the VisionEval-dev repository (short answer: “NO”) and why would I ever want to?</p>
+<ul>
+<li><p>Github has a misleading operation called “forking” and people get confused about the difference between “cloning” and
+“forking”. Forking is a Github-specific operation that will create a new Github-managed copy of the VisionEval repository within
+your own Git account. Cloning is a general Git action that makes a copy of a Github repository on your local computer.</p></li>
+<li><p>You do <em>NOT</em> need to fork any VisionEval repository to clone a development environment on your computer. Just run
+the git clone operation locally and point it at the VisionEval repository using one of the connection strings
+revealed by Github’s green “&lt;&gt; Code” button on the repository home page.</p></li>
+<li><p>If you do “fork” you will still need to “clone” in order to get a local copy of a VisionEval repository that you
+can build or work on. You don’t need to “fork” unless you want to make changes that you might contribute back to
+VisionEval. Forks on Github are needed to make pull requests. A “pull request” is an offer to merge your changes
+back into the main VisionEval code base.</p></li>
+<li><p>If you are doing “pull requests”, they should always be made against the “development” branch of VisionEval-dev, and you
+should be sure to rebase your changes on the current HEAD of the “development” branch prior to submitting the pull
+request (or it is guaranteed to be rejected). If none of that makes any sense to you, then you shouldn’t even be
+thinking of forking or making a pull request.</p></li>
+</ul>
+</li>
+<li>
+<p>What if I’m not using Windows?</p>
+<ul>
+<li>In principle, VisionEval should build and run on any system that has a supported version of R available (Mac or Linux or even the Windows Subsytem for Linux)</li>
+<li>You need to have a full R development environment in place because <code>ve.build()</code> will do an R source build and installation for all the dependency packages</li>
+<li>“All the dependency” packages means that the first build will take considerably longer than on an equivalent Windows
+machine for which binary packages are available (order of magnitude several hours instead of just one hour,
+depending on the speed of your machine).</li>
+<li>You will need a LOT of RAM to do the build (we recommend 16 Gigabytes) so if you’re trying this on a Linux
+cloud server, you’ll want a premium setup configured. Once you’ve built it, it will run with less RAM (or work
+reasonably with a large swap file). Remember that running a large VE model may still need as much as 8 or 9 Gigabytes of
+RAM per concurrent scenario.</li>
+<li>You do not need RStudio on Mac or Linux (but you could use it, if your system is <a href="https://posit.co/download/rstudio-desktop/">supported by RStudio</a>
+and if the system has a graphical user interface).</li>
+<li>You do NOT need RTools, which is only for Windows. The RTools functions are part of the standard Mac or Linux operating system
+environments. On Linux, depending on your distribution, you will need to install the system build environment (e.g. the “build-essential” package on Debian
+or ubuntu). That will furnish make, GNU compilers, etc. You will also need the full R packages (r-base, and r-base-dev).</li>
+<li>Without RStudio, just follow the command line instructions below</li>
+<li>
+<em>Caveat</em> No one has recently (1/2024) tried a non-Windows build, so there may still be some weirdnesses (e.g. with
+file permissions). Contact jeremy.raw at dot.gov if you’re having trouble with a non-Windows build.</li>
+</ul>
+</li>
+<li>
+<p>How do I build VisionEval from a command line?</p>
+<ul>
+<li>It’s easy, but if you don’t already know why you would want to and especially if you have not familiarity with a GNU
+Bash command line, we’re not going to explain it here. Just use RStudio or launch.bat (for the standard R GUI) and <code>ve.build()</code>.</li>
+<li>Here’s the command line drill:
+<ul>
+<li>Open the RTools43 Bash command line (it’s an icon within the RTools43 Start Menu)</li>
+<li>Change into the <code>build</code> folder of your git repository clone. That is NOT the same as the <code>built</code> folder - <code>build</code>
+contains the code needed to perform the build operations, and it is part of the versioned Github code.</li>
+<li>Type <code>make</code> and then go do something else for an hour or so.</li>
+</ul>
+</li>
+<li>When <code>make</code> is done, go back to the git root in Windows Explorer and double-click launch.bat (or
+VisionEval-dev.Rproj) to start the built VisionEval with “ve.run()”</li>
+<li>If you really love the terminal, you can put the R executable on your PATH and then after <code>make</code> finishes, just change to
+the root of your git installation. Then enter “R” and you’ll get an R command line right there with VisionEval running
+within it. But of courses, who would want to do that if they weren’t setting up a cluster of machines to do massively
+parallel VisionEval scenario runs?</li>
+<li>If you want to run a command line inside RStudio, you can open a Terminal window, change into the “build” directory,
+and run “make” from there. That’s it! Everything else is just like doing <code>ve.build()</code> from within RStudio or the R
+GUI, though there are some more options to do partial builds.
+See <a href="https://github.com/VisionEval/VisionEval-Dev/blob/development/build/Makefile.md"><code>Makefile.md</code></a> in the <code>build</code>
+directory to learn about all the build options.</li>
+</ul>
+<p>By default, the command line “build” process does not save a log of what it did. (If you run <code>ve.build()</code> from within
+R, the console window keeps the log). Here’s a magic incantation for the RTools43 Bash commend line (or Mac and Linux terminals)
+that will save a log file (in “build/make.out” - you can use any other file name or location your like):</p>
+<pre><code>nohup make &gt;make.out 2&gt;&amp;1 &amp; tail -f make.out</code></pre>
+<p>Type <code>Ctrl-C</code> to exit the <code>tail</code> program (which shows the log in the terminal window as the build runs). Start monitoring
+again by re-entering just the <code>tail -f make.out</code> part. If the <code>tail</code> display doesn’t change for a while, stop it with
+<code>Ctrl-C</code> and see if you get the “done” message.</p>
+<p>If you then want to end the <code>make</code> process, end the tail command (with <code>Ctrl-C</code>) first then enter this commend
+(which gets the make process ID and stops the process):</p>
+<pre><code>kill `ps aux | grep make | awk '{print $1}'`</code></pre>
+<p>Or you can run the ps command by hand, find the <code>make</code> process id (the first colum in the ps output) and kill that id.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="getting-started.html"><span class="header-section-number">1</span> Getting Started</a></div>
+<div class="next"><a href="conceptprimer.html"><span class="header-section-number">3</span> Concept Primer</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#detailed-installation"><span class="header-section-number">2</span> Detailed Installation</a></li>
+<li>
+<a class="nav-link" href="#selecting-an-installation-strategy"><span class="header-section-number">2.1</span> Selecting an Installation Strategy</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#recommended-installation-workflow"><span class="header-section-number">2.1.1</span> Recommended installation workflow:</a></li></ul>
+</li>
+<li><a class="nav-link" href="#end-user-installation"><span class="header-section-number">2.2</span> End-User Installation</a></li>
+<li><a class="nav-link" href="#setting-up-a-production-environment"><span class="header-section-number">2.3</span> Setting up a Production Environment</a></li>
+<li>
+<a class="nav-link" href="#setting-up-a-development-environment"><span class="header-section-number">2.4</span> Setting up a Development Environment</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#frequently-asked-questions-development"><span class="header-section-number">2.4.1</span> Frequently Asked Questions (development)</a></li></ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/VisionEval/VisionEval-Docs//blob/master/01-B-detailed-installation.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/VisionEval/VisionEval-Docs//edit/master/01-B-detailed-installation.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-01-18.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
+</script>
+</body>
+</html>

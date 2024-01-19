@@ -724,7 +724,7 @@ This module creates a vehicle table and populates it with household ID and geogr
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEHouseholdVehicles/inst/module_docs/CreateVehicleTable.md)
 
-### AssignVehicleAge {#vestate-assignvehicletype}
+### AssignVehicleAge {#vestate-assignvehicleage}
 
 This module assigns vehicle ages to each household vehicle. Vehicle age is assigned as a function of the vehicle type (auto or light truck), household income, and assumed mean vehicle age by vehicle type and `Azone`. Car service vehicles are assigned an age based on input assumptions with no distinction between vehicle type.
 

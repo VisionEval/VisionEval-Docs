@@ -1,8 +1,14 @@
 # VisionEval Tutorial {#tutorial}
 
-The VisionEval Tutorial provides an introductory walkthrough on how to set up a VisionEval model specific to your area of interest. This chapter does not cover how to install and run VisionEval, those instructions are covered in the [Getting Started][Getting Started] chapter. For users completely new to VisionEval, reviewing the [Concept Primer][Concept Primer] chapter for an overview of VisionEval modeling system is highly recommended before starting into the tutorial materials.
+The VisionEval Tutorial provides an introductory walkthrough on how to set up a VisionEval model
+specific to your area of interest. This chapter does not cover how to install and run VisionEval,
+those instructions are covered in the [Getting Started][Getting Started] chapter. For users
+completely new to VisionEval, reviewing the [Concept Primer][Concept Primer] chapter for an overview
+of VisionEval modeling system is highly recommended before starting into the tutorial materials.
 
-This VisionEval tutorial breaks down the process of setting up a model into several steps. Each step is described in it's own chapter, referenced below, and can also be accessed from the main navigation menu.
+This VisionEval tutorial breaks down the process of setting up a model into several steps. Each step
+is described in it's own chapter, referenced below, and can also be accessed from the main
+navigation menu.
 
 * The **[Picking a Model](#picking-a-model)** chapter is where to start for an overview of the three VisionEval models, VERSPM, VE-State, and VERPAT, and information on how to make a selection based on model differences and user needs. 
 * The **[Model Geography and Years](#model-geography-and-years)** chapter is the first step in applying the selected VisionEval model by making key decision on spatial scale and years.
@@ -11,16 +17,19 @@ This VisionEval tutorial breaks down the process of setting up a model into seve
 * The **[Developing Scenarios](#developing-scenarios)** chapter contains details on how to use VisionEval to set up multi-scenario runs for exploratory scenario planning.
 * The **[Estimation in VisionEval](#ve-estimation)** chapter reviews advanced customization techniques for users, including how model estimation is integrated into the VisionEval modeling system and how to replace a model's default estimation with local data.
 
-# Picking a Model
+# Picking a Model {#picking-a-model}
 The VisionEval system is comprised of three models:
 
 * **VERSPM** (VisionEval Regional Strategic Planning Model) was developed by Oregon Department of Transportation (ODOT) as an offshoot of the GreenSTEP model to support the preparation of metropolitan area scenario plans. The name reflects a broadening of the policies, beyond state statutory requirements.  This model operates largely at the zonal level (i.e. inputs and outputs are zone-based).
 * **VE-State** is a state level version of VERSPM.  Like VERSPM, this model operates at the zonal level, but the zones are larger than their VERSPM counterparts.
 * **VERPAT** (VisionEval Rapid Policy Analysis Tool) was developed under the federal Strategic Highway Research Program (SHRP2).  The model was developed to help planners evaluate the potential effect of growth policies on regional travel. Portions of the GreenSTEP model were used in VERPAT, but substantial revisions were made to the code, including use of land use place type categories. This model operates largely at the region or place type level for the entire region.
 
-
 ## Spatial Detail
-One key distinction between the all VisionEval models is the level of spatial detail. In general, the VisionEval models with a greater level of spatial detail also require more effort for developing the model inputs. In picking a model, users should consider their needs in the context of this trade-off between spatial detail and development effort.
+
+One key distinction between the all VisionEval models is the level of spatial detail. In general,
+the VisionEval models with a greater level of spatial detail also require more effort for developing
+the model inputs. In picking a model, users should consider their needs in the context of this
+trade-off between spatial detail and development effort.
 
 **VERSPM** was developed as a regional model for regional planning areas and MPOs. VERSPM models the region in zones (in a manner similar to traditional travel model zones), which results in improved spatial resolution of outputs, but which also increases the data development burden. The selection of the right tool therefore depends on a number of factors – available of data, project resources, desired spatial output detail, etc. Take a look at the model [inputs](#input-files), which has many inputs by Bzones.
 
@@ -30,14 +39,31 @@ One key distinction between the all VisionEval models is the level of spatial de
 
 ![](images/verpat-place-types.jpg)
 
-# Model Geography and Years
-Once a VisionEval model has been selected, the next step is deciding on the model geography and years. Both the model geography and years will inform the input data needed. 
+# Model Geography and Years {#model-geography-and-years}
+
+Once a VisionEval model has been selected, the next step is deciding on the model geography and
+years. Both the model geography and years will inform the input data needed. 
 
 ## Years
-Inputs in VisionEval are developed for every model year. Most applications consist of a base year and a future year. If the model area has a travel demand model available, it is good practice to align the VisionEval model years with those in the travel demand model, allowing the user to use the travel demand model to develop VisionEval inputs and validate the VisionEval Model. VisionEval may be used to model interim years, however each year modeled requires additional input data. 
+
+Inputs in VisionEval are developed for every model year. Most applications consist of a base year
+and a future year. If the model area has a travel demand model available, it is good practice to
+align the VisionEval model years with those in the travel demand model, allowing the user to use the
+travel demand model to develop VisionEval inputs and validate the VisionEval Model. VisionEval may
+be used to model interim years, however each year modeled requires additional input data. 
 
 ## Geography
-All VisionEval models share a standard geography framework. Although models are applied at different scales, sharing a common geographic definitions enables modules to be more readily shared between models. The standard geogrpahy framework specifies levels of geographical units, their names, their relative sizes, and the hierarchical relationships between them. It is flexible in that it allows geographical boundaries to be determined by the user and it allows the units in some geographical levels to be simulated rather than being tied to actual physical locations. Allowing simulation of one or more geographic levels enables modules to be shared between models that operate at different scales. For example a statewide model and a metropolitan area model could use the same module for assigning households to land development types even though the statewide model lacks the fine scale of geography of the metropolitan model.
+
+All VisionEval models share a standard geography framework. Although models are applied at different
+scales, sharing a common geographic definitions enables modules to be more readily shared between
+models. The standard geogrpahy framework specifies levels of geographical units, their names, their
+relative sizes, and the hierarchical relationships between them. It is flexible in that it allows
+geographical boundaries to be determined by the user and it allows the units in some geographical
+levels to be simulated rather than being tied to actual physical locations. Allowing simulation of
+one or more geographic levels enables modules to be shared between models that operate at different
+scales. For example a statewide model and a metropolitan area model could use the same module for
+assigning households to land development types even though the statewide model lacks the fine scale
+of geography of the metropolitan model.
 
 Following is the definition of the geographic structure of the VisionEval model system:
 
@@ -49,9 +75,17 @@ Following is the definition of the geographic structure of the VisionEval model 
 * **Place Type** is not a geography level but defines the level of urbanization (area type) and mixing of jobs and housing (development type).
 
 ### Setting Up the Model Geography
-Users should note that their selected model geography will determine the geography levels for input data development. Geographical relationships for a model are described in the "geo.csv" file contained in the "defs" directory. This file tabulates the names of each geographic unit (except for region) and the relationships between them. Each row shows a unique relationship. Where a unit of geography is not explicitly defined (i.e. it will be simulated), "NA" values are placed in the table. 
 
-The examples below show versions of the "geo.csv" file where only Azones are specified and where Azones and Bzones are specified. It should be noted that there are no naming conventions for individual zones. The user is free to choose what conventions they will use.
+Users should note that their selected model geography will determine the geography levels for input
+data development. Geographical relationships for a model are described in the "geo.csv" file
+contained in the "defs" directory. This file tabulates the names of each geographic unit (except for
+region) and the relationships between them. Each row shows a unique relationship. Where a unit of
+geography is not explicitly defined (i.e. it will be simulated), "NA" values are placed in the
+table. 
+
+The examples below show versions of the "geo.csv" file where only Azones are specified and where
+Azones and Bzones are specified. It should be noted that there are no naming conventions for
+individual zones. The user is free to choose what conventions they will use.
 
 **Example of a geo.csv file that only specifies Azones**
 
