@@ -869,7 +869,7 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
        
 ### Calculate4DMeasures {#verspm-calculate4dmeasures}
 
-This module calculates several so-called '4D' measures by `Bzone` including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility, i.e., the four 'Ds' of density, diversity, design, and destination accessibility. These measures are the same as or are similar to measures included in the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide)
+This module calculates several so-called '4D' measures by `Bzone` including density, diversity (i.e. mixing of land uses), transportation network design, and destination accessibility, i.e., the four 'Ds' of density, diversity, design, and destination accessibility. These measures are the same as or are similar to measures included in the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-mapping)
 
 #### User Input Files {-}
 
@@ -935,7 +935,7 @@ Here is a snapshot of the file:
 
 ##### Network density (bzone_network_design.csv) {-}
 
-This file contains values for `D3bpo4`, a measure for intersection density determined by the number of pedestrian-oriented intersections having four or more legs per square mile. The data to inform this input can be sourced from the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide).
+This file contains values for `D3bpo4`, a measure for intersection density determined by the number of pedestrian-oriented intersections having four or more legs per square mile. The data to inform this input can be sourced from the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-mapping).
 
 Here is a snapshot of the file:
 <table>
@@ -3834,7 +3834,7 @@ Here is a snapshot of the file:
 This file supplies data for vehicle taxes related to [vehicle operating costs](#vehicle-operating-costs).
 
 * **FuelTax**:Tax per gas gallon equivalent of fuel in dollars
-* **VmtTax**: Tax per gas gallon equivalent of fuel in dollars
+* **VmtTax**: Tax per mile of vehicle travel in dollars
 * **PevSurchgTaxProp**: Proportion of equivalent gas tax per mile paid by hydrocarbon fuel consuming vehicles to be charged to plug-in electric vehicles per mile of travel powered by electricity
 
 Here is a snapshot of the file:	

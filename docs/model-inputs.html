@@ -7,7 +7,7 @@
 <title>Chapter 7 Model Inputs | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="description" content="Once VisionEval model has been installed, a directory with sample data will be available within the model directory (e.g., ../models/VERSPM/ where .. refers to the parent directory of the unzipped...">
-<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta name="generator" content="bookdown 0.35 with bs4_book()">
 <meta property="og:title" content="Chapter 7 Model Inputs | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/model-inputs.html">
@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -118,17 +118,17 @@
 <span class="header-section-number">7.1.1</span> run_parameters.json<a class="anchor" aria-label="anchor" href="#run_parameters.json"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains parameters that define key attributes of the model run and relationships to other model runs. This file is a needs to be modified by the user to specify the model base year and run years. A more detailed description of the file can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure">here</a>. The results of model run are stored in a directory with the name specified by <code>"DatastoreName"</code>. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to <em>BaseScenario</em> by using <code>"DatastoreName": "BaseScenario"</code> in the file. The format of this file is as follows:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb17-1"><a href="model-inputs.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb17-2"><a href="model-inputs.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Model"</span><span class="fu">:</span> <span class="st">"VERSPM"</span><span class="fu">,</span></span>
-<span id="cb17-3"><a href="model-inputs.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Scenario"</span><span class="fu">:</span> <span class="st">"Test"</span><span class="fu">,</span></span>
-<span id="cb17-4"><a href="model-inputs.html#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"Test of VERSPM"</span><span class="fu">,</span></span>
-<span id="cb17-5"><a href="model-inputs.html#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Region"</span><span class="fu">:</span> <span class="st">"RVMPO"</span><span class="fu">,</span></span>
-<span id="cb17-6"><a href="model-inputs.html#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"BaseYear"</span><span class="fu">:</span> <span class="st">"2010"</span><span class="fu">,</span></span>
-<span id="cb17-7"><a href="model-inputs.html#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Years"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"2010"</span><span class="ot">,</span> <span class="st">"2038"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb17-8"><a href="model-inputs.html#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DatastoreName"</span><span class="fu">:</span> <span class="st">"Datastore"</span><span class="fu">,</span></span>
-<span id="cb17-9"><a href="model-inputs.html#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DatastoreType"</span><span class="fu">:</span> <span class="st">"RD"</span><span class="fu">,</span></span>
-<span id="cb17-10"><a href="model-inputs.html#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Seed"</span><span class="fu">:</span> <span class="dv">1</span></span>
-<span id="cb17-11"><a href="model-inputs.html#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb17-1"><a href="model-inputs.html#cb17-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb17-2"><a href="model-inputs.html#cb17-2" tabindex="-1"></a>    <span class="dt">"Model"</span><span class="fu">:</span> <span class="st">"VERSPM"</span><span class="fu">,</span></span>
+<span id="cb17-3"><a href="model-inputs.html#cb17-3" tabindex="-1"></a>    <span class="dt">"Scenario"</span><span class="fu">:</span> <span class="st">"Test"</span><span class="fu">,</span></span>
+<span id="cb17-4"><a href="model-inputs.html#cb17-4" tabindex="-1"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"Test of VERSPM"</span><span class="fu">,</span></span>
+<span id="cb17-5"><a href="model-inputs.html#cb17-5" tabindex="-1"></a>    <span class="dt">"Region"</span><span class="fu">:</span> <span class="st">"RVMPO"</span><span class="fu">,</span></span>
+<span id="cb17-6"><a href="model-inputs.html#cb17-6" tabindex="-1"></a>    <span class="dt">"BaseYear"</span><span class="fu">:</span> <span class="st">"2010"</span><span class="fu">,</span></span>
+<span id="cb17-7"><a href="model-inputs.html#cb17-7" tabindex="-1"></a>    <span class="dt">"Years"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"2010"</span><span class="ot">,</span> <span class="st">"2038"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb17-8"><a href="model-inputs.html#cb17-8" tabindex="-1"></a>    <span class="dt">"DatastoreName"</span><span class="fu">:</span> <span class="st">"Datastore"</span><span class="fu">,</span></span>
+<span id="cb17-9"><a href="model-inputs.html#cb17-9" tabindex="-1"></a>    <span class="dt">"DatastoreType"</span><span class="fu">:</span> <span class="st">"RD"</span><span class="fu">,</span></span>
+<span id="cb17-10"><a href="model-inputs.html#cb17-10" tabindex="-1"></a>    <span class="dt">"Seed"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb17-11"><a href="model-inputs.html#cb17-11" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="model_parameters.json" class="section level3" number="7.1.2">
 <h3>
@@ -136,13 +136,13 @@
 </h3>
 <p>This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure">here</a>. The source of the default <span class="math inline">\(16/hr in 2010\)</span> was derived from a Nov 2014 Oregon DOT Report: <a href="https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf">“The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon”</a>. Note the input looks for the dollars in the year of the base model.</p>
 <p>The format of this file is as follows:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb18-1"><a href="model-inputs.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb18-2"><a href="model-inputs.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
-<span id="cb18-3"><a href="model-inputs.html#cb18-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
-<span id="cb18-4"><a href="model-inputs.html#cb18-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
-<span id="cb18-5"><a href="model-inputs.html#cb18-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
-<span id="cb18-6"><a href="model-inputs.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb18-7"><a href="model-inputs.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb18-1"><a href="model-inputs.html#cb18-1" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb18-2"><a href="model-inputs.html#cb18-2" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
+<span id="cb18-3"><a href="model-inputs.html#cb18-3" tabindex="-1"></a>   <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
+<span id="cb18-4"><a href="model-inputs.html#cb18-4" tabindex="-1"></a>   <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
+<span id="cb18-5"><a href="model-inputs.html#cb18-5" tabindex="-1"></a>   <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
+<span id="cb18-6"><a href="model-inputs.html#cb18-6" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb18-7"><a href="model-inputs.html#cb18-7" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
 </div>
 <div id="deflators.csv" class="section level3" number="7.1.3">
 <h3>
@@ -963,6 +963,16 @@ RVMPO
 <p>Base year data for population by age category can be sourced from the Census. Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies such as population data centers, universities, metropolitan planning organizations, or similar agencies.</p>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="8%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+</colgroup>
 <thead><tr class="header">
 <th align="left">Geo</th>
 <th align="center">Year</th>
@@ -1452,7 +1462,7 @@ RVMPO
 <li>
 <strong>FuelTax</strong>:Tax per gas gallon equivalent of fuel in dollars</li>
 <li>
-<strong>VmtTax</strong>: Tax per gas gallon equivalent of fuel in dollars</li>
+<strong>VmtTax</strong>: Tax per mile of vehicle travel in dollars</li>
 <li>
 <strong>PevSurchgTaxProp</strong>: Proportion of equivalent gas tax per mile paid by hydrocarbon fuel consuming vehicles to be charged to plug-in electric vehicles per mile of travel powered by electricity</li>
 </ul>
@@ -1498,6 +1508,13 @@ RVMPO
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="7%">
+<col width="6%">
+<col width="27%">
+<col width="30%">
+<col width="28%">
+</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -4937,7 +4954,7 @@ RVMPO
 <li>
 <strong>FuelTax</strong>:Tax per gas gallon equivalent of fuel in dollars</li>
 <li>
-<strong>VmtTax</strong>: Tax per gas gallon equivalent of fuel in dollars</li>
+<strong>VmtTax</strong>: Tax per mile of vehicle travel in dollars</li>
 <li>
 <strong>PevSurchgTaxProp</strong>: Proportion of equivalent gas tax per mile paid by hydrocarbon fuel consuming vehicles to be charged to plug-in electric vehicles per mile of travel powered by electricity</li>
 </ul>
@@ -6200,7 +6217,17 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies and/or local academic sources. As with the employment data inputs the future data need not be county specific. Rather, regional totals by age group can be entered into the file with a value such as “region” entered in the county field.</p>
 <p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="13%">
+<col width="6%">
+<col width="12%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -6377,6 +6404,15 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="12%">
+<col width="5%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -6451,42 +6487,42 @@ Here is a snapshot of the file:</p>
 <span class="header-section-number">7.5.3.11</span> BaseLtVehDvmt<a class="anchor" aria-label="anchor" href="#baseltvehdvmt"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Light vehicle dvmt (<em>BaseLtVehDvmt</em>)</strong>: Total light vehicle daily VMT for the base year in thousands of miles. This data can be derived from a combination of <a href="http://www.fhwa.dot.gov/policyinformation/hpms.cfm">Highway Performance Monitoring System</a> data, Federal Highway Cost Allocation Study data, and regional data. Light vehicle daily VMT can be estimated by subtracting truck and bus VMT from total VMT provided in the Highway Performance Monitoring System (HPMS). Regional travel demand model outputs can also be used to derive these data. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb19-1"><a href="model-inputs.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb19-2"><a href="model-inputs.html#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseLtVehDvmt"</span><span class="fu">,</span></span>
-<span id="cb19-3"><a href="model-inputs.html#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"27244"</span><span class="fu">,</span></span>
-<span id="cb19-4"><a href="model-inputs.html#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb19-5"><a href="model-inputs.html#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"MI/DAY"</span><span class="fu">,</span></span>
-<span id="cb19-6"><a href="model-inputs.html#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb19-7"><a href="model-inputs.html#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb19-8"><a href="model-inputs.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb19-1"><a href="model-inputs.html#cb19-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb19-2"><a href="model-inputs.html#cb19-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseLtVehDvmt"</span><span class="fu">,</span></span>
+<span id="cb19-3"><a href="model-inputs.html#cb19-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"27244"</span><span class="fu">,</span></span>
+<span id="cb19-4"><a href="model-inputs.html#cb19-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb19-5"><a href="model-inputs.html#cb19-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"MI/DAY"</span><span class="fu">,</span></span>
+<span id="cb19-6"><a href="model-inputs.html#cb19-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb19-7"><a href="model-inputs.html#cb19-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb19-8"><a href="model-inputs.html#cb19-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="basefwyartprop" class="section level4" number="7.5.3.12">
 <h4>
 <span class="header-section-number">7.5.3.12</span> BaseFwyArtProp<a class="anchor" aria-label="anchor" href="#basefwyartprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Dvmt proportion by functional class (<em>BaseFwyArtProp</em>)</strong>: The proportions of daily VMT for light vehicles that takes place on freeways and arterials (i.e., the remainder of VMT takes place on lower functional class roads for the base year. This data can be derived from a combination of <a href="http://www.fhwa.dot.gov/policyinformation/hpms.cfm">Highway Performance Monitoring System</a> data, Federal Highway Cost Allocation Study data, and regional data. The proportions of light vehicle daily VMT on freeways and arterials can be derived from the HPMS data. Regional travel demand model outputs can also be used to derive these data. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb20-1"><a href="model-inputs.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb20-2"><a href="model-inputs.html#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseFwyArtProp"</span><span class="fu">,</span></span>
-<span id="cb20-3"><a href="model-inputs.html#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.77"</span><span class="fu">,</span></span>
-<span id="cb20-4"><a href="model-inputs.html#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb20-5"><a href="model-inputs.html#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
-<span id="cb20-6"><a href="model-inputs.html#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
-<span id="cb20-7"><a href="model-inputs.html#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb20-8"><a href="model-inputs.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb20-1"><a href="model-inputs.html#cb20-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb20-2"><a href="model-inputs.html#cb20-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseFwyArtProp"</span><span class="fu">,</span></span>
+<span id="cb20-3"><a href="model-inputs.html#cb20-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.77"</span><span class="fu">,</span></span>
+<span id="cb20-4"><a href="model-inputs.html#cb20-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb20-5"><a href="model-inputs.html#cb20-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
+<span id="cb20-6"><a href="model-inputs.html#cb20-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
+<span id="cb20-7"><a href="model-inputs.html#cb20-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb20-8"><a href="model-inputs.html#cb20-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="employmentgrowth" class="section level4" number="7.5.3.13">
 <h4>
 <span class="header-section-number">7.5.3.13</span> EmploymentGrowth<a class="anchor" aria-label="anchor" href="#employmentgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Employment Growth (<em>EmploymentGrowth</em>)</strong>: This variable represents a growth rate for employment in the region between the base year and the future year. A rate of 1 indicates no changes in overall employment, a value of more than 1 indicates some growth (e.g., 1.5 = 50% growth) and a value of less than 1 indicates decline in employment. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="model-inputs.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb21-2"><a href="model-inputs.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"EmploymentGrowth"</span><span class="fu">,</span></span>
-<span id="cb21-3"><a href="model-inputs.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
-<span id="cb21-4"><a href="model-inputs.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb21-5"><a href="model-inputs.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb21-6"><a href="model-inputs.html#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span></span>
-<span id="cb21-7"><a href="model-inputs.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span><span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb21-8"><a href="model-inputs.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="model-inputs.html#cb21-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb21-2"><a href="model-inputs.html#cb21-2" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"EmploymentGrowth"</span><span class="fu">,</span></span>
+<span id="cb21-3"><a href="model-inputs.html#cb21-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
+<span id="cb21-4"><a href="model-inputs.html#cb21-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb21-5"><a href="model-inputs.html#cb21-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb21-6"><a href="model-inputs.html#cb21-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span></span>
+<span id="cb21-7"><a href="model-inputs.html#cb21-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span><span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb21-8"><a href="model-inputs.html#cb21-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 </div>
 <div id="transport-supply-1" class="section level3" number="7.5.4">
@@ -6765,84 +6801,84 @@ Here is a snapshot of the file:</p>
 <span class="header-section-number">7.5.5.7</span> AutoCostGrowth<a class="anchor" aria-label="anchor" href="#autocostgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>% Increase in Auto Operating Cost (<em>AutoCostGrowth</em>):</strong> This parameter reflects the proportional increase in auto operating cost. This can be used to test different assumptions for future gas prices or the effects of increased gas taxes. A value of 1.5 multiplies base year operating costs by 1.5 and thus reflects a 50% increase. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb22-1"><a href="model-inputs.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb22-2"><a href="model-inputs.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AutoCostGrowth"</span><span class="fu">,</span></span>
-<span id="cb22-3"><a href="model-inputs.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
-<span id="cb22-4"><a href="model-inputs.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb22-5"><a href="model-inputs.html#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb22-6"><a href="model-inputs.html#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb22-7"><a href="model-inputs.html#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb22-8"><a href="model-inputs.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb22-1"><a href="model-inputs.html#cb22-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb22-2"><a href="model-inputs.html#cb22-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AutoCostGrowth"</span><span class="fu">,</span></span>
+<span id="cb22-3"><a href="model-inputs.html#cb22-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
+<span id="cb22-4"><a href="model-inputs.html#cb22-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb22-5"><a href="model-inputs.html#cb22-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb22-6"><a href="model-inputs.html#cb22-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb22-7"><a href="model-inputs.html#cb22-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb22-8"><a href="model-inputs.html#cb22-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="fwylanemigrowth" class="section level4" number="7.5.5.8">
 <h4>
 <span class="header-section-number">7.5.5.8</span> FwyLaneMiGrowth<a class="anchor" aria-label="anchor" href="#fwylanemigrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>FwyLaneMiGrowth</strong>: The variable indicates the percent increase in supply of freeways lane miles in the future year compared to base year. By default, the transportation supply is assumed to grow in line with population increase; therefore a value of 1 indicates growth in proportion with population growth. A value less than 1 indicates that there will be less freeway lane mile supply, per person, in the future. A value of 1 indicates faster freeway expansion than population growth. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb23-1"><a href="model-inputs.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb23-2"><a href="model-inputs.html#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"FwyLaneMiGrowth"</span><span class="fu">,</span></span>
-<span id="cb23-3"><a href="model-inputs.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb23-4"><a href="model-inputs.html#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb23-5"><a href="model-inputs.html#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb23-6"><a href="model-inputs.html#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb23-7"><a href="model-inputs.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb23-8"><a href="model-inputs.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb23-1"><a href="model-inputs.html#cb23-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb23-2"><a href="model-inputs.html#cb23-2" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"FwyLaneMiGrowth"</span><span class="fu">,</span></span>
+<span id="cb23-3"><a href="model-inputs.html#cb23-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb23-4"><a href="model-inputs.html#cb23-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb23-5"><a href="model-inputs.html#cb23-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb23-6"><a href="model-inputs.html#cb23-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb23-7"><a href="model-inputs.html#cb23-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb23-8"><a href="model-inputs.html#cb23-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="artlanemigrowth" class="section level4" number="7.5.5.9">
 <h4>
 <span class="header-section-number">7.5.5.9</span> ArtLaneMiGrowth<a class="anchor" aria-label="anchor" href="#artlanemigrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>ArtLaneMiGrowth</strong>: The variable indicates the percent increase in supply of arterial lane miles in the future year compared to base year. It is a similar value to freeway except that it measures arterial lane mile growth. It is also proportional to population growth. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb24-1"><a href="model-inputs.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb24-2"><a href="model-inputs.html#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"ArtLaneMiGrowth"</span><span class="fu">,</span></span>
-<span id="cb24-3"><a href="model-inputs.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb24-4"><a href="model-inputs.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb24-5"><a href="model-inputs.html#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb24-6"><a href="model-inputs.html#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb24-7"><a href="model-inputs.html#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb24-8"><a href="model-inputs.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb24-1"><a href="model-inputs.html#cb24-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb24-2"><a href="model-inputs.html#cb24-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"ArtLaneMiGrowth"</span><span class="fu">,</span></span>
+<span id="cb24-3"><a href="model-inputs.html#cb24-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb24-4"><a href="model-inputs.html#cb24-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb24-5"><a href="model-inputs.html#cb24-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb24-6"><a href="model-inputs.html#cb24-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb24-7"><a href="model-inputs.html#cb24-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb24-8"><a href="model-inputs.html#cb24-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="busrevmipcgrowth" class="section level4" number="7.5.5.10">
 <h4>
 <span class="header-section-number">7.5.5.10</span> BusRevMiPCGrowth<a class="anchor" aria-label="anchor" href="#busrevmipcgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>BusRevMiPCGrowth</strong>: It is the percent increase in transit revenue miles per capita for bus. It behaves in a similar way to the freeway and rail values in that a value of 1 indicates per capita revenue miles stays constant. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="model-inputs.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb25-2"><a href="model-inputs.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BusRevMiPCGrowth"</span><span class="fu">,</span></span>
-<span id="cb25-3"><a href="model-inputs.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb25-4"><a href="model-inputs.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb25-5"><a href="model-inputs.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb25-6"><a href="model-inputs.html#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb25-7"><a href="model-inputs.html#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb25-8"><a href="model-inputs.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="model-inputs.html#cb25-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb25-2"><a href="model-inputs.html#cb25-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BusRevMiPCGrowth"</span><span class="fu">,</span></span>
+<span id="cb25-3"><a href="model-inputs.html#cb25-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb25-4"><a href="model-inputs.html#cb25-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb25-5"><a href="model-inputs.html#cb25-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb25-6"><a href="model-inputs.html#cb25-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb25-7"><a href="model-inputs.html#cb25-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb25-8"><a href="model-inputs.html#cb25-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="railrevmipcgrowth" class="section level4" number="7.5.5.11">
 <h4>
 <span class="header-section-number">7.5.5.11</span> RailRevMiPCGrowth<a class="anchor" aria-label="anchor" href="#railrevmipcgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>RailRevMiPCGrowth</strong>: It is the percent increase in transit revenue miles per capita for rail. This encompasses all rail modes, from light rail through to commuter rail. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="model-inputs.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb26-2"><a href="model-inputs.html#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"RailRevMiPCGrowth"</span><span class="fu">,</span></span>
-<span id="cb26-3"><a href="model-inputs.html#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb26-4"><a href="model-inputs.html#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb26-5"><a href="model-inputs.html#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb26-6"><a href="model-inputs.html#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb26-7"><a href="model-inputs.html#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb26-8"><a href="model-inputs.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="model-inputs.html#cb26-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb26-2"><a href="model-inputs.html#cb26-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"RailRevMiPCGrowth"</span><span class="fu">,</span></span>
+<span id="cb26-3"><a href="model-inputs.html#cb26-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb26-4"><a href="model-inputs.html#cb26-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb26-5"><a href="model-inputs.html#cb26-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb26-6"><a href="model-inputs.html#cb26-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb26-7"><a href="model-inputs.html#cb26-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb26-8"><a href="model-inputs.html#cb26-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="vmtcharge" class="section level4" number="7.5.5.12">
 <h4>
 <span class="header-section-number">7.5.5.12</span> VmtCharge<a class="anchor" aria-label="anchor" href="#vmtcharge"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Auto Operating Surcharge Per VMT (<em>VmtCharge</em>)</strong>: It is a cost in cents per mile that would be levied on auto users through the form of a VMT charge. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="model-inputs.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb27-2"><a href="model-inputs.html#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"VmtCharge"</span><span class="fu">,</span></span>
-<span id="cb27-3"><a href="model-inputs.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.05"</span><span class="fu">,</span></span>
-<span id="cb27-4"><a href="model-inputs.html#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb27-5"><a href="model-inputs.html#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
-<span id="cb27-6"><a href="model-inputs.html#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb27-7"><a href="model-inputs.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb27-8"><a href="model-inputs.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="model-inputs.html#cb27-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb27-2"><a href="model-inputs.html#cb27-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"VmtCharge"</span><span class="fu">,</span></span>
+<span id="cb27-3"><a href="model-inputs.html#cb27-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.05"</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="model-inputs.html#cb27-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb27-5"><a href="model-inputs.html#cb27-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
+<span id="cb27-6"><a href="model-inputs.html#cb27-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb27-7"><a href="model-inputs.html#cb27-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb27-8"><a href="model-inputs.html#cb27-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 </div>
 <div id="model-parameters-1" class="section level3" number="7.5.6">
@@ -7035,6 +7071,13 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="37%">
+<col width="8%">
+<col width="20%">
+<col width="20%">
+<col width="12%">
+</colgroup>
 <thead><tr class="header">
 <th>Parameters</th>
 <th>VMT</th>
@@ -7088,6 +7131,14 @@ Here is a snapshot of the file:</p>
 <p>This file contains the <em>D</em> values, which are proportional values for each of the 13 place types (<em>Bzones</em>) that are relative to a regional average, for each of the five Ds used in VERPAT - design (intersection street density), accessibility (job accessibility by auto), distance to transit (nearest transit stop), density (population density) and diversity (land use mix).
 Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="7%">
+<col width="10%">
+<col width="13%">
+<col width="8%">
+<col width="32%">
+<col width="27%">
+</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Density</th>
@@ -7513,7 +7564,15 @@ Here is a snapshot of the file:</p>
 </h4>
 <p><strong>Vehicle fuel economy (<em>model_veh_mpg_by_year.csv</em>)</strong>: This file contains the estimates and forecasts of average fuel economy and power economy in miles per gallon for autos, light trucks, heavy trucks (trucks) and miles per kilowatt for trains by vehicle model year. Note that this is not the fleet average for that year. It is the average for new vehicles sold in that year. The fuel economy is the same for all fuel types and is measured in gasoline equivalent gallons (i.e. energy content of a gallon of gasoline). This file is used in the calculations of fuel consumption.
 Here is a snapshot of the file:</p>
-<div class="inline-table"><table class="table table-sm">
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+</colgroup>
 <thead><tr class="header">
 <th>ModelYear</th>
 <th>AutoMpg</th>
@@ -7776,6 +7835,13 @@ Here is a snapshot of the file:</p>
 </h4>
 <p><strong>Hybrid electric vehicles characteristics (<em>model_hev_prop_mpg.csv</em>)</strong>: This file contains the estimates and forecasts of fuel efficiency (mpg), and proportions of automobiles and light trucks that are hybrid electric vehicles (that are neither plugin hybrid nor electric vehicle) by vehicle model year. Note that this is not the fleet average for that year. It is the average of new vehicles sold in that year. This file is used in identification of hybrid electric that are not plugin hybrid or electric vehicles. Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="15%">
+<col width="19%">
+<col width="17%">
+<col width="24%">
+<col width="22%">
+</colgroup>
 <thead><tr class="header">
 <th>ModelYear</th>
 <th>AutoPropHev</th>
@@ -8008,140 +8074,140 @@ Here is a snapshot of the file:</p>
 <span class="header-section-number">7.5.6.20</span> AnnVmtInflator<a class="anchor" aria-label="anchor" href="#annvmtinflator"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Annual VMT inflator (<em>AnnVmtInflator</em>)</strong>: Factor to convert VMT between annual and average daily amounts. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="model-inputs.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb28-2"><a href="model-inputs.html#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AnnVmtInflator"</span><span class="fu">,</span></span>
-<span id="cb28-3"><a href="model-inputs.html#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"365"</span><span class="fu">,</span></span>
-<span id="cb28-4"><a href="model-inputs.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"integer"</span><span class="fu">,</span></span>
-<span id="cb28-5"><a href="model-inputs.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"DAYS"</span><span class="fu">,</span></span>
-<span id="cb28-6"><a href="model-inputs.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb28-7"><a href="model-inputs.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb28-8"><a href="model-inputs.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="model-inputs.html#cb28-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb28-2"><a href="model-inputs.html#cb28-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AnnVmtInflator"</span><span class="fu">,</span></span>
+<span id="cb28-3"><a href="model-inputs.html#cb28-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"365"</span><span class="fu">,</span></span>
+<span id="cb28-4"><a href="model-inputs.html#cb28-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"integer"</span><span class="fu">,</span></span>
+<span id="cb28-5"><a href="model-inputs.html#cb28-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"DAYS"</span><span class="fu">,</span></span>
+<span id="cb28-6"><a href="model-inputs.html#cb28-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb28-7"><a href="model-inputs.html#cb28-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb28-8"><a href="model-inputs.html#cb28-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="basecostpermile" class="section level4" number="7.5.6.21">
 <h4>
 <span class="header-section-number">7.5.6.21</span> BaseCostPerMile<a class="anchor" aria-label="anchor" href="#basecostpermile"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Base cost per mile (<em>BaseCostPerMile</em>)</strong>: Base cost per mile in dollars for transportation costs used in the travel demand model to initially represent travel as close to unconstrained by transportation costs. The transportation costs are then fully constrained later in the model as travel reductions caused by budget constraints are estimated. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="model-inputs.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb29-2"><a href="model-inputs.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseCostPerMile"</span><span class="fu">,</span></span>
-<span id="cb29-3"><a href="model-inputs.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.04"</span><span class="fu">,</span></span>
-<span id="cb29-4"><a href="model-inputs.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb29-5"><a href="model-inputs.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
-<span id="cb29-6"><a href="model-inputs.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb29-7"><a href="model-inputs.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb29-8"><a href="model-inputs.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="model-inputs.html#cb29-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb29-2"><a href="model-inputs.html#cb29-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseCostPerMile"</span><span class="fu">,</span></span>
+<span id="cb29-3"><a href="model-inputs.html#cb29-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.04"</span><span class="fu">,</span></span>
+<span id="cb29-4"><a href="model-inputs.html#cb29-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb29-5"><a href="model-inputs.html#cb29-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
+<span id="cb29-6"><a href="model-inputs.html#cb29-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb29-7"><a href="model-inputs.html#cb29-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb29-8"><a href="model-inputs.html#cb29-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="dvmtbudgetprop" class="section level4" number="7.5.6.22">
 <h4>
 <span class="header-section-number">7.5.6.22</span> DvmtBudgetProp<a class="anchor" aria-label="anchor" href="#dvmtbudgetprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Dvmt budget proportion (<em>DvmtBudgetProp</em>)</strong>: The proportion of household budget that can be allocated to transportation spending. The travel demand models includes a constraint that reduces household travel if too high a proportion of household spending is spent on transportation. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb30-1"><a href="model-inputs.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb30-2"><a href="model-inputs.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"DvmtBudgetProp"</span><span class="fu">,</span></span>
-<span id="cb30-3"><a href="model-inputs.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.1"</span><span class="fu">,</span></span>
-<span id="cb30-4"><a href="model-inputs.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb30-5"><a href="model-inputs.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb30-6"><a href="model-inputs.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
-<span id="cb30-7"><a href="model-inputs.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb30-8"><a href="model-inputs.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb30-1"><a href="model-inputs.html#cb30-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb30-2"><a href="model-inputs.html#cb30-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"DvmtBudgetProp"</span><span class="fu">,</span></span>
+<span id="cb30-3"><a href="model-inputs.html#cb30-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.1"</span><span class="fu">,</span></span>
+<span id="cb30-4"><a href="model-inputs.html#cb30-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb30-5"><a href="model-inputs.html#cb30-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb30-6"><a href="model-inputs.html#cb30-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
+<span id="cb30-7"><a href="model-inputs.html#cb30-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb30-8"><a href="model-inputs.html#cb30-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="fuelcost" class="section level4" number="7.5.6.23">
 <h4>
 <span class="header-section-number">7.5.6.23</span> FuelCost<a class="anchor" aria-label="anchor" href="#fuelcost"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Fuel cost (<em>FuelCost</em>)</strong>: Average cost per gallon of fuel (before taxes are added). It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="model-inputs.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb31-2"><a href="model-inputs.html#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"FuelCost"</span><span class="fu">,</span></span>
-<span id="cb31-3"><a href="model-inputs.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.82"</span><span class="fu">,</span></span>
-<span id="cb31-4"><a href="model-inputs.html#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb31-5"><a href="model-inputs.html#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
-<span id="cb31-6"><a href="model-inputs.html#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb31-7"><a href="model-inputs.html#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb31-8"><a href="model-inputs.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="model-inputs.html#cb31-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb31-2"><a href="model-inputs.html#cb31-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"FuelCost"</span><span class="fu">,</span></span>
+<span id="cb31-3"><a href="model-inputs.html#cb31-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.82"</span><span class="fu">,</span></span>
+<span id="cb31-4"><a href="model-inputs.html#cb31-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb31-5"><a href="model-inputs.html#cb31-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
+<span id="cb31-6"><a href="model-inputs.html#cb31-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb31-7"><a href="model-inputs.html#cb31-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb31-8"><a href="model-inputs.html#cb31-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="kwhcost" class="section level4" number="7.5.6.24">
 <h4>
 <span class="header-section-number">7.5.6.24</span> KwhCost<a class="anchor" aria-label="anchor" href="#kwhcost"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Power cost (<em>KwhCost</em>)</strong>: Average cost per kwh of power consumption (before taxes are added). It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="model-inputs.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb32-2"><a href="model-inputs.html#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"KwhCost"</span><span class="fu">,</span></span>
-<span id="cb32-3"><a href="model-inputs.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.257"</span><span class="fu">,</span></span>
-<span id="cb32-4"><a href="model-inputs.html#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb32-5"><a href="model-inputs.html#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/KWH"</span><span class="fu">,</span></span>
-<span id="cb32-6"><a href="model-inputs.html#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb32-7"><a href="model-inputs.html#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb32-8"><a href="model-inputs.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="model-inputs.html#cb32-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb32-2"><a href="model-inputs.html#cb32-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"KwhCost"</span><span class="fu">,</span></span>
+<span id="cb32-3"><a href="model-inputs.html#cb32-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.257"</span><span class="fu">,</span></span>
+<span id="cb32-4"><a href="model-inputs.html#cb32-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb32-5"><a href="model-inputs.html#cb32-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/KWH"</span><span class="fu">,</span></span>
+<span id="cb32-6"><a href="model-inputs.html#cb32-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb32-7"><a href="model-inputs.html#cb32-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb32-8"><a href="model-inputs.html#cb32-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="gastax" class="section level4" number="7.5.6.25">
 <h4>
 <span class="header-section-number">7.5.6.25</span> GasTax<a class="anchor" aria-label="anchor" href="#gastax"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Gas tax (<em>GasTax</em>)</strong>: Average cost per gallon of fuel of gas taxes. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb33-1"><a href="model-inputs.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb33-2"><a href="model-inputs.html#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"GasTax"</span><span class="fu">,</span></span>
-<span id="cb33-3"><a href="model-inputs.html#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.424"</span><span class="fu">,</span></span>
-<span id="cb33-4"><a href="model-inputs.html#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb33-5"><a href="model-inputs.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
-<span id="cb33-6"><a href="model-inputs.html#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb33-7"><a href="model-inputs.html#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb33-8"><a href="model-inputs.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb33-1"><a href="model-inputs.html#cb33-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb33-2"><a href="model-inputs.html#cb33-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"GasTax"</span><span class="fu">,</span></span>
+<span id="cb33-3"><a href="model-inputs.html#cb33-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.424"</span><span class="fu">,</span></span>
+<span id="cb33-4"><a href="model-inputs.html#cb33-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb33-5"><a href="model-inputs.html#cb33-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
+<span id="cb33-6"><a href="model-inputs.html#cb33-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb33-7"><a href="model-inputs.html#cb33-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb33-8"><a href="model-inputs.html#cb33-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="lttruckprop" class="section level4" number="7.5.6.26">
 <h4>
 <span class="header-section-number">7.5.6.26</span> LtTruckProp<a class="anchor" aria-label="anchor" href="#lttruckprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Light Truck Proportions (<em>LtTruckProp</em>)</strong>: The proportion of household vehicles that are light trucks (SUVs, pickup trucks) as opposed to autos. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb34-1"><a href="model-inputs.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb34-2"><a href="model-inputs.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"LtTruckProp"</span><span class="fu">,</span></span>
-<span id="cb34-3"><a href="model-inputs.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.45"</span><span class="fu">,</span></span>
-<span id="cb34-4"><a href="model-inputs.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb34-5"><a href="model-inputs.html#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb34-6"><a href="model-inputs.html#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb34-7"><a href="model-inputs.html#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb34-8"><a href="model-inputs.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb34-1"><a href="model-inputs.html#cb34-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb34-2"><a href="model-inputs.html#cb34-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"LtTruckProp"</span><span class="fu">,</span></span>
+<span id="cb34-3"><a href="model-inputs.html#cb34-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.45"</span><span class="fu">,</span></span>
+<span id="cb34-4"><a href="model-inputs.html#cb34-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb34-5"><a href="model-inputs.html#cb34-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb34-6"><a href="model-inputs.html#cb34-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb34-7"><a href="model-inputs.html#cb34-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb34-8"><a href="model-inputs.html#cb34-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="tranrevmiadjfactor" class="section level4" number="7.5.6.27">
 <h4>
 <span class="header-section-number">7.5.6.27</span> TranRevMiAdjFactor<a class="anchor" aria-label="anchor" href="#tranrevmiadjfactor"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Transit revenue adjustment factor (<em>TranRevMiAdjFactor</em>)</strong>: Factor to convert transit revenue miles (i.e. miles run in service on routes) to total transit vehicle miles operated to account for vehicle miles run while deadheading from depots to route endpoints. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb35-1"><a href="model-inputs.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb35-2"><a href="model-inputs.html#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TranRevMiAdjFactor"</span><span class="fu">,</span></span>
-<span id="cb35-3"><a href="model-inputs.html#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.12"</span><span class="fu">,</span></span>
-<span id="cb35-4"><a href="model-inputs.html#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb35-5"><a href="model-inputs.html#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb35-6"><a href="model-inputs.html#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb35-7"><a href="model-inputs.html#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb35-8"><a href="model-inputs.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb35-1"><a href="model-inputs.html#cb35-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb35-2"><a href="model-inputs.html#cb35-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TranRevMiAdjFactor"</span><span class="fu">,</span></span>
+<span id="cb35-3"><a href="model-inputs.html#cb35-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.12"</span><span class="fu">,</span></span>
+<span id="cb35-4"><a href="model-inputs.html#cb35-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb35-5"><a href="model-inputs.html#cb35-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb35-6"><a href="model-inputs.html#cb35-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb35-7"><a href="model-inputs.html#cb35-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb35-8"><a href="model-inputs.html#cb35-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="truckvmtgrowthmultiplier" class="section level4" number="7.5.6.28">
 <h4>
 <span class="header-section-number">7.5.6.28</span> TruckVmtGrowthMultiplier<a class="anchor" aria-label="anchor" href="#truckvmtgrowthmultiplier"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Truck vmt growth multiplier (<em>TruckVmtGrowthMultiplier</em>)</strong>: Rate at which heavy truck VMT growth in relation to total regional household income growth in the region. A value of 1 indicates that heavy truck VMT grows at the same rate as total regional household income. A value less than 1 means slower growth in truck VMT, and greater than 1 means faster growth in truck VMT than total regional household income. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb36-1"><a href="model-inputs.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb36-2"><a href="model-inputs.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TruckVmtGrowthMultiplier"</span><span class="fu">,</span></span>
-<span id="cb36-3"><a href="model-inputs.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb36-4"><a href="model-inputs.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb36-5"><a href="model-inputs.html#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb36-6"><a href="model-inputs.html#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb36-7"><a href="model-inputs.html#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb36-8"><a href="model-inputs.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb36-1"><a href="model-inputs.html#cb36-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb36-2"><a href="model-inputs.html#cb36-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TruckVmtGrowthMultiplier"</span><span class="fu">,</span></span>
+<span id="cb36-3"><a href="model-inputs.html#cb36-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb36-4"><a href="model-inputs.html#cb36-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb36-5"><a href="model-inputs.html#cb36-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb36-6"><a href="model-inputs.html#cb36-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb36-7"><a href="model-inputs.html#cb36-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb36-8"><a href="model-inputs.html#cb36-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="workvmtprop" class="section level4" number="7.5.6.29">
 <h4>
 <span class="header-section-number">7.5.6.29</span> WorkVmtProp<a class="anchor" aria-label="anchor" href="#workvmtprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Work VMT Proportion (<em>WorkVmtProp</em>)</strong>: The proportion of household VMT that takes place for commute to work purposes; used to differentiate between travel purposes for use in estimating overall VMT reductions that are targeted at the commute to work. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb37-1"><a href="model-inputs.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb37-2"><a href="model-inputs.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"WorkVmtProp"</span><span class="fu">,</span></span>
-<span id="cb37-3"><a href="model-inputs.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.25"</span><span class="fu">,</span></span>
-<span id="cb37-4"><a href="model-inputs.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb37-5"><a href="model-inputs.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
-<span id="cb37-6"><a href="model-inputs.html#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb37-7"><a href="model-inputs.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb37-8"><a href="model-inputs.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb37-1"><a href="model-inputs.html#cb37-1" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb37-2"><a href="model-inputs.html#cb37-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"WorkVmtProp"</span><span class="fu">,</span></span>
+<span id="cb37-3"><a href="model-inputs.html#cb37-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.25"</span><span class="fu">,</span></span>
+<span id="cb37-4"><a href="model-inputs.html#cb37-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb37-5"><a href="model-inputs.html#cb37-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
+<span id="cb37-6"><a href="model-inputs.html#cb37-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb37-7"><a href="model-inputs.html#cb37-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb37-8"><a href="model-inputs.html#cb37-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 
 </div>
 </div>
@@ -8306,7 +8372,7 @@ Here is a snapshot of the file:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-01-18.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-01-31.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

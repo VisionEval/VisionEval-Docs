@@ -783,7 +783,7 @@ Here is a snapshot of the file:
 This file supplies data for vehicle taxes related to [auto operating costs](#auto-operating-cost)
 
 * **FuelTax**:Tax per gas gallon equivalent of fuel in dollars
-* **VmtTax**: Tax per gas gallon equivalent of fuel in dollars
+* **VmtTax**: Tax per mile of vehicle travel in dollars
 * **PevSurchgTaxProp**: Proportion of equivalent gas tax per mile paid by hydrocarbon fuel consuming vehicles to be charged to plug-in electric vehicles per mile of travel powered by electricity
 
 Here is a snapshot of the file:	
@@ -2661,7 +2661,7 @@ Here is a snapshot of the file:
 This file supplies data for vehicle related taxes
 
 * **FuelTax**:Tax per gas gallon equivalent of fuel in dollars
-* **VmtTax**: Tax per gas gallon equivalent of fuel in dollars
+* **VmtTax**: Tax per mile of vehicle travel in dollars
 * **PevSurchgTaxProp**: Proportion of equivalent gas tax per mile paid by hydrocarbon fuel consuming vehicles to be charged to plug-in electric vehicles per mile of travel powered by electricity
 
 Here is a snapshot of the file:	
