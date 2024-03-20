@@ -7,7 +7,7 @@
 <title>Chapter 15 Common Use Cases | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="description" content="This chapter includes two common use cases: The first case study example substitutes the default household population data (estimation dataset) with a locally-specific US Census data Public Use...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Chapter 15 Common Use Cases | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/common-use-cases.html">
@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -99,8 +99,8 @@
 <li><p><strong>Disaggregated PUMS</strong> - A sample of individual record-level data for each person or household counted. (e.g., a persons age, gender, employment and the household they belong to.). The smallest geographic unit are Public Use Microdata Areas (PUMAs), which are aggregated areas to protect confidentiality and must include at least 100,000 persons.</p></li>
 </ul>
 <p>Most people are at least somewhat familiar with the US Census and the information they collect. The primary function of the US Census is to collect a count of people living in the United States for federal allocation of political representatives and taxes. However, the US Census has since expanded to include a variety of other useful statistical information regarding demographics and employment. Census data are spatially organized into a hierarchy of sub-divided spatial areas, the smallest of which is called a Census Blocks, which aggregate into Block Groups, Tracts, Counties, and States. See the example figure below:</p>
-<div class="float">
-<img src="images/image4.png" title="fig:" alt="Example Census geographic hierarchy"><div class="figcaption">Example Census geographic hierarchy</div>
+<div class="figure">
+<img src="images/image4.png" title="fig:" alt=""><p class="caption">Example Census geographic hierarchy</p>
 </div>
 <p><em>source: US Census</em></p>
 <p>The primary census program is the Decennial Census, which is a comprehensive count collected every 10 years. However, because populations can significantly change within a decade, the American Community Survey (ACS) was created to obtain data at more frequent intervals. Rather than a full census, the ACS collects ongoing samples on a monthly basis. These data are then used to publish statistically adjusted estimates in 1-year, 3-year, and 5-year estimates. 1-year estimates use the most recent data but are the least reliable because the sample is smaller, whereas the 5-year estimate uses data from the previous 5 years. Although not exactly equivalent, the 1- and 5-year estimates are often considered analogous with a 1% and 5% sample of the population.</p>
@@ -239,8 +239,8 @@
 </h5>
 <blockquote>
 <p>To start the <em>VisionEval</em> environment, navigate to your <em>VisionEval</em> runtime directory (e.g., <code>C:/Users/&lt;``user name``&gt;/Documents/VisionEval</code>) and double click <code>VisionEval.Rproj</code>. The RStudio layout should look similar to the figure below (there may be minor differences):</p>
-<div class="float">
-<img src="images/image5.png" alt="Graphical user interface, text, application, email Description automatically generated"><div class="figcaption">Graphical user interface, text, application, email Description automatically generated</div>
+<div class="figure">
+<img src="images/image5.png" alt=""><p class="caption">Graphical user interface, text, application, email Description automatically generated</p>
 </div>
 <p>There are two options for the next step: (B1) using RStudio Build Tools, or (B2) using the R native install command. Instructions for both methods are included in steps B1 and B2 below.</p>
 </blockquote>
@@ -555,13 +555,13 @@ process_acs_pums &lt;- function(PumsFile, type, GetPumas='ALL') {
   }))</code></pre>
 <p>​<br>
 ​<br>
-​if(Sys.info()[‘sysname’] == ‘Windows’) {
-​cmd &lt;- paste0(“unzip -p ‘“, PumsFile,”’”)
-​}
+​ if(Sys.info()[‘sysname’] == ‘Windows’) {
+​ cmd &lt;- paste0(“unzip -p ‘“, PumsFile,”’”)
+​ }
 ​<br>
-​if(Sys.info()[‘sysname’] == ‘Linux’) {
-​cmd &lt;- paste0(“gunzip -cq ‘“, PumsFile,”’”)
-​}
+​ if(Sys.info()[‘sysname’] == ‘Linux’) {
+​ cmd &lt;- paste0(“gunzip -cq ‘“, PumsFile,”’”)
+​ }
 ​<br>
 # Checks if it is a zip file or a bytefile
 if(grepl(‘.zip’, PumsFile)) {
@@ -656,15 +656,15 @@ getDecPUMS &lt;- function(STATE, output_dir = NA){
   } 
   STATE_NAME &lt;- state.name[match(toupper(STATE),state.abb)] </code></pre>
 <p>​<br>
-​if(!is.numeric(STATE)) STATE_NUM &lt;- state_codes[toupper(STATE)]</p>
+​ if(!is.numeric(STATE)) STATE_NUM &lt;- state_codes[toupper(STATE)]</p>
 <p>​<br>
-​# Download the PUMS data to tempfile and load directly to data table
-​url &lt;- file.path(base_url,
-​STATE_NAME,
-​paste0(‘REVISEDPUMS5_’, sprintf(“%02d”, STATE_NUM), ‘.TXT’))
+​ # Download the PUMS data to tempfile and load directly to data table
+​ url &lt;- file.path(base_url,
+​ STATE_NAME,
+​ paste0(‘REVISEDPUMS5_’, sprintf(“%02d”, STATE_NUM), ‘.TXT’))
 ​<br>
-​temp &lt;- tempfile()
-​download.file(url, temp)
+​ temp &lt;- tempfile()
+​ download.file(url, temp)
 ​<br>
 # Read .txt to data frames
 PUMS &lt;- process_2000_pums(temp)</p>
@@ -687,20 +687,20 @@ getACSPUMS &lt;- function(STATE, YEAR='2000', GetPumas='ALL', output_dir, save_z
     }) 
   base_url = 'https://www2.census.gov/programs-surveys/acs/data/pums' </code></pre>
 <p>​<br>
-​if(length(STATE) &gt; 2 &amp; !is.numeric(STATE)) {
-​STATE &lt;- tolower(state.abb[match(toTitleCase(STATE),state.name)])
-​}</p>
+​ if(length(STATE) &gt; 2 &amp; !is.numeric(STATE)) {
+​ STATE &lt;- tolower(state.abb[match(toTitleCase(STATE),state.name)])
+​ }</p>
 <p>​<br>
-​# Download the PUMS data to tempfile and load directly to data table
-​PUMS &lt;- lapply(c(‘p’, ‘h’), function(f) {
-​url &lt;- file.path(base_url, YEAR, ‘5-Year’,
-​paste0(‘csv_’, f, tolower(STATE), ‘.zip’))
+​ # Download the PUMS data to tempfile and load directly to data table
+​ PUMS &lt;- lapply(c(‘p’, ‘h’), function(f) {
+​ url &lt;- file.path(base_url, YEAR, ‘5-Year’,
+​ paste0(‘csv_’, f, tolower(STATE), ‘.zip’))
 ​<br>
-​if(save_zip == F){
-​temp &lt;- tempfile()
-​} else {
-​temp &lt;- file.path(output_dir, basename(url))
-​}
+​ if(save_zip == F){
+​ temp &lt;- tempfile()
+​ } else {
+​ temp &lt;- file.path(output_dir, basename(url))
+​ }
 ​<br>
 download.file(url, temp)
 df &lt;- process_acs_pums(temp, type=f, GetPumas)</p>
@@ -708,15 +708,15 @@ df &lt;- process_acs_pums(temp, type=f, GetPumas)</p>
   }) 
   names(PUMS) &lt;- c('p', 'h') </code></pre>
 <p>​<br>
-​# SAVE OUTPUT
-​if(!is.na(output_dir)) {
-​if(!dir.exists(output_dir)) dir.create(output_dir)
-​fwrite(PUMS[[‘p’]], file.path(output_dir, ‘pums_persons.csv’))
-​fwrite(PUMS[[‘h’]], file.path(output_dir, ‘pums_households.csv’))
-​} else {
-​return(PUMS)
-​}
-​}</p>
+​ # SAVE OUTPUT
+​ if(!is.na(output_dir)) {
+​ if(!dir.exists(output_dir)) dir.create(output_dir)
+​ fwrite(PUMS[[‘p’]], file.path(output_dir, ‘pums_persons.csv’))
+​ fwrite(PUMS[[‘h’]], file.path(output_dir, ‘pums_households.csv’))
+​ } else {
+​ return(PUMS)
+​ }
+​ }</p>
 
 </div>
 </div>
@@ -763,7 +763,7 @@ df &lt;- process_acs_pums(temp, type=f, GetPumas)</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-01-31.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-03-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

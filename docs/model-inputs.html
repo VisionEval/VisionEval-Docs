@@ -7,7 +7,7 @@
 <title>Chapter 7 Model Inputs | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="description" content="Once VisionEval model has been installed, a directory with sample data will be available within the model directory (e.g., ../models/VERSPM/ where .. refers to the parent directory of the unzipped...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Chapter 7 Model Inputs | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/model-inputs.html">
@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -118,17 +118,17 @@
 <span class="header-section-number">7.1.1</span> run_parameters.json<a class="anchor" aria-label="anchor" href="#run_parameters.json"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains parameters that define key attributes of the model run and relationships to other model runs. This file is a needs to be modified by the user to specify the model base year and run years. A more detailed description of the file can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure">here</a>. The results of model run are stored in a directory with the name specified by <code>"DatastoreName"</code>. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to <em>BaseScenario</em> by using <code>"DatastoreName": "BaseScenario"</code> in the file. The format of this file is as follows:</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb17-1"><a href="model-inputs.html#cb17-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb17-2"><a href="model-inputs.html#cb17-2" tabindex="-1"></a>    <span class="dt">"Model"</span><span class="fu">:</span> <span class="st">"VERSPM"</span><span class="fu">,</span></span>
-<span id="cb17-3"><a href="model-inputs.html#cb17-3" tabindex="-1"></a>    <span class="dt">"Scenario"</span><span class="fu">:</span> <span class="st">"Test"</span><span class="fu">,</span></span>
-<span id="cb17-4"><a href="model-inputs.html#cb17-4" tabindex="-1"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"Test of VERSPM"</span><span class="fu">,</span></span>
-<span id="cb17-5"><a href="model-inputs.html#cb17-5" tabindex="-1"></a>    <span class="dt">"Region"</span><span class="fu">:</span> <span class="st">"RVMPO"</span><span class="fu">,</span></span>
-<span id="cb17-6"><a href="model-inputs.html#cb17-6" tabindex="-1"></a>    <span class="dt">"BaseYear"</span><span class="fu">:</span> <span class="st">"2010"</span><span class="fu">,</span></span>
-<span id="cb17-7"><a href="model-inputs.html#cb17-7" tabindex="-1"></a>    <span class="dt">"Years"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"2010"</span><span class="ot">,</span> <span class="st">"2038"</span><span class="ot">]</span><span class="fu">,</span></span>
-<span id="cb17-8"><a href="model-inputs.html#cb17-8" tabindex="-1"></a>    <span class="dt">"DatastoreName"</span><span class="fu">:</span> <span class="st">"Datastore"</span><span class="fu">,</span></span>
-<span id="cb17-9"><a href="model-inputs.html#cb17-9" tabindex="-1"></a>    <span class="dt">"DatastoreType"</span><span class="fu">:</span> <span class="st">"RD"</span><span class="fu">,</span></span>
-<span id="cb17-10"><a href="model-inputs.html#cb17-10" tabindex="-1"></a>    <span class="dt">"Seed"</span><span class="fu">:</span> <span class="dv">1</span></span>
-<span id="cb17-11"><a href="model-inputs.html#cb17-11" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb17-1"><a href="model-inputs.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb17-2"><a href="model-inputs.html#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Model"</span><span class="fu">:</span> <span class="st">"VERSPM"</span><span class="fu">,</span></span>
+<span id="cb17-3"><a href="model-inputs.html#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Scenario"</span><span class="fu">:</span> <span class="st">"Test"</span><span class="fu">,</span></span>
+<span id="cb17-4"><a href="model-inputs.html#cb17-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Description"</span><span class="fu">:</span> <span class="st">"Test of VERSPM"</span><span class="fu">,</span></span>
+<span id="cb17-5"><a href="model-inputs.html#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Region"</span><span class="fu">:</span> <span class="st">"RVMPO"</span><span class="fu">,</span></span>
+<span id="cb17-6"><a href="model-inputs.html#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"BaseYear"</span><span class="fu">:</span> <span class="st">"2010"</span><span class="fu">,</span></span>
+<span id="cb17-7"><a href="model-inputs.html#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Years"</span><span class="fu">:</span> <span class="ot">[</span><span class="st">"2010"</span><span class="ot">,</span> <span class="st">"2038"</span><span class="ot">]</span><span class="fu">,</span></span>
+<span id="cb17-8"><a href="model-inputs.html#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DatastoreName"</span><span class="fu">:</span> <span class="st">"Datastore"</span><span class="fu">,</span></span>
+<span id="cb17-9"><a href="model-inputs.html#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"DatastoreType"</span><span class="fu">:</span> <span class="st">"RD"</span><span class="fu">,</span></span>
+<span id="cb17-10"><a href="model-inputs.html#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"Seed"</span><span class="fu">:</span> <span class="dv">1</span></span>
+<span id="cb17-11"><a href="model-inputs.html#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="model_parameters.json" class="section level3" number="7.1.2">
 <h3>
@@ -136,13 +136,13 @@
 </h3>
 <p>This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found <a href="https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure">here</a>. The source of the default <span class="math inline">\(16/hr in 2010\)</span> was derived from a Nov 2014 Oregon DOT Report: <a href="https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf">“The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon”</a>. Note the input looks for the dollars in the year of the base model.</p>
 <p>The format of this file is as follows:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb18-1"><a href="model-inputs.html#cb18-1" tabindex="-1"></a><span class="ot">[</span></span>
-<span id="cb18-2"><a href="model-inputs.html#cb18-2" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
-<span id="cb18-3"><a href="model-inputs.html#cb18-3" tabindex="-1"></a>   <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
-<span id="cb18-4"><a href="model-inputs.html#cb18-4" tabindex="-1"></a>   <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
-<span id="cb18-5"><a href="model-inputs.html#cb18-5" tabindex="-1"></a>   <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
-<span id="cb18-6"><a href="model-inputs.html#cb18-6" tabindex="-1"></a>  <span class="fu">}</span></span>
-<span id="cb18-7"><a href="model-inputs.html#cb18-7" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb18-1"><a href="model-inputs.html#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ot">[</span></span>
+<span id="cb18-2"><a href="model-inputs.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"ValueOfTime"</span><span class="fu">,</span> </span>
+<span id="cb18-3"><a href="model-inputs.html#cb18-3" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"16"</span><span class="fu">,</span> </span>
+<span id="cb18-4"><a href="model-inputs.html#cb18-4" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span> </span>
+<span id="cb18-5"><a href="model-inputs.html#cb18-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
+<span id="cb18-6"><a href="model-inputs.html#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb18-7"><a href="model-inputs.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ot">]</span></span></code></pre></div>
 </div>
 <div id="deflators.csv" class="section level3" number="7.1.3">
 <h3>
@@ -354,7 +354,7 @@
 <p>This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:</p>
 <ul>
 <li><a href="model-inputs.html#verspm-inputs">VERSPM inputs</a></li>
-<li><a href="vestate-inputs">VE-State inputs</a></li>
+<li><a href="model-inputs.html#vestate-inputs">VE-State inputs</a></li>
 <li><a href="model-inputs.html#verpat-inputs">VERPAT inputs</a></li>
 </ul>
 <div id="household-synthesis-inputs" class="section level3" number="7.2.1">
@@ -725,59 +725,29 @@
 <li>
 <strong>PropGQChargingAvail</strong>: Proportion of group quarters dwelling units in Azone that have PEV charging facilities available</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-PropSFChargingAvail
-</th>
-<th style="text-align:center;">
-PropMFChargingAvail
-</th>
-<th style="text-align:center;">
-PropGQChargingAvail
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">PropSFChargingAvail</th>
+<th align="center">PropMFChargingAvail</th>
+<th align="center">PropGQChargingAvail</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">1</td>
+<td align="center">0.0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">1</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -963,16 +933,6 @@ RVMPO
 <p>Base year data for population by age category can be sourced from the Census. Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies such as population data centers, universities, metropolitan planning organizations, or similar agencies.</p>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="8%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-</colgroup>
 <thead><tr class="header">
 <th align="left">Geo</th>
 <th align="center">Year</th>
@@ -1018,50 +978,26 @@ RVMPO
 <li>
 <strong>LtTrkMeanAge</strong>: Mean age of light trucks owned or leased by households.</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-AutoMeanAge
-</th>
-<th style="text-align:center;">
-LtTrkMeanAge
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">AutoMeanAge</th>
+<th align="center">LtTrkMeanAge</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-10.8
-</td>
-<td style="text-align:center;">
-10.5
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">10.8</td>
+<td align="center">10.5</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-12.0
-</td>
-<td style="text-align:center;">
-12.0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">12.0</td>
+<td align="center">12.0</td>
 </tr>
 </tbody>
 </table></div>
@@ -1077,50 +1013,26 @@ RVMPO
 <li>
 <strong>VehOwnAdValoremTax</strong>: Annual proportion of vehicle value paid in taxes</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-VehOwnFlatRateFee.2015
-</th>
-<th style="text-align:center;">
-VehOwnAdValoremTax
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">VehOwnFlatRateFee.2015</th>
+<th align="center">VehOwnAdValoremTax</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-50
-</td>
-<td style="text-align:center;">
-0.00
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">50</td>
+<td align="center">0.00</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.01
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0</td>
+<td align="center">0.01</td>
 </tr>
 </tbody>
 </table></div>
@@ -1170,41 +1082,23 @@ RVMPO
 <li>
 <strong>LtTrkProp</strong>: Proportion of household vehicles that are light trucks (pickup, SUV, van).</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-LtTrkProp
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">LtTrkProp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.45
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.45</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.34
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.34</td>
 </tr>
 </tbody>
 </table></div>
@@ -1218,41 +1112,23 @@ RVMPO
 <li>
 <strong>PaydHhProp</strong>: Proportion of households in the Azone who have pay-as-you-drive insurance for their vehicles</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-PaydHhProp
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">PaydHhProp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.01
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.01</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.50
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.50</td>
 </tr>
 </tbody>
 </table></div>
@@ -1262,50 +1138,26 @@ RVMPO
 <span class="header-section-number">7.3.12</span> azone_per_cap_inc.csv<a class="anchor" aria-label="anchor" href="#verspm-azone_per_cap_inc.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains information on regional average per capita household (<code>HHIncomePC</code>) and group quarters (<code>GQIncomePC</code>) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become <code>HHIncomePC.2015</code> and <code>GQIncomePC.2015</code>.</p>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-HHIncomePC.2010
-</th>
-<th style="text-align:center;">
-GQIncomePC.2010
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">HHIncomePC.2010</th>
+<th align="center">GQIncomePC.2010</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-32164
-</td>
-<td style="text-align:center;">
-7500
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">32164</td>
+<td align="center">7500</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-43334
-</td>
-<td style="text-align:center;">
-10000
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">43334</td>
+<td align="center">10000</td>
 </tr>
 </tbody>
 </table></div>
@@ -1319,41 +1171,23 @@ RVMPO
 <li>
 <strong>PropSovDvmtDiverted</strong>: Goals for the proportion of household DVMT in single occupant vehicle tours with round-trip distances of 20 miles or less be diverted to bicycling or other slow speed modes of travel</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-PropSovDvmtDiverted
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">PropSovDvmtDiverted</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.04
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.04</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.80
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.80</td>
 </tr>
 </tbody>
 </table></div>
@@ -1508,13 +1342,6 @@ RVMPO
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="7%">
-<col width="6%">
-<col width="27%">
-<col width="30%">
-<col width="28%">
-</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -1549,74 +1376,38 @@ RVMPO
 <li>
 <strong>D4c</strong>: Aggregate frequency of transit service within 0.25 miles of block group boundary per hour during evening peak period (Ref: EPA 2010 Smart Location Database)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-D4c
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">D4c</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -1626,74 +1417,38 @@ D410290013021
 <span class="header-section-number">7.3.18</span> bzone_carsvc_availability.csv<a class="anchor" aria-label="anchor" href="#verspm-bzone_carsvc_availability.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains the information about level of car service availability and contains a value of either <code>Low</code> or <code>High</code> for <code>Bzones</code>. <code>High</code> means car service access is competitive with household owned car and will impact household vehicle ownership; <code>Low</code> is not competitive and will not impact household vehicle ownership.</p>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-CarSvcLevel
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">CarSvcLevel</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-Low
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">Low</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-Low
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">Low</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-Low
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">Low</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-Low
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">Low</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-Low
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">Low</td>
 </tr>
 </tbody>
 </table></div>
@@ -1703,110 +1458,50 @@ Low
 <span class="header-section-number">7.3.19</span> bzone_dwelling_units.csv<a class="anchor" aria-label="anchor" href="#verspm-bzone_dwelling_units.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains the number single-family dwelling units (<code>SFDU</code>), multifamily dwelling units (<code>MFDU</code>) and group-quarter dwelling units (<code>GQDU</code>) by <code>Bzone</code> for each of the base and future years. Data for the base year for single-family and multifamily dwelling units can be sourced from Census housing data with information on units in structure, with multifamily dwelling units defined as any structures with 2-or-more units. For group quarters, unless more detailed local data is available, Census data for non-institutionalized group quarter population can serve as a proxy for dwelling units assuming a <code>1:1</code> ratio of dwelling unit per GQ population.</p>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-SFDU
-</th>
-<th style="text-align:center;">
-MFDU
-</th>
-<th style="text-align:center;">
-GQDU
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">SFDU</th>
+<th align="center">MFDU</th>
+<th align="center">GQDU</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-559
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">559</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-79
-</td>
-<td style="text-align:center;">
-8
-</td>
-<td style="text-align:center;">
-523
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">79</td>
+<td align="center">8</td>
+<td align="center">523</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1398
-</td>
-<td style="text-align:center;">
-180
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">1398</td>
+<td align="center">180</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1385
-</td>
-<td style="text-align:center;">
-172
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">1385</td>
+<td align="center">172</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-271
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">271</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -1824,110 +1519,50 @@ D410290013021
 <li>
 <strong>SvcEmp</strong>: Number of jobs in service sector in zone (Census LEHD: CNS12 + CNS14 + CNS15 + CNS16 + CNS19)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-TotEmp
-</th>
-<th style="text-align:center;">
-RetEmp
-</th>
-<th style="text-align:center;">
-SvcEmp
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">TotEmp</th>
+<th align="center">RetEmp</th>
+<th align="center">SvcEmp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-403
-</td>
-<td style="text-align:center;">
-262
-</td>
-<td style="text-align:center;">
-96
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">403</td>
+<td align="center">262</td>
+<td align="center">96</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1382
-</td>
-<td style="text-align:center;">
-73
-</td>
-<td style="text-align:center;">
-880
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">1382</td>
+<td align="center">73</td>
+<td align="center">880</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-271
-</td>
-<td style="text-align:center;">
-12
-</td>
-<td style="text-align:center;">
-172
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">271</td>
+<td align="center">12</td>
+<td align="center">172</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-609
-</td>
-<td style="text-align:center;">
-66
-</td>
-<td style="text-align:center;">
-413
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">609</td>
+<td align="center">66</td>
+<td align="center">413</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-49
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-41
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">49</td>
+<td align="center">1</td>
+<td align="center">41</td>
 </tr>
 </tbody>
 </table></div>
@@ -1937,128 +1572,56 @@ D410290013021
 <span class="header-section-number">7.3.21</span> bzone_hh_inc_qrtl_prop.csv<a class="anchor" aria-label="anchor" href="#verspm-bzone_hh_inc_qrtl_prop.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains the proportion of <code>Bzone</code> non-group quarters households by quartile of <code>Azone</code> household income category for each of the base and future years. The total for each <code>Bzone</code> should sum to <code>1</code>.</p>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-HhPropIncQ1
-</th>
-<th style="text-align:center;">
-HhPropIncQ2
-</th>
-<th style="text-align:center;">
-HhPropIncQ3
-</th>
-<th style="text-align:center;">
-HhPropIncQ4
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">HhPropIncQ1</th>
+<th align="center">HhPropIncQ2</th>
+<th align="center">HhPropIncQ3</th>
+<th align="center">HhPropIncQ4</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.12
-</td>
-<td style="text-align:center;">
-0.54
-</td>
-<td style="text-align:center;">
-0.26
-</td>
-<td style="text-align:center;">
-0.54
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">0.12</td>
+<td align="center">0.54</td>
+<td align="center">0.26</td>
+<td align="center">0.54</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.00
-</td>
-<td style="text-align:center;">
-0.32
-</td>
-<td style="text-align:center;">
-0.36
-</td>
-<td style="text-align:center;">
-0.32
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">0.00</td>
+<td align="center">0.32</td>
+<td align="center">0.36</td>
+<td align="center">0.32</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.24
-</td>
-<td style="text-align:center;">
-0.16
-</td>
-<td style="text-align:center;">
-0.26
-</td>
-<td style="text-align:center;">
-0.16
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">0.24</td>
+<td align="center">0.16</td>
+<td align="center">0.26</td>
+<td align="center">0.16</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.16
-</td>
-<td style="text-align:center;">
-0.19
-</td>
-<td style="text-align:center;">
-0.36
-</td>
-<td style="text-align:center;">
-0.19
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">0.16</td>
+<td align="center">0.19</td>
+<td align="center">0.36</td>
+<td align="center">0.19</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.29
-</td>
-<td style="text-align:center;">
-0.29
-</td>
-<td style="text-align:center;">
-0.15
-</td>
-<td style="text-align:center;">
-0.29
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">0.29</td>
+<td align="center">0.29</td>
+<td align="center">0.15</td>
+<td align="center">0.29</td>
 </tr>
 </tbody>
 </table></div>
@@ -2068,92 +1631,44 @@ D410290013021
 <span class="header-section-number">7.3.22</span> bzone_lat_lon.csv<a class="anchor" aria-label="anchor" href="#verspm-bzone_lat_lon.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains the latitude and longitude of the centroid of each Bzone.</p>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-Latitude
-</th>
-<th style="text-align:center;">
-Longitude
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">Latitude</th>
+<th align="center">Longitude</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-42.48657
-</td>
-<td style="text-align:center;">
--122.8014
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">42.48657</td>
+<td align="center">-122.8014</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-42.44259
-</td>
-<td style="text-align:center;">
--122.8461
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">42.44259</td>
+<td align="center">-122.8461</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-42.46010
-</td>
-<td style="text-align:center;">
--122.7925
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">42.46010</td>
+<td align="center">-122.7925</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-42.47673
-</td>
-<td style="text-align:center;">
--122.8008
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">42.47673</td>
+<td align="center">-122.8008</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-42.37304
-</td>
-<td style="text-align:center;">
--122.7793
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">42.37304</td>
+<td align="center">-122.7793</td>
 </tr>
 </tbody>
 </table></div>
@@ -2163,74 +1678,38 @@ D410290013021
 <span class="header-section-number">7.3.23</span> bzone_network_design.csv<a class="anchor" aria-label="anchor" href="#verspm-bzone_network_design.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>This file contains values for <code>D3bpo4</code>, a measure for intersection density determined by the number of pedestrian-oriented intersections having four or more legs per square mile. The data to inform this input can be sourced from the EPA’s <a href="https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide">Smart Location Database</a>.</p>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-D3bpo4
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">D3bpo4</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.2618757
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">0.2618757</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.4830901
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">0.4830901</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1.8038130
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">1.8038130</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-18.9766301
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">18.9766301</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.1013039
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">0.1013039</td>
 </tr>
 </tbody>
 </table></div>
@@ -2254,164 +1733,78 @@ D410290013021
 <li>
 <strong>PkgCost</strong>: Average daily cost for long-term parking (e.g. paid on monthly basis)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-PkgSpacesPerSFDU
-</th>
-<th style="text-align:center;">
-PkgSpacesPerMFDU
-</th>
-<th style="text-align:center;">
-PkgSpacesPerGQ
-</th>
-<th style="text-align:center;">
-PropWkrPay
-</th>
-<th style="text-align:center;">
-PropCashOut
-</th>
-<th style="text-align:center;">
-PkgCost.2010
-</th>
+<colgroup>
+<col width="12%">
+<col width="5%">
+<col width="16%">
+<col width="16%">
+<col width="14%">
+<col width="10%">
+<col width="11%">
+<col width="12%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">PkgSpacesPerSFDU</th>
+<th align="center">PkgSpacesPerMFDU</th>
+<th align="center">PkgSpacesPerGQ</th>
+<th align="center">PropWkrPay</th>
+<th align="center">PropCashOut</th>
+<th align="center">PkgCost.2010</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-3
-</td>
-<td style="text-align:center;">
-1.5
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">3</td>
+<td align="center">1.5</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-4.0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">4</td>
+<td align="center">4.0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-4.0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">4</td>
+<td align="center">4.0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-4.0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">4</td>
+<td align="center">4.0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-4
-</td>
-<td style="text-align:center;">
-4.0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">4</td>
+<td align="center">4.0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -2427,92 +1820,44 @@ D410290013021
 <li>
 <strong>ImpProp</strong>: Proportion of households residing in <code>Bzone</code> who participate in strong individualized marketing program</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-EcoProp
-</th>
-<th style="text-align:center;">
-ImpProp
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">EcoProp</th>
+<th align="center">ImpProp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">0.0</td>
+<td align="center">0.0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-0.4
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">0.2</td>
+<td align="center">0.4</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-0.4
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">0.2</td>
+<td align="center">0.4</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">0.0</td>
+<td align="center">0.0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">0.0</td>
+<td align="center">0.0</td>
 </tr>
 </tbody>
 </table></div>
@@ -2530,110 +1875,50 @@ D410290013021
 <li>
 <strong>RuralArea</strong>: Area that is <code>Rural</code> and unprotected within the zone (Acres)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-UrbanArea
-</th>
-<th style="text-align:center;">
-TownArea
-</th>
-<th style="text-align:center;">
-RuralArea
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">UrbanArea</th>
+<th align="center">TownArea</th>
+<th align="center">RuralArea</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-298.6487137
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-4996.11876
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">298.6487137</td>
+<td align="center">0</td>
+<td align="center">4996.11876</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-830.6009450
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-384.80922
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">830.6009450</td>
+<td align="center">0</td>
+<td align="center">384.80922</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-983.1506646
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-3699.94017
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">983.1506646</td>
+<td align="center">0</td>
+<td align="center">3699.94017</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-439.2145619
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-90.86259
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">439.2145619</td>
+<td align="center">0</td>
+<td align="center">90.86259</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.3548548
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-6212.57640
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">0.3548548</td>
+<td align="center">0</td>
+<td align="center">6212.57640</td>
 </tr>
 </tbody>
 </table></div>
@@ -2657,164 +1942,78 @@ D410290013021
 <li>
 <strong>PropTownGQDU</strong>: Proportion of group quarters accommodations located within the town portion of the zone</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-PropUrbanSFDU
-</th>
-<th style="text-align:center;">
-PropUrbanMFDU
-</th>
-<th style="text-align:center;">
-PropUrbanGQDU
-</th>
-<th style="text-align:center;">
-PropTownSFDU
-</th>
-<th style="text-align:center;">
-PropTownMFDU
-</th>
-<th style="text-align:center;">
-PropTownGQDU
-</th>
+<colgroup>
+<col width="13%">
+<col width="5%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+<col width="13%">
+<col width="13%">
+<col width="13%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">PropUrbanSFDU</th>
+<th align="center">PropUrbanMFDU</th>
+<th align="center">PropUrbanGQDU</th>
+<th align="center">PropTownSFDU</th>
+<th align="center">PropTownMFDU</th>
+<th align="center">PropTownGQDU</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-D410290014002
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.4686941
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014002</td>
+<td align="center">2010</td>
+<td align="center">0.4686941</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013012
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.8860759
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290013012</td>
+<td align="center">2010</td>
+<td align="center">0.8860759</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014001
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.8626609
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290014001</td>
+<td align="center">2010</td>
+<td align="center">0.8626609</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290014003
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.9906137
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">D410290014003</td>
+<td align="center">2010</td>
+<td align="center">0.9906137</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-D410290013021
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.0147601
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">D410290013021</td>
+<td align="center">2010</td>
+<td align="center">0.0147601</td>
+<td align="center">1</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -2830,35 +2029,19 @@ D410290013021
 <li>
 <strong>UrbanHvyTrkDvmt</strong>: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by heavy trucks during he base year</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-UzaNameLookup
-</th>
-<th style="text-align:center;">
-UrbanLdvDvmt
-</th>
-<th style="text-align:center;">
-UrbanHvyTrkDvmt
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">UzaNameLookup</th>
+<th align="center">UrbanLdvDvmt</th>
+<th align="center">UrbanHvyTrkDvmt</th>
 </tr></thead>
-<tbody><tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-Medford/OR
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
+<tbody><tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">Medford/OR</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -2889,122 +2072,64 @@ NA
 <li>
 <strong>ArtExtCongChg</strong>: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of extreme congestion</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-FwyNoneCongChg.2010
-</th>
-<th style="text-align:center;">
-FwyModCongChg.2010
-</th>
-<th style="text-align:center;">
-FwyHvyCongChg.2010
-</th>
-<th style="text-align:center;">
-FwySevCongChg.2010
-</th>
-<th style="text-align:center;">
-FwyExtCongChg.2010
-</th>
-<th style="text-align:center;">
-ArtNoneCongChg.2010
-</th>
-<th style="text-align:center;">
-ArtModCongChg.2010
-</th>
-<th style="text-align:center;">
-ArtHvyCongChg.2010
-</th>
-<th style="text-align:center;">
-ArtSevCongChg.2010
-</th>
-<th style="text-align:center;">
-ArtExtCongChg.2010
-</th>
+<colgroup>
+<col width="2%">
+<col width="2%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+<col width="9%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">FwyNoneCongChg.2010</th>
+<th align="center">FwyModCongChg.2010</th>
+<th align="center">FwyHvyCongChg.2010</th>
+<th align="center">FwySevCongChg.2010</th>
+<th align="center">FwyExtCongChg.2010</th>
+<th align="center">ArtNoneCongChg.2010</th>
+<th align="center">ArtModCongChg.2010</th>
+<th align="center">ArtHvyCongChg.2010</th>
+<th align="center">ArtSevCongChg.2010</th>
+<th align="center">ArtExtCongChg.2010</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0.0</td>
+<td align="center">0.0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.1
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0.1</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -3032,68 +2157,43 @@ RVMPO
 <li>
 <strong>BusOthDvmtProp</strong>: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways</li>
 </ul>
-Here is a snapshot of the file:
-<div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-LdvFwyDvmtProp
-</th>
-<th style="text-align:center;">
-LdvArtDvmtProp
-</th>
-<th style="text-align:center;">
-LdvOthDvmtProp
-</th>
-<th style="text-align:center;">
-HvyTrkFwyDvmtProp
-</th>
-<th style="text-align:center;">
-HvyTrkArtDvmtProp
-</th>
-<th style="text-align:center;">
-HvyTrkOthDvmtProp
-</th>
-<th style="text-align:center;">
-BusFwyDvmtProp
-</th>
-<th style="text-align:center;">
-BusArtDvmtProp
-</th>
-<th style="text-align:center;">
-BusOthDvmtProp
-</th>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="3%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+<col width="11%">
+<col width="11%">
+<col width="11%">
+<col width="10%">
+<col width="10%">
+<col width="10%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">LdvFwyDvmtProp</th>
+<th align="center">LdvArtDvmtProp</th>
+<th align="center">LdvOthDvmtProp</th>
+<th align="center">HvyTrkFwyDvmtProp</th>
+<th align="center">HvyTrkArtDvmtProp</th>
+<th align="center">HvyTrkOthDvmtProp</th>
+<th align="center">BusFwyDvmtProp</th>
+<th align="center">BusArtDvmtProp</th>
+<th align="center">BusOthDvmtProp</th>
 </tr></thead>
-<tbody><tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-0.2632296
-</td>
-<td style="text-align:center;">
-0.47739
-</td>
-<td style="text-align:center;">
-0.2593804
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.6962986
-</td>
-<td style="text-align:center;">
-0.3037014
-</td>
+<tbody><tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">0.2632296</td>
+<td align="center">0.47739</td>
+<td align="center">0.2593804</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">0</td>
+<td align="center">0.6962986</td>
+<td align="center">0.3037014</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -3108,50 +2208,26 @@ RVMPO
 <li>
 <strong>ArtLaneMi</strong>: Lane-miles of roadways functionally classified as arterials (but not freeways or expressways) in the urbanized portion of the metropolitan area</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-FwyLaneMi
-</th>
-<th style="text-align:center;">
-ArtLaneMi
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">FwyLaneMi</th>
+<th align="center">ArtLaneMi</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-91
-</td>
-<td style="text-align:center;">
-356
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">91</td>
+<td align="center">356</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-97
-</td>
-<td style="text-align:center;">
-371
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">97</td>
+<td align="center">371</td>
 </tr>
 </tbody>
 </table></div>
@@ -3175,86 +2251,48 @@ RVMPO
 <li>
 <strong>OtherArtOpsDeployProp</strong>: Proportion of arterial DVMT affected by deployment of other user-defined arterial operations measures</li>
 </ul>
-Here is a snapshot of the file:
-<div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-RampMeterDeployProp
-</th>
-<th style="text-align:center;">
-IncidentMgtDeployProp
-</th>
-<th style="text-align:center;">
-SignalCoordDeployProp
-</th>
-<th style="text-align:center;">
-AccessMgtDeployProp
-</th>
-<th style="text-align:center;">
-OtherFwyOpsDeployProp
-</th>
-<th style="text-align:center;">
-OtherArtOpsDeployProp
-</th>
+<p>Here is a snapshot of the file:</p>
+<div class="inline-table"><table style="width:100%;" class="table table-sm">
+<colgroup>
+<col width="4%">
+<col width="4%">
+<col width="14%">
+<col width="15%">
+<col width="15%">
+<col width="14%">
+<col width="15%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">RampMeterDeployProp</th>
+<th align="center">IncidentMgtDeployProp</th>
+<th align="center">SignalCoordDeployProp</th>
+<th align="center">AccessMgtDeployProp</th>
+<th align="center">OtherFwyOpsDeployProp</th>
+<th align="center">OtherArtOpsDeployProp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.00
-</td>
-<td style="text-align:center;">
-0.50
-</td>
-<td style="text-align:center;">
-0.50
-</td>
-<td style="text-align:center;">
-0.00
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.00</td>
+<td align="center">0.50</td>
+<td align="center">0.50</td>
+<td align="center">0.00</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.95
-</td>
-<td style="text-align:center;">
-0.95
-</td>
-<td style="text-align:center;">
-0.95
-</td>
-<td style="text-align:center;">
-0.24
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.95</td>
+<td align="center">0.95</td>
+<td align="center">0.95</td>
+<td align="center">0.24</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -3317,59 +2355,29 @@ RVMPO
 <li>
 <strong>TransitRailFuelCI</strong>: Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-TransitVanFuelCI
-</th>
-<th style="text-align:center;">
-TransitBusFuelCI
-</th>
-<th style="text-align:center;">
-TransitRailFuelCI
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">TransitVanFuelCI</th>
+<th align="center">TransitBusFuelCI</th>
+<th align="center">TransitRailFuelCI</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-90.38
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">90.38</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-72.30
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">72.30</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
 </tr>
 </tbody>
 </table></div>
@@ -3387,59 +2395,36 @@ NA
 <li>
 <strong>TransitRngPropCng</strong>: Renewable natural gas proportion of compressed natural gas used by transit vehicles</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-TransitEthanolPropGasoline
-</th>
-<th style="text-align:center;">
-TransitBiodieselPropDiesel
-</th>
-<th style="text-align:center;">
-TransitRngPropCng
-</th>
+<colgroup>
+<col width="6%">
+<col width="6%">
+<col width="32%">
+<col width="32%">
+<col width="21%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">TransitEthanolPropGasoline</th>
+<th align="center">TransitBiodieselPropDiesel</th>
+<th align="center">TransitRngPropCng</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.1
-</td>
-<td style="text-align:center;">
-0.05
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.1</td>
+<td align="center">0.05</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.1
-</td>
-<td style="text-align:center;">
-0.05
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.1</td>
+<td align="center">0.05</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -3467,104 +2452,56 @@ RVMPO
 <li>
 <strong>RailPropGasoline</strong>: Proportion of non-electric transit rail travel powered by gasoline</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-VanPropDiesel
-</th>
-<th style="text-align:center;">
-VanPropGasoline
-</th>
-<th style="text-align:center;">
-VanPropCng
-</th>
-<th style="text-align:center;">
-BusPropDiesel
-</th>
-<th style="text-align:center;">
-BusPropGasoline
-</th>
-<th style="text-align:center;">
-BusPropCng
-</th>
-<th style="text-align:center;">
-RailPropDiesel
-</th>
-<th style="text-align:center;">
-RailPropGasoline
-</th>
+<colgroup>
+<col width="4%">
+<col width="4%">
+<col width="11%">
+<col width="12%">
+<col width="8%">
+<col width="11%">
+<col width="12%">
+<col width="8%">
+<col width="11%">
+<col width="13%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">VanPropDiesel</th>
+<th align="center">VanPropGasoline</th>
+<th align="center">VanPropCng</th>
+<th align="center">BusPropDiesel</th>
+<th align="center">BusPropGasoline</th>
+<th align="center">BusPropCng</th>
+<th align="center">RailPropDiesel</th>
+<th align="center">RailPropGasoline</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.8
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
+<td align="center">0.8</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.2
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0.8
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0.2</td>
+<td align="center">0</td>
+<td align="center">0.8</td>
+<td align="center">1</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -3594,113 +2531,60 @@ RVMPO
 <li>
 <strong>RailPropEv</strong>: Proportion of transit rail travel using electric powertrains</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-VanPropIcev
-</th>
-<th style="text-align:center;">
-VanPropHev
-</th>
-<th style="text-align:center;">
-VanPropBev
-</th>
-<th style="text-align:center;">
-BusPropIcev
-</th>
-<th style="text-align:center;">
-BusPropHev
-</th>
-<th style="text-align:center;">
-BusPropBev
-</th>
-<th style="text-align:center;">
-RailPropIcev
-</th>
-<th style="text-align:center;">
-RailPropHev
-</th>
-<th style="text-align:left;">
-RailPropEv
-</th>
+<colgroup>
+<col width="4%">
+<col width="4%">
+<col width="10%">
+<col width="9%">
+<col width="9%">
+<col width="10%">
+<col width="9%">
+<col width="9%">
+<col width="11%">
+<col width="10%">
+<col width="8%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">VanPropIcev</th>
+<th align="center">VanPropHev</th>
+<th align="center">VanPropBev</th>
+<th align="center">BusPropIcev</th>
+<th align="center">BusPropHev</th>
+<th align="center">BusPropBev</th>
+<th align="center">RailPropIcev</th>
+<th align="center">RailPropHev</th>
+<th align="left">RailPropEv</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:left;">
-1
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="left">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-1
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:left;">
-1
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">1</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="left">1</td>
 </tr>
 </tbody>
 </table></div>
@@ -3728,104 +2612,44 @@ RVMPO
 <li>
 <strong>CRRevMi</strong>: Annual revenue-miles of commuter rail, hybrid rail, cable car, and aerial tramway public transit service</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-DRRevMi
-</th>
-<th style="text-align:center;">
-VPRevMi
-</th>
-<th style="text-align:center;">
-MBRevMi
-</th>
-<th style="text-align:center;">
-RBRevMi
-</th>
-<th style="text-align:center;">
-MGRevMi
-</th>
-<th style="text-align:center;">
-SRRevMi
-</th>
-<th style="text-align:center;">
-HRRevMi
-</th>
-<th style="text-align:center;">
-CRRevMi
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">DRRevMi</th>
+<th align="center">VPRevMi</th>
+<th align="center">MBRevMi</th>
+<th align="center">RBRevMi</th>
+<th align="center">MGRevMi</th>
+<th align="center">SRRevMi</th>
+<th align="center">HRRevMi</th>
+<th align="center">CRRevMi</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-382639
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-607922
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">382639</td>
+<td align="center">0</td>
+<td align="center">607922</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-2381995
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-3580237
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">2381995</td>
+<td align="center">0</td>
+<td align="center">3580237</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -3847,164 +2671,78 @@ RVMPO
 <li>
 <strong>Fwy_NonRcr</strong>: Percentage reduction of non-recurring freeway delay that would occur with full deployment of other user-defined freeway operations measures</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Level
-</th>
-<th style="text-align:center;">
-Art_Rcr
-</th>
-<th style="text-align:center;">
-Art_NonRcr
-</th>
-<th style="text-align:center;">
-Fwy_Rcr
-</th>
-<th style="text-align:center;">
-Fwy_NonRcr
-</th>
-<th style="text-align:center;">
-AccessMgtDeployProp
-</th>
-<th style="text-align:center;">
-OtherFwyOpsDeployProp
-</th>
-<th style="text-align:center;">
-OtherArtOpsDeployProp
-</th>
+<colgroup>
+<col width="5%">
+<col width="7%">
+<col width="10%">
+<col width="7%">
+<col width="10%">
+<col width="18%">
+<col width="20%">
+<col width="20%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Level</th>
+<th align="center">Art_Rcr</th>
+<th align="center">Art_NonRcr</th>
+<th align="center">Fwy_Rcr</th>
+<th align="center">Fwy_NonRcr</th>
+<th align="center">AccessMgtDeployProp</th>
+<th align="center">OtherFwyOpsDeployProp</th>
+<th align="center">OtherArtOpsDeployProp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-None
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">None</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Mod
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">Mod</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Hvy
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">Hvy</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-sev
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="even">
+<td align="left">sev</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Ext
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
-<td style="text-align:center;">
-0
-</td>
+<tr class="odd">
+<td align="left">Ext</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">0</td>
 </tr>
 </tbody>
 </table></div>
@@ -4030,95 +2768,52 @@ Ext
 <li>
 <strong>TransitRailFuelCI</strong>: Average carbon intensity of fuels used by transit rail vehicles (grams CO2e per megajoule)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-HhFuelCI
-</th>
-<th style="text-align:center;">
-CarSvcFuelCI
-</th>
-<th style="text-align:center;">
-ComSvcFuelCI
-</th>
-<th style="text-align:center;">
-HvyTrkFuelCI
-</th>
-<th style="text-align:center;">
-TransitVanFuelC
-</th>
-<th style="text-align:center;">
-TransitBusFuelC
-</th>
-<th style="text-align:center;">
-TransitRailFuel
-</th>
+<colgroup>
+<col width="5%">
+<col width="5%">
+<col width="8%">
+<col width="12%">
+<col width="12%">
+<col width="12%">
+<col width="14%">
+<col width="14%">
+<col width="14%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">HhFuelCI</th>
+<th align="center">CarSvcFuelCI</th>
+<th align="center">ComSvcFuelCI</th>
+<th align="center">HvyTrkFuelCI</th>
+<th align="center">TransitVanFuelC</th>
+<th align="center">TransitBusFuelC</th>
+<th align="center">TransitRailFuel</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-90.23
-</td>
-<td style="text-align:center;">
-90.23
-</td>
-<td style="text-align:center;">
-90.23
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">90.23</td>
+<td align="center">90.23</td>
+<td align="center">90.23</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-72.30
-</td>
-<td style="text-align:center;">
-72.30
-</td>
-<td style="text-align:center;">
-72.30
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-NA
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">72.30</td>
+<td align="center">72.30</td>
+<td align="center">72.30</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
+<td align="center">NA</td>
 </tr>
 </tbody>
 </table></div>
@@ -4136,34 +2831,19 @@ NA
 <li>
 <strong>HvyTrkDvmtUrbanProp</strong>: Proportion of Region heavy truck daily vehicle miles of travel occurring on urbanized area roadways</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-StateAbbrLookup
-</th>
-<th style="text-align:center;">
-HvyTrkDvmtGrowthBasis
-</th>
-<th style="text-align:center;">
-HvyTrkDvmt
-</th>
-<th style="text-align:center;">
-ComSvcDvmtGrowthBasis
-</th>
+<thead><tr class="header">
+<th align="left">StateAbbrLookup</th>
+<th align="center">HvyTrkDvmtGrowthBasis</th>
+<th align="center">HvyTrkDvmt</th>
+<th align="center">ComSvcDvmtGrowthBasis</th>
 </tr></thead>
-<tbody><tr>
-<td style="text-align:left;">
-</td>
-<td style="text-align:center;">
-Income
-</td>
-<td style="text-align:center;">
-NA
-</td>
-<td style="text-align:center;">
-Population
-</td>
+<tbody><tr class="odd">
+<td align="left"></td>
+<td align="center">Income</td>
+<td align="center">NA</td>
+<td align="center">Population</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -4186,86 +2866,48 @@ Population
 <li>
 <strong>CarSvcLtTrkPropBev</strong>: Proportion of car service light truck travel powered by battery electric powertrains</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-CarSvcAutoPropIcev
-</th>
-<th style="text-align:center;">
-CarSvcAutoPropHev
-</th>
-<th style="text-align:center;">
-CarSvcAutoPropBev
-</th>
-<th style="text-align:center;">
-CarSvcLtTrkPropIce
-</th>
-<th style="text-align:center;">
-CarSvcLtTrkPropHev
-</th>
-<th style="text-align:center;">
-CarSvcLtTrkPropBev
-</th>
+<colgroup>
+<col width="4%">
+<col width="4%">
+<col width="15%">
+<col width="14%">
+<col width="14%">
+<col width="15%">
+<col width="15%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">CarSvcAutoPropIcev</th>
+<th align="center">CarSvcAutoPropHev</th>
+<th align="center">CarSvcAutoPropBev</th>
+<th align="center">CarSvcLtTrkPropIce</th>
+<th align="center">CarSvcLtTrkPropHev</th>
+<th align="center">CarSvcLtTrkPropBev</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.990
-</td>
-<td style="text-align:center;">
-0.010
-</td>
-<td style="text-align:center;">
-0.000
-</td>
-<td style="text-align:center;">
-1.0000
-</td>
-<td style="text-align:center;">
-0.0000
-</td>
-<td style="text-align:center;">
-0.0000
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.990</td>
+<td align="center">0.010</td>
+<td align="center">0.000</td>
+<td align="center">1.0000</td>
+<td align="center">0.0000</td>
+<td align="center">0.0000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.441
-</td>
-<td style="text-align:center;">
-0.528
-</td>
-<td style="text-align:center;">
-0.031
-</td>
-<td style="text-align:center;">
-0.5335
-</td>
-<td style="text-align:center;">
-0.4572
-</td>
-<td style="text-align:center;">
-0.0093
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.441</td>
+<td align="center">0.528</td>
+<td align="center">0.031</td>
+<td align="center">0.5335</td>
+<td align="center">0.4572</td>
+<td align="center">0.0093</td>
 </tr>
 </tbody>
 </table></div>
@@ -4316,86 +2958,48 @@ RVMPO
 <li>
 <strong>ComSvcLtTrkPropBev</strong>: Proportion of commercial service light truck travel powered by battery electric powertrainss</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-ComSvcAutoPropIcev
-</th>
-<th style="text-align:center;">
-ComSvcAutoPropHev
-</th>
-<th style="text-align:center;">
-ComSvcAutoPropBev
-</th>
-<th style="text-align:center;">
-ComSvcLtTrkPropIcev
-</th>
-<th style="text-align:center;">
-ComSvcLtTrkPropHev
-</th>
-<th style="text-align:center;">
-ComSvcLtTrkPropBev
-</th>
+<colgroup>
+<col width="4%">
+<col width="4%">
+<col width="15%">
+<col width="14%">
+<col width="14%">
+<col width="16%">
+<col width="15%">
+<col width="15%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">ComSvcAutoPropIcev</th>
+<th align="center">ComSvcAutoPropHev</th>
+<th align="center">ComSvcAutoPropBev</th>
+<th align="center">ComSvcLtTrkPropIcev</th>
+<th align="center">ComSvcLtTrkPropHev</th>
+<th align="center">ComSvcLtTrkPropBev</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-0.990
-</td>
-<td style="text-align:center;">
-0.010
-</td>
-<td style="text-align:center;">
-0.000
-</td>
-<td style="text-align:center;">
-1.0000
-</td>
-<td style="text-align:center;">
-0.0000
-</td>
-<td style="text-align:center;">
-0.0000
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">0.990</td>
+<td align="center">0.010</td>
+<td align="center">0.000</td>
+<td align="center">1.0000</td>
+<td align="center">0.0000</td>
+<td align="center">0.0000</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.441
-</td>
-<td style="text-align:center;">
-0.528
-</td>
-<td style="text-align:center;">
-0.031
-</td>
-<td style="text-align:center;">
-0.5335
-</td>
-<td style="text-align:center;">
-0.4572
-</td>
-<td style="text-align:center;">
-0.0093
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.441</td>
+<td align="center">0.528</td>
+<td align="center">0.031</td>
+<td align="center">0.5335</td>
+<td align="center">0.4572</td>
+<td align="center">0.0093</td>
 </tr>
 </tbody>
 </table></div>
@@ -4417,68 +3021,40 @@ RVMPO
 <li>
 <strong>Drv65PlusAdjProp</strong>: Target proportion of unadjusted model number of drivers 65 or older (<code>1</code> = no adjustment)</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Year
-</th>
-<th style="text-align:center;">
-DrvPerPrsn15to19
-</th>
-<th style="text-align:center;">
-Drv20to29AdjProp
-</th>
-<th style="text-align:center;">
-Drv30to54AdjProp
-</th>
-<th style="text-align:center;">
-Drv55to64AdjProp
-</th>
-<th style="text-align:center;">
-Drv65PlusAdjProp
-</th>
+<colgroup>
+<col width="5%">
+<col width="18%">
+<col width="18%">
+<col width="18%">
+<col width="18%">
+<col width="18%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Year</th>
+<th align="center">DrvPerPrsn15to19</th>
+<th align="center">Drv20to29AdjProp</th>
+<th align="center">Drv30to54AdjProp</th>
+<th align="center">Drv55to64AdjProp</th>
+<th align="center">Drv65PlusAdjProp</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-2010
-</td>
-<td style="text-align:center;">
-0.8174609
-</td>
-<td style="text-align:center;">
-0.9466447
-</td>
-<td style="text-align:center;">
-0.9466447
-</td>
-<td style="text-align:center;">
-0.9900000
-</td>
-<td style="text-align:center;">
-0.9349951
-</td>
+<tr class="odd">
+<td align="left">2010</td>
+<td align="center">0.8174609</td>
+<td align="center">0.9466447</td>
+<td align="center">0.9466447</td>
+<td align="center">0.9900000</td>
+<td align="center">0.9349951</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-2038
-</td>
-<td style="text-align:center;">
-0.9091840
-</td>
-<td style="text-align:center;">
-0.9091840
-</td>
-<td style="text-align:center;">
-0.9091840
-</td>
-<td style="text-align:center;">
-0.9508236
-</td>
-<td style="text-align:center;">
-0.8979954
-</td>
+<tr class="even">
+<td align="left">2038</td>
+<td align="center">0.9091840</td>
+<td align="center">0.9091840</td>
+<td align="center">0.9091840</td>
+<td align="center">0.9508236</td>
+<td align="center">0.8979954</td>
 </tr>
 </tbody>
 </table></div>
@@ -4496,59 +3072,29 @@ Drv65PlusAdjProp
 <li>
 <strong>HvyTrkPropBev</strong>: Proportion of heavy truck travel powered by battery electric powertrains</li>
 </ul>
-Here is a snapshot of the file:
+<p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Geo
-</th>
-<th style="text-align:center;">
-Year
-</th>
-<th style="text-align:center;">
-HvyTrkPropIcev
-</th>
-<th style="text-align:center;">
-HvyTrkPropHev
-</th>
-<th style="text-align:center;">
-HvyTrkPropBev
-</th>
+<thead><tr class="header">
+<th align="left">Geo</th>
+<th align="center">Year</th>
+<th align="center">HvyTrkPropIcev</th>
+<th align="center">HvyTrkPropHev</th>
+<th align="center">HvyTrkPropBev</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2010
-</td>
-<td style="text-align:center;">
-1.0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
-<td style="text-align:center;">
-0.0
-</td>
+<tr class="odd">
+<td align="left">RVMPO</td>
+<td align="center">2010</td>
+<td align="center">1.0</td>
+<td align="center">0.0</td>
+<td align="center">0.0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-RVMPO
-</td>
-<td style="text-align:center;">
-2038
-</td>
-<td style="text-align:center;">
-0.4
-</td>
-<td style="text-align:center;">
-0.4
-</td>
-<td style="text-align:center;">
-0.2
-</td>
+<tr class="even">
+<td align="left">RVMPO</td>
+<td align="center">2038</td>
+<td align="center">0.4</td>
+<td align="center">0.4</td>
+<td align="center">0.2</td>
 </tr>
 </tbody>
 </table></div>
@@ -4657,7 +3203,7 @@ RVMPO
 <li><p><a href="model-inputs.html#vestate-azone_hh_veh_mean_age.csv"><strong>azone_hh_veh_mean_age.csv</strong></a> This file provides inputs for mean auto age and mean light truck age and is used in the <a href="vestate.html#vestate-assignvehicleage">AssignVehicleAge</a> module.</p></li>
 <li><p><a href="model-inputs.html#vestate-azone_hh_veh_own_taxes.csv"><strong>azone_hh_veh_own_taxes.csv</strong></a> This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and ad valorem taxes (i.e. percentage of vehicle value paid in taxes). The file is used in
 <a href="vestate.html#vestate-calculatevehicleowncost">CalculateVehicleOwnCost</a> module.</p></li>
-<li><p><a href="model-inputs.html#vestate-azone_hhsize_targets.csv"><strong>azone_hhsize_targets.csv</strong></a> This file contains the household specific targets and is used in <a href="vestate.html#vestate-createhouseholds">CreateHouseholds</a> module.<br></p></li>
+<li><p><a href="model-inputs.html#vestate-azone_hhsize_targets.csv"><strong>azone_hhsize_targets.csv</strong></a> This file contains the household specific targets and is used in <a href="vestate.html#vestate-createhouseholds">CreateHouseholds</a> module.</p></li>
 <li><p><a href="#vestate-vestate-azone_loc_type_land_area.csv"><strong>azone_loc_type_land_area.csv</strong></a> This file provides land area data for different area types and is used in <a href="vestate.html#vestate-initialize">Initialize</a> module.</p></li>
 <li><p><a href="model-inputs.html#vestate-azone_lttrk_prop.csv"><strong>azone_lttrk_prop.csv</strong></a> This file specifies the light truck proportion of the vehicle fleet and is used in <a href="vestate.html#vestate-assignvehicletype">AssignVehicleType</a> module.</p></li>
 <li><p><a href="#vestate-azone_payd_insurance_prop.csv"><strong>azone_payd_insurance_prop.csv</strong></a> This file provides inputs on the proportion of households having PAYD (pay-as-you-drive) insurance and is used in the <a href="vestate.html#vestate-calculatevehicleowncost">CalculateVehicleOwnCost</a> module.</p></li>
@@ -6217,17 +4763,7 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Future year data must be developed by the user; in many regions population forecasts are available from regional or state agencies and/or local academic sources. As with the employment data inputs the future data need not be county specific. Rather, regional totals by age group can be entered into the file with a value such as “region” entered in the county field.</p>
 <p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table style="width:100%;" class="table table-sm">
-<colgroup>
-<col width="13%">
-<col width="6%">
-<col width="12%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-<col width="13%">
-</colgroup>
+<div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -6404,15 +4940,6 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="12%">
-<col width="5%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Year</th>
@@ -6487,42 +5014,42 @@ Here is a snapshot of the file:</p>
 <span class="header-section-number">7.5.3.11</span> BaseLtVehDvmt<a class="anchor" aria-label="anchor" href="#baseltvehdvmt"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Light vehicle dvmt (<em>BaseLtVehDvmt</em>)</strong>: Total light vehicle daily VMT for the base year in thousands of miles. This data can be derived from a combination of <a href="http://www.fhwa.dot.gov/policyinformation/hpms.cfm">Highway Performance Monitoring System</a> data, Federal Highway Cost Allocation Study data, and regional data. Light vehicle daily VMT can be estimated by subtracting truck and bus VMT from total VMT provided in the Highway Performance Monitoring System (HPMS). Regional travel demand model outputs can also be used to derive these data. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb19-1"><a href="model-inputs.html#cb19-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb19-2"><a href="model-inputs.html#cb19-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseLtVehDvmt"</span><span class="fu">,</span></span>
-<span id="cb19-3"><a href="model-inputs.html#cb19-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"27244"</span><span class="fu">,</span></span>
-<span id="cb19-4"><a href="model-inputs.html#cb19-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb19-5"><a href="model-inputs.html#cb19-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"MI/DAY"</span><span class="fu">,</span></span>
-<span id="cb19-6"><a href="model-inputs.html#cb19-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb19-7"><a href="model-inputs.html#cb19-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb19-8"><a href="model-inputs.html#cb19-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb19-1"><a href="model-inputs.html#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb19-2"><a href="model-inputs.html#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseLtVehDvmt"</span><span class="fu">,</span></span>
+<span id="cb19-3"><a href="model-inputs.html#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"27244"</span><span class="fu">,</span></span>
+<span id="cb19-4"><a href="model-inputs.html#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb19-5"><a href="model-inputs.html#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"MI/DAY"</span><span class="fu">,</span></span>
+<span id="cb19-6"><a href="model-inputs.html#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb19-7"><a href="model-inputs.html#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb19-8"><a href="model-inputs.html#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="basefwyartprop" class="section level4" number="7.5.3.12">
 <h4>
 <span class="header-section-number">7.5.3.12</span> BaseFwyArtProp<a class="anchor" aria-label="anchor" href="#basefwyartprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Dvmt proportion by functional class (<em>BaseFwyArtProp</em>)</strong>: The proportions of daily VMT for light vehicles that takes place on freeways and arterials (i.e., the remainder of VMT takes place on lower functional class roads for the base year. This data can be derived from a combination of <a href="http://www.fhwa.dot.gov/policyinformation/hpms.cfm">Highway Performance Monitoring System</a> data, Federal Highway Cost Allocation Study data, and regional data. The proportions of light vehicle daily VMT on freeways and arterials can be derived from the HPMS data. Regional travel demand model outputs can also be used to derive these data. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb20-1"><a href="model-inputs.html#cb20-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb20-2"><a href="model-inputs.html#cb20-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseFwyArtProp"</span><span class="fu">,</span></span>
-<span id="cb20-3"><a href="model-inputs.html#cb20-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.77"</span><span class="fu">,</span></span>
-<span id="cb20-4"><a href="model-inputs.html#cb20-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb20-5"><a href="model-inputs.html#cb20-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
-<span id="cb20-6"><a href="model-inputs.html#cb20-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
-<span id="cb20-7"><a href="model-inputs.html#cb20-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb20-8"><a href="model-inputs.html#cb20-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb20-1"><a href="model-inputs.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb20-2"><a href="model-inputs.html#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseFwyArtProp"</span><span class="fu">,</span></span>
+<span id="cb20-3"><a href="model-inputs.html#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.77"</span><span class="fu">,</span></span>
+<span id="cb20-4"><a href="model-inputs.html#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb20-5"><a href="model-inputs.html#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
+<span id="cb20-6"><a href="model-inputs.html#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
+<span id="cb20-7"><a href="model-inputs.html#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb20-8"><a href="model-inputs.html#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="employmentgrowth" class="section level4" number="7.5.3.13">
 <h4>
 <span class="header-section-number">7.5.3.13</span> EmploymentGrowth<a class="anchor" aria-label="anchor" href="#employmentgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Employment Growth (<em>EmploymentGrowth</em>)</strong>: This variable represents a growth rate for employment in the region between the base year and the future year. A rate of 1 indicates no changes in overall employment, a value of more than 1 indicates some growth (e.g., 1.5 = 50% growth) and a value of less than 1 indicates decline in employment. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="model-inputs.html#cb21-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb21-2"><a href="model-inputs.html#cb21-2" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"EmploymentGrowth"</span><span class="fu">,</span></span>
-<span id="cb21-3"><a href="model-inputs.html#cb21-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
-<span id="cb21-4"><a href="model-inputs.html#cb21-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb21-5"><a href="model-inputs.html#cb21-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb21-6"><a href="model-inputs.html#cb21-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span></span>
-<span id="cb21-7"><a href="model-inputs.html#cb21-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span><span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb21-8"><a href="model-inputs.html#cb21-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb21-1"><a href="model-inputs.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb21-2"><a href="model-inputs.html#cb21-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"EmploymentGrowth"</span><span class="fu">,</span></span>
+<span id="cb21-3"><a href="model-inputs.html#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
+<span id="cb21-4"><a href="model-inputs.html#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span><span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb21-5"><a href="model-inputs.html#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb21-6"><a href="model-inputs.html#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span></span>
+<span id="cb21-7"><a href="model-inputs.html#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span><span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb21-8"><a href="model-inputs.html#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 </div>
 <div id="transport-supply-1" class="section level3" number="7.5.4">
@@ -6801,84 +5328,84 @@ Here is a snapshot of the file:</p>
 <span class="header-section-number">7.5.5.7</span> AutoCostGrowth<a class="anchor" aria-label="anchor" href="#autocostgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>% Increase in Auto Operating Cost (<em>AutoCostGrowth</em>):</strong> This parameter reflects the proportional increase in auto operating cost. This can be used to test different assumptions for future gas prices or the effects of increased gas taxes. A value of 1.5 multiplies base year operating costs by 1.5 and thus reflects a 50% increase. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb22-1"><a href="model-inputs.html#cb22-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb22-2"><a href="model-inputs.html#cb22-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AutoCostGrowth"</span><span class="fu">,</span></span>
-<span id="cb22-3"><a href="model-inputs.html#cb22-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
-<span id="cb22-4"><a href="model-inputs.html#cb22-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb22-5"><a href="model-inputs.html#cb22-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb22-6"><a href="model-inputs.html#cb22-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb22-7"><a href="model-inputs.html#cb22-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb22-8"><a href="model-inputs.html#cb22-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb22-1"><a href="model-inputs.html#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb22-2"><a href="model-inputs.html#cb22-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AutoCostGrowth"</span><span class="fu">,</span></span>
+<span id="cb22-3"><a href="model-inputs.html#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.5"</span><span class="fu">,</span></span>
+<span id="cb22-4"><a href="model-inputs.html#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb22-5"><a href="model-inputs.html#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb22-6"><a href="model-inputs.html#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb22-7"><a href="model-inputs.html#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb22-8"><a href="model-inputs.html#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="fwylanemigrowth" class="section level4" number="7.5.5.8">
 <h4>
 <span class="header-section-number">7.5.5.8</span> FwyLaneMiGrowth<a class="anchor" aria-label="anchor" href="#fwylanemigrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>FwyLaneMiGrowth</strong>: The variable indicates the percent increase in supply of freeways lane miles in the future year compared to base year. By default, the transportation supply is assumed to grow in line with population increase; therefore a value of 1 indicates growth in proportion with population growth. A value less than 1 indicates that there will be less freeway lane mile supply, per person, in the future. A value of 1 indicates faster freeway expansion than population growth. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb23-1"><a href="model-inputs.html#cb23-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb23-2"><a href="model-inputs.html#cb23-2" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"FwyLaneMiGrowth"</span><span class="fu">,</span></span>
-<span id="cb23-3"><a href="model-inputs.html#cb23-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb23-4"><a href="model-inputs.html#cb23-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb23-5"><a href="model-inputs.html#cb23-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb23-6"><a href="model-inputs.html#cb23-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb23-7"><a href="model-inputs.html#cb23-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb23-8"><a href="model-inputs.html#cb23-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb23-1"><a href="model-inputs.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb23-2"><a href="model-inputs.html#cb23-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span><span class="fu">:</span> <span class="st">"FwyLaneMiGrowth"</span><span class="fu">,</span></span>
+<span id="cb23-3"><a href="model-inputs.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb23-4"><a href="model-inputs.html#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb23-5"><a href="model-inputs.html#cb23-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb23-6"><a href="model-inputs.html#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb23-7"><a href="model-inputs.html#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb23-8"><a href="model-inputs.html#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="artlanemigrowth" class="section level4" number="7.5.5.9">
 <h4>
 <span class="header-section-number">7.5.5.9</span> ArtLaneMiGrowth<a class="anchor" aria-label="anchor" href="#artlanemigrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>ArtLaneMiGrowth</strong>: The variable indicates the percent increase in supply of arterial lane miles in the future year compared to base year. It is a similar value to freeway except that it measures arterial lane mile growth. It is also proportional to population growth. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb24-1"><a href="model-inputs.html#cb24-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb24-2"><a href="model-inputs.html#cb24-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"ArtLaneMiGrowth"</span><span class="fu">,</span></span>
-<span id="cb24-3"><a href="model-inputs.html#cb24-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb24-4"><a href="model-inputs.html#cb24-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb24-5"><a href="model-inputs.html#cb24-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb24-6"><a href="model-inputs.html#cb24-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb24-7"><a href="model-inputs.html#cb24-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb24-8"><a href="model-inputs.html#cb24-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb24-1"><a href="model-inputs.html#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb24-2"><a href="model-inputs.html#cb24-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"ArtLaneMiGrowth"</span><span class="fu">,</span></span>
+<span id="cb24-3"><a href="model-inputs.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb24-4"><a href="model-inputs.html#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb24-5"><a href="model-inputs.html#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb24-6"><a href="model-inputs.html#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb24-7"><a href="model-inputs.html#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb24-8"><a href="model-inputs.html#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="busrevmipcgrowth" class="section level4" number="7.5.5.10">
 <h4>
 <span class="header-section-number">7.5.5.10</span> BusRevMiPCGrowth<a class="anchor" aria-label="anchor" href="#busrevmipcgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>BusRevMiPCGrowth</strong>: It is the percent increase in transit revenue miles per capita for bus. It behaves in a similar way to the freeway and rail values in that a value of 1 indicates per capita revenue miles stays constant. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="model-inputs.html#cb25-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb25-2"><a href="model-inputs.html#cb25-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BusRevMiPCGrowth"</span><span class="fu">,</span></span>
-<span id="cb25-3"><a href="model-inputs.html#cb25-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb25-4"><a href="model-inputs.html#cb25-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb25-5"><a href="model-inputs.html#cb25-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb25-6"><a href="model-inputs.html#cb25-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb25-7"><a href="model-inputs.html#cb25-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb25-8"><a href="model-inputs.html#cb25-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb25-1"><a href="model-inputs.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb25-2"><a href="model-inputs.html#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BusRevMiPCGrowth"</span><span class="fu">,</span></span>
+<span id="cb25-3"><a href="model-inputs.html#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb25-4"><a href="model-inputs.html#cb25-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb25-5"><a href="model-inputs.html#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb25-6"><a href="model-inputs.html#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb25-7"><a href="model-inputs.html#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb25-8"><a href="model-inputs.html#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="railrevmipcgrowth" class="section level4" number="7.5.5.11">
 <h4>
 <span class="header-section-number">7.5.5.11</span> RailRevMiPCGrowth<a class="anchor" aria-label="anchor" href="#railrevmipcgrowth"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>RailRevMiPCGrowth</strong>: It is the percent increase in transit revenue miles per capita for rail. This encompasses all rail modes, from light rail through to commuter rail. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="model-inputs.html#cb26-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb26-2"><a href="model-inputs.html#cb26-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"RailRevMiPCGrowth"</span><span class="fu">,</span></span>
-<span id="cb26-3"><a href="model-inputs.html#cb26-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb26-4"><a href="model-inputs.html#cb26-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb26-5"><a href="model-inputs.html#cb26-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb26-6"><a href="model-inputs.html#cb26-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb26-7"><a href="model-inputs.html#cb26-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb26-8"><a href="model-inputs.html#cb26-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb26-1"><a href="model-inputs.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb26-2"><a href="model-inputs.html#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"RailRevMiPCGrowth"</span><span class="fu">,</span></span>
+<span id="cb26-3"><a href="model-inputs.html#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb26-4"><a href="model-inputs.html#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb26-5"><a href="model-inputs.html#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb26-6"><a href="model-inputs.html#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb26-7"><a href="model-inputs.html#cb26-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb26-8"><a href="model-inputs.html#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="vmtcharge" class="section level4" number="7.5.5.12">
 <h4>
 <span class="header-section-number">7.5.5.12</span> VmtCharge<a class="anchor" aria-label="anchor" href="#vmtcharge"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Auto Operating Surcharge Per VMT (<em>VmtCharge</em>)</strong>: It is a cost in cents per mile that would be levied on auto users through the form of a VMT charge. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="model-inputs.html#cb27-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb27-2"><a href="model-inputs.html#cb27-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"VmtCharge"</span><span class="fu">,</span></span>
-<span id="cb27-3"><a href="model-inputs.html#cb27-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.05"</span><span class="fu">,</span></span>
-<span id="cb27-4"><a href="model-inputs.html#cb27-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb27-5"><a href="model-inputs.html#cb27-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
-<span id="cb27-6"><a href="model-inputs.html#cb27-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb27-7"><a href="model-inputs.html#cb27-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb27-8"><a href="model-inputs.html#cb27-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb27-1"><a href="model-inputs.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb27-2"><a href="model-inputs.html#cb27-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"VmtCharge"</span><span class="fu">,</span></span>
+<span id="cb27-3"><a href="model-inputs.html#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.05"</span><span class="fu">,</span></span>
+<span id="cb27-4"><a href="model-inputs.html#cb27-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb27-5"><a href="model-inputs.html#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
+<span id="cb27-6"><a href="model-inputs.html#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb27-7"><a href="model-inputs.html#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb27-8"><a href="model-inputs.html#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 </div>
 <div id="model-parameters-1" class="section level3" number="7.5.6">
@@ -7071,13 +5598,6 @@ Here is a snapshot of the file:</p>
 </ul>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="37%">
-<col width="8%">
-<col width="20%">
-<col width="20%">
-<col width="12%">
-</colgroup>
 <thead><tr class="header">
 <th>Parameters</th>
 <th>VMT</th>
@@ -7131,14 +5651,6 @@ Here is a snapshot of the file:</p>
 <p>This file contains the <em>D</em> values, which are proportional values for each of the 13 place types (<em>Bzones</em>) that are relative to a regional average, for each of the five Ds used in VERPAT - design (intersection street density), accessibility (job accessibility by auto), distance to transit (nearest transit stop), density (population density) and diversity (land use mix).
 Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="7%">
-<col width="10%">
-<col width="13%">
-<col width="8%">
-<col width="32%">
-<col width="27%">
-</colgroup>
 <thead><tr class="header">
 <th>Geo</th>
 <th>Density</th>
@@ -7564,15 +6076,7 @@ Here is a snapshot of the file:</p>
 </h4>
 <p><strong>Vehicle fuel economy (<em>model_veh_mpg_by_year.csv</em>)</strong>: This file contains the estimates and forecasts of average fuel economy and power economy in miles per gallon for autos, light trucks, heavy trucks (trucks) and miles per kilowatt for trains by vehicle model year. Note that this is not the fleet average for that year. It is the average for new vehicles sold in that year. The fuel economy is the same for all fuel types and is measured in gasoline equivalent gallons (i.e. energy content of a gallon of gasoline). This file is used in the calculations of fuel consumption.
 Here is a snapshot of the file:</p>
-<div class="inline-table"><table style="width:100%;" class="table table-sm">
-<colgroup>
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-<col width="16%">
-</colgroup>
+<div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>ModelYear</th>
 <th>AutoMpg</th>
@@ -7835,13 +6339,6 @@ Here is a snapshot of the file:</p>
 </h4>
 <p><strong>Hybrid electric vehicles characteristics (<em>model_hev_prop_mpg.csv</em>)</strong>: This file contains the estimates and forecasts of fuel efficiency (mpg), and proportions of automobiles and light trucks that are hybrid electric vehicles (that are neither plugin hybrid nor electric vehicle) by vehicle model year. Note that this is not the fleet average for that year. It is the average of new vehicles sold in that year. This file is used in identification of hybrid electric that are not plugin hybrid or electric vehicles. Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="15%">
-<col width="19%">
-<col width="17%">
-<col width="24%">
-<col width="22%">
-</colgroup>
 <thead><tr class="header">
 <th>ModelYear</th>
 <th>AutoPropHev</th>
@@ -8074,140 +6571,140 @@ Here is a snapshot of the file:</p>
 <span class="header-section-number">7.5.6.20</span> AnnVmtInflator<a class="anchor" aria-label="anchor" href="#annvmtinflator"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Annual VMT inflator (<em>AnnVmtInflator</em>)</strong>: Factor to convert VMT between annual and average daily amounts. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="model-inputs.html#cb28-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb28-2"><a href="model-inputs.html#cb28-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AnnVmtInflator"</span><span class="fu">,</span></span>
-<span id="cb28-3"><a href="model-inputs.html#cb28-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"365"</span><span class="fu">,</span></span>
-<span id="cb28-4"><a href="model-inputs.html#cb28-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"integer"</span><span class="fu">,</span></span>
-<span id="cb28-5"><a href="model-inputs.html#cb28-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"DAYS"</span><span class="fu">,</span></span>
-<span id="cb28-6"><a href="model-inputs.html#cb28-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb28-7"><a href="model-inputs.html#cb28-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb28-8"><a href="model-inputs.html#cb28-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb28-1"><a href="model-inputs.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb28-2"><a href="model-inputs.html#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"AnnVmtInflator"</span><span class="fu">,</span></span>
+<span id="cb28-3"><a href="model-inputs.html#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"365"</span><span class="fu">,</span></span>
+<span id="cb28-4"><a href="model-inputs.html#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"integer"</span><span class="fu">,</span></span>
+<span id="cb28-5"><a href="model-inputs.html#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"DAYS"</span><span class="fu">,</span></span>
+<span id="cb28-6"><a href="model-inputs.html#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb28-7"><a href="model-inputs.html#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb28-8"><a href="model-inputs.html#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="basecostpermile" class="section level4" number="7.5.6.21">
 <h4>
 <span class="header-section-number">7.5.6.21</span> BaseCostPerMile<a class="anchor" aria-label="anchor" href="#basecostpermile"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Base cost per mile (<em>BaseCostPerMile</em>)</strong>: Base cost per mile in dollars for transportation costs used in the travel demand model to initially represent travel as close to unconstrained by transportation costs. The transportation costs are then fully constrained later in the model as travel reductions caused by budget constraints are estimated. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="model-inputs.html#cb29-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb29-2"><a href="model-inputs.html#cb29-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseCostPerMile"</span><span class="fu">,</span></span>
-<span id="cb29-3"><a href="model-inputs.html#cb29-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.04"</span><span class="fu">,</span></span>
-<span id="cb29-4"><a href="model-inputs.html#cb29-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb29-5"><a href="model-inputs.html#cb29-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
-<span id="cb29-6"><a href="model-inputs.html#cb29-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb29-7"><a href="model-inputs.html#cb29-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb29-8"><a href="model-inputs.html#cb29-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb29-1"><a href="model-inputs.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb29-2"><a href="model-inputs.html#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"BaseCostPerMile"</span><span class="fu">,</span></span>
+<span id="cb29-3"><a href="model-inputs.html#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.04"</span><span class="fu">,</span></span>
+<span id="cb29-4"><a href="model-inputs.html#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb29-5"><a href="model-inputs.html#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/MI"</span><span class="fu">,</span></span>
+<span id="cb29-6"><a href="model-inputs.html#cb29-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb29-7"><a href="model-inputs.html#cb29-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb29-8"><a href="model-inputs.html#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="dvmtbudgetprop" class="section level4" number="7.5.6.22">
 <h4>
 <span class="header-section-number">7.5.6.22</span> DvmtBudgetProp<a class="anchor" aria-label="anchor" href="#dvmtbudgetprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Dvmt budget proportion (<em>DvmtBudgetProp</em>)</strong>: The proportion of household budget that can be allocated to transportation spending. The travel demand models includes a constraint that reduces household travel if too high a proportion of household spending is spent on transportation. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb30-1"><a href="model-inputs.html#cb30-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb30-2"><a href="model-inputs.html#cb30-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"DvmtBudgetProp"</span><span class="fu">,</span></span>
-<span id="cb30-3"><a href="model-inputs.html#cb30-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.1"</span><span class="fu">,</span></span>
-<span id="cb30-4"><a href="model-inputs.html#cb30-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb30-5"><a href="model-inputs.html#cb30-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb30-6"><a href="model-inputs.html#cb30-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
-<span id="cb30-7"><a href="model-inputs.html#cb30-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb30-8"><a href="model-inputs.html#cb30-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb30-1"><a href="model-inputs.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb30-2"><a href="model-inputs.html#cb30-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"DvmtBudgetProp"</span><span class="fu">,</span></span>
+<span id="cb30-3"><a href="model-inputs.html#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.1"</span><span class="fu">,</span></span>
+<span id="cb30-4"><a href="model-inputs.html#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb30-5"><a href="model-inputs.html#cb30-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb30-6"><a href="model-inputs.html#cb30-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0', '&gt; 1')"</span><span class="fu">,</span></span>
+<span id="cb30-7"><a href="model-inputs.html#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb30-8"><a href="model-inputs.html#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="fuelcost" class="section level4" number="7.5.6.23">
 <h4>
 <span class="header-section-number">7.5.6.23</span> FuelCost<a class="anchor" aria-label="anchor" href="#fuelcost"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Fuel cost (<em>FuelCost</em>)</strong>: Average cost per gallon of fuel (before taxes are added). It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="model-inputs.html#cb31-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb31-2"><a href="model-inputs.html#cb31-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"FuelCost"</span><span class="fu">,</span></span>
-<span id="cb31-3"><a href="model-inputs.html#cb31-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.82"</span><span class="fu">,</span></span>
-<span id="cb31-4"><a href="model-inputs.html#cb31-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb31-5"><a href="model-inputs.html#cb31-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
-<span id="cb31-6"><a href="model-inputs.html#cb31-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb31-7"><a href="model-inputs.html#cb31-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb31-8"><a href="model-inputs.html#cb31-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb31-1"><a href="model-inputs.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb31-2"><a href="model-inputs.html#cb31-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"FuelCost"</span><span class="fu">,</span></span>
+<span id="cb31-3"><a href="model-inputs.html#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.82"</span><span class="fu">,</span></span>
+<span id="cb31-4"><a href="model-inputs.html#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb31-5"><a href="model-inputs.html#cb31-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
+<span id="cb31-6"><a href="model-inputs.html#cb31-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb31-7"><a href="model-inputs.html#cb31-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb31-8"><a href="model-inputs.html#cb31-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="kwhcost" class="section level4" number="7.5.6.24">
 <h4>
 <span class="header-section-number">7.5.6.24</span> KwhCost<a class="anchor" aria-label="anchor" href="#kwhcost"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Power cost (<em>KwhCost</em>)</strong>: Average cost per kwh of power consumption (before taxes are added). It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="model-inputs.html#cb32-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb32-2"><a href="model-inputs.html#cb32-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"KwhCost"</span><span class="fu">,</span></span>
-<span id="cb32-3"><a href="model-inputs.html#cb32-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.257"</span><span class="fu">,</span></span>
-<span id="cb32-4"><a href="model-inputs.html#cb32-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb32-5"><a href="model-inputs.html#cb32-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/KWH"</span><span class="fu">,</span></span>
-<span id="cb32-6"><a href="model-inputs.html#cb32-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb32-7"><a href="model-inputs.html#cb32-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb32-8"><a href="model-inputs.html#cb32-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb32-1"><a href="model-inputs.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb32-2"><a href="model-inputs.html#cb32-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"KwhCost"</span><span class="fu">,</span></span>
+<span id="cb32-3"><a href="model-inputs.html#cb32-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.257"</span><span class="fu">,</span></span>
+<span id="cb32-4"><a href="model-inputs.html#cb32-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb32-5"><a href="model-inputs.html#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/KWH"</span><span class="fu">,</span></span>
+<span id="cb32-6"><a href="model-inputs.html#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb32-7"><a href="model-inputs.html#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb32-8"><a href="model-inputs.html#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="gastax" class="section level4" number="7.5.6.25">
 <h4>
 <span class="header-section-number">7.5.6.25</span> GasTax<a class="anchor" aria-label="anchor" href="#gastax"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Gas tax (<em>GasTax</em>)</strong>: Average cost per gallon of fuel of gas taxes. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb33-1"><a href="model-inputs.html#cb33-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb33-2"><a href="model-inputs.html#cb33-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"GasTax"</span><span class="fu">,</span></span>
-<span id="cb33-3"><a href="model-inputs.html#cb33-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.424"</span><span class="fu">,</span></span>
-<span id="cb33-4"><a href="model-inputs.html#cb33-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
-<span id="cb33-5"><a href="model-inputs.html#cb33-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
-<span id="cb33-6"><a href="model-inputs.html#cb33-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb33-7"><a href="model-inputs.html#cb33-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb33-8"><a href="model-inputs.html#cb33-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb33-1"><a href="model-inputs.html#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb33-2"><a href="model-inputs.html#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"GasTax"</span><span class="fu">,</span></span>
+<span id="cb33-3"><a href="model-inputs.html#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.424"</span><span class="fu">,</span></span>
+<span id="cb33-4"><a href="model-inputs.html#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"compound"</span><span class="fu">,</span></span>
+<span id="cb33-5"><a href="model-inputs.html#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"USD/GAL"</span><span class="fu">,</span></span>
+<span id="cb33-6"><a href="model-inputs.html#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb33-7"><a href="model-inputs.html#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb33-8"><a href="model-inputs.html#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="lttruckprop" class="section level4" number="7.5.6.26">
 <h4>
 <span class="header-section-number">7.5.6.26</span> LtTruckProp<a class="anchor" aria-label="anchor" href="#lttruckprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Light Truck Proportions (<em>LtTruckProp</em>)</strong>: The proportion of household vehicles that are light trucks (SUVs, pickup trucks) as opposed to autos. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb34-1"><a href="model-inputs.html#cb34-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb34-2"><a href="model-inputs.html#cb34-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"LtTruckProp"</span><span class="fu">,</span></span>
-<span id="cb34-3"><a href="model-inputs.html#cb34-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.45"</span><span class="fu">,</span></span>
-<span id="cb34-4"><a href="model-inputs.html#cb34-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb34-5"><a href="model-inputs.html#cb34-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb34-6"><a href="model-inputs.html#cb34-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb34-7"><a href="model-inputs.html#cb34-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb34-8"><a href="model-inputs.html#cb34-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb34-1"><a href="model-inputs.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb34-2"><a href="model-inputs.html#cb34-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"LtTruckProp"</span><span class="fu">,</span></span>
+<span id="cb34-3"><a href="model-inputs.html#cb34-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.45"</span><span class="fu">,</span></span>
+<span id="cb34-4"><a href="model-inputs.html#cb34-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb34-5"><a href="model-inputs.html#cb34-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb34-6"><a href="model-inputs.html#cb34-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb34-7"><a href="model-inputs.html#cb34-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb34-8"><a href="model-inputs.html#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="tranrevmiadjfactor" class="section level4" number="7.5.6.27">
 <h4>
 <span class="header-section-number">7.5.6.27</span> TranRevMiAdjFactor<a class="anchor" aria-label="anchor" href="#tranrevmiadjfactor"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Transit revenue adjustment factor (<em>TranRevMiAdjFactor</em>)</strong>: Factor to convert transit revenue miles (i.e. miles run in service on routes) to total transit vehicle miles operated to account for vehicle miles run while deadheading from depots to route endpoints. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb35-1"><a href="model-inputs.html#cb35-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb35-2"><a href="model-inputs.html#cb35-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TranRevMiAdjFactor"</span><span class="fu">,</span></span>
-<span id="cb35-3"><a href="model-inputs.html#cb35-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.12"</span><span class="fu">,</span></span>
-<span id="cb35-4"><a href="model-inputs.html#cb35-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb35-5"><a href="model-inputs.html#cb35-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb35-6"><a href="model-inputs.html#cb35-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb35-7"><a href="model-inputs.html#cb35-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb35-8"><a href="model-inputs.html#cb35-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb35-1"><a href="model-inputs.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb35-2"><a href="model-inputs.html#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TranRevMiAdjFactor"</span><span class="fu">,</span></span>
+<span id="cb35-3"><a href="model-inputs.html#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1.12"</span><span class="fu">,</span></span>
+<span id="cb35-4"><a href="model-inputs.html#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb35-5"><a href="model-inputs.html#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb35-6"><a href="model-inputs.html#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb35-7"><a href="model-inputs.html#cb35-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb35-8"><a href="model-inputs.html#cb35-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="truckvmtgrowthmultiplier" class="section level4" number="7.5.6.28">
 <h4>
 <span class="header-section-number">7.5.6.28</span> TruckVmtGrowthMultiplier<a class="anchor" aria-label="anchor" href="#truckvmtgrowthmultiplier"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Truck vmt growth multiplier (<em>TruckVmtGrowthMultiplier</em>)</strong>: Rate at which heavy truck VMT growth in relation to total regional household income growth in the region. A value of 1 indicates that heavy truck VMT grows at the same rate as total regional household income. A value less than 1 means slower growth in truck VMT, and greater than 1 means faster growth in truck VMT than total regional household income. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb36-1"><a href="model-inputs.html#cb36-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb36-2"><a href="model-inputs.html#cb36-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TruckVmtGrowthMultiplier"</span><span class="fu">,</span></span>
-<span id="cb36-3"><a href="model-inputs.html#cb36-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
-<span id="cb36-4"><a href="model-inputs.html#cb36-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb36-5"><a href="model-inputs.html#cb36-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
-<span id="cb36-6"><a href="model-inputs.html#cb36-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb36-7"><a href="model-inputs.html#cb36-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb36-8"><a href="model-inputs.html#cb36-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb36-1"><a href="model-inputs.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb36-2"><a href="model-inputs.html#cb36-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"TruckVmtGrowthMultiplier"</span><span class="fu">,</span></span>
+<span id="cb36-3"><a href="model-inputs.html#cb36-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"1"</span><span class="fu">,</span></span>
+<span id="cb36-4"><a href="model-inputs.html#cb36-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb36-5"><a href="model-inputs.html#cb36-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"multiplier"</span><span class="fu">,</span></span>
+<span id="cb36-6"><a href="model-inputs.html#cb36-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb36-7"><a href="model-inputs.html#cb36-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb36-8"><a href="model-inputs.html#cb36-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
 <div id="workvmtprop" class="section level4" number="7.5.6.29">
 <h4>
 <span class="header-section-number">7.5.6.29</span> WorkVmtProp<a class="anchor" aria-label="anchor" href="#workvmtprop"><i class="fas fa-link"></i></a>
 </h4>
 <p><strong>Work VMT Proportion (<em>WorkVmtProp</em>)</strong>: The proportion of household VMT that takes place for commute to work purposes; used to differentiate between travel purposes for use in estimating overall VMT reductions that are targeted at the commute to work. It should be defined in <a href="#model_parametersjson">model_parameters.json</a> as follows:</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb37-1"><a href="model-inputs.html#cb37-1" tabindex="-1"></a><span class="fu">{</span></span>
-<span id="cb37-2"><a href="model-inputs.html#cb37-2" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"WorkVmtProp"</span><span class="fu">,</span></span>
-<span id="cb37-3"><a href="model-inputs.html#cb37-3" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.25"</span><span class="fu">,</span></span>
-<span id="cb37-4"><a href="model-inputs.html#cb37-4" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
-<span id="cb37-5"><a href="model-inputs.html#cb37-5" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
-<span id="cb37-6"><a href="model-inputs.html#cb37-6" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
-<span id="cb37-7"><a href="model-inputs.html#cb37-7" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
-<span id="cb37-8"><a href="model-inputs.html#cb37-8" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb37-1"><a href="model-inputs.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb37-2"><a href="model-inputs.html#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"NAME"</span> <span class="fu">:</span> <span class="st">"WorkVmtProp"</span><span class="fu">,</span></span>
+<span id="cb37-3"><a href="model-inputs.html#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"VALUE"</span><span class="fu">:</span> <span class="st">"0.25"</span><span class="fu">,</span></span>
+<span id="cb37-4"><a href="model-inputs.html#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"TYPE"</span> <span class="fu">:</span> <span class="st">"double"</span><span class="fu">,</span></span>
+<span id="cb37-5"><a href="model-inputs.html#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"UNITS"</span> <span class="fu">:</span> <span class="st">"proportion"</span><span class="fu">,</span></span>
+<span id="cb37-6"><a href="model-inputs.html#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"PROHIBIT"</span> <span class="fu">:</span> <span class="st">"c('NA', '&lt; 0')"</span><span class="fu">,</span></span>
+<span id="cb37-7"><a href="model-inputs.html#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"ISELEMENTOF"</span> <span class="fu">:</span> <span class="st">""</span></span>
+<span id="cb37-8"><a href="model-inputs.html#cb37-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 
 </div>
 </div>
@@ -8372,7 +6869,7 @@ Here is a snapshot of the file:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-01-31.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-03-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

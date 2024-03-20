@@ -125,7 +125,7 @@ This file describes the default units to be used for storing complex data types 
 This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
 
 * [VERSPM inputs](#verspm-inputs)
-* [VE-State inputs](vestate-inputs)
+* [VE-State inputs](#vestate-inputs)
 * [VERPAT inputs](#verpat-inputs)
 
 ### Household Synthesis Inputs 
@@ -388,33 +388,12 @@ This input file supplies data on proportion of different household types with pl
 - **PropGQChargingAvail**: Proportion of group quarters dwelling units in Azone that have PEV charging facilities available
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> PropSFChargingAvail </th>
-   <th style="text-align:center;"> PropMFChargingAvail </th>
-   <th style="text-align:center;"> PropGQChargingAvail </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | PropSFChargingAvail | PropMFChargingAvail | PropGQChargingAvail |
+|:-----|:----:|:-------------------:|:-------------------:|:-------------------:|
+|RVMPO | 2010 |          1          |         0.0         |          0          |
+|RVMPO | 2038 |          1          |         0.2         |          0          |
 
 
 
@@ -525,30 +504,12 @@ This file provides inputs for mean auto age and mean light truck age by `Azone`.
 * **LtTrkMeanAge**: Mean age of light trucks owned or leased by households.
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> AutoMeanAge </th>
-   <th style="text-align:center;"> LtTrkMeanAge </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 10.8 </td>
-   <td style="text-align:center;"> 10.5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 12.0 </td>
-   <td style="text-align:center;"> 12.0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | AutoMeanAge | LtTrkMeanAge |
+|:-----|:----:|:-----------:|:------------:|
+|RVMPO | 2010 |    10.8     |     10.5     |
+|RVMPO | 2038 |    12.0     |     12.0     |
 
 
 
@@ -560,30 +521,12 @@ This file provides inputs for flat fees/taxes (i.e. annual cost per vehicle) and
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> VehOwnFlatRateFee.2015 </th>
-   <th style="text-align:center;"> VehOwnAdValoremTax </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 50 </td>
-   <td style="text-align:center;"> 0.00 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.01 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | VehOwnFlatRateFee.2015 | VehOwnAdValoremTax |
+|:-----|:----:|:----------------------:|:------------------:|
+|RVMPO | 2010 |           50           |        0.00        |
+|RVMPO | 2038 |           0            |        0.01        |
 
 
 
@@ -610,27 +553,12 @@ This file specifies the light truck proportion of the vehicle fleet. The user ca
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> LtTrkProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.45 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.34 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | LtTrkProp |
+|:-----|:----:|:---------:|
+|RVMPO | 2010 |   0.45    |
+|RVMPO | 2038 |   0.34    |
 
 
 
@@ -641,27 +569,12 @@ This file provides inputs on the proportion of households having PAYD insurance.
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> PaydHhProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.01 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.50 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | PaydHhProp |
+|:-----|:----:|:----------:|
+|RVMPO | 2010 |    0.01    |
+|RVMPO | 2038 |    0.50    |
 
 
 
@@ -670,30 +583,12 @@ Here is a snapshot of the file:
 This file contains information on regional average per capita household (`HHIncomePC`) and group quarters (`GQIncomePC`) income by forecast year in year 2010 dollars. The data can be obtained from the U.S. Department of Commerce Bureau of Economic Analysis for the current year or from regional or state sources for forecast years. In order to use current year dollars just replace 2010 in column labels with current year. For example, if the data is obtained in year 2015 dollars then the column labels in the file shown below will become `HHIncomePC.2015` and `GQIncomePC.2015`. 
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> HHIncomePC.2010 </th>
-   <th style="text-align:center;"> GQIncomePC.2010 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 32164 </td>
-   <td style="text-align:center;"> 7500 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 43334 </td>
-   <td style="text-align:center;"> 10000 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | HHIncomePC.2010 | GQIncomePC.2010 |
+|:-----|:----:|:---------------:|:---------------:|
+|RVMPO | 2010 |      32164      |      7500       |
+|RVMPO | 2038 |      43334      |      10000      |
 
 
 
@@ -705,27 +600,12 @@ This file provides inputs for a goal for diverting a portion of SOV travel withi
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> PropSovDvmtDiverted </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.04 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.80 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | PropSovDvmtDiverted |
+|:-----|:----:|:-------------------:|
+|RVMPO | 2010 |        0.04         |
+|RVMPO | 2038 |        0.80         |
 
 
 
@@ -817,42 +697,15 @@ This file supplies the data on relative public transit accessibility at the `Bzo
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> D4c </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | D4c |
+|:-------------|:----:|:---:|
+|D410290014002 | 2010 |  0  |
+|D410290013012 | 2010 |  0  |
+|D410290014001 | 2010 |  0  |
+|D410290014003 | 2010 |  0  |
+|D410290013021 | 2010 |  0  |
 
 
 
@@ -861,42 +714,15 @@ Here is a snapshot of the file:
 This file contains the information about level of car service availability and contains a value of either `Low` or `High` for `Bzones`. `High` means car service access is competitive with household owned car and will impact household vehicle ownership; `Low` is not competitive and will not impact household vehicle ownership.
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> CarSvcLevel </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> Low </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> Low </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> Low </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> Low </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> Low </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | CarSvcLevel |
+|:-------------|:----:|:-----------:|
+|D410290014002 | 2010 |     Low     |
+|D410290013012 | 2010 |     Low     |
+|D410290014001 | 2010 |     Low     |
+|D410290014003 | 2010 |     Low     |
+|D410290013021 | 2010 |     Low     |
 
 
 
@@ -905,54 +731,15 @@ Here is a snapshot of the file:
 This file contains the number single-family dwelling units (`SFDU`), multifamily dwelling units (`MFDU`) and group-quarter dwelling units (`GQDU`) by `Bzone` for each of the base and future years. Data for the base year for single-family and multifamily dwelling units can be sourced from Census housing data with information on units in structure, with multifamily dwelling units defined as any structures with 2-or-more units. For group quarters, unless more detailed local data is available, Census data for non-institutionalized group quarter population can serve as a proxy for dwelling units assuming a `1:1` ratio of dwelling unit per GQ population.
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> SFDU </th>
-   <th style="text-align:center;"> MFDU </th>
-   <th style="text-align:center;"> GQDU </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 559 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 79 </td>
-   <td style="text-align:center;"> 8 </td>
-   <td style="text-align:center;"> 523 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1398 </td>
-   <td style="text-align:center;"> 180 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1385 </td>
-   <td style="text-align:center;"> 172 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 271 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | SFDU | MFDU | GQDU |
+|:-------------|:----:|:----:|:----:|:----:|
+|D410290014002 | 2010 | 559  |  0   |  0   |
+|D410290013012 | 2010 |  79  |  8   | 523  |
+|D410290014001 | 2010 | 1398 | 180  |  0   |
+|D410290014003 | 2010 | 1385 | 172  |  0   |
+|D410290013021 | 2010 | 271  |  0   |  0   |
 
 
 
@@ -966,54 +753,15 @@ This file contains the total, retail and service employment by zone for each of 
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> TotEmp </th>
-   <th style="text-align:center;"> RetEmp </th>
-   <th style="text-align:center;"> SvcEmp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 403 </td>
-   <td style="text-align:center;"> 262 </td>
-   <td style="text-align:center;"> 96 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1382 </td>
-   <td style="text-align:center;"> 73 </td>
-   <td style="text-align:center;"> 880 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 271 </td>
-   <td style="text-align:center;"> 12 </td>
-   <td style="text-align:center;"> 172 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 609 </td>
-   <td style="text-align:center;"> 66 </td>
-   <td style="text-align:center;"> 413 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 49 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 41 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | TotEmp | RetEmp | SvcEmp |
+|:-------------|:----:|:------:|:------:|:------:|
+|D410290014002 | 2010 |  403   |  262   |   96   |
+|D410290013012 | 2010 |  1382  |   73   |  880   |
+|D410290014001 | 2010 |  271   |   12   |  172   |
+|D410290014003 | 2010 |  609   |   66   |  413   |
+|D410290013021 | 2010 |   49   |   1    |   41   |
 
 
 
@@ -1021,60 +769,15 @@ Here is a snapshot of the file:
 This file contains the proportion of `Bzone` non-group quarters households by quartile of `Azone` household income category for each of the base and future years. The total for each `Bzone` should sum to `1`. 
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> HhPropIncQ1 </th>
-   <th style="text-align:center;"> HhPropIncQ2 </th>
-   <th style="text-align:center;"> HhPropIncQ3 </th>
-   <th style="text-align:center;"> HhPropIncQ4 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.12 </td>
-   <td style="text-align:center;"> 0.54 </td>
-   <td style="text-align:center;"> 0.26 </td>
-   <td style="text-align:center;"> 0.54 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.00 </td>
-   <td style="text-align:center;"> 0.32 </td>
-   <td style="text-align:center;"> 0.36 </td>
-   <td style="text-align:center;"> 0.32 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.24 </td>
-   <td style="text-align:center;"> 0.16 </td>
-   <td style="text-align:center;"> 0.26 </td>
-   <td style="text-align:center;"> 0.16 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.16 </td>
-   <td style="text-align:center;"> 0.19 </td>
-   <td style="text-align:center;"> 0.36 </td>
-   <td style="text-align:center;"> 0.19 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.29 </td>
-   <td style="text-align:center;"> 0.29 </td>
-   <td style="text-align:center;"> 0.15 </td>
-   <td style="text-align:center;"> 0.29 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | HhPropIncQ1 | HhPropIncQ2 | HhPropIncQ3 | HhPropIncQ4 |
+|:-------------|:----:|:-----------:|:-----------:|:-----------:|:-----------:|
+|D410290014002 | 2010 |    0.12     |    0.54     |    0.26     |    0.54     |
+|D410290013012 | 2010 |    0.00     |    0.32     |    0.36     |    0.32     |
+|D410290014001 | 2010 |    0.24     |    0.16     |    0.26     |    0.16     |
+|D410290014003 | 2010 |    0.16     |    0.19     |    0.36     |    0.19     |
+|D410290013021 | 2010 |    0.29     |    0.29     |    0.15     |    0.29     |
 
 
 
@@ -1082,48 +785,15 @@ Here is a snapshot of the file:
 This file contains the latitude and longitude of the centroid of each Bzone.
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> Latitude </th>
-   <th style="text-align:center;"> Longitude </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 42.48657 </td>
-   <td style="text-align:center;"> -122.8014 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 42.44259 </td>
-   <td style="text-align:center;"> -122.8461 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 42.46010 </td>
-   <td style="text-align:center;"> -122.7925 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 42.47673 </td>
-   <td style="text-align:center;"> -122.8008 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 42.37304 </td>
-   <td style="text-align:center;"> -122.7793 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | Latitude | Longitude |
+|:-------------|:----:|:--------:|:---------:|
+|D410290014002 | 2010 | 42.48657 | -122.8014 |
+|D410290013012 | 2010 | 42.44259 | -122.8461 |
+|D410290014001 | 2010 | 42.46010 | -122.7925 |
+|D410290014003 | 2010 | 42.47673 | -122.8008 |
+|D410290013021 | 2010 | 42.37304 | -122.7793 |
 
 
 
@@ -1132,42 +802,15 @@ Here is a snapshot of the file:
 This file contains values for `D3bpo4`, a measure for intersection density determined by the number of pedestrian-oriented intersections having four or more legs per square mile. The data to inform this input can be sourced from the EPA's [Smart Location Database](https://www.epa.gov/smartgrowth/smart-location-database-technical-documentation-and-user-guide).
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> D3bpo4 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.2618757 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.4830901 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1.8038130 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 18.9766301 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.1013039 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year |   D3bpo4   |
+|:-------------|:----:|:----------:|
+|D410290014002 | 2010 | 0.2618757  |
+|D410290013012 | 2010 | 0.4830901  |
+|D410290014001 | 2010 | 1.8038130  |
+|D410290014003 | 2010 | 18.9766301 |
+|D410290013021 | 2010 | 0.1013039  |
 
 
 
@@ -1184,72 +827,15 @@ This file contains the parking information by `Bzone` for each of the base and f
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> PkgSpacesPerSFDU </th>
-   <th style="text-align:center;"> PkgSpacesPerMFDU </th>
-   <th style="text-align:center;"> PkgSpacesPerGQ </th>
-   <th style="text-align:center;"> PropWkrPay </th>
-   <th style="text-align:center;"> PropCashOut </th>
-   <th style="text-align:center;"> PkgCost.2010 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 3 </td>
-   <td style="text-align:center;"> 1.5 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 4 </td>
-   <td style="text-align:center;"> 4.0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | PkgSpacesPerSFDU | PkgSpacesPerMFDU | PkgSpacesPerGQ | PropWkrPay | PropCashOut | PkgCost.2010 |
+|:-------------|:----:|:----------------:|:----------------:|:--------------:|:----------:|:-----------:|:------------:|
+|D410290014002 | 2010 |        3         |       1.5        |       0        |     0      |      0      |      0       |
+|D410290013012 | 2010 |        4         |       4.0        |       0        |     0      |      0      |      0       |
+|D410290014001 | 2010 |        4         |       4.0        |       0        |     0      |      0      |      0       |
+|D410290014003 | 2010 |        4         |       4.0        |       0        |     0      |      0      |      0       |
+|D410290013021 | 2010 |        4         |       4.0        |       0        |     0      |      0      |      0       |
 
 
 
@@ -1261,48 +847,15 @@ This file contains the information about workers and households participating in
 * **ImpProp**: Proportion of households residing in `Bzone` who participate in strong individualized marketing program
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> EcoProp </th>
-   <th style="text-align:center;"> ImpProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0.4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | EcoProp | ImpProp |
+|:-------------|:----:|:-------:|:-------:|
+|D410290014002 | 2010 |   0.0   |   0.0   |
+|D410290013012 | 2010 |   0.2   |   0.4   |
+|D410290014001 | 2010 |   0.2   |   0.4   |
+|D410290014003 | 2010 |   0.0   |   0.0   |
+|D410290013021 | 2010 |   0.0   |   0.0   |
 
 
 
@@ -1315,54 +868,15 @@ This file contains the information about unprotected (i.e., developable) area wi
 * **RuralArea**: Area that is `Rural` and unprotected within the zone (Acres)
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> UrbanArea </th>
-   <th style="text-align:center;"> TownArea </th>
-   <th style="text-align:center;"> RuralArea </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 298.6487137 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 4996.11876 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 830.6009450 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 384.80922 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 983.1506646 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 3699.94017 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 439.2145619 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 90.86259 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.3548548 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 6212.57640 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year |  UrbanArea  | TownArea | RuralArea  |
+|:-------------|:----:|:-----------:|:--------:|:----------:|
+|D410290014002 | 2010 | 298.6487137 |    0     | 4996.11876 |
+|D410290013012 | 2010 | 830.6009450 |    0     | 384.80922  |
+|D410290014001 | 2010 | 983.1506646 |    0     | 3699.94017 |
+|D410290014003 | 2010 | 439.2145619 |    0     |  90.86259  |
+|D410290013021 | 2010 |  0.3548548  |    0     | 6212.57640 |
 
 
 
@@ -1379,72 +893,15 @@ This file contains proportion of SF, MF and GQ dwelling units within the urban p
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> PropUrbanSFDU </th>
-   <th style="text-align:center;"> PropUrbanMFDU </th>
-   <th style="text-align:center;"> PropUrbanGQDU </th>
-   <th style="text-align:center;"> PropTownSFDU </th>
-   <th style="text-align:center;"> PropTownMFDU </th>
-   <th style="text-align:center;"> PropTownGQDU </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> D410290014002 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.4686941 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013012 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.8860759 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014001 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.8626609 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290014003 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.9906137 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> D410290013021 </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.0147601 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo           | Year | PropUrbanSFDU | PropUrbanMFDU | PropUrbanGQDU | PropTownSFDU | PropTownMFDU | PropTownGQDU |
+|:-------------|:----:|:-------------:|:-------------:|:-------------:|:------------:|:------------:|:------------:|
+|D410290014002 | 2010 |   0.4686941   |       1       |       1       |      0       |      0       |      0       |
+|D410290013012 | 2010 |   0.8860759   |       1       |       1       |      0       |      0       |      0       |
+|D410290014001 | 2010 |   0.8626609   |       1       |       1       |      0       |      0       |      0       |
+|D410290014003 | 2010 |   0.9906137   |       1       |       1       |      0       |      0       |      0       |
+|D410290013021 | 2010 |   0.0147601   |       1       |       1       |      0       |      0       |      0       |
 
 
 
@@ -1456,24 +913,11 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the a
 * **UrbanHvyTrkDvmt**: Average daily vehicle miles of travel on roadways in the urbanized portion of the Marea by heavy trucks during he base year
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> UzaNameLookup </th>
-   <th style="text-align:center;"> UrbanLdvDvmt </th>
-   <th style="text-align:center;"> UrbanHvyTrkDvmt </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> Medford/OR </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | UzaNameLookup | UrbanLdvDvmt | UrbanHvyTrkDvmt |
+|:-----|:-------------:|:------------:|:---------------:|
+|RVMPO |  Medford/OR   |      NA      |       NA        |
 
 
 
@@ -1493,54 +937,12 @@ This input file is OPTIONAL. It is only needed if the user wants to add a conges
 * **ArtExtCongChg**: Charge per mile (U.S. dollars) of vehicle travel on arterials during periods of extreme congestion
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> FwyNoneCongChg.2010 </th>
-   <th style="text-align:center;"> FwyModCongChg.2010 </th>
-   <th style="text-align:center;"> FwyHvyCongChg.2010 </th>
-   <th style="text-align:center;"> FwySevCongChg.2010 </th>
-   <th style="text-align:center;"> FwyExtCongChg.2010 </th>
-   <th style="text-align:center;"> ArtNoneCongChg.2010 </th>
-   <th style="text-align:center;"> ArtModCongChg.2010 </th>
-   <th style="text-align:center;"> ArtHvyCongChg.2010 </th>
-   <th style="text-align:center;"> ArtSevCongChg.2010 </th>
-   <th style="text-align:center;"> ArtExtCongChg.2010 </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.1 </td>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | FwyNoneCongChg.2010 | FwyModCongChg.2010 | FwyHvyCongChg.2010 | FwySevCongChg.2010 | FwyExtCongChg.2010 | ArtNoneCongChg.2010 | ArtModCongChg.2010 | ArtHvyCongChg.2010 | ArtSevCongChg.2010 | ArtExtCongChg.2010 |
+|:-----|:----:|:-------------------:|:------------------:|:------------------:|:------------------:|:------------------:|:-------------------:|:------------------:|:------------------:|:------------------:|:------------------:|
+|RVMPO | 2010 |          0          |         0          |         0          |        0.0         |        0.0         |          0          |         0          |         0          |         0          |         0          |
+|RVMPO | 2038 |          0          |         0          |         0          |        0.1         |        0.2         |          0          |         0          |         0          |         0          |         0          |
 
 
 
@@ -1558,36 +960,11 @@ DVMT Split by Road Class This input file is OPTIONAL. It is only needed if the u
 * **BusOthDvmtProp**: Proportion of bus daily vehicle miles of travel in the urbanized portion of the Marea occuring on other roadways
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> LdvFwyDvmtProp </th>
-   <th style="text-align:center;"> LdvArtDvmtProp </th>
-   <th style="text-align:center;"> LdvOthDvmtProp </th>
-   <th style="text-align:center;"> HvyTrkFwyDvmtProp </th>
-   <th style="text-align:center;"> HvyTrkArtDvmtProp </th>
-   <th style="text-align:center;"> HvyTrkOthDvmtProp </th>
-   <th style="text-align:center;"> BusFwyDvmtProp </th>
-   <th style="text-align:center;"> BusArtDvmtProp </th>
-   <th style="text-align:center;"> BusOthDvmtProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 0.2632296 </td>
-   <td style="text-align:center;"> 0.47739 </td>
-   <td style="text-align:center;"> 0.2593804 </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;">  </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.6962986 </td>
-   <td style="text-align:center;"> 0.3037014 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | LdvFwyDvmtProp | LdvArtDvmtProp | LdvOthDvmtProp | HvyTrkFwyDvmtProp | HvyTrkArtDvmtProp | HvyTrkOthDvmtProp | BusFwyDvmtProp | BusArtDvmtProp | BusOthDvmtProp |
+|:-----|:--------------:|:--------------:|:--------------:|:-----------------:|:-----------------:|:-----------------:|:--------------:|:--------------:|:--------------:|
+|RVMPO |   0.2632296    |    0.47739     |   0.2593804    |                   |                   |                   |       0        |   0.6962986    |   0.3037014    |
 
 
 
@@ -1599,30 +976,12 @@ This file contains inputs on the numbers of freeway lane-miles and arterial lane
 * **ArtLaneMi**: Lane-miles of roadways functionally classified as arterials (but not freeways or expressways) in the urbanized portion of the metropolitan area
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> FwyLaneMi </th>
-   <th style="text-align:center;"> ArtLaneMi </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 91 </td>
-   <td style="text-align:center;"> 356 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 97 </td>
-   <td style="text-align:center;"> 371 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | FwyLaneMi | ArtLaneMi |
+|:-----|:----:|:---------:|:---------:|
+|RVMPO | 2010 |    91     |    356    |
+|RVMPO | 2038 |    97     |    371    |
 
 
 
@@ -1638,42 +997,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **OtherArtOpsDeployProp**: Proportion of arterial DVMT affected by deployment of other user-defined arterial operations measures
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> RampMeterDeployProp </th>
-   <th style="text-align:center;"> IncidentMgtDeployProp </th>
-   <th style="text-align:center;"> SignalCoordDeployProp </th>
-   <th style="text-align:center;"> AccessMgtDeployProp </th>
-   <th style="text-align:center;"> OtherFwyOpsDeployProp </th>
-   <th style="text-align:center;"> OtherArtOpsDeployProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.00 </td>
-   <td style="text-align:center;"> 0.50 </td>
-   <td style="text-align:center;"> 0.50 </td>
-   <td style="text-align:center;"> 0.00 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.95 </td>
-   <td style="text-align:center;"> 0.95 </td>
-   <td style="text-align:center;"> 0.95 </td>
-   <td style="text-align:center;"> 0.24 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | RampMeterDeployProp | IncidentMgtDeployProp | SignalCoordDeployProp | AccessMgtDeployProp | OtherFwyOpsDeployProp | OtherArtOpsDeployProp |
+|:-----|:----:|:-------------------:|:---------------------:|:---------------------:|:-------------------:|:---------------------:|:---------------------:|
+|RVMPO | 2010 |        0.00         |         0.50          |         0.50          |        0.00         |           0           |           0           |
+|RVMPO | 2038 |        0.95         |         0.95          |         0.95          |        0.24         |           0           |           0           |
 
 
 
@@ -1703,33 +1032,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the a
 * **TransitRailFuelCI**: Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> TransitVanFuelCI </th>
-   <th style="text-align:center;"> TransitBusFuelCI </th>
-   <th style="text-align:center;"> TransitRailFuelCI </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 90.38 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 72.30 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | TransitVanFuelCI | TransitBusFuelCI | TransitRailFuelCI |
+|:-----|:----:|:----------------:|:----------------:|:-----------------:|
+|RVMPO | 2010 |      90.38       |        NA        |        NA         |
+|RVMPO | 2038 |      72.30       |        NA        |        NA         |
 
 
 
@@ -1744,33 +1052,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the b
     
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> TransitEthanolPropGasoline </th>
-   <th style="text-align:center;"> TransitBiodieselPropDiesel </th>
-   <th style="text-align:center;"> TransitRngPropCng </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.1 </td>
-   <td style="text-align:center;"> 0.05 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.1 </td>
-   <td style="text-align:center;"> 0.05 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | TransitEthanolPropGasoline | TransitBiodieselPropDiesel | TransitRngPropCng |
+|:-----|:----:|:--------------------------:|:--------------------------:|:-----------------:|
+|RVMPO | 2010 |            0.1             |            0.05            |         0         |
+|RVMPO | 2038 |            0.1             |            0.05            |         0         |
 
 
 
@@ -1788,48 +1075,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the t
 * **RailPropGasoline**: Proportion of non-electric transit rail travel powered by gasoline
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> VanPropDiesel </th>
-   <th style="text-align:center;"> VanPropGasoline </th>
-   <th style="text-align:center;"> VanPropCng </th>
-   <th style="text-align:center;"> BusPropDiesel </th>
-   <th style="text-align:center;"> BusPropGasoline </th>
-   <th style="text-align:center;"> BusPropCng </th>
-   <th style="text-align:center;"> RailPropDiesel </th>
-   <th style="text-align:center;"> RailPropGasoline </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.2 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0.8 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | VanPropDiesel | VanPropGasoline | VanPropCng | BusPropDiesel | BusPropGasoline | BusPropCng | RailPropDiesel | RailPropGasoline |
+|:-----|:----:|:-------------:|:---------------:|:----------:|:-------------:|:---------------:|:----------:|:--------------:|:----------------:|
+|RVMPO | 2010 |       0       |        1        |     0      |      0.2      |        0        |    0.8     |       1        |        0         |
+|RVMPO | 2038 |       0       |        1        |     0      |      0.2      |        0        |    0.8     |       1        |        0         |
 
 
 
@@ -1848,51 +1099,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the m
 * **RailPropEv**: Proportion of transit rail travel using electric powertrains
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> VanPropIcev </th>
-   <th style="text-align:center;"> VanPropHev </th>
-   <th style="text-align:center;"> VanPropBev </th>
-   <th style="text-align:center;"> BusPropIcev </th>
-   <th style="text-align:center;"> BusPropHev </th>
-   <th style="text-align:center;"> BusPropBev </th>
-   <th style="text-align:center;"> RailPropIcev </th>
-   <th style="text-align:center;"> RailPropHev </th>
-   <th style="text-align:left;"> RailPropEv </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 1 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:left;"> 1 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | VanPropIcev | VanPropHev | VanPropBev | BusPropIcev | BusPropHev | BusPropBev | RailPropIcev | RailPropHev |RailPropEv |
+|:-----|:----:|:-----------:|:----------:|:----------:|:-----------:|:----------:|:----------:|:------------:|:-----------:|:----------|
+|RVMPO | 2010 |      1      |     0      |     0      |      1      |     0      |     0      |      0       |      0      |1          |
+|RVMPO | 2038 |      1      |     0      |     0      |      1      |     0      |     0      |      0       |      0      |1          |
 
 
 
@@ -1911,48 +1123,12 @@ This file contains annual revenue-miles for different transit modes for metropol
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> DRRevMi </th>
-   <th style="text-align:center;"> VPRevMi </th>
-   <th style="text-align:center;"> MBRevMi </th>
-   <th style="text-align:center;"> RBRevMi </th>
-   <th style="text-align:center;"> MGRevMi </th>
-   <th style="text-align:center;"> SRRevMi </th>
-   <th style="text-align:center;"> HRRevMi </th>
-   <th style="text-align:center;"> CRRevMi </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 382639 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 607922 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 2381995 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 3580237 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | DRRevMi | VPRevMi | MBRevMi | RBRevMi | MGRevMi | SRRevMi | HRRevMi | CRRevMi |
+|:-----|:----:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
+|RVMPO | 2010 | 382639  |    0    | 607922  |    0    |    0    |    0    |    0    |    0    |
+|RVMPO | 2038 | 2381995 |    0    | 3580237 |    0    |    0    |    0    |    0    |    0    |
 
 
 
@@ -1968,72 +1144,15 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the o
   
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Level </th>
-   <th style="text-align:center;"> Art_Rcr </th>
-   <th style="text-align:center;"> Art_NonRcr </th>
-   <th style="text-align:center;"> Fwy_Rcr </th>
-   <th style="text-align:center;"> Fwy_NonRcr </th>
-   <th style="text-align:center;"> AccessMgtDeployProp </th>
-   <th style="text-align:center;"> OtherFwyOpsDeployProp </th>
-   <th style="text-align:center;"> OtherArtOpsDeployProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> None </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Mod </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Hvy </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> sev </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Ext </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-   <td style="text-align:center;"> 0 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Level | Art_Rcr | Art_NonRcr | Fwy_Rcr | Fwy_NonRcr | AccessMgtDeployProp | OtherFwyOpsDeployProp | OtherArtOpsDeployProp |
+|:-----|:-------:|:----------:|:-------:|:----------:|:-------------------:|:---------------------:|:---------------------:|
+|None  |    0    |     0      |    0    |     0      |          0          |           0           |           0           |
+|Mod   |    0    |     0      |    0    |     0      |          0          |           0           |           0           |
+|Hvy   |    0    |     0      |    0    |     0      |          0          |           0           |           0           |
+|sev   |    0    |     0      |    0    |     0      |          0          |           0           |           0           |
+|Ext   |    0    |     0      |    0    |     0      |          0          |           0           |           0           |
 
 
 
@@ -2050,45 +1169,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the a
 * **TransitRailFuelCI**: Average carbon intensity of fuels used by transit rail vehicles (grams CO2e per megajoule)
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> HhFuelCI </th>
-   <th style="text-align:center;"> CarSvcFuelCI </th>
-   <th style="text-align:center;"> ComSvcFuelCI </th>
-   <th style="text-align:center;"> HvyTrkFuelCI </th>
-   <th style="text-align:center;"> TransitVanFuelC </th>
-   <th style="text-align:center;"> TransitBusFuelC </th>
-   <th style="text-align:center;"> TransitRailFuel </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 90.23 </td>
-   <td style="text-align:center;"> 90.23 </td>
-   <td style="text-align:center;"> 90.23 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 72.30 </td>
-   <td style="text-align:center;"> 72.30 </td>
-   <td style="text-align:center;"> 72.30 </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> NA </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | HhFuelCI | CarSvcFuelCI | ComSvcFuelCI | HvyTrkFuelCI | TransitVanFuelC | TransitBusFuelC | TransitRailFuel |
+|:-----|:----:|:--------:|:------------:|:------------:|:------------:|:---------------:|:---------------:|:---------------:|
+|RVMPO | 2010 |  90.23   |    90.23     |    90.23     |      NA      |       NA        |       NA        |       NA        |
+|RVMPO | 2038 |  72.30   |    72.30     |    72.30     |      NA      |       NA        |       NA        |       NA        |
 
 
 
@@ -2102,24 +1188,11 @@ This input file is OPTIONAL. It is only needed if the user wants to adjust heavy
   
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> StateAbbrLookup </th>
-   <th style="text-align:center;"> HvyTrkDvmtGrowthBasis </th>
-   <th style="text-align:center;"> HvyTrkDvmt </th>
-   <th style="text-align:center;"> ComSvcDvmtGrowthBasis </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;">  </td>
-   <td style="text-align:center;"> Income </td>
-   <td style="text-align:center;"> NA </td>
-   <td style="text-align:center;"> Population </td>
-  </tr>
-</tbody>
-</table>
+
+
+|StateAbbrLookup | HvyTrkDvmtGrowthBasis | HvyTrkDvmt | ComSvcDvmtGrowthBasis |
+|:---------------|:---------------------:|:----------:|:---------------------:|
+|                |        Income         |     NA     |      Population       |
 
 
 
@@ -2136,42 +1209,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
   
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> CarSvcAutoPropIcev </th>
-   <th style="text-align:center;"> CarSvcAutoPropHev </th>
-   <th style="text-align:center;"> CarSvcAutoPropBev </th>
-   <th style="text-align:center;"> CarSvcLtTrkPropIce </th>
-   <th style="text-align:center;"> CarSvcLtTrkPropHev </th>
-   <th style="text-align:center;"> CarSvcLtTrkPropBev </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.990 </td>
-   <td style="text-align:center;"> 0.010 </td>
-   <td style="text-align:center;"> 0.000 </td>
-   <td style="text-align:center;"> 1.0000 </td>
-   <td style="text-align:center;"> 0.0000 </td>
-   <td style="text-align:center;"> 0.0000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.441 </td>
-   <td style="text-align:center;"> 0.528 </td>
-   <td style="text-align:center;"> 0.031 </td>
-   <td style="text-align:center;"> 0.5335 </td>
-   <td style="text-align:center;"> 0.4572 </td>
-   <td style="text-align:center;"> 0.0093 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | CarSvcAutoPropIcev | CarSvcAutoPropHev | CarSvcAutoPropBev | CarSvcLtTrkPropIce | CarSvcLtTrkPropHev | CarSvcLtTrkPropBev |
+|:-----|:----:|:------------------:|:-----------------:|:-----------------:|:------------------:|:------------------:|:------------------:|
+|RVMPO | 2010 |       0.990        |       0.010       |       0.000       |       1.0000       |       0.0000       |       0.0000       |
+|RVMPO | 2038 |       0.441        |       0.528       |       0.031       |       0.5335       |       0.4572       |       0.0093       |
 
 
 
@@ -2200,42 +1243,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 * **ComSvcLtTrkPropBev**: Proportion of commercial service light truck travel powered by battery electric powertrainss
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> ComSvcAutoPropIcev </th>
-   <th style="text-align:center;"> ComSvcAutoPropHev </th>
-   <th style="text-align:center;"> ComSvcAutoPropBev </th>
-   <th style="text-align:center;"> ComSvcLtTrkPropIcev </th>
-   <th style="text-align:center;"> ComSvcLtTrkPropHev </th>
-   <th style="text-align:center;"> ComSvcLtTrkPropBev </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 0.990 </td>
-   <td style="text-align:center;"> 0.010 </td>
-   <td style="text-align:center;"> 0.000 </td>
-   <td style="text-align:center;"> 1.0000 </td>
-   <td style="text-align:center;"> 0.0000 </td>
-   <td style="text-align:center;"> 0.0000 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.441 </td>
-   <td style="text-align:center;"> 0.528 </td>
-   <td style="text-align:center;"> 0.031 </td>
-   <td style="text-align:center;"> 0.5335 </td>
-   <td style="text-align:center;"> 0.4572 </td>
-   <td style="text-align:center;"> 0.0093 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | ComSvcAutoPropIcev | ComSvcAutoPropHev | ComSvcAutoPropBev | ComSvcLtTrkPropIcev | ComSvcLtTrkPropHev | ComSvcLtTrkPropBev |
+|:-----|:----:|:------------------:|:-----------------:|:-----------------:|:-------------------:|:------------------:|:------------------:|
+|RVMPO | 2010 |       0.990        |       0.010       |       0.000       |       1.0000        |       0.0000       |       0.0000       |
+|RVMPO | 2038 |       0.441        |       0.528       |       0.031       |       0.5335        |       0.4572       |       0.0093       |
 
 
 
@@ -2251,36 +1264,12 @@ This file is OPTIONAL and can be used to adjust the estimate of household driver
   
 
 Here is a snapshot of the file:
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Year </th>
-   <th style="text-align:center;"> DrvPerPrsn15to19 </th>
-   <th style="text-align:center;"> Drv20to29AdjProp </th>
-   <th style="text-align:center;"> Drv30to54AdjProp </th>
-   <th style="text-align:center;"> Drv55to64AdjProp </th>
-   <th style="text-align:center;"> Drv65PlusAdjProp </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> 2010 </td>
-   <td style="text-align:center;"> 0.8174609 </td>
-   <td style="text-align:center;"> 0.9466447 </td>
-   <td style="text-align:center;"> 0.9466447 </td>
-   <td style="text-align:center;"> 0.9900000 </td>
-   <td style="text-align:center;"> 0.9349951 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> 2038 </td>
-   <td style="text-align:center;"> 0.9091840 </td>
-   <td style="text-align:center;"> 0.9091840 </td>
-   <td style="text-align:center;"> 0.9091840 </td>
-   <td style="text-align:center;"> 0.9508236 </td>
-   <td style="text-align:center;"> 0.8979954 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Year | DrvPerPrsn15to19 | Drv20to29AdjProp | Drv30to54AdjProp | Drv55to64AdjProp | Drv65PlusAdjProp |
+|:----|:----------------:|:----------------:|:----------------:|:----------------:|:----------------:|
+|2010 |    0.8174609     |    0.9466447     |    0.9466447     |    0.9900000     |    0.9349951     |
+|2038 |    0.9091840     |    0.9091840     |    0.9091840     |    0.9508236     |    0.8979954     |
 
 
 
@@ -2294,33 +1283,12 @@ This input file is OPTIONAL. It is only needed if the user wants to modify the p
 		
 
 Here is a snapshot of the file:	
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Geo </th>
-   <th style="text-align:center;"> Year </th>
-   <th style="text-align:center;"> HvyTrkPropIcev </th>
-   <th style="text-align:center;"> HvyTrkPropHev </th>
-   <th style="text-align:center;"> HvyTrkPropBev </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2010 </td>
-   <td style="text-align:center;"> 1.0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-   <td style="text-align:center;"> 0.0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> RVMPO </td>
-   <td style="text-align:center;"> 2038 </td>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 0.4 </td>
-   <td style="text-align:center;"> 0.2 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Geo   | Year | HvyTrkPropIcev | HvyTrkPropHev | HvyTrkPropBev |
+|:-----|:----:|:--------------:|:-------------:|:-------------:|
+|RVMPO | 2010 |      1.0       |      0.0      |      0.0      |
+|RVMPO | 2038 |      0.4       |      0.4      |      0.2      |
 
 
 
@@ -2375,6 +1343,7 @@ Here is a snapshot of the file:
 [CalculateVehicleOwnCost](#vestate-calculatevehicleowncost) module.  
 
 * [**azone_hhsize_targets.csv**](#vestate-azone_hhsize_targets.csv) This file contains the household specific targets and is used in [CreateHouseholds](#vestate-createhouseholds) module.          
+
 * [**azone_loc_type_land_area.csv**](#vestate-vestate-azone_loc_type_land_area.csv) This file provides land area data for different area types and is used in [Initialize](#vestate-initialize) module.                  
 
 * [**azone_lttrk_prop.csv**](#vestate-azone_lttrk_prop.csv) This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](#vestate-assignvehicletype) module. 

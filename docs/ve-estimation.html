@@ -7,7 +7,7 @@
 <title>Chapter 13 Estimation in VisionEval | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="description" content="13.1 Introduction  13.1.1 Overview and Content of this Chapter Model estimation in VisionEval, either statistical estimation of model parameters (such as estimating linear regression or logit...">
-<meta name="generator" content="bookdown 0.35 with bs4_book()">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="Chapter 13 Estimation in VisionEval | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/ve-estimation.html">
@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -203,142 +203,74 @@
 </h2>
 <p>The table lists the VE modules that currently exist and whether they include estimation. Several of the modules, notably the original and more recently developed household travel modules (VEHouseholdTravel and VETravelDemandMM) contain a high number of estimated models. Several modules include no estimation.</p>
 <div class="inline-table"><table class="table table-sm">
-<thead><tr>
-<th style="text-align:left;">
-Module Name
-</th>
-<th style="text-align:right;">
-Estimated Components and Models
-</th>
+<thead><tr class="header">
+<th align="left">Module Name</th>
+<th align="right">Estimated Components and Models</th>
 </tr></thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-VEHouseholdTravel
-</td>
-<td style="text-align:right;">
-22
-</td>
+<tr class="odd">
+<td align="left">VEHouseholdTravel</td>
+<td align="right">22</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VEHouseholdVehicles
-</td>
-<td style="text-align:right;">
-7
-</td>
+<tr class="even">
+<td align="left">VEHouseholdVehicles</td>
+<td align="right">7</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VELandUse
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="odd">
+<td align="left">VELandUse</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VENHTS2001
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="left">VENHTS2001</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VEPowertrainsAndFuels
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="odd">
+<td align="left">VEPowertrainsAndFuels</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VEReports
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="left">VEReports</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VEScenario
-</td>
-<td style="text-align:right;">
-2
-</td>
+<tr class="odd">
+<td align="left">VEScenario</td>
+<td align="right">2</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VESimHouseholds
-</td>
-<td style="text-align:right;">
-4
-</td>
+<tr class="even">
+<td align="left">VESimHouseholds</td>
+<td align="right">4</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VESimLandUse
-</td>
-<td style="text-align:right;">
-5
-</td>
+<tr class="odd">
+<td align="left">VESimLandUse</td>
+<td align="right">5</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VESimLandUseData
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="even">
+<td align="left">VESimLandUseData</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VESimTransportSupply
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="left">VESimTransportSupply</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VESyntheticFirms
-</td>
-<td style="text-align:right;">
-0
-</td>
+<tr class="even">
+<td align="left">VESyntheticFirms</td>
+<td align="right">0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VETransportSupply
-</td>
-<td style="text-align:right;">
-1
-</td>
+<tr class="odd">
+<td align="left">VETransportSupply</td>
+<td align="right">1</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VETransportSupplyUse
-</td>
-<td style="text-align:right;">
-3
-</td>
+<tr class="even">
+<td align="left">VETransportSupplyUse</td>
+<td align="right">3</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VETravelDemandMM
-</td>
-<td style="text-align:right;">
-24
-</td>
+<tr class="odd">
+<td align="left">VETravelDemandMM</td>
+<td align="right">24</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VETravelPerformance
-</td>
-<td style="text-align:right;">
-9
-</td>
+<tr class="even">
+<td align="left">VETravelPerformance</td>
+<td align="right">9</td>
 </tr>
 </tbody>
 </table></div>
@@ -2943,7 +2875,7 @@ Call = items(
   CalcVehTrips = "CalculateVehicleTrips",
   CalcAltTrips = "CalculateAltModeTrips"
 )</code></pre>
-<p>The <em>alias</em> is the name that the called module will be referred to by the calling module code. The <em>module</em> is the name of the called module. The VisionEval framework software identifies which package the module resides in from the <em>ModulesByPackage_df</em> table in the <em>ModelState_ls</em> list. It is also possible to hard code the package name in the call definition. For example the <em>CalcDvmt</em> alias could be assign to <code>VEHouseholdTravel::CalculateHouseholdDvmt</code>. This is discouraged, however, because doing so limits the ability to maintain different versions of packages that have module modifications.</p>
+<p>The <em>alias</em> is the name that the called module will be referred to by the calling module code. The <em>module</em> is the name of the called module. The VisionEval framework software identifies which package the module resides in from the <em>ModulesByPackage_df</em> table in the <em>ModelState_ls</em> list. It is also possible to hard code the package name in the call definition. For example the <em>CalcDvmt</em> alias could be assign to <code><a href="https://rdrr.io/pkg/VEHouseholdTravel/man/CalculateHouseholdDvmt.html">VEHouseholdTravel::CalculateHouseholdDvmt</a></code>. This is discouraged, however, because doing so limits the ability to maintain different versions of packages that have module modifications.</p>
 <pre><code>Call = items(
   CalcDvmt = "VEHouseholdTravel::CalculateHouseholdDvmt"
 )</code></pre>
@@ -3108,7 +3040,7 @@ Call = items(
 <span class="header-section-number">13.4.4</span> The tests Directory<a class="anchor" aria-label="anchor" href="#the-tests-directory"><i class="fas fa-link"></i></a>
 </h3>
 <p>The ‘tests’ directory contains R scripts and the results of module tests. The <em>scripts</em> directory contains all the scripts used to carry out module tests. The directory also contains subdirectories for each of the model types the module is to be tested with (e.g VE-RSPM, VE-State, VE-RPAT). Two approaches are available for handing module data that includes input files the module uses, all the <em>defs</em> files, and a datastore which contains all the datasets used by the module aside from those in the input files. These data can be included in the package or they may be kept in a central repository. If they are included in the package, they must be placed in the directory for the corresponding model. This is necessary to avoid conflicts in the test data for different models. The scripts directory includes a testing script which runs the tests on all modules in a package for a particular module. For example, the script for testing modules in a VE-State application is named <em>vestate_test.R</em>. The scripts directory also includes a <em>test.R</em> script which calls the individual model test scripts for automated package testing. If the centralized data testing approach is used, a <em>test_functions.R</em> script needs to be included. This includes functions needed to support the centralized test data approach. The test process is still not finalized. In the future this functionality will be included in the framework software. Following is an example of a test script using the central data approach:</p>
-<pre><code><a href="https://rdrr.io/r/base/library.html">#vestate_test.R
+<pre><code><a href="https://github.com/gregorbj/VisionEval">#vestate_test.R
 #--------------
 
 #Load packages and test functions
@@ -3212,7 +3144,7 @@ saveTestResults(TestSetup_ls)
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-01-31.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-03-20.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

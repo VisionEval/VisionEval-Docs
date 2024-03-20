@@ -120,80 +120,26 @@ The development requirements here are:
 
 The table lists the VE modules that currently exist and whether they include estimation. Several of the modules, notably the original and more recently developed household travel modules (VEHouseholdTravel and VETravelDemandMM) contain a high number of estimated models. Several modules include no estimation.
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> Module Name </th>
-   <th style="text-align:right;"> Estimated Components and Models </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> VEHouseholdTravel </td>
-   <td style="text-align:right;"> 22 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VEHouseholdVehicles </td>
-   <td style="text-align:right;"> 7 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VELandUse </td>
-   <td style="text-align:right;"> 5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VENHTS2001 </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VEPowertrainsAndFuels </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VEReports </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VEScenario </td>
-   <td style="text-align:right;"> 2 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VESimHouseholds </td>
-   <td style="text-align:right;"> 4 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VESimLandUse </td>
-   <td style="text-align:right;"> 5 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VESimLandUseData </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VESimTransportSupply </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VESyntheticFirms </td>
-   <td style="text-align:right;"> 0 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VETransportSupply </td>
-   <td style="text-align:right;"> 1 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VETransportSupplyUse </td>
-   <td style="text-align:right;"> 3 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VETravelDemandMM </td>
-   <td style="text-align:right;"> 24 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> VETravelPerformance </td>
-   <td style="text-align:right;"> 9 </td>
-  </tr>
-</tbody>
-</table>
+
+
+|Module Name           | Estimated Components and Models|
+|:---------------------|-------------------------------:|
+|VEHouseholdTravel     |                              22|
+|VEHouseholdVehicles   |                               7|
+|VELandUse             |                               5|
+|VENHTS2001            |                               1|
+|VEPowertrainsAndFuels |                               2|
+|VEReports             |                               1|
+|VEScenario            |                               2|
+|VESimHouseholds       |                               4|
+|VESimLandUse          |                               5|
+|VESimLandUseData      |                               1|
+|VESimTransportSupply  |                               1|
+|VESyntheticFirms      |                               0|
+|VETransportSupply     |                               1|
+|VETransportSupplyUse  |                               3|
+|VETravelDemandMM      |                              24|
+|VETravelPerformance   |                               9|
 
 
 
