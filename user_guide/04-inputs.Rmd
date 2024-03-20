@@ -131,7 +131,7 @@ This file describes the default units to be used for storing complex data types 
 This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
 
 * [VERSPM inputs](#verspm-inputs)
-* [VE-State inputs](vestate-inputs)
+* [VE-State inputs](#vestate-inputs)
 * [VERPAT inputs](#verpat-inputs)
 
 ### Household Synthesis Inputs 
@@ -1337,6 +1337,7 @@ Here is a snapshot of the file:
 [CalculateVehicleOwnCost](#vestate-calculatevehicleowncost) module.  
 
 * [**azone_hhsize_targets.csv**](#vestate-azone_hhsize_targets.csv) This file contains the household specific targets and is used in [CreateHouseholds](#vestate-createhouseholds) module.          
+
 * [**azone_loc_type_land_area.csv**](#vestate-vestate-azone_loc_type_land_area.csv) This file provides land area data for different area types and is used in [Initialize](#vestate-initialize) module.                  
 
 * [**azone_lttrk_prop.csv**](#vestate-azone_lttrk_prop.csv) This file specifies the light truck proportion of the vehicle fleet and is used in [AssignVehicleType](#vestate-assignvehicletype) module. 
