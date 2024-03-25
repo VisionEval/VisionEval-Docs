@@ -137,9 +137,10 @@ geography
 setting-up-the-model-geography
 model-geography-example
 model-inputs
+model-structure
+visioneval-cnf
+run_model_script
 defs
-run_parameters.json
-model_parameters.json
 deflators.csv
 geo.csv
 units.csv
@@ -149,11 +150,12 @@ land-use-inputs
 defining-location-type-metro-town-rural
 defining-area-type-center-inner-outer-fringe
 travel-behavior-inputs
+model_parameters.json
 vehicle-inputs
 pricing-inputs
 congestion-inputs
 verspm-inputs
-azone_carsvc_characteristics.csv
+verspm-azone_carsvc_characteristics.csv
 verspm-azone_charging_availability.csv
 verspm-azone_electricity_carbon_intensity.csv
 verspm-azone_fuel_power_cost.csv
@@ -586,7 +588,7 @@ verpat-modules
 feedback-loops
 for-more-information
 inputs-and-parameters-1
-run_parameters.json-1
+run_parameters.json
 model_parameters.json-1
 deflators.csv-1
 geo.csv-1

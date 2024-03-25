@@ -2,13 +2,19 @@
 
 
 
-Once VisionEval model has been installed, a directory with sample data will be available within the model directory (e.g., `../models/VERSPM/` where `..` refers to the parent directory of the unzipped installer file). 
+Once a VisionEval model has been installed, a directory with sample data will be available within the model directory (e.g., `../models/VERSPM/` where `..` refers to the parent directory of the unzipped installer file). See VisionEval walkthrough files for instructions on installng sample models.
 
 The model directory serves the dual purposes of providing sample data and a template for local modification to other locations. 
 
-The default VERSPM and VERPAT directories contains sample input files for the Rogue Valley region in Oregon, while the default VE-State directory contains sample input files for the State of Oregon. These inputs can be modified or replaced to investigate the impacts of policy changes or to model a different region. 
+The default VERSPM and VERPAT directories contain sample input files for the Rogue Valley region in Oregon, while the default VE-State directory contains sample input files for the State of Oregon. These inputs will be modified or replaced to investigate the impacts of policy changes or to model a different region.
 
-The `defs` directory contains five model definition files which are introduced in [Set-Up Inputs](#defs) section.
+## Standard Model Structure {#model-structure}
+
+VisionEval models all have a standard structure, which can be customized. The typical structure is described here.
+
+The `visioneval.cnf` in the model directory defines the model's structure. It is introducted in [Model Configuration](#visioneval-cnf).
+
+The `defs` directory contains three model definition files which are introduced in [Set-Up Inputs](#defs) section.
 
 The `inputs` directory contains a number of `CSV` and `JSON` files that provide inputs for the modules. Each module specifies what input files it needs. The majority of input files are `CSV` formatted text files. The names of the file identify the geography level for the input data. For example, `azone_hh_pop_by_age.csv` is the input for household population by age, and should have data at the Azone level. Each input file has:
 
@@ -26,46 +32,113 @@ Field names can also have modifiers, such as the year that money values are deno
 
 The rest of this section will contain generalized best practices for input development applicable to all VisionEval models and go into the details of inputs for each model. 
 
-## Set-up Inputs {#defs}
-The set-up inputs are those in the `defs` directory. Most of these files shouldn’t change much from the download, unless users want their own deflators, etc. The exception is the geo.csv file which will need to be developed to inform the model geography. 
+## Model Configuration (`visioneval.cnf`) {#visioneval-cnf}
 
-- [run_parameters.json](#run_parameters.json)
-- [model_parameters.json](#model_parameters.json)
-- [deflators.csv](#deflators.csv)
-- [geo.csv](#geo.csv)
-- [units.csv](#units.csv)
+This file contains parameters that define key attributes of the model and its computational stages and scenarios. This file can be in YAML format (typical) or JSON (for backward compatibility - it replaces `run_parameters.json` in older versions of VisionEval). Certain elements of `visioneval.cnf` need to be modified by the user to specify the model base year and run years. A more detailed description of the file is not currently available (but will appear soon). The typical contents of `visioneval.cnf` are as follows:
 
-### run_parameters.json
-This file contains parameters that define key attributes of the model run and relationships to other model runs. This file is a needs to be modified by the user to specify the model base year and run years. A more detailed description of the file can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The results of model run are stored in a directory with the name specified by ```"DatastoreName"```. This name should be changed when running different scenarios. For e.g. when running base scenario the output directory name can be set to *BaseScenario* by using ```"DatastoreName": "BaseScenario"``` in the file. The format of this file is as follows:
+```yaml
+# Model-wide description
+Model          : VE-State 3.0
+Region         : Oregon                     # Change to your local area
+State          : OR                         # Change to your local area
+BaseYear       : 2010                       # Change to your model's base year
+Script         : run_model.R
 
-```json
-{
-    "Model": "VERSPM",
-    "Scenario": "Test",
-    "Description": "Test of VERSPM",
-    "Region": "RVMPO",
-    "BaseYear": "2010",
-    "Years": ["2010", "2038"],
-    "DatastoreName": "Datastore",
-    "DatastoreType": "RD",
-    "Seed": 1
+# Model Stages and Scenarios
+ModelStages:
+  base-year-2010:                           # Change base year stage name
+    Years : [2010]                          # Change 2010 to your model's base year
+    Description : Oregon Base Year 2010     # Change to correct description
+  future-year-2040:
+    StartFrom : base-year-2010              # Change to be consistent with base year stage name
+    Years : [2040]                          # Change 2040 to your model's future year
+    Description : Oregon Future Year 2040   # Change to correct description
+```
+
+See the separate scenarios section (under construction) to learn how to set scenarios up efficiently within models.
+
+With this standard setup, model results will be generated in folder called `results`, and the model stages will each generate their outputs into a sub-folder of `results` named after the stage.
+
+The model directory structure will look like the following, though the `results` directory won't exist until you run the model:
+
+```
+VE-State-years # or whatever your model is called in the `models` folder
+-- defs
+   -- deflators.csv
+   -- geo.csv
+   -- units.csv
+-- inputs
+   ... all the `.csv` files plus `model_parameters.json` used in the model
+-- results
+   -- base-year-2010
+      -- Datastore
+         -- ... (Subfolders and files with the model outputs)
+      -- Log_<run_date>....txt (model run notices, including warnings and errors)
+      -- ModelState.Rda
+   -- future-year-2040
+      -- Datastore (folder)
+      -- Log_<run_date>....txt
+      -- ModelState.Rda
+-- scripts
+   -- run_model.R
+-- visioneval.cnf
+```
+
+## Model Script {#run_model_script}
+
+The `scripts` folder contains one or more model scripts describing the sequence of VisionEval modules that the model will run to genereate its outputs. Typically, there will be one script called `run_model.R` but the name can be changed in `visioneval.cnf`.
+
+Here is the standard `run_model.R` script for the VERSPM model. Generally, the script won't be changed except for debugging purposes. One reason to change the script might be to use a locally customized package with a different name (e.g. `VEMyPowertrainsAndFuels` versus `VEPowertrainsAndFuels`).
+
+```
+for(Year in getYears()) {
+  runModule("CreateHouseholds",                "VESimHouseholds",       RunFor = "AllYears",    RunYear = Year)
+  runModule("PredictWorkers",                  "VESimHouseholds",       RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignLifeCycle",                 "VESimHouseholds",       RunFor = "AllYears",    RunYear = Year)
+  runModule("PredictIncome",                   "VESimHouseholds",       RunFor = "AllYears",    RunYear = Year)
+  runModule("PredictHousing",                  "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("LocateEmployment",                "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignLocTypes",                  "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("Calculate4DMeasures",             "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculateUrbanMixMeasure",        "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignParkingRestrictions",       "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignDemandManagement",          "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignCarSvcAvailability",        "VELandUse",             RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignTransitService",            "VETransportSupply",     RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignRoadMiles",                 "VETransportSupply",     RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignDrivers",                   "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignVehicleOwnership",          "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignVehicleType",               "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("CreateVehicleTable",              "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignVehicleAge",                "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculateVehicleOwnCost",         "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("AdjustVehicleOwnership",          "VEHouseholdVehicles",   RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculateHouseholdDvmt",          "VEHouseholdTravel",     RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculateAltModeTrips",           "VEHouseholdTravel",     RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculateVehicleTrips",           "VEHouseholdTravel",     RunFor = "AllYears",    RunYear = Year)
+  runModule("DivertSovTravel",                 "VEHouseholdTravel",     RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculateCarbonIntensity",        "VEPowertrainsAndFuels", RunFor = "AllYears",    RunYear = Year)
+  runModule("AssignHhVehiclePowertrain",       "VEPowertrainsAndFuels", RunFor = "AllYears",    RunYear = Year)
+  for (i in 1:2) {
+    runModule("CalculateRoadDvmt",             "VETravelPerformance",   RunFor = "AllYear",    RunYear = Year)
+    runModule("CalculateRoadPerformance",      "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+    runModule("CalculateMpgMpkwhAdjustments",  "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+    runModule("AdjustHhVehicleMpgMpkwh",       "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+    runModule("CalculateVehicleOperatingCost", "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+    runModule("BudgetHouseholdDvmt",           "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+    runModule("BalanceRoadCostsAndRevenues",   "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+  }
+  runModule("CalculateComEnergyAndEmissions",   "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
+  runModule("CalculatePtranEnergyAndEmissions", "VETravelPerformance",   RunFor = "AllYears",    RunYear = Year)
 }
 ```
 
-### model_parameters.json
-This file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr in 2010$ was derived from a Nov 2014 Oregon DOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).  Note the input looks for the dollars in the year of the base model.
+## Set-up Inputs {#defs}
+The set-up inputs are those in the `defs` directory. The `geo.csv` file will need to set up to represent the model geography. `deflators.csv` may need to be adjusted to ensure that all years prior to the model base year are present. `units.csv` typically will not need to be adjusted.
 
-The format of this file is as follows:
-
-```json
-[
-  {"NAME": "ValueOfTime", 
-   "VALUE": "16", 
-   "TYPE": "double", 
-   "UNITS": "base cost year dollars per hour"
-  }
-]
-```
+- [deflators.csv](#deflators.csv)
+- [geo.csv](#geo.csv)
+- [units.csv](#units.csv)
 
 ### deflators.csv
 This file defines the annual deflator values, such as the consumer price index, that are used to convert currency values between different years for currency denomination. This file does not need to be modified unless the years for which the dollar values used in the input dataset is not contained in this file. The format of the file is as follows:
@@ -122,7 +195,7 @@ This file describes the default units to be used for storing complex data types 
 
 ## Inputs by Concept
 
-This section covers over generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
+This section covers generalized inputs by concepts shared by all VisionEval models. Best practices for inputs by concepts are also discussed. To learn about the specific inputs used by each model skip ahead to the following sections:
 
 * [VERSPM inputs](#verspm-inputs)
 * [VE-State inputs](#vestate-inputs)
@@ -191,6 +264,21 @@ Many of the inputs relating to household multi-modal travel are those that also 
   * **Individualized Marketing TDM Programs.** Individualized marketing (IM) programs are travel demand management programs focused on individual households in select neighborhoods. IM programs involve individualized outreach to households that identify residents’ travel needs and ways to meet those needs with less vehicle travel. Customized to the neighborhood, IM programs work best in locations where a number of travel options are available. VisionEval assumes that households participating in an IM program reduce their DVMT by 9% based on studies done in the Portland area. Users can modify this value but it requires [rebuilding](#ve-buildprocess) the [VELandUse](https://github.com/VisionEval/VisionEval-Dev/tree/development-next/sources/modules/VELandUse) package or [VESimLandUse](https://github.com/VisionEval/VisionEval-Dev/tree/development-next/sources/modules/VESimLandUse) for VE-State. IM programs target work as well as non-work travel and produce larger reductions than ECO work-based programs. Only the IM reduction is used for households that are identified as participating in both ECO and IM programs. The VisionEval input for IM programs include an overall assumption for the percentage of households participating in an IM program.  A minimum population density of 4,000 persons per square mile necessary to implement a successful IM program and the requirement that the household reside an [<span style="color:green">urban mixed use</span>](#urban-mixed-use) Bzone. The number of households identified as participating is the minimum of the number needed to meet the program goal or the number of qualifying households.
 
 * **Parking.** Parking in VisionEval is defined by parking supply and [<span style="color:green">parking restrictions</span>](#parking-restrictions), including [<span style="color:green">parking costs</span>](#parking-costs). 
+
+### model_parameters.json
+This input file contains global parameters for a particular model configuration that may be used by multiple modules. A more detailed description of the file and its structure can be found [here](https://github.com/visioneval/VisionEval/blob/master/api/model_system_design.md#61-model-directory-structure). The source of the default $16/hr in 2010$ was derived from a Nov 2014 Oregon DOT Report: ["The Value of Travel-Time: Estimates of the Hourly Value of Time for Vehicles in Oregon"](https://www.oregon.gov/ODOT/Data/Documents/Value-of-Travel-Time-for-Vehicles.pdf).  Note the input looks for the dollars in the year of the base model.
+
+The format of this file is as follows:
+
+```json
+[
+  {"NAME": "ValueOfTime", 
+   "VALUE": "16", 
+   "TYPE": "double", 
+   "UNITS": "base cost year dollars per hour"
+  }
+]
+```
 
 ### Vehicle, Fuels and Emissions Inputs {#vehicle-inputs}
 
@@ -364,7 +452,7 @@ This section details the specific VERSPM input files.
 
 * [**region_prop_externalities_paid.csv**](#verspm-region_prop_externalities_paid.csv) This file supplies data for climate change and other social costs and is used in the [CalculateVehicleOperatingCost](#verspm-calculatevehicleoperatingcost) module. 
 
-### azone_carsvc_characteristics.csv
+### azone_carsvc_characteristics.csv {#verspm-azone_carsvc_characteristics.csv}
 This file specifies the different characteristics for high and low car service levels by `Azone`. More information on car service can be found here(placeholder). Changing this input is *optional* and using the default input values is standard practice. 
 
 - **HighCarSvcCost**: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)

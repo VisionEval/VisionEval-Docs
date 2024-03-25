@@ -89,11 +89,11 @@ individual zones. The user is free to choose what conventions they will use.
 
 **Example of a geo.csv file that only specifies Azones**
 
-![](images/Azone_geo_file.png)
+![](images/azone_geo_file.png)
 
 **Example of geo.csv file that specifies Azones and Bzones**
 
-![](images/Azone_Bzone_geo_file.png)
+![](images/azone_bzone_geo_file.png)
 
 #### Model Geography Example
 This section details the model geography for ODOT's VE-State model as an example. The geography levels are defined as follows:
