@@ -96,7 +96,7 @@ Performance metrics are calculated in the [VEReports package](https://github.com
 
 [[Overview | VERPAT-Tutorial-Overview]]
 
-## Inputs and Parameters
+## Inputs and Parameters {verpat-inputs-and-parameters}
 
 VERPAT contains 5 definition files and 32 input files, some of which the user must change and others which typically remain unchanged. This page walks the end user through these files and specifies which files must be updated to implement VERPAT in a new region.
 

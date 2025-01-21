@@ -1574,20 +1574,17 @@ Here is a snapshot of the file:
 
 ### azone_gq_pop-prop_by_area-type.csv {#vestate-azone_gq_pop-prop_by_area-type.csv} 
 
-This file provides the proportions for groupquarters in different area types.
+This file provides the proportions for groupquarters in different [area types](model-inputs.html#land-use-inputs). These proportions should add up to 1 in any Azone zone that has non-zero groupquarters population.
+If the file contains NA values, it will be ignored and groupquarters population will be distributed equally among the simulated Bzones.
 
-* **MetroLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in the metropolitan (i.e. urbanized) portion of the Azone
-* **TownLandArea**: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone
-* **RuralAveDensity**: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone
-  
-
-Here is a snapshot of the file:
-
-<img align="center" width="400" border=1 src="images/loc_type_land.PNG"> 
+* **PropGQPopCenter**: Proportion of groupquarters population in center area type
+* **PropGQPopInner**: Proportion of groupquarters population in inner area type
+* **PropGQPopOuter**: Proportion of groupquarters population in outer area type
+* **PropGQPopFringe**: Proportion of groupquarters population in fringe area type
 
 ### azone_hh_loc_type_prop.csv {#vestate-azone_hh_loc_type_prop.csv}
 
-This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone
+This file provides the proportions for households residing in the metropolitan, town and rural part of the Azone
 
 * **PropMetroHh**: Proportion of households residing in the metropolitan (i.e. urbanized) part of the Azone
 * **PropTownHh**: Proportion of households residing in towns (i.e. urban-like but not urbanized) in the Azone
@@ -1767,7 +1764,7 @@ Here is a snapshot of the file:
 
 ### marea_carsvc_availability.csv {#vestate-marea_carsvc_availability.csv}
 
-This file has the data for acitivity proportions which are served by car services
+This file has the data for activity proportions which are served by car services
 
 * **CenterPropHighCarSvc**: Proportion of activity in center area type that is served by high level car service (i.e. service competitive with household owned car)
 * **InnerPropHighCarSvc**: Proportion of activity in inner area type that is served by high level car service (i.e. service competitive with household owned car)
