@@ -126,7 +126,7 @@ The following two modules calculate heavy vehicle fuel and power consumption and
 * [Calculate Commercial Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateComEnergyAndEmissions.md)
 * [Calculate Transit Vehicles Emissions](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculatePtranEnergyAndEmission.md)
 
-## Inputs and Parameters 
+## Inputs and Parameters {verspm-inputs-and-parameters}
 
 The VERSPM model directory is organized with the following subdirectories:
 

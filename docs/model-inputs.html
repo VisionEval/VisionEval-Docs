@@ -7,7 +7,7 @@
 <title>Chapter 7 Model Inputs | VisionEval User Guide</title>
 <meta name="author" content="VisionEval Pooled Fund Team">
 <meta name="description" content="Once a VisionEval model has been installed, a directory with sample data will be available within the model directory (e.g., ../models/VERSPM/ where .. refers to the parent directory of the...">
-<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta name="generator" content="bookdown 0.42 with bs4_book()">
 <meta property="og:title" content="Chapter 7 Model Inputs | VisionEval User Guide">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://visioneval.org/docs/model-inputs.html">
@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.8.0/transition.js"></script><script src="libs/bs3compat-0.8.0/tabs.js"></script><script src="libs/bs3compat-0.8.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -3405,17 +3405,18 @@ RVMPO
 <h3>
 <span class="header-section-number">7.7.6</span> azone_gq_pop-prop_by_area-type.csv<a class="anchor" aria-label="anchor" href="#vestate-azone_gq_pop-prop_by_area-type.csv"><i class="fas fa-link"></i></a>
 </h3>
-<p>This file provides the proportions for groupquarters in different area types.</p>
+<p>This file provides the proportions for groupquarters in different <a href="model-inputs.html#land-use-inputs">area types</a>. These proportions should add up to 1 in any Azone zone that has non-zero groupquarters population.
+If the file contains NA values, it will be ignored and groupquarters population will be distributed equally among the simulated Bzones.</p>
 <ul>
 <li>
-<strong>MetroLandArea</strong>: Land area (excluding large water bodies and large tracts of undevelopable land) in the metropolitan (i.e. urbanized) portion of the Azone</li>
+<strong>PropGQPopCenter</strong>: Proportion of groupquarters population in center area type</li>
 <li>
-<strong>TownLandArea</strong>: Land area (excluding large water bodies and large tracts of undevelopable land) in towns (i.e. urban-like but not urbanized) in the Azone</li>
+<strong>PropGQPopInner</strong>: Proportion of groupquarters population in inner area type</li>
 <li>
-<strong>RuralAveDensity</strong>: Proportion of workers residing in the Azone who work at jobs in the metropolitan (i.e. urbanized) area associated with the Azone</li>
+<strong>PropGQPopOuter</strong>: Proportion of groupquarters population in outer area type</li>
+<li>
+<strong>PropGQPopFringe</strong>: Proportion of groupquarters population in fringe area type</li>
 </ul>
-<p>Here is a snapshot of the file:</p>
-<div class="inline-figure"><img align="center" width="400" border="1" src="images/loc_type_land.PNG"></div>
 </div>
 <div id="vestate-azone_hh_loc_type_prop.csv" class="section level3" number="7.7.7">
 <h3>
@@ -6951,7 +6952,7 @@ Here is a snapshot of the file:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2024-03-25.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-21.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

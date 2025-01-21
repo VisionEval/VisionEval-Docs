@@ -1584,7 +1584,7 @@ If the file contains NA values, it will be ignored and groupquarters population 
 
 ### azone_hh_loc_type_prop.csv {#vestate-azone_hh_loc_type_prop.csv}
 
-This file provides the proportions for households residing in the metropolitan, town and rural part of the Azone
+This file provides the proportions for households residing in the metropolitan, towns and rural part of the Azone
 
 * **PropMetroHh**: Proportion of households residing in the metropolitan (i.e. urbanized) part of the Azone
 * **PropTownHh**: Proportion of households residing in towns (i.e. urban-like but not urbanized) in the Azone
@@ -1764,7 +1764,7 @@ Here is a snapshot of the file:
 
 ### marea_carsvc_availability.csv {#vestate-marea_carsvc_availability.csv}
 
-This file has the data for activity proportions which are served by car services
+This file has the data for acitivity proportions which are served by car services
 
 * **CenterPropHighCarSvc**: Proportion of activity in center area type that is served by high level car service (i.e. service competitive with household owned car)
 * **InnerPropHighCarSvc**: Proportion of activity in inner area type that is served by high level car service (i.e. service competitive with household owned car)

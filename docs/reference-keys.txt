@@ -343,7 +343,7 @@ overview-1
 structure
 modules
 feedback
-inputs-and-parameters
+inputs-and-parameters-verspm-inputs-and-parameters
 modules-and-outputs
 verspm-createhouseholds
 verspm-predictworkers
@@ -587,7 +587,7 @@ verpat-model-structure
 verpat-modules
 feedback-loops
 for-more-information
-inputs-and-parameters-1
+inputs-and-parameters-verpat-inputs-and-parameters
 run_parameters.json
 model_parameters.json-1
 deflators.csv-1
