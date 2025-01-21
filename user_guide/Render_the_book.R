@@ -1,7 +1,7 @@
 # Rendering the VisionEval user's guide
 # launch from user_guide.Rproj
 
-depends = c('bookdown', 'downlit', 'data.table', 'openxlsx', 'servr')
+depends = c('bookdown', 'downlit', 'data.table', 'openxlsx', 'servr','kableExtra')
 
 for(i in depends){
   if(!i %in% (.packages(all.available=T))){
