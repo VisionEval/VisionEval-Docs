@@ -262,8 +262,8 @@
 <span class="header-section-number">15.1.2.2.2.2</span> 2) Configure Build tools from the build menu<a class="anchor" aria-label="anchor" href="#configure-build-tools-from-the-build-menu"><i class="fas fa-link"></i></a>
 </h6>
 <blockquote>
-<p>i. From “Project build tools”, select “Package” from the drop-down.</p>
-<p>ii. For “Package directory”, browse to your source package folder (e.g<code>``C:/Users/&lt;``user name``&gt;/Documents/VisionEval``/``src``/modules/``VESimHouseholds</code>).</p>
+<p>i. From “Project build tools,” select “Package” from the drop-down.</p>
+<p>ii. For “Package directory,” browse to your source package folder (e.g<code>``C:/Users/&lt;``user name``&gt;/Documents/VisionEval``/``src``/modules/``VESimHouseholds</code>).</p>
 <div class="inline-figure"><img src="images/image7.png"></div>
 <p>Click OK. RStudio will flicker and restart.</p>
 </blockquote>
@@ -273,7 +273,7 @@
 <span class="header-section-number">15.1.2.2.2.3</span> 3) Install from package source<a class="anchor" aria-label="anchor" href="#install-from-package-source"><i class="fas fa-link"></i></a>
 </h6>
 <blockquote>
-<p>Click the “Build” drop-down from the main banner menu again. This time there will be new options, select “Install Package”.</p>
+<p>Click the “Build” drop-down from the main banner menu again. This time there will be new options, select “Install Package.”</p>
 <div class="inline-figure"><img src="images/image8.png"></div>
 </blockquote>
 </div>
@@ -564,7 +564,7 @@ process_acs_pums &lt;- function(PumsFile, type, GetPumas='ALL') {
 ​ }
 ​<br>
 # Checks if it is a zip file or a bytefile
-if(grepl(‘.zip’, PumsFile)) {
+if(grepl(‘.zip,’ PumsFile)) {
 df &lt;- fread(cmd = cmd,
 select = names(colclass[[type]]),
 colClasses = colclass[[type]])
@@ -661,7 +661,7 @@ getDecPUMS &lt;- function(STATE, output_dir = NA){
 ​ # Download the PUMS data to tempfile and load directly to data table
 ​ url &lt;- file.path(base_url,
 ​ STATE_NAME,
-​ paste0(‘REVISEDPUMS5_’, sprintf(“%02d”, STATE_NUM), ‘.TXT’))
+​ paste0(‘REVISEDPUMS5_,’ sprintf(“%02d,” STATE_NUM), ‘.TXT’))
 ​<br>
 ​ temp &lt;- tempfile()
 ​ download.file(url, temp)
@@ -692,9 +692,9 @@ getACSPUMS &lt;- function(STATE, YEAR='2000', GetPumas='ALL', output_dir, save_z
 ​ }</p>
 <p>​<br>
 ​ # Download the PUMS data to tempfile and load directly to data table
-​ PUMS &lt;- lapply(c(‘p’, ‘h’), function(f) {
-​ url &lt;- file.path(base_url, YEAR, ‘5-Year’,
-​ paste0(‘csv_’, f, tolower(STATE), ‘.zip’))
+​ PUMS &lt;- lapply(c(‘p,’ ‘h’), function(f) {
+​ url &lt;- file.path(base_url, YEAR, ‘5-Year,’
+​ paste0(‘csv_,’ f, tolower(STATE), ‘.zip’))
 ​<br>
 ​ if(save_zip == F){
 ​ temp &lt;- tempfile()
@@ -763,7 +763,7 @@ df &lt;- process_acs_pums(temp, type=f, GetPumas)</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-21.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

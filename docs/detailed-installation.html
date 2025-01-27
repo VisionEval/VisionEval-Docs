@@ -265,7 +265,7 @@ where you unzipped VisionEval.</p>
 <p>By setting <code>VE_HOME</code> and <code>VE_RUNTIME</code> yourself, you can start visioneval from the same place you put your model, and
 simply adjusting <code>VE_HOME</code> will allow you to run the model with a different version of R or VisionEval.</p>
 <p>You can set VisionEval up to start either from within <code>VE_HOME</code> or from within `VE_RUNTIME. Separating these two
-locations is what we call “creating a <strong>Production Environment</strong>”.</p>
+locations is what we call “creating a <strong>Production Environment</strong>.”</p>
 <p>We suggest that you set up your system so you can start VisionEval from <code>VE_RUNTIME</code> (the place you store your models),
 since it is then easier to update your R or VisionEval version. Here is how to set that up:</p>
 <ul>
@@ -385,7 +385,7 @@ development version, which is probably what you want to use if you’re doing an
 installing.</li>
 </ol>
 <p>If you don’t want to work with git, but would still like to build from code, you can do that. Visit the <a href="https://github.com/VisionEval/VisionEval-Dev">Github</a>,
-nd hit the green Code button, select “Local”, then choose “Download ZIP”.</p>
+nd hit the green Code button, select “Local,” then choose “Download ZIP.”</p>
 <p>If you plan to contribute code back to the VisionEval project, you should work with <code>Visioneval-dev</code>. If you’re just
 making local changes or rebuilding certain packages for your own use, you can use <code>VisionEval</code></p>
 <p>We’re not going to teach you <code>git</code> here. For an introduction try <a href="https://git-scm.com/book/en/v2">the Git Book</a> or the
@@ -394,11 +394,11 @@ making local changes or rebuilding certain packages for your own use, you can us
 can use the <a href="https://desktop.github.com">Github desktop client</a>. Either of those would need to be installed.</p>
 <p>To clone the repository, you will want to execute the following instruction in your Git client of choice. Please be
 aware that you do <em>NOT</em> need to “fork” the repository in order to make a clone and build VisionEval locally. See the
-discussion of forking below for more information. Most people will NOT want to “fork”.</p>
+discussion of forking below for more information. Most people will NOT want to “fork.”</p>
 <pre><code>cd /folder/for/Git-Repos
 git clone https://github.com/visioneval/VisionEval-dev.git VisionEval-dev</code></pre>
 <p>The rest of this section on the development environment will presume your VisionEval git clone is in a folder called
-“VisionEval-dev”. If you’re attaching your <a href="#production-environment">Production Environment</a> to your new VisionEval
+“VisionEval-dev.” If you’re attaching your <a href="#production-environment">Production Environment</a> to your new VisionEval
 clone, use the Github root folder (e.g. <code>/folder/for/Git-Repos/VisionEval-dev</code>) as the value for the <code>VE_HOME</code>
 environment variable. Or you can just copy the <code>.Renviron</code> file that is created when you first run <code>ve.build()</code>, which
 will set VE_HOME to the correct value.</p>
@@ -433,7 +433,7 @@ which you have write permissions (%USERPROFILE% is a good choice).</li>
 <ul>
 <li>Start RStudio by double-clicking the “VisionEval-dev.Rproj” file at the root of the Git code (in “VisionEval-dev”)</li>
 <li>If you don’t have RStudio, make sure R_HOME is set to point to your version of R (see above) and just double-click
-“launch.bat”. That will give you the standard R GUI with the VisionEval development environment loaded.</li>
+“launch.bat.” That will give you the standard R GUI with the VisionEval development environment loaded.</li>
 <li>Execute this R command from with the running R console to perform the build:</li>
 </ul>
 <pre><code>ve.build()</code></pre>
@@ -492,10 +492,10 @@ experiments and not have to rebuild everythign when you change branches back and
 <p>If you’re really working different branches (or if you’re
 <a href="https://opensource.com/article/21/4/git-worktree">using git worktrees</a>, which we recommend but won’t explain
 here), it can help to put all your VisionEval builds in the same separate folder. This amounts to creating a “build
-environment” similar to your “production environment”.</p>
+environment” similar to your “production environment.”</p>
 <p>To put your builds somewhere else than in your git repository clone, just define a <code>VE_BUILD</code> environment variable in the
 <code>.Renviron</code> in the root of your development environment (VisionEval-dev). <code>VE_BUILD</code> should name an existing folder
-somewhere outside your VisionEval git directory (e.g. :%USERPROFILE%-build”)</p>
+somewhere outside your VisionEval git directory (e.g. :%USERPROFILE%-build")</p>
 <p>Once you have defined VE_BUILD, restart R or RStudio, and then when you run <code>ve.build()</code> or the command line equivalent,
 you’ll get this structure of files and folders:</p>
 <ul>
@@ -535,7 +535,7 @@ if you don’t have VE_BUILD set)
 <p>Do I need to “fork” the VisionEval-dev repository (short answer: “NO”) and why would I ever want to?</p>
 <ul>
 <li><p>Github has a misleading operation called “forking” and people get confused about the difference between “cloning” and
-“forking”. Forking is a Github-specific operation that will create a new Github-managed copy of the VisionEval repository within
+“forking.” Forking is a Github-specific operation that will create a new Github-managed copy of the VisionEval repository within
 your own Git account. Cloning is a general Git action that makes a copy of a Github repository on your local computer.</p></li>
 <li><p>You do <em>NOT</em> need to fork any VisionEval repository to clone a development environment on your computer. Just run
 the git clone operation locally and point it at the VisionEval repository using one of the connection strings
@@ -544,7 +544,7 @@ revealed by Github’s green “&lt;&gt; Code” button on the repository home p
 can build or work on. You don’t need to “fork” unless you want to make changes that you might contribute back to
 VisionEval. Forks on Github are needed to make pull requests. A “pull request” is an offer to merge your changes
 back into the main VisionEval code base.</p></li>
-<li><p>If you are doing “pull requests”, they should always be made against the “development” branch of VisionEval-dev, and you
+<li><p>If you are doing “pull requests,” they should always be made against the “development” branch of VisionEval-dev, and you
 should be sure to rebase your changes on the current HEAD of the “development” branch prior to submitting the pull
 request (or it is guaranteed to be rejected). If none of that makes any sense to you, then you shouldn’t even be
 thinking of forking or making a pull request.</p></li>
@@ -646,7 +646,7 @@ again by re-entering just the <code>tail -f make.out</code> part. If the <code>t
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-21.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

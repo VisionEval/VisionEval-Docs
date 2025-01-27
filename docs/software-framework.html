@@ -250,21 +250,21 @@ Each of these components is described in the following subsections.</p>
      |   filename.csv  
      |   ...  
          </code></pre>
-<p>The overall project directory, named <em>my_model</em> in this example, may have any name that is allowed by the operating system the model is being run on. One file is placed in this top level directory by the user, “run_model.R”. Three additional files, denoted in the diagram by angled brackets, are created in the course of checking and running the model.</p>
+<p>The overall project directory, named <em>my_model</em> in this example, may have any name that is allowed by the operating system the model is being run on. One file is placed in this top level directory by the user, “run_model.R.” Three additional files, denoted in the diagram by angled brackets, are created in the course of checking and running the model.</p>
 <p>The “run_model.R” file, introduced in the previous section, initializes the model environment and datastore, checks that all necessary packages are installed, checks whether data dependencies can be satisfied, and then runs modules in a specified sequence. Data checks are performed before any modules are run to catch any errors. This saves time and the aggravation that occurs when a model run fails in midstream due to incorrect data inputs or other errors due to incorrect model setup. Data checking in advance is possible because every module includes detailed specifications for its input and output data. All scenario input files are checked against specifications to determine whether the required data exist and are correct. In addition, the state of the datastore is ‘simulated’ in the order that each module will be run to determine whether the data each module needs will be available in the datastore. After the model has been initialized and all all data checks are satisfactory, the modules are executed in the sequence prescribed in the script.</p>
 <p>The “ModelState.Rda” file is a R binary file that contains a list that holds key variables used in managing the model run. The file is created when the model run is initialized and is updated whenever the state of the datastore changes. Framework functions read this file when necessary to validate data and to determine that datastore read and write operations can be completed successfully. This file is described in more detail in section 6.6.</p>
 <p>The “logXXXX.txt” file is a text file that is created when the model is initialized. This log file is used to record model run progress and any error or warning messages. The ‘XXXX’ part of the name is the date and time when the log file is created.</p>
-<p>The “datastore” is a file or directory that contains the central datastore for the model. The VisionEval framework supports multiple types of datastore. Currently, two types are supported. The preferred type (designated RD) stores datasets in the form of native R data files. Files are stored in a hierarchical directory structure with the top-level directory named “Datastore”. Another type (designated H5) stores all data in a single binary <a href="">HDF5</a> file. The logical structure of these two datastore types are very similar and are described in detail below. Users specify the datastore name in the “parameters.json” file (see below).</p>
-<p>The “defs” directory contains all of the definition files needed to support the model run. Five files are required to be present in this directory: “run_parameters.json”, “model_parameters.json”, “geography.csv”, “deflators.csv”, and “units.csv”.</p>
+<p>The “datastore” is a file or directory that contains the central datastore for the model. The VisionEval framework supports multiple types of datastore. Currently, two types are supported. The preferred type (designated RD) stores datasets in the form of native R data files. Files are stored in a hierarchical directory structure with the top-level directory named “Datastore.” Another type (designated H5) stores all data in a single binary <a href="">HDF5</a> file. The logical structure of these two datastore types are very similar and are described in detail below. Users specify the datastore name in the “parameters.json” file (see below).</p>
+<p>The “defs” directory contains all of the definition files needed to support the model run. Five files are required to be present in this directory: “run_parameters.json,” “model_parameters.json,” “geography.csv,” “deflators.csv,” and “units.csv.”</p>
 <p>The “run_parameters.json” file contains parameters that define key attributes of the model run and relationships to other model runs. The file is a <a href="http://www.json.org/">JSON-formatted</a> text file. The JSON format is used for several reasons. First, it provides much flexibility in how parameters may be structured. For example a parameter could be a single value or an array of values. Second, the JSON format is well documented and is very easy to learn how to use. It uses standard punctuation for formatting and, unlike XML, doesn’t require learning a <a href="https://en.wikipedia.org/wiki/Markup_language">markup language</a>. Third, files are ordinary text files that can be easily read and edited by a number of different text editors available on all major operating systems. There are also a number of commercial and open source tools that simplify the process of editing and checking JSON-formatted files.</p>
 <p>The “run_parameters.json” file specifies the following parameters:</p>
 <ul>
-<li><p><strong>Model</strong> The name of the model. Example: “Oregon-GreenSTEP”.</p></li>
-<li><p><strong>Scenario</strong> The name of the scenario. Example: “High-Gas-Price”.</p></li>
-<li><p><strong>Description</strong> A short description of the scenario. Example: “Assume tripling of gas prices”.</p></li>
-<li><p><strong>Region</strong> The name of the region being modeled. Example: “Oregon”.</p></li>
-<li><p><strong>BaseYear</strong> The base year for the model. Example: “2015”.</p></li>
-<li><p><strong>Years</strong> An array of all the ‘forecast’ years that the model will be run for. Example: [“2025”, “2050”].</p></li>
+<li><p><strong>Model</strong> The name of the model. Example: “Oregon-GreenSTEP.”</p></li>
+<li><p><strong>Scenario</strong> The name of the scenario. Example: “High-Gas-Price.”</p></li>
+<li><p><strong>Description</strong> A short description of the scenario. Example: “Assume tripling of gas prices.”</p></li>
+<li><p><strong>Region</strong> The name of the region being modeled. Example: “Oregon.”</p></li>
+<li><p><strong>BaseYear</strong> The base year for the model. Example: “2015.”</p></li>
+<li><p><strong>Years</strong> An array of all the ‘forecast’ years that the model will be run for. Example: [“2025,” “2050”].</p></li>
 <li><p><strong>DatastoreName</strong> The name of the datastore. It can be any name that is valid for the operating system. It is recommended that this be named “datastore.h5” for HDF5 datastores and “Datastore” for R data file datastores.</p></li>
 <li><p><strong>DatastoreType</strong> A 2-letter abbreviation identifying the datastore type: “RD” for R data file datastore, “H5” for HDF5 datastore. The framework uses the DatastoreType abbreviation to choose the functions used to initialize the datastore and interact with it.</p></li>
 <li><p><strong>Seed</strong> This is a number that modules use as a random seed to make model runs reproducible.</p></li>
@@ -272,7 +272,7 @@ Each of these components is described in the following subsections.</p>
 </ul>
 <p>The “model_parameters.json” can contain global parameters for a particular model configuration that may be used by multiple modules. For example, a model configuration to be a GreenSTEP model may require some parameters that are not required by a model configuration for an RSPM model. Parameters in this file should not include parameters that are specific to a module or data that would more properly be model inputs. While this file is available to establish global model parameters such as the value of time, it should be used sparingly in order enhance transferrability of modules between different models.</p>
 <p>The “geography.csv” file describes all of the geographic relationships for the model and the names of geographic entities in a <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV-formatted</a> text file. The CSV format, like the JSON format is a plain text file. It is used rather than the JSON format because the geographic relationships are best described in table form and the CSV format is made for tabular data. In addition, a number of different open source and commercial spreadsheet and GIS programs can export tabular data in a CSV-formatted files. The structure of the model system geography is described in detail in Section 6.2 below.</p>
-<p>The “units.csv” file describes the default units to be used for storing complex data types in the model. The VisionEval model system keeps track of the types and units of measure of all data that are processed. The model system recognizes 4 primitive data types, a number of complex data types (e.g. currency, distance), and a compound data type. The primitive data types are data types recognized by the R language: ‘double’, ‘integer’, ‘character’, and ‘logical’. The complex data types such as ‘distance’ and ‘time’ define types of data that have defined measurement units and factors for converting between units. The compound data type combines two or more complex data types whose units are defined in an expression (e.g. MI/HR where MI is the complex unit for miles and HR is the complex unit for hours). The <em>units.csv</em> describes the default units used to store complex data types in the datastore. The file structure and an example are described in more detail in Section 6.3 below.</p>
+<p>The “units.csv” file describes the default units to be used for storing complex data types in the model. The VisionEval model system keeps track of the types and units of measure of all data that are processed. The model system recognizes 4 primitive data types, a number of complex data types (e.g. currency, distance), and a compound data type. The primitive data types are data types recognized by the R language: ‘double,’ ‘integer,’ ‘character,’ and ‘logical.’ The complex data types such as ‘distance’ and ‘time’ define types of data that have defined measurement units and factors for converting between units. The compound data type combines two or more complex data types whose units are defined in an expression (e.g. MI/HR where MI is the complex unit for miles and HR is the complex unit for hours). The <em>units.csv</em> describes the default units used to store complex data types in the datastore. The file structure and an example are described in more detail in Section 6.3 below.</p>
 <p>The “deflators.csv” file defines the annual deflator values, such as the consumer price index, that are used to convert currency values between different years for currency demonination. The file structure and an example are described in more detail in Section 6.4 below.</p>
 <p>The “inputs” directory contains all of the input files for a scenario. All input files are CSV-formatted text files. Each module specifies what input files it needs and names and types of data to be included in the needed files. There are several requirements for the structure of input files. These requirements are described in section 6.5 below.</p>
 <div id="model-geography" class="section level4" number="17.4.1.1">
@@ -285,7 +285,7 @@ Each of these components is described in the following subsections.</p>
 <li><p><strong>Region</strong><br>
 The region is the entire model area. Large-scale characteristics that don’t vary across the region are specified at the region level. Examples include fuel prices and the carbon intensities of fuels.</p></li>
 <li><p><strong>Azones</strong><br>
-Azones are large subdivisions of the region containing populations that are similar in size to those of counties or Census Public Use Microdata Areas (PUMA). The counties used in the GreenSTEP and EERPAT models and metropolitan divisions used in the RSPM are examples of Azones. Azones are used to represent population and economic characteristics that vary across the region such as demographic forecasts of persons by age group and average per capita income. The Azone level of geography must represent actual geographic areas and may not be simulated.</p></li>
+Azones are large subdivisions of the region containing populations that are similar in size to those of counties or Census Public Use Microdata Areas (PUMA). The counties used in the earlier GreenSTEP and EERPAT models and metropolitan divisions used in the original RSPM are examples of Azones. Azones are used to represent population and economic characteristics that vary across the region such as demographic forecasts of persons by age group and average per capita income. The Azone level of geography must represent actual geographic areas and may not be simulated.</p></li>
 <li>
 <p><strong>Bzones</strong><br>
 Bzones are subdivisions of Azones that are similar in size to Census Block Groups. The districts used in RSPM models are examples of Bzones. Bzones are used to represent neighborhood characteristics and policies that may be applied differently by neighborhood, for example in the RSPM:</p>
@@ -309,9 +309,9 @@ Mareas are collections of Azones associated with an urbanized area either becaus
 <span class="header-section-number">17.4.1.2</span> 6.3. Data Types, Units, and Currency Deflators<a class="anchor" aria-label="anchor" href="#data-types-units-and-currency-deflators"><i class="fas fa-link"></i></a>
 </h4>
 <p>A key feature of the VisionEval model system that enables modules to be bound together into models is a data specifications system. All datasets that a module requires as inputs and datasets that that a module produces must be specified according to requirements. Section 8 describes these specifications in more detail. This section provides an introduction to the TYPE and UNITS specification requirements to provide context for understanding the “units.csv” file in the “defs” directory.</p>
-<p>The TYPE attribute for a dataset identifies the data type. The UNITS specification identifies the units of measure. The TYPE and UNITS specifications are related. The TYPE attribute affects the values that may be specified for UNITS attribute and how the framework processes the units values. The model system recognizes 3 categories of data types: ‘primitive’, ‘complex’, ‘compound’. The ‘primitive’ category includes the 4 data types recognized by the R language: double, integer, character, and logical. A dataset that is specified as one of these types has no limitations on how the units of measure are specified. The ‘complex’ category currently includes 13 data types such as currency, distance, and area as shown in the table below. A dataset that is one of these types is limited to specified unit values. For example, the allowed units for the ‘distance’ type are MI, FT, KM, and M (for mile, foot, kilometer, and meter). The ‘compound’ category is composed of the compound data type. For compound data, units are represented as an expression involving the units of complex data types. For example, a dataset of vehicle speeds can be specified as having a TYPE that is ‘compound’ and UNITS that are ‘MI/HR’. The type is compound because it is made up of two complex types; distance and time. The units are an expression containing distance and time units and the ‘/’ operator. The ’*’ (multiplication) operator may also be used in the units expression for a compound data type. Appendix C documents all the types and units in more detail.</p>
-<p>Although the complex and compound data types limit what values the units attributes may have, specifying these types enables the framework software to take care of unit conversions between modules and the datastore. For example, say that a model datastore contains a dataset for Bzone population density having units of persons per square mile. In this case the TYPE attribute for the data would be ‘compound’ and the UNITS would be ‘PRSN/SQMI’. If a module which calculates household vehicle travel needs population density measured in persons per acre, the module would specify the UNITS as ‘PRSN/ACRE’ and the framework would take care of converting the density values from the units used in the datastore to the units requested by the module. This simplifies matters for module developers and reduces the likelihood of errors due to data conversions.</p>
-<p>Although the units specified by a module for a complex data type may be any of the recognized units (e.g. for distance - MI, FT, KM and M), this flexibility does not apply to the datastore. Complex data is stored in the datastore in predefined ways to limit potential confusion and simplify unit conversions. The default units file (units.csv) in the “defs” directory declares the default units to use for storing complex data types in the datastore. This file has two fields named ‘Type’ and ‘Units’. A row is required for each complex data type recognized by the VisionEval system. The listing to date of complex types and the default units in the demonstration models are as follows:</p>
+<p>The TYPE attribute for a dataset identifies the data type. The UNITS specification identifies the units of measure. The TYPE and UNITS specifications are related. The TYPE attribute affects the values that may be specified for UNITS attribute and how the framework processes the units values. The model system recognizes 3 categories of data types: ‘primitive,’ ‘complex,’ ‘compound.’ The ‘primitive’ category includes the 4 data types recognized by the R language: double, integer, character, and logical. A dataset that is specified as one of these types has no limitations on how the units of measure are specified. The ‘complex’ category currently includes 13 data types such as currency, distance, and area as shown in the table below. A dataset that is one of these types is limited to specified unit values. For example, the allowed units for the ‘distance’ type are MI, FT, KM, and M (for mile, foot, kilometer, and meter). The ‘compound’ category is composed of the compound data type. For compound data, units are represented as an expression involving the units of complex data types. For example, a dataset of vehicle speeds can be specified as having a TYPE that is ‘compound’ and UNITS that are ‘MI/HR.’ The type is compound because it is made up of two complex types; distance and time. The units are an expression containing distance and time units and the ‘/’ operator. The ’*’ (multiplication) operator may also be used in the units expression for a compound data type. Appendix C documents all the types and units in more detail.</p>
+<p>Although the complex and compound data types limit what values the units attributes may have, specifying these types enables the framework software to take care of unit conversions between modules and the datastore. For example, say that a model datastore contains a dataset for Bzone population density having units of persons per square mile. In this case the TYPE attribute for the data would be ‘compound’ and the UNITS would be ‘PRSN/SQMI.’ If a module which calculates household vehicle travel needs population density measured in persons per acre, the module would specify the UNITS as ‘PRSN/ACRE’ and the framework would take care of converting the density values from the units used in the datastore to the units requested by the module. This simplifies matters for module developers and reduces the likelihood of errors due to data conversions.</p>
+<p>Although the units specified by a module for a complex data type may be any of the recognized units (e.g. for distance - MI, FT, KM and M), this flexibility does not apply to the datastore. Complex data is stored in the datastore in predefined ways to limit potential confusion and simplify unit conversions. The default units file (units.csv) in the “defs” directory declares the default units to use for storing complex data types in the datastore. This file has two fields named ‘Type’ and ‘Units.’ A row is required for each complex data type recognized by the VisionEval system. The listing to date of complex types and the default units in the demonstration models are as follows:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
 <th>Type</th>
@@ -387,9 +387,9 @@ Mareas are collections of Azones associated with an urbanized area either becaus
 </tbody>
 </table></div>
 <p>For ‘currency’ data it’s not sufficient to convert values to different units, it’s also necessary to convert currency values between years to account for the effects of inflation. Because the model parameters estimated in different modules may come from datasets collected in different years, and because model users will most likely want to report currency values in current year terms, it is necessary to convert currency values between years. Currency denominated datasets are stored in the datastore as base year values. When a module needs to use a currency denominated dataset, the framework converts base year values to the year values that the module needs. If a module calculates a currency denominated dataset that is to be saved in the datastore, the framework converts those values from the currency year that the module uses to base year values to save in the datastore. The software framework takes care of the process of converting currency values between years automatically and in a consistent manner. This eliminates the need for model developers to convert currency values. It also allows more flexibility for model users and module developers, and for the evolution of the VisionEval model system with new and improved modules, because it eliminates the need to establish a reference year that is to be used for all modules and models.</p>
-<p>Modules specify the year of a currency dataset using a modifier to the the UNITS specification. This is done by adding a period and 4-digit year to the specification. For example, the UNITS specification for year 2000 dollars would be ‘USD.2000’. Note, however, that this convention does not apply to specifications for currency data that is read in from an input file because the model user is free to establish any currency year they choose for currency inputs. In those cases, the year is specified in the input file. This is explained in Section 6.4.</p>
-<p>Currency values are converted between years using a deflator series is defined for the model in the “deflators.csv” file in the “defs” directory. This file has 2 columns, ‘Year’ and ‘Value’. Values are needed for all years specified by modules used in a model in addition to the base year and any other years that currency values in input files will be denominated in. For example, if the modules to be used in a model use dollar denominated values for the years 2000 and 2009, the model base year is 2010, and some input data are denominated in 2015 dollars, then at a minimum the “deflators.csv” file must include deflators for those years. A more flexible approach would be to have an annual series of deflators running from the earliest year through the latest year. <strong>Note</strong>: it is not necessary to specify deflators for any future model years (e.g. 2030, 2050). All modules in the model system make calculations in constant (uninflated) dollar terms. Deflators are only used to convert user input values to a constant base and to convert values to the year that is consistent with a module’s estimation data.</p>
-<p>The UNITS value may also specify a multiplier option for complex and compound data types. This capability exists because modules may use data that are represented in thousands or millions when numbers are very large. For example, freeway and arterial construction costs may be represented in thousands of dollars per mile. A multiplier option is added to a units name by adding a period and then the multiplier expressed in scientific notion where the leading digit must be a 1 (e.g. 1e3 for thousands). For currency units, the multiplier option must follow the year notation. For example, 2010 dollars expressed in thousands would be expressed as ‘USD.2010.1e3’. Miles traveled expressed in millions would be ‘MI.1e6’.</p>
+<p>Modules specify the year of a currency dataset using a modifier to the the UNITS specification. This is done by adding a period and 4-digit year to the specification. For example, the UNITS specification for year 2000 dollars would be ‘USD.2000.’ Note, however, that this convention does not apply to specifications for currency data that is read in from an input file because the model user is free to establish any currency year they choose for currency inputs. In those cases, the year is specified in the input file. This is explained in Section 6.4.</p>
+<p>Currency values are converted between years using a deflator series is defined for the model in the “deflators.csv” file in the “defs” directory. This file has 2 columns, ‘Year’ and ‘Value.’ Values are needed for all years specified by modules used in a model in addition to the base year and any other years that currency values in input files will be denominated in. For example, if the modules to be used in a model use dollar denominated values for the years 2000 and 2009, the model base year is 2010, and some input data are denominated in 2015 dollars, then at a minimum the “deflators.csv” file must include deflators for those years. A more flexible approach would be to have an annual series of deflators running from the earliest year through the latest year. <strong>Note</strong>: it is not necessary to specify deflators for any future model years (e.g. 2030, 2050). All modules in the model system make calculations in constant (uninflated) dollar terms. Deflators are only used to convert user input values to a constant base and to convert values to the year that is consistent with a module’s estimation data.</p>
+<p>The UNITS value may also specify a multiplier option for complex and compound data types. This capability exists because modules may use data that are represented in thousands or millions when numbers are very large. For example, freeway and arterial construction costs may be represented in thousands of dollars per mile. A multiplier option is added to a units name by adding a period and then the multiplier expressed in scientific notion where the leading digit must be a 1 (e.g. 1e3 for thousands). For currency units, the multiplier option must follow the year notation. For example, 2010 dollars expressed in thousands would be expressed as ‘USD.2010.1e3.’ Miles traveled expressed in millions would be ‘MI.1e6.’</p>
 </div>
 <div id="model-inputs-1" class="section level4" number="17.4.1.3">
 <h4>
@@ -416,7 +416,7 @@ Mareas are collections of Azones associated with an urbanized area either becaus
 <p>For ‘currency’ data type: <strong>Name.Year.Multiplier</strong>. For example, <code>TotalIncome.2010.1e3</code> would be the field name for total income in thousands of 2010 dollars.
 For all other data types: <strong>Name.Multiplier</strong>. For example, <code>TotalDvmt.1e6</code> would be the field name for total daily vehicle miles traveled in millions.</p>
 <p>Where:
-<strong>Name</strong> is the dataset name. This must be the same as specified in the module that calls for the input data.<br><strong>Year</strong> is the four-digit representation of the year that the currency values are denominated for. For example if a currency dataset is in 2010 dollars, the ‘Year’ value would be ‘2010’. The field name for a currency field must include a ‘Year’ element.
+<strong>Name</strong> is the dataset name. This must be the same as specified in the module that calls for the input data.<br><strong>Year</strong> is the four-digit representation of the year that the currency values are denominated for. For example if a currency dataset is in 2010 dollars, the ‘Year’ value would be ‘2010.’ The field name for a currency field must include a ‘Year’ element.
 <strong>Multiplier</strong> is an optional element which identifies the units multiplier. It must be expressed in scientific notation (e.g. 1e3) where the leading digit must be 1. This capability exists to make it easier for users to provide data inputs that may be more conveniently represented with a smaller number of digits and an exponent. For example, annual VMT data for a metropolitan area or state is often represented in thousands or millions.</p>
 <p>The the VisionEval framework uses the year and multiplier information to convert the data to be stored in the datastore. All currency values are stored in base year currency units and all values are stored without exponents.</p>
 </div>
@@ -433,7 +433,7 @@ For all other data types: <strong>Name.Multiplier</strong>. For example, <code>T
 - It is not easy to produce summary statistics from the simulated household files for a region; and<br>
 - The number of non-household data files has proliferated in order to store various aggregations for use in the model and for later summarization.</p>
 <p>Finally, because the GreenSTEP/RSPM approach did not define a consistent data model, it does not sufficiently support the goal of modularity, and it does not support the use of alternative datastores. To overcome these limitations the VisionEval model system specifies a consistent datastore design. This design has been implemented in two types of datastores. One uses R binary files within a hierarchical directory structure. The other uses the HDF5 file format for storing model data. The HDF5 file format was developed by the National Center for Supercomputing Applications (NCSA) at the University of Illinois and other contributors to handle extremely large and complex data collections. For example, it is used to store data from particle simulations and climate models. It also is the basis for the new open matrix standard for transportation modeling, <a href="https://github.com/osPlanning/omx">OMX</a>.</p>
-<p>VisionEval datastores are organized in a ‘column-oriented’ and hierarchical structure illustrated below. The lowest level of the hierarchy are datasets which are vectors of data values. This matches well the data objects (lists and data frames) commonly used in R programs and calculation methods which are commonly vectorized. Datasets in R datastores are R binary files. In HDF5 datastores, they are a portion of the HDF5 file and are called datasets in the HDF5 nomenclature. Datasets are organized in tables which are groups of datasets that all have the length. For example in the diagram below, Azone is a dataset containing the names of each of the Azones, and Age0to14 is a dataset containing the number of people of age 0 to 14 in each each Azone. These datasets and all those listed directly below them are contained in the Azone table. In R datastores, tables are represented by directories. In HDF5 nomenclature they are called groups. Tables that represent values for a particular model run year are grouped together. The year groups are named with the model run years (e.g. 2010, 2050) and they contain tables for every geographic level as well as ‘Household’, ‘Worker’, and ‘Vehicle’ tables. Tables that contain datasets whose values don’t vary by model run year are contained in the ‘Global’ group (directory). These include tables of model parameters, geographic tables, and any other table of datasets that apply to all model run years.</p>
+<p>VisionEval datastores are organized in a ‘column-oriented’ and hierarchical structure illustrated below. The lowest level of the hierarchy are datasets which are vectors of data values. This matches well the data objects (lists and data frames) commonly used in R programs and calculation methods which are commonly vectorized. Datasets in R datastores are R binary files. In HDF5 datastores, they are a portion of the HDF5 file and are called datasets in the HDF5 nomenclature. Datasets are organized in tables which are groups of datasets that all have the length. For example in the diagram below, Azone is a dataset containing the names of each of the Azones, and Age0to14 is a dataset containing the number of people of age 0 to 14 in each each Azone. These datasets and all those listed directly below them are contained in the Azone table. In R datastores, tables are represented by directories. In HDF5 nomenclature they are called groups. Tables that represent values for a particular model run year are grouped together. The year groups are named with the model run years (e.g. 2010, 2050) and they contain tables for every geographic level as well as ‘Household,’ ‘Worker,’ and ‘Vehicle’ tables. Tables that contain datasets whose values don’t vary by model run year are contained in the ‘Global’ group (directory). These include tables of model parameters, geographic tables, and any other table of datasets that apply to all model run years.</p>
 <pre><code>|____Global
 |    |____Model
 |    |        ...
@@ -486,7 +486,7 @@ For all other data types: <strong>Name.Multiplier</strong>. For example, <code>T
 <h4>
 <span class="header-section-number">17.4.1.5</span> 6.6 The Model State File<a class="anchor" aria-label="anchor" href="#the-model-state-file"><i class="fas fa-link"></i></a>
 </h4>
-<p>The model state file, “ModelState.Rda”, maintains a record of all of the model run parameters and an inventory of the contents of the datastore. The software framework functions use this information to control the model run and to perform checks on module and data validity. The model state file contains a list which has the following components:<br>
+<p>The model state file, “ModelState.Rda,” maintains a record of all of the model run parameters and an inventory of the contents of the datastore. The software framework functions use this information to control the model run and to perform checks on module and data validity. The model state file contains a list which has the following components:<br>
 - Model: The name of the model<br>
 - Scenario: The name of the scenario<br>
 - Description: A description of the scenario<br>
@@ -532,9 +532,9 @@ For all other data types: <strong>Name.Multiplier</strong>. For example, <code>T
 - Fetching from the datastore, data that is required by a module;<br>
 - Saving to the datastore, data that a module produces and specifies is to be saved; and,<br>
 - Converting measurement units and currency years when necessary.</p>
-<p>When the software framework “runs” a module it does several things. First, it reads in the module data specifications and the main module function which performs the submodel calculations. Then it reads in all the datasets from the datastore that the module specifies. It also reads in the contents of the model state file. It puts these datasets into an input list and then it calls the main module function with this input list as the argument to the function call. This list, which by convention is called ‘L’, contains 4 components: Global, Year, BaseYear, and G. The Global, Year, and BaseYear components contain lists which are composed of table components which are in turn composed of dataset components. The Global component relates to the ‘global’ group in the datastore. The Year component relates to the the group in the datastore for the model run year. For example, if the model run year is 2040, the Year component will contain data that is read from the ‘2040’ group in the datastore. The BaseYear component relates to the group in the datastore which represents the base year for the model. For example if the model base year is 2010, the BaseYear component will contain data that is read from the ‘2010’ group in the datastore. The list contains a BaseYear component as well as a Year component because modules may need to compute changes in a dataset between the base year and the model run year. Each of these components will contain a component for each table the the module requests data from. The table component is also a list which then contains components for all the requested datasets. For example, if a module needs the household income (‘Income’) and household size (‘HhSize’) datasets from the ‘Household’ table in the model run year (e.g. 2040), the Year component of ‘L’ will contain a ‘Household’ component which will contain an ‘Income’ component and a ‘HhSize’ component. The ‘G’ component of ‘L’ contains the model state list which contains all the information described in Section 6.6.</p>
+<p>When the software framework “runs” a module it does several things. First, it reads in the module data specifications and the main module function which performs the submodel calculations. Then it reads in all the datasets from the datastore that the module specifies. It also reads in the contents of the model state file. It puts these datasets into an input list and then it calls the main module function with this input list as the argument to the function call. This list, which by convention is called ‘L,’ contains 4 components: Global, Year, BaseYear, and G. The Global, Year, and BaseYear components contain lists which are composed of table components which are in turn composed of dataset components. The Global component relates to the ‘global’ group in the datastore. The Year component relates to the the group in the datastore for the model run year. For example, if the model run year is 2040, the Year component will contain data that is read from the ‘2040’ group in the datastore. The BaseYear component relates to the group in the datastore which represents the base year for the model. For example if the model base year is 2010, the BaseYear component will contain data that is read from the ‘2010’ group in the datastore. The list contains a BaseYear component as well as a Year component because modules may need to compute changes in a dataset between the base year and the model run year. Each of these components will contain a component for each table the the module requests data from. The table component is also a list which then contains components for all the requested datasets. For example, if a module needs the household income (‘Income’) and household size (‘HhSize’) datasets from the ‘Household’ table in the model run year (e.g. 2040), the Year component of ‘L’ will contain a ‘Household’ component which will contain an ‘Income’ component and a ‘HhSize’ component. The ‘G’ component of ‘L’ contains the model state list which contains all the information described in Section 6.6.</p>
 <p>If a module calls another module, the list also contains a component named with the alias the module assigns to the called module. This component includes Global, Year, and BaseYear components containing datasets identified in the specifications for the called module. Module calling is explained in detail in section 8.1.2.</p>
-<p>When the module executes, it returns a list containing all of the information that the module specifies is to be written to the datastore. By convention, this list is called ‘R’. This list also has Global, Year, and BaseYear components which are structured in the same way that ‘L’ is structured. The table and dataset components of the list also include some attributes (metadata) which are described in Section 8.</p>
+<p>When the module executes, it returns a list containing all of the information that the module specifies is to be written to the datastore. By convention, this list is called ‘R.’ This list also has Global, Year, and BaseYear components which are structured in the same way that ‘L’ is structured. The table and dataset components of the list also include some attributes (metadata) which are described in Section 8.</p>
 </div>
 </div>
 <div id="modules-1" class="section level2" number="17.5">
@@ -779,7 +779,7 @@ AutoOwnModels_ls$Metro$Count &lt;-
   )
 #Trim down model
 AutoOwnModels_ls$Metro$Count[c("fitted.values", "model", "y")] &lt;- NULL</code></pre>
-<p>After a model has been estimated, the model objects which embody the model need to be saved as part of the package. There is a standard way of doing this which is illustrated in the following example of saving the model in the <em>PredictHousing</em> module. The housing prediction model object is a list called ‘HouseTypeModel_ls’. This list is saved in the ‘data’ directory of the package. By saving the model object in the ‘data’ directory, it can be addressed directly in the module function that applies the model. Note how documentation is handled.</p>
+<p>After a model has been estimated, the model objects which embody the model need to be saved as part of the package. There is a standard way of doing this which is illustrated in the following example of saving the model in the <em>PredictHousing</em> module. The housing prediction model object is a list called ‘HouseTypeModel_ls.’ This list is saved in the ‘data’ directory of the package. By saving the model object in the ‘data’ directory, it can be addressed directly in the module function that applies the model. Note how documentation is handled.</p>
 <pre><code>#Save the housing choice model
 #-----------------------------
 #' Housing choice model
@@ -874,7 +874,7 @@ rm(Hh_df)</code></pre>
 #' @export</code></pre>
 <p>If model estimation data are only used by a single module, then the processing code should be included in the module script.</p>
 <p>There are several places where model estimation datasets may be located depending on the size of the datasets, whether the datasets were preprocessed using other tools or scripts, and whether the intention of the module developer is to enable model users to customize model estimation to reflect data for the region where the model is to be applied.</p>
-<p>For some modules, it is desirable that model parameters be estimated to reflect data for the region where the model is to be applied. This is the case for the <em>CreateHouseholds</em>, <em>PredictWorkers</em>, and <em>PredictIncome</em> modules in the <em>VESimHouseholds</em> package because household and worker age compositions and income distributions are likely to vary by region. For modules like these, the estimation data should be included in the ‘inst/extdata’ directory of the package in the form of CSV-formatted text files. The data files should be accompanied by text files having the same names but with a ‘.txt’ extension rather than a ‘.csv’ extension. The purpose of the text files is to document the corresponding data files so that model users will know how to obtain and prepare datasets for their region that can be used in model estimation. For example, the ‘inst/extdata’ directory of the <em>VESimHouseholds</em> package contains the following files: ‘pums_households.csv’, ‘pums_households.txt’, ‘pums_persons.csv’, and ‘pums_persons.txt’.</p>
+<p>For some modules, it is desirable that model parameters be estimated to reflect data for the region where the model is to be applied. This is the case for the <em>CreateHouseholds</em>, <em>PredictWorkers</em>, and <em>PredictIncome</em> modules in the <em>VESimHouseholds</em> package because household and worker age compositions and income distributions are likely to vary by region. For modules like these, the estimation data should be included in the ‘inst/extdata’ directory of the package in the form of CSV-formatted text files. The data files should be accompanied by text files having the same names but with a ‘.txt’ extension rather than a ‘.csv’ extension. The purpose of the text files is to document the corresponding data files so that model users will know how to obtain and prepare datasets for their region that can be used in model estimation. For example, the ‘inst/extdata’ directory of the <em>VESimHouseholds</em> package contains the following files: ‘pums_households.csv,’ ‘pums_households.txt,’ ‘pums_persons.csv,’ and ‘pums_persons.txt.’</p>
 <p>If a module’s estimation datasets are to be loaded from ‘csv’ files in the ‘inst/extdata’ directory, then the module code should include procedures to check those data for correctness to assure that the model parameters will be estimated correctly. The framework includes as function, <em>processEstimationInputs</em>, to assist with this task. The <em>processEstimationInputs</em> function has 3 arguments: <em>Inp_ls</em>, <em>FileName</em>, and <em>ModuleName</em>. <em>ModuleName</em> is the name of the module that is doing the processing. The sole purpose of this argument is to identify the module in any error messages that are written to the log. <em>FileName</em> is the name of the file in the ‘inst/extdata’ directory to be processed. <em>Inp_ls</em> is a list of data specifications that are used in checking the correctness of the data. This is explained in more detail below. The <em>processEstimationInputs</em> function returns a data frame which contains the data in the specified file, if those data have no errors. Following is an example of how the <em>processEstimationInputs</em> function is used:</p>
 <pre><code>Hh_df &lt;- processEstimationInputs(
     Inp_ls = PumsHhInp_ls,
@@ -914,9 +914,9 @@ rm(Hh_df)</code></pre>
 )</code></pre>
 <p>The meanings of these specifications are as follows:<br>
 - <strong>NAME</strong> This is the name(s) of the data column in the file. The name must be a character string (i.e. surrounded by quotation marks). If multiple columns of the file have the same specifications except for their names, they can listed as in the first item in the example. This method avoids a lot of redundant specifications. Note that the order of specifications does not need to be the same as the order of the columns in the file. Also note that it is OK if the file contains columns that are not specified, as long as it contains all of the columns that are specified. Columns that are not listed are ignored.<br>
-- <strong>TYPE</strong> This the data type of the data contained in the column. Allowable types are the 4 primitive types recognized by the R language (integer, double, character, and logical), the complex types listed in section 6.4, or ‘compound’. The type must be a character string.<br>
-- <strong>PROHIBIT</strong> This is a character vector which identifies all prohibited data conditions. For example, the specification for the “PERSONS” data column in the example above is c(“NA”, “&lt; 0”). This means that there cannot be any values that are undefined (NA) or less than 0. The symbols that may be used in a PROHIBIT specification are: NA, ==, !=, &lt;, &lt;=, &gt;, &gt;= (i.e. undefined, equal to, not equal to, less than, less than or equal to, greater than, greater than or equal to). Note that prohibited conditions must be represented as character strings. If there is more than one prohibited condition, as in the example, the conditions must be entered as an R vector using the ‘c()’ function, as shown in the example. The absence of prohibited conditions is represented by an empty character string (i.e. ““).<br>
-- <strong>ISELEMENTOF</strong> This is a vector which specifies the set of allowed values. It is used when the input values must be elements of a set of discrete values. The vector describing the set must be of the same type as is specified for the input data. Vectors of elements are entered using the ‘c()’ function. For example, if the entries in a column of data could only have the values ‘urban’ or ‘rural’, then the specification owould be written as c(”urban”, “rural”). The absence of a specification for this is represented by an empty character string.<br>
+- <strong>TYPE</strong> This the data type of the data contained in the column. Allowable types are the 4 primitive types recognized by the R language (integer, double, character, and logical), the complex types listed in section 6.4, or ‘compound.’ The type must be a character string.<br>
+- <strong>PROHIBIT</strong> This is a character vector which identifies all prohibited data conditions. For example, the specification for the “PERSONS” data column in the example above is c(“NA,” “&lt; 0”). This means that there cannot be any values that are undefined (NA) or less than 0. The symbols that may be used in a PROHIBIT specification are: NA, ==, !=, &lt;, &lt;=, &gt;, &gt;= (i.e. undefined, equal to, not equal to, less than, less than or equal to, greater than, greater than or equal to). Note that prohibited conditions must be represented as character strings. If there is more than one prohibited condition, as in the example, the conditions must be entered as an R vector using the ‘c()’ function, as shown in the example. The absence of prohibited conditions is represented by an empty character string (i.e. "“).<br>
+- <strong>ISELEMENTOF</strong> This is a vector which specifies the set of allowed values. It is used when the input values must be elements of a set of discrete values. The vector describing the set must be of the same type as is specified for the input data. Vectors of elements are entered using the ‘c()’ function. For example, if the entries in a column of data could only have the values ‘urban’ or ‘rural,’ then the specification owould be written as c(”urban“,”rural"). The absence of a specification for this is represented by an empty character string.<br>
 - <strong>UNLIKELY</strong> This is a vector of conditions that while not prohibited, are not likely to occur. While conditions identified in the PROHIBIT and ISELEMENTOF specifications will produce an error if they are not met (thereby stopping the calculation of parameters), the conditions identified in the UNLIKELY specification will only produce a warning message. Vectors of conditions are entered using the ‘c()’ function.
 - <strong>TOTAL</strong> This specifies a required total value for the column of data. This is useful if the data represents proportions or percentages and must add up to 1 or 100. The absence of a specification for this is represented by an empty character string.</p>
 <p>In some instances it is impractical to include the model estimation data as files in the ‘inst/extdata’ directory, and not necessary for model users to provide regional model estimation data. If, for example, the source data has confidential elements, it may be necessary to preprocess the data to anonymize it before including in the package; or the source data may be too large to include as a text file in the package. In these cases, source data may be processed outside of the package and then the processed datasets included in the package as datasets in R binary files. If that is done, the binary data files should be placed in a directory named ‘data-raw’ in the package.</p>
@@ -1026,7 +1026,7 @@ if (!file.exists("data-raw/Hh_df.rda")) {
   )
 )</code></pre>
 <p>Following are detailed descriptions and examples of each component of the specifications list.</p>
-<p>The <strong>RunBy</strong> component specifies the level of geography that the model is to be run at. For example, the congestion submodel in the GreenSTEP and RSPM models runs at the Marea level. This specification is used by the software framework to determine how to index data that is read from the datastore and data that is written to the datastore. Acceptable values are “Region”, “Azone”, “Bzone”, and “Marea”. The <em>RunBy</em> specification looks like the following example:</p>
+<p>The <strong>RunBy</strong> component specifies the level of geography that the model is to be run at. For example, the congestion submodel in the GreenSTEP and RSPM models runs at the Marea level. This specification is used by the software framework to determine how to index data that is read from the datastore and data that is written to the datastore. Acceptable values are “Region,” “Azone,” “Bzone,” and “Marea.” The <em>RunBy</em> specification looks like the following example:</p>
 <pre><code>RunBy = "Marea",</code></pre>
 <p>The <strong>NewInpTable</strong> and <strong>NewSetTable</strong> components specify any new tables that need to be created in the datastore to accommodate input data or data produced by a module respectively. The following specifications are required for each new table that is to be created.<br>
 - TABLE: the name of the table that is to be created; and,
@@ -1047,10 +1047,10 @@ Following is an example of a <em>NewSetTable</em> specification for creating a V
 - UNITS: the measurement units for the data;<br>
 - NAVALUE: the value used to represent NA (i.e. missing value) in the datastore;<br>
 - SIZE: the maximum number of characters for character data (or 0 for numeric data);<br>
-- PROHIBIT: data values that are prohibited or “” if not applicable (see Section 8.1.1.1 for explanation);<br>
-- ISELEMENTOF: allowed categorical data values or “” if not applicable (see Section 8.1.1.1 for explanation);<br>
-- UNLIKELY: data conditions that are unlikely or “” if not applicable (see Section 8.1.1.1 for explanation);<br>
-- TOTAL: the total for all values (e.g. 1) or “” if not applicable;<br>
+- PROHIBIT: data values that are prohibited or "" if not applicable (see Section 8.1.1.1 for explanation);<br>
+- ISELEMENTOF: allowed categorical data values or "" if not applicable (see Section 8.1.1.1 for explanation);<br>
+- UNLIKELY: data conditions that are unlikely or "" if not applicable (see Section 8.1.1.1 for explanation);<br>
+- TOTAL: the total for all values (e.g. 1) or "" if not applicable;<br>
 - DESCRIPTION: descriptions of the data corresponding to the names in the NAME attribute; and,<br>
 - OPTIONAL: optional specification which identifies whether dataset is optional (see section 8.1.2.1)<br>
 Following is an example of the <em>Inp</em> component for the <em>PredictHousingSpecifications</em> in the <em>VELandUse</em> package. The <em>Inp</em> specifications include two items. Each item lists one or more field names (i.e. column names in the input file) in the NAME attribute. Multiple field names can be listed in an item if all the other attributes except for DESCRIPTION are the same for all the fields. The descriptions in the DESCRIPTION attribute must correspond in order to the dataset names in the NAME attribute in order for them to be stored correctly in the datastore. The values that may be entered for the TYPE and UNITS attributes are described in Section 6.3. It should be noted that the UNITS attribute must not include ‘year’ (for ‘currency’ type) or ‘multiplier’ information. That information is part of the input file field names instead (where relevant). This is explained in more detail in Section 6.4. The framework uses the information in the <em>Inp</em> to read the input files, check whether the data are correct, and save the data to the correct location in the datastore.</p>
@@ -1111,10 +1111,10 @@ Following is an example of the <em>Inp</em> component for the <em>PredictHousing
 - GROUP: the type of group where the table is located in the datastore (i.e. Global, Year, BaseYear);<br>
 - TYPE: the data type (e.g. double, distance, compound);<br>
 - UNITS: the measurement units for the data;<br>
-- PROHIBIT: data values that are prohibited or “” if not applicable (see Section 8.1.1.1 for explanation);<br>
-- ISELEMENTOF: allowed categorical data values or “” if not applicable (see Section 8.1.1.1 for explanation); and,
+- PROHIBIT: data values that are prohibited or "" if not applicable (see Section 8.1.1.1 for explanation);<br>
+- ISELEMENTOF: allowed categorical data values or "" if not applicable (see Section 8.1.1.1 for explanation); and,
 - OPTIONAL: optional specification which identifies whether dataset is optional (see section 8.1.2.1)<br>
-Unlike the ‘Inp’ specifications, the ‘Get’ specifications for UNITS must include ‘year’ information for ‘currency’ types. This is necessary in order for the framework to convert the currency data being requested from the datastore to the year denomination that the module needs. The UNITS attribute may also include a multiplier specification if the module needs the values to be modified in that way. For example, if the module needs VMT in thousands of miles, the UNITS specification would be ‘MI.1e3’. Section 6.3 provides more information on how ‘year’ and ‘multiplier’ options are added to a UNITS specification. Following is an example of the <em>Get</em> component of the <em>AssignRoadMilesSpecifications</em> in the <em>VETransportSupply</em> package.</p>
+Unlike the ‘Inp’ specifications, the ‘Get’ specifications for UNITS must include ‘year’ information for ‘currency’ types. This is necessary in order for the framework to convert the currency data being requested from the datastore to the year denomination that the module needs. The UNITS attribute may also include a multiplier specification if the module needs the values to be modified in that way. For example, if the module needs VMT in thousands of miles, the UNITS specification would be ‘MI.1e3.’ Section 6.3 provides more information on how ‘year’ and ‘multiplier’ options are added to a UNITS specification. Following is an example of the <em>Get</em> component of the <em>AssignRoadMilesSpecifications</em> in the <em>VETransportSupply</em> package.</p>
 <pre><code>Get = items(
   item(
     NAME = "Marea",
@@ -1163,8 +1163,8 @@ Unlike the ‘Inp’ specifications, the ‘Get’ specifications for UNITS must
 - TYPE: the data type (e.g. double, distance, compound);<br>
 - UNITS: the measurement units for the data;<br>
 - NAVALUE: the value used to represent NA in the datastore;<br>
-- PROHIBIT: data values that are prohibited or “” if not applicable (see Section 8.1.1.1 for explanation);<br>
-- ISELEMENTOF: allowed categorical data values or “” if not applicable (see Section 8.1.1.1 for explanation);<br>
+- PROHIBIT: data values that are prohibited or "" if not applicable (see Section 8.1.1.1 for explanation);<br>
+- ISELEMENTOF: allowed categorical data values or "" if not applicable (see Section 8.1.1.1 for explanation);<br>
 - SIZE: the maximum number of characters for character data (or 0 for numeric data); and,
 - DESCRIPTION: descriptions of the data corresponding to the names in the NAME attribute<br>
 The requirements for the UNITS attribute are the same as described above for <em>Get</em> component items. Following is an example of the <em>Set</em> component of the <em>AssignRoadMilesSpecifications</em> in the <em>VETransportSupply</em> package.</p>
@@ -1219,10 +1219,10 @@ Call = items(
 <p>The third possibility is that a module may not be called and calls no other modules. In that case a <em>Call</em> component is not included in the module specifications.</p>
 <p>There are some important restrictions to module calling. First, a module that may be called cannot call another module. If this restriction did not exist, there could be deeply nested module calls which could make debugging and understanding how a model works very difficult. Second, a module that may be called cannot have any inputs (i.e. <em>Inp</em> component). The reason for this restriction is that the function of called modules is to provide calculation services and those are hidden from model users. Unless a called module was also called directly in the model run script, there would be no way model user would know to supply input files without diving into the details about the module doing the calling.</p>
 <p>The framework does the following when a module is run which calls one or more other modules. For each of the modules that are called, the framework:<br>
-1) Reads the ‘Get’ specifications for the called module, gets the datasets from the datastore, puts them in the standard list structure, and adds to the list that will be returned to the calling module as a component whose name is the assigned alias. In the example above, the retrieved datasets would be in a component named “CalcDvmt”.<br>
+1) Reads the ‘Get’ specifications for the called module, gets the datasets from the datastore, puts them in the standard list structure, and adds to the list that will be returned to the calling module as a component whose name is the assigned alias. In the example above, the retrieved datasets would be in a component named “CalcDvmt.”<br>
 2) Creates a list which holds the values of the called module functions. Each called module function is a component of the list whose name is the assigned alias. In the example above, this function list would have one component named “CalcDvmt” which contains the value of the CalculateHouseholdDVMT function.<br>
 3) The framework passes these two lists to the calling module when it is run. Thus the calling module function must be written to accept two arguments rather than one.</p>
-<p>The calling module code invokes the called module by calling it from the function list that the framework passes it and passing to it the data it needs from the data list. Following from the example above, if the data list is called ‘L’ and the function list is called ‘M’, then the <em>CalculateHouseholdDVMT</em> module function would be called in the <em>AssignHhVehiclePowertrain</em> module as follows:</p>
+<p>The calling module code invokes the called module by calling it from the function list that the framework passes it and passing to it the data it needs from the data list. Following from the example above, if the data list is called ‘L’ and the function list is called ‘M,’ then the <em>CalculateHouseholdDVMT</em> module function would be called in the <em>AssignHhVehiclePowertrain</em> module as follows:</p>
 <pre><code>M$CalcDvmt(L$CalcDvmt)</code></pre>
 </div>
 </div>
@@ -1423,7 +1423,7 @@ saveTestResults(TestSetup_ls)
 <h4>
 <span class="header-section-number">17.6.0.1</span> 9.1. API for Model Users<a class="anchor" aria-label="anchor" href="#api-for-model-users"><i class="fas fa-link"></i></a>
 </h4>
-<p>Three functions are part of the API for model users: ‘initializeModel’, ‘runModule’, and ‘getYears’. These are explained below in turn.</p>
+<p>Three functions are part of the API for model users: ‘initializeModel,’ ‘runModule,’ and ‘getYears.’ These are explained below in turn.</p>
 <p>The ‘initializeModel’ function prepares the model for running modules. This includes:<br>
 1) Creating the “ModelState.Rda” file that contains global parameters for the model run and variables used to keep track of the state of the datastore and other aspects of the model run (Section 6.6);<br>
 2) Creating a log file that is used to record model status messages such as warning and error messages;<br>
@@ -1444,9 +1444,9 @@ saveTestResults(TestSetup_ls)
   SaveDatastore = TRUE
   )</code></pre>
 <p>The function arguments and their meanings are as follows:<br>
-- <strong>ParamDir</strong> A string identifying the relative or absolute path to the directory where the parameter and geography definition files are located. The default value is “defs”.<br>
-- <strong>RunParamFile</strong> A string identifying the name of a JSON-formatted text file that contains parameters needed to identify and manage the model run. The default value is “run_parameters.json”.<br>
-- <strong>GeoFile</strong> A string identifying the name of a text file in comma-separated values format that contains the geographic specifications for the model. The default value is “geo.csv”.<br>
+- <strong>ParamDir</strong> A string identifying the relative or absolute path to the directory where the parameter and geography definition files are located. The default value is “defs.”<br>
+- <strong>RunParamFile</strong> A string identifying the name of a JSON-formatted text file that contains parameters needed to identify and manage the model run. The default value is “run_parameters.json.”<br>
+- <strong>GeoFile</strong> A string identifying the name of a text file in comma-separated values format that contains the geographic specifications for the model. The default value is “geo.csv.”<br>
 - <strong>ModelParamFile</strong> A string identifying the name of a JSON-formatted text file that contains global model parameters that are important to a model and may be shared by several modules.<br>
 - <strong>LoadDatastore</strong> A logical identifying whether an existing datastore should be loaded.<br>
 - <strong>DatastoreName</strong> A string identifying the full path name of a datastore to load or NULL if an existing datastore in the working directory is to be loaded.<br>
@@ -1464,7 +1464,7 @@ saveTestResults(TestSetup_ls)
 - <strong>PackageName</strong> A string identifying the name of the package the module is a part of.<br>
 - <strong>RunFor</strong> A string identifying whether to run the module for all years (AllYears), only the base year (BaseYear), or for all years except the base year (NotBaseYear).
 - <strong>RunYear</strong> A string identifying the run year.</p>
-<p>The <em>runModule</em> function runs the named module within the <em>runModule</em> function environment. This is a significant improvement over how functions that implement the submodels in the current GreenSTEP (RSPM, EERPAT, RPAT) are run. In these models, functions are run in the the global environment. As a consequence, the global environment collects objects that increase the potential for name conflicts if care is not taken to keep it clean. By running modules within the <em>runModule</em> function environment, no changes are made to the global environment and all objects that are created in the process vanish when the <em>runModule</em> function completes the work of running the module.</p>
+<p>The <em>runModule</em> function runs the named module within the <em>runModule</em> function environment. This is a significant improvement over how functions that implement the submodels in the previous GreenSTEP and its derivatives (RSPM, EERPAT, RPAT) are run. In these models, functions are run in the the global environment. As a consequence, the global environment collects objects that increase the potential for name conflicts if care is not taken to keep it clean. By running modules within the <em>runModule</em> function environment, no changes are made to the global environment and all objects that are created in the process vanish when the <em>runModule</em> function completes the work of running the module.</p>
 <p>Modules can be run for multiple years by running them in a loop which iterates through all of the years identified in the
 ‘Years’ parameter specified in the “run_parameters.json” file (Section 6.1). Section 5 shows an example of using such a loop. Rather than hard code the model run years in the loop, the user can use the ‘getYears’ function to query and return the vector of years.</p>
 </div>
@@ -1517,7 +1517,7 @@ saveTestResults(TestSetup_ls)
 <p>The ‘readVENameRegistry’ function returns a list containing the specifications for all datasets that registered modules save to the datastore. This list contains two components. The components are data frames containing the specifications for all datasets identified in the ‘Inp’ and ‘Set’ of registered modules. Each data frame row lists the specifications for a dataset as well as the module which produces the dataset and the package the module is in. This function is useful to developers for:<br>
 - Avoiding dataset naming conflicts with other modules; and,<br>
 - Identifying datasets produced by other modules that can be used in module calculations.</p>
-<p>At the present time, the ‘readVENameRegistry’ function has fairly rudimentary functionality. The only argument, ‘NameRegistryDir’, allows the user to specify the local directory where the name registry is located. In the future, the function will read the registry from the remote repository where VisionEval modules are stored. Also, the function will also be modified to enable the module developer to search for datasets based on keywords, module names, package names, and keywords.</p>
+<p>At the present time, the ‘readVENameRegistry’ function has fairly rudimentary functionality. The only argument, ‘NameRegistryDir,’ allows the user to specify the local directory where the name registry is located. In the future, the function will read the registry from the remote repository where VisionEval modules are stored. Also, the function will also be modified to enable the module developer to search for datasets based on keywords, module names, package names, and keywords.</p>
 <p>The ‘getRegisteredGetSpecs’ function helps the module developer to write ‘Get’ specifications that are consistent with the specifications of registered datasets. This function returns a data frame containing the ‘Get’ specifications for specified datasets. The function arguments are as follows:<br>
 - <strong>Names_</strong> A character vector of the dataset names to get specifications for.<br>
 - <strong>Tables_</strong> A character vector of the tables that the datasets are a part of.<br>
@@ -1577,12 +1577,12 @@ saveTestResults(TestSetup_ls)
 <li><p><strong>ReturnProbs</strong> A logical value which if TRUE returns the modeled choice probabilities instead of the modeled choices.</p></li>
 </ul>
 <p>The function returns a vector of choice values for each record of the input data frame if the neither the <em>CheckTargetSearchRange</em> or <em>ReturnProbs</em> arguments are TRUE. If the <em>ReturnProbs</em> argument is TRUE the choice probabilities are returned. If the <em>CheckTargetSearchRange</em> argument is TRUE the function is run to only check the target search range, a two-element vector identifying if the search range produces NA or NaN values.</p>
-<p>The third function, ‘binarySearch’, is called by the ‘applyLinearModel’ function if the value of the ‘TargetMean’ argument is not NULL, and called by the ‘applyBinomialModel’ function if the value of the ‘TargetProp’ argument is not NULL. Module developers may find this function to be useful in their own module implementation code. The arguments of the function are:<br>
+<p>The third function, ‘binarySearch,’ is called by the ‘applyLinearModel’ function if the value of the ‘TargetMean’ argument is not NULL, and called by the ‘applyBinomialModel’ function if the value of the ‘TargetProp’ argument is not NULL. Module developers may find this function to be useful in their own module implementation code. The arguments of the function are:<br>
 - <strong>Function</strong> A function which returns a value which is compared to the Target argument. The function must take as its first argument a value which from the SearchRange_. It must return a value that may be compared to the Target value.<br>
 - <strong>SearchRange_</strong> A two element numeric vector which has the lowest and highest values of the parameter range within which the search will be carried out.
 - <strong>…</strong> One or more optional arguments for the Function.<br>
-- <strong>Target</strong> A numeric value that is compared with the return value of the ‘Function’.<br>
-- <strong>MaxIter</strong> An integer specifying the maximum number of iterations for the search to attempt in order to match the ‘Target’ within the specified ‘Tolerance’.<br>
+- <strong>Target</strong> A numeric value that is compared with the return value of the ‘Function.’<br>
+- <strong>MaxIter</strong> An integer specifying the maximum number of iterations for the search to attempt in order to match the ‘Target’ within the specified ‘Tolerance.’<br>
 - <strong>Tolerance</strong> A numeric value specifying the proportional difference between the ‘Target’ and the return value of the Function to determine when the search is complete.</p>
 <p>The function returns a value within the ‘SearchRange_’ for the function parameter which matches the target value.</p>
 <p>Developers can refer to the source code for the ‘applyLinearModel’ and ‘applyBinomialModel’ functions to help understand how to use this function.</p>
@@ -1601,7 +1601,7 @@ saveTestResults(TestSetup_ls)
 - <em>ModuleName</em>: a string identifying the name of the module.
 - <em>PackageName</em>: a string identifying the name of the package that the module is in.
 - <em>Year</em>: a string identifying the model run year to retrieve the data for.
-- <em>Geo</em>: a string identifying the geography to retrieve the data for if the module’s ‘RunBy’ specification is not ‘Region’. This argument is omitted if the ‘RunBy’ specification is ‘Region’.</p>
+- <em>Geo</em>: a string identifying the geography to retrieve the data for if the module’s ‘RunBy’ specification is not ‘Region.’ This argument is omitted if the ‘RunBy’ specification is ‘Region.’</p>
 <p>Here is an example of the steps that were used in debugging the CalculateUrbanMixMeasure module which errored when running a model in the R console:<br>
 1. The model run stopped and a cryptic R error message was printed to the console.<br>
 2. The following code was entered at the console to get the dataset used by the module: <code>L &lt;- fetchModuleData("CalculateUrbanMixMeasure", "VELandUse", "2040")</code>. Note that <em>L</em> is the standard name used by modules to refer to the data list provided by the framework to the module.<br>
@@ -2746,15 +2746,15 @@ making checks to ensure that model can run successfully.</p>
 <tbody>
 <tr class="odd">
 <td><code>ParamDir</code></td>
-<td>A string identifying the relative or absolute path to the directory where the parameter and geography definition files are located. The default value is “defs”.</td>
+<td>A string identifying the relative or absolute path to the directory where the parameter and geography definition files are located. The default value is “defs.”</td>
 </tr>
 <tr class="even">
 <td><code>RunParamFile</code></td>
-<td>A string identifying the name of a JSON-formatted text file that contains parameters needed to identify and manage the model run. The default value is “run_parameters.json”.</td>
+<td>A string identifying the name of a JSON-formatted text file that contains parameters needed to identify and manage the model run. The default value is “run_parameters.json.”</td>
 </tr>
 <tr class="odd">
 <td><code>GeoFile</code></td>
-<td>A string identifying the name of a text file in comma-separated values format that contains the geographic specifications for the model. The default value is “geo.csv”.</td>
+<td>A string identifying the name of a text file in comma-separated values format that contains the geographic specifications for the model. The default value is “geo.csv.”</td>
 </tr>
 <tr class="even">
 <td><code>ModelParamFile</code></td>
@@ -2858,7 +2858,7 @@ datastores</p>
 </tr>
 <tr class="even">
 <td><code>DstoreType</code></td>
-<td>a string identifying the type of datastore (e.g. ‘RD’, ‘H5’). Note</td>
+<td>a string identifying the type of datastore (e.g. ‘RD,’ ‘H5’). Note</td>
 </tr>
 </tbody>
 </table></div>
@@ -2936,7 +2936,7 @@ runs a module.</p>
 </tr>
 <tr class="odd">
 <td><code>RunFor</code></td>
-<td>A string identifying whether to run the module for all years “AllYears”, only the base year “BaseYear”, or for all years except the base year “NotBaseYear”.</td>
+<td>A string identifying whether to run the module for all years “AllYears,” only the base year “BaseYear,” or for all years except the base year “NotBaseYear.”</td>
 </tr>
 <tr class="even">
 <td><code>RunYear</code></td>
@@ -3320,7 +3320,7 @@ which the function achieves a target value.</p>
 <tbody>
 <tr class="odd">
 <td><code>Function</code></td>
-<td>a function which returns a value which is compared to the ‘Target’ argument. The function must take as its first argument a value which from the ‘SearchRange_’. It must return a value that may be compared to the ‘Target’ value.</td>
+<td>a function which returns a value which is compared to the ‘Target’ argument. The function must take as its first argument a value which from the ‘SearchRange_.’ It must return a value that may be compared to the ‘Target’ value.</td>
 </tr>
 <tr class="even">
 <td><code>SearchRange_</code></td>
@@ -3328,11 +3328,11 @@ which the function achieves a target value.</p>
 </tr>
 <tr class="odd">
 <td><code>...</code></td>
-<td>one or more optional arguments for the ‘Function’.</td>
+<td>one or more optional arguments for the ‘Function.’</td>
 </tr>
 <tr class="even">
 <td><code>Target</code></td>
-<td>a numeric value that is compared with the return value of the ‘Function’.</td>
+<td>a numeric value that is compared with the return value of the ‘Function.’</td>
 </tr>
 <tr class="odd">
 <td><code>DoWtAve</code></td>
@@ -4073,7 +4073,7 @@ up a test environment and tests a module.</p>
 </tr>
 <tr class="odd">
 <td><code>RunFor</code></td>
-<td>A string identifying what years the module is to be tested for. The value must be the same as the value that is used when the module is run in a module. Allowed values are ‘AllYears’, ‘BaseYear’, and ‘NotBaseYear’.</td>
+<td>A string identifying what years the module is to be tested for. The value must be the same as the value that is used when the module is run in a module. Allowed values are ‘AllYears,’ ‘BaseYear,’ and ‘NotBaseYear.’</td>
 </tr>
 <tr class="even">
 <td><code>StopOnErr</code></td>
@@ -4398,9 +4398,9 @@ consistent. This function is called by the readGeography function.</p>
 <h4>
 <span class="header-section-number">17.6.33.5</span> Value<a class="anchor" aria-label="anchor" href="#value-23"><i class="fas fa-link"></i></a>
 </h4>
-<p>A list having two components. The first component, ‘Messages’,
+<p>A list having two components. The first component, ‘Messages,’
 contains a string vector of error messages. It has a length of 0 if there are
-no error messages. The second component, ‘Update’, is a list of components to
+no error messages. The second component, ‘Update,’ is a list of components to
 update in the model state file. The components of this list include: Geo, a
 data frame that contains the geographic specifications; BzoneSpecified, a
 logical identifying whether Bzones are specified; and CzoneSpecified, a
@@ -4610,7 +4610,7 @@ conditions.</p>
 </tr>
 <tr class="even">
 <td><code>ConditionType</code></td>
-<td>A string having a value of either “PROHIBIT” or “UNLIKELY”, the two data specifications which use conditions.</td>
+<td>A string having a value of either “PROHIBIT” or “UNLIKELY,” the two data specifications which use conditions.</td>
 </tr>
 </tbody>
 </table></div>
@@ -4623,7 +4623,7 @@ conditions.</p>
 more conditions. The conditions are specified in a character vector where
 each element is either “NA” (to match for the existence of NA values) or a
 character representation of a valid R comparison expression for comparing
-each element with a specified value (e.g. “&lt; 0”, “&gt; 1”, “!= 10”). This
+each element with a specified value (e.g. “&lt; 0,” “&gt; 1,” “!= 10”). This
 function is used both for checking for the presence of prohibited values and
 for the presence of unlikely values.</p>
 </div>
@@ -4697,7 +4697,7 @@ with a specified data type. An error message is generated if data can’t be
 coerced into the specified data type without the possibility of error or loss
 of information (e.g. if a double is coerced to an integer). A warning message
 is generated if the specified type is ‘character’ but the input data type is
-‘integer’, ‘double’ or ‘logical’ since these can be coerced correctly, but
+‘integer,’ ‘double’ or ‘logical’ since these can be coerced correctly, but
 that may not be what is intended (e.g. zone names may be input as numbers).
 Note that some modules may use NA inputs as a flag to identify case when
 result does not need to match a target. In this case, R will read in the type
@@ -5296,7 +5296,7 @@ scientific notation used in R with the additional constraint that the digit
 term must be 1. For example, a multiplier of 1000 would be represented as
 1e3. The multiplier is separated from the units name by a period (.). For
 example if the units of a dataset to be retrieved from the datastore are
-thousands of miles, the UNITS specification would be written as ‘MI.1e3’.</p>
+thousands of miles, the UNITS specification would be written as ‘MI.1e3.’</p>
 </div>
 <div id="value-35" class="section level4" number="17.6.45.5">
 <h4>
@@ -5744,7 +5744,7 @@ the function creates a specification for each name value.</p>
 </tr>
 <tr class="even">
 <td><code>ComponentName</code></td>
-<td>A string that is the name of the specifications that the specification is a part of (e.g. “Inp”, “Get”, “Set”).</td>
+<td>A string that is the name of the specifications that the specification is a part of (e.g. “Inp,” “Get,” “Set”).</td>
 </tr>
 </tbody>
 </table></div>
@@ -5809,7 +5809,7 @@ dataset specification for defined NAME, TABLE, and GROUP.</p>
 <tbody>
 <tr class="odd">
 <td><code>Specs_ls</code></td>
-<td>a standard specifications list for ‘Inp’, ‘Get’, or ‘Set’</td>
+<td>a standard specifications list for ‘Inp,’ ‘Get,’ or ‘Set’</td>
 </tr>
 <tr class="even">
 <td><code>Name</code></td>
@@ -5833,7 +5833,7 @@ dataset specification for defined NAME, TABLE, and GROUP.</p>
 <p>This function finds and returns the full specification from a specifications
 list whose NAME, TABLE and GROUP values correspond to the Name, Table, and
 Group argument values. The specifications list must be in standard format and
-must be for only ‘Inp’, ‘Get’, or ‘Set’ specifications.</p>
+must be for only ‘Inp,’ ‘Get,’ or ‘Set’ specifications.</p>
 </div>
 <div id="value-42" class="section level4" number="17.6.52.5">
 <h4>
@@ -6246,7 +6246,7 @@ sucessfully written to the datastore.</p>
 </tr></thead>
 <tbody><tr class="odd">
 <td><code>Suffix</code></td>
-<td>A character string appended to the file name for the log file. For example, if the suffix is ‘CreateHouseholds’, the log file is named ‘Log_CreateHouseholds.txt’. The default value is NULL in which case the suffix is the date and time.</td>
+<td>A character string appended to the file name for the log file. For example, if the suffix is ‘CreateHouseholds,’ the log file is named ‘Log_CreateHouseholds.txt.’ The default value is NULL in which case the suffix is the date and time.</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -6485,8 +6485,8 @@ scenario variants to be built from a constant set of starting conditions.</p>
 <span class="header-section-number">17.6.62.5</span> Value<a class="anchor" aria-label="anchor" href="#value-52"><i class="fas fa-link"></i></a>
 </h4>
 <p>TRUE if the datastore is loaded. It copies the saved datastore to
-working directory as ‘datastore.h5’. If a ‘datastore.h5’ file already
-exists, it first renames that file as ‘archive-datastore.h5’. The function
+working directory as ‘datastore.h5.’ If a ‘datastore.h5’ file already
+exists, it first renames that file as ‘archive-datastore.h5.’ The function
 updates information in the model state file regarding the model geography
 and the contents of the loaded datastore. If the stored file does not exist
 an error is thrown.</p>
@@ -6532,7 +6532,7 @@ group of the datastore.</p>
 </tr></thead>
 <tbody><tr class="odd">
 <td><code>ModelParamFile</code></td>
-<td>A string identifying the name of the parameter file. The default value is ‘model_parameters.json’.</td>
+<td>A string identifying the name of the parameter file. The default value is ‘model_parameters.json.’</td>
 </tr></tbody>
 </table></div>
 </div>
@@ -6710,7 +6710,7 @@ script.</p>
 </h4>
 <p>A data frame containing information on the calls to ‘runModule’ in the
 order of the calls. Each row represents a module call in order. The columns
-identify the ‘ModuleName’, the ‘PackageName’, and the ‘RunFor’ value.</p>
+identify the ‘ModuleName,’ the ‘PackageName,’ and the ‘RunFor’ value.</p>
 </div>
 <div id="calls-55" class="section level4" number="17.6.65.6">
 <h4>
@@ -6760,7 +6760,7 @@ includes a MULTIPLIER attribute and YEAR attribute.</p>
 </tr>
 <tr class="even">
 <td><code>ComponentName</code></td>
-<td>A string that is the name of the specifications the the specification comes from (e.g. “Inp”, “Get”, “Set).</td>
+<td>A string that is the name of the specifications the the specification comes from (e.g. “Inp,” “Get,” "Set).</td>
 </tr>
 </tbody>
 </table></div>
@@ -6862,7 +6862,7 @@ preparation for saving in the datastore.</p>
 <p>This function processes the input files identified in a module’s ‘Inp’
 specifications in preparation for saving the data in the datastore. Several
 processes are carried out. The existence of each specified input file is
-checked. Any file whose corresponding ‘GROUP’ specification is ‘Year’, is
+checked. Any file whose corresponding ‘GROUP’ specification is ‘Year,’ is
 checked to determine that it has ‘Year’ and ‘Geo’ columns. The entries in the
 ‘Year’ and ‘Geo’ columns are checked to make sure they are complete and there
 are no duplicates. Any file whose ‘GROUP’ specification is ‘Global’ or
@@ -6981,11 +6981,11 @@ geographic specifications file for the model.</p>
 <tbody>
 <tr class="odd">
 <td><code>Dir</code></td>
-<td>A string identifying the path to the geographic specifications file. Note: don’t include the final separator in the path name ‘e.g. not defs/’.</td>
+<td>A string identifying the path to the geographic specifications file. Note: don’t include the final separator in the path name ‘e.g. not defs/.’</td>
 </tr>
 <tr class="even">
 <td><code>GeoFile</code></td>
-<td>A string identifying the name of the geographic specifications file. This is a csv-formatted text file which contains columns named ‘Azone’, ‘Bzone’, ‘Czone’, and ‘Marea’. The ‘Azone’ column must have zone names in all rows. The ‘Bzone’ and ‘Czone’ columns can be unspecified (NA in all rows) or may have have unique names in every row. The ‘Marea’ column (referring to metropolitan areas) identifies metropolitan areas corresponding to the most detailed level of specified geography (or ‘None’ no metropolitan area occupies any portion of the zone.</td>
+<td>A string identifying the name of the geographic specifications file. This is a csv-formatted text file which contains columns named ‘Azone,’ ‘Bzone,’ ‘Czone,’ and ‘Marea.’ The ‘Azone’ column must have zone names in all rows. The ‘Bzone’ and ‘Czone’ columns can be unspecified (NA in all rows) or may have have unique names in every row. The ‘Marea’ column (referring to metropolitan areas) identifies metropolitan areas corresponding to the most detailed level of specified geography (or ‘None’ no metropolitan area occupies any portion of the zone.</td>
 </tr>
 </tbody>
 </table></div>
@@ -7208,7 +7208,7 @@ and resaves in the model state file.</p>
 </tr>
 <tr class="even">
 <td><code>FileName</code></td>
-<td>A string identifying the name of the file that contains the ModelState_ls list. The default name is ‘ModelState.Rda’.</td>
+<td>A string identifying the name of the file that contains the ModelState_ls list. The default name is ‘ModelState.Rda.’</td>
 </tr>
 </tbody>
 </table></div>
@@ -7285,7 +7285,7 @@ component, in which ‘Global’ references are simulated, components for each
 model run year, in which ‘Year’ references are simulated, and if the base
 year is not one of the run years, a base year component, in which base year
 references are simulated. For each model run year the function steps through
-a data frame of module calls as produced by ‘parseModelScript’, and loads and
+a data frame of module calls as produced by ‘parseModelScript,’ and loads and
 processes the module specifications in order: adds ‘NewInpTable’ references,
 adds ‘Inp’ dataset references, checks whether references to datasets
 identified in ‘Get’ specifications are present, adds ‘NewSetTable’ references,
@@ -8513,7 +8513,7 @@ written to specific location indexes in the dataset.</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-21.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

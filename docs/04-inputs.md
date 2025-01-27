@@ -635,7 +635,7 @@ Here is a snapshot of the file:
 
 ### azone_lttrk_prop.csv {#verspm-azone_lttrk_prop.csv}
 
-This file specifies the light truck proportion of the vehicle fleet. The user can be developed from local registration data. Alternatively, if MOVES is available for the model region, this input can be calculated from the MOVES vehicle population data (SourceTypeYear). The vehicle types used in MOVES (SourceType) correspond with the two categories of passenger vehicles used in EERPAT: MOVES SourceType 21, Passenger Car, is equivalent to autos in EERPAT and MOVES Source Type 31, Passenger Truck, is equivalent to light trucks.
+This file specifies the light truck proportion of the vehicle fleet. The user can be developed from local registration data. Alternatively, if MOVES is available for the model region, this input can be calculated from the MOVES vehicle population data (SourceTypeYear). The vehicle types used in MOVES (SourceType) correspond with the two categories of passenger vehicles used in VisionEval: MOVES SourceType 21, Passenger Car, is equivalent to autos in VisionEval and MOVES Source Type 31, Passenger Truck, is equivalent to light trucks.
 
 * **LtTrkProp**: Proportion of household vehicles that are light trucks (pickup, SUV, van).
   

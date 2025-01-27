@@ -455,7 +455,7 @@
 <h4>
 <span class="header-section-number">7.5.2.1</span> Defining “Location Type” (metro, town, rural)<a class="anchor" aria-label="anchor" href="#defining-location-type-metro-town-rural"><i class="fas fa-link"></i></a>
 </h4>
-<p>One method is to define land in MPO boundaries to be <strong>metro</strong>, for urban areas smaller than MPOs, land inside their UGB is a <strong>town</strong>. Everything else is <strong>rural</strong>. Note that if you want to further refine within the MPO, place types can identify low density areas that you might consider “rural” and areas that less accessible/more isolated (don’t have access to broader transit service) as “town”. Some states have official population forecasts done for each urban area that helps with the population inputs. Users can also use LEHD where we used the boundaries identified above to designate location types, and then used LEHD to calculate worker flows between county home location-to-work LocType (any county).</p>
+<p>One method is to define land in MPO boundaries to be <strong>metro</strong>, for urban areas smaller than MPOs, land inside their UGB is a <strong>town</strong>. Everything else is <strong>rural</strong>. Note that if you want to further refine within the MPO, place types can identify low density areas that you might consider “rural” and areas that less accessible/more isolated (don’t have access to broader transit service) as “town.” Some states have official population forecasts done for each urban area that helps with the population inputs. Users can also use LEHD where we used the boundaries identified above to designate location types, and then used LEHD to calculate worker flows between county home location-to-work LocType (any county).</p>
 <p>An alternative method is to use the <a href="https://www.census.gov/programs-surveys/geography/guidance/geo-areas/urban-rural/2010-urban-rural.html">Census Urban and Rural Classification</a>. The Census Urban and Rural Classification distinguishes between two types of urban areas:</p>
 <ul>
 <li>Urbanized Areas (UAs) of 50,000 or more people are defined as <strong>metro</strong>
@@ -558,7 +558,7 @@
 <ol style="list-style-type: decimal">
 <li>Default package datasets. These may represent federal or statewide fuel policies that apply to all metropolitan areas and all vehicle groups in the model (e.g., state ethanol regulations, low carbon fuel policies). NAs would be placed in all user input files.</li>
 <li>Detailed fuel and biofuel inputs. Values for the proportions of fuels types (gasoline, diesel, compressed natural gas), as well as fuel blend proportions (gasoline blended with ethanol, biodiesel blended with diesel, renewable natural gas is blended with natural gas). A third assumption specifies the carbon_intenaity of the fuels (input or default). For example, heavy trucks can be set to 95% diesel, 5% natural gas, with diesel having a 5% biodiesel blend.</li>
-<li>Composite carbon intensity. This option simplifies the process of modeling emissions policies, particularly low carbon fuels policies by bypasses the need to specify fuel types and biofuel blends. Average carbon intensity by vehicle group and if applicable, vehicle type is specified directly. These inputs, if present and not ‘NA’, supercede other transit inputs.</li>
+<li>Composite carbon intensity. This option simplifies the process of modeling emissions policies, particularly low carbon fuels policies by bypasses the need to specify fuel types and biofuel blends. Average carbon intensity by vehicle group and if applicable, vehicle type is specified directly. These inputs, if present and not ‘NA,’ supercede other transit inputs.</li>
 </ol>
 <ul>
 <li>Note: Given that transit agencies in different metropolitan areas may have substantially different approaches to using biofuels, transit vehicles have the option of region or metropolitan area specifications for Options (1) and (2).<br>
@@ -1157,7 +1157,7 @@ RVMPO
 <h3>
 <span class="header-section-number">7.6.10</span> azone_lttrk_prop.csv<a class="anchor" aria-label="anchor" href="#verspm-azone_lttrk_prop.csv"><i class="fas fa-link"></i></a>
 </h3>
-<p>This file specifies the light truck proportion of the vehicle fleet. The user can be developed from local registration data. Alternatively, if MOVES is available for the model region, this input can be calculated from the MOVES vehicle population data (SourceTypeYear). The vehicle types used in MOVES (SourceType) correspond with the two categories of passenger vehicles used in EERPAT: MOVES SourceType 21, Passenger Car, is equivalent to autos in EERPAT and MOVES Source Type 31, Passenger Truck, is equivalent to light trucks.</p>
+<p>This file specifies the light truck proportion of the vehicle fleet. The user can be developed from local registration data. Alternatively, if MOVES is available for the model region, this input can be calculated from the MOVES vehicle population data (SourceTypeYear). The vehicle types used in MOVES (SourceType) correspond with the two categories of passenger vehicles used in VisionEval: MOVES SourceType 21, Passenger Car, is equivalent to autos in VisionEval and MOVES Source Type 31, Passenger Truck, is equivalent to light trucks.</p>
 <ul>
 <li>
 <strong>LtTrkProp</strong>: Proportion of household vehicles that are light trucks (pickup, SUV, van).</li>
@@ -4596,7 +4596,7 @@ Here is a snapshot of the file:</p>
 <li>
 <strong>n1000_4</strong>: Over 5,000 employees</li>
 </ul>
-<p>While the county field is required to be present, the business synthesis process does not require a meaningful value and therefore users may simply enter ‘region’. The consistency in the naming of the “region” should be maintained across all the files that contains the label <em>“county”</em> or <em>“Geo”</em>. It is also not necessary to use such detailed NAICS categories if those are not available; the current business synthesis model and subsequent models do not use this level of detail (although future versions of the model may) – at minimum, the number of establishments for all employment types can be provided by size category. Regions with significant employment in industries such as government and public administration that are not covered by the CBP may need to add records to the file that cover this type of employment to more accurately match employment totals in their region. The two additional fields contained in the file are:</p>
+<p>While the county field is required to be present, the business synthesis process does not require a meaningful value and therefore users may simply enter ‘region.’ The consistency in the naming of the “region” should be maintained across all the files that contains the label <em>“county”</em> or <em>“Geo”</em>. It is also not necessary to use such detailed NAICS categories if those are not available; the current business synthesis model and subsequent models do not use this level of detail (although future versions of the model may) – at minimum, the number of establishments for all employment types can be provided by size category. Regions with significant employment in industries such as government and public administration that are not covered by the CBP may need to add records to the file that cover this type of employment to more accurately match employment totals in their region. The two additional fields contained in the file are:</p>
 <ul>
 <li>
 <strong>emp</strong>: Total number of employees</li>
@@ -6112,7 +6112,7 @@ The source for highway infrastructure costs is FHWA’s Highway Economic Require
 <li>Resurface pavement</li>
 <li>Improve shoulders</li>
 </ul>
-<p>Additional choices are offered to distinguish between adding a lane at “normal” vs. “high cost”, and also for pavement realignment, also under normal vs. high cost conditions. For practical reasons, it was decided to use only “new construction” (which also includes adding lanes) costs as the basis for the cost estimates, and to ignore the categories of reconstruction, resurfacing, and realignment. These construction costs include right of way, construction, and a “small” allowance for bridges and support facilities.
+<p>Additional choices are offered to distinguish between adding a lane at “normal” vs. “high cost,” and also for pavement realignment, also under normal vs. high cost conditions. For practical reasons, it was decided to use only “new construction” (which also includes adding lanes) costs as the basis for the cost estimates, and to ignore the categories of reconstruction, resurfacing, and realignment. These construction costs include right of way, construction, and a “small” allowance for bridges and support facilities.
 The infrastructure costs focus only on the “urban” system, not rural, which also makes it possible to differentiate by three size classes: Small Urban, Small Urbanized, and Large Urbanized. The numbers from HERS are in 2002 dollars; FHWA advises escalation to current dollars using its NHCCI, which is available online at <a href="http://www.fhwa.dot.gov/policyinformation/nhcci.cfm" class="uri">http://www.fhwa.dot.gov/policyinformation/nhcci.cfm</a>); the report in VERPAT escalates uses this Index to escalate to 2010 values.
 The parameter values in this file are average values per lane mile, simplifying the calculations of highway costs to just differentiate investments in freeway vs. arterial functional class roads.
 Here is a snapshot of the file:</p>
@@ -6952,7 +6952,7 @@ Here is a snapshot of the file:</p>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-21.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-01-27.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
