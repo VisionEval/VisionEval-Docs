@@ -63,12 +63,6 @@ The following table summarizes many of the possible performance metrics that can
     + Number or percent of residents living in [<span style="color:green">mixed use</span>](#mixed-use) areas
     + Number of dwelling units by housing type (e.g., single family [SF], multi-family [MF])
 
-+ Environmental
-    + Annual greenhouse gas emissions per capita
-    + Household vehicle greenhouse gas/mile
-    + Commercial vehicle greenhouse gas/mile
-    + Transit vehicle greenhouse gas/mile
-
 + Energy
     + Annual per capita fuel consumption for all vehicles (gallons)
     + Average [<span style="color:green">fuel efficiency</span>](#fuel-efficiency) (net miles per gallon) for all vehicles
