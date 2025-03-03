@@ -8,7 +8,7 @@ Structurally, VisionEval may be described as a "disaggregate demand/aggregate su
 
 What VisionEval can do, and even makes especially simple, is to evaluate large numbers of scenarios and explore how combinations of alternative future conditions might affect performance measures. Travel demand models, whether built using traditional trip-based or more contemporary activity-based techniques, sacrifice flexibility for network detail. It is difficult in such models to capture novel behaviors such as an increased propensity to use inexpensive ride-hailing services, or to express shifts in vehicle ownership and occupancy that may be influenced by multiple factors some of which have not yet been observed. Yet these potential shifts are often very important for assessing the potential of pricing, investment strategies or other policy priorities. VisionEval also makes it relatively simple to explore risks and opportunities that may eventually be realized as new transportation options mature.
 
-VisionEval won't help us determine if a particular highway segment should be built or upgraded, or what kind of transit service improvements should be extended into new areas. But it can help us look at the market for new technologies, and explore future scenarios that are based both on changed circumstances (altered demographics, increased congestion, or alternate road pricing strategies) as well as on changed behaviors (including behaviors that *might* happen, but that we have not yet observed because the key enabling technologies are too early in their deployment). VisionEval results can be explored in detail by market segment, asking questions about how benefits might be distributed regionally, and what overall system performance might look like.
+VisionEval won't help us determine if a particular highway segment should be built or upgraded, or what kind of transit service improvements should be extended into new areas. But it can help us look at the market for new technologies, and explore future scenarios that are based both on changed circumstances (altered demographics, increased congestion, or alternate pricing strategies) as well as on changed behaviors (including behaviors that *might* happen, but that we have not yet observed because the key enabling technologies are too early in their deployment). VisionEval results can be explored in detail by market segment, asking questions about how benefits might be distributed regionally, and what overall system performance might look like.
 
 Ultimately, VisionEval is a system for asking a very broad range of "what if" questions about how the transportation system might perform, and how its benefits and costs might be distributed over the community.  It can efficiently process hundreds of scenarios looking at many different types of interventions, alternative policies, and hypothetical future conditions and travel behaviors. The results can inform strategic questions, helping decision makers answer questions such as "What are our options for achieving this performance result?" or "What are our risks if new transportation technologies develop in these different ways?"
 
@@ -37,11 +37,6 @@ Traditional travel forecasting models divide a study area into thousands of traf
 
 The [<span style="color:green">location type</span>](#location-type) of each household is also coded as urban, town, or rural areas. A [<span style="color:green">place type</span>](#place-type) is also defined in terms of urban density and its mix of jobs and housing. Both are usually defined for each Bzone used in the model.
 
-> Watch a [video presentation](https://youtu.be/-ylFbyLfhbw?t=4690) with more information about VisionEval geographies
-
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=-ylFbyLfhbw
-" target="_blank"><img src="http://img.youtube.com/vi/-ylFbyLfhbw/0.jpg" 
-alt="VisionEval Training Overview" width="280" height="200" border="5" /></a>
 
 ### Performance metrics
 
@@ -86,7 +81,7 @@ VisionEval is typically set up to run many scenarios that explore a broad set of
 
 A full application of VisionEval may examine hundreds or even thousands of permutations of inputs representing many possible future outcomes. The outputs allow planners and decision-makers to explore the outcomes of each scenario compared to the others, so they can visualize and discuss the relative impact and cross-influences, as well as the unintended consequences, of factors represented across the scenarios. VisionEval allows planners to assess alternative assumptions about uncertain phenomena such as autonomous vehicle (AV) deployment, it is a very effective tool for identifying risks and opportunities, as well as for formulating effective strategic responses to new challenges for which little current data exists or for which many outcomes are possible yet none are certain. The most interesting of the resulting strategic plans can be refined with more detailed models. Based on the strategic modeling findings, uncertainties can be confidently simplified into a smaller number of scenarios to explore in detail.
 
-Notwithstanding its typical application as a strategic model, VisionEval does allow detailed investigation of certain phenomena such as fleet composition and vehicle ownership in relation to Greenhouse Gas Analysis. It also is unique in its ability to explore budget constraints on travel. Its simulation of individual households enables it to assess policies that would be difficult or impossible to model successfully with traditional models. 
+Notwithstanding its typical application as a strategic model, VisionEval does allow detailed investigation of certain phenomena such as budget constraints on travel. Its simulation of individual households enables it to assess policies that would be difficult or impossible to model successfully with traditional models. 
 
 ### Local policy actions
 
@@ -116,22 +111,19 @@ VisionEval is well suited for evaluating a wide range of local policies at varyi
     + VMT covered by Drivers in [<span style="color:green">Eco-Drive</span>](#ecodrive) programs (Marea)
     + EV Charging infrastructure (residential) (Azone)
 
-+ Pricing
++ Pricing, examples include
     + Fuel and electricity costs (Azone)
     + Road cost recovery – registration fee, gas taxes, VMT fee (Azone)
-    + [<span style="color:green">Carbon pricing</span>](#carbon-price) and otherand other environmental impact and [<span style="color:green">social costs</span>](#social-costs) (Region)
-    + [<span style="color:green">Congestion fees</span>](#congestion-fee) (Marea)
     + [<span style="color:green">PAYD insurance</span>](#pay-as-you-drive) participation (Azone)
 
 + Vehicle, Fuels, & Emissions
-    + Electricity [<span style="color:green">carbon intensity</span>](#carbon-intensity) (Azone)
-    + Fuel [<span style="color:green">carbon intensity</span>](#carbon-intensity) (composites by vehicle group) (Region)
     + LDV-HH percent light trucks (stock) (Azone)
     + LDV-HH [<span style="color:green">vehicle age</span>](#vehicle-age) average (Azone)
     + LDV [<span style="color:green">car service</span>](#car-service), vehicle mix (stock) (Region)
     + Transit vehicles & fuels mix (Marea)
     + LDV [<span style="color:green">commercial service</span>](#commerical-service) vehicle mix, %Light Trucks (stock) (Region)
     + [<span style="color:green">Heavy truck</span>](#heavy-truck) vehicle mix (stock) (Region)
+    + Other measures are available, dependent on installed modules
 
 ## Scenario analyses
 
