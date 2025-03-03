@@ -23,5 +23,5 @@ jobs:
         target-directory: 'docs/'
         destination-github-username: 'VisionEval'
         destination-repository-name: 'VisionEval.github.io'
-        user-email: 'visioneval@dot.gov'
+        user-email: 'info@visioneval.org'
         target-branch: 'main'
