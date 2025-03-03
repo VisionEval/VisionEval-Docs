@@ -21,8 +21,8 @@ VisionEval operates at broad geographic levels and without explicit network repr
 + Screening a wide range of policy actions, especially in the face of uncertainties where ranges of expected responses or effects must be considered
 + Resilience testing under uncertainties (e.g., population growth, household size, fuel prices)
 + Directly "comparing and contrasting" broad ranges or combinations of policies (e.g., ITS, transit service, active transport, demand management)
-+ Analysis of broad policy or technology changes (e.g., carbon taxes, low-carbon fuels)
-+ Evaluating fuel consumption, particulate emissions, and greenhouse gas emissions impacts of proposed policies
++ Analysis of broad policy or technology changes 
++ Evaluating fuel consumption and particulate emissions
 
 However, VisionEval is not well suited for detailed geographic analyses, to include the effects of congestion on individual trips or tours. Thus, examining the effects of localized land use (e.g. parcel or block) or network assumptions cannot be carried out using VisionEval. Improvements in network capacity, efficiency, or safety can only be indirectly incorporated in VisionEval. 
 
