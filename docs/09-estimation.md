@@ -13,7 +13,7 @@ While this is convenient, the current process in existing VE modules has limitat
 
 * It is difficult to replace models with local or updated data due to complexity and lack of documentation
 * Several modules obscure data and parameters in the estimation portion of the package and therefore require package rebuilds if changes are made
-* Legacy model estimation (i.e., from earlier work prior to the development of the VE framework and which does not conform to the current recommended code structure for implementing modules in VE) is incorporated in several modules, e.g., modules that were part of the RPAT model
+* Legacy model estimation (i.e., from earlier work prior to the development of the VE framework and which does not conform to the current recommended code structure for implementing modules in VE) is incorporated in several modules.
 * There are data discontinuities preventing users from estimating models where, for example, restricted or confidential data have been used to estimate model components (e.g., use of restricted spatial data in VETravelDemandMM) preventing the data from being included in the model package.
 
 This chapter forms an element of work to improve the ability for those applying VE to incorporate newer publicly available datasets or custom datasets to develop locally relevant models for use in VE. This work will include defining a process for users to make use of the latest NHTS data, local HTS data, and local PUMS data, to update models estimated using older versions of the NHTS and PUMS data from different states or regions. 
@@ -85,16 +85,6 @@ The development requirements here are:
 
 * Consider alternative methods for attributing the NHTS with the neighborhood land use variables that might not require confidentiality requirements.
 
-### Modules imported from RPAT
-
-VERPAT is the VE implementation of the RPAT model, which was originally developed as part of the SHRP 2 C16 project. While the RPAT model was converted to run as a set of VE modules, the modules do not incorporate model estimation during package build. In most cases, RPAT used models imported from the GreenSTEP model, which were later incorporated into VE and form the basis of many of the models still used in, for example, the VEHouseholdTravel module.
-
-If VERPAT is to be maintained, it would be of benefit to re-establish the connections back to the model estimation processes used in modules such as VEHouseholdTravel and VEHouseholdVehicles
-
-The development requirements here are:
-
-* Identify the specific connections between VERPAT models and the locations where those models are now estimated in VE modules.
-* Replace the hardcoded models and imported model objects currently used in VERPAT modules with references to the models estimated during a build of VE. This would allow, for example, connections to updated NHTS data and/or local household travel survey data discussed above. 
 
 ### Modules estimated with local data
 
@@ -2195,7 +2185,7 @@ MyModuleSpecifications <- list(
 ```  
 Following are detailed descriptions and examples of each component of the specifications list.  
 
-The **RunBy** component specifies the level of geography that the model is to be run at. For example, the congestion submodel in the GreenSTEP and RSPM models runs at the Marea level. This specification is used by the software framework to determine how to index data that is read from the datastore and data that is written to the datastore. Acceptable values are "Region", "Azone", "Bzone", and "Marea". The *RunBy* specification looks like the following example:
+The **RunBy** component specifies the level of geography that the model is to be run at. For example, the congestion submodel in the RSPM model runs at the Marea level. This specification is used by the software framework to determine how to index data that is read from the datastore and data that is written to the datastore. Acceptable values are "Region", "Azone", "Bzone", and "Marea". The *RunBy* specification looks like the following example:
 
 ```
 RunBy = "Marea",
@@ -2383,7 +2373,7 @@ Call = items(
 ```
 
 #### OPTIONAL Attribute  
-Module developers can use the OPTIONAL attribute to identify optional inputs or data to be retrieved from the datastore. This enables modules to be written to respond to optional inputs. For example, in the GreenSTEP and RSPM models, users may provide inputs on the average carbon intensity of fuels (grams CO2e per megajoule) by model run year. This allows users to model a scenario where state regulations require the average carbon intensity of fuels to be reduced over time. If the user supplies those data, the models calculate carbon emissions using those inputs. If not, the model calculates emissions using data on the carbon intensities of different fuel types and the mix of those fuel types.  
+Module developers can use the OPTIONAL attribute to identify optional inputs or data to be retrieved from the datastore. This enables modules to be written to respond to optional inputs. For example, this allows users to model a scenario where state regulations will lead to a change in a particular VisionEval input over time. If the user supplies those data, the models uses these inputs.   
 
 If the OPTIONAL attribute for an item is missing, then the item is not optional. If the OPTIONAL attribute is not missing but is set equal to *FALSE* then the item is not optional as well. Only when the OPTIONAL attribute is present and set equal to *TRUE* does the framework regard the item as optional (`OPTIONAL = TRUE`).  
 
@@ -2572,7 +2562,7 @@ By convention, the 'inst/extdata' directory is the standard place to put externa
 In some instances it is impractical to include the model estimation data as files in the 'inst/extdata' directory, and not necessary for model users to provide regional model estimation data. If, for example, the source data has confidential elements, it may be necessary to preprocess the data to anonymize it before including in the package; or the source data may be too large to include as a text file in the package. In these cases, source data may be processed outside of the package and then the processed datasets included in the package as datasets in R binary files. If that is done, the binary data files should be placed in a directory named 'data-raw' in the package.
 
 ### The tests Directory
-The 'tests' directory contains R scripts and the results of module tests. The *scripts* directory contains all the scripts used to carry out module tests. The directory also contains subdirectories for each of the model types the module is to be tested with (e.g VE-RSPM, VE-State, VE-RPAT). Two approaches are available for handing module data that includes input files the module uses, all the *defs* files, and a datastore which contains all the datasets used by the module aside from those in the input files. These data can be included in the package or they may be kept in a central repository. If they are included in the package, they must be placed in the directory for the corresponding model. This is necessary to avoid conflicts in the test data for different models. The scripts directory includes a testing script which runs the tests on all modules in a package for a particular module. For example, the script for testing modules in a VE-State application is named *vestate_test.R*. The scripts directory also includes a *test.R* script which calls the individual model test scripts for automated package testing. If the centralized data testing approach is used, a *test_functions.R* script needs to be included. This includes functions needed to support the centralized test data approach. The test process is still not finalized. In the future this functionality will be included in the framework software. Following is an example of a test script using the central data approach:
+The 'tests' directory contains R scripts and the results of module tests. The *scripts* directory contains all the scripts used to carry out module tests. The directory also contains subdirectories for each of the model types the module is to be tested with (e.g VE-RSPM, VE-State). Two approaches are available for handing module data that includes input files the module uses, all the *defs* files, and a datastore which contains all the datasets used by the module aside from those in the input files. These data can be included in the package or they may be kept in a central repository. If they are included in the package, they must be placed in the directory for the corresponding model. This is necessary to avoid conflicts in the test data for different models. The scripts directory includes a testing script which runs the tests on all modules in a package for a particular module. For example, the script for testing modules in a VE-State application is named *vestate_test.R*. The scripts directory also includes a *test.R* script which calls the individual model test scripts for automated package testing. If the centralized data testing approach is used, a *test_functions.R* script needs to be included. This includes functions needed to support the centralized test data approach. The test process is still not finalized. In the future this functionality will be included in the framework software. Following is an example of a test script using the central data approach:
 
 ```
 #vestate_test.R

@@ -757,7 +757,6 @@ key-concepts
 ve-estimation-classification
 modules-importing-data-from-venhts2001
 modules-using-confidential-nhts-data
-modules-imported-from-rpat
 modules-estimated-with-local-data
 modules-estimated-with-other-types-of-data
 ve-modules-with-estimation

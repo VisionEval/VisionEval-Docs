@@ -92,7 +92,7 @@
 <ul>
 <li>It is difficult to replace models with local or updated data due to complexity and lack of documentation</li>
 <li>Several modules obscure data and parameters in the estimation portion of the package and therefore require package rebuilds if changes are made</li>
-<li>Legacy model estimation (i.e., from earlier work prior to the development of the VE framework and which does not conform to the current recommended code structure for implementing modules in VE) is incorporated in several modules, e.g., modules that were part of the RPAT model</li>
+<li>Legacy model estimation (i.e., from earlier work prior to the development of the VE framework and which does not conform to the current recommended code structure for implementing modules in VE) is incorporated in several modules.</li>
 <li>There are data discontinuities preventing users from estimating models where, for example, restricted or confidential data have been used to estimate model components (e.g., use of restricted spatial data in VETravelDemandMM) preventing the data from being included in the model package.</li>
 </ul>
 <p>This chapter forms an element of work to improve the ability for those applying VE to incorporate newer publicly available datasets or custom datasets to develop locally relevant models for use in VE. This work will include defining a process for users to make use of the latest NHTS data, local HTS data, and local PUMS data, to update models estimated using older versions of the NHTS and PUMS data from different states or regions.</p>
@@ -161,21 +161,9 @@
 <li>Consider alternative methods for attributing the NHTS with the neighborhood land use variables that might not require confidentiality requirements.</li>
 </ul>
 </div>
-<div id="modules-imported-from-rpat" class="section level3" number="13.2.3">
+<div id="modules-estimated-with-local-data" class="section level3" number="13.2.3">
 <h3>
-<span class="header-section-number">13.2.3</span> Modules imported from RPAT<a class="anchor" aria-label="anchor" href="#modules-imported-from-rpat"><i class="fas fa-link"></i></a>
-</h3>
-<p>VERPAT is the VE implementation of the RPAT model, which was originally developed as part of the SHRP 2 C16 project. While the RPAT model was converted to run as a set of VE modules, the modules do not incorporate model estimation during package build. In most cases, RPAT used models imported from the GreenSTEP model, which were later incorporated into VE and form the basis of many of the models still used in, for example, the VEHouseholdTravel module.</p>
-<p>If VERPAT is to be maintained, it would be of benefit to re-establish the connections back to the model estimation processes used in modules such as VEHouseholdTravel and VEHouseholdVehicles</p>
-<p>The development requirements here are:</p>
-<ul>
-<li>Identify the specific connections between VERPAT models and the locations where those models are now estimated in VE modules.</li>
-<li>Replace the hardcoded models and imported model objects currently used in VERPAT modules with references to the models estimated during a build of VE. This would allow, for example, connections to updated NHTS data and/or local household travel survey data discussed above.</li>
-</ul>
-</div>
-<div id="modules-estimated-with-local-data" class="section level3" number="13.2.4">
-<h3>
-<span class="header-section-number">13.2.4</span> Modules estimated with local data<a class="anchor" aria-label="anchor" href="#modules-estimated-with-local-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.3</span> Modules estimated with local data<a class="anchor" aria-label="anchor" href="#modules-estimated-with-local-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>In some cases, locally specific data were used to develop model inputs and estimate models that are incorporated into modules. One example is the use of the Census Public User Microdata Sample (PUMS) for Oregon, which is used to estimate income models and to develop probability distributions used in the VESimHouseholds package.</p>
 <p>Ideally, the implementation of a VE model in another state would replace the Oregon data with a local dataset. The data are also from 2001, and would ideally be replaced with a more recent version of the PUMS data, for example from the American Community Survey (ACS) 5 year data or an alternative local data source.</p>
@@ -185,9 +173,9 @@
 <li>Consider the development of a separate package or module in VESimHouseholds to process a selected state or region’s ACS data via an automatic download or API call to source the data.</li>
 </ul>
 </div>
-<div id="modules-estimated-with-other-types-of-data" class="section level3" number="13.2.5">
+<div id="modules-estimated-with-other-types-of-data" class="section level3" number="13.2.4">
 <h3>
-<span class="header-section-number">13.2.5</span> Modules estimated with other types of data<a class="anchor" aria-label="anchor" href="#modules-estimated-with-other-types-of-data"><i class="fas fa-link"></i></a>
+<span class="header-section-number">13.2.4</span> Modules estimated with other types of data<a class="anchor" aria-label="anchor" href="#modules-estimated-with-other-types-of-data"><i class="fas fa-link"></i></a>
 </h3>
 <p>Several other data sources are used in the development of modules, particularly those that deal with vehicle operations and congestion. These are generally reasonably well documented and the estimation process is traceable from data included in the modules through an estimation script to a final model object. The estimation work could be considered for updating by model users where local conditions are sufficiently different from those covered in the original estimation date, or over time as the original estimation data being aged and are superseded.</p>
 <p>The development requirements here are:</p>
@@ -2688,7 +2676,7 @@ if (!file.exists("data-raw/Hh_df.rda")) {
   )
 )</code></pre>
 <p>Following are detailed descriptions and examples of each component of the specifications list.</p>
-<p>The <strong>RunBy</strong> component specifies the level of geography that the model is to be run at. For example, the congestion submodel in the GreenSTEP and RSPM models runs at the Marea level. This specification is used by the software framework to determine how to index data that is read from the datastore and data that is written to the datastore. Acceptable values are “Region”, “Azone”, “Bzone”, and “Marea”. The <em>RunBy</em> specification looks like the following example:</p>
+<p>The <strong>RunBy</strong> component specifies the level of geography that the model is to be run at. For example, the congestion submodel in the RSPM model runs at the Marea level. This specification is used by the software framework to determine how to index data that is read from the datastore and data that is written to the datastore. Acceptable values are “Region”, “Azone”, “Bzone”, and “Marea”. The <em>RunBy</em> specification looks like the following example:</p>
 <pre><code>RunBy = "Marea",</code></pre>
 <p>The <strong>NewInpTable</strong> and <strong>NewSetTable</strong> components specify any new tables that need to be created in the datastore to accommodate input data or data produced by a module respectively. The following specifications are required for each new table that is to be created.<br>
 - TABLE: the name of the table that is to be created; and,
@@ -2859,7 +2847,7 @@ Call = items(
 <h4>
 <span class="header-section-number">13.4.1.4</span> OPTIONAL Attribute<a class="anchor" aria-label="anchor" href="#optional-attribute"><i class="fas fa-link"></i></a>
 </h4>
-<p>Module developers can use the OPTIONAL attribute to identify optional inputs or data to be retrieved from the datastore. This enables modules to be written to respond to optional inputs. For example, in the GreenSTEP and RSPM models, users may provide inputs on the average carbon intensity of fuels (grams CO2e per megajoule) by model run year. This allows users to model a scenario where state regulations require the average carbon intensity of fuels to be reduced over time. If the user supplies those data, the models calculate carbon emissions using those inputs. If not, the model calculates emissions using data on the carbon intensities of different fuel types and the mix of those fuel types.</p>
+<p>Module developers can use the OPTIONAL attribute to identify optional inputs or data to be retrieved from the datastore. This enables modules to be written to respond to optional inputs. For example, this allows users to model a scenario where state regulations will lead to a change in a particular VisionEval input over time. If the user supplies those data, the models uses these inputs.</p>
 <p>If the OPTIONAL attribute for an item is missing, then the item is not optional. If the OPTIONAL attribute is not missing but is set equal to <em>FALSE</em> then the item is not optional as well. Only when the OPTIONAL attribute is present and set equal to <em>TRUE</em> does the framework regard the item as optional (<code>OPTIONAL = TRUE</code>).</p>
 <p>If an input (<em>Inp</em>) item is identified as optional, the framework checks whether the identified input file is present. If the file is present, then the framework will process the data and load it into the datastore. Otherwise the item is ignored. Note that optional inputs can’t be combined with non-optional inputs in the same file. This will cause an error. Also not that since the framework does not automatically supply inputs to the module, there must be optional <em>Get</em> items corresponding to the optional <em>Inp</em> items. When the framework sees an optional <em>Get</em> item, it checks the datastore to see whether the optional dataset(s) are present. If so, it retrieves them.</p>
 </div>
@@ -3039,7 +3027,7 @@ Call = items(
 <h3>
 <span class="header-section-number">13.4.4</span> The tests Directory<a class="anchor" aria-label="anchor" href="#the-tests-directory"><i class="fas fa-link"></i></a>
 </h3>
-<p>The ‘tests’ directory contains R scripts and the results of module tests. The <em>scripts</em> directory contains all the scripts used to carry out module tests. The directory also contains subdirectories for each of the model types the module is to be tested with (e.g VE-RSPM, VE-State, VE-RPAT). Two approaches are available for handing module data that includes input files the module uses, all the <em>defs</em> files, and a datastore which contains all the datasets used by the module aside from those in the input files. These data can be included in the package or they may be kept in a central repository. If they are included in the package, they must be placed in the directory for the corresponding model. This is necessary to avoid conflicts in the test data for different models. The scripts directory includes a testing script which runs the tests on all modules in a package for a particular module. For example, the script for testing modules in a VE-State application is named <em>vestate_test.R</em>. The scripts directory also includes a <em>test.R</em> script which calls the individual model test scripts for automated package testing. If the centralized data testing approach is used, a <em>test_functions.R</em> script needs to be included. This includes functions needed to support the centralized test data approach. The test process is still not finalized. In the future this functionality will be included in the framework software. Following is an example of a test script using the central data approach:</p>
+<p>The ‘tests’ directory contains R scripts and the results of module tests. The <em>scripts</em> directory contains all the scripts used to carry out module tests. The directory also contains subdirectories for each of the model types the module is to be tested with (e.g VE-RSPM, VE-State). Two approaches are available for handing module data that includes input files the module uses, all the <em>defs</em> files, and a datastore which contains all the datasets used by the module aside from those in the input files. These data can be included in the package or they may be kept in a central repository. If they are included in the package, they must be placed in the directory for the corresponding model. This is necessary to avoid conflicts in the test data for different models. The scripts directory includes a testing script which runs the tests on all modules in a package for a particular module. For example, the script for testing modules in a VE-State application is named <em>vestate_test.R</em>. The scripts directory also includes a <em>test.R</em> script which calls the individual model test scripts for automated package testing. If the centralized data testing approach is used, a <em>test_functions.R</em> script needs to be included. This includes functions needed to support the centralized test data approach. The test process is still not finalized. In the future this functionality will be included in the framework software. Following is an example of a test script using the central data approach:</p>
 <pre><code><a href="https://rdrr.io/r/base/library.html">#vestate_test.R
 #--------------
 
@@ -3094,9 +3082,8 @@ saveTestResults(TestSetup_ls)
 <a class="nav-link" href="#ve-estimation-classification"><span class="header-section-number">13.2</span> VE Estimation Classification</a><ul class="nav navbar-nav">
 <li><a class="nav-link" href="#modules-importing-data-from-venhts2001"><span class="header-section-number">13.2.1</span> Modules importing data from VENHTS2001</a></li>
 <li><a class="nav-link" href="#modules-using-confidential-nhts-data"><span class="header-section-number">13.2.2</span> Modules using confidential NHTS data</a></li>
-<li><a class="nav-link" href="#modules-imported-from-rpat"><span class="header-section-number">13.2.3</span> Modules imported from RPAT</a></li>
-<li><a class="nav-link" href="#modules-estimated-with-local-data"><span class="header-section-number">13.2.4</span> Modules estimated with local data</a></li>
-<li><a class="nav-link" href="#modules-estimated-with-other-types-of-data"><span class="header-section-number">13.2.5</span> Modules estimated with other types of data</a></li>
+<li><a class="nav-link" href="#modules-estimated-with-local-data"><span class="header-section-number">13.2.3</span> Modules estimated with local data</a></li>
+<li><a class="nav-link" href="#modules-estimated-with-other-types-of-data"><span class="header-section-number">13.2.4</span> Modules estimated with other types of data</a></li>
 </ul>
 </li>
 <li>
