@@ -38,7 +38,7 @@ transport-supply
 household-travel-calculations
 sov-diversion
 dvmt-reductions
-vehicles-fuels-and-emissions
+vehicles-and-fuels
 household-vehicle-table
 powertrains-and-fuels-defaults
 assign-household-powertrains-and-fuels
@@ -63,15 +63,12 @@ auto-sufficiency
 azones
 bus-equivalent-miles
 bzones
-carbon-intensity
-carbon-price
 car-service
 car-service-level
 car-service-substitution
 cash-out-buy-back
 census-pums
 commercial-service
-congestion-fee
 congestion-level
 development-type
 dwelling-unit-type
