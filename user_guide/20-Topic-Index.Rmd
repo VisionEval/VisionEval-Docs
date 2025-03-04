@@ -14,10 +14,9 @@ Here are detailed descriptions of the documentation available in the VisionEval 
    a. Selecting a Model
    b. Building model inputs (general)
    c. Building scenarios
-1. Details on the three main models in VisionEval
+1. Details on the two main models in VisionEval
    a. VERSPM
    b. VE-State
-   c. VERPAT
 1. VisionEval module reference (User level; module by module)
    a. Model Script and Modules
    a. Module

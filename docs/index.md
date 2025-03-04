@@ -1,7 +1,7 @@
 --- 
 title: "VisionEval User Guide"
 author: "VisionEval Pooled Fund Team"
-date: "2025-03-03"
+date: "2025-03-04"
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -23,11 +23,10 @@ will serve the best starting points.
 | [Getting Started](#getting-started) | Instructions on getting started with VisionEval on your computer |
 | [Concept Primer](#conceptprimer) | A high-level introduction to the concepts and definitions underlying the VisionEval modeling system |
 | [VisionEval Tutorial](#tutorial) | Introductory tutorial on how to start applying a VisionEval model, with chapters on [picking a model](#picking-a-model), [model geography](#model-geography-and-years), [inputs](#model-inputs), [validation](#validation-and-troubleshooting), and [scenarios](#developing-scenarios) |
-| [VisionEval Model Details](#picking-a-model) | Comprehensive and in-depth documentation on the three VisionEval models: [VERSPM](#verspm), [VE-State](#vestate), and [VERPAT](#verpat) |
+| [VisionEval Model Details](#picking-a-model) | Comprehensive and in-depth documentation on the VisionEval models: [VERSPM](#verspm) and [VE-State](#vestate) |
 | [Estimation in VisionEval](#ve-estimation) | Overview of model estimation in VisionEval and instructions to customize model applications |
 | [Module Build Process](#ve-buildprocess) | Overview of building a VisionEval package module using custom data |
 | [Developer Documentation](#developer) | Information for developers or researchers interested in making contributions to the VisionEval system |
-| [API Documentation](#api-documentation) | Module documentation from the model source code |
 | [Software Framework](#software-framework) | Technical overview of the VisionEval software framework |
 
 ## About VisionEval {-}
@@ -70,7 +69,7 @@ can be used to support transportation planning efforts, without technical model 
 
 * [Getting Started](#Getting Started): Instructions on how to get VisionEval installed and running
 * [Concept Primer](#conceptprimer): An introduction to the concepts underlying the VisionEval modeling system and how it can be used to support transportation planning efforts, without technical model details
-* Tutorials: Start with [VisionEval Tutorial 101](#tutorial) for an introduction to start applying a VisionEval model, followed by referencing more in-depth tutorial materials on the [VERSPM](#verspm), [VERPAT](#verpat), and [VE-State](#vestate) models.
+* Tutorials: Start with [VisionEval Tutorial 101](#tutorial) for an introduction to start applying a VisionEval model, followed by referencing more in-depth tutorial materials on the [VERSPM](#verspm) and [VE-State](#vestate) models.
 
 **Developer:** You are a developer or researcher and interested in making contributions to the VisionEval system.
 
