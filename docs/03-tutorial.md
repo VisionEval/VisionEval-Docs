@@ -10,7 +10,7 @@ This VisionEval tutorial breaks down the process of setting up a model into seve
 is described in it's own chapter, referenced below, and can also be accessed from the main
 navigation menu.
 
-* The **[Picking a Model](#picking-a-model)** chapter is where to start for an overview of the three VisionEval models, VERSPM, VE-State, and VERPAT, and information on how to make a selection based on model differences and user needs. 
+* The **[Picking a Model](#picking-a-model)** chapter is where to start for an overview of the VisionEval models, VERSPM and VE-State, and information on how to make a selection based on model differences and user needs. 
 * The **[Model Geography and Years](#model-geography-and-years)** chapter is the first step in applying the selected VisionEval model by making key decision on spatial scale and years.
 * The **[Developing Inputs](#model-inputs)** chapter has detailed information on the the specific inputs for each VisionEval model as well as generalized best practices on data sources and methods.
 * The **[Validating and Troubleshooting](#validation-and-troubleshooting)** chapter is relevant once users have a complete set of inputs need to debug or validate their base model.
@@ -20,9 +20,8 @@ navigation menu.
 # Picking a Model {#picking-a-model}
 The VisionEval system is comprised of three models:
 
-* **[VERSPM](#verspm)** (VisionEval Regional Strategic Planning Model) was developed by Oregon Department of Transportation (ODOT) as an offshoot of the GreenSTEP model to support the preparation of metropolitan area scenario plans. The name reflects a broadening of the policies, beyond state statutory requirements.  This model operates largely at the zonal level (i.e. inputs and outputs are zone-based).
+* **[VERSPM](#verspm)** (VisionEval Regional Strategic Planning Model) was developed by Oregon Department of Transportation (ODOT) as to support the preparation of metropolitan area scenario plans. This model operates largely at the zonal level (i.e. inputs and outputs are zone-based).
 * **[VE-State](#vestate)** is a state level version of VERSPM.  Like VERSPM, this model operates at the zonal level, but the zones are larger than their VERSPM counterparts.
-* **[VERPAT](#verpat)** (VisionEval Rapid Policy Analysis Tool) was developed under the federal Strategic Highway Research Program (SHRP2).  The model was developed to help planners evaluate the potential effect of growth policies on regional travel. Portions of the GreenSTEP model were used in VERPAT, but substantial revisions were made to the code, including use of land use place type categories. This model operates largely at the region or place type level for the entire region.
 
 ## Spatial Detail
 
@@ -35,9 +34,6 @@ trade-off between spatial detail and development effort.
 
 **[VE-State](#vestate)** was developed as an extension of the VERSPM model to enables users to apply the model for statewide applications. The main difference between the VERSPM and VE-State models is that a number of VERSPM inputs are specified at the Bzone level. Examples include numbers of dwelling units by type and numbers of jobs by sector. VE-State models run at a higher level of abstraction than VERSPM models and don’t have Bzone level inputs. Instead, the VE-State uses a process to [synthesize Bzones](http://htmlpreview.github.io/?https://github.com/VisionEval/VisionEval/blob/master/sources/modules/VESimLandUse/inst/module_docs/analyze_3Ds.html).
 
-**[VERPAT](#verpat)**, like VERSPM, operates primarily at the region level. However, VERPAT has less spatial detail than VERSPM and requires inputs at place type level.  As shown below, place types are defined as a combination of area type and development type.  Area type (or regional role) describes the interdependencies of each neighborhood compared to the rest of the region, e.g. how centered is it to jobs in the region. Development type (or neighborhood character) is used to describe the physical characteristics of each neighborhood in isolation.  Operating at the place type level simplifies the input data requirements and the spatial precision of outputs while still capturing the effects of the different place types in the region.  Take a look at the model [inputs](#inputs-and-parameters-2), which has only one input by Bzone (i.e., population and employment) which represents population and employment for each place type.
-
-![](images/verpat-place-types.jpg)
 
 # Model Geography and Years {#model-geography-and-years}
 
