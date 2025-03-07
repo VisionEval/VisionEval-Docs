@@ -19,7 +19,7 @@
 <meta name="twitter:image" content="https://visioneval.org/docs/images/cover.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.7.0/transition.js"></script><script src="libs/bs3compat-0.7.0/tabs.js"></script><script src="libs/bs3compat-0.7.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.5.1/transition.js"></script><script src="libs/bs3compat-0.5.1/tabs.js"></script><script src="libs/bs3compat-0.5.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/kePrint-0.0.1/kePrint.js"></script><link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link href="libs/bsTable-3.3.7/bootstrapTable.min.css" rel="stylesheet">
 <script src="libs/bsTable-3.3.7/bootstrapTable.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
@@ -61,7 +61,7 @@
 <li><a class="" href="developing-scenarios.html"><span class="header-section-number">9</span> Developing Scenarios</a></li>
 <li><a class="active" href="verspm.html"><span class="header-section-number">10</span> VERSPM Model Details</a></li>
 <li><a class="" href="vestate.html"><span class="header-section-number">11</span> VE-State Model Details</a></li>
-<li><a class="" href="verpat.html"><span class="header-section-number">12</span> VERPAT Model Details</a></li>
+<li><a class="" href="page-is-no-longer-supported.html"><span class="header-section-number">12</span> Page is no longer supported</a></li>
 <li><a class="" href="ve-estimation.html"><span class="header-section-number">13</span> Estimation in VisionEval</a></li>
 <li><a class="" href="ve-buildprocess.html"><span class="header-section-number">14</span> VisionEval Module Build Process</a></li>
 <li><a class="" href="common-use-cases.html"><span class="header-section-number">15</span> Common Use Cases</a></li>
@@ -83,7 +83,7 @@
 <h3>
 <span class="header-section-number">10.0.1</span> Overview<a class="anchor" aria-label="anchor" href="#overview-1"><i class="fas fa-link"></i></a>
 </h3>
-<p>VERSPM is a strategic planning model that assists state and metropolitan area planners with the evaluation of transportation and land use policy scenarios. It considers a large number of factors which affect the performance of transportation systems and their effects on people and the environment. The Regional Strategic Planning Model (RSPM), was developed by the Oregon Department of Transportation (ODOT) for the purpose of estimating and forecasting the effects of various policies and other influences on the amount of vehicle travel, the types of vehicles and fuels used, and the resulting greenhouse gas (GHG) emissions among other outcomes.</p>
+<p>VERSPM is a strategic planning model that assists state and metropolitan area planners with the evaluation of transportation and land use policy scenarios. It considers a large number of factors which affect the performance of transportation systems and their effects on people and the environment. The Regional Strategic Planning Model (RSPM), was developed by the Oregon Department of Transportation (ODOT) for the purpose of estimating and forecasting the effects of various policies and other influences on the amount of vehicle travel, the types of vehicles and fuels used, and other outcomes.</p>
 <p>The VERSPM model was initially developed to address the following factors:</p>
 <ul>
 <li>Changes in population demographics (age structure);</li>
@@ -102,21 +102,18 @@
 <li>Demand management – employer-based and individual marketing;</li>
 <li>Car-sharing;</li>
 <li>Effects of congestion on fuel economy;</li>
-<li>Effects of incident management on fuel economy;</li>
+<li>Effects of incident management on fuel economy; and</li>
 <li>Vehicle operation and maintenance – eco-driving, low rolling resistance tires, speed limits;</li>
-<li>Carbon intensity of fuels, including the well to wheels emissions; and</li>
-<li>Carbon production from the electric power that is generated to run electric vehicles.</li>
 </ul>
 </div>
 <div id="structure" class="section level3" number="10.0.2">
 <h3>
 <span class="header-section-number">10.0.2</span> Structure<a class="anchor" aria-label="anchor" href="#structure"><i class="fas fa-link"></i></a>
 </h3>
-<p>VERSPM is a disaggregate policy model that predicts travel demand impacts at an individual household level. The model estimates vehicle ownership, vehicle travel, fuel consumption, and GHG emissions at the individual household level. This structure accounts for the synergistic and antagonistic effects of multiple policies and factors (e.g. gas prices) on vehicle travel and emissions. For example, the battery range of electric vehicles (EVs) and plug‐in hybrid electric vehicles (PHEVs) is less of an issue for households residing in compact mixed‐use neighborhoods because those households tend to drive fewer miles each day. Modeling at the household level makes it possible to evaluate the relationships between travel, emissions and the characteristics of households, land use, transportation systems, vehicles, and other factors. In addition, household level analysis makes it possible to evaluate the equitability of the costs and benefits of different strategies.</p>
+<p>VERSPM is a disaggregate policy model that predicts travel demand impacts at an individual household level. The model estimates vehicle ownership, vehicle travel,and fuel consumption at the individual household level. This structure accounts for the synergistic and antagonistic effects of multiple policies and factors (e.g. gas prices) on vehicle travel and emissions. For example, the battery range of electric vehicles (EVs) and plug‐in hybrid electric vehicles (PHEVs) is less of an issue for households residing in compact mixed‐use neighborhoods because those households tend to drive fewer miles each day. Modeling at the household level makes it possible to evaluate the relationships between travel, emissions and the characteristics of households, land use, transportation systems, vehicles, and other factors. In addition, household level analysis makes it possible to evaluate the equitability of the costs and benefits of different strategies.</p>
 <p>The model comprises sequential steps with feedback. Each calculation step is composed of a number of calculations that operate on the results of the previous calculation step and on input data that reflect inputs.</p>
 <p>The VERSPM steps are grouped as follows:</p>
-<div class="inline-figure"><img src="images/VE_Steps.png" style="width:100.0%"></div>
-<p>The iterative process to balance the VMT with travel costs allows congestion and other costs introduced at this step influence the amount of travel. This step balances the amount of household travel with the cost of travel and recalculates household VMT, Fuel &amp; GHG in the process. The primary outputs of the RSPM are household travel, fuel and power consumption, and GHG emissions calculations, but other information is produced for households and commercial vehicles as well. The amount of commercial (light‐duty) and freight (heavy duty) travel is calculated as well as associated fuel, power consumption and GHG emissions for those vehicles.</p>
+<p>The iterative process to balance the VMT with travel costs allows congestion and other costs introduced at this step influence the amount of travel. This step balances the amount of household travel with the cost of travel and recalculates household VMT and Fuel in the process. The primary outputs of the RSPM are household travel and fuel and power consumption but other information is produced for households and commercial vehicles as well. The amount of commercial (light‐duty) and freight (heavy duty) travel is calculated as well as associated fuel and power consumption for those vehicles.</p>
 </div>
 <div id="modules" class="section level3" number="10.0.3">
 <h3>
@@ -198,21 +195,21 @@
 </ol>
 <p>The following two modules identifies the vehicles powertrain as an internal combustion engine (ICE), hybrid-electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), or electric vehicle (EV) and calculates each household vehicle’s emission.</p>
 <ul>
-<li><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md">Calculate Carbon Intensity</a></li>
 <li><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md">Assign Household Vehicle Powertrains</a></li>
+<li>[Placeholder for future development]</li>
 </ul>
 </div>
 <div id="feedback" class="section level3" number="10.0.4">
 <h3>
 <span class="header-section-number">10.0.4</span> Feedback<a class="anchor" aria-label="anchor" href="#feedback"><i class="fas fa-link"></i></a>
 </h3>
-<p>THe next step balance the amount of household travel with the cost of travel and recalculate household VMT, Fuel and GHG emissions . This is necessary because: 1) congestion calculations affect fuel economy and thus the amount and cost of fuel consumed; 2) congestion pricing affects the amount of travel and household travel costs; 3) fuel, vehicle travel, and other taxes and fees affect the amount and cost of travel; and 4) eco-driving improves fuel economy and reduces fuel cost. The effect of these adjustments to household travel costs need to be included in the total household travel costs and the adjustment to household DVMT.</p>
+<p>THe next step balance the amount of household travel with the cost of travel and recalculate household VMT and Fuel emissions. This is necessary because: 1) congestion calculations affect fuel economy and thus the amount and cost of fuel consumed; 2) road pricing affects the amount of travel and household travel costs; 3) fuel, vehicle travel, and other taxes and fees affect the amount and cost of travel; and 4) eco-driving improves fuel economy and reduces fuel cost. The effect of these adjustments to household travel costs need to be included in the total household travel costs and the adjustment to household DVMT.</p>
 <ol start="7" style="list-style-type: decimal">
 <li>
 <strong>Travel Performance</strong> - <em>VETravelPerformance package</em>
 </li>
 </ol>
-<p>The following modules run iteratively to balance the DVMT and travel costs. Total light duty vehicle (household and commercial service vehicle), truck and bus DVMT is calculated for the metropolitan area and assigned to portions of the road system (freeway, arterial, other). Congestion levels are and associated speed reductions are calculated considering the traffic loads and inputs regarding the deployment of traffic operations programs (e.g. ramp metering, traffic signal coordination) and congestion pricing. Speed-adjusted fuel economy is calculated considering variations by powertrain. Travel cost per mile due to congestion pricing is also calculated. Household travel costs are calculated from the amounts of miles driven, fuel consumed, electricity consumed, and GHG emitted. Other inputs establish the rates for fuel costs, power costs, fuel taxes, VMT taxes, PAYD insurance, and several external costs. Finally a household budget model is used to adjust household DVMT to reflect the effect of household travel costs on the amount of household travel. The adjusted household DVMT is allocated to vehicles in proportion to the previous allocation. This process can run multiple times until DVMT changes very little between iterations.</p>
+<p>The following modules run iteratively to balance the DVMT and travel costs. Total light duty vehicle (household and commercial service vehicle), truck and bus DVMT is calculated for the metropolitan area and assigned to portions of the road system (freeway, arterial, other). Congestion levels are and associated speed reductions are calculated considering the traffic loads and inputs regarding the deployment of traffic operations programs (e.g. ramp metering, traffic signal coordination) and congestion pricing. Speed-adjusted fuel economy is calculated considering variations by powertrain. Travel cost per mile due to congestion pricing is also calculated. Household travel costs are calculated from the amounts of miles driven, fuel consumed, and electricity consumed. Other inputs establish the rates for fuel costs, power costs, fuel taxes, VMT taxes, PAYD insurance, and several external costs. Finally a household budget model is used to adjust household DVMT to reflect the effect of household travel costs on the amount of household travel. The adjusted household DVMT is allocated to vehicles in proportion to the previous allocation. This process can run multiple times until DVMT changes very little between iterations.</p>
 <ul>
 <li><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadDvmt.md">Calculate Road VMT</a></li>
 <li>
@@ -227,7 +224,7 @@
 <strong>Heavy Vehicles Emissions</strong> - <em>VETravelPerformance</em>
 </li>
 </ol>
-<p>The following two modules calculate heavy vehicle fuel and power consumption and GHG emissions:</p>
+<p>The following two modules calculate heavy vehicle fuel and power consumption:</p>
 <ul>
 <li><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateComEnergyAndEmissions.md">Calculate Commercial Vehicles Emissions</a></li>
 <li><a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculatePtranEnergyAndEmission.md">Calculate Transit Vehicles Emissions</a></li>
@@ -378,50 +375,46 @@
 <td>VEPowertrainsAndFuels</td>
 </tr>
 <tr class="odd">
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td>VEPowertrainsAndFuels</td>
-</tr>
-<tr class="even">
 <td><a href="verspm.html#verspm-assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a></td>
 <td>VEPowertrainsAndFuels</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="verspm.html#verspm-initialize-vetravelperformance">Initialize</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="verspm.html#verspm-calculatebaseroaddvmt">CalculateBaseRoadDvmt</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="verspm.html#verspm-calculatefutureroaddvmt">CalculateFutureRoadDvmt</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="verspm.html#verspm-calculateroadperformance">CalculateRoadPerformance</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="verspm.html#verspm-calculatempgmpkwhadjustments">CalculateMpgMpkwhAdjustments</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="verspm.html#verspm-adjusthhvehiclempgmpkwh">AdjustHhVehicleMpgMpkwh</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="verspm.html#verspm-calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="verspm.html#verspm-budgethouseholddvmt">BudgetHouseholdDvmt</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="verspm.html#verspm-calculatecomenergyandemissions">CalculateComEnergyAndEmissions</a></td>
 <td>VETravelPerformance</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="verspm.html#verspm-calculateptranenergyandemissions">CalculatePtranEnergyAndEmission</a></td>
 <td>VETravelPerformance</td>
 </tr>
@@ -2985,9 +2978,9 @@ RVMPO
 <p>This file specifies the different characteristics for high and low car service levels by <code>Azone</code>. Changing this input is <em>optional</em> and using the default input values is standard practice.</p>
 <ul>
 <li>
-<strong>HighCarSvcCost</strong>: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)</li>
+<strong>HighCarSvcCost</strong>: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel, and road use taxes.</li>
 <li>
-<strong>LowCarSvcCost</strong>: Average cost in dollars per mile for travel by low service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)</li>
+<strong>LowCarSvcCost</strong>: Average cost in dollars per mile for travel by low service level car service exclusive of the cost of fuel and road use taxes.</li>
 <li>
 <strong>AveCarSvcVehicleAge</strong>: Average age of car service vehicles in years</li>
 <li>
@@ -3435,9 +3428,9 @@ RVMPO
 <p>This file specifies the different characteristics for high and low car service levels by <code>Azone</code>. Changing this input is <em>optional</em> and using the default input values is standard practice.</p>
 <ul>
 <li>
-<strong>HighCarSvcCost</strong>: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)</li>
+<strong>HighCarSvcCost</strong>: Average cost in dollars per mile for travel by high service level car service exclusive of the cost of fuel and road use taxes.</li>
 <li>
-<strong>LowCarSvcCost</strong>: Average cost in dollars per mile for travel by low service level car service exclusive of the cost of fuel, road use taxes, and carbon taxes (and any other social costs charged to vehicle use)</li>
+<strong>LowCarSvcCost</strong>: Average cost in dollars per mile for travel by low service level car service exclusive of the cost of fuel and road use taxes.</li>
 <li>
 <strong>AveCarSvcVehicleAge</strong>: Average age of car service vehicles in years</li>
 <li>
@@ -4108,85 +4101,10 @@ RVMPO
 <h3>
 <span class="header-section-number">10.2.26</span> Initialize-vepowertrainsandfuels<a class="anchor" aria-label="anchor" href="#verspm-initialize-vepowertrainsandfuels"><i class="fas fa-link"></i></a>
 </h3>
-<p>This module processes vehicle and fuel characteristics files that model users may optionally supply. When these files are supplied, modules in the package that compute carbon intensities of vehicle travel will use the user-supplied data instead of the datasets that are part of the package (see the <code>LoadDefaultValues.R</code> script).</p>
+<p>This module processes vehicle and fuel characteristics files that model users may optionally supply. When these files are supplied, modules in the package will use the user-supplied data instead of the datasets that are part of the package (see the <code>LoadDefaultValues.R</code> script).</p>
 <div id="user-input-files-25" class="section level4 unnumbered">
 <h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-25"><i class="fas fa-link"></i></a>
 </h4>
-<div id="carbon-intensity-of-electricity-azone_electricity_carbon_intensity.csv" class="section level5 unnumbered">
-<h5>Carbon Intensity of Electricity (<strong>azone_electricity_carbon_intensity.csv</strong>)<a class="anchor" aria-label="anchor" href="#carbon-intensity-of-electricity-azone_electricity_carbon_intensity.csv"><i class="fas fa-link"></i></a>
-</h5>
-<p>This input file specifies the carbon intensity of electricity by <code>Azone</code>. This input file is OPTIONAL and is only needed if the user wants to modify the carbon intensity of electricity.</p>
-<ul>
-<li>
-<strong>ElectricityCI</strong>: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</li>
-</ul>
-<p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">Geo</th>
-<th align="center">Year</th>
-<th align="center">ElectricityCI</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">RVMPO</td>
-<td align="center">2010</td>
-<td align="center">153</td>
-</tr>
-<tr class="even">
-<td align="left">RVMPO</td>
-<td align="center">2038</td>
-<td align="center">23</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-<div id="average-fuel-carbon-intensity-of-transit-marea_transit_ave_fuel_carbon_intensity.csv" class="section level5 unnumbered">
-<h5>Average Fuel Carbon Intensity of Transit (marea_transit_ave_fuel_carbon_intensity.csv)<a class="anchor" aria-label="anchor" href="#average-fuel-carbon-intensity-of-transit-marea_transit_ave_fuel_carbon_intensity.csv"><i class="fas fa-link"></i></a>
-</h5>
-<p>This input file is OPTIONAL. It is only needed if the user wants to modify the average carbon intensity of fuel used by transit.</p>
-<ul>
-<li>
-<strong>TransitVanFuelCI</strong>: Average carbon intensity of fuel used by transit vans (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitBusFuelCI</strong>: Average carbon intensity of fuel used by transit buses (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitRailFuelCI</strong>: Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)</li>
-</ul>
-<p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="8%">
-<col width="8%">
-<col width="26%">
-<col width="26%">
-<col width="28%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Geo</th>
-<th align="center">Year</th>
-<th align="center">TransitVanFuelCI</th>
-<th align="center">TransitBusFuelCI</th>
-<th align="center">TransitRailFuelCI</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">RVMPO</td>
-<td align="center">2010</td>
-<td align="center">90.38</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-</tr>
-<tr class="even">
-<td align="left">RVMPO</td>
-<td align="center">2038</td>
-<td align="center">72.30</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <div id="biofuels-proportions-of-transit-fuels-marea_transit_biofuel_mix.csv" class="section level5 unnumbered">
 <h5>Biofuels Proportions of Transit Fuels (marea_transit_biofuel_mix.csv)<a class="anchor" aria-label="anchor" href="#biofuels-proportions-of-transit-fuels-marea_transit_biofuel_mix.csv"><i class="fas fa-link"></i></a>
 </h5>
@@ -4392,76 +4310,10 @@ RVMPO
 </tbody>
 </table></div>
 </div>
-<div id="average-carbon-intensities-of-fuels-region_ave_fuel_carbon_intensity.csv" class="section level5" number="10.2.26.0.2">
+<div id="placeholder-for-future-development" class="section level5" number="10.2.26.0.2">
 <h5>
-<span class="header-section-number">10.2.26.0.2</span> Average Carbon Intensities of Fuels (region_ave_fuel_carbon_intensity.csv)<a class="anchor" aria-label="anchor" href="#average-carbon-intensities-of-fuels-region_ave_fuel_carbon_intensity.csv"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.26.0.2</span> [Placeholder for future development]<a class="anchor" aria-label="anchor" href="#placeholder-for-future-development"><i class="fas fa-link"></i></a>
 </h5>
-<p>This input file is OPTIONAL. It is only needed if the user wants to modify the average carbon density for different vehicle types for the model region.</p>
-<ul>
-<li>
-<strong>HhFuelCI</strong>: Average carbon intensity of fuels used by household vehicles (grams CO2e per megajoule)</li>
-<li>
-<strong>CarSvcFuelCI</strong>: Average carbon intensity of fuels used by car service vehicles (grams CO2e per megajoule)</li>
-<li>
-<strong>ComSvcFuelCI</strong>: Average carbon intensity of fuels used by commercial service vehicles (grams CO2e per megajoule)</li>
-<li>
-<strong>HvyTrkFuelCI</strong>: Average carbon intensity of fuels used by heavy trucks (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitVanFuelCI</strong>: Average carbon intensity of fuels used by transit vans (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitBusFuelCI</strong>: Average carbon intensity of fuels used by transit buses (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitRailFuelCI</strong>: Average carbon intensity of fuels used by transit rail vehicles (grams CO2e per megajoule)</li>
-</ul>
-<p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="5%">
-<col width="5%">
-<col width="8%">
-<col width="12%">
-<col width="12%">
-<col width="12%">
-<col width="14%">
-<col width="14%">
-<col width="14%">
-</colgroup>
-<thead><tr class="header">
-<th align="left">Geo</th>
-<th align="center">Year</th>
-<th align="center">HhFuelCI</th>
-<th align="center">CarSvcFuelCI</th>
-<th align="center">ComSvcFuelCI</th>
-<th align="center">HvyTrkFuelCI</th>
-<th align="center">TransitVanFuelC</th>
-<th align="center">TransitBusFuelC</th>
-<th align="center">TransitRailFuel</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">RVMPO</td>
-<td align="center">2010</td>
-<td align="center">90.23</td>
-<td align="center">90.23</td>
-<td align="center">90.23</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-</tr>
-<tr class="even">
-<td align="left">RVMPO</td>
-<td align="center">2038</td>
-<td align="center">72.30</td>
-<td align="center">72.30</td>
-<td align="center">72.30</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-<td align="center">NA</td>
-</tr>
-</tbody>
-</table></div>
 </div>
 <div id="car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv" class="section level5" number="10.2.26.0.3">
 <h5>
@@ -4646,112 +4498,9 @@ RVMPO
 <p>For more information see <a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/Initialize.md">here</a></p>
 </div>
 </div>
-<div id="verspm-calculatecarbonintensity" class="section level3" number="10.2.27">
+<div id="verspm-assignhhvehiclepowertrain" class="section level3" number="10.2.27">
 <h3>
-<span class="header-section-number">10.2.27</span> CalculateCarbonIntensity<a class="anchor" aria-label="anchor" href="#verspm-calculatecarbonintensity"><i class="fas fa-link"></i></a>
-</h3>
-<p>This module calculates the average carbon intensity of fuels (grams CO2e per megajoule) by transportation mode and vehicle type. The transportation modes and vehicle types are:</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th>Mode</th>
-<th>Vehicle Types</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>Household</td>
-<td>automobile, light truck</td>
-</tr>
-<tr class="even">
-<td>Car Service</td>
-<td>automobile, light truck</td>
-</tr>
-<tr class="odd">
-<td>Commercial Service</td>
-<td>automobile, light truck</td>
-</tr>
-<tr class="even">
-<td>Heavy Truck</td>
-<td>heavy truck</td>
-</tr>
-<tr class="odd">
-<td>Public Transit</td>
-<td>van, bus, rail</td>
-</tr>
-</tbody>
-</table></div>
-<p>Average fuel carbon intensities for public transit vehicles are calculated by <code>Marea</code>. The average fuel carbon intensities for the other mode vehicles are calculated for the entire model region. The module also calculates the average carbon intensity of electricity at the <code>Azone</code> level. Note that this module uses the user input files only if the user runs <a href="ve-estimation.html#initialize">Initialize</a> module. Otherwise the module uses default inputs in the <a href="https://github.com/gregorbj/VisionEval/tree/898fc016893f5b7dd78507e101c37d04486826b3/sources/modules/VEPowertrainsAndFuels/inst/extdata">instfolder</a>.</p>
-<div id="user-input-files-26" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-26"><i class="fas fa-link"></i></a>
-</h4>
-<div id="carbon-intensity-of-electricity-azone_electricity_carbon_intensity.csv-1" class="section level5" number="10.2.27.0.1">
-<h5>
-<span class="header-section-number">10.2.27.0.1</span> Carbon Intensity of Electricity (azone_electricity_carbon_intensity.csv)<a class="anchor" aria-label="anchor" href="#carbon-intensity-of-electricity-azone_electricity_carbon_intensity.csv-1"><i class="fas fa-link"></i></a>
-</h5>
-<p>This input file is OPTIONAL. It is only needed if the user wants to modify the carbon intensity of electricity.</p>
-<ul>
-<li>
-<strong>ElectricityCI</strong>: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</li>
-</ul>
-<p>Here is a snapshot of the file:</p>
-<div class="inline-table"><table class="table table-sm">
-<thead><tr class="header">
-<th align="left">Geo</th>
-<th align="center">Year</th>
-<th align="center">ElectricityCI</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td align="left">RVMPO</td>
-<td align="center">2010</td>
-<td align="center">153</td>
-</tr>
-<tr class="even">
-<td align="left">RVMPO</td>
-<td align="center">2038</td>
-<td align="center">23</td>
-</tr>
-</tbody>
-</table></div>
-</div>
-</div>
-<div id="internal-module-inputs-25" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-25"><i class="fas fa-link"></i></a>
-</h4>
-<p>This module does not have any internal module inputs</p>
-</div>
-<div id="module-outputs-26" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-26"><i class="fas fa-link"></i></a>
-</h4>
-<ul>
-<li>
-<strong>ElectricityCI</strong>: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</li>
-<li>
-<strong>HhAutoFuelCI</strong>: Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule)</li>
-<li>
-<strong>HhLtTrkFuelCI</strong>: Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)</li>
-<li>
-<strong>CarSvcAutoFuelCI</strong>: Average carbon intensity of fuels used by car service automobiles (grams CO2e per megajoule)</li>
-<li>
-<strong>CarSvcLtTrkFuelCI</strong>: Average carbon intensity of fuels used by car service light trucks (grams CO2e per megajoule)</li>
-<li>
-<strong>ComSvcAutoFuelCI</strong>: Average carbon intensity of fuels used by commercial service automobiles (grams CO2e per megajoule)</li>
-<li>
-<strong>ComSvcLtTrkFuelCI</strong>: Average carbon intensity of fuels used by commercial service light trucks (grams CO2e per megajoule)</li>
-<li>
-<strong>HvyTrkFuelCI</strong>: Average carbon intensity of fuels used by heavy trucks (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitVanFuelCI</strong>: Average carbon intensity of fuel used by transit vans (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitBusFuelCI</strong>: Average carbon intensity of fuel used by transit buses (grams CO2e per megajoule)</li>
-<li>
-<strong>TransitRailFuelCI</strong>: Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)</li>
-</ul>
-<p>For more information see <a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md">here</a></p>
-</div>
-</div>
-<div id="verspm-assignhhvehiclepowertrain" class="section level3" number="10.2.28">
-<h3>
-<span class="header-section-number">10.2.28</span> AssignHhVehiclePowertrain<a class="anchor" aria-label="anchor" href="#verspm-assignhhvehiclepowertrain"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.27</span> AssignHhVehiclePowertrain<a class="anchor" aria-label="anchor" href="#verspm-assignhhvehiclepowertrain"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module assigns a powertrain type to each household vehicle. The powertrain types are internal combustion engine vehicle (ICEV), hybrid electric vehicle (HEV), plug-in hybrid electric vehicle (PHEV), and battery electric vehicles (BEV). The module also assigns related characteristics to household vehicles including:</p>
 <ul>
@@ -4760,11 +4509,9 @@ RVMPO
 <li>Miles per kilowatt-hour (MPKWH) and kilowatt-hours per mile (KWHPM)</li>
 <li>Miles per gasoline gallon equivalent (MPGe)</li>
 <li>The proportion of DVMT powered by electricity</li>
-<li>Carbon dioxide equivalent emissions per mile powered by hydrocarbon fuel</li>
-<li>Carbon dioxide equivalent emissions per mile powered by electricity</li>
 </ul>
-<div id="user-input-files-27" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-27"><i class="fas fa-link"></i></a>
+<div id="user-input-files-26" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-26"><i class="fas fa-link"></i></a>
 </h4>
 <div id="charging-availability-azone_charging_availability.csv" class="section level5 unnumbered">
 <h5>Charging Availability (<strong>azone_charging_availability.csv</strong>)<a class="anchor" aria-label="anchor" href="#charging-availability-azone_charging_availability.csv"><i class="fas fa-link"></i></a>
@@ -4812,9 +4559,9 @@ RVMPO
 </tbody>
 </table></div>
 </div>
-<div id="car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-1" class="section level5" number="10.2.28.0.1">
+<div id="car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-1" class="section level5" number="10.2.27.0.1">
 <h5>
-<span class="header-section-number">10.2.28.0.1</span> Car Service Vehicle Powertrains (region_carsvc_powertrain_prop.csv)<a class="anchor" aria-label="anchor" href="#car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-1"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.27.0.1</span> Car Service Vehicle Powertrains (region_carsvc_powertrain_prop.csv)<a class="anchor" aria-label="anchor" href="#car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-1"><i class="fas fa-link"></i></a>
 </h5>
 <p>This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.</p>
 <ul>
@@ -4878,8 +4625,8 @@ RVMPO
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-26" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-26"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-25" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-25"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -4895,109 +4642,23 @@ RVMPO
 <th>Outputs</th>
 <th>Description</th>
 </tr></thead>
-<tbody>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>ElectricityCI</strong></td>
-<td>Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>HhAutoFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule))</td>
-</tr>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>HhLtTrkFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>CarSvcAutoFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by car service automobiles (grams CO2e per megajoule)</td>
-</tr>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>CarSvcLtTrkFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by car service light trucks (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>ESimHouseholds</td>
-<td><a href="verspm.html#verspm-createhouseholds">CreateHouseholds</a></td>
-<td><strong>HhId</strong></td>
-<td>Household id</td>
-</tr>
-<tr class="odd">
-<td>VELandUse</td>
-<td><a href="verspm.html#verspm-assignloctypes">AssignLocTypes</a></td>
-<td><strong>LocType</strong></td>
-<td>Location type (Urban, Town, Rural) of the place where the household resides</td>
-</tr>
-<tr class="even">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-assignvehicleownership">AssignVehicleOwnership</a></td>
-<td><strong>Vehicles</strong></td>
-<td>Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons</td>
-</tr>
-<tr class="odd">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-assignvehicletype">AssignVehicleType</a></td>
-<td><strong>NumAuto</strong></td>
-<td>Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household</td>
-</tr>
-<tr class="even">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-assignvehicletype">AssignVehicleType</a></td>
-<td><strong>NumLtTrk</strong></td>
-<td>Number of light trucks (pickup, sport-utility vehicle, and van) owned or leased by household</td>
-</tr>
-<tr class="odd">
-<td>VELandUse</td>
-<td><a href="verspm.html#verspm-predicthousing">PredictHousing</a></td>
-<td><strong>HouseType</strong></td>
-<td>Type of dwelling unit of the household</td>
-</tr>
-<tr class="even">
-<td>VEHouseholdTravel</td>
-<td><a href="verspm.html#verspm-calculatehouseholddvmt">CalculateHouseholdDvmt</a></td>
-<td><strong>Dvmt</strong></td>
-<td>Average daily vehicle miles traveled by the household in autos or light trucks</td>
-</tr>
-<tr class="odd">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-createvehicletable">CreateVehicleTable</a></td>
-<td><strong>VehId</strong></td>
-<td>Unique vehicle ID</td>
-</tr>
-<tr class="even">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-assignvehicleage">AssignVehicleAge</a></td>
-<td><strong>Type</strong></td>
-<td>Vehicle body type: Auto = automobile, LtTrk = light trucks (i.e. pickup, SUV, Van)</td>
-</tr>
-<tr class="odd">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-assignvehicleage">AssignVehicleAge</a></td>
-<td><strong>Age</strong></td>
-<td>Vehicle age in years</td>
-</tr>
-<tr class="even">
-<td>VEHouseholdVehicles</td>
-<td><a href="verspm.html#verspm-createvehicletable">CreateVehicleTable</a></td>
-<td><strong>VehicleAccess</strong></td>
-<td>Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (LowCarSvc), or if vehicle is high level car service (HighCarSvc)</td>
-</tr>
-</tbody>
+<tbody></tbody>
 </table></div>
+<p>ESimHouseholds | <a href="verspm.html#verspm-createhouseholds">CreateHouseholds</a> |<strong>HhId</strong> | Household id |
+| VELandUse | <a href="verspm.html#verspm-assignloctypes">AssignLocTypes</a> |<strong>LocType</strong> | Location type (Urban, Town, Rural) of the place where the household resides |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-assignvehicleownership">AssignVehicleOwnership</a> |<strong>Vehicles</strong> | Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-assignvehicletype">AssignVehicleType</a> |<strong>NumAuto</strong> | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-assignvehicletype">AssignVehicleType</a> |<strong>NumLtTrk</strong> | Number of light trucks (pickup, sport-utility vehicle, and van) owned or leased by household |
+| VELandUse | <a href="verspm.html#verspm-predicthousing">PredictHousing</a> |<strong>HouseType</strong> | Type of dwelling unit of the household |
+| VEHouseholdTravel | <a href="verspm.html#verspm-calculatehouseholddvmt">CalculateHouseholdDvmt</a> |<strong>Dvmt</strong> | Average daily vehicle miles traveled by the household in autos or light trucks |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-createvehicletable">CreateVehicleTable</a> |<strong>VehId</strong> | Unique vehicle ID |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-assignvehicleage">AssignVehicleAge</a> |<strong>Type</strong> | Vehicle body type: Auto = automobile, LtTrk = light trucks (i.e. pickup, SUV, Van) |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-assignvehicleage">AssignVehicleAge</a> |<strong>Age</strong> | Vehicle age in years |
+| VEHouseholdVehicles | <a href="verspm.html#verspm-createvehicletable">CreateVehicleTable</a> |<strong>VehicleAccess</strong> | Identifier whether vehicle is owned by household (Own), if vehicle is low level car service (LowCarSvc), or if vehicle is high level car service (HighCarSvc) |</p>
 </div>
 </div>
-<div id="module-outputs-27" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-27"><i class="fas fa-link"></i></a>
+<div id="module-outputs-26" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-26"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -5016,22 +4677,18 @@ RVMPO
 <strong>MPGe</strong>: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)</li>
 <li>
 <strong>ElecDvmtProp</strong>: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)</li>
-<li>
-<strong>FuelCO2ePM</strong>: Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel</li>
-<li>
-<strong>ElecCO2ePM</strong>: Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity</li>
 </ul>
 <p>For more information see <a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/AssignHhVehiclePowertrain.md">here</a></p>
 </div>
 </div>
-<div id="verspm-initialize-vetravelperformance" class="section level3" number="10.2.29">
+<div id="verspm-initialize-vetravelperformance" class="section level3" number="10.2.28">
 <h3>
-<span class="header-section-number">10.2.29</span> Initialize-vetravelperformance<a class="anchor" aria-label="anchor" href="#verspm-initialize-vetravelperformance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.28</span> Initialize-vetravelperformance<a class="anchor" aria-label="anchor" href="#verspm-initialize-vetravelperformance"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module reads and processes roadway DVMT and operations inputs.
 The following input files are optional. If these data are not provided, the model calculates values based on default data included with the package and processed by the <code>LoadDefaultRoadDvmtValues.R</code> script.</p>
-<div id="user-input-files-28" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-28"><i class="fas fa-link"></i></a>
+<div id="user-input-files-27" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-27"><i class="fas fa-link"></i></a>
 </h4>
 <div id="base-year-heavy-truck-dvmt-region_base_year_dvmt.csv" class="section level5 unnumbered">
 <h5>Base Year Heavy Truck DVMT (region_base_year_dvmt.csv)<a class="anchor" aria-label="anchor" href="#base-year-heavy-truck-dvmt-region_base_year_dvmt.csv"><i class="fas fa-link"></i></a>
@@ -5400,25 +5057,25 @@ The following input files are optional. If these data are not provided, the mode
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-27" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-27"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-26" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-26"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module uses no datasets that are in the datastore.</p>
 </div>
-<div id="module-outputs-28" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-28"><i class="fas fa-link"></i></a>
+<div id="module-outputs-27" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-27"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module produces no datasets to store in the datastore.</p>
 </div>
 </div>
-<div id="verspm-calculatebaseroaddvmt" class="section level3" number="10.2.30">
+<div id="verspm-calculatebaseroaddvmt" class="section level3" number="10.2.29">
 <h3>
-<span class="header-section-number">10.2.30</span> CalculateBaseRoadDvmt<a class="anchor" aria-label="anchor" href="#verspm-calculatebaseroaddvmt"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.29</span> CalculateBaseRoadDvmt<a class="anchor" aria-label="anchor" href="#verspm-calculatebaseroaddvmt"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates base year roadway DVMT by vehicle type (light-duty, heavy truck, bus) and the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other)
 This module uses optional user inputs if <a href="#initialize-vetravelperformance">Initialize</a> module is run. Otherwise, it uses default data in <a href="https://github.com/gregorbj/VisionEval/tree/develop/sources/modules/VETravelPerformance/inst/extdata">instfolder</a></p>
-<div id="user-input-files-29" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-29"><i class="fas fa-link"></i></a>
+<div id="user-input-files-28" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-28"><i class="fas fa-link"></i></a>
 </h4>
 <div id="base-year-heavy-truck-dvmt-region_base_year_dvmt.csv-1" class="section level5 unnumbered">
 <h5>Base Year Heavy Truck DVMT (<strong>region_base_year_dvmt.csv</strong>)<a class="anchor" aria-label="anchor" href="#base-year-heavy-truck-dvmt-region_base_year_dvmt.csv-1"><i class="fas fa-link"></i></a>
@@ -5543,8 +5200,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-28" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-28"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-27" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-27"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -5620,8 +5277,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <div class="table-wrapper" markdown="block">
 
 </div>
-<div id="module-outputs-29" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-29"><i class="fas fa-link"></i></a>
+<div id="module-outputs-28" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-28"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -5683,14 +5340,14 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </ul>
 </div>
 </div>
-<div id="verspm-calculatefutureroaddvmt" class="section level3" number="10.2.31">
+<div id="verspm-calculatefutureroaddvmt" class="section level3" number="10.2.30">
 <h3>
-<span class="header-section-number">10.2.31</span> CalculateFutureRoadDvmt<a class="anchor" aria-label="anchor" href="#verspm-calculatefutureroaddvmt"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.30</span> CalculateFutureRoadDvmt<a class="anchor" aria-label="anchor" href="#verspm-calculatefutureroaddvmt"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates future year roadway DVMT by vehicle type (light-duty, heavy truck, bus) and the distribution of roadway DVMT by vehicle type to roadway classes (freeway, arterial, other)
 This module uses optional user inputs if <a href="#initialize-vetravelperformance">Initialize</a> module is run. Otherwise, it uses default data in <a href="https://github.com/gregorbj/VisionEval/tree/develop/sources/modules/VETravelPerformance/inst/extdata">instfolder</a></p>
-<div id="user-input-files-30" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-30"><i class="fas fa-link"></i></a>
+<div id="user-input-files-29" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-29"><i class="fas fa-link"></i></a>
 </h4>
 <div id="base-year-heavy-truck-dvmt-region_base_year_dvmt.csv-2" class="section level5 unnumbered">
 <h5>Base Year Heavy Truck DVMT (region_base_year_dvmt.csv)<a class="anchor" aria-label="anchor" href="#base-year-heavy-truck-dvmt-region_base_year_dvmt.csv-2"><i class="fas fa-link"></i></a>
@@ -5753,9 +5410,9 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-29" class="section level4" number="10.2.31.1">
+<div id="internal-module-inputs-28" class="section level4" number="10.2.30.1">
 <h4>
-<span class="header-section-number">10.2.31.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-29"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.30.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-28"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -5932,9 +5589,9 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="module-outputs-30" class="section level4" number="10.2.31.2">
+<div id="module-outputs-29" class="section level4" number="10.2.30.2">
 <h4>
-<span class="header-section-number">10.2.31.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-30"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.30.2</span> Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-29"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -5964,9 +5621,9 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </ul>
 </div>
 </div>
-<div id="verspm-calculateroadperformance" class="section level3" number="10.2.32">
+<div id="verspm-calculateroadperformance" class="section level3" number="10.2.31">
 <h3>
-<span class="header-section-number">10.2.32</span> CalculateRoadPerformance<a class="anchor" aria-label="anchor" href="#verspm-calculateroadperformance"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.31</span> CalculateRoadPerformance<a class="anchor" aria-label="anchor" href="#verspm-calculateroadperformance"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module splits light-duty vehicle (LDV) daily vehicle miles of travel DVHT between freeways and arterials as a function of relative speeds and congestion prices. Speeds and prices are combined to calculate an average ‘effective’ speed for freeways and for arterials. The ratio of freeway and arterial ‘effective’ speeds and a split factor calculated for the metropolitan area are used to split the LDV DVMT. Iteration is used to find an equilibrium split value. In addition to the LDV freeway DVMT and arterial DVMT, the following performance measures are saved to the datastore:</p>
 <ul>
@@ -5979,8 +5636,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <li>Average amount paid per mile in congestion pricing fees; and,</li>
 <li>Vehicle hours of delay by vehicle type.</li>
 </ul>
-<div id="user-input-files-31" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-31"><i class="fas fa-link"></i></a>
+<div id="user-input-files-30" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-30"><i class="fas fa-link"></i></a>
 </h4>
 <div id="operations-deployment-effects-on-dvmt-marea_operations_deployment.csv-1" class="section level5 unnumbered">
 <h5>Operations Deployment Effects on DVMT (<strong>marea_operations_deployment.csv</strong>)<a class="anchor" aria-label="anchor" href="#operations-deployment-effects-on-dvmt-marea_operations_deployment.csv-1"><i class="fas fa-link"></i></a>
@@ -6237,8 +5894,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <span id="cb23-4"><a href="verspm.html#cb23-4" tabindex="-1"></a><span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
 <span id="cb23-5"><a href="verspm.html#cb23-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
-<div id="internal-module-inputs-30" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-30"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-29" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-29"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -6325,8 +5982,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="module-outputs-31" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-31"><i class="fas fa-link"></i></a>
+<div id="module-outputs-30" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-30"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -6403,13 +6060,13 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <p>For more information see <a href="https://github.com/visioneval/VisionEval/blob/master/sources/modules/VETravelPerformance/inst/module_docs/CalculateRoadPerformance.md">here</a></p>
 </div>
 </div>
-<div id="verspm-calculatempgmpkwhadjustments" class="section level3" number="10.2.33">
+<div id="verspm-calculatempgmpkwhadjustments" class="section level3" number="10.2.32">
 <h3>
-<span class="header-section-number">10.2.33</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#verspm-calculatempgmpkwhadjustments"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.32</span> CalculateMpgMpkwhAdjustments<a class="anchor" aria-label="anchor" href="#verspm-calculatempgmpkwhadjustments"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates adjustments to fuel economy and electric energy economy for plug-in vehicles) resulting from traffic congestion, speed smoothing(i.e. active traffic management which reduces speed variation), and ecodriving practices.</p>
-<div id="user-input-files-32" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-32"><i class="fas fa-link"></i></a>
+<div id="user-input-files-31" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-31"><i class="fas fa-link"></i></a>
 </h4>
 <div id="speed-smoothing-and-eco-drive-marea_speed_smooth_ecodrive.csv" class="section level5 unnumbered">
 <h5>Speed Smoothing and Eco-drive (marea_speed_smooth_ecodrive.csv)<a class="anchor" aria-label="anchor" href="#speed-smoothing-and-eco-drive-marea_speed_smooth_ecodrive.csv"><i class="fas fa-link"></i></a>
@@ -6456,9 +6113,9 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-31" class="section level4" number="10.2.33.1">
+<div id="internal-module-inputs-30" class="section level4" number="10.2.32.1">
 <h4>
-<span class="header-section-number">10.2.33.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-31"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.32.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-30"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -6641,8 +6298,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="module-outputs-32" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-32"><i class="fas fa-link"></i></a>
+<div id="module-outputs-31" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-31"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -6670,17 +6327,17 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </ul>
 </div>
 </div>
-<div id="verspm-adjusthhvehiclempgmpkwh" class="section level3" number="10.2.34">
+<div id="verspm-adjusthhvehiclempgmpkwh" class="section level3" number="10.2.33">
 <h3>
-<span class="header-section-number">10.2.34</span> AdjustHhVehicleMpgMpkwh<a class="anchor" aria-label="anchor" href="#verspm-adjusthhvehiclempgmpkwh"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.33</span> AdjustHhVehicleMpgMpkwh<a class="anchor" aria-label="anchor" href="#verspm-adjusthhvehiclempgmpkwh"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module adjusts the fuel economy and power efficiency of household vehicles to reflect roadway congestion.</p>
-<div id="user-input-files-33" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-33"><i class="fas fa-link"></i></a>
+<div id="user-input-files-32" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-32"><i class="fas fa-link"></i></a>
 </h4>
-<div id="car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-2" class="section level5" number="10.2.34.0.1">
+<div id="car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-2" class="section level5" number="10.2.33.0.1">
 <h5>
-<span class="header-section-number">10.2.34.0.1</span> Car Service Vehicle Powertrains (region_carsvc_powertrain_prop.csv)<a class="anchor" aria-label="anchor" href="#car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.33.0.1</span> Car Service Vehicle Powertrains (region_carsvc_powertrain_prop.csv)<a class="anchor" aria-label="anchor" href="#car-service-vehicle-powertrains-region_carsvc_powertrain_prop.csv-2"><i class="fas fa-link"></i></a>
 </h5>
 <p>This input file is OPTIONAL. It is only needed if the user wants to modify the powertrain proportion of car services.</p>
 <ul>
@@ -6744,9 +6401,9 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-32" class="section level4" number="10.2.34.1">
+<div id="internal-module-inputs-31" class="section level4" number="10.2.33.1">
 <h4>
-<span class="header-section-number">10.2.34.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-32"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.33.1</span> Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-31"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -6889,24 +6546,12 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <td><strong>ElecDvmtProp</strong></td>
 <td>Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)</td>
 </tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a></td>
-<td><strong>FuelCO2ePM</strong></td>
-<td>Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel</td>
-</tr>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a></td>
-<td><strong>ElecCO2ePM</strong></td>
-<td>Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity</td>
-</tr>
 </tbody>
 </table></div>
 </div>
 </div>
-<div id="module-outputs-33" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-33"><i class="fas fa-link"></i></a>
+<div id="module-outputs-32" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-32"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -6922,19 +6567,17 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <li>
 <strong>ElecDvmtProp</strong>: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)</li>
 <li>
-<strong>FuelCO2ePM</strong>: Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel</li>
-<li>
 <strong>IsEcoDrive</strong>: Flag identifying whether drivers in household are eco-drivers</li>
 </ul>
 </div>
 </div>
-<div id="verspm-calculatevehicleoperatingcost" class="section level3" number="10.2.35">
+<div id="verspm-calculatevehicleoperatingcost" class="section level3" number="10.2.34">
 <h3>
-<span class="header-section-number">10.2.35</span> CalculateVehicleOperatingCost<a class="anchor" aria-label="anchor" href="#verspm-calculatevehicleoperatingcost"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.34</span> CalculateVehicleOperatingCost<a class="anchor" aria-label="anchor" href="#verspm-calculatevehicleoperatingcost"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module calculates vehicle operating costs per mile of travel and uses those costs to determine the proportional split of DVMT among household vehicles. The module also calculates the average out-of-pocket costs per mile of vehicle by household, as well as the cost of social and environmental impacts, and road use taxes per mile of vehicle travel.</p>
-<div id="user-input-files-34" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-34"><i class="fas fa-link"></i></a>
+<div id="user-input-files-33" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-33"><i class="fas fa-link"></i></a>
 </h4>
 <div id="vehicle-access-time-azone_vehicle_access_times.csv" class="section level5 unnumbered">
 <h5>Vehicle Access Time (azone_vehicle_access_times.csv)<a class="anchor" aria-label="anchor" href="#vehicle-access-time-azone_vehicle_access_times.csv"><i class="fas fa-link"></i></a>
@@ -7061,13 +6704,7 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <h3>External Costs (region_prop_externalities_paid.csv)<a class="anchor" aria-label="anchor" href="#external-costs-region_prop_externalities_paid.csv"><i class="fas fa-link"></i></a>
 </h3>
 <p>Proportional external costs for the region. This input file allocates the percent of the total cost that is charged to region vehicles on a per mile basis.</p>
-<ul>
-<li>
-<strong>PropClimateCostPaid</strong>: Proportion of climate change costs paid by users (i.e. ratio of carbon taxes to climate change costs). The dollar value of Climate Cost Paid is given in the optional input file: <em>region_co2e_costs.csv</em>.<br>
-</li>
-<li>
-<strong>PropOtherExtCostPaid</strong>: Proportion of other social costs paid by users. The other social costs paid are included in an input file within the VETravelPerformance package. For more information on these values <a href="https://github.com/RSGInc/VisionEval-Dev/blob/development-next/sources/modules/VETravelPerformance/inst/module_docs/CalculateVehicleOperatingCost.md#social-costs">click here</a>.</li>
-</ul>
+<p>[Placeholder for future development]</p>
 <p>Here is a snapshot of the file:</p>
 <div class="inline-table"><table class="table table-sm">
 <thead><tr class="header">
@@ -7098,8 +6735,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <span id="cb24-4"><a href="verspm.html#cb24-4" tabindex="-1"></a><span class="dt">"UNITS"</span><span class="fu">:</span> <span class="st">"base cost year dollars per hour"</span></span>
 <span id="cb24-5"><a href="verspm.html#cb24-5" tabindex="-1"></a><span class="fu">}</span></span></code></pre></div>
 </div>
-<div id="internal-module-inputs-33" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-33"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-32" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-32"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -7225,36 +6862,30 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <td>Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)</td>
 </tr>
 <tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a></td>
-<td><strong>FuelCO2ePM</strong></td>
-<td>Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel</td>
+<td>per mile of travel powered by electricity</td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-assignhhvehiclepowertrain">AssignHhVehiclePowertrain</a></td>
-<td><strong>ElecCO2ePM</strong></td>
-<td>Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity</td>
-</tr>
-<tr class="odd">
 <td>VEHouseholdVehicles</td>
 <td><a href="verspm.html#verspm-calculatevehicleowncost">CalculateVehicleOwnCost</a></td>
 <td><strong>InsCost</strong></td>
 <td>Annual vehicle insurance cost in dollars</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>VELandUse</td>
 <td><a href="verspm.html#verspm-assignparkingrestrictions">AssignParkingRestrictions</a></td>
 <td><strong>ParkingCost</strong></td>
 <td>Daily cost for long-term parking (e.g. paid on monthly basis)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>VELandUse</td>
 <td><a href="verspm.html#verspm-assignparkingrestrictions">AssignParkingRestrictions</a></td>
 <td><strong>IsCashOut</strong></td>
 <td>Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>VELandUse</td>
 <td><a href="verspm.html#verspm-assignparkingrestrictions">AssignParkingRestrictions</a></td>
 <td><strong>PaysForParking</strong></td>
@@ -7264,8 +6895,8 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 </table></div>
 </div>
 </div>
-<div id="module-outputs-34" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-34"><i class="fas fa-link"></i></a>
+<div id="module-outputs-33" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-33"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -7280,26 +6911,24 @@ This module uses optional user inputs if <a href="#initialize-vetravelperformanc
 <strong>AveGPM</strong>: Average gasoline equivalent gallons per mile of household vehicle travel</li>
 <li>
 <strong>AveKWHPM</strong>: Average kilowatt-hours per mile of household vehicle travel</li>
-<li>
-<strong>AveCO2ePM</strong>: Average grams of carbon-dioxide equivalents produced per mile of household vehicle travel</li>
 </ul>
 </div>
 </div>
-<div id="verspm-budgethouseholddvmt" class="section level3" number="10.2.36">
+<div id="verspm-budgethouseholddvmt" class="section level3" number="10.2.35">
 <h3>
-<span class="header-section-number">10.2.36</span> BudgetHouseholdDvmt<a class="anchor" aria-label="anchor" href="#verspm-budgethouseholddvmt"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.35</span> BudgetHouseholdDvmt<a class="anchor" aria-label="anchor" href="#verspm-budgethouseholddvmt"><i class="fas fa-link"></i></a>
 </h3>
 <p>This module adjusts average household DVMT to keep the quantity within household operating cost limits. The limit for each household is calculated in several steps. First, the proportion of the household’s income that may be spent on vehicle operating costs is calculated using a model that is explained below. This is called the budget proportion. Then an adjusted household income
 for budget calculation purposes is calculated by adding the annual cost of insurance for households subscribing to payd-as-you-drive (PAYD) insurance, cash-out parking payments for workers who work at an employer that has cash-out-buy-back parking, and any vehicle ownership cost savings for households that substitute high level car service for one or more household vehicles. The adjusted household income is multiplied by the budget proportion and divided by the average vehicle operating cost per mile for the household to determine the maximum household DVMT that fits within the household budget. The household DVMT is then set at the lesser of this budget maximum or the modeled household DVMT.</p>
 <p>The budget proportion model is estimated using data from the Bureau of Labor’s consumer expenditure survey for the years from 2003 to 2015. The data used are the nominal dollar expenditures by household income category and year by transportation category. The values for the operating cost categories (gas and oil, and maintenance and repair) are summed and then divided by the midpoint value for each income category to calculate the budget proportion for each income group and each year. From this the mean value is computed for each income group. The budget proportions for each income group and year are divided by the mean values by income group to normalize values. The standard deviation for the combined normalized values is computed and value of 3 deviations above the mean is set as the maximum normalized value. The mean values by income group are multiplied by this normalized maximum to derive a budget proportion maximum by income group. A smoothed splines model of the budget proportion as a function of income is then estimated from the calculated budget proportion maximums. This model is used to calculate the budget proportion for a household based on the household income. The minimum and
 maximum values of the calculated budget proportion maximums are used as constraints to avoid unreasonable results for very low incomes and very high incomes.</p>
-<div id="user-input-files-35" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-35"><i class="fas fa-link"></i></a>
+<div id="user-input-files-34" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-34"><i class="fas fa-link"></i></a>
 </h4>
 <p>This module does not have user-supplied input files</p>
 </div>
-<div id="internal-module-inputs-34" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-34"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-33" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-33"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -7371,36 +7000,30 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <td>Average kilowatt-hours per mile of household vehicle travel</td>
 </tr>
 <tr class="even">
-<td>VETravelPerformance</td>
-<td><a href="verspm.html#verspm-calculatevehicleoperatingcost">CalculateVehicleOperatingCost</a></td>
-<td><strong>AveCO2ePM</strong></td>
-<td>Average grams of carbon-dioxide equivalents produced per mile of household vehicle travel</td>
-</tr>
-<tr class="odd">
 <td>VELandUse</td>
 <td><a href="verspm.html#verspm-assignparkingrestrictions">AssignParkingRestrictions</a></td>
 <td><strong>ParkingCost</strong></td>
 <td>Daily cost for long-term parking (e.g. paid on monthly basis)</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>VELandUse</td>
 <td><a href="verspm.html#verspm-assignparkingrestrictions">AssignParkingRestrictions</a></td>
 <td><strong>IsCashOut</strong></td>
 <td>Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>VELandUse</td>
 <td><a href="verspm.html#verspm-assignparkingrestrictions">AssignParkingRestrictions</a></td>
 <td><strong>PaysForParking</strong></td>
 <td>Does worker pay for parking: 1 = yes, 0 = no</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>VEHouseholdVehicles</td>
 <td><a href="verspm.html#verspm-calculatevehicleowncost">CalculateVehicleOwnCost</a></td>
 <td><strong>InsCost</strong></td>
 <td>Annual vehicle insurance cost in dollars</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td></td>
 <td></td>
 <td></td>
@@ -7410,8 +7033,8 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </table></div>
 </div>
 </div>
-<div id="module-outputs-35" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-35"><i class="fas fa-link"></i></a>
+<div id="module-outputs-34" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-34"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -7425,8 +7048,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <li>
 <strong>DailyKWH</strong>: Kilowatt-hours consumed per day by household vehicle travel</li>
 <li>
-<strong>DailyCO2e</strong>: Grams of carbon-dioxide equivalents produced per day by household vehicle travel</li>
-<li>
 <strong>WalkTrips</strong>: Average number of walk trips per year by household members</li>
 <li>
 <strong>BikeTrips</strong>: Average number of bicycle trips per year by household members</li>
@@ -7437,13 +7058,13 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </ul>
 </div>
 </div>
-<div id="verspm-calculatecomenergyandemissions" class="section level3" number="10.2.37">
+<div id="verspm-calculatecomenergyandemissions" class="section level3" number="10.2.36">
 <h3>
-<span class="header-section-number">10.2.37</span> CalculateComEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#verspm-calculatecomenergyandemissions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.36</span> CalculateComEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#verspm-calculatecomenergyandemissions"><i class="fas fa-link"></i></a>
 </h3>
-<p>This module calculates the energy consumption and carbon emissions of heavy trucks and light-duty commercial service vehicles. It does not calculate the values for car service vehicles which are calculated as part of the household emissions. It also does not calculate public transit emissions which are calculated in the CalculateTransitEnergyAndEmissions module.</p>
-<div id="user-input-files-36" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-36"><i class="fas fa-link"></i></a>
+<p>This module calculates the energy consumption of heavy trucks and light-duty commercial service vehicles. It does not calculate the values for car service vehicles which are calculated as part of the household emissions. It also does not calculate public transit emissions which are calculated in the CalculateTransitEnergyAndEmissions module.</p>
+<div id="user-input-files-35" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-35"><i class="fas fa-link"></i></a>
 </h4>
 <div id="commercial-service-light-trucks-proportion-region_comsvc_lttrk_prop.csv" class="section level5 unnumbered">
 <h5>Commercial Service Light Trucks Proportion (region_comsvc_lttrk_prop.csv)<a class="anchor" aria-label="anchor" href="#commercial-service-light-trucks-proportion-region_comsvc_lttrk_prop.csv"><i class="fas fa-link"></i></a>
@@ -7575,8 +7196,8 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-35" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-35"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-34" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-34"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
 <div class="inline-table"><table class="table table-sm">
@@ -7593,30 +7214,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <th>Description</th>
 </tr></thead>
 <tbody>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>ElectricityCI</strong></td>
-<td>Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>HhAutoFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule))</td>
-</tr>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>HhLtTrkFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>HvyTrkFuelCI</strong></td>
-<td>Average carbon intensity of fuels used by heavy trucks (grams CO2e per megajoule)</td>
-</tr>
 <tr class="odd">
 <td>VETravelPerformance</td>
 <td><a href="verspm.html#verspm-calculatempgmpkwhadjustments">CalculateMpgMpkwhAdjustments</a></td>
@@ -7705,37 +7302,38 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </table></div>
 </div>
 </div>
-<div id="module-outputs-36" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-36"><i class="fas fa-link"></i></a>
+<div id="module-outputs-35" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-35"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
-<li><p><strong>ComSvcUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with urban household activity in gas gallon equivalents</p></li>
-<li><p><strong>ComSvcRuralGGE</strong>: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with rural household activity in gas gallon equivalents</p></li>
-<li><p><strong>HvyTrkUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Marea in gas gallon equivalents</p></li>
-<li><p><strong>ComSvcUrbanKWH</strong>: Average daily amount of electricity consumed by commercial service vehicles associated with urban household activity in kilowatt-hours</p></li>
-<li><p><strong>ComSvcRuralKWH</strong>: Average daily amount of electricity consumed by commercial service vehicles associated with rural household activity in kilowatt-hours</p></li>
-<li><p><strong>ComSvcUrbanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with urban household activity in grams</p></li>
-<li><p><strong>ComSvcRuralCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with rural household activity in grams</p></li>
-<li><p><strong>HvyTrkUrbanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Marea in grams</p></li>
-<li><p><strong>ComSvcAveUrbanAutoCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by commercial service automobiles per mile of travel on urbanized area roadways in grams per mile</p></li>
-<li><p><strong>ComSvcAveUrbanLtTrkCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by commercial service light trucks per mile of travel on urbanized area roadways in grams per mile</p></li>
-<li><p><strong>HvyTrkAveUrbanCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by heavy trucks per mile of travel on urbanized area roadways in grams per mile</p></li>
-<li><p><strong>HvyTrkRuralGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on rural roadways in the Region in gas gallon equivalents</p></li>
-<li><p><strong>HvyTrkUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Region in gas gallon equivalents</p></li>
-<li><p><strong>HvyTrkRuralKWH</strong>: Average daily amount of electricity consumed by heavy trucks on rural roadways in the Region in kilowatt-hours</p></li>
-<li><p><strong>HvyTrkUrbanKWH</strong>: Average daily amount of electricity consumed by heavy trucks on urbanized area roadways in the Region in kilowatt-hours</p></li>
-<li><p><strong>HvyTrkRuralCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on rural roadways in the Region in grams</p></li>
-<li><p><strong>HvyTrkUrbanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Region in grams</p></li>
+<li>
+<strong>ComSvcUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with urban household activity in gas gallon equivalents</li>
+<li>
+<strong>ComSvcRuralGGE</strong>: Average daily amount of hydrocarbon fuels consumed by commercial service vehicles associated with rural household activity in gas gallon equivalents</li>
+<li>
+<strong>HvyTrkUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Marea in gas gallon equivalents</li>
+<li>
+<strong>ComSvcUrbanKWH</strong>: Average daily amount of electricity consumed by commercial service vehicles associated with urban household activity in kilowatt-hours</li>
+<li>
+<strong>ComSvcRuralKWH</strong>: Average daily amount of electricity consumed by commercial service vehicles associated with rural household activity in kilowatt-hours</li>
+<li>
+<strong>HvyTrkRuralGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on rural roadways in the Region in gas gallon equivalents</li>
+<li>
+<strong>HvyTrkUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Region in gas gallon equivalents</li>
+<li>
+<strong>HvyTrkRuralKWH</strong>: Average daily amount of electricity consumed by heavy trucks on rural roadways in the Region in kilowatt-hours</li>
+<li>
+<strong>HvyTrkUrbanKWH</strong>: Average daily amount of electricity consumed by heavy trucks on urbanized area roadways in the Region in kilowatt-hours</li>
 </ul>
 </div>
 </div>
-<div id="verspm-calculateptranenergyandemissions" class="section level3" number="10.2.38">
+<div id="verspm-calculateptranenergyandemissions" class="section level3" number="10.2.37">
 <h3>
-<span class="header-section-number">10.2.38</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#verspm-calculateptranenergyandemissions"><i class="fas fa-link"></i></a>
+<span class="header-section-number">10.2.37</span> CalculatePtranEnergyAndEmissions<a class="anchor" aria-label="anchor" href="#verspm-calculateptranenergyandemissions"><i class="fas fa-link"></i></a>
 </h3>
-<p>This module calculates the energy consumption and carbon emissions of public transit vehicle emissions in urbanized areas.</p>
-<div id="user-input-files-37" class="section level4 unnumbered">
-<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-37"><i class="fas fa-link"></i></a>
+<p>This module calculates the energy consumption of public transit vehicle emissions in urbanized areas.</p>
+<div id="user-input-files-36" class="section level4 unnumbered">
+<h4>User Input Files<a class="anchor" aria-label="anchor" href="#user-input-files-36"><i class="fas fa-link"></i></a>
 </h4>
 <div id="transit-powertrain-proportions-by-transit-vehicle-type-marea_transit_powertrain_prop.csv-1" class="section level5 unnumbered">
 <h5>Transit Powertrain Proportions by Transit Vehicle Type (marea_transit_powertrain_prop.csv)<a class="anchor" aria-label="anchor" href="#transit-powertrain-proportions-by-transit-vehicle-type-marea_transit_powertrain_prop.csv-1"><i class="fas fa-link"></i></a>
@@ -7820,72 +7418,19 @@ maximum values of the calculated budget proportion maximums are used as constrai
 </table></div>
 </div>
 </div>
-<div id="internal-module-inputs-36" class="section level4 unnumbered">
-<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-36"><i class="fas fa-link"></i></a>
+<div id="internal-module-inputs-35" class="section level4 unnumbered">
+<h4>Internal Module Inputs<a class="anchor" aria-label="anchor" href="#internal-module-inputs-35"><i class="fas fa-link"></i></a>
 </h4>
 <div class="table-wrapper" markdown="block">
-<div class="inline-table"><table class="table table-sm">
-<colgroup>
-<col width="17%">
-<col width="33%">
-<col width="12%">
-<col width="37%">
-</colgroup>
-<thead><tr class="header">
-<th>Package</th>
-<th>Module</th>
-<th>Outputs</th>
-<th>Description</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>ElectricityCI</strong></td>
-<td>Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>TransitVanFuelCI</strong></td>
-<td>Average carbon intensity of fuel used by transit vans (grams CO2e per megajoule)</td>
-</tr>
-<tr class="odd">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>TransitBusFuelCI</strong></td>
-<td>Average carbon intensity of fuel used by transit buses (grams CO2e per megajoule)</td>
-</tr>
-<tr class="even">
-<td>VEPowertrainsAndFuels</td>
-<td><a href="verspm.html#verspm-calculatecarbonintensity">CalculateCarbonIntensity</a></td>
-<td><strong>TransitRailFuelCI</strong></td>
-<td>Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)</td>
-</tr>
-<tr class="odd">
-<td>VETransportSupply</td>
-<td><a href="verspm.html#verspm-assigntransitservice">AssignTransitService</a></td>
-<td><strong>VanDvmt</strong></td>
-<td>Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services</td>
-</tr>
-<tr class="even">
-<td>VETransportSupply</td>
-<td><a href="verspm.html#verspm-assigntransitservice">AssignTransitService</a></td>
-<td><strong>BusDvmt</strong></td>
-<td>Total daily miles traveled by buses of various sizes to provide bus service of various types</td>
-</tr>
-<tr class="odd">
-<td>VETransportSupply</td>
-<td><a href="verspm.html#verspm-assigntransitservice">AssignTransitService</a></td>
-<td><strong>RailDvmt</strong></td>
-<td>Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles</td>
-</tr>
-</tbody>
-</table></div>
+<div class="line-block">   Package | Module | Outputs | Description |</div>
+<p>|——————–|—————————————|————–|——————————————-| |
+| VETransportSupply | <a href="verspm.html#verspm-assigntransitservice">AssignTransitService</a> |<strong>VanDvmt</strong> | Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services |
+| VETransportSupply | <a href="verspm.html#verspm-assigntransitservice">AssignTransitService</a> |<strong>BusDvmt</strong> | Total daily miles traveled by buses of various sizes to provide bus service of various types |
+| VETransportSupply | <a href="verspm.html#verspm-assigntransitservice">AssignTransitService</a> |<strong>RailDvmt</strong> | Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles |</p>
 </div>
 </div>
-<div id="module-outputs-37" class="section level4 unnumbered">
-<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-37"><i class="fas fa-link"></i></a>
+<div id="module-outputs-36" class="section level4 unnumbered">
+<h4>Module Outputs<a class="anchor" aria-label="anchor" href="#module-outputs-36"><i class="fas fa-link"></i></a>
 </h4>
 <ul>
 <li>
@@ -7900,18 +7445,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <strong>RailKWH</strong>: Average daily amount of electricity consumed by rail transit vehicles in urbanized area in kilowatt-hours</li>
 <li>
 <strong>VanKWH</strong>:Average daily amount of electricity consumed by van transit vehicles in urbanized area in kilowatt-hours</li>
-<li>
-<strong>BusCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by bus transit vehicles in urbanized area in grams</li>
-<li>
-<strong>RailCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by rail transit vehicles in urbanized area in grams</li>
-<li>
-<strong>VanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by van transit vehicles in urbanized area in grams</li>
-<li>
-<strong>BusCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by bus transit vehicles per mile of travel in urbanized area in grams per mile</li>
-<li>
-<strong>RailCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by rail transit vehicles per mile of travel in urbanized area in grams per mile</li>
-<li>
-<strong>VanCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by van transit vehicles per mile of travel in urbanized area in grams per mile</li>
 </ul>
 </div>
 </div>
@@ -8060,18 +7593,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <li>
 <strong>ComSvcRuralKWH</strong>: Average daily amount of electricity consumed by commercial service vehicles associated with rural household activity in kilowatt-hours</li>
 <li>
-<strong>ComSvcUrbanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with urban household activity in grams</li>
-<li>
-<strong>ComSvcRuralCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with rural household activity in grams</li>
-<li>
-<strong>HvyTrkUrbanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Marea in grams</li>
-<li>
-<strong>ComSvcAveUrbanAutoCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by commercial service automobiles per mile of travel on urbanized area roadways in grams per mile</li>
-<li>
-<strong>ComSvcAveUrbanLtTrkCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by commercial service light trucks per mile of travel on urbanized area roadways in grams per mile</li>
-<li>
-<strong>HvyTrkAveUrbanCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by heavy trucks per mile of travel on urbanized area roadways in grams per mile</li>
-<li>
 <strong>HvyTrkRuralGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on rural roadways in the Region in gas gallon equivalents</li>
 <li>
 <strong>HvyTrkUrbanGGE</strong>: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Region in gas gallon equivalents</li>
@@ -8079,10 +7600,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <strong>HvyTrkRuralKWH</strong>: Average daily amount of electricity consumed by heavy trucks on rural roadways in the Region in kilowatt-hours</li>
 <li>
 <strong>HvyTrkUrbanKWH</strong>: Average daily amount of electricity consumed by heavy trucks on urbanized area roadways in the Region in kilowatt-hours</li>
-<li>
-<strong>HvyTrkRuralCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on rural roadways in the Region in grams</li>
-<li>
-<strong>HvyTrkUrbanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Region in grams</li>
 <li>
 <strong>BusGGE</strong>: Average daily amount of hydrocarbon fuels consumed by bus transit vehicles in urbanized area in gas gallon equivalents</li>
 <li>
@@ -8095,18 +7612,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <strong>RailKWH</strong>: Average daily amount of electricity consumed by rail transit vehicles in urbanized area in kilowatt-hours</li>
 <li>
 <strong>VanKWH</strong>:Average daily amount of electricity consumed by van transit vehicles in urbanized area in kilowatt-hours</li>
-<li>
-<strong>BusCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by bus transit vehicles in urbanized area in grams</li>
-<li>
-<strong>RailCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by rail transit vehicles in urbanized area in grams</li>
-<li>
-<strong>VanCO2e</strong>: Average daily amount of carbon-dioxide equivalents produced by van transit vehicles in urbanized area in grams</li>
-<li>
-<strong>BusCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by bus transit vehicles per mile of travel in urbanized area in grams per mile</li>
-<li>
-<strong>RailCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by rail transit vehicles per mile of travel in urbanized area in grams per mile</li>
-<li>
-<strong>VanCO2eRate</strong>: Average amount of carbon-dioxide equivalents produced by van transit vehicles per mile of travel in urbanized area in grams per mile</li>
 <li>
 <strong>AveVehCostPM</strong>: Average out-of-pocket cost in dollars per mile of vehicle travel</li>
 <li>
@@ -8125,8 +7630,6 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <p>For simplicity, eight key metrics are calculated from multiple scenario runs and are shown on the Scenario Viewer output page:</p>
 <ul>
 <li>
-<strong>GHG Target Reduction</strong>: percentage reduction in light-duty vehicle CHG emissions</li>
-<li>
 <strong>DVMT Per Capita</strong>: daily vehicle miles of travel of residents divided by population</li>
 <li>
 <strong>Walk Trips Per Capita</strong>: annual residents walk trips ( not including recreation or walk to transit)</li>
@@ -8140,6 +7643,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <strong>Household Vehicle Cost as Percentage of Income</strong>: average percentage of income spent by all households by owning and operating light-duty vehicles</li>
 <li>
 <strong>Low Income Household Vehicle Cost as Percentage of Income</strong>: average percentage of income spent by low-income households on owning and operating light-duty vehicles</li>
+<li>** [Placeholder for future development]</li>
 </ul>
 </div>
 </div>
@@ -8153,7 +7657,7 @@ maximum values of the calculated budget proportion maximums are used as constrai
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-03-05.</p>
+    <p>"<strong>VisionEval User Guide</strong>" was written by VisionEval Pooled Fund Team. It was last built on 2025-03-07.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
@@ -8235,19 +7739,18 @@ for (let popover of popovers) {
 <li><a class="nav-link" href="#verspm-calculatevehicletrips"><span class="header-section-number">10.2.24</span> CalculateVehicleTrips</a></li>
 <li><a class="nav-link" href="#verspm-divertsovtravel"><span class="header-section-number">10.2.25</span> DivertSovTravel</a></li>
 <li><a class="nav-link" href="#verspm-initialize-vepowertrainsandfuels"><span class="header-section-number">10.2.26</span> Initialize-vepowertrainsandfuels</a></li>
-<li><a class="nav-link" href="#verspm-calculatecarbonintensity"><span class="header-section-number">10.2.27</span> CalculateCarbonIntensity</a></li>
-<li><a class="nav-link" href="#verspm-assignhhvehiclepowertrain"><span class="header-section-number">10.2.28</span> AssignHhVehiclePowertrain</a></li>
-<li><a class="nav-link" href="#verspm-initialize-vetravelperformance"><span class="header-section-number">10.2.29</span> Initialize-vetravelperformance</a></li>
-<li><a class="nav-link" href="#verspm-calculatebaseroaddvmt"><span class="header-section-number">10.2.30</span> CalculateBaseRoadDvmt</a></li>
-<li><a class="nav-link" href="#verspm-calculatefutureroaddvmt"><span class="header-section-number">10.2.31</span> CalculateFutureRoadDvmt</a></li>
-<li><a class="nav-link" href="#verspm-calculateroadperformance"><span class="header-section-number">10.2.32</span> CalculateRoadPerformance</a></li>
-<li><a class="nav-link" href="#verspm-calculatempgmpkwhadjustments"><span class="header-section-number">10.2.33</span> CalculateMpgMpkwhAdjustments</a></li>
-<li><a class="nav-link" href="#verspm-adjusthhvehiclempgmpkwh"><span class="header-section-number">10.2.34</span> AdjustHhVehicleMpgMpkwh</a></li>
-<li><a class="nav-link" href="#verspm-calculatevehicleoperatingcost"><span class="header-section-number">10.2.35</span> CalculateVehicleOperatingCost</a></li>
+<li><a class="nav-link" href="#verspm-assignhhvehiclepowertrain"><span class="header-section-number">10.2.27</span> AssignHhVehiclePowertrain</a></li>
+<li><a class="nav-link" href="#verspm-initialize-vetravelperformance"><span class="header-section-number">10.2.28</span> Initialize-vetravelperformance</a></li>
+<li><a class="nav-link" href="#verspm-calculatebaseroaddvmt"><span class="header-section-number">10.2.29</span> CalculateBaseRoadDvmt</a></li>
+<li><a class="nav-link" href="#verspm-calculatefutureroaddvmt"><span class="header-section-number">10.2.30</span> CalculateFutureRoadDvmt</a></li>
+<li><a class="nav-link" href="#verspm-calculateroadperformance"><span class="header-section-number">10.2.31</span> CalculateRoadPerformance</a></li>
+<li><a class="nav-link" href="#verspm-calculatempgmpkwhadjustments"><span class="header-section-number">10.2.32</span> CalculateMpgMpkwhAdjustments</a></li>
+<li><a class="nav-link" href="#verspm-adjusthhvehiclempgmpkwh"><span class="header-section-number">10.2.33</span> AdjustHhVehicleMpgMpkwh</a></li>
+<li><a class="nav-link" href="#verspm-calculatevehicleoperatingcost"><span class="header-section-number">10.2.34</span> CalculateVehicleOperatingCost</a></li>
 <li><a class="nav-link" href="#external-costs-region_prop_externalities_paid.csv">External Costs (region_prop_externalities_paid.csv)</a></li>
-<li><a class="nav-link" href="#verspm-budgethouseholddvmt"><span class="header-section-number">10.2.36</span> BudgetHouseholdDvmt</a></li>
-<li><a class="nav-link" href="#verspm-calculatecomenergyandemissions"><span class="header-section-number">10.2.37</span> CalculateComEnergyAndEmissions</a></li>
-<li><a class="nav-link" href="#verspm-calculateptranenergyandemissions"><span class="header-section-number">10.2.38</span> CalculatePtranEnergyAndEmissions</a></li>
+<li><a class="nav-link" href="#verspm-budgethouseholddvmt"><span class="header-section-number">10.2.35</span> BudgetHouseholdDvmt</a></li>
+<li><a class="nav-link" href="#verspm-calculatecomenergyandemissions"><span class="header-section-number">10.2.36</span> CalculateComEnergyAndEmissions</a></li>
+<li><a class="nav-link" href="#verspm-calculateptranenergyandemissions"><span class="header-section-number">10.2.37</span> CalculatePtranEnergyAndEmissions</a></li>
 </ul>
 </li>
 <li><a class="nav-link" href="#model-outputs"><span class="header-section-number">10.3</span> Model Outputs</a></li>

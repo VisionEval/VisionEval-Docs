@@ -67,7 +67,7 @@ Note: For a deeper dive into how to customize packages and the various data that
 
 * **VETravelPerformance & CalculateVehicleOperatingCost**: Vehicle maintenance, repair, and tire costs as a function of the vehicle age are calculated based on data from the American Automobile Association (AAA) and the Bureau of Labor Statistics (BLS). AAA publishes reports yearly on the cost of vehicle use by vehicle type over the first 5 years of the vehicle's life. The 2017 report, a copy of which is included as the '17-0013_Your-Driving-Costs-Brochure-2017-FNL-CX-1.pdf' file in the `inst/extdata/sources` directory of this package, is used to calculate baseline MRT cost by vehicle type. Data from a BLS report, "Beyond the Numbers, Prices and Spending, Americans' Aging Autos, BLS, May 2014, Vol.3/No.9", are used to establish the relationship between MRT cost and vehicle age. A copy of the report is included as the 'americans-aging-autos.pdf' file in the `inst/extdata/sources` directory of this package. This report includes estimates of average MRT cost by vehicle age category for all household vehicles. The MRT costs by vehicle type and age are calculated as the outer product of the AAA costs by vehicle type and the BLS ratio of MRT cost by vehicle age. Since the BLS data don't distinguish between vehicle types, it is assumed that the effect of age on MRT expenses is the same for all vehicle types.
 
-* **VETravelPerformance & CalculateVehicleOperatingCost**: Default carbon cost values are from "Technical Support Document: Technical Update of the Social Cost of Carbon for Regulatory Impact Analysis Under Executive Order 12866, Interagency Working Group on Social Cost of Greenhouse Gases, United States Government, August 2016". A copy of the report is included as the 'sc_co2_tsd_august_2016.pdf' file in the `inst/extdata` directory of this package. Carbon costs are estimated by year and assumed discount rate scenarios: 5%, 3%, 2.5%. In addition, they are calculated for a lower probability but higher impact scenario. The default carbon costs used in the model are the values listed for the 3% discount rate. Non-carbon social costs for other social costs are derived from an  white paper prepared for ODOT to support the development of ODOT's statewide transportation strategy for reducing greenhouse gas emissions from the transportation sector. This paper is included as the 'STS_White_Paper_on_External_Costs_9-21-2011.pdf' file in the `inst/extdata` directory of this package. The included social cost categories are air pollution, other resource pollution, energy security, safety, and noise.
+* **VETravelPerformance & CalculateVehicleOperatingCost**: [Placeholder for future development]
 
 # Developing Scenarios
 
@@ -160,7 +160,7 @@ The subfolder names and scenario inputs are defined as follows (input file to mo
   - E - Driving Efficiency (`marea_operations_deployment.csv`) and (`marea_speed_smooth_ecodrive.csv`) and (`other_ops_effectiveness.csv`) : Driving efficiency by increasing implementation of ITS
     - 1 - Base
     - 2 - Increased the proportion by 10%	
-  - F - Technology Mix and CI (`marea_transit_powertrain_prop.csv`) and (`region_carsvc_powertrain_prop.csv`) and (region_comsvc_powertrain_prop.csv`) : Vehicle technology mix and carbon intensity of fuels.
+  - F - Technology Mix and CI (`marea_transit_powertrain_prop.csv`) and (`region_carsvc_powertrain_prop.csv`) and (region_comsvc_powertrain_prop.csv`) : Vehicle technology mix
     - 1 - Baseline vehicle technology mix
     - 2 - Increased percentage of electric vehicles in household and commercial setting by 20%	
   - G - Fuel Price (`azone_fuel_power_cost.csv`) : Real fuel price in 2010 USD
@@ -181,7 +181,7 @@ The subfolder names and scenario inputs are defined as follows (input file to mo
     - 1 - Current public transit service level
     - 2 - Double public transit service level
     - 3 - Quadruple public transit service level
-  - V - Vehicle Characteristics (`azone_hh_veh_mean_age.csv`) and (`azone_lttrk_prop`): The combination of fuel prices and vehicle travel charges to pay for roadways and to pay for externalities such as carbon pricing
+  - V - Vehicle Characteristics (`azone_hh_veh_mean_age.csv`) and (`azone_lttrk_prop`): The combination of fuel prices and vehicle travel charges to pay for roadways
     - 1 - Base
     - 2 - Light truck proportion at 35% of the fleet and the average vehicle age at 8 years
 
@@ -190,7 +190,7 @@ VE-RSPM Scenarios are grouped in 5 different categories which you can modify in 
 
 * **Community Design** :  Policies that seek to enable shorter trips and alternate modes such as promotion of mixed use land use, transit service, bicycling, and parking management. ( group of L, B, P , T ) 
 * **Marketing/Incentive** : Policies that improve driving efficiency such as ecodriving,and Intelligent Transportation System efforts, as well as programs that reduce auto demand such as carsharing, and home or work-based transportation demand management.( group of D, E ) 
-* **Pricing : Policies** that move towards true cost pricing such as road user fees to pay for the cost of operating, maintaining and improving roads, pay-as-you-drive (PAYD) insurance, and environmental impact fees such as a carbon tax. ( C )
+* **Pricing : Policies** that move towards true cost pricing such as road user fees to pay for the cost of operating, maintaining and improving roads, and pay-as-you-drive (PAYD) insurance. ( C )
 * **Vehicles/Fuels** : Factors representing changes to future vehicles and fuels ( group of V, F ) 
 * **Income** : Context factor on the assumed growth of statewide average per capita income ( I )
 
