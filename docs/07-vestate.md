@@ -1564,21 +1564,20 @@ This module calculates the energy consumption of heavy trucks and light-duty com
 <div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
-
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdvEcoDrive**  | Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1               |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**HvyTrkEcoDrive**  | Eco-driving penetration for heavy-duty vehicles; the fraction of vehicles from 0 to 1               |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdvSpdSmoothFactor**  | Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing            |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdvEcoDriveFactor**    |Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to eco-driving             |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**HvyTrkSpdSmoothFactor**  | Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to speed smoothing             |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdIceFactor**  | Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to congestion               |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdHevFactor**  | Proportional adjustment of light-duty hybrid-electric vehicle (HEV) MPG due to congestion                 |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments ](#vestate-calculatempgmpkwhadjustments ) |**HvyTrkEcoDriveFactor**      |  Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to eco-driving                     |
-| VETravelPerformance          | [CalculateMpgMpkwhAdjustments ](#vestate-calculatempgmpkwhadjustments ) |**LdEvFactor**      |  Proportional adjustment of light-duty battery electric vehicle (EV) MPkWh due to congestion                      |
-| VETravelPerformance              | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments) |**HdIceFactor**      | Proportional adjustment of heavy-duty internal combustion engine (ICE) vehicle MPG due to congestion                              |
-| VETravelPerformance    | [CalculateBaseRoadDvmt ](#vestate-calculatebaseroaddvmt) |**HvyTrkUrbanDvmt**      |  Base year Region heavy truck daily vehicle miles of travel in urbanized areas                             |
-| VETravelPerformance    | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)       |**HvyTrkRuralDvmt**    | Base year Region heavy truck daily vehicle miles of travel in rural (i.e. non-urbanized) areas          |
-| VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     |**ComSvcUrbanDvmt** | Commercial service daily vehicle miles of travel associated with Marea urbanized household activity    |
-| VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     |**ComSvcRuralDvmt**  | Commercial service daily vehicle miles of travel associated with Marea rural household activity             |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **LdvEcoDrive**  | Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1               |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **HvyTrkEcoDrive**  | Eco-driving penetration for heavy-duty vehicles; the fraction of vehicles from 0 to 1               |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **LdvSpdSmoothFactor**  | Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing            |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **LdvEcoDriveFactor**    |Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to eco-driving             |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **HvyTrkSpdSmoothFactor**  | Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to speed smoothing             |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **LdIceFactor**  | Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to congestion               |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     | **LdHevFactor**  | Proportional adjustment of light-duty hybrid-electric vehicle (HEV) MPG due to congestion                 |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments ](#vestate-calculatempgmpkwhadjustments ) | **HvyTrkEcoDriveFactor**      |  Proportional adjustment of heavy truck internal combustion engine (ICE) vehicle MPG due to eco-driving                     |
+| VETravelPerformance          | [CalculateMpgMpkwhAdjustments ](#vestate-calculatempgmpkwhadjustments ) | **LdEvFactor**      |  Proportional adjustment of light-duty battery electric vehicle (EV) MPkWh due to congestion                      |
+| VETravelPerformance              | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments) | **HdIceFactor**      | Proportional adjustment of heavy-duty internal combustion engine (ICE) vehicle MPG due to congestion                              |
+| VETravelPerformance    | [CalculateBaseRoadDvmt ](#vestate-calculatebaseroaddvmt) | **HvyTrkUrbanDvmt**      |  Base year Region heavy truck daily vehicle miles of travel in urbanized areas                             |
+| VETravelPerformance    | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)       | **HvyTrkRuralDvmt**    | Base year Region heavy truck daily vehicle miles of travel in rural (i.e. non-urbanized) areas          |
+| VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     | **ComSvcUrbanDvmt** | Commercial service daily vehicle miles of travel associated with Marea urbanized household activity    |
+| VETravelPerformance          | [CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)     | **ComSvcRuralDvmt**  | Commercial service daily vehicle miles of travel associated with Marea rural household activity             |
 </div>
 
 #### Module Outputs
