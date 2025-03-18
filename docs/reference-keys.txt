@@ -439,7 +439,6 @@ vestate-initialize-vepowertrainsandfuels
 user-input-files-62
 internal-module-inputs-60
 module-outputs-62
-vestate-calculatecarbonintensity
 user-input-files-63
 internal-module-inputs-61
 module-outputs-63

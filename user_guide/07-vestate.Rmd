@@ -95,7 +95,6 @@ The VE-State model is a compilation of several modules, listed below:
 |[CalculateVehicleTrips](#vestate-calculatevehicletrips)                       |VEHouseholdTravel    | 
 |[DivertSovTravel](#vestate-divertsovtravel)                                   |VEHouseholdTravel    | 
 |[Initialize](#vestate-initialize-vepowertrainsandfuels)                       |VEPowertrainsAndFuels| 
-|[CalculateCarbonIntensity](#vestate-calculatecarbonintensity)                 |VEPowertrainsAndFuels| 
 |[AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)               |VEPowertrainsAndFuels| 
 |[Initialize](#vestate-initialize-vetravelperformance)                         |VETravelPerformance  | 
 |[CalculateBaseRoadDvmt](#vestate-calculatebaseroaddvmt)                       |VETravelPerformance  | 
@@ -979,27 +978,23 @@ For more information see [here](https://github.com/visioneval/VisionEval/blob/ma
 
 ### Initialize-vepowertrainsandfuels {#vestate-initialize-vepowertrainsandfuels}
 
-This module processes vehicle and fuel characteristics files that model users may optionally supply. When these files are supplied, modules in the package that compute carbon intensities of vehicle travel will use the user-supplied data instead of the datasets that are part of the package (see the `LoadDefaultValues.R` script).
+This module processes vehicle and fuel characteristics files that model users may optionally supply. When these files are supplied, modules in the package will use the user-supplied data instead of the datasets that are part of the package (see the `LoadDefaultValues.R` script).
 
 #### User Input Files
-
-1. Carbon intensity of electricity ([azone_electricity_carbon_intensity.csv](#vestate-azone_electricity_carbon_intensity.csv))
-
-2. Average fuel carbon intensity of transit ([marea_transit_ave_fuel_carbon_intensity.csv](#vestate-marea_transit_ave_fuel_carbon_intensity.csv))
 	
-3. Biofuels proportions of transit fuels ([marea_transit_biofuel_mix.csv](#vestate-marea_transit_biofuel_mix.csv))
+1. Biofuels proportions of transit fuels ([marea_transit_biofuel_mix.csv](#vestate-marea_transit_biofuel_mix.csv))
 	
-4. Transit fuels proportions by transit vehicle type ([marea_transit_fuel.csv](#vestate-marea_transit_fuel.csv))
+2. Transit fuels proportions by transit vehicle type ([marea_transit_fuel.csv](#vestate-marea_transit_fuel.csv))
 
-5. Transit powertrain proportions by transit vehicle type ([marea_transit_powertrain_prop.csv](#vestate-marea_transit_powertrain_prop.csv))
+3. Transit powertrain proportions by transit vehicle type ([marea_transit_powertrain_prop.csv](#vestate-marea_transit_powertrain_prop.csv))
 
-6. Average carbon intensities of fuels by vehicle category for the model region ([region_ave_fuel_carbon_intensity.csv](#vestate-region_ave_fuel_carbon_intensity.csv))
+4. Car service vehicle powertrain proportions by vehicle type for the model region ([region_carsvc_powertrain_prop.csv](#vestate-region_carsvc_powertrain_prop.csv]))
 
-7. Car service vehicle powertrain proportions by vehicle type for the model region ([region_carsvc_powertrain_prop.csv](#vestate-region_carsvc_powertrain_prop.csv]))
+5. Commercial service vehicle powertrain proportions by vehicle type ([region_comsvc_powertrain_prop.csv](#vestate-region_comsvc_powertrain_prop.csv))
 
-8. Commercial service vehicle powertrain proportions by vehicle type ([region_comsvc_powertrain_prop.csv](#vestate-region_comsvc_powertrain_prop.csv))
+6. Heavy duty truck powertrain proportions ([region_hvytrk_powertrain_prop.csv](#vestate-region_hvytrk_powertrain_prop.csv))
 
-9. Heavy duty truck powertrain proportions ([region_hvytrk_powertrain_prop.csv](#vestate-region_hvytrk_powertrain_prop.csv))
+7. [Placeholder for future development]
 	
 #### Internal Module Inputs
 
@@ -1011,46 +1006,21 @@ This module produces no datasets to store in the datastore.
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/Initialize.md)
 
-### CalculateCarbonIntensity {#vestate-calculatecarbonintensity}
-
-This module calculates the average carbon intensity of fuels (grams CO2e per megajoule) by transportation mode and vehicle type. The transportation modes and vehicle types are:
-
-|Mode               |Vehicle Types           |
-|-------------------|------------------------|
-|Household          |automobile, light truck |
-|Car Service        |automobile, light truck |
-|Commercial Service |automobile, light truck |
-|Heavy Truck        |heavy truck             |
-|Public Transit     |van, bus, rail          |
-
-Average fuel carbon intensities for public transit vehicles are calculated by `Marea`. The average fuel carbon intensities for the other mode vehicles are calculated for the entire model region. The module also calculates the average carbon intensity of electricity at the `Azone` level. Note that this module uses the user input files only if the user runs [Initialize](#vestate-initialize) module. Otherwise the module uses default inputs in the [inst\extdata folder](https://github.com/visioneval/VisionEval/tree/master/sources/modules/VEPowertrainsAndFuels/inst/extdata). 
-
 #### User Input Files
 
-1. Carbon intensity of electricity ([azone_electricity_carbon_intensity.csv](#vestate-azone_electricity_carbon_intensity.csv))
+1. Biofuels proportions of transit fuels ([marea_transit_biofuel_mix.csv](#vestate-marea_transit_biofuel_mix.csv))
 
-2. Biofuels proportions of transit fuels ([marea_transit_biofuel_mix.csv](#vestate-marea_transit_biofuel_mix.csv))
+2. Transit fuels proportions by transit vehicle type ([marea_transit_fuel.csv](#vestate-marea_transit_fuel.csv))
 
-3. Transit fuels proportions by transit vehicle type ([marea_transit_fuel.csv](#vestate-marea_transit_fuel.csv))
-
-4. Average carbon intensities of fuels by vehicle category for the model region ([region_ave_fuel_carbon_intensity.csv](#vestate-region_ave_fuel_carbon_intensity.csv))
+3. [Placeholder for future development]
 
 #### Internal Module Inputs
 
 This module does not have any internal module inputs
 
 #### Module Outputs
-* **ElectricityCI**: Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)
-* **HhAutoFuelCI**: Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule)
-* **HhLtTrkFuelCI**: Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)
-* **CarSvcAutoFuelCI**: Average carbon intensity of fuels used by car service automobiles (grams CO2e per megajoule)
-* **CarSvcLtTrkFuelCI**: Average carbon intensity of fuels used by car service light trucks (grams CO2e per megajoule)
-* **ComSvcAutoFuelCI**: Average carbon intensity of fuels used by commercial service automobiles (grams CO2e per megajoule)
-* **ComSvcLtTrkFuelCI**: Average carbon intensity of fuels used by commercial service light trucks (grams CO2e per megajoule)
-* **HvyTrkFuelCI**: Average carbon intensity of fuels used by heavy trucks (grams CO2e per megajoule)
-* **TransitVanFuelCI**: Average carbon intensity of fuel used by transit vans (grams CO2e per megajoule)
-* **TransitBusFuelCI**: Average carbon intensity of fuel used by transit buses (grams CO2e per megajoule)
-* **TransitRailFuelCI**: Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)
+[Placeholder for future development]
+
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/CalculateCarbonIntensity.md)
 
@@ -1063,8 +1033,8 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
 * Miles per kilowatt-hour (MPKWH) and kilowatt-hours per mile (KWHPM)
 * Miles per gasoline gallon equivalent (MPGe)
 * The proportion of DVMT powered by electricity
-* Carbon dioxide equivalent emissions per mile powered by hydrocarbon fuel
-* Carbon dioxide equivalent emissions per mile powered by electricity
+* [Placeholder for future development]
+
 
 #### User Input Files
 
@@ -1077,12 +1047,7 @@ This module assigns a powertrain type to each household vehicle. The powertrain 
 <div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**HhAutoFuelCI**  | Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule))     |
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**HhLtTrkFuelCI** | Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)    |
-| VEPowertrainsAndFuels          | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity)     |**CarSvcAutoFuelCI** | Average carbon intensity of fuels used by car service automobiles (grams CO2e per megajoule)    |
-| VEPowertrainsAndFuels          | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity)     |**CarSvcLtTrkFuelCI** | Average carbon intensity of fuels used by car service light trucks (grams CO2e per megajoule)   |
-ESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
+|ESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**      | Household id                              |
 | VELandUse    | [AssignLocTypes](#assignloctypes) |**LocType**    | Location type (Urban, Town, Rural) of the place where the household resides        |
 | VEHouseholdVehicles    | [AssignVehicleOwnership](#vestate-assignvehicleownership)     |**Vehicles**   | Number of automobiles and light trucks owned or leased by the household including high level car service vehicles available to driving-age persons           |
 | VEHouseholdVehicles    | [AssignVehicleType](#vestate-assignvehicletype) |**NumAuto**      | Number of automobiles (i.e. 4-tire passenger vehicles that are not light trucks) owned or leased by household                              |
@@ -1104,8 +1069,7 @@ ESimHouseholds    | [CreateHouseholds](#vestate-createhouseholds) |**HhId**     
 * **KWHPM**: Average kilowatt-hours per mile of vehicle travel powered by electricity
 * **MPGe**: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)
 * **ElecDvmtProp**: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)
-* **FuelCO2ePM**: Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel
-* **ElecCO2ePM**: Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity
+* ** [Placeholder for future development]
 
 For more information see [here](https://github.com/visioneval/VisionEval/blob/master/sources/modules/VEPowertrainsAndFuels/inst/module_docs/AssignHhVehiclePowertrain.md)
 
@@ -1433,8 +1397,7 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**KWHPM**  | Average kilowatt-hours per mile of vehicle travel powered by electricity                 |
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**MPGe**  | Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)               |
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**ElecDvmtProp**  | Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)                |
-| VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**FuelCO2ePM**  | Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel          |
-| VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**ElecCO2ePM**  |  Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity |
+
 </div>
 
 #### Module Outputs
@@ -1444,7 +1407,6 @@ This module adjusts the fuel economy and power efficiency of household vehicles 
 * **KWHPM**: Average kilowatt-hours per mile of vehicle travel powered by electricity
 * **MPGe**: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)
 * **ElecDvmtProp**: Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)
-* **FuelCO2ePM**: Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel
 * **IsEcoDrive**: Flag identifying whether drivers in household are eco-drivers
 
 
@@ -1496,8 +1458,6 @@ This module calculates vehicle operating costs per mile of travel and uses those
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**GPM**  |Average gasoline equivalent gallons per mile of vehicle travel powered by fuel                 |
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**KWHPM**  | Average kilowatt-hours per mile of vehicle travel powered by electricity                 |
 | VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**ElecDvmtProp**  | Average miles of vehicle travel per gasoline equivalent gallon (fuel and electric powered)                |
-| VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**FuelCO2ePM**  | Average grams of carbon-dioxide equivalents produced per mile of travel powered by fuel          |
-| VEPowertrainsAndFuels          | [AssignHhVehiclePowertrain](#vestate-assignhhvehiclepowertrain)     |**ElecCO2ePM**  |  Average grams of carbon-dioxide equivalents produced per mile of travel powered by electricity |
 | VEHouseholdVehicles    | [CalculateVehicleOwnCost ](#vestate-calculatevehicleowncost ) |**InsCost**      |  Annual vehicle insurance cost in dollars                       |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**ParkingCost**    |Daily cost for long-term parking (e.g. paid on monthly basis)               |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**IsCashOut**  | Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no              |
@@ -1511,7 +1471,7 @@ This module calculates vehicle operating costs per mile of travel and uses those
 * **DvmtProp**: Proportion of household DVMT allocated to vehicle
 * **AveGPM**: Average gasoline equivalent gallons per mile of household vehicle travel
 * **AveKWHPM**: Average kilowatt-hours per mile of household vehicle travel
-* **AveCO2ePM**: Average grams of carbon-dioxide equivalents produced per mile of household vehicle travel
+
 
 ### BudgetHouseholdDvmt {#vestate-budgethouseholddvmt}      
 
@@ -1540,8 +1500,7 @@ This module does not have user-supplied input files
 | VEHouseholdVehicles          | [AdjustVehicleOwnership](#vestate-adjustvehicleownership)     |**OwnCostSavings**  |  Annual vehicle ownership cost (depreciation, finance, insurance, taxes) savings in dollars resulting from substituting the use of car services for a household vehicle             |
 | VEHouseholdVehicles          | [CalculateVehicleOwnCost](#vestate-calculatevehicleowncost)     |**HasPaydIns**  | Identifies whether household has pay-as-you-drive insurance for vehicles: 1 = Yes, 0 = no               |
 | VETravelPerformance          | [CalculateVehicleOperatingCost ](#vestate-calculatevehicleoperatingcost ) |**AveGPM**      | Average gasoline equivalent gallons per mile of household vehicle travel                      |
-| VETravelPerformance          | [CalculateVehicleOperatingCost ](#vestate-calculatevehicleoperatingcost ) |**AveKWHPM**      |  Average kilowatt-hours per mile of household vehicle travel                     |
-| VETravelPerformance              | [CalculateVehicleOperatingCost](#vestate-calculatevehicleoperatingcost) |**AveCO2ePM**      |  Average grams of carbon-dioxide equivalents produced per mile of household vehicle travel                            |
+| VETravelPerformance          | [CalculateVehicleOperatingCost ](#vestate-calculatevehicleoperatingcost ) |**AveKWHPM**      |  Average kilowatt-hours per mile of household vehicle travel                     |                            |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**ParkingCost**    |Daily cost for long-term parking (e.g. paid on monthly basis)               |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**IsCashOut**  | Is worker paid parking in cash-out-buy-back program: 1 = yes, 0 = no              |
 | VELandUse          | [AssignParkingRestrictions](#vestate-assignparkingrestrictions)     |**PaysForParking**  | Does worker pay for parking: 1 = yes, 0 = no             |
@@ -1554,7 +1513,6 @@ This module does not have user-supplied input files
 * **RuralHhDvmt**: Average daily vehicle miles traveled in autos or light trucks by households residing in the non-urbanized portion of the Marea
 * **DailyGGE**: Gasoline equivalent gallons consumed per day by household vehicle travel
 * **DailyKWH**: Kilowatt-hours consumed per day by household vehicle travel
-* **DailyCO2e**: Grams of carbon-dioxide equivalents produced per day by household vehicle travel
 * **WalkTrips**: Average number of walk trips per year by household members
 * **BikeTrips**: Average number of bicycle trips per year by household members
 * **TransitTrips**: Average number of public transit trips per year by household members
@@ -1587,9 +1545,9 @@ This module calculates an extra mileage tax ($ per vehicle mile traveled) for ho
 
 * **ExtraVmtTax**: Added vehicle mile tax for household vehicle use to pay for any deficit between road costs and road revenues (dollars per vehicle mile)
 
-### CalculateComEnergyAndEmissions {#vestate-calculatecomenergyandemissions}    
+### CalculateComEnergy {#vestate-calculatecomenergyandemissions}    
 
-This module calculates the energy consumption and carbon emissions of heavy trucks and light-duty commercial service vehicles. It does not calculate the values for car service vehicles which are calculated as part of the household emissions. It also does not calculate public transit emissions which are calculated in the CalculateTransitEnergyAndEmissions module.
+This module calculates the energy consumption of heavy trucks and light-duty commercial service vehicles.
 
 #### User Input Files
 
@@ -1606,10 +1564,7 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 <div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**HhAutoFuelCI**  | Average carbon intensity of fuels used by household automobiles (grams CO2e per megajoule))     |
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**HhLtTrkFuelCI** | Average carbon intensity of fuels used by household light trucks (grams CO2e per megajoule)    |
-| VEPowertrainsAndFuels          | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity)     |**HvyTrkFuelCI** | Average carbon intensity of fuels used by heavy trucks (grams CO2e per megajoule)    |
+
 | VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdvEcoDrive**  | Eco-driving penetration for light-duty vehicles; the fraction of vehicles from 0 to 1               |
 | VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**HvyTrkEcoDrive**  | Eco-driving penetration for heavy-duty vehicles; the fraction of vehicles from 0 to 1               |
 | VETravelPerformance          | [CalculateMpgMpkwhAdjustments](#vestate-calculatempgmpkwhadjustments)     |**LdvSpdSmoothFactor**  | Proportional adjustment of light-duty internal combustion engine (ICE) vehicle MPG due to speed smoothing            |
@@ -1632,23 +1587,14 @@ This module calculates the energy consumption and carbon emissions of heavy truc
 * **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Marea in gas gallon equivalents
 * **ComSvcUrbanKWH**: Average daily amount of electricity consumed by commercial service vehicles associated with urban household activity in kilowatt-hours
 * **ComSvcRuralKWH**: Average daily amount of electricity consumed by commercial service vehicles associated with rural household activity in kilowatt-hours
-* **ComSvcUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with urban household activity in grams
-* **ComSvcRuralCO2e**: Average daily amount of carbon-dioxide equivalents produced by commercial service vehicles associated with rural household activity in grams
-* **HvyTrkUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Marea in grams
-* **ComSvcAveUrbanAutoCO2eRate**: Average amount of carbon-dioxide equivalents produced by commercial service automobiles per mile of travel on urbanized area roadways in grams per mile
-* **ComSvcAveUrbanLtTrkCO2eRate**: Average amount of carbon-dioxide equivalents produced by commercial service light trucks per mile of travel on urbanized area roadways in grams per mile
-* **HvyTrkAveUrbanCO2eRate**: Average amount of carbon-dioxide equivalents produced by heavy trucks per mile of travel on urbanized area roadways in grams per mile
-
 * **HvyTrkRuralGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on rural roadways in the Region in gas gallon equivalents
 * **HvyTrkUrbanGGE**: Average daily amount of hydrocarbon fuels consumed by heavy trucks on urbanized area roadways in the Region in gas gallon equivalents
 * **HvyTrkRuralKWH**: Average daily amount of electricity consumed by heavy trucks on rural roadways in the Region in kilowatt-hours
 * **HvyTrkUrbanKWH**: Average daily amount of electricity consumed by heavy trucks on urbanized area roadways in the Region in kilowatt-hours
-* **HvyTrkRuralCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on rural roadways in the Region in grams
-* **HvyTrkUrbanCO2e**: Average daily amount of carbon-dioxide equivalents produced by heavy trucks on urbanized area roadways in the Region in grams
 
 ### CalculatePtranEnergyAndEmissions {#vestate-calculateptranenergyandemissions}    
 
-This module calculates the energy consumption and carbon emissions of public transit vehicle emissions in urbanized areas.
+This module calculates the energy consumption of public transit vehicles in urbanized areas.
 
 #### User Input Files
 
@@ -1659,10 +1605,6 @@ This module calculates the energy consumption and carbon emissions of public tra
 <div class="table-wrapper" markdown="block">
 |    Package         |      Module                           |   Outputs    | Description                               |
 |--------------------|---------------------------------------|--------------|-------------------------------------------|
-| VEPowertrainsAndFuels    | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity) |**ElectricityCI**      | Carbon intensity of electricity at point of consumption (grams CO2e per megajoule)                             |
-| VEPowertrainsAndFuels          | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity)     |**TransitVanFuelCI** | Average carbon intensity of fuel used by transit vans (grams CO2e per megajoule)    |
-| VEPowertrainsAndFuels          | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity)     |**TransitBusFuelCI** | Average carbon intensity of fuel used by transit buses (grams CO2e per megajoule)    |
-| VEPowertrainsAndFuels          | [CalculateCarbonIntensity](#vestate-calculatecarbonintensity)     |**TransitRailFuelCI** | Average carbon intensity of fuel used by transit rail vehicles (grams CO2e per megajoule)    |
 | VETransportSupply            | [AssignTransitService](#assigntransitservice) |**VanDvmt**      |  Total daily miles traveled by vans of various sizes to provide demand responsive, vanpool, and similar services                            |
 | VETransportSupply            | [AssignTransitService](#assigntransitservice) |**BusDvmt**      | Total daily miles traveled by buses of various sizes to provide bus service of various types                           |
 | VETransportSupply            | [AssignTransitService](#assigntransitservice)     |**RailDvmt** | Total daily miles traveled by light rail, heavy rail, commuter rail, and similar types of vehicles   |
@@ -1675,13 +1617,6 @@ This module calculates the energy consumption and carbon emissions of public tra
 * **BusKWH**: Average daily amount of electricity consumed by bus transit vehicles in urbanized area in kilowatt-hours
 * **RailKWH**: Average daily amount of electricity consumed by rail transit vehicles in urbanized area in kilowatt-hours
 * **VanKWH**:Average daily amount of electricity consumed by van transit vehicles in urbanized area in kilowatt-hours
-* **BusCO2e**: Average daily amount of carbon-dioxide equivalents produced by bus transit vehicles in urbanized area in grams
-* **RailCO2e**: Average daily amount of carbon-dioxide equivalents produced by rail transit vehicles in urbanized area in grams
-* **VanCO2e**: Average daily amount of carbon-dioxide equivalents produced by van transit vehicles in urbanized area in grams
-* **BusCO2eRate**: Average amount of carbon-dioxide equivalents produced by bus transit vehicles per mile of travel in urbanized area in grams per mile
-* **RailCO2eRate**: Average amount of carbon-dioxide equivalents produced by rail transit vehicles per mile of travel in urbanized area in grams per mile
-* **VanCO2eRate**: Average amount of carbon-dioxide equivalents produced by van transit vehicles per mile of travel in urbanized area in grams per mile
-
 
 ##  Development and Installation
 
